@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
+		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
+		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
@@ -370,6 +373,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02C377C222C324700038AC5A /* YGNetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetWorkTools.h; sourceTree = "<group>"; };
+		02C377C322C324700038AC5A /* YGNetworkCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetworkCommon.m; sourceTree = "<group>"; };
+		02C377C522C324700038AC5A /* YGEncryptTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEncryptTool.h; sourceTree = "<group>"; };
+		02C377C622C324700038AC5A /* YGEncryptTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGEncryptTool.m; sourceTree = "<group>"; };
+		02C377C722C324700038AC5A /* YGNetworkCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetworkCommon.h; sourceTree = "<group>"; };
+		02C377C822C324700038AC5A /* YGNetWorkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetWorkTools.m; sourceTree = "<group>"; };
 		04054D9020A2156E009CE4F1 /* THSelectAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectAddressView.h; sourceTree = "<group>"; };
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
@@ -989,6 +998,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02C377C122C324700038AC5A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				02C377C222C324700038AC5A /* YGNetWorkTools.h */,
+				02C377C322C324700038AC5A /* YGNetworkCommon.m */,
+				02C377C422C324700038AC5A /* Encrypt */,
+				02C377C722C324700038AC5A /* YGNetworkCommon.h */,
+				02C377C822C324700038AC5A /* YGNetWorkTools.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		02C377C422C324700038AC5A /* Encrypt */ = {
+			isa = PBXGroup;
+			children = (
+				02C377C522C324700038AC5A /* YGEncryptTool.h */,
+				02C377C622C324700038AC5A /* YGEncryptTool.m */,
+			);
+			path = Encrypt;
+			sourceTree = "<group>";
+		};
 		04178EFE207276EF0048875E /* GoodsDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1340,6 +1370,7 @@
 		512D78AD205906540088A4A0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				02C377C122C324700038AC5A /* Network */,
 				512D78C5205906540088A4A0 /* AppDelegate */,
 				512D78CB205909950088A4A0 /* NewFeature */,
 				512D78AE205906540088A4A0 /* Home */,
@@ -2657,6 +2688,7 @@
 				576EEA972087A5090088B1EB /* SDTimeLineCellModel.m in Sources */,
 				04D0A3162071171C003BE300 /* THMineShareQRCodeVC.m in Sources */,
 				57417E2B20CB009800F5085F /* THMyTeMoneyCtl.m in Sources */,
+				02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */,
 				04178F0C207287E50048875E /* THBaseCell.m in Sources */,
 				04054DAE20ADECB5009CE4F1 /* THTeHuiCenterVC.m in Sources */,
 				512D793E205E10E40088A4A0 /* THNewFeatureCell.m in Sources */,
@@ -2668,6 +2700,7 @@
 				044727D52071013900CB8326 /* SystemTools.m in Sources */,
 				512D78F6205A13FC0088A4A0 /* THHomeHeaderView.m in Sources */,
 				57CBC3CE2088E477007D6069 /* GoodsTypeModel.m in Sources */,
+				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
 				576EEADC2087A5B20088B1EB /* SDBrowserImageView.m in Sources */,
 				8F31CBF4206A314300A48F2D /* THAlertLayer.m in Sources */,
 				8FDAF71F206E41320090FBCC /* NSObject+WZXProperties.m in Sources */,
@@ -2700,6 +2733,7 @@
 				512D78EA205931D10088A4A0 /* THHomeVC.m in Sources */,
 				044AEE3E2098468700824A05 /* THAddressModel.m in Sources */,
 				04178F03207276EF0048875E /* THGoodsDetailBottomView.m in Sources */,
+				02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */,
 				57CBC3DD2088EE0C007D6069 /* THAddressCell.m in Sources */,
 				8FE4A241206E0F230025717A /* UIButton+CHExtension.m in Sources */,
 				044AEE422098A60400824A05 /* THAddressEditListCell.m in Sources */,

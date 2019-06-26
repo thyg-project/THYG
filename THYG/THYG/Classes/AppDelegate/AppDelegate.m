@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "THTabBarController.h"
 #import "THGuideViewTool.h"
-#import "WZXArchiverManager.h"
 #import "THPay.h"
 #import <WXApi.h>
 #import <AlipaySDK/AlipaySDK.h>

@@ -11,7 +11,6 @@
 #import "THForgetPswCtl.h"
 #import "Utils.h"
 #import "ReactiveCocoa.h"
-#import "WZXArchiverManager.h"
 
 
 @interface THLoginVC ()

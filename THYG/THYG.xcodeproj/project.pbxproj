@@ -342,9 +342,6 @@
 		8FD0DC01207C650700AD8B3D /* THShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0DC00207C650700AD8B3D /* THShoppingCartModel.m */; };
 		8FDAF711206E37D00090FBCC /* THUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF710206E37D00090FBCC /* THUserInfoModel.m */; };
 		8FDAF714206E38DF0090FBCC /* THUserBaseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF713206E38DF0090FBCC /* THUserBaseInfo.m */; };
-		8FDAF71D206E41320090FBCC /* NSObject+WZXArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF716206E41320090FBCC /* NSObject+WZXArchiver.m */; };
-		8FDAF71E206E41320090FBCC /* WZXArchiverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF718206E41320090FBCC /* WZXArchiverManager.m */; };
-		8FDAF71F206E41320090FBCC /* NSObject+WZXProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF71A206E41320090FBCC /* NSObject+WZXProperties.m */; };
 		8FDC4E4D2073200C00FEFE40 /* THInvitationManageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */; };
 		8FDC4E4E2073200C00FEFE40 /* THInvitationManageCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4C2073200C00FEFE40 /* THInvitationManageCtl.xib */; };
 		8FDC4E5220732AF100FEFE40 /* THMySupplierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5020732AF100FEFE40 /* THMySupplierCell.m */; };
@@ -915,13 +912,6 @@
 		8FDAF710206E37D00090FBCC /* THUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserInfoModel.m; sourceTree = "<group>"; };
 		8FDAF712206E38DF0090FBCC /* THUserBaseInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserBaseInfo.h; sourceTree = "<group>"; };
 		8FDAF713206E38DF0090FBCC /* THUserBaseInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserBaseInfo.m; sourceTree = "<group>"; };
-		8FDAF716206E41320090FBCC /* NSObject+WZXArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WZXArchiver.m"; sourceTree = "<group>"; };
-		8FDAF717206E41320090FBCC /* NSObject+WZXProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WZXProperties.h"; sourceTree = "<group>"; };
-		8FDAF718206E41320090FBCC /* WZXArchiverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZXArchiverManager.m; sourceTree = "<group>"; };
-		8FDAF719206E41320090FBCC /* WZXArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZXArchiver.h; sourceTree = "<group>"; };
-		8FDAF71A206E41320090FBCC /* NSObject+WZXProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WZXProperties.m"; sourceTree = "<group>"; };
-		8FDAF71B206E41320090FBCC /* NSObject+WZXArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WZXArchiver.h"; sourceTree = "<group>"; };
-		8FDAF71C206E41320090FBCC /* WZXArchiverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZXArchiverManager.h; sourceTree = "<group>"; };
 		8FDC4E4A2073200C00FEFE40 /* THInvitationManageCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInvitationManageCtl.h; sourceTree = "<group>"; };
 		8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THInvitationManageCtl.m; sourceTree = "<group>"; };
 		8FDC4E4C2073200C00FEFE40 /* THInvitationManageCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THInvitationManageCtl.xib; sourceTree = "<group>"; };
@@ -1677,7 +1667,6 @@
 				576EEAD22087A5B20088B1EB /* SDPhotoBrowser */,
 				576EEACE2087A5730088B1EB /* LEETheme */,
 				576EEA982087A5510088B1EB /* MLEmojiLabel */,
-				8FDAF715206E41320090FBCC /* Archiver */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -2258,20 +2247,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8FDAF715206E41320090FBCC /* Archiver */ = {
-			isa = PBXGroup;
-			children = (
-				8FDAF716206E41320090FBCC /* NSObject+WZXArchiver.m */,
-				8FDAF717206E41320090FBCC /* NSObject+WZXProperties.h */,
-				8FDAF718206E41320090FBCC /* WZXArchiverManager.m */,
-				8FDAF719206E41320090FBCC /* WZXArchiver.h */,
-				8FDAF71A206E41320090FBCC /* NSObject+WZXProperties.m */,
-				8FDAF71B206E41320090FBCC /* NSObject+WZXArchiver.h */,
-				8FDAF71C206E41320090FBCC /* WZXArchiverManager.h */,
-			);
-			path = Archiver;
-			sourceTree = "<group>";
-		};
 		8FF84FD82065029600A78368 /* LimitSpellGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -2653,7 +2628,6 @@
 				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
 				576EEADC2087A5B20088B1EB /* SDBrowserImageView.m in Sources */,
 				8F31CBF4206A314300A48F2D /* THAlertLayer.m in Sources */,
-				8FDAF71F206E41320090FBCC /* NSObject+WZXProperties.m in Sources */,
 				8F51689A20747B07005E956E /* THGoodsPageSiftView.m in Sources */,
 				04054DB120AEF5E2009CE4F1 /* THTeHuiCell.m in Sources */,
 				512D7908205B63F70088A4A0 /* THMineSectionCell.m in Sources */,
@@ -2723,14 +2697,12 @@
 				0421E8A0208978FE008D85A0 /* THHomeShowMenuView.m in Sources */,
 				512A26AB20B7BD720091B58B /* THUploadImageTool.m in Sources */,
 				576EEACB2087A5510088B1EB /* MLLabel.m in Sources */,
-				8FDAF71D206E41320090FBCC /* NSObject+WZXArchiver.m in Sources */,
 				51EF4DE720DDF66A00B7F9AA /* THShareTool.m in Sources */,
 				512D78FC205A566E0088A4A0 /* THHomeMallActivityCell.m in Sources */,
 				8F0DC2A2206230B8009AE20B /* THHomeSectionHead.m in Sources */,
 				57F67FA920C9823D004431C2 /* THPaySuccessBlockPage.m in Sources */,
 				8F0DC29820622AC0009AE20B /* THGoodsListOfTableLayoutCell.m in Sources */,
 				8F1712BF2072076200EFDFCB /* THMyCollectModel.m in Sources */,
-				8FDAF71E206E41320090FBCC /* WZXArchiverManager.m in Sources */,
 				572792D620CED37700E498AD /* THCommentCateView.m in Sources */,
 				572792D320CED32A00E498AD /* THCommentHead.m in Sources */,
 				04178ECD20715B100048875E /* THGoodsVC.m in Sources */,

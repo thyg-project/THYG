@@ -9,7 +9,7 @@
 #import "THRegisterNextStepCtl.h"
 #import "ReactiveCocoa.h"
 #import "UIButton+CHExtension.h"
-#import "WZXArchiverManager.h"
+
 #import <RTRootNavigationController/RTRootNavigationController.h>
 
 

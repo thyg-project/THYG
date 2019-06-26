@@ -12,7 +12,6 @@
 #import "Headers.h"
 #import "THAPI.h"
 #import "Utils.h"
-#import "WZXArchiverManager.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "SDImageCache.h"
 #import <YYKit/YYKit.h>

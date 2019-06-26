@@ -8,7 +8,6 @@
 
 #import "THSettingCtl.h"
 #import "THUserInfoEditCtl.h"
-#import "WZXArchiverManager.h"
 #import "THHelpCenterCtl.h"
 #import "THAddressVC.h"
 #import "THModifyPwdVC.h"
@@ -140,7 +139,7 @@
 {
 //    UserInfo = nil;
 //    UserDefaultsSetObj(nil, @"token");
-    [WZXArchiverManager clear:USER_INFO_KEY];
+    
     
     [self.navigationController popViewControllerAnimated:YES];
 }

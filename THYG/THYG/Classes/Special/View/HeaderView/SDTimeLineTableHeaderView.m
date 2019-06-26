@@ -28,7 +28,6 @@
 
 #import "SDTimeLineTableHeaderView.h"
 
-#import "UIView+SDAutoLayout.h"
 
 @implementation SDTimeLineTableHeaderView
 
@@ -66,21 +65,14 @@
     [self addSubview:_nameLabel];
     
     
-    _backgroundImageView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(-60, 0, 40, 0));
     
-    _iconView.sd_layout
-    .widthIs(70)
-    .heightIs(70)
-    .rightSpaceToView(self, 15)
-    .bottomSpaceToView(self, 20);
+    
+
+    
     
     
     _nameLabel.tag = 1000;
-    [_nameLabel setSingleLineAutoResizeWithMaxWidth:200];
-    _nameLabel.sd_layout
-    .rightSpaceToView(_iconView, 20)
-    .bottomSpaceToView(_iconView, -35)
-    .heightIs(20);
+   
 }
 
 

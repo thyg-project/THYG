@@ -203,13 +203,13 @@
             
             specCell.selectSpecBtnBlock = ^{
                 
-                ChoseGoodsTypeAlert *_alert = [[ChoseGoodsTypeAlert alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight) andHeight:kSize (450)];
+                ChoseGoodsTypeAlert *_alert = [[ChoseGoodsTypeAlert alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) andHeight:0];
                 _alert.alpha = 0;
                 [[UIApplication sharedApplication].keyWindow addSubview:_alert];
                 
                 _alert.selectSize = ^(SizeAttributeModel *sizeModel) {
                     //sizeModel 选择的属性模型
-                    [JXUIKit showSuccessWithStatus:[NSString stringWithFormat:@"选择了：%@",sizeModel.value]];
+                    
                     specCell.defaultSpec = sizeModel.value;
                     
                     !self.specBlock?:self.specBlock(sizeModel.sizeid, sizeModel.count);

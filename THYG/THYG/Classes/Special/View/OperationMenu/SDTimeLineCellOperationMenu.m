@@ -7,7 +7,7 @@
 //
 
 #import "SDTimeLineCellOperationMenu.h"
-#import "UIView+SDAutoLayout.h"
+
 
 #define SDColor(r, g, b, a) [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a]
 
@@ -48,27 +48,16 @@
     centerLine.backgroundColor = [UIColor grayColor];
     
     
-    [self sd_addSubviews:@[_likeButton, _commentButton, centerLine]];
+    
     
     CGFloat margin = 5;
     
-    _likeButton.sd_layout
-    .leftSpaceToView(self, margin)
-    .topEqualToView(self)
-    .bottomEqualToView(self)
-    .widthIs(80);
     
-    centerLine.sd_layout
-    .leftSpaceToView(_likeButton, margin)
-    .topSpaceToView(self, margin)
-    .bottomSpaceToView(self, margin)
-    .widthIs(1);
     
-    _commentButton.sd_layout
-    .leftSpaceToView(centerLine, margin)
-    .topEqualToView(_likeButton)
-    .bottomEqualToView(_likeButton)
-    .widthRatioToView(_likeButton, 1);
+    
+    
+    
+   
     
 }
 
@@ -106,14 +95,11 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         if (!show) {
-            [self clearAutoWidthSettings];
-            self.sd_layout
-            .widthIs(0);
+            
         } else {
-            self.fixedWidth = nil;
-            [self setupAutoWidthWithRightView:_commentButton rightMargin:5];
+           
         }
-        [self updateLayoutWithCellContentView:self.superview];
+       
     }];
 }
 

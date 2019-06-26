@@ -12,9 +12,6 @@
 #import "SDTimeLineCell.h"
 #import "SDTimeLineCellModel.h"
 
-#import "UITableView+SDAutoTableViewCellHeight.h"
-
-#import "UIView+SDAutoLayout.h"
 #import "LEETheme.h"
 
 #define SDColor(r, g, b, a) [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a]
@@ -61,14 +58,14 @@ static CGFloat textFieldH = 40;
     
     [self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
     
-    __weak typeof(self) weakSelf = self;
+    
     
     
     // 上拉加载
     _refreshFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
         [self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
-        [self.tableView reloadDataWithExistedHeightCache];
+        
         
         [_refreshFooter endRefreshing];
         
@@ -140,7 +137,7 @@ static CGFloat textFieldH = 40;
         }
     });
     
-    _textField.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width_sd, textFieldH);
+    
     [[UIApplication sharedApplication].keyWindow addSubview:_textField];
     
     [_textField becomeFirstResponder];
@@ -299,7 +296,7 @@ static CGFloat textFieldH = 40;
     
     ////// 此步设置用于实现cell的frame缓存，可以让tableview滑动更加流畅 //////
     
-    [cell useCellFrameCacheWithIndexPath:indexPath tableView:tableView];
+    
     
     ///////////////////////////////////////////////////////////////////////
     
@@ -316,7 +313,7 @@ static CGFloat textFieldH = 40;
 {
     // >>>>>>>>>>>>>>>>>>>>> * cell自适应 * >>>>>>>>>>>>>>>>>>>>>>>>
     id model = self.dataArray[indexPath.row];
-    return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[SDTimeLineCell class] contentViewWidth:[self cellContentViewWith]];
+    return 0;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

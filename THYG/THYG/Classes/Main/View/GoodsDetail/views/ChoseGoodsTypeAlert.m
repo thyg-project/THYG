@@ -29,29 +29,29 @@
         self.backgroundColor = [UIColor clearColor];
         //半透明view
         view = [[UIView alloc] initWithFrame:self.bounds];
-        view.backgroundColor = RGBACOLOR(0, 0, 0, 0.4);
+        
         [self addSubview:view];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)];
         [view addGestureRecognizer:tap];
         //白色底view
-        bgView = [[UIView alloc] initWithFrame:CGRectMake(0, kHeight, kWidth, height)];
+        bgView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, height)];
         bgView.backgroundColor = [UIColor whiteColor];
         bgView.userInteractionEnabled = YES;
         [self addSubview:bgView];
         
         //商品信息
-        goodsInfo = [[GoodsInfoView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kSize(110))];
+        goodsInfo = [[GoodsInfoView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
         [goodsInfo.closeButton addTarget:self action:@selector(hideView) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:goodsInfo];
         
-        sureButton = [JXUIKit buttonWithBackgroundColor:KBtncol titleColorForNormal:WhiteColor titleForNormal:@"确定" titleForSelete:nil titleColorForSelete:nil fontSize:18 font:nil];
+        sureButton = nil;
         [sureButton addTarget:self action:@selector(sure) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:sureButton];
         //kbottomHeight为了适配iphonex，不让按钮显示在x底部圆弧范围内
-        sureButton.sd_layout.leftSpaceToView(bgView, 0).rightSpaceToView(bgView, 0).bottomSpaceToView(bgView, 0).heightIs(49);
+        
         [bgView addSubview:self.tableview];
         
-        self.tableview.sd_layout.leftSpaceToView(bgView, 0).rightSpaceToView(bgView, 0).topSpaceToView(goodsInfo, 0).bottomSpaceToView(sureButton, 0);
+        
     }
     return self;
 }
@@ -126,13 +126,13 @@
 {
     for (GoodsTypeModel *model in _dataSource) {
         if (model.selectIndex<0) {
-            [JXUIKit showErrorWithStatus:[NSString stringWithFormat:@"请选择%@",model.typeName]];
+          
             return;
         }
     }
     if (_dataSource.count == 0) {
         //该商品无规格
-        [JXUIKit showErrorWithStatus:@"该商品无规格"];
+       
         [self hideView];
         return;
     }
@@ -145,7 +145,7 @@
         [self hideView];
     }else
     {
-        [JXUIKit showErrorWithStatus:@"该规格商品暂无库存无法加入购物车"];
+        
     }
     
 }
@@ -201,13 +201,13 @@
     int count =[countView.countTextField.text intValue];
     if (sizeModel) {
         if (count >[sizeModel.stock intValue]) {
-            [JXUIKit showWithString:@"数量超出库存"];
+            
             countView.countTextField.text = sizeModel.stock;
         }
     }else
     {
         if (count > [_model.totalStock intValue]) {
-            [JXUIKit showWithString:@"数量超出库存"];
+            
             countView.countTextField.text = _model.totalStock;
             
         }
@@ -243,13 +243,13 @@
 -(UITableView *)tableview
 {
     if (!_tableview) {
-        _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kWidth, kHeight) style:UITableViewStylePlain];
+//        _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kWidth, kHeight) style:UITableViewStylePlain];
         _tableview.sectionHeaderHeight = 0;
-        _tableview.backgroundColor = WhiteColor;
+//        _tableview.backgroundColor = WhiteColor;
         _tableview.delegate = self;
         _tableview.dataSource = self;
         _dataSource = [[NSMutableArray alloc] init];
-        countView = [[CountView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kSize(50))];
+//        countView = [[CountView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kSize(50))];
         countView.countTextField.delegate = self;
         [countView.addButton addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
         [countView.reduceButton addTarget:self action:@selector(reduce) forControlEvents:UIControlEventTouchUpInside];

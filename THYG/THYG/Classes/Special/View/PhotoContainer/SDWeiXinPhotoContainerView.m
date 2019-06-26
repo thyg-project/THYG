@@ -29,7 +29,6 @@
 
 #import "SDWeiXinPhotoContainerView.h"
 
-#import "UIView+SDAutoLayout.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SDPhotoBrowser.h"
 
@@ -78,7 +77,6 @@
     
     if (_picPathStringsArray.count == 0) {
         self.height = 0;
-        self.fixedHeight = @(0);
         return;
     }
     
@@ -111,8 +109,6 @@
     self.width = w;
     self.height = h;
     
-    self.fixedHeight = @(h);
-    self.fixedWidth = @(w);
 }
 
 #pragma mark - private actions

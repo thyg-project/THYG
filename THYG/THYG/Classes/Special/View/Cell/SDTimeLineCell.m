@@ -29,7 +29,6 @@
 #import "SDTimeLineCell.h"
 
 #import "SDTimeLineCellModel.h"
-#import "UIView+SDAutoLayout.h"
 
 #import "SDTimeLineCellCommentView.h"
 
@@ -125,61 +124,19 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     
     NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel, _operationButton, _operationMenu, _commentView];
     
-    [self.contentView sd_addSubviews:views];
+    
     
     UIView *contentView = self.contentView;
     CGFloat margin = 10;
     
-    _iconView.sd_layout
-    .leftSpaceToView(contentView, margin)
-    .topSpaceToView(contentView, margin + 5)
-    .widthIs(40)
-    .heightIs(40);
     
-    _nameLable.sd_layout
-    .leftSpaceToView(_iconView, margin)
-    .topEqualToView(_iconView)
-    .heightIs(18);
-    [_nameLable setSingleLineAutoResizeWithMaxWidth:200];
     
-    _contentLabel.sd_layout
-    .leftEqualToView(_nameLable)
-    .topSpaceToView(_nameLable, margin)
-    .rightSpaceToView(contentView, margin)
-    .autoHeightRatio(0);
     
     // morebutton的高度在setmodel里面设置
-    _moreButton.sd_layout
-    .leftEqualToView(_contentLabel)
-    .topSpaceToView(_contentLabel, 0)
-    .widthIs(30);
     
     
-    _picContainerView.sd_layout
-    .leftEqualToView(_contentLabel); // 已经在内部实现宽度和高度自适应所以不需要再设置宽度高度，top值是具体有无图片在setModel方法中设置
+  
     
-    _timeLabel.sd_layout
-    .leftEqualToView(_contentLabel)
-    .topSpaceToView(_picContainerView, margin)
-    .heightIs(15);
-    [_timeLabel setSingleLineAutoResizeWithMaxWidth:200];
-    
-    _operationButton.sd_layout
-    .rightSpaceToView(contentView, margin)
-    .centerYEqualToView(_timeLabel)
-    .heightIs(25)
-    .widthIs(25);
-    
-    _commentView.sd_layout
-    .leftEqualToView(_contentLabel)
-    .rightSpaceToView(self.contentView, margin)
-    .topSpaceToView(_timeLabel, margin); // 已经在内部实现高度自适应所以不需要再设置高度
-    
-    _operationMenu.sd_layout
-    .rightSpaceToView(_operationButton, 0)
-    .heightIs(36)
-    .centerYEqualToView(_operationButton)
-    .widthIs(0);
 }
 
 - (void)configTheme{
@@ -213,17 +170,17 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     _picContainerView.picPathStringsArray = model.picNamesArray;
     
     if (model.shouldShowMoreButton) { // 如果文字高度超过60
-        _moreButton.sd_layout.heightIs(20);
+        
         _moreButton.hidden = NO;
         if (model.isOpening) { // 如果需要展开
-            _contentLabel.sd_layout.maxHeightIs(MAXFLOAT);
+            
             [_moreButton setTitle:@"收起" forState:UIControlStateNormal];
         } else {
-            _contentLabel.sd_layout.maxHeightIs(maxContentLabelHeight);
+            
             [_moreButton setTitle:@"全文" forState:UIControlStateNormal];
         }
     } else {
-        _moreButton.sd_layout.heightIs(0);
+        
         _moreButton.hidden = YES;
     }
     
@@ -231,7 +188,7 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     if (model.picNamesArray.count) {
         picContainerTopMargin = 10;
     }
-    _picContainerView.sd_layout.topSpaceToView(_moreButton, picContainerTopMargin);
+    
     
     UIView *bottomView;
     
@@ -241,7 +198,7 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
         bottomView = _commentView;
     }
     
-    [self setupAutoHeightWithBottomView:bottomView bottomMargin:15];
+    
     
     _timeLabel.text = @"1分钟前";
 }

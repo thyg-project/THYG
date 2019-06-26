@@ -21,14 +21,14 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
-        self.backgroundColor = WhiteColor;
+        self.backgroundColor = [UIColor whiteColor];
 
         typeNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 200, 20)];
         typeNameLabel.textColor = [UIColor blackColor];
         typeNameLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:typeNameLabel];
         
-        typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kWidth, 20)];
+        
         [self addSubview:typeView];
     }
     return self;
@@ -49,7 +49,7 @@
     float upX = 10;
     float upY = 0;
     for (int i = 0; i<_model.typeArray.count; i++) {
-        UIButton *btn= [JXUIKit buttonWithBackgroundColor:KLightGrayLinecol titleColorForNormal:[UIColor blackColor] titleForNormal:[_model.typeArray objectAtIndex:i] titleForSelete:[_model.typeArray objectAtIndex:i] titleColorForSelete:WhiteColor fontSize:13 font:nil];
+        UIButton *btn= nil;
         NSDictionary *dic = [NSDictionary dictionaryWithObject:btn.titleLabel.font forKey:NSFontAttributeName];
         CGSize size = [_model.typeArray[i] sizeWithAttributes:dic];
         //NSLog(@"%f",size.height);
@@ -59,7 +59,7 @@
             upY += 30;
         }
         btn.frame = CGRectMake(upX, upY, size.width+30,24);
-        [JXUIKit ViewcornerRadius:12 andColor:WhiteColor andWidth:0 :btn];
+       
         [typeView addSubview:btn];
         btn.tag = 100+i;
         [btn addTarget:self action:@selector(touchbtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -67,7 +67,7 @@
 
         if (_model.selectIndex == i) {
             btn.selected = YES;
-            btn.backgroundColor = KBtncol;
+            
         }
     }
 
@@ -76,7 +76,7 @@
     line.backgroundColor = [UIColor lightGrayColor];
     [typeView addSubview:line];
 
-    typeView.frame = CGRectMake(0, 40, kWidth, upY+11);
+    
     return upY+11+40;
 
 }
@@ -96,11 +96,11 @@
     for (int i = 0; i<_model.typeArray.count; i++) {
         UIButton *button =(UIButton *)[self viewWithTag:100+i];
         button.selected = NO;
-        [button setBackgroundColor:KLightGrayLinecol];
+        
         //根据seletIndex 确定用户当前点了那个按钮
         if (_model.selectIndex == i) {
             button.selected = YES;
-            button.backgroundColor = KBtncol;
+            
         }
     }
 }

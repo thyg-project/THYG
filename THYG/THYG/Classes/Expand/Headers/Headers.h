@@ -29,7 +29,6 @@
 
 
 //工具类
-#import "SystemTools.h"
 #import "THHUDProgress.h"
 #import "THUserBaseInfo.h"
 

@@ -27,7 +27,6 @@
  */
 
 #import "SDTimeLineCellCommentView.h"
-#import "UIView+SDAutoLayout.h"
 #import "SDTimeLineCellModel.h"
 #import "MLLinkLabel.h"
 
@@ -74,13 +73,13 @@
     _likeLabel = [MLLinkLabel new];
     _likeLabel.font = [UIFont systemFontOfSize:14];
     _likeLabel.linkTextAttributes = @{NSForegroundColorAttributeName : TimeLineCellHighlightedColor};
-    _likeLabel.isAttributedContent = YES;
+    
     [self addSubview:_likeLabel];
     
     _likeLableBottomLine = [UIView new];
     [self addSubview:_likeLableBottomLine];
     
-    _bgImageView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+    
 }
 
 - (void)configTheme{
@@ -172,18 +171,15 @@
     
     if (self.commentLabelsArray.count) {
         [self.commentLabelsArray enumerateObjectsUsingBlock:^(UILabel *label, NSUInteger idx, BOOL *stop) {
-            [label sd_clearAutoLayoutSettings];
             label.hidden = YES; //重用时先隐藏所以评论label，然后根据评论个数显示label
         }];
     }
     
     if (!commentItemsArray.count && !likeItemsArray.count) {
-        self.fixedWidth = @(0); // 如果没有评论或者点赞，设置commentview的固定宽度为0（设置了fixedWith的控件将不再在自动布局过程中调整宽度）
-        self.fixedHeight = @(0); // 如果没有评论或者点赞，设置commentview的固定高度为0（设置了fixedHeight的控件将不再在自动布局过程中调整高度）
+        
         return;
     } else {
-        self.fixedHeight = nil; // 取消固定宽度约束
-        self.fixedWidth = nil; // 取消固定高度约束
+        // 取消固定高度约束
     }
     
     CGFloat margin = 5;
@@ -191,47 +187,29 @@
     UIView *lastTopView = nil;
     
     if (likeItemsArray.count) {
-        _likeLabel.sd_resetLayout
-        .leftSpaceToView(self, margin)
-        .rightSpaceToView(self, margin)
-        .topSpaceToView(lastTopView, 10)
-        .autoHeightRatio(0);
         
         lastTopView = _likeLabel;
     } else {
         _likeLabel.attributedText = nil;
-        _likeLabel.sd_resetLayout
-        .heightIs(0);
+
     }
     
     
     if (self.commentItemsArray.count && self.likeItemsArray.count) {
-        _likeLableBottomLine.sd_resetLayout
-        .leftSpaceToView(self, 0)
-        .rightSpaceToView(self, 0)
-        .heightIs(1)
-        .topSpaceToView(lastTopView, 3);
         
         lastTopView = _likeLableBottomLine;
     } else {
-        _likeLableBottomLine.sd_resetLayout.heightIs(0);
+        
     }
     
     for (int i = 0; i < self.commentItemsArray.count; i++) {
         UILabel *label = (UILabel *)self.commentLabelsArray[i];
         label.hidden = NO;
         CGFloat topMargin = (i == 0 && likeItemsArray.count == 0) ? 10 : 5;
-        label.sd_layout
-        .leftSpaceToView(self, 8)
-        .rightSpaceToView(self, 5)
-        .topSpaceToView(lastTopView, topMargin)
-        .autoHeightRatio(0);
         
-        label.isAttributedContent = YES;
-        lastTopView = label;
     }
     
-    [self setupAutoHeightWithBottomView:lastTopView bottomMargin:6];
+    
 }
 
 - (void)setFrame:(CGRect)frame

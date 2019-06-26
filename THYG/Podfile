@@ -24,5 +24,6 @@ targetsArray.each do |t|
     pod 'WechatOpenSDK'
 	pod 'YZDisplayViewController'
     pod 'YYKit'
+    pod 'FDKeychain'
 	end
 end

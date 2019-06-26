@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger,AVCaptureType) {
     AVCaptureTypeBoth
 };
 
-typedef void(^SuccessBlock)(NSString *reuslt);
+typedef void(^completeBlock)(NSString *reuslt);
 
 @interface THAVCaptureSessionManager : AVCaptureSession
 
@@ -50,7 +50,7 @@ typedef void(^SuccessBlock)(NSString *reuslt);
 - (instancetype)initWithAVCaptureQuality:(AVCaptureQuality)quality
                            AVCaptureType:(AVCaptureType)type
                                 scanRect:(CGRect)scanRect
-                            successBlock:(SuccessBlock)success;
+                            successBlock:(completeBlock)success;
 
 /**
  初始化Manager
@@ -64,7 +64,7 @@ typedef void(^SuccessBlock)(NSString *reuslt);
 + (instancetype)createSessionManagerWithAVCaptureQuality:(AVCaptureQuality)quality
                                            AVCaptureType:(AVCaptureType)type
                                                 scanRect:(CGRect)scanRect
-                                            successBlock:(SuccessBlock)success;
+                                            successBlock:(completeBlock)success;
 
 
 /**
@@ -83,7 +83,7 @@ typedef void(^SuccessBlock)(NSString *reuslt);
 /**
  扫描相册中的二维码信息,如果未检测到有二维码信息，返回字串为空,如果图片有多个二维码，只读取第一个
  */
-- (void)scanPhotoWith:(UIImage *)image successBlock:(SuccessBlock)success;
+- (void)scanPhotoWith:(UIImage *)image successBlock:(completeBlock)success;
 
 /**
  显示创建好的preViewLayer

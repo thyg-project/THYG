@@ -9,7 +9,6 @@
 #import "THTeHuiCenterVC.h"
 #import "THTeHuiCell.h"
 #import "THTeHuiModel.h"
-#import "UITableView+SDAutoTableViewCellHeight.h"
 
 @interface THTeHuiCenterVC ()
 @property (nonatomic, strong) UIButton *titleBtnView;

@@ -10,6 +10,7 @@
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
+		02C377CE22C33D420038AC5A /* YGInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377CC22C33D420038AC5A /* YGInfo.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
@@ -46,7 +47,6 @@
 		042BB82B20CAF4E500E8FB93 /* THMineOrderDetailToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BB82A20CAF4E500E8FB93 /* THMineOrderDetailToolView.m */; };
 		042BB82D20CAF5D500E8FB93 /* THMineOrderDetailToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042BB82C20CAF5D500E8FB93 /* THMineOrderDetailToolView.xib */; };
 		044727CE2070F94F00CB8326 /* THScanQRCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044727CD2070F94F00CB8326 /* THScanQRCodeVC.xib */; };
-		044727D52071013900CB8326 /* SystemTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 044727D32071013900CB8326 /* SystemTools.m */; };
 		0448EB6B208E3022006E1E17 /* THGoodsSpecModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0448EB6A208E3022006E1E17 /* THGoodsSpecModel.m */; };
 		0448EB9520923A31006E1E17 /* THAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0448EB9420923A31006E1E17 /* THAddressVC.m */; };
 		04493A7520B3257800B92A16 /* THModifyPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04493A7320B3257800B92A16 /* THModifyPwdVC.m */; };
@@ -116,8 +116,6 @@
 		512D7913205B774B0088A4A0 /* THMineOrderHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */; };
 		512D7916205B97640088A4A0 /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7915205B97640088A4A0 /* UIButton+ImageTitleSpacing.m */; };
 		512D7919205BA27F0088A4A0 /* UIBarButtonItem+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */; };
-		512D7934205E09130088A4A0 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D792C205E09130088A4A0 /* PPNetworkHelper.m */; };
-		512D7935205E09130088A4A0 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D792F205E09130088A4A0 /* PPNetworkCache.m */; };
 		512D7938205E098E0088A4A0 /* THAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7937205E098E0088A4A0 /* THAPI.m */; };
 		512D793B205E0F840088A4A0 /* THNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793A205E0F840088A4A0 /* THNewFeatureVC.m */; };
 		512D793E205E10E40088A4A0 /* THNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793D205E10E40088A4A0 /* THNewFeatureCell.m */; };
@@ -173,8 +171,6 @@
 		576EEA892087A2F40088B1EB /* SDTimeLineTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA7B2087A2F40088B1EB /* SDTimeLineTableHeaderView.m */; };
 		576EEA8A2087A2F40088B1EB /* SDTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA7F2087A2F40088B1EB /* SDTimeLineCell.m */; };
 		576EEA8B2087A2F40088B1EB /* SDTimeLineCellOperationMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA822087A2F40088B1EB /* SDTimeLineCellOperationMenu.m */; };
-		576EEA932087A4210088B1EB /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA8E2087A4210088B1EB /* UIView+SDAutoLayout.m */; };
-		576EEA942087A4210088B1EB /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA912087A4210088B1EB /* UITableView+SDAutoTableViewCellHeight.m */; };
 		576EEA972087A5090088B1EB /* SDTimeLineCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA962087A5080088B1EB /* SDTimeLineCellModel.m */; };
 		576EEABD2087A5510088B1EB /* MLEmoji_Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9A2087A5510088B1EB /* MLEmoji_Expression.plist */; };
 		576EEABE2087A5510088B1EB /* MLEmoji_Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9B2087A5510088B1EB /* MLEmoji_Expression.bundle */; };
@@ -243,7 +239,6 @@
 		576EEB432087A6BD0088B1EB /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 576EEB102087A6BD0088B1EB /* 3.jpg */; };
 		576EEB442087A6BD0088B1EB /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 576EEB112087A6BD0088B1EB /* 1.jpg */; };
 		576EEB452087A6BD0088B1EB /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 576EEB122087A6BD0088B1EB /* 0.jpg */; };
-		57CBC3B52088E3F1007D6069 /* JXUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3B42088E3F1007D6069 /* JXUIKit.m */; };
 		57CBC3C92088E477007D6069 /* CountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BA2088E477007D6069 /* CountView.m */; };
 		57CBC3CA2088E477007D6069 /* GoodsInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BB2088E477007D6069 /* GoodsInfoView.m */; };
 		57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BC2088E477007D6069 /* ChoseGoodsTypeAlert.m */; };
@@ -379,6 +374,8 @@
 		02C377C622C324700038AC5A /* YGEncryptTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGEncryptTool.m; sourceTree = "<group>"; };
 		02C377C722C324700038AC5A /* YGNetworkCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetworkCommon.h; sourceTree = "<group>"; };
 		02C377C822C324700038AC5A /* YGNetWorkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetWorkTools.m; sourceTree = "<group>"; };
+		02C377CC22C33D420038AC5A /* YGInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGInfo.m; sourceTree = "<group>"; };
+		02C377CD22C33D420038AC5A /* YGInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGInfo.h; sourceTree = "<group>"; };
 		04054D9020A2156E009CE4F1 /* THSelectAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectAddressView.h; sourceTree = "<group>"; };
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
@@ -444,8 +441,6 @@
 		042BB82A20CAF4E500E8FB93 /* THMineOrderDetailToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMineOrderDetailToolView.m; sourceTree = "<group>"; };
 		042BB82C20CAF5D500E8FB93 /* THMineOrderDetailToolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMineOrderDetailToolView.xib; sourceTree = "<group>"; };
 		044727CD2070F94F00CB8326 /* THScanQRCodeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THScanQRCodeVC.xib; sourceTree = "<group>"; };
-		044727D12071013900CB8326 /* SystemTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemTools.h; sourceTree = "<group>"; };
-		044727D32071013900CB8326 /* SystemTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemTools.m; sourceTree = "<group>"; };
 		0448EB69208E3022006E1E17 /* THGoodsSpecModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGoodsSpecModel.h; sourceTree = "<group>"; };
 		0448EB6A208E3022006E1E17 /* THGoodsSpecModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THGoodsSpecModel.m; sourceTree = "<group>"; };
 		0448EB9320923A31006E1E17 /* THAddressVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddressVC.h; sourceTree = "<group>"; };
@@ -572,10 +567,6 @@
 		512D7915205B97640088A4A0 /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
 		512D7917205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CHExtension.h"; sourceTree = "<group>"; };
 		512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CHExtension.m"; sourceTree = "<group>"; };
-		512D792C205E09130088A4A0 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
-		512D792D205E09130088A4A0 /* PPNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkCache.h; sourceTree = "<group>"; };
-		512D792E205E09130088A4A0 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
-		512D792F205E09130088A4A0 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
 		512D7936205E098E0088A4A0 /* THAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAPI.h; sourceTree = "<group>"; };
 		512D7937205E098E0088A4A0 /* THAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAPI.m; sourceTree = "<group>"; };
 		512D7939205E0F840088A4A0 /* THNewFeatureVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNewFeatureVC.h; sourceTree = "<group>"; };
@@ -671,11 +662,6 @@
 		576EEA7F2087A2F40088B1EB /* SDTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCell.m; sourceTree = "<group>"; };
 		576EEA812087A2F40088B1EB /* SDTimeLineCellOperationMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellOperationMenu.h; sourceTree = "<group>"; };
 		576EEA822087A2F40088B1EB /* SDTimeLineCellOperationMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellOperationMenu.m; sourceTree = "<group>"; };
-		576EEA8E2087A4210088B1EB /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
-		576EEA8F2087A4210088B1EB /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
-		576EEA902087A4210088B1EB /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
-		576EEA912087A4210088B1EB /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
-		576EEA922087A4210088B1EB /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
 		576EEA952087A5080088B1EB /* SDTimeLineCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellModel.h; sourceTree = "<group>"; };
 		576EEA962087A5080088B1EB /* SDTimeLineCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellModel.m; sourceTree = "<group>"; };
 		576EEA992087A5510088B1EB /* MLEmojiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLEmojiLabel.h; sourceTree = "<group>"; };
@@ -763,8 +749,6 @@
 		576EEB102087A6BD0088B1EB /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		576EEB112087A6BD0088B1EB /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		576EEB122087A6BD0088B1EB /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
-		57CBC3B32088E3F1007D6069 /* JXUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXUIKit.h; sourceTree = "<group>"; };
-		57CBC3B42088E3F1007D6069 /* JXUIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXUIKit.m; sourceTree = "<group>"; };
 		57CBC3B62088E441007D6069 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		57CBC3B82088E477007D6069 /* ChoseGoodsTypeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseGoodsTypeAlert.h; sourceTree = "<group>"; };
 		57CBC3B92088E477007D6069 /* ChoosTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosTypeTableViewCell.h; sourceTree = "<group>"; };
@@ -1191,15 +1175,6 @@
 				57FAA05420C858BE00230A68 /* THPayMethodCell.xib */,
 			);
 			path = MineCenter;
-			sourceTree = "<group>";
-		};
-		044727CF2071013900CB8326 /* NetworkTool */ = {
-			isa = PBXGroup;
-			children = (
-				044727D12071013900CB8326 /* SystemTools.h */,
-				044727D32071013900CB8326 /* SystemTools.m */,
-			);
-			path = NetworkTool;
 			sourceTree = "<group>";
 		};
 		0448EB9220923A0D006E1E17 /* ShoppingAddress */ = {
@@ -1679,17 +1654,16 @@
 				51EF4DE420DDF63300B7F9AA /* ShareTool */,
 				512A26A820B7BD4F0091B58B /* UploadImageTool */,
 				04548D712070AD6A002F73C6 /* QRTool */,
-				044727CF2071013900CB8326 /* NetworkTool */,
 				8F31CBEB206A302100A48F2D /* AlertView */,
 				044A48A0207901A000DF1AAD /* Star */,
 				510EDC2B20629D8300F595E7 /* Utils.h */,
 				510EDC2C20629D8300F595E7 /* Utils.m */,
+				02C377CD22C33D420038AC5A /* YGInfo.h */,
+				02C377CC22C33D420038AC5A /* YGInfo.m */,
 				512D7941205E1D1E0088A4A0 /* THGuideViewTool.h */,
 				512D7942205E1D1E0088A4A0 /* THGuideViewTool.m */,
 				8F31CBE02069EE3B00A48F2D /* THHUDProgress.h */,
 				8F31CBE12069EE3B00A48F2D /* THHUDProgress.m */,
-				57CBC3B32088E3F1007D6069 /* JXUIKit.h */,
-				57CBC3B42088E3F1007D6069 /* JXUIKit.m */,
 				57D5104820C6F31E00B78087 /* THPay.h */,
 				57D5104920C6F31E00B78087 /* THPay.m */,
 			);
@@ -1703,22 +1677,9 @@
 				576EEAD22087A5B20088B1EB /* SDPhotoBrowser */,
 				576EEACE2087A5730088B1EB /* LEETheme */,
 				576EEA982087A5510088B1EB /* MLEmojiLabel */,
-				576EEA8D2087A4210088B1EB /* SDAutoLayout */,
 				8FDAF715206E41320090FBCC /* Archiver */,
-				512D7922205E09130088A4A0 /* PPNetworkHelper */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		512D7922205E09130088A4A0 /* PPNetworkHelper */ = {
-			isa = PBXGroup;
-			children = (
-				512D792D205E09130088A4A0 /* PPNetworkCache.h */,
-				512D792F205E09130088A4A0 /* PPNetworkCache.m */,
-				512D792E205E09130088A4A0 /* PPNetworkHelper.h */,
-				512D792C205E09130088A4A0 /* PPNetworkHelper.m */,
-			);
-			path = PPNetworkHelper;
 			sourceTree = "<group>";
 		};
 		5133D1E320DD069500DE632A /* Wallet */ = {
@@ -1867,18 +1828,6 @@
 				576EEA822087A2F40088B1EB /* SDTimeLineCellOperationMenu.m */,
 			);
 			path = OperationMenu;
-			sourceTree = "<group>";
-		};
-		576EEA8D2087A4210088B1EB /* SDAutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				576EEA8E2087A4210088B1EB /* UIView+SDAutoLayout.m */,
-				576EEA8F2087A4210088B1EB /* UITableView+SDAutoTableViewCellHeight.h */,
-				576EEA902087A4210088B1EB /* SDAutoLayout.h */,
-				576EEA912087A4210088B1EB /* UITableView+SDAutoTableViewCellHeight.m */,
-				576EEA922087A4210088B1EB /* UIView+SDAutoLayout.h */,
-			);
-			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
 		576EEA982087A5510088B1EB /* MLEmojiLabel */ = {
@@ -2607,6 +2556,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-THYG/Pods-THYG-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FDKeychain/FDKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/HDAlertView/HDAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
@@ -2627,6 +2577,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
@@ -2697,7 +2648,6 @@
 				8FD0DC01207C650700AD8B3D /* THShoppingCartModel.m in Sources */,
 				04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */,
 				8FF84FE0206503E800A78368 /* THLimitSpellGroupListCtl.m in Sources */,
-				044727D52071013900CB8326 /* SystemTools.m in Sources */,
 				512D78F6205A13FC0088A4A0 /* THHomeHeaderView.m in Sources */,
 				57CBC3CE2088E477007D6069 /* GoodsTypeModel.m in Sources */,
 				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
@@ -2779,8 +2729,6 @@
 				8F0DC2A2206230B8009AE20B /* THHomeSectionHead.m in Sources */,
 				57F67FA920C9823D004431C2 /* THPaySuccessBlockPage.m in Sources */,
 				8F0DC29820622AC0009AE20B /* THGoodsListOfTableLayoutCell.m in Sources */,
-				512D7935205E09130088A4A0 /* PPNetworkCache.m in Sources */,
-				576EEA932087A4210088B1EB /* UIView+SDAutoLayout.m in Sources */,
 				8F1712BF2072076200EFDFCB /* THMyCollectModel.m in Sources */,
 				8FDAF71E206E41320090FBCC /* WZXArchiverManager.m in Sources */,
 				572792D620CED37700E498AD /* THCommentCateView.m in Sources */,
@@ -2861,7 +2809,6 @@
 				512D78E42059280E0088A4A0 /* UILabel+CHExtension.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				512D78DE205927D10088A4A0 /* UIImage+CHImage.m in Sources */,
-				512D7934205E09130088A4A0 /* PPNetworkHelper.m in Sources */,
 				512D7900205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m in Sources */,
 				576EEAD12087A5730088B1EB /* LEETheme.m in Sources */,
 				5169ED6020C673CD00EE1D9A /* THCartDetailModel.m in Sources */,
@@ -2869,7 +2816,6 @@
 				576EEAC52087A5510088B1EB /* NSAttributedString+MLLabel.m in Sources */,
 				57417E5B20CB88E100F5085F /* THAboutTHCtl.m in Sources */,
 				8F0DC2B82062360D009AE20B /* THAceSpellGroupListCell.m in Sources */,
-				57CBC3B52088E3F1007D6069 /* JXUIKit.m in Sources */,
 				512D7916205B97640088A4A0 /* UIButton+ImageTitleSpacing.m in Sources */,
 				04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */,
 				572792DA20CED4DD00E498AD /* THCommentCateViewCell.m in Sources */,
@@ -2884,9 +2830,9 @@
 				51DA2C0F20DAA81E006A82B6 /* THMineBankCardCell.m in Sources */,
 				57417E3F20CB764400F5085F /* THSingImgCell.m in Sources */,
 				57CBC3FB2088F064007D6069 /* THLogisticsCell.m in Sources */,
+				02C377CE22C33D420038AC5A /* YGInfo.m in Sources */,
 				044A489F2078FFCC00DF1AAD /* THGoodsCommentCell.m in Sources */,
 				0448EB6B208E3022006E1E17 /* THGoodsSpecModel.m in Sources */,
-				576EEA942087A4210088B1EB /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				044A48A920791F0700DF1AAD /* THCommentVC.m in Sources */,
 				04054DB420AEF7FC009CE4F1 /* THTeHuiModel.m in Sources */,
 				04178F14207297B60048875E /* THGoodsCommentHeaderView.m in Sources */,

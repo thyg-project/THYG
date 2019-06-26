@@ -11,7 +11,7 @@
 
 @interface THAVCaptureSessionManager() <AVCaptureMetadataOutputObjectsDelegate>
 
-@property(copy, nonatomic) SuccessBlock block;
+@property(copy, nonatomic) completeBlock block;
 
 @property(strong, nonatomic) AVCaptureDevice *device;
 
@@ -22,7 +22,7 @@
 - (instancetype)initWithAVCaptureQuality:(AVCaptureQuality)quality
                            AVCaptureType:(AVCaptureType)type
                                 scanRect:(CGRect)scanRect
-                            successBlock:(SuccessBlock)success {
+                            successBlock:(completeBlock)success {
     if (self = [super init]) {
         self.block = success;
         // 1.获取输入设备(摄像头)
@@ -71,7 +71,7 @@
 + (instancetype)createSessionManagerWithAVCaptureQuality:(AVCaptureQuality)quality
                                            AVCaptureType:(AVCaptureType)type
                                                 scanRect:(CGRect)scanRect
-                                            successBlock:(SuccessBlock)success {
+                                            successBlock:(completeBlock)success {
     THAVCaptureSessionManager *manager = [[THAVCaptureSessionManager alloc]initWithAVCaptureQuality:quality
                                                                                       AVCaptureType:type
                                                                                            scanRect:scanRect
@@ -148,7 +148,7 @@
     }
 }
 
-- (void)scanPhotoWith:(UIImage *)image successBlock:(SuccessBlock)success {
+- (void)scanPhotoWith:(UIImage *)image successBlock:(completeBlock)success {
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
     
     NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];

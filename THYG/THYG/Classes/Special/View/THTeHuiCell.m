@@ -7,7 +7,6 @@
 //
 
 #import "THTeHuiCell.h"
-#import "UIView+SDAutoLayout.h"
 #import "SDWeiXinPhotoContainerView.h"
 #import "THTeHuiModel.h"
 
@@ -118,72 +117,13 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     
     NSArray *views = @[_avatarImgView, _nameLabel, _timeLabel, _contentLabel, _moreButton, _picContainerView, _buttomView, _buttomToolView];
     
-    [self.contentView sd_addSubviews:views];
+    
     
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-     CGFloat margin = 12;
     
-    _avatarImgView.sd_layout
-    .leftSpaceToView(self.contentView, margin)
-    .topSpaceToView(self.contentView, margin)
-    .widthIs(44)
-    .heightIs(44);
-    
-    _nameLabel.sd_layout
-    .leftSpaceToView(_avatarImgView, margin-2)
-    .topSpaceToView(self.contentView, margin+5)
-    .heightIs(16);
-    [_nameLabel setSingleLineAutoResizeWithMaxWidth:200];
-    
-    _timeLabel.sd_layout
-    .leftEqualToView(_nameLabel)
-    .bottomEqualToView(_avatarImgView)
-    .heightIs(16);
-    [_timeLabel setSingleLineAutoResizeWithMaxWidth:200];
-    
-    _contentLabel.sd_layout
-    .leftEqualToView(_timeLabel)
-    .topSpaceToView(_avatarImgView, margin)
-    .rightSpaceToView(self.contentView, margin)
-    .autoHeightRatio(0);
-    
-    // morebutton的高度在setmodel里面设置
-    _moreButton.sd_layout
-    .leftEqualToView(_contentLabel)
-    .topSpaceToView(_contentLabel, 0)
-    .widthIs(80)
-    .heightIs(18);
-    
-    _picContainerView.sd_layout
-    .leftEqualToView(_contentLabel)
-    .topSpaceToView(_moreButton, 5);
-    
-    _buttomView.sd_layout
-    .leftEqualToView(_contentLabel)
-    .topSpaceToView(_picContainerView, 4)
-    .rightEqualToView(_contentLabel)
-    .heightIs(44);
-    
-    _iconImgView.sd_layout
-    .leftSpaceToView(_buttomView, 4)
-    .topSpaceToView(_buttomView, 4)
-    .bottomSpaceToView(_buttomView, 4)
-    .widthIs(38);
-    
-    _buttonSubLabel.sd_layout
-    .leftSpaceToView(_iconImgView, 10)
-    .topSpaceToView(_buttomView, 5)
-    .bottomSpaceToView(_buttomView, 5)
-    .rightSpaceToView(_buttomView, 10);
-    
-    _buttomToolView.sd_layout
-    .topSpaceToView(_buttomView, 0)
-    .leftEqualToView(_buttomView)
-    .rightEqualToView(_buttomView)
-    .heightIs(42);
     
 }
 
@@ -208,7 +148,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     [_buttonArr[1] setTitle:[NSString stringWithFormat:@"%ld", _teModel.comment_num] forState:UIControlStateNormal];
     [_buttonArr[2] setTitle:[NSString stringWithFormat:@"%ld", _teModel.zan_num] forState:UIControlStateNormal];
     
-    [self setupAutoHeightWithBottomView:_buttomToolView bottomMargin:10];
+   
 
 }
 

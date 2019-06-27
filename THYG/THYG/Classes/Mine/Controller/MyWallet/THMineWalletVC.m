@@ -35,7 +35,7 @@
 
 #pragma mark - 银行卡列表 （请求成功，未添加时候，没有数据）
 - (void)loadDatas {
-    WEAKSELF;
+    kWeakSelf;
 //    [THNetworkTool POST:API(@"/User/wallet") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
 //        NSLog(@"responseObject %@", responseObject);
 //        
@@ -111,7 +111,7 @@
     if (!_walletView) {
         _walletView = [THMineWalletHeaderView walletView];
         
-        WEAKSELF;
+        kWeakSelf;
         //余额充值/提现
         _walletView.withdrawBtnAction = ^(NSInteger tag, NSString *title) {
             

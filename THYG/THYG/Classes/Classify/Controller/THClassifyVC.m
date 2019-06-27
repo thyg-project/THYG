@@ -196,8 +196,8 @@
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section < 2) return CGSizeMake(kScreenWidth / 4, HEIGHT(76));
-	return CGSizeMake(kScreenWidth, HEIGHT(180));
+	if (indexPath.section < 2) return CGSizeMake(kScreenWidth / 4, WIDTH(76));
+	return CGSizeMake(kScreenWidth, WIDTH(180));
 }
 
 - (UICollectionView *)collectionView {

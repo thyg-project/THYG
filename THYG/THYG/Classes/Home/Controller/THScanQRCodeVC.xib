@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="THScanQRCodeVC">
             <connections>
-                <outlet property="scanTop" destination="048-1s-A8t" id="pua-8W-8fR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Hb7-BO-E8C"/>
             </connections>
         </placeholder>
@@ -21,14 +20,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Etu-XU-emj">
-                    <rect key="frame" x="67" y="144" width="240" height="240"/>
+                    <rect key="frame" x="67.5" y="144" width="240" height="240"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="240" id="0Yu-5o-SpR"/>
                         <constraint firstAttribute="width" constant="240" id="fAC-mC-bXx"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(请对准二维码/条形码进行扫描)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gv-aI-2af">
-                    <rect key="frame" x="86.5" y="408" width="201" height="17"/>
+                    <rect key="frame" x="87" y="408" width="201" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -45,7 +44,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="zVF-oq-KB4">
-                    <rect key="frame" x="67" y="-96" width="240" height="240"/>
+                    <rect key="frame" x="67.5" y="154" width="240" height="240"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="NuK-n3-gkM"/>
                         <constraint firstAttribute="height" constant="240" id="pPq-xb-ZES"/>
@@ -53,9 +52,9 @@
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="zVF-oq-KB4" firstAttribute="top" secondItem="Etu-XU-emj" secondAttribute="top" constant="-240" id="048-1s-A8t"/>
                 <constraint firstItem="Etu-XU-emj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="144" id="DCH-gc-kxg"/>
                 <constraint firstItem="3gv-aI-2af" firstAttribute="centerX" secondItem="Etu-XU-emj" secondAttribute="centerX" id="E4I-gm-wSq"/>
+                <constraint firstItem="zVF-oq-KB4" firstAttribute="centerY" secondItem="Etu-XU-emj" secondAttribute="centerY" constant="10" id="EzP-no-jga"/>
                 <constraint firstItem="zVF-oq-KB4" firstAttribute="centerX" secondItem="Etu-XU-emj" secondAttribute="centerX" id="OKd-a6-PPW"/>
                 <constraint firstItem="3gv-aI-2af" firstAttribute="top" secondItem="Etu-XU-emj" secondAttribute="bottom" constant="24" id="TwS-Dr-l65"/>
                 <constraint firstAttribute="bottom" secondItem="bia-c6-1fQ" secondAttribute="bottom" constant="20" id="U8y-Bd-72z"/>

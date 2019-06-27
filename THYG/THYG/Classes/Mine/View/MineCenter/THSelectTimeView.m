@@ -38,8 +38,8 @@
 
 - (void)show {
     [UIView animateWithDuration:0.25 animations:^{
-        topV.frame = CGRectMake(0, kScreenHeight - HEIGHT(247), kScreenWidth, HEIGHT(40));
-        _pickerView.frame = CGRectMake(0, topV.bottom, kScreenWidth, HEIGHT(207));
+        topV.frame = CGRectMake(0, kScreenHeight - WIDTH(247), kScreenWidth, WIDTH(40));
+        _pickerView.frame = CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(207));
     }];
     [[UIApplication sharedApplication].keyWindow addSubview:self];
 }
@@ -49,12 +49,12 @@
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
         
-        topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, HEIGHT(40))];
+        topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, WIDTH(40))];
         topV.backgroundColor = GRAY_COLOR(242);
         [self addSubview:topV];
         
         UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        cancelBtn.frame = CGRectMake(0, 0, WIDTH(100), HEIGHT(40));
+        cancelBtn.frame = CGRectMake(0, 0, WIDTH(100), WIDTH(40));
         [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
         [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
@@ -62,7 +62,7 @@
         [topV addSubview:cancelBtn];
         
         UIButton *yesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        yesBtn.frame = CGRectMake(kScreenWidth - WIDTH(100), 0, WIDTH(100), HEIGHT(40));
+        yesBtn.frame = CGRectMake(kScreenWidth - WIDTH(100), 0, WIDTH(100), WIDTH(40));
         [yesBtn setTitle:@"完成" forState:UIControlStateNormal];
         [yesBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [yesBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
@@ -70,7 +70,7 @@
         [topV addSubview:yesBtn];
         
         
-        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, topV.bottom, kScreenWidth, HEIGHT(207))];
+        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(207))];
         _pickerView.dataSource = self;
         _pickerView.delegate = self;
         _pickerView.backgroundColor = [UIColor whiteColor];
@@ -168,8 +168,8 @@
 - (void)remove {
     
     [UIView animateWithDuration:0.25 animations:^{
-        topV.frame = CGRectMake(0, kScreenHeight,  kScreenWidth, HEIGHT(40));
-        _pickerView.frame = CGRectMake(0, topV.bottom, kScreenWidth, HEIGHT(207));
+        topV.frame = CGRectMake(0, kScreenHeight,  kScreenWidth, WIDTH(40));
+        _pickerView.frame = CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(207));
     } completion:^(BOOL finished) {
         //[self removeFromSuperview];
     }];

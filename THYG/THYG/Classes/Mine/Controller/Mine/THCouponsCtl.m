@@ -83,7 +83,7 @@
     
     self.titleBtnView.selected = YES;
     
-    WEAKSELF;
+    kWeakSelf;
     self.selectView.selectTypeAction = ^(NSInteger type, NSString *title) {
       
         self.titleBtnView.selected = NO;

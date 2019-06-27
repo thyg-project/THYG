@@ -64,7 +64,7 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 	[self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.width.offset(kScreenWidth);
 		make.top.offset(0);
-		make.height.offset(HEIGHT(44));
+		make.height.offset(WIDTH(44));
 	}];
 	
 	[self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,7 +103,7 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 		layout.scrollDirection = UICollectionViewScrollDirectionVertical;
 		layout.minimumLineSpacing = 1;
 		layout.minimumInteritemSpacing = 1;
-		layout.itemSize = CGSizeMake((kScreenWidth-2)*0.5, HEIGHT(108));
+		layout.itemSize = CGSizeMake((kScreenWidth-2)*0.5, WIDTH(108));
 		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;

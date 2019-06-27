@@ -167,7 +167,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WEAKSELF;
+    kWeakSelf;
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.selectAddressView show:^(THAddressPCDModel *provinceModel, THAddressPCDModel *cityModel, THAddressPCDModel *districtModel) {

@@ -27,7 +27,7 @@
     [table registerNib:[UINib nibWithNibName:NSStringFromClass(THCartListCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCartListCell.class)];
     [table registerClass:[THCartSectionHead class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THCartSectionHead.class)];
     
-    WEAKSELF;
+    kWeakSelf;
     self.selectOptionAllBlock = ^(BOOL isSelect) {
       
         [weakSelf selectOptionAll:isSelect];

@@ -31,7 +31,7 @@
     self.dataTableView.height -= 70;
     
     [self.view addSubview:self.dataTableView];
-    [self.dataTableView registerNib:[UINib nibWithNibName:NSStringFromClass(THMyMessageListCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyMessageListCell.class)];
+    [self.dataTableView registerNib:[UINib nibWithNibName:@"THMyMessageListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyMessageListCell.class)];
     
 }
 

@@ -100,7 +100,7 @@
 	[self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.height.mas_equalTo(10);
 		make.centerX.equalTo(self.view.mas_centerX);
-		make.bottom.equalTo(self.view.mas_bottom).offset(-30 * KBHeightRatio);
+		make.bottom.equalTo(self.view.mas_bottom).offset(-30);
 	}];
 }
 

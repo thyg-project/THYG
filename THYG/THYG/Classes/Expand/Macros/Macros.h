@@ -9,11 +9,6 @@
 #ifndef Macros_h
 #define Macros_h
 
-/** 屏幕高度 */
-//#define kScreenHeight [UIScreen mainScreen].bounds.size.height
-/** 屏幕宽度 */
-//#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
-
 //iPhone X 顶部44pt  底部34pt
 #define kTabBarHeight  (49)                   // 定义Tabbar高度
 #define kNaviHeight  (64)                   // 导航栏高度
@@ -21,17 +16,13 @@
 //iPhone X 底部home区域 34pt
 #define kiPhoneX_bottom_height  34
 
-/** 适配问题 以iPhone6s的图适配所有尺寸的比率 */
-#define KBWidthRatio  (kScreenWidth/375)
-#define KBHeightRatio (kScreenHeight/667)
-
 //适配上
 #define WIDTH(W) [UIScreen mainScreen].bounds.size.width / 375 * W
-#define HEIGHT(H) [UIScreen mainScreen].bounds.size.height / 667 * H
 
 /** 弱引用 */
-#define WEAKSELF __weak __typeof(self) weakSelf = self;
+#define kWeakSelf __weak __typeof(self) weakSelf = self;
 
+#define kStrongSelf __strong __typeof strongSelf = weakSelf;
 /*****************  屏幕适配  ******************/
 
 //色值
@@ -60,9 +51,7 @@
 //网络加载指示器
 #define THHUD   [THHUDProgress sharedProgressHUD]
 
-/***************** collectionView  ******************/
 
-#define CurrentBuildVersion [NSString stringWithFormat:@"%@",[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"]]
 
 
 //判断是真机还是模拟器

@@ -403,7 +403,7 @@
 - (THMineHeaderView *)headView {
 	if (_headView == nil) {
 		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  100)];
-        WEAKSELF;
+        kWeakSelf;
 		_headView.gotoMotifyInfoPage = ^{
             if ([@"" length]) {
                 THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];

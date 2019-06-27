@@ -37,6 +37,8 @@ PODS:
   - SDWebImage (5.0.2):
     - SDWebImage/Core (= 5.0.2)
   - SDWebImage/Core (5.0.2)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
   - UMCCommon (2.0.1)
   - UMCShare/Core (6.9.5):
@@ -47,6 +49,10 @@ PODS:
   - UMCShare/UI (6.9.5):
     - UMCCommon
     - UMCShare/Core
+  - WCDB (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
   - WechatOpenSDK (1.8.4)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -70,6 +76,7 @@ DEPENDENCIES:
   - UMCCommon
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
+  - WCDB
   - WechatOpenSDK
   - YYKit
   - YZDisplayViewController
@@ -89,9 +96,12 @@ SPEC REPOS:
     - RTRootNavigationController
     - SDCycleScrollView
     - SDWebImage
+    - SQLiteRepairKit
     - SVProgressHUD
     - UMCCommon
     - UMCShare
+    - WCDB
+    - WCDBOptimizedSQLCipher
     - WechatOpenSDK
     - YYKit
     - YZDisplayViewController
@@ -110,13 +120,16 @@ SPEC CHECKSUMS:
   RTRootNavigationController: afa6913402be26f8326f7f37fc1550aa67baddcc
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UMCCommon: 0263a057a2e1ae1da4c8308541e56904a493ce13
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
+  WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YZDisplayViewController: 621f737a9aa3dfbc95a901e89e5e7c4b2ea6ef79
 
-PODFILE CHECKSUM: a0029e7f0d67c3a73e3f1da5daaf20fe0e33a9b9
+PODFILE CHECKSUM: 622e2bb17e71cdedb99c554c026ae60086475006
 
 COCOAPODS: 1.5.3

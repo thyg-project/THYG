@@ -13,7 +13,6 @@
 @property (nonatomic, strong) CADisplayLink *link;
 @property (nonatomic, strong) THAVCaptureSessionManager *session;
 @property(assign, nonatomic) BOOL TorchState;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scanTop;
 
 @end
 
@@ -30,7 +29,7 @@
     // 获取读取读取二维码的会话
     self.session = [[THAVCaptureSessionManager alloc]initWithAVCaptureQuality:AVCaptureQualityHigh
                                                                 AVCaptureType:AVCaptureTypeQRCode
-                                                                   scanRect:CGRectNull
+                                                                   scanRect:CGRectZero
                                                                successBlock:^(NSString *reuslt) {
                                                                    [self showResult:reuslt];
                                                                }];
@@ -93,12 +92,7 @@
 // 扫描效果
 - (void)scan{
     // NSLog(@"self.scanTop.constant %f",self.scanTop.constant);
-    self.scanTop.constant += 1;
-    if (self.scanTop.constant <= -240) {
-        self.scanTop.constant = 0;
-    } else if (self.scanTop.constant > 0) {
-        self.scanTop.constant = -240;
-    }
+    
 }
 
 - (IBAction)changeTorchState:(id)sender {

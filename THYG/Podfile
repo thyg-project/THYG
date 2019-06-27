@@ -9,7 +9,6 @@ targetsArray.each do |t|
 	pod 'DZNEmptyDataSet'
 	pod 'IQKeyboardManager'
 	pod 'Masonry'
-#    pod 'MJExtension'
 	pod 'MJRefresh'
 	pod 'MSWeakTimer'
 	pod 'ReactiveCocoa','~> 2.5’
@@ -25,6 +24,7 @@ targetsArray.each do |t|
     pod 'YZDisplayViewController'
     pod 'YYKit'
     pod 'FDKeychain'
+    pod 'WCDB'
 #    pod 'AliPaySDK'
 	end
 end

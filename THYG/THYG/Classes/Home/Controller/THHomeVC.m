@@ -98,9 +98,8 @@
 #pragma mark - 菜单
 - (void)menuAction {
     [self.menuView show];
-    WEAKSELF
+    kWeakSelf
     self.menuView.selectedAction = ^(NSInteger index) {
-        
         if (index == 0) {//我的二维码
             THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
             [weakSelf pushVC:shareVc];
@@ -245,13 +244,13 @@
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 0) return CGSizeMake(kScreenWidth , HEIGHT(264));
+	if (indexPath.section == 0) return CGSizeMake(kScreenWidth , WIDTH(264));
 	return CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+80);
 }
 
 #pragma mark - head宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-	if (section == 0) return CGSizeMake(kScreenWidth, HEIGHT(283));
+	if (section == 0) return CGSizeMake(kScreenWidth, WIDTH(283));
     if (section == 1) return CGSizeMake(kScreenWidth, 45);
     return CGSizeZero;
 }

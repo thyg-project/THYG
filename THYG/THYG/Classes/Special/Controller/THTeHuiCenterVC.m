@@ -100,7 +100,7 @@
 - (void)btnClick {
     [self.menuView show];
     self.titleBtnView.selected = YES;
-    WEAKSELF
+    kWeakSelf
     self.menuView.selectedAction = ^(NSInteger index) {
         weakSelf.titleBtnView.selected = NO;
         

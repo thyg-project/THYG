@@ -51,17 +51,17 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 	
 	[self.cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.top.left.right.offset(0);
-		make.height.offset(HEIGHT(180));
+		make.height.offset(WIDTH(180));
 	}];
 	
 	[self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.right.offset(0);
 		make.top.equalTo(self.cycleScrollView.mas_bottom);
-		make.height.offset(HEIGHT(76));
+		make.height.offset(WIDTH(76));
 	}];
 	
 	[self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(self.collectionView.mas_bottom).offset(HEIGHT(10));
+		make.top.equalTo(self.collectionView.mas_bottom).offset(WIDTH(10));
 		make.bottom.equalTo(self.mas_bottom);
 		make.centerX.equalTo(self.collectionView.mas_centerX);
 	}];
@@ -124,7 +124,7 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 		layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 		layout.minimumLineSpacing = 0;
 		layout.minimumInteritemSpacing = 0;
-		layout.itemSize = CGSizeMake(kScreenWidth / 5, HEIGHT(76));
+		layout.itemSize = CGSizeMake(kScreenWidth / 5, WIDTH(76));
 		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;

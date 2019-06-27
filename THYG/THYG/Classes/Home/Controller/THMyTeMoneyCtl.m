@@ -123,13 +123,13 @@
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (SECTION == 0) return CGSizeMake(kScreenWidth , HEIGHT(264));
+//    if (SECTION == 0) return CGSizeMake(kScreenWidth , WIDTH(264));
     return CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+80);
 }
 
 #pragma mark - head宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    if (section == 0) return CGSizeMake(kScreenWidth, HEIGHT(150));
+    if (section == 0) return CGSizeMake(kScreenWidth, WIDTH(150));
     if (section == 1) return CGSizeMake(kScreenWidth, 45);
     return CGSizeZero;
 }

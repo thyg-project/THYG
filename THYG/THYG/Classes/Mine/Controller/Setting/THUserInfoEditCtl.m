@@ -45,7 +45,7 @@
 //    self.professionalField.text = UserInfo.job;
 //    [self.categoryBtn setTitle:UserInfo.favorite_cat forState:UIControlStateNormal];
     
-    WEAKSELF;
+    kWeakSelf;
     self.timeView.selectedTimeBlock = ^(NSString *year, NSString *month, NSString *day) {
         [weakSelf.yearBtn setTitle:year forState:UIControlStateNormal];
         [weakSelf.monthBtn setTitle:month forState:UIControlStateNormal];

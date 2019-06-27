@@ -182,7 +182,7 @@
     if (indexPath.section == 0) {
         THGoodsTopInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsTopInfoCell.class)];
         infoCell.goodsDetailModel = self.detailModel;
-        WEAKSELF;
+        kWeakSelf;
         infoCell.focusBtnAction = ^(BOOL isSelected) {
             if (!weakSelf.detailModel) {
                 return ;

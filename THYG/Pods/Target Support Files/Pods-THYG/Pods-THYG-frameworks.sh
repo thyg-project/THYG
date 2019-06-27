@@ -155,7 +155,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YZDisplayViewController/YZDisplayViewController.framework"
 fi
@@ -172,7 +175,10 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YZDisplayViewController/YZDisplayViewController.framework"
 fi

@@ -62,7 +62,7 @@
 	
 	[self.iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.offset(WIDTH(12));
-		make.top.offset(HEIGHT(8));
+		make.top.offset(WIDTH(8));
 		make.width.height.offset(WIDTH(17));
 	}];
 	
@@ -75,24 +75,24 @@
 		make.top.equalTo(self.iconImgView.mas_top);
 		make.right.bottom.offset(-WIDTH(8));
 		make.width.offset(WIDTH(77));
-		make.height.offset(HEIGHT(92));
+		make.height.offset(WIDTH(92));
 	}];
 	
 	[self.goodsOneImgView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.bottom.equalTo(self.goodsTwoImgView.mas_bottom);
 		make.right.equalTo(self.goodsTwoImgView.mas_left).offset(-WIDTH(8));
 		make.width.offset(WIDTH(82));
-		make.height.offset(HEIGHT(55));
+		make.height.offset(WIDTH(55));
 	}];
 	
 	[self.subLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.equalTo(self.iconImgView.mas_left);
-		make.top.equalTo(self.iconImgView.mas_bottom).offset(HEIGHT(4));
+		make.top.equalTo(self.iconImgView.mas_bottom).offset(WIDTH(4));
 	}];
 	
 	[self.timeView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.equalTo(self.iconImgView.mas_left);
-		make.top.equalTo(self.iconImgView.mas_bottom).offset(HEIGHT(4));
+		make.top.equalTo(self.iconImgView.mas_bottom).offset(WIDTH(4));
 		make.width.offset(60);
 		make.height.offset(13);
 	}];

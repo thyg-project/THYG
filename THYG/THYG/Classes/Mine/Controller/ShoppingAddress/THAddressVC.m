@@ -103,7 +103,7 @@
     THAddressModel *model = self.dataSourceArray[indexPath.section];;
     cell.addressModel = model;
 
-    WEAKSELF;
+    kWeakSelf;
     
     cell.deleteAddressBlock = ^{
         NSLog(@"删除地址");

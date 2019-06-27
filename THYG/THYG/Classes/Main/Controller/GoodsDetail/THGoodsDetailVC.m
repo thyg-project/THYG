@@ -53,7 +53,7 @@
     [self setUpTopButtonView];
     self.scrollView.contentSize = CGSizeMake(self.view.width * self.childViewControllers.count, 0);
     
-    WEAKSELF;
+    kWeakSelf;
     self.bottomView.buttomButtonBlock = ^(NSInteger tag) {
       
         //数据还没有请求回来，不响应按钮事件

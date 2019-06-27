@@ -14,12 +14,9 @@
 #import "THSpellGroupHead.h"
 #import "THFlashSaleModel.h"
 
-@interface THFlashCtl ()
+@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *mvpArray;
 @property (nonatomic, strong) NSMutableArray *listArray;
-@end
-
-@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) THSpellGroupHead *headView;
 @end
@@ -30,9 +27,16 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGB(59, 59, 59)] forBarMetrics:UIBarMetricsDefault];
     [self.view addSubview:self.headView];
+     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.left.top.right.equalTo(self.view);
+         make.height.mas_equalTo(50);
+     }];
     [self.view addSubview:self.collectionView];
-    
-    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:YES delegate:self animation:YES];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.headView.mas_bottom);
+    }];
+    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:NO delegate:self animation:YES];
     [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
     
 }
@@ -169,14 +173,14 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.headView.height, kScreenWidth, kScreenHeight-kNaviHeight-self.headView.height) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.backgroundColor = BGColor;
         
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THFlashCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THFlashCell.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THMoreLimitSpellGroupCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THMoreLimitSpellGroupCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THFlashCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THFlashCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THMoreLimitSpellGroupCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THMoreLimitSpellGroupCell.class)];
         
         [_collectionView registerClass:[THSpellGroupSectionHead class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THSpellGroupSectionHead.class)];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"foot"];
@@ -188,7 +192,7 @@
 
 - (THSpellGroupHead *)headView {
     if (!_headView) {
-        _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+        _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectZero];
     }
     return _headView;
 }

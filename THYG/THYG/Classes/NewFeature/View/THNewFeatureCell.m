@@ -25,17 +25,6 @@
 			_imageView = [[UIImageView alloc]init];
 			[self.contentView addSubview:_imageView];
 		}
-		
-//		if (!_titleLabel) {
-//			_titleLabel = [UILabel labelWithText:@"" fontSize:Font(30) color:[UIColor blackColor]];
-//			[self.contentView addSubview:_titleLabel];
-//		}
-//
-//		if (!_subLabel) {
-//			_subLabel = [UILabel labelWithText:@"" fontSize:Font(18) color:[UIColor blackColor]];
-//			[self.contentView addSubview:_subLabel];
-//		}
-		
 		// 全新起航按钮
 		if (!_button) {
 			_button = [[UIButton alloc]init];
@@ -43,7 +32,6 @@
 			_button.clipsToBounds = YES;
 			[_button setBackgroundColor:RGB(254, 85, 46)];
 			[_button setTitle:@"立即体验" forState:UIControlStateNormal];
-//			[_button setBackgroundColor:[UIColor clearColor]];
 			_button.hidden = true;
 			[_button addTarget:self action:@selector(start) forControlEvents:UIControlEventTouchUpInside];
 			[self addSubview:_button];
@@ -54,34 +42,13 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	
-//	[self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//		make.edges.mas_equalTo(UIEdgeInsetsZero);
-//	}];
-	
 	[self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.top.offset(0);
 		make.left.offset(12);
 		make.right.offset(-12);
 		make.height.offset(kScreenWidth-24);
 	}];
-	
-//	[self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//		make.top.equalTo(self.imageView.mas_bottom).offset(55);
-//		make.centerX.equalTo(self.contentView.mas_centerX);
-//	}];
-//
-//	[self.subLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//		make.top.equalTo(self.titleLabel.mas_bottom).offset(14);
-//		make.centerX.equalTo(self.contentView.mas_centerX);
-//	}];
-	
 	[self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-//		make.centerX.equalTo(self.contentView.mas_centerX);
-//		make.height.offset(kScreenHeight/2);
-//		make.width.offset(kScreenWidth);
-//		make.bottom.offset(0);
-		
 		make.centerX.equalTo(self.contentView.mas_centerX);
 		make.height.offset(44);
 		make.width.offset(100);
@@ -94,8 +61,6 @@
 - (void)setItemDict:(NSDictionary *)itemDict {
 	_itemDict = itemDict;
     self.imageView.image = [UIImage imageNamed:itemDict[@"image"]];
-//	self.titleLabel.text = itemDict[@"title"];
-//	self.subLabel.text = itemDict[@"subTitle"];
 }
 
 // 点击立即体验按钮调用
@@ -103,7 +68,7 @@
 	
 	// 修改窗口的根控制器 TabBarVC
 	THTabBarController *tabbarVc = [[THTabBarController alloc] init];
-	[UIApplication sharedApplication].keyWindow.rootViewController = tabbarVc;
+	[UIApplication sharedApplication].delegate.window.rootViewController = tabbarVc;
 	[[UIApplication sharedApplication] setStatusBarHidden:NO];
 	// 在点击全新起航的按钮才记录 版本号
 	NSString *versionKey = (__bridge NSString *)kCFBundleVersionKey;

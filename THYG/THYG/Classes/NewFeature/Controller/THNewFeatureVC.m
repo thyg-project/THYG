@@ -22,18 +22,6 @@
     [super viewDidLoad];
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
-//	@{@"image":@"引导页1",
-//	  @"title":@"特惠易购",
-//	  @"subTitle":@"特产汇聚 简单易购"},
-//
-//	@{@"image":@"引导页2",
-//	  @"title":@"商品全新升级",
-//	  @"subTitle":@"品类细分一目了然"},
-//
-//	@{@"image":@"引导页3",
-//	  @"title":@"各大活动来袭",
-//	  @"subTitle":@"应有尽有 一逛不停"}
-	
 	self.itemArray = @[
 					   @{@"image":@"引导页1"},
 					   @{@"image":@"引导页2"},

@@ -102,14 +102,14 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.headView.height, kScreenWidth, kScreenHeight-kNaviHeight-self.headView.height) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.backgroundColor = BGColor;
         
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THAceSpellGroupListCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THAceSpellGroupListCell.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THMoreSpellGroupListCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THMoreSpellGroupListCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THAceSpellGroupListCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THAceSpellGroupListCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THMoreSpellGroupListCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THMoreSpellGroupListCell.class)];
 
         [_collectionView registerClass:[THSpellGroupSectionHead class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THSpellGroupSectionHead.class)];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"foot"];

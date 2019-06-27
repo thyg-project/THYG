@@ -23,6 +23,9 @@
     [super viewDidLoad];
     self.title = @"我的特币";
     [self.view addSubview:self.collectionView];
+     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.edges.equalTo(self.view);
+     }];
     [self requestNetWorkingWithPageNum:1 isHeader:YES];
     [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:YES delegate:self animation:YES];
     [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
@@ -123,7 +126,7 @@
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (SECTION == 0) return CGSizeMake(kScreenWidth , WIDTH(264));
+    if (indexPath.section == 0) return CGSizeMake(kScreenWidth , WIDTH(264));
     return CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+80);
 }
 
@@ -165,15 +168,15 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.backgroundColor = BGColor;
         
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THTeMoneyHead.class) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THTeMoneyHead.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THHomeSectionHead.class) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsListOfCollectionLayoutCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THTeMoneyHead" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THTeMoneyHead.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THHomeSectionHead" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class)];
 //
     }
     return _collectionView;

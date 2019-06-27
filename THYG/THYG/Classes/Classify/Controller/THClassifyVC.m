@@ -207,7 +207,7 @@
 		layout.minimumLineSpacing = 0;
 		layout.minimumInteritemSpacing = 0;
 		layout.headerReferenceSize = CGSizeMake(kScreenWidth, 44);
-//        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight-kTabBarHeight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
 		_collectionView.showsHorizontalScrollIndicator = NO;

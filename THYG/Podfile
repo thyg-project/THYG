@@ -25,6 +25,8 @@ targetsArray.each do |t|
     pod 'YYKit'
     pod 'FDKeychain'
     pod 'WCDB'
+    pod 'UITableView+FDTemplateLayoutCell'
+    pod 'FDFullscreenPopGesture'
 #    pod 'AliPaySDK'
 	end
 end

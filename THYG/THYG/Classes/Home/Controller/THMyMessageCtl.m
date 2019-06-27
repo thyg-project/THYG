@@ -27,10 +27,12 @@
     self.title = @"我的消息";
     
     [self initFromNib];
-    self.dataTableView.y = 70;
-    self.dataTableView.height -= 70;
     
     [self.view addSubview:self.dataTableView];
+    [self.dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(@70);
+    }];
     [self.dataTableView registerNib:[UINib nibWithNibName:@"THMyMessageListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyMessageListCell.class)];
     
 }

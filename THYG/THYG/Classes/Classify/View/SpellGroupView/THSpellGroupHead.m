@@ -25,6 +25,9 @@
     if (self) {
         
         [self addSubview:self.collectionView];
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
         
     }
     return self;
@@ -74,13 +77,13 @@
         layout.minimumLineSpacing = 1;
         layout.minimumInteritemSpacing = 1;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.backgroundColor = BGColor;
         
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THSpellGroupHeadCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THSpellGroupHeadCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THSpellGroupHeadCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THSpellGroupHeadCell.class)];
     }
     return _collectionView;
 }

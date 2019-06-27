@@ -19,7 +19,10 @@
     [super viewDidLoad];
     self.title = @"活动消息";
     [self.view addSubview:self.dataTableView];
-    [self.dataTableView registerNib:[UINib nibWithNibName:NSStringFromClass(THSingImgCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSingImgCell.class)];
+    [self.dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.edges.equalTo(self.view);
+     }];
+    [self.dataTableView registerNib:[UINib nibWithNibName:@"THSingImgCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSingImgCell.class)];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

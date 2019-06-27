@@ -33,7 +33,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self.view addSubview:self.collectionView];
+    [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     self.navigationItem.titleView = ({
         UIButton *searchButton = [UIButton buttonWithTitle:@"搜索" image:@"" selectedImage:@"" fontSize:Font(13) textColor:GRAY_COLOR(222) bgColor:[UIColor whiteColor] borderColor:nil radius:4 target:self action:@selector(searchClick)];
         searchButton.frame = CGRectMake(0,0, kScreenWidth,30);
@@ -45,7 +48,7 @@
     self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
     [self.view addSubview:self.menuView];
     
-    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:YES delegate:self animation:YES];
+    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:NO delegate:self animation:YES];
     [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
 
 }
@@ -272,7 +275,7 @@
     if (section==1) {
         return 2;
     }
-    return 0.0000001;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
@@ -280,23 +283,23 @@
     if (section==1) {
         return 1;
     }
-    return 0.0000001;
+    return CGFLOAT_MIN;
 }
 
 - (UICollectionView *)collectionView {
 	if (!_collectionView) {
 		UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight-kTabBarHeight) collectionViewLayout:layout];
+		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
 		_collectionView.showsVerticalScrollIndicator = NO;
 		_collectionView.backgroundColor = BGColor;
 		
 		[_collectionView registerClass:[THHomeMallActivityCell class] forCellWithReuseIdentifier:NSStringFromClass(THHomeMallActivityCell.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsListOfCollectionLayoutCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
 		
 		[_collectionView registerClass:[THHomeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeHeaderView.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THHomeSectionHead.class) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THHomeSectionHead" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class)];
     
 	}
 	return _collectionView;

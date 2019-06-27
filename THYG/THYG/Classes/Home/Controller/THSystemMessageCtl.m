@@ -19,7 +19,10 @@
     [super viewDidLoad];
     self.title = @"系统消息";
     [self.view addSubview:self.dataTableView];
-    [self.dataTableView registerNib:[UINib nibWithNibName:NSStringFromClass(THSystemMessageCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSystemMessageCell.class)];
+    [self.dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self.dataTableView registerNib:[UINib nibWithNibName:@"THSystemMessageCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSystemMessageCell.class)];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

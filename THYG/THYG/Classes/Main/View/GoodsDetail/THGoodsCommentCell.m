@@ -114,7 +114,7 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         
-        _nameLabel = [UILabel labelWithText:@"" fontSize:[UIFont systemFontOfSize:15] color:GRAY_51];
+        _nameLabel = [THUIFactory labelWithText:@"" fontSize:15 tintColor:GRAY_51];
 //        _nameLabel.backgroundColor = RANDOMCOLOR;
     }
     return _nameLabel;
@@ -122,7 +122,7 @@
 
 - (UILabel *)commentLabel {
     if (!_commentLabel) {
-        _commentLabel = [UILabel labelWithText:@"" fontSize:[UIFont systemFontOfSize:11] color:GRAY_51];
+        _commentLabel = [THUIFactory labelWithText:@"" fontSize:11 tintColor:GRAY_51];
         _commentLabel.numberOfLines = 0;
 //        _commentLabel.backgroundColor = RANDOMCOLOR;
     }
@@ -131,7 +131,7 @@
 
 - (UILabel *)unitLabel {
     if (!_unitLabel) {
-        _unitLabel = [UILabel labelWithText:@"xxx" fontSize:[UIFont systemFontOfSize:11] color:GRAY_151];
+        _unitLabel = [THUIFactory labelWithText:@"xxx" fontSize:11 tintColor:GRAY_151];
 //        _unitLabel.backgroundColor = RANDOMCOLOR;
     }
     return _unitLabel;

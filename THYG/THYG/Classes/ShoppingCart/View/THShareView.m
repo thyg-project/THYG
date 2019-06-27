@@ -107,7 +107,7 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [UILabel labelWithText:@"分享到" fontSize:[UIFont systemFontOfSize:16] color:GRAY_151];
+        _titleLabel = [THUIFactory labelWithText:@"分享到" fontSize:16 tintColor:GRAY_151];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;

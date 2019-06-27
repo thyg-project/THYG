@@ -91,7 +91,7 @@
 
 - (UILabel *)label {
     if (!_label) {
-        _label = [UILabel labelWithText:@"" fontSize:Font(14) color:[UIColor whiteColor]];
+        _label = [THUIFactory labelWithText:@"" fontSize:14 tintColor:[UIColor whiteColor]];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.backgroundColor = GRAY(0, 0.6);
         _label.layer.cornerRadius = 4;

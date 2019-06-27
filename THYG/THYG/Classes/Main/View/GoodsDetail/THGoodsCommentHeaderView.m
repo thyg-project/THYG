@@ -58,14 +58,14 @@
 
 - (UILabel *)commentNumLabel {
     if (!_commentNumLabel) {
-        _commentNumLabel = [UILabel labelWithText:@"评价（302）" fontSize:[UIFont systemFontOfSize:12] color:GRAY_102];
+        _commentNumLabel = [THUIFactory labelWithText:@"评价（302）" fontSize:12 tintColor:GRAY_102];
     }
     return _commentNumLabel;
 }
 
 - (UILabel *)goodReviewsLabel {
     if (!_goodReviewsLabel) {
-        _goodReviewsLabel = [UILabel labelWithText:@"好评度 99%" fontSize:[UIFont systemFontOfSize:12] color:GRAY_51];
+        _goodReviewsLabel = [THUIFactory labelWithText:@"好评度 99%" fontSize:12 tintColor:GRAY_51];
     }
     return _goodReviewsLabel;
 }

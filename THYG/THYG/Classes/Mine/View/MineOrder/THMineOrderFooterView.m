@@ -123,7 +123,7 @@
             
         } else if (_orderStatus == 5) { // 交易取消
             _orderBtnOne.hidden = _orderBtnTwo.hidden = _orderBtnThr.hidden = YES;
-            UILabel *label = [UILabel labelWithText:@"缺少切图，流程图有问题，长点心好吗？" fontSize:[UIFont systemFontOfSize:14] color:[UIColor redColor]];
+            UILabel *label = [THUIFactory labelWithText:@"缺少切图，流程图有问题，长点心好吗？" fontSize:14 tintColor:[UIColor redColor]];
             label.textAlignment = NSTextAlignmentCenter;
             [self.contentView addSubview:label];
             [label mas_makeConstraints:^(MASConstraintMaker *make) {

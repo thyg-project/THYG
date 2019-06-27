@@ -45,15 +45,15 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     }
     
     if (!_nameLabel) {
-//        _nameLabel = [UILabel labelWithText:@"lalalala" fontSize:[UIFont systemFontOfSize:16] color:GRAY_51];
+        _nameLabel = [THUIFactory labelWithText:@"lalalala" fontSize:16 tintColor:GRAY_51];
     }
     
     if (!_timeLabel) {
-//        _timeLabel = [UILabel labelWithText:@"hehehehehe" fontSize:[UIFont systemFontOfSize:12] color:GRAY_151];
+        _timeLabel = [THUIFactory labelWithText:@"hehehehehe" fontSize:12 tintColor:GRAY_151];
     }
     
     if (!_contentLabel) {
-//        _contentLabel = [UILabel labelWithText:@"aldlasdladladladlaldalsaldaldaldladsladlbsdfhahfasdhfahfahfhasdfhafhahdfahfhashdfhahfahfhashdfahdfhashdfahsdfhasfdhashdfahf" fontSize:[UIFont systemFontOfSize:16] color:GRAY_51];
+        _contentLabel = [THUIFactory labelWithText:@"aldlasdladladladlaldalsaldaldaldladsladlbsdfhahfasdhfahfahfhasdfhafhahdfahfhashdfhahfahfhashdfahdfhashdfahsdfhasfdhashdfahf" fontSize:16 tintColor:GRAY_51];
         _contentLabel.numberOfLines = 0;
         if (maxContentLblHeight == 0) {
             maxContentLblHeight = _contentLabel.font.lineHeight * 3;
@@ -84,7 +84,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
         _iconImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chanpintu"]];
         [_buttomView addSubview:_iconImgView];
         
-//        _buttonSubLabel = [UILabel labelWithText:@"佳宝怀旧小吃小吃小吃小吃小吃小吃小吃小吃" fontSize:[UIFont systemFontOfSize:14] color:GRAY_151];
+//        _buttonSubLabel = [THUIFactory labelWithText:@"佳宝怀旧小吃小吃小吃小吃小吃小吃小吃小吃" fontSize:14 tintColor:GRAY_151];
         _buttonSubLabel.numberOfLines = 2;
         [_buttomView addSubview:_buttonSubLabel];
         

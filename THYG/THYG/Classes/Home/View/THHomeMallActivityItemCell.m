@@ -122,14 +122,14 @@
 
 - (UILabel *)iconLabel {
 	if (!_iconLabel) {
-		_iconLabel = [UILabel labelWithText:@"" fontSize:[UIFont systemFontOfSize:15] color:[UIColor redColor]];
+		_iconLabel = [THUIFactory labelWithText:@"" fontSize:15 tintColor:[UIColor redColor]];
 	}
 	return _iconLabel;
 }
 
 - (UILabel *)subLabel {
 	if (!_subLabel) {
-		_subLabel = [UILabel labelWithText:@"" fontSize:[UIFont systemFontOfSize:12] color:GRAY_COLOR(151)];
+		_subLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:GRAY_COLOR(151)];
 	}
 	return _subLabel;
 }

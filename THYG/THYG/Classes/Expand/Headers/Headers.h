@@ -14,7 +14,6 @@
 //分类
 #import "UIView+CHExtension.h"
 #import "UIImage+CHImage.h"
-#import "UILabel+CHExtension.h"
 #import "UIButton+ImageTitleSpacing.h"
 #import "UIBarButtonItem+CHExtension.h"
 #import "UIButton+CHExtension.h"
@@ -30,6 +29,7 @@
 //工具类
 #import "THHUDProgress.h"
 #import "THUserBaseInfo.h"
+#import "THUIFactory.h"
 
 #define UPDATE_USERINFO_NOTIFICATION @"update_userInfo_notifacation"
 

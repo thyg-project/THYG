@@ -130,7 +130,7 @@
 #pragma mark - 懒加载
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [UILabel labelWithText:@"" fontSize:[UIFont systemFontOfSize:14] color:GRAY_51];
+        _titleLabel = [THUIFactory labelWithText:@"" fontSize:14 tintColor:GRAY_51];
         _titleLabel.numberOfLines = 0;
     }
     return _titleLabel;
@@ -138,7 +138,7 @@
 
 - (UILabel *)detailLabel {
     if (!_detailLabel) {
-        _detailLabel = [UILabel labelWithText:@"" fontSize:[UIFont systemFontOfSize:12] color:GRAY_51];
+        _detailLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:GRAY_51];
         _detailLabel.textAlignment = NSTextAlignmentRight;
     }
     return _detailLabel;
@@ -146,7 +146,7 @@
 
 - (UILabel *)subLabel {
     if (!_subLabel) {
-        _subLabel = [UILabel labelWithText:@"" fontSize:[UIFont systemFontOfSize:12] color:GRAY_51];
+        _subLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:GRAY_51];
     }
     return _subLabel;
 }

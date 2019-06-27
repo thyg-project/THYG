@@ -90,7 +90,7 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 
 - (UILabel *)titleLabel {
 	if (!_titleLabel) {
-		_titleLabel = [UILabel labelWithText:@"商城活动" fontSize:Font(26) color:[UIColor redColor]];
+		_titleLabel = [THUIFactory labelWithText:@"商城活动" fontSize:26 tintColor:[UIColor redColor]];
 		_titleLabel.textAlignment = NSTextAlignmentCenter;
 		_titleLabel.backgroundColor = [UIColor whiteColor];
 	}

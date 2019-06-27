@@ -22,7 +22,6 @@
 
 //第三方库
 #import <Masonry/Masonry.h>
-#import <MJExtension/MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import <HDAlertView/HDAlertView.h>

@@ -9,7 +9,7 @@ targetsArray.each do |t|
 	pod 'DZNEmptyDataSet'
 	pod 'IQKeyboardManager'
 	pod 'Masonry'
-	pod 'MJExtension'
+#    pod 'MJExtension'
 	pod 'MJRefresh'
 	pod 'MSWeakTimer'
 	pod 'ReactiveCocoa','~> 2.5’

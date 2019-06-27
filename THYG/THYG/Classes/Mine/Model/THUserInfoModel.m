@@ -10,12 +10,6 @@
 
 @implementation THUserInfoModel
 
-- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property
-{
-    if ([property.name isEqualToString:@"nickname"] && [oldValue isKindOfClass:[NSNull class]]) {
-        return self.mobile;
-    }
-    return oldValue;
-}
+
 
 @end

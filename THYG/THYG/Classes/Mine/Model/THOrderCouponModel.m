@@ -10,12 +10,5 @@
 
 @implementation THOrderCouponModel
 
-- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property
-{
-    if ([oldValue isKindOfClass:[NSNull class]]) {
-        return @"";
-    }
-    return oldValue;
-}
 
 @end

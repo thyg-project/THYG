@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-
+typedef NS_ENUM(NSInteger, NetworkState) {
+    NetworkState_Unknown    = 0 ,
+    NetworkState_NotReachable   ,
+    NetworkState_WWAN           ,
+    NetworkState_WIFI           
+};
 
 typedef void(^SuccessBlock)(id responseObject);
 
@@ -83,6 +88,12 @@ sessionConfig:(SessionBlock)block
     parameters:(NSDictionary *)parameters
        success:(SuccessBlock)success
         failed:(FailedBlock)failed;
+
++ (NetworkState)networkState;
+
++ (void)observerNetworkState:(void (^)(NetworkState state))changleBlock;
+
++ (void)stopObserver;
 
 @end
 

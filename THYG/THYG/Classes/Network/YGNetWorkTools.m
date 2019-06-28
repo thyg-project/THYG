@@ -30,6 +30,8 @@ NSString * formatUrl(NSString *sourceUrl) {
 
 @implementation YGNetWorkTools
 
+NetworkState _lastNetworkState;
+
 + (instancetype)sharedTools {
     static YGNetWorkTools *tools = nil;
     static dispatch_once_t once;
@@ -124,6 +126,61 @@ NSString * formatUrl(NSString *sourceUrl) {
     }];
 }
 
++ (NetworkState)networkState {
+    NetworkState netState = NetworkState_Unknown;
+    AFNetworkReachabilityStatus state = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
+    switch (state) {
+            case AFNetworkReachabilityStatusUnknown:
+            netState = NetworkState_Unknown;
+            break;
+            case AFNetworkReachabilityStatusNotReachable:
+            netState = NetworkState_NotReachable;
+            break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            netState = NetworkState_WWAN;
+            break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+            netState = NetworkState_WIFI;
+            break;
+    }
+    return netState;
+}
+
++ (void)observerNetworkState:(void (^)(NetworkState state))changleBlock {
+    
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+   __block NetworkState currentState = NetworkState_Unknown;
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+                case AFNetworkReachabilityStatusReachableViaWiFi: {
+                    currentState = NetworkState_WIFI;
+                }
+
+                break;
+                case AFNetworkReachabilityStatusReachableViaWWAN: {
+                    currentState = NetworkState_WWAN;
+                }
+                break;
+                case AFNetworkReachabilityStatusNotReachable: {
+                    currentState = NetworkState_NotReachable;
+                }
+                break;
+                
+            default:
+                break;
+        }
+        if (_lastNetworkState != currentState) {
+            _lastNetworkState = currentState;
+            BLOCK(changleBlock,currentState);
+        }
+    }];
+    [manager startMonitoring];
+}
+
++ (void)stopObserver {
+    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+}
+
 - (void)parseError:(NSError *)error failed:(FailedBlock)faied {
     if (error.code == NSURLErrorTimedOut) {
         BLOCK(faied,@{@"message":@"请检查网络状态..."});
@@ -173,4 +230,5 @@ NSString * formatUrl(NSString *sourceUrl) {
     }
     
 }
+
 @end

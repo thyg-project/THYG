@@ -8,7 +8,6 @@
 
 #import "THRegisterNextStepCtl.h"
 #import "ReactiveCocoa.h"
-#import "UIButton+CHExtension.h"
 
 #import <RTRootNavigationController/RTRootNavigationController.h>
 
@@ -59,13 +58,20 @@
     }];
 }
 
+dispatch_source_t _source_t;
 - (IBAction)getVerifyCodeAction:(id)sender {
     
     self.getVerifyCodeBtn.backgroundColor = GRAY_COLOR(230);
-    [self.getVerifyCodeBtn startTime:60 title:@"获取验证码" waitTittle:@"s" endTimeFinish:^{
-        self.getVerifyCodeBtn.backgroundColor = GLOBAL_RED_COLOR;
-    }];
-    
+    [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [Utils scheduledCountdown:^(BOOL stop, NSTimeInterval inertval, dispatch_source_t source_t) {
+        _source_t = source_t;
+        if (stop) {
+            [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+            self.getVerifyCodeBtn.backgroundColor = GLOBAL_RED_COLOR;
+        } else {
+            [self.getVerifyCodeBtn setTitle:@(inertval).stringValue forState:UIControlStateNormal];
+        }
+    } totalTimeInterval:60];
 }
 
 - (IBAction)finishAction:(id)sender {
@@ -135,6 +141,12 @@
     UIView *leftview = [[UIView alloc] initWithFrame:frame];
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.leftView = leftview;
+}
+
+- (void)dealloc {
+    if (_source_t) {
+        dispatch_source_cancel(_source_t);
+    }
 }
 
 @end

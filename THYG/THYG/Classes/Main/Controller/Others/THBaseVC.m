@@ -28,13 +28,13 @@
 	self.view.backgroundColor = BGColor;
     
     if (self.navigationController.childViewControllers.count < 1) {
-        UIButton *left = [UIButton buttonWithImage:@"dingbu-saoyisao" selectedImage:@"dingbu-saoyisao" target:self action:@selector(scanAction)];
+        UIButton *left = [THUIFactory buttonWithImage:@"dingbu-saoyisao" selectedImage:@"dingbu-saoyisao" target:self action:@selector(scanAction)];
         left.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
         left.frame = CGRectMake(0, 0, 40, 44);
         [left setTitle:@"扫一扫" forState:UIControlStateNormal];
         left.titleLabel.font = Font(9);
         [left layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:4];
-        UIButton *right = [UIButton buttonWithImage:@"dingbugengduo" selectedImage:@"dingbugengduo" target:self action:@selector(menuAction)];
+        UIButton *right = [THUIFactory buttonWithImage:@"dingbugengduo" selectedImage:@"dingbugengduo" target:self action:@selector(menuAction)];
         right.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         right.frame = CGRectMake(0, 0, 40, 44);
         [right setTitle:@"更多" forState:UIControlStateNormal];

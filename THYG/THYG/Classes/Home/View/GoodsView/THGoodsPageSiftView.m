@@ -61,7 +61,7 @@
     CGFloat bH = 44;
     
     for (NSInteger i = 0; i < 4; i++) {
-        UIButton *button = [UIButton buttonWithTitle:titles[i] image:images[i] fontSize:Font(13) textColor:GRAY_COLOR(80) target:self action:@selector(conditionSift:)];
+        UIButton *button = [THUIFactory buttonWithTitle:titles[i] image:images[i] fontSize:13 textColor:GRAY_COLOR(80) target:self action:@selector(conditionSift:)];
         button.backgroundColor = [UIColor whiteColor];
         [button setTitleColor:GRAY_COLOR(80) forState:UIControlStateNormal];
         [button setTitleColor:GLOBAL_RED_COLOR forState:UIControlStateSelected];

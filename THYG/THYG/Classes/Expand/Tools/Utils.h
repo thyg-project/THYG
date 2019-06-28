@@ -31,4 +31,7 @@
  */
 + (BOOL)checkPassword:(NSString *)inputString;
 
+//!!!!:定时器
++ (void)scheduledCountdown:(void (^)(BOOL stop, NSTimeInterval inertval, dispatch_source_t source_t))countDown totalTimeInterval:(NSTimeInterval)totalTimeInterval;
+
 @end

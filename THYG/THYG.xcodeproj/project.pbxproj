@@ -350,7 +350,6 @@
 		8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E6220736C6B00FEFE40 /* THMyTaskCtl.m */; };
 		8FDC4E6720736E4400FEFE40 /* THMyTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E6520736E4400FEFE40 /* THMyTaskCell.m */; };
 		8FDC4E6820736E4400FEFE40 /* THMyTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E6620736E4400FEFE40 /* THMyTaskCell.xib */; };
-		8FE4A241206E0F230025717A /* UIButton+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4A23F206E0F220025717A /* UIButton+CHExtension.m */; };
 		8FF84FDB206502B200A78368 /* THLimitSpellGroupCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF84FDA206502B200A78368 /* THLimitSpellGroupCtl.m */; };
 		8FF84FE0206503E800A78368 /* THLimitSpellGroupListCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF84FDE206503E800A78368 /* THLimitSpellGroupListCtl.m */; };
 		8FF84FE1206503E800A78368 /* THLimitSpellGroupListCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF84FDF206503E800A78368 /* THLimitSpellGroupListCtl.xib */; };
@@ -923,8 +922,6 @@
 		8FDC4E6420736E4400FEFE40 /* THMyTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMyTaskCell.h; sourceTree = "<group>"; };
 		8FDC4E6520736E4400FEFE40 /* THMyTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyTaskCell.m; sourceTree = "<group>"; };
 		8FDC4E6620736E4400FEFE40 /* THMyTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMyTaskCell.xib; sourceTree = "<group>"; };
-		8FE4A23F206E0F220025717A /* UIButton+CHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CHExtension.m"; sourceTree = "<group>"; };
-		8FE4A240206E0F220025717A /* UIButton+CHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CHExtension.h"; sourceTree = "<group>"; };
 		8FF84FD9206502B200A78368 /* THLimitSpellGroupCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THLimitSpellGroupCtl.h; sourceTree = "<group>"; };
 		8FF84FDA206502B200A78368 /* THLimitSpellGroupCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THLimitSpellGroupCtl.m; sourceTree = "<group>"; };
 		8FF84FDD206503E800A78368 /* THLimitSpellGroupListCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THLimitSpellGroupListCtl.h; sourceTree = "<group>"; };
@@ -1605,8 +1602,6 @@
 				0418A64020C5AA3B00527C80 /* Refresh */,
 				8F1712D0207227B600EFDFCB /* NSString+CHExtension.h */,
 				8F1712D1207227B600EFDFCB /* NSString+CHExtension.m */,
-				8FE4A240206E0F220025717A /* UIButton+CHExtension.h */,
-				8FE4A23F206E0F220025717A /* UIButton+CHExtension.m */,
 				512D78DC205927D10088A4A0 /* UIImage+CHImage.h */,
 				512D78DD205927D10088A4A0 /* UIImage+CHImage.m */,
 				02C377D522C4AC180038AC5A /* UIView+CHExtension.h */,
@@ -2662,7 +2657,6 @@
 				04178F03207276EF0048875E /* THGoodsDetailBottomView.m in Sources */,
 				02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */,
 				57CBC3DD2088EE0C007D6069 /* THAddressCell.m in Sources */,
-				8FE4A241206E0F230025717A /* UIButton+CHExtension.m in Sources */,
 				044AEE422098A60400824A05 /* THAddressEditListCell.m in Sources */,
 				576EEAC62087A5510088B1EB /* MLLinkLabel.m in Sources */,
 				8F0DC2A920623464009AE20B /* THSpellGroupCtl.m in Sources */,

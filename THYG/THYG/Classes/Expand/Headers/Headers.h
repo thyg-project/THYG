@@ -16,7 +16,6 @@
 #import "UIImage+CHImage.h"
 #import "UIButton+ImageTitleSpacing.h"
 #import "UIBarButtonItem+CHExtension.h"
-#import "UIButton+CHExtension.h"
 
 
 //第三方库
@@ -32,5 +31,7 @@
 #import "THUIFactory.h"
 
 #define UPDATE_USERINFO_NOTIFICATION @"update_userInfo_notifacation"
+
+#define BLOCK(block, ...) if (block) { block(__VA_ARGS__); };
 
 #endif /* Headers_h */

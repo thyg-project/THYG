@@ -18,16 +18,13 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *lastVersion = [defaults objectForKey:versionKey];
 	NSString *currentVersion = [NSBundle mainBundle].infoDictionary[versionKey];
-	//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
 	
 	
 	if ([currentVersion isEqualToString:lastVersion]) { // 广告页面
 		THTabBarController *tabbarVc = [[THTabBarController alloc] init];
-		//        window.rootViewController = tabbarVc;
 		return tabbarVc;
 		
 	} else { // 新特性页面
-		//        window.rootViewController = [[KBNewFeatureVC alloc] init];
 		return [[THNewFeatureVC alloc] init];
 	}
 }

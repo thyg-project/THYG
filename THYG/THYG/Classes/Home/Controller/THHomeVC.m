@@ -38,7 +38,7 @@
         make.edges.equalTo(self.view);
     }];
     self.navigationItem.titleView = ({
-        UIButton *searchButton = [UIButton buttonWithTitle:@"搜索" image:@"" selectedImage:@"" fontSize:Font(13) textColor:GRAY_COLOR(222) bgColor:[UIColor whiteColor] borderColor:nil radius:4 target:self action:@selector(searchClick)];
+        UIButton *searchButton = [THUIFactory buttonWithTitle:@"搜索" image:@"" selectedImage:@"" fontSize:13 textColor:GRAY_COLOR(222) bgColor:[UIColor whiteColor] borderColor:nil radius:4 target:self action:@selector(searchClick)];
         searchButton.frame = CGRectMake(0,0, kScreenWidth,30);
         searchButton.layer.cornerRadius = 15;
         searchButton.clipsToBounds = YES;

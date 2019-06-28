@@ -10,8 +10,6 @@
 #import "AFNetworking.h"
 
 
-#define BLOCK(block, ...) if (block) { block(__VA_ARGS__); };
-
 
 typedef void(^SuccessBlock)(id responseObject);
 

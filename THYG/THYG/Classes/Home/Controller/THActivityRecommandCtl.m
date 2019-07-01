@@ -11,18 +11,25 @@
 
 @interface THActivityRecommandCtl ()
 
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation THActivityRecommandCtl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"活动消息";
-    [self.view addSubview:self.dataTableView];
-    [self.dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.navigationItem.title = @"活动消息";
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
          make.edges.equalTo(self.view);
      }];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THSingImgCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSingImgCell.class)];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THSingImgCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSingImgCell.class)];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

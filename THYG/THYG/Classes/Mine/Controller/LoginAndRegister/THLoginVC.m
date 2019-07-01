@@ -99,7 +99,7 @@
     
     THRegisterCtl *registerCtl = [[THRegisterCtl alloc] init];
 	registerCtl.type = THRegisterCtlTypeRegister;
-    [self pushVC:registerCtl];
+     [self.navigationController pushViewController:registerCtl animated:YES];
     
 }
 
@@ -107,7 +107,7 @@
 	
 	THRegisterCtl *registerCtl = [[THRegisterCtl alloc] init];
 	registerCtl.type = THRegisterCtlTypeForgetPwd;
-	[self pushVC:registerCtl];
+	 [self.navigationController pushViewController:registerCtl animated:YES];
 	
 }
 

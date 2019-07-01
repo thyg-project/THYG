@@ -15,6 +15,8 @@
 @interface THPayMethodCtl ()
 @property (weak, nonatomic) IBOutlet UILabel *payTotalMoneyLabel;
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation THPayMethodCtl
@@ -24,11 +26,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"收银台";
-    [self.view addSubview:self.dataTableView];
-    self.dataTableView.height -= 50;
+    self.navigationItem.title = @"收银台";
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     self.payTotalMoneyLabel.text = [NSString stringWithFormat:@"实付款：%.2lf",self.totalPrice];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THPayMethodCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THPayMethodCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -82,7 +89,7 @@
         
         [THHUD showSuccess:@"微信支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
-        [self pushVC:page];
+        [self.navigationController pushViewController:page animated:YES];
         
     };
     
@@ -91,7 +98,7 @@
         
         [THHUD showSuccess:@"支付宝支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
-        [self pushVC:page];
+        [self.navigationController pushViewController:page animated:YES];
         
     };
     

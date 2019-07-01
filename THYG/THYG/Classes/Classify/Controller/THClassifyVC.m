@@ -153,7 +153,7 @@
                 {
                     THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
                     limitSpellGroup.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
-                    [self pushVC:limitSpellGroup];
+                     [self.navigationController pushViewController:limitSpellGroup animated:YES];
                 }
                     break;
                     //拼团
@@ -161,7 +161,7 @@
                 {
                     THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
                     spellGroup.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
-                    [self pushVC:spellGroup];
+                     [self.navigationController pushViewController:spellGroup animated:YES];
                 }
                     break;
                     //秒杀
@@ -169,7 +169,7 @@
                 {
                     THFlashCtl *flash = [[THFlashCtl alloc] init];
                     flash.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
-                    [self pushVC:flash];
+                     [self.navigationController pushViewController:flash animated:YES];
                 }
                     break;
                 default:
@@ -182,7 +182,7 @@
             THScreeningGoodsCtl *screening = [[THScreeningGoodsCtl alloc] init];
             screening.cat_id = [NSString stringWithFormat:@"%@", _itemsArray[indexPath.section][indexPath.row][@"id"]];
             screening.isShowSearchBar = YES;
-            [self pushVC:screening];
+             [self.navigationController pushViewController:screening animated:YES];
         }
             break;
         case 2:

@@ -19,6 +19,8 @@
 @property (nonatomic, strong) THOrderConfirmPayButtomView *payView;
 @property (nonatomic, assign) NSInteger currentRow;
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation THCreateOrderSuccessCtl
@@ -38,9 +40,14 @@
 //        make.height.offset(kTabBarHeight);
     }];
     
-//    self.dataTableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight-kTabBarHeight);
-    [self.view addSubview:self.dataTableView];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THOrderConfirmPaymentCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THOrderConfirmPaymentCell.class)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THOrderConfirmPaymentCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THOrderConfirmPaymentCell.class)];
     
     _itemArray = @[@{@"iconImage":@"bank", @"title":@"银行卡"},
                    @{@"iconImage":@"pay", @"title":@"支付宝"},

@@ -13,6 +13,12 @@
 @interface THTeHuiCenterVC ()
 @property (nonatomic, strong) UIButton *titleBtnView;
 @property (nonatomic, strong) UIView *topView;
+
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
+
 @end
 
 @implementation THTeHuiCenterVC
@@ -41,13 +47,14 @@
     self.navigationItem.titleView = self.titleBtnView;
     [self.view addSubview:self.topView];
     
-    self.isGrouped = YES;
-//    self.dataTableView.frame = CGRectMake(0, 44+8, kScreenWidth, kScreenHeight-kNaviHeight-kTabBarHeight-52);
-    [self.view addSubview:self.dataTableView];
-    [self.dataTableView registerClass:[THTeHuiCell class] forCellReuseIdentifier:NSStringFromClass(THTeHuiCell.class)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView registerClass:[THTeHuiCell class] forCellReuseIdentifier:NSStringFromClass(THTeHuiCell.class)];
     
-    self.menuView.data = @[@"晒单",@"特"];
-    [self.view addSubview:self.menuView];
+//    self.menuView.data = @[@"晒单",@"特"];
+//    [self.view addSubview:self.menuView];
     
 }
 
@@ -64,14 +71,14 @@
 
 #pragma mark - UITableView 代理 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSourceArray.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     THTeHuiCell * cell = nil;
     [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THTeHuiCell.class)];
-    cell.teModel = self.dataSourceArray[indexPath.row];
+    cell.teModel = self.dataSource[indexPath.row];
     return cell;
 }
 
@@ -98,13 +105,13 @@
 
 #pragma mark - 按钮点击事件
 - (void)btnClick {
-    [self.menuView show];
+//    [self.menuView show];
     self.titleBtnView.selected = YES;
     kWeakSelf
-    self.menuView.selectedAction = ^(NSInteger index) {
-        weakSelf.titleBtnView.selected = NO;
-        
-    };
+//    self.menuView.selectedAction = ^(NSInteger index) {
+//        weakSelf.titleBtnView.selected = NO;
+//
+//    };
 }
 
 - (void)topViewClick:(UIButton *)sender {

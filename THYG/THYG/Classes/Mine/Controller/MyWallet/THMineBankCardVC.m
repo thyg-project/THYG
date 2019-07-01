@@ -9,7 +9,11 @@
 #import "THMineBankCardVC.h"
 #import "THMineBankCardListCell.h"
 
-@interface THMineBankCardVC ()
+@interface THMineBankCardVC () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
@@ -22,10 +26,12 @@
 
 #pragma mark - 设置UI界面
 - (void)setupUI {
-	self.title = @"银行卡";
-	self.isGrouped = YES;
-	[self.view addSubview:self.dataTableView];
-	[self.dataTableView registerNib:[UINib nibWithNibName:@"THMineBankCardListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineBankCardListCell.class)];
+	self.navigationItem.title = @"银行卡";
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+	[self.view addSubview:self.tableView];
+	[self.tableView registerNib:[UINib nibWithNibName:@"THMineBankCardListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineBankCardListCell.class)];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

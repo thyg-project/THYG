@@ -18,22 +18,28 @@
 @property (weak, nonatomic) IBOutlet UIButton *systemNotificationBtn;
 @property (weak, nonatomic) IBOutlet UIButton *activityRecommendBtn;
 
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation THMyMessageCtl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的消息";
+    self.navigationItem.title = @"我的消息";
     
     [self initFromNib];
-    
-    [self.view addSubview:self.dataTableView];
-    [self.dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(@70);
     }];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THMyMessageListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyMessageListCell.class)];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THMyMessageListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyMessageListCell.class)];
     
 }
 
@@ -65,11 +71,11 @@
 }
 - (IBAction)systemNotificationBtnClick:(id)sender {
     THSystemMessageCtl *sysMsg = [[THSystemMessageCtl alloc] init];
-    [self pushVC:sysMsg];
+    [self.navigationController pushViewController:sysMsg animated:YES];
 }
 - (IBAction)activityRecommandBtnClick:(id)sender {
     THActivityRecommandCtl *activity = [[THActivityRecommandCtl alloc] init];
-    [self pushVC:activity];
+    [self.navigationController pushViewController:activity animated:YES];
 }
 
 

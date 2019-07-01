@@ -27,6 +27,10 @@
 @property (nonatomic, strong) THAddressPCDModel *districtSelModel;
 @property (nonatomic, strong) UIButton *footerBtn;
 
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation THAddressEditVC
@@ -40,11 +44,15 @@
 
 - (void)setupUI {
     self.title = @"收货地址";
-    self.isGrouped = YES;
-    self.dataTableView.height = kScreenHeight-kNaviHeight-44;
-    [self.view addSubview:self.dataTableView];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     [self.view addSubview:self.footerBtn];
-    [self.dataTableView registerClass:THAddAddressCell.class forCellReuseIdentifier:NSStringFromClass(THAddAddressCell.class)];
+    [self.tableView registerClass:THAddAddressCell.class forCellReuseIdentifier:NSStringFromClass(THAddAddressCell.class)];
     
     [self.selectAddressView initDataWithProvinceId:[self.modelData.province integerValue] cityId:[self.modelData.city integerValue] districtId:[self.modelData.district integerValue]];
     
@@ -64,10 +72,10 @@
         model.type = [_typeData[index] integerValue];
         model.placehold = _placeholdData[index];
         model.text = _valueData[index];
-        [self.dataSourceArray addObject:model];
+        [self.dataSource addObject:model];
         index++;
     }
-    [self.dataTableView reloadData];
+    [self.tableView reloadData];
     
     [self checkParmaMethod];
 }
@@ -112,15 +120,15 @@
 }
 
 - (NSString*)getValue:(NSInteger)row {
-    return ((THAddAddressCell*)[self.dataTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]]).textField.text.length ? ((THAddAddressCell*)[self.dataTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]]).textField.text : @"";
+    return ((THAddAddressCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]]).textField.text.length ? ((THAddAddressCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]]).textField.text : @"";
 }
 
 - (UITextField*)getTextField:(NSInteger)row {
-    return ((THAddAddressCell*)[self.dataTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]]).textField;
+    return ((THAddAddressCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]]).textField;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSourceArray.count;
+    return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -130,7 +138,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     THAddAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THAddAddressCell.class)];
-    cell.modelData = self.dataSourceArray[indexPath.row];
+    cell.modelData = self.dataSource[indexPath.row];
     cell.textField.tag = indexPath.row;
     cell.textField.keyboardType = UIKeyboardTypeDefault;
     switch (indexPath.row) {
@@ -176,9 +184,9 @@
         weakSelf.citySelModel = cityModel;
         weakSelf.districtSelModel = districtModel;
 
-        THAddressPCDModel *model = weakSelf.dataSourceArray[2];
+        THAddressPCDModel *model = weakSelf.dataSource[2];
         model.text = [NSString stringWithFormat:@"%@ %@ %@",provinceModel.name,cityModel.name,districtModel.name];
-        [weakSelf.dataTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
     }];
 }

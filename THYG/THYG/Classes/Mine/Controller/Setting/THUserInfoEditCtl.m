@@ -25,6 +25,8 @@
 @property (assign, nonatomic) BOOL isSelectedSex;
 @property (nonatomic, copy) NSMutableDictionary *params;
 
+@property (nonatomic, strong) NSMutableArray *dataSourceArray;
+
 @end
 
 @implementation THUserInfoEditCtl

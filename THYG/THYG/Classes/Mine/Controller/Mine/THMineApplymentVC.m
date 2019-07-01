@@ -24,7 +24,7 @@
 
 - (IBAction)okClick:(id)sender {
     THMineApplymentInputVC *inputVc = [[THMineApplymentInputVC alloc] init];
-    [self pushVC:inputVc];
+    [self.navigationController pushViewController:inputVc animated:YES];
 }
 
 

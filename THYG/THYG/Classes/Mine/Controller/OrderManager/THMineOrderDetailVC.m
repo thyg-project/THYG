@@ -16,6 +16,7 @@
 @interface THMineOrderDetailVC ()
 @property (nonatomic, strong) THOrderModel *orderModel;
 @property (nonatomic, strong) THMineOrderDetailToolView *toolView;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation THMineOrderDetailVC
@@ -28,13 +29,16 @@
 
 #pragma mark - setupUI
 - (void)setupUI {
-    self.title = @"订单详情";
-    self.dataTableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight-kNaviHeight);
-    [self.dataTableView registerClass:[THMineOrderDetailCell class] forCellReuseIdentifier:NSStringFromClass(THMineOrderDetailCell.class)];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineOrderCell.class)];
-    [self.dataTableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
-    [self.view addSubview:self.dataTableView];
-    
+    self.navigationItem.title = @"订单详情";
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = _tableView.dataSource = self;
+    [self.tableView registerClass:[THMineOrderDetailCell class] forCellReuseIdentifier:NSStringFromClass(THMineOrderDetailCell.class)];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineOrderCell.class)];
+    [self.tableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     [self.view addSubview:self.toolView];
     
     [self.toolView mas_makeConstraints:^(MASConstraintMaker *make) {

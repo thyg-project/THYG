@@ -15,6 +15,8 @@
 @interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation THMyTeMoneyCtl
@@ -83,7 +85,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return !section ? 0 : self.dataSourceArray.count;
+    return !section ? 0 : self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,7 +96,7 @@
         
     } else {
         THGoodsListOfCollectionLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) forIndexPath:indexPath];
-        cell.favModel = self.dataSourceArray[indexPath.item];
+        cell.favModel = self.dataSource[indexPath.item];
         return cell;
         
     }

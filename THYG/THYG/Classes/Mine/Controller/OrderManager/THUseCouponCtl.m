@@ -12,6 +12,10 @@
 
 @interface THUseCouponCtl ()
 
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation THUseCouponCtl
@@ -19,9 +23,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"选择优惠券";
-    [self.view addSubview:self.dataTableView];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THCouponsCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCouponsCell.class)];
+    self.navigationItem.title = @"选择优惠券";
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    
+    [self.view addSubview:self.tableView];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THCouponsCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCouponsCell.class)];
 }
 
 
@@ -32,13 +40,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataSourceArray.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     THCouponsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THCouponsCell.class)];
-    cell.modelData = self.dataSourceArray[indexPath.row];
+    cell.modelData = self.dataSource[indexPath.row];
     return cell;
 }
 
@@ -46,9 +54,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.selectCouponBlock) {
-        self.selectCouponBlock(self.dataSourceArray[indexPath.row]);
+        self.selectCouponBlock(self.dataSource[indexPath.row]);
     }
-    [self popVC];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

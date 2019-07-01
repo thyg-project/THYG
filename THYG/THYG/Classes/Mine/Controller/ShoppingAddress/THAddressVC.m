@@ -11,8 +11,11 @@
 #import "THAddressEditListCell.h"
 #import "THAddressEditVC.h"
 
-@interface THAddressVC ()
+@interface THAddressVC () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,strong) UIButton *addAddressBtn;
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation THAddressVC
@@ -25,14 +28,20 @@
 
 #pragma mark - 设置UI
 - (void)setupUI {
-    self.title = @"收货地址";
-    [self.view addSubview:self.dataTableView];
-    self.dataTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.dataTableView.tableFooterView = [UIView new];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THAddressEditListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THAddressEditListCell.class)];
+    self.navigationItem.title = @"收货地址";
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableFooterView = [UIView new];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THAddressEditListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THAddressEditListCell.class)];
     [self.view addSubview:self.addAddressBtn];
     
-    self.dataTableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 }
 
@@ -57,7 +66,7 @@
     vc.optionSuccessBlock = ^{
         [self refreshDataAction];
     };
-    [self pushVC:vc];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark -- 删除地址
@@ -90,7 +99,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSourceArray.count;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -100,7 +109,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     THAddressEditListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THAddressEditListCell.class)];
-    THAddressModel *model = self.dataSourceArray[indexPath.section];;
+    THAddressModel *model = self.dataSource[indexPath.section];;
     cell.addressModel = model;
 
     kWeakSelf;
@@ -124,7 +133,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    THAddressModel *model = self.dataSourceArray[indexPath.section];
+    THAddressModel *model = self.dataSource[indexPath.section];
     return [self getSpaceLabelHeight:model.full_address withFont:[UIFont systemFontOfSize:12] withWidth:kScreenWidth-2*12] + 110;
 }
 
@@ -133,14 +142,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.001f;
+    return CGFLOAT_MIN;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.getSelectAddress) {
-        self.getSelectAddress(self.dataSourceArray[indexPath.section]);
+        self.getSelectAddress(self.dataSource[indexPath.section]);
     }
-    [self popVC];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 懒加载

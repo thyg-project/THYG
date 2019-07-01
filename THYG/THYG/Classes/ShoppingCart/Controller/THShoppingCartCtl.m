@@ -129,7 +129,7 @@
         THOrderConfirmCtl *orderConfirm = [[THOrderConfirmCtl alloc] init];
         orderConfirm.cart_ids = cart_ids;
         orderConfirm.title = @"填写订单";
-        [self pushVC:orderConfirm];
+        [self.navigationController pushViewController:orderConfirm animated:YES];
         
     } else {
         [THHUD showMsg:@"您还未选择任何商品"];

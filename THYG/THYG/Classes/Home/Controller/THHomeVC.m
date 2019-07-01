@@ -27,6 +27,8 @@
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView * collectionView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) THHomeShowMenuView *menuView;
 @end
 
 @implementation THHomeVC
@@ -46,6 +48,7 @@
         searchButton;
     });
     self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
+    _menuView = [THHomeShowMenuView new];
     [self.view addSubview:self.menuView];
     
     [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:NO delegate:self animation:YES];
@@ -105,21 +108,21 @@
     self.menuView.selectedAction = ^(NSInteger index) {
         if (index == 0) {//我的二维码
             THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
-            [weakSelf pushVC:shareVc];
+             [self.navigationController pushViewController:shareVc animated:YES];
             
         } else if (index == 1) {//我的消息
             THMyMessageCtl *myMessage = [[THMyMessageCtl alloc] init];
-            [weakSelf pushVC:myMessage];
+             [self.navigationController pushViewController:myMessage animated:YES];
         } else {//我的关注
             THMyCollectCtl *collectVc = [[THMyCollectCtl alloc] init];
-            [weakSelf pushVC:collectVc];
+             [self.navigationController pushViewController:collectVc animated:YES];
         }
     };
 }
 
 - (void)searchClick {
     THScreeningGoodsCtl *search = [[THScreeningGoodsCtl alloc] init];
-    [self pushVC:search];
+     [self.navigationController pushViewController:search animated:YES];
 }
 
 #pragma mark - collectionView 代理 & 数据源
@@ -131,7 +134,7 @@
     if (section==0) {
         return 1;
     }
-	return self.dataSourceArray.count;
+	return self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -143,12 +146,12 @@
             if (item == 0) {
                 THFlashCtl *flash = [[THFlashCtl alloc] init];
                 flash.title = @"秒杀";
-                [self pushVC:flash];
+                 [self.navigationController pushViewController:flash animated:YES];
                 
             } else if (item == 1) {
                 THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
                 spellGroup.title = @"团购";
-                [self pushVC:spellGroup];
+                 [self.navigationController pushViewController:spellGroup animated:YES];
                 
             } else {
                 THScreeningGoodsCtl *screenGoods = [[THScreeningGoodsCtl alloc] init];
@@ -157,7 +160,7 @@
                 }else if (item == 3){
                     screenGoods.title = @"必买清单";
                 }
-                [self pushVC:screenGoods];
+                 [self.navigationController pushViewController:screenGoods animated:YES];
             }
         
         };
@@ -166,7 +169,7 @@
         
     } else {
         THGoodsListOfCollectionLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) forIndexPath:indexPath];
-        cell.favModel = self.dataSourceArray[indexPath.item];
+        cell.favModel = self.dataSource[indexPath.item];
         return cell;
         
     }
@@ -183,7 +186,7 @@
                     case 0://我的特币
                     {
                         THMyTeMoneyCtl *te = [[THMyTeMoneyCtl alloc] init];
-                        [self pushVC:te];
+                         [self.navigationController pushViewController:te animated:YES];
                     }
                         break;
                     case 1://农副批发
@@ -201,21 +204,21 @@
                     {
                         THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
                         limitSpellGroup.title = itemName;
-                        [self pushVC:limitSpellGroup];
+                         [self.navigationController pushViewController:limitSpellGroup animated:YES];
                     }
                         break;
                     case 4://团购
                     {
                         THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
                         spellGroup.title = itemName;
-                        [self pushVC:spellGroup];
+                         [self.navigationController pushViewController:spellGroup animated:YES];
                     }
                         break;
                     case 5://秒杀
                     {
                         THFlashCtl *flash = [[THFlashCtl alloc] init];
                         flash.title = itemName;
-                        [self pushVC:flash];
+                         [self.navigationController pushViewController:flash animated:YES];
                     }
                         break;
                         
@@ -238,9 +241,9 @@
 	
     if (indexPath.section > 0 ) {
         THGoodsDetailVC *detailVc = [[THGoodsDetailVC alloc] init];
-        THFavouriteGoodsModel *model = self.dataSourceArray[indexPath.item];
+        THFavouriteGoodsModel *model = self.dataSource[indexPath.item];
         detailVc.goodsId = model.goods_id;
-        [self pushVC:detailVc];
+         [self.navigationController pushViewController:detailVc animated:YES];
     }
     
 }

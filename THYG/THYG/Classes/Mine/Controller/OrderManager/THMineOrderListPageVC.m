@@ -14,6 +14,10 @@
 
 @interface THMineOrderListPageVC ()
 
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation THMineOrderListPageVC
@@ -21,11 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.view.backgroundColor = RANDOMCOLOR;
-//    self.dataTableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight-kNaviHeight+9);
-    [self.view addSubview:self.dataTableView];
-    self.dataTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineOrderCell.class)];
-    [self.dataTableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineOrderCell.class)];
+    [self.tableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
     
     [self getUserOrderList];
     
@@ -34,7 +43,7 @@
 #pragma mark - 我的订单列表
 - (void)getUserOrderList {
     
-    [self.dataSourceArray removeAllObjects];
+    [self.dataSource removeAllObjects];
     
     NSString *url = self.type ? @"/Order/getReturnGoodsList" : @"/Order/getUserOrderList";
     
@@ -105,7 +114,7 @@
 
 #pragma mark - 数据源代理方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSourceArray.count;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -114,7 +123,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THMineOrderCell *orderCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineOrderCell.class)];
-    THOrderListModel *model = self.dataSourceArray[indexPath.section];
+    THOrderListModel *model = self.dataSource[indexPath.section];
     orderCell.orderListModel = model;
     
     orderCell.deleteOrderBlock = ^{
@@ -127,15 +136,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     THMineOrderDetailVC *detailVc = [[THMineOrderDetailVC alloc] init];
-    THOrderListModel *om = self.dataSourceArray[indexPath.section];
+    THOrderListModel *om = self.dataSource[indexPath.section];
     detailVc.type = self.type;
     detailVc.orderId = om.order_id;
-    [self pushVC:detailVc];
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     THMineOrderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
-    THOrderListModel *model = self.dataSourceArray[section];
+    THOrderListModel *model = self.dataSource[section];
     footer.orderStatus = self.type? [model.status integerValue] : [THOrderListModel orderTypeWithCode:model.order_status_code];
     footer.isReturnOrExchange = self.type;
     

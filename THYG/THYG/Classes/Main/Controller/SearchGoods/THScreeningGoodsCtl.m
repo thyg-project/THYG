@@ -30,6 +30,9 @@
 @property (nonatomic, copy) NSString *start_priceParma;
 @property (nonatomic, copy) NSString *end_priceParma;
 @property (nonatomic, copy) NSArray *categoryData;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
+@property (nonatomic, assign) NSInteger pageIndex;
 
 //是否是横向布局
 @property (nonatomic) BOOL isTransLayout;
@@ -119,7 +122,7 @@
     
     _siftDict = [NSMutableDictionary dictionaryWithCapacity:0];
     
-    [self.dataSourceArray removeAllObjects];
+    [self.dataSource removeAllObjects];
     
     @weakify(self);
     // 综合 0  销量 1  价格 2  筛选 3
@@ -238,12 +241,12 @@
 
 #pragma mark - UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataSourceArray.count;
+    return self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    THGoodsModel *goodsModel = self.dataSourceArray[indexPath.row];
+    THGoodsModel *goodsModel = self.dataSource[indexPath.row];
     if (self.isTransLayout) {
         THGoodsTransLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsTransLayoutCell.class) forIndexPath:indexPath];
         cell.goodsModel = goodsModel;
@@ -263,10 +266,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    THGoodsModel *goodsModel = self.dataSourceArray[indexPath.row];
+    THGoodsModel *goodsModel = self.dataSource[indexPath.row];
     THGoodsDetailVC *detail = [[THGoodsDetailVC alloc]init];
     detail.goodsId = goodsModel.goods_id;
-    [self pushVC:detail];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -313,7 +316,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar endEditing:YES];
     self.searchText = searchBar.text;
-    [self.dataSourceArray removeAllObjects];
+    [self.dataSource removeAllObjects];
     [self requestData:YES];
 }
 

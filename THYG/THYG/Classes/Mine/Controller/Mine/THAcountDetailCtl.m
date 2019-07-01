@@ -12,6 +12,10 @@
 @interface THAcountDetailCtl ()
 @property (weak, nonatomic) IBOutlet UIView *headView;
 
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation THAcountDetailCtl
@@ -21,13 +25,13 @@
 
     if (self.balanceCateType != recommandBalanceType) {
         self.headView.hidden = YES;
-    }else{
-        self.dataTableView.y = 60;
-        self.dataTableView.height -= 60;
     }
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     
-    [self.view addSubview:self.dataTableView];
-    [self.dataTableView registerNib:[UINib nibWithNibName:NSStringFromClass(THAccountDetailCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THAccountDetailCell.class)];
+    [self.view addSubview:self.tableView];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(THAccountDetailCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THAccountDetailCell.class)];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

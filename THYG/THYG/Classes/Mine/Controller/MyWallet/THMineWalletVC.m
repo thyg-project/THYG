@@ -75,7 +75,7 @@
 	
 	if (indexPath.row != 0) {
 		THMineBankCardVC *banckVc = [[THMineBankCardVC alloc] init];
-		[self pushVC:banckVc];
+        [self.navigationController pushViewController:banckVc animated:YES];
 	}
 	
 }
@@ -121,7 +121,7 @@
             THAcountDetailCtl *acountDetail = [[THAcountDetailCtl alloc] init];
             acountDetail.title = title;
             acountDetail.balanceCateType = tag;
-            [weakSelf pushVC:acountDetail];
+            [weakSelf.navigationController pushViewController:acountDetail animated:YES];
         };
     }
     return _walletView;

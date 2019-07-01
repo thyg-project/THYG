@@ -136,7 +136,7 @@
     THGoodsDetailVC *goodDetailVc = [[THGoodsDetailVC alloc] init];
     THFlashSaleModel *flashModel = self.listArray[indexPath.item];
     goodDetailVc.goodsId = flashModel.goods_id;
-    [self pushVC:goodDetailVc];
+    [self.navigationController pushViewController:goodDetailVc animated:YES];
 }
 
 

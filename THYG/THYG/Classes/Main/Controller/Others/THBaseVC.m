@@ -47,67 +47,6 @@
     
 }
 
-- (void)configRefresh {
-    self.pageIndex = 1;
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        self.pageIndex = 1;
-        self.isUp = NO;
-        if (self.refreshData) {
-            self.refreshData();
-        }
-    }];
-    header.lastUpdatedTimeLabel.hidden = YES;
-    self.dataTableView.mj_header = header;
-    
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        
-        self.pageIndex += 1;
-        self.isUp = YES;
-        if (self.refreshData) {
-            self.refreshData();
-        }
-        
-    }];
-    [footer setTitle:@"没有更多数据了~" forState:MJRefreshStateNoMoreData];
-    footer.stateLabel.textColor = [UIColor grayColor];
-    footer.stateLabel.font = Font(13);
-    self.dataTableView.mj_footer = footer;
-    self.dataTableView.mj_footer.hidden = YES;
-}
-
-- (void)refreshEndOfPulldownWithResponseData:(NSArray *)responseData
-{
-    if (!self.isUp) {
-        self.dataTableView.mj_footer.hidden = NO;
-        [self.dataSourceArray removeAllObjects];
-        [self.dataSourceArray addObjectsFromArray:responseData];
-        [self.dataTableView.mj_header endRefreshing];
-        if (self.dataSourceArray.count < 9) {
-            self.dataTableView.mj_footer.hidden = YES;
-        }
-        if (self.dataSourceArray.count) {
-            _isShowEmptyView = NO;
-        }else{
-            _isShowEmptyView = YES;
-        }
-        [self.dataTableView.mj_header endRefreshing];
-    }
-}
-
-- (void)refreshEndOfPullUpWithResponseData:(NSArray *)responseData
-{
-    if (self.isUp) {
-        [self.dataTableView.mj_footer endRefreshing];
-        [self.dataSourceArray addObjectsFromArray:responseData];
-        if (responseData.count==0 || responseData.count < 9) {
-            [self.dataTableView.mj_footer endRefreshingWithNoMoreData];
-        }else{
-            [self.dataTableView.mj_footer resetNoMoreData];
-        }
-    }
-}
-
-
 
 #pragma mark - 导航栏按钮
 - (void)scanAction {
@@ -115,7 +54,7 @@
     // 检查权限
     [THAVCaptureSessionManager checkAuthorizationStatusForCameraWithGrantBlock:^{
         THScanQRCodeVC *scanVc = [[THScanQRCodeVC alloc] init];
-        [self pushVC:scanVc];
+        [self.navigationController pushViewController:scanVc animated:YES];
     } DeniedBlock:^{
         UIAlertAction *aciton = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
@@ -127,25 +66,6 @@
     
 }
 
-
-#pragma mark - push
-- (void)pushVC:(UIViewController *)controller {
-	[self.navigationController pushViewController:controller animated:YES];
-}
-
-#pragma mark - pop
-- (void)popVC {
-	[self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)popTo:(UIViewController *)controller {
-	[self.navigationController popToViewController:controller animated:YES];
-}
-
-#pragma mark - present
-- (void)presentVC:(UIViewController *)controller{
-	[self.navigationController presentViewController:controller animated:YES completion:nil];
-}
 
 #pragma mark -- 页面加载的时候改变状态栏
 - (void)viewDidLayoutSubviews {
@@ -212,44 +132,6 @@
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
-#pragma mark - 懒加载
-- (NSMutableArray *)dataSourceArray {
-    if (!_dataSourceArray) {
-        _dataSourceArray = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _dataSourceArray;
-}
-
-- (UITableView *)dataTableView {
-    if (!_dataTableView) {
-        _dataTableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.isGrouped ? UITableViewStylePlain : UITableViewStyleGrouped];
-        _dataTableView.backgroundColor = BGColor;
-        _dataTableView.delegate = self;
-        _dataTableView.dataSource = self;
-        _dataTableView.emptyDataSetSource = self;
-        _dataTableView.emptyDataSetDelegate = self;
-        if (@available(iOS 11, *)) {
-            _dataTableView.estimatedRowHeight = 0;
-            _dataTableView.estimatedSectionFooterHeight = 0;
-            _dataTableView.estimatedSectionHeaderHeight = 0;
-        }
-//        _dataTableView.emptyDataSetSource = self;
-//        _dataTableView.emptyDataSetDelegate = self;
-//        [_dataTableView registerClass:[KBDefaultSectionView class] forHeaderFooterViewReuseIdentifier:@"sectionDefaultView"];
-        [self isRootViewController];
-    }
-    return _dataTableView;
-}
-
-- (void)isRootViewController {
-    // NSLog(@"self.navigationController%ld", self.navigationController.viewControllers.count);
-//    if (self.navigationController.viewControllers.count > 1) {
-//        _dataTableView.frame = TABLE_NORMAL_FRAME;
-//    } else {
-//        _dataTableView.frame = TABLE_FRAME;
-//    }
-}
-
 - (UIButton*)backButton {
     if (!_backButton) {
         _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -264,16 +146,8 @@
     return _backButton;
 }
 
-- (THHomeShowMenuView *)menuView {
-    if (!_menuView) {
-        _menuView = [[THHomeShowMenuView alloc] init];
-    }
-    return _menuView;
-}
-
-
 - (void)backButtonClick {
-    [self popVC];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -11,18 +11,23 @@
 
 @interface THSystemMessageCtl ()
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation THSystemMessageCtl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"系统消息";
-    [self.view addSubview:self.dataTableView];
-    [self.dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.navigationItem.title = @"系统消息";
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    [self.dataTableView registerNib:[UINib nibWithNibName:@"THSystemMessageCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSystemMessageCell.class)];
+    [self.tableView registerNib:[UINib nibWithNibName:@"THSystemMessageCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSystemMessageCell.class)];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

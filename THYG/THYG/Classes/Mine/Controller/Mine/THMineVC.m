@@ -35,6 +35,7 @@
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) THMineHeaderView *headView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation THMineVC
@@ -54,7 +55,7 @@
 - (void)settingBtnClick {
     THSettingCtl *setting = [[THSettingCtl alloc] init];
     setting.title = @"账户设置";
-    [self pushVC:setting];
+    [self.navigationController pushViewController:setting animated:YES];
 }
 
 #pragma mark - 更新用户信息
@@ -261,7 +262,7 @@
                 manageVc.type = 1;
                 manageVc.selectIndex = 0;
             }
-            [self pushVC:manageVc];
+            [self.navigationController pushViewController:manageVc animated:YES];
         };
         
 		cell = orderCell;
@@ -291,13 +292,13 @@
         
         if (indexPath.row == 0) {
             THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
-            [self pushVC:shareVc];
+            [self.navigationController pushViewController:shareVc animated:YES];
         } else if (indexPath.row == 1) {
             THMineSubmitApplicationVC *submitVc = [[THMineSubmitApplicationVC alloc] init];
-            [self pushVC:submitVc];
+             [self.navigationController pushViewController:submitVc animated:YES];
         } else {
             THMineApplymentVC *applyVc = [[THMineApplymentVC alloc] init];
-            [self pushVC:applyVc];
+             [self.navigationController pushViewController:applyVc animated:YES];
         }
         
     } else if (indexPath.section == 2){
@@ -306,11 +307,11 @@
             
             THCouponsCtl *coupons = [[THCouponsCtl alloc] init];
             coupons.title = _dataArray[indexPath.section][indexPath.row][@"title"];
-            [self pushVC:coupons];
+             [self.navigationController pushViewController:coupons animated:YES];
             
         }else if (indexPath.row==1){
             THMineWalletVC *walletVc = [[THMineWalletVC alloc] init];
-            [self pushVC:walletVc];
+             [self.navigationController pushViewController:walletVc animated:YES];
         }
         
     }else if (indexPath.section == 3){
@@ -319,24 +320,24 @@
             
             THInvitationManageCtl *invitationManage = [[THInvitationManageCtl alloc] init];
             invitationManage.title = _dataArray[indexPath.section][indexPath.row][@"title"];
-            [self pushVC:invitationManage];
+             [self.navigationController pushViewController:invitationManage animated:YES];
             
         } else if (indexPath.row < 3){
             
             THMyCollectCtl *collect = [[THMyCollectCtl alloc] init];
             collect.title = _dataArray[indexPath.section][indexPath.row][@"title"];
             collect.type = indexPath.row == 2 ? MineGoodsTypeScanHistory : MineGoodsTypeMyAttention;
-            [self pushVC:collect];
+             [self.navigationController pushViewController:collect animated:YES];
             
         } else if (indexPath.row == 3) {
             THTeCtl *te = [[THTeCtl alloc] init];
             te.title = @"我的晒单";
-            [self pushVC:te];
+             [self.navigationController pushViewController:te animated:YES];
         } else if (indexPath.row == 4) {
             
             THMyTaskCtl *taskCtl = [[THMyTaskCtl alloc] init];
             taskCtl.title = _dataArray[indexPath.section][indexPath.row][@"title"];
-            [self pushVC:taskCtl];
+             [self.navigationController pushViewController:taskCtl animated:YES];
             
         }
         
@@ -371,12 +372,12 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataSourceArray.count;
+    return self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     THGoodsListOfCollectionLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) forIndexPath:indexPath];
-    cell.favModel = self.dataSourceArray[indexPath.item];
+    cell.favModel = self.dataSource[indexPath.item];
     return cell;
 }
 
@@ -408,10 +409,10 @@
             if ([@"" length]) {
                 THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
                 edit.title = @"个人资料编辑";
-                [weakSelf pushVC:edit];
+                 [self.navigationController pushViewController:edit animated:YES];
             } else {
                 THLoginVC *loginVc = [[THLoginVC alloc] init];
-                [weakSelf pushVC:loginVc];
+                 [self.navigationController pushViewController:loginVc animated:YES];
             }
 		};
 	}

@@ -69,7 +69,7 @@
             case 1: {
                 THShoppingCartCtl *shoppingVc = [[THShoppingCartCtl alloc] init];
                 shoppingVc.title = @"购物车";
-                [weakSelf pushVC:shoppingVc];
+                [weakSelf.navigationController pushViewController:shoppingVc animated:YES];
             }
                 
                 break;

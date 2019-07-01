@@ -256,17 +256,17 @@
             [self.mTable reloadData];
             [self caculateOrderPriceWithAct:nil];
         };
-        [self pushVC:addressVc];
+        [self.navigationController pushViewController:addressVc animated:YES];
     }else if (indexPath.section == 4 && indexPath.row == 0){
         //选择优惠券
         THUseCouponCtl *selectCouponCtl = [[THUseCouponCtl alloc] init];
-        selectCouponCtl.dataSourceArray = self.modelData.userCartCouponList.mutableCopy;
+//        selectCouponCtl.dataSourceArray = self.modelData.userCartCouponList.mutableCopy;
         selectCouponCtl.selectCouponBlock = ^(THCouponsModel *couponModel) {
             self.couponsModel = couponModel;
             [self.mTable reloadData];
             [self caculateOrderPriceWithAct:nil];
         };
-        [self pushVC:selectCouponCtl];
+        [self.navigationController pushViewController:selectCouponCtl animated:YES];
     }
     
 }

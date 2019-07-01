@@ -47,18 +47,6 @@
     UITextField *_searchTextField;
 }
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self isNavigationNormal];
-    [self statusBarDefault];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self statusBarLightContent];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];

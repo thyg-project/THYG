@@ -57,9 +57,6 @@ static CGFloat textFieldH = 40;
     
     [self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
     
-    
-    
-    
     // 上拉加载
     _refreshFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
@@ -75,7 +72,6 @@ static CGFloat textFieldH = 40;
     
     [self setupTextField];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -288,7 +284,7 @@ static CGFloat textFieldH = 40;
             [weakSelf.textField becomeFirstResponder];
             weakSelf.isReplayingComment = YES;
             weakSelf.commentToUser = commentId;
-            [weakSelf adjustTableViewToFitKeyboardWithRect:rectInWindow];
+            
         }];
         
         cell.delegate = self;
@@ -312,8 +308,8 @@ static CGFloat textFieldH = 40;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // >>>>>>>>>>>>>>>>>>>>> * cell自适应 * >>>>>>>>>>>>>>>>>>>>>>>>
-//    id model = self.dataArray[indexPath.row];
-    return 0;
+    id model = self.dataArray[indexPath.row];
+    return 40;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -324,17 +320,6 @@ static CGFloat textFieldH = 40;
 
 
 
-- (CGFloat)cellContentViewWith
-{
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    
-    // 适配ios7横屏
-    if ([UIApplication sharedApplication].statusBarOrientation != UIInterfaceOrientationPortrait && [[UIDevice currentDevice].systemVersion floatValue] < 8) {
-        width = [UIScreen mainScreen].bounds.size.height;
-    }
-    return width;
-}
-
 
 #pragma mark - SDTimeLineCellDelegate
 
@@ -343,7 +328,7 @@ static CGFloat textFieldH = 40;
     [_textField becomeFirstResponder];
     _currentEditingIndexthPath = [self.tableView indexPathForCell:cell];
     
-    [self adjustTableViewToFitKeyboard];
+    
     
 }
 
@@ -375,29 +360,6 @@ static CGFloat textFieldH = 40;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
     });
-}
-
-
-- (void)adjustTableViewToFitKeyboard
-{
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_currentEditingIndexthPath];
-    CGRect rect = [cell.superview convertRect:cell.frame toView:window];
-    [self adjustTableViewToFitKeyboardWithRect:rect];
-}
-
-- (void)adjustTableViewToFitKeyboardWithRect:(CGRect)rect
-{
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    CGFloat delta = CGRectGetMaxY(rect) - (window.bounds.size.height - _totalKeybordHeight);
-    
-    CGPoint offset = self.tableView.contentOffset;
-    offset.y += delta;
-    if (offset.y < 0) {
-        offset.y = 0;
-    }
-    
-    [self.tableView setContentOffset:offset animated:YES];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -439,26 +401,4 @@ static CGFloat textFieldH = 40;
 
 
 
-- (void)keyboardNotification:(NSNotification *)notification
-{
-    NSDictionary *dict = notification.userInfo;
-    CGRect rect = [dict[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
-    
-    
-    
-    CGRect textFieldRect = CGRectMake(0, rect.origin.y - textFieldH, rect.size.width, textFieldH);
-    if (rect.origin.y == [UIScreen mainScreen].bounds.size.height) {
-        textFieldRect = rect;
-    }
-    
-    [UIView animateWithDuration:0.25 animations:^{
-        _textField.frame = textFieldRect;
-    }];
-    
-    CGFloat h = rect.size.height + textFieldH;
-    if (_totalKeybordHeight != h) {
-        _totalKeybordHeight = h;
-        [self adjustTableViewToFitKeyboard];
-    }
-}
 @end

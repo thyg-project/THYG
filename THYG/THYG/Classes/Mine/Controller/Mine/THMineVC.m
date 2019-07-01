@@ -74,7 +74,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    [self isNavigationClear];
 	[self.view addSubview:self.tableView];
 	// iOS 11 适配
 	if (@available(iOS 11, *)) {
@@ -362,7 +361,7 @@
         return kScreenHeight-kNaviHeight-kTabBarHeight;
     }
     
-	return 0.000001;
+	return CGFLOAT_MIN;
     
 }
 

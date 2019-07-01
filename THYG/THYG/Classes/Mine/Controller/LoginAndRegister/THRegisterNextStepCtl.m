@@ -25,8 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"会员注册";
-    [self isNavTitleWhite];
+    self.navigationItem.title = @"会员注册";
     [self setTextFieldLeftPadding:self.verifyCodeField forWidth:10];
     [self setTextFieldLeftPadding:self.pswField forWidth:10];
     self.phoneNumOfRevCodeLabel.text = [NSString stringWithFormat:@"请输入%@收到的验证码",self.phoneString];

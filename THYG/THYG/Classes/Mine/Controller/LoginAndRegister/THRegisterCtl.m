@@ -24,7 +24,6 @@
     [super viewDidLoad];
 	self.title = self.type ? @"忘记密码" : @"会员注册";
 	self.contactServicerLabel.hidden = self.type;
-    [self isNavTitleWhite];
     [self initSignal];
 }
 

@@ -23,8 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self isNavTitleWhite];
-    self.title = @"会员登录";
+    self.navigationItem.title = @"会员登录";
     [self initSignal];
 }
 

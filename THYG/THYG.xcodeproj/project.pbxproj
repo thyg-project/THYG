@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
+		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
@@ -320,6 +321,8 @@
 /* Begin PBXFileReference section */
 		025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SessionTask.h"; sourceTree = "<group>"; };
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
+		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
+		025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tool.m"; sourceTree = "<group>"; };
 		02C377C222C324700038AC5A /* YGNetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetWorkTools.h; sourceTree = "<group>"; };
 		02C377C322C324700038AC5A /* YGNetworkCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetworkCommon.m; sourceTree = "<group>"; };
 		02C377C522C324700038AC5A /* YGEncryptTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEncryptTool.h; sourceTree = "<group>"; };
@@ -1524,6 +1527,8 @@
 				512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */,
 				8F5168AA20747D8F005E956E /* UISearchBar+FMAdd.h */,
 				8F5168AB20747D8F005E956E /* UISearchBar+FMAdd.m */,
+				025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */,
+				025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2567,6 +2572,7 @@
 				57417E5B20CB88E100F5085F /* THAboutTHCtl.m in Sources */,
 				8F0DC2B82062360D009AE20B /* THAceSpellGroupListCell.m in Sources */,
 				512D7916205B97640088A4A0 /* UIButton+ImageTitleSpacing.m in Sources */,
+				025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */,
 				04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */,
 				572792DA20CED4DD00E498AD /* THCommentCateViewCell.m in Sources */,
 				04178F04207276EF0048875E /* THGoodsHeaderView.m in Sources */,

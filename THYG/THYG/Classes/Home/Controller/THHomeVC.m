@@ -25,6 +25,8 @@
 #import "THMyMessageCtl.h"
 #import "THScreeningGoodsCtl.h"
 #import "THHomeShowMenuView.h"
+#import "THAVCaptureSessionManager.h"
+#import "THScanQRCodeVC.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -36,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTools];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -306,5 +309,41 @@
 	}
 	return _collectionView;
 }
+
+- (void)setTools {
+    UIButton *left = [THUIFactory buttonWithImage:@"dingbu-saoyisao" selectedImage:@"dingbu-saoyisao" target:self action:@selector(scanAction)];
+    left.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    left.frame = CGRectMake(0, 0, 40, 44);
+    [left setTitle:@"扫一扫" forState:UIControlStateNormal];
+    left.titleLabel.font = Font(9);
+    [left layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:4];
+    UIButton *right = [THUIFactory buttonWithImage:@"dingbugengduo" selectedImage:@"dingbugengduo" target:self action:@selector(menuAction)];
+    right.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    right.frame = CGRectMake(0, 0, 40, 44);
+    [right setTitle:@"更多" forState:UIControlStateNormal];
+    right.titleLabel.font = Font(9);
+    [right layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:4];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:left];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:right];
+}
+
+- (void)scanAction {
+    
+    // 检查权限
+    [THAVCaptureSessionManager checkAuthorizationStatusForCameraWithGrantBlock:^{
+        THScanQRCodeVC *scanVc = [[THScanQRCodeVC alloc] init];
+        [self.navigationController pushViewController:scanVc animated:YES];
+    } DeniedBlock:^{
+        UIAlertAction *aciton = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+        }];
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"权限未开启" message:@"您未开启相机权限，点击确定跳转至系统设置开启" preferredStyle:UIAlertControllerStyleAlert];
+        [controller addAction:aciton];
+        [self presentViewController:controller animated:YES completion:nil];
+    }];
+    
+}
+
 
 @end

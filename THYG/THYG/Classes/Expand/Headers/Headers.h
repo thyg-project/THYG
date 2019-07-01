@@ -16,6 +16,8 @@
 #import "UIImage+CHImage.h"
 #import "UIButton+ImageTitleSpacing.h"
 #import "UIBarButtonItem+CHExtension.h"
+#import "UIViewController+Tool.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 
 //第三方库

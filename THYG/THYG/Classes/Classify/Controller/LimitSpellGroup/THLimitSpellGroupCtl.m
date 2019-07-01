@@ -27,7 +27,15 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGB(59, 59, 59)] forBarMetrics:UIBarMetricsDefault];
     [self.view addSubview:self.headView];
+    [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(50);
+    }];
     [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.headView.mas_bottom);
+    }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -102,7 +110,7 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.headView.height, kScreenWidth, kScreenHeight-kNaviHeight-self.headView.height) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
@@ -122,7 +130,7 @@
 - (THSpellGroupHead *)headView
 {
     if (!_headView) {
-        _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+        _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectZero];
     }
     return _headView;
 }

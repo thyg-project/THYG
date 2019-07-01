@@ -23,9 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的特币";
+    self.navigationItem.title = @"我的特币";
     [self.view addSubview:self.collectionView];
-     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
          make.edges.equalTo(self.view);
      }];
     [self requestNetWorkingWithPageNum:1 isHeader:YES];

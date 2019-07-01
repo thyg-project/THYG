@@ -71,7 +71,14 @@
     [self.view addSubview:self.siftView];
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.screeningView];
-    
+    [self.siftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.height.mas_offset(44);
+    }];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.siftView.mas_bottom);
+    }];
     self.pageIndex = 1;
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         self.pageIndex += 1;
@@ -357,7 +364,7 @@
 
 - (THGoodsPageSiftView *)siftView {
     if (!_siftView) {
-        _siftView = [[THGoodsPageSiftView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+        _siftView = [[THGoodsPageSiftView alloc] initWithFrame:CGRectZero];
     }
     return _siftView;
 }

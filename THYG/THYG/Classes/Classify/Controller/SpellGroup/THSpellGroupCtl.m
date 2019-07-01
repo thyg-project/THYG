@@ -25,9 +25,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"团购";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGB(59, 59, 59)] forBarMetrics:UIBarMetricsDefault];
     [self.view addSubview:self.headView];
     [self.view addSubview:self.collectionView];
+    [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.height.mas_equalTo(50);
+    }];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.top.equalTo(self.headView.mas_bottom);
+    }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -122,7 +131,7 @@
 - (THSpellGroupHead *)headView
 {
     if (!_headView) {
-        _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+        _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectZero];
     }
     return _headView;
 }

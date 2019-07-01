@@ -146,12 +146,10 @@
           
             if (item == 0) {
                 THFlashCtl *flash = [[THFlashCtl alloc] init];
-                flash.title = @"秒杀";
                  [self.navigationController pushViewController:flash animated:YES];
                 
             } else if (item == 1) {
                 THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
-                spellGroup.title = @"团购";
                  [self.navigationController pushViewController:spellGroup animated:YES];
                 
             } else {

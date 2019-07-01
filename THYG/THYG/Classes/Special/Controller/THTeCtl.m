@@ -11,6 +11,7 @@
 #import "SDTimeLineTableHeaderView.h"
 #import "SDTimeLineCell.h"
 #import "SDTimeLineCellModel.h"
+#import "IQKeyboardManager.h"
 
 #import "LEETheme.h"
 
@@ -30,7 +31,12 @@
 
 static CGFloat textFieldH = 40;
 
-@interface THTeCtl () <SDTimeLineCellDelegate, UITextFieldDelegate>
+@interface THTeCtl () <SDTimeLineCellDelegate, UITextFieldDelegate> {
+    MJRefreshAutoNormalFooter *_refreshFooter;
+    MJRefreshNormalHeader *_refreshHeader;
+    CGFloat _lastScrollViewOffsetY;
+    CGFloat _totalKeybordHeight;
+}
 
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, assign) BOOL isReplayingComment;
@@ -40,13 +46,6 @@ static CGFloat textFieldH = 40;
 @end
 
 @implementation THTeCtl
-
-{
-    MJRefreshAutoNormalFooter *_refreshFooter;
-    MJRefreshNormalHeader *_refreshHeader;
-    CGFloat _lastScrollViewOffsetY;
-    CGFloat _totalKeybordHeight;
-}
 
 - (void)viewDidLoad
 {
@@ -82,7 +81,7 @@ static CGFloat textFieldH = 40;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    [IQKeyboardManager sharedManager].enable = YES;
     if (!_refreshHeader.superview) {
         
         
@@ -95,6 +94,7 @@ static CGFloat textFieldH = 40;
 - (void)viewWillDisappear:(BOOL)animated
 {
     [_textField resignFirstResponder];
+    [IQKeyboardManager sharedManager].enable = NO;
 }
 
 - (void)dealloc

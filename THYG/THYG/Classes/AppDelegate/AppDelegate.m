@@ -14,6 +14,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import <Bugly/Bugly.h>
 #import "THShareTool.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
 
@@ -46,108 +47,14 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
     
 }
 
-#pragma mark -- 测试接口
-#pragma mark - 登录(成功) Login/login
-    /*
-      +    [THNetworkTool POST:API(@"/Login/login") parameters:@{@"mobile":@"15622745823", @"password":@"123456"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
+- (void)registerIQKeyboard {
+    IQKeyboardManager *m = [IQKeyboardManager sharedManager];
+    m.enable = NO;
+    m.shouldResignOnTouchOutside = NO;
+    m.shouldToolbarUsesTextFieldTintColor = NO;
+    m.enableAutoToolbar = NO;
+}
 
-    /*
-      +    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-      +    dict[@"mobile"] = @"15622745823";
-      +    dict[@"password"] = @"123456";
-      +    dict[@"confirm_password"] = @"123456";
-      +    dict[@"mobile_code"] = @"123456";
-      +     */
-
-#pragma mark - 注册(成功) Login/register
-    /*
-    [THNetworkTool POST:API(@"/Login/register") parameters:dict completion:^(id responseObject, NSDictionary *allResponseObject) {
-        NSLog(@"responseObject %@", responseObject);
-    }];
-    */
-    
-#pragma mark - 获取用户信息(成功) User/userinfo
-    /*
-      +    [THNetworkTool POST:API(@"/User/userinfo") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
-
-
-#warning - 更新用户信息 User/updateUserInfo
-#warning - 参数不完整
-    /*
-      +    [THNetworkTool POST:API(@"/User/updateUserInfo") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
-
-#warning - 申请成为供应商 参数有误
-    /*
-      +    [THNetworkTool POST:API(@"/User/applySupplier") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
-
-#warning 申请成为推广专员
-#pragma mark - 申请成为推广专员 （error 500）
-    /*
-      +    [THNetworkTool POST:API(@"/User/applyPromotionSpecialist") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8", @"wechat":@"特惠易购"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
-#warning 收藏夹列表
-#pragma mark - 收藏夹列表 （返回Null，有问题）
-    /*
-      +    [THNetworkTool POST:API(@"/User/collectList") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +    */
-
-#pragma mark - 用户足迹 （提示请求成功，没有其他数据）
-    /*
-      +    [THNetworkTool POST:API(@"/User/getVisit") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +    */
-
-#pragma mark - 卡券列表 （测试成功，有数据）
-   /*
-      +    [THNetworkTool POST:API(@"/User/couponList") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
-
-#pragma mark - 我的钱包 （请求成功，没有数据）
-    /*
-      +     [THNetworkTool POST:API(@"/User/wallet") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +     NSLog(@"responseObject %@", responseObject);
-      +     }];
-      +     */
-
-    #pragma mark - 银行卡列表 （请求成功，未添加时候，没有数据）
-    /*
-      +    [THNetworkTool POST:API(@"/User/bankCardList") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
-
-    #pragma mark - 添加银行卡 （添加成功）
-    /*
-      +    [THNetworkTool POST:API(@"/User/addBankCard") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8", @"bank_name":@"广大银行", @"bank_card":@"6217002050002939980",@"realname":@"杨光"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
-
-    #pragma mark - 收藏商品 （添加成功）
-    /*
-      +    [THNetworkTool POST:API(@"/Goods/collectionGoods") parameters:@{@"token":@"6becd5d27a733040b0c95182a224a6c8", @"goods_id":@"01"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-      +        NSLog(@"responseObject %@", responseObject);
-      +    }];
-      +     */
 
 // 支持所有iOS系统
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {

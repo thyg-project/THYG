@@ -14,7 +14,7 @@
 #import "THSpellGroupHead.h"
 #import "THFlashSaleModel.h"
 
-@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, YYRefreshExtensionDelegate>
 @property (nonatomic, strong) NSMutableArray *mvpArray;
 @property (nonatomic, strong) NSMutableArray *listArray;
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"秒杀";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGB(59, 59, 59)] forBarMetrics:UIBarMetricsDefault];
     [self.view addSubview:self.headView];
      [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {

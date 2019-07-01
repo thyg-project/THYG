@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
@@ -317,6 +318,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SessionTask.h"; sourceTree = "<group>"; };
+		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		02C377C222C324700038AC5A /* YGNetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetWorkTools.h; sourceTree = "<group>"; };
 		02C377C322C324700038AC5A /* YGNetworkCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetworkCommon.m; sourceTree = "<group>"; };
 		02C377C522C324700038AC5A /* YGEncryptTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEncryptTool.h; sourceTree = "<group>"; };
@@ -882,6 +885,8 @@
 				02C377C422C324700038AC5A /* Encrypt */,
 				02C377C722C324700038AC5A /* YGNetworkCommon.h */,
 				02C377C822C324700038AC5A /* YGNetWorkTools.m */,
+				025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */,
+				025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2549,6 +2554,7 @@
 				044AEE46209B6E9C00824A05 /* THAddAddressCell.m in Sources */,
 				57FAA05520C858BE00230A68 /* THPayMethodCell.m in Sources */,
 				04D0A30C207116F7003BE300 /* THForgetPswCtl.m in Sources */,
+				025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */,
 				576EEA862087A2F40088B1EB /* SDWeiXinPhotoContainerView.m in Sources */,
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,

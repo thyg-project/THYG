@@ -30,70 +30,74 @@ typedef void(^SessionBlock)(AFHTTPSessionManager *manager);
 
 + (instancetype)sharedTools;
 
-- (void)get:(NSString *)url
- parameters:(NSDictionary *)parameters
-    success:(SuccessBlock)success
-     failed:(FailedBlock)faild;
+- (NSURLSessionTask *)get:(NSString *)url
+               parameters:(NSDictionary *)parameters
+                  success:(SuccessBlock)success
+                   failed:(FailedBlock)faild;
 
-- (void)post:(NSString *)url
-  parameters:(NSDictionary *)parameters
-     success:(SuccessBlock)success
-      failed:(FailedBlock)failed;
+- (NSURLSessionTask *)post:(NSString *)url
+                parameters:(NSDictionary *)parameters
+                   success:(SuccessBlock)success
+                    failed:(FailedBlock)failed;
 
-- (void)get:(NSString *)url
-sessionConfig:(SessionBlock)block
- parameters:(NSDictionary *)parameters
-    success:(SuccessBlock)success
-     failed:(FailedBlock)faild;
+- (NSURLSessionTask *)get:(NSString *)url
+            sessionConfig:(SessionBlock)block
+               parameters:(NSDictionary *)parameters
+                  success:(SuccessBlock)success
+                   failed:(FailedBlock)faild;
 
-- (void)post:(NSString *)url
-sessionConfig:(SessionBlock)block
-  parameters:(NSDictionary *)parameters
-     success:(SuccessBlock)success
-      failed:(FailedBlock)failed;
+- (NSURLSessionTask *)post:(NSString *)url
+             sessionConfig:(SessionBlock)block
+                parameters:(NSDictionary *)parameters
+                   success:(SuccessBlock)success
+                    failed:(FailedBlock)failed;
 
-- (void)upload:(NSString *)url
-      fileName:(NSString *)fileName
-    parameters:(NSDictionary *)parameters
-          data:(NSData *)data
-       success:(SuccessBlock)success
-        failed:(FailedBlock)failed;
+- (NSURLSessionTask *)upload:(NSString *)url
+                    fileName:(NSString *)fileName
+                  parameters:(NSDictionary *)parameters
+                        data:(NSData *)data
+                     success:(SuccessBlock)success
+                      failed:(FailedBlock)failed;
 
-- (void)upload:(NSString *)url
-      fileName:(NSString *)fileName 
- sessionConfig:(SessionBlock)block
-    parameters:(NSDictionary *)parameters
-          data:(NSData *)data
-       success:(SuccessBlock)success
-        failed:(FailedBlock)failed;
+- (NSURLSessionTask *)upload:(NSString *)url
+                    fileName:(NSString *)fileName
+               sessionConfig:(SessionBlock)block
+                  parameters:(NSDictionary *)parameters
+                        data:(NSData *)data
+                     success:(SuccessBlock)success
+                      failed:(FailedBlock)failed;
 
-- (void)put:(NSString *)url
-sessionConfig:(SessionBlock)block
- parameters:(NSDictionary *)parameters
-    success:(SuccessBlock)success
-     failed:(FailedBlock)failed;
+- (NSURLSessionTask *)put:(NSString *)url
+            sessionConfig:(SessionBlock)block
+               parameters:(NSDictionary *)parameters
+                  success:(SuccessBlock)success
+                   failed:(FailedBlock)failed;
 
-- (void)put:(NSString *)url
- parameters:(NSDictionary *)parameters
-    success:(SuccessBlock)success
-     failed:(FailedBlock)failed;
+- (NSURLSessionTask *)put:(NSString *)url
+               parameters:(NSDictionary *)parameters
+                  success:(SuccessBlock)success
+                   failed:(FailedBlock)failed;
 
-- (void)delete:(NSString *)url
-    parameters:(NSDictionary *)parameters
-       success:(SuccessBlock)success
-        failed:(FailedBlock)failed;
+- (NSURLSessionTask *)delete:(NSString *)url
+                  parameters:(NSDictionary *)parameters
+                     success:(SuccessBlock)success
+                      failed:(FailedBlock)failed;
 
-- (void)delete:(NSString *)url
- sessionConfig:(SessionBlock)block
-    parameters:(NSDictionary *)parameters
-       success:(SuccessBlock)success
-        failed:(FailedBlock)failed;
+- (NSURLSessionTask *)delete:(NSString *)url
+               sessionConfig:(SessionBlock)block
+                  parameters:(NSDictionary *)parameters
+                     success:(SuccessBlock)success
+                      failed:(FailedBlock)failed;
 
 + (NetworkState)networkState;
 
 + (void)observerNetworkState:(void (^)(NetworkState state))changleBlock;
 
 + (void)stopObserver;
+
++ (void)cancelTask:(NSURLSessionTask *)task;
+
++ (void)cancelTasks:(NSArray <NSURLSessionTask *> *)tasks;
 
 @end
 

@@ -60,62 +60,63 @@ NetworkState _lastNetworkState;
     self.manager.requestSerializer.timeoutInterval = _timeoutInterval;
 }
 
-- (void)get:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)faild {
-    [self.manager GET:formatUrl(url) parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+- (NSURLSessionTask *)get:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)faild{
+   return [self.manager GET:formatUrl(url) parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self parseResponse:responseObject success:success failed:faild];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self parseError:error failed:faild];
     }];
 }
 
-- (void)post:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
-    [self.manager POST:formatUrl(url) parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+- (NSURLSessionTask *)post:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
+   NSURLSessionDataTask *task = [self.manager POST:formatUrl(url) parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self parseResponse:responseObject success:success failed:failed];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self parseError:error failed:failed];
     }];
+    return task;
 }
 
-- (void)get:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)faild {
+- (NSURLSessionTask *)get:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)faild {
     BLOCK(block,self.manager);
-    [self get:url parameters:parameters success:success failed:faild];
+    return [self get:url parameters:parameters success:success failed:faild];
 }
 
 
-- (void)post:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
+- (NSURLSessionTask *)post:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
     BLOCK(block,self.manager);
-    [self post:url parameters:parameters success:success failed:failed];
+    return [self post:url parameters:parameters success:success failed:failed];
 }
 
-- (void)put:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
+- (NSURLSessionTask *)put:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
     BLOCK(block,self.manager);
-    [self put:url parameters:parameters success:success failed:failed];
+   return [self put:url parameters:parameters success:success failed:failed];
 }
 
-- (void)delete:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
+- (NSURLSessionTask *)delete:(NSString *)url sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
     BLOCK(block,self.manager);
-    [self delete:url parameters:parameters success:success failed:failed];
+   return [self delete:url parameters:parameters success:success failed:failed];
 }
 
-- (void)delete:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
+- (NSURLSessionTask *)delete:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
     NSMutableDictionary *dict = [parameters mutableCopy];
     [dict setValue:@"delete" forKey:@"method"];
-    [self post:url parameters:dict success:success failed:failed];
+    return [self post:url parameters:dict success:success failed:failed];
 }
 
-- (void)put:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
+- (NSURLSessionTask *)put:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
     NSMutableDictionary *dict = [parameters mutableCopy];
     [dict setValue:@"put" forKey:@"method"];
-    [self post:url parameters:dict success:success failed:failed];
+   return [self post:url parameters:dict success:success failed:failed];
 }
 
-- (void)upload:(NSString *)url fileName:(NSString *)fileName sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters data:(NSData *)data success:(SuccessBlock)success failed:(FailedBlock)failed {
+- (NSURLSessionTask *)upload:(NSString *)url fileName:(NSString *)fileName sessionConfig:(SessionBlock)block parameters:(NSDictionary *)parameters data:(NSData *)data success:(SuccessBlock)success failed:(FailedBlock)failed {
     BLOCK(block,self.manager);
-    [self upload:url fileName:fileName parameters:parameters data:data success:success failed:failed];
+   return [self upload:url fileName:fileName parameters:parameters data:data success:success failed:failed];
 }
 
-- (void)upload:(NSString *)url fileName:(NSString *)fileName parameters:(NSDictionary *)parameters data:(NSData *)data success:(SuccessBlock)success failed:(FailedBlock)failed {
-    [self.manager POST:formatUrl(url) parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+- (NSURLSessionTask *)upload:(NSString *)url fileName:(NSString *)fileName parameters:(NSDictionary *)parameters data:(NSData *)data success:(SuccessBlock)success failed:(FailedBlock)failed {
+   return [self.manager POST:formatUrl(url) parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
@@ -229,6 +230,18 @@ NetworkState _lastNetworkState;
          BLOCK(success,oj);
     }
     
+}
+
++ (void)cancelTask:(NSURLSessionTask *)task {
+    if (task.state != NSURLSessionTaskStateCompleted) {
+        [task cancel];
+    }
+}
+
++ (void)cancelTasks:(NSArray <NSURLSessionTask *> *)tasks {
+    [tasks enumerateObjectsUsingBlock:^(NSURLSessionTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self cancelTask:obj];
+    }];
 }
 
 @end

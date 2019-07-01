@@ -22,18 +22,18 @@
 
 
 
-+ (void)login:(NSString *)userName psd:(NSString *)psd success:(SuccessBlock)success failed:(FailedBlock)failed {
-    [[YGNetWorkTools sharedTools] post:@"" sessionConfig:^(AFHTTPSessionManager *manager) {
++ (NSURLSessionTask *)login:(NSString *)userName psd:(NSString *)psd success:(SuccessBlock)success failed:(FailedBlock)failed {
+   return [[YGNetWorkTools sharedTools] post:@"" sessionConfig:^(AFHTTPSessionManager *manager) {
         
     } parameters:@{} success:success failed:failed];
 }
 
-+ (void)register:(NSString *)phone psd:(NSString *)psd success:(SuccessBlock)success failed:(FailedBlock)failed {
-    [[YGNetWorkTools sharedTools] post:@"" sessionConfig:nil parameters:@{} success:success failed:failed];
++ (NSURLSessionTask *)register:(NSString *)phone psd:(NSString *)psd success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:@"" sessionConfig:nil parameters:@{} success:success failed:failed];
 }
 
-+ (void)getUserInfo:(SuccessBlock)success failed:(FailedBlock)failed {
-    [[YGNetWorkTools sharedTools] get:@"" sessionConfig:^(AFHTTPSessionManager *manager) {
++ (NSURLSessionTask *)getUserInfo:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] get:@"" sessionConfig:^(AFHTTPSessionManager *manager) {
         [self setRequestHeaderInfo:manager];
     } parameters:@{} success:success failed:failed];
 }

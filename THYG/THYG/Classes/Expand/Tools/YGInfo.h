@@ -22,15 +22,15 @@ typedef struct _YGInfo_t {
     BOOL (*isBangScreen)(void);
     
     
-    NSURL *(*URLFromString)(NSString *urlStr);
+    NSURL * (*URLFromString)(NSString *urlStr);
     
-    NSString *(*IDFV)(void);
+    NSString * (*IDFV)(void);
     
-    NSString *(*appVersion)(void);
+    NSString * (*appVersion)(void);
     
-    NSString *(*deviceVersion)(void);
+    NSString * (*deviceVersion)(void);
     
-    NSString *(*deviceModel)(void);
+    NSString * (*deviceModel)(void);
     
 } YGInfo_t;
 OBJC_EXTERN YGInfo_t YGInfo;

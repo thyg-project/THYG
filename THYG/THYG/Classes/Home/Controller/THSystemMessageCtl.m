@@ -9,7 +9,7 @@
 #import "THSystemMessageCtl.h"
 #import "THSystemMessageCell.h"
 
-@interface THSystemMessageCtl ()
+@interface THSystemMessageCtl () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 

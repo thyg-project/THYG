@@ -122,13 +122,13 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     }];
     
     
-    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel, _operationButton, _operationMenu, _commentView];
-    
-    
-    
-    UIView *contentView = self.contentView;
-    CGFloat margin = 10;
-    
+//    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel, _operationButton, _operationMenu, _commentView];
+//    
+//    
+//    
+//    UIView *contentView = self.contentView;
+//    CGFloat margin = 10;
+//    
     
     
     

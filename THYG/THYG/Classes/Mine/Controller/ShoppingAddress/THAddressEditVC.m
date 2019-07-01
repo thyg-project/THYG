@@ -12,7 +12,7 @@
 #import "ReactiveCocoa.h"
 #import "THSelectAddressView.h"
 
-@interface THAddressEditVC () {
+@interface THAddressEditVC () <UITableViewDataSource, UITableViewDelegate> {
     UIButton*_saveBtn;
     NSArray *_titleData;
     NSArray *_typeData;

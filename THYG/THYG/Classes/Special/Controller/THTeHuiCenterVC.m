@@ -10,7 +10,7 @@
 #import "THTeHuiCell.h"
 #import "THTeHuiModel.h"
 
-@interface THTeHuiCenterVC ()
+@interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UIButton *titleBtnView;
 @property (nonatomic, strong) UIView *topView;
 
@@ -107,7 +107,7 @@
 - (void)btnClick {
 //    [self.menuView show];
     self.titleBtnView.selected = YES;
-    kWeakSelf
+//    kWeakSelf
 //    self.menuView.selectedAction = ^(NSInteger index) {
 //        weakSelf.titleBtnView.selected = NO;
 //

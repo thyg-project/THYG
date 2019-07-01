@@ -28,7 +28,7 @@
 #import "THTeCtl.h"
 #import "THGoodsListOfCollectionLayoutCell.h"
 
-@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource> {
+@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, YYRefreshExtensionDelegate> {
 	NSArray *_dataArray;
     CGFloat _lastOffsetY;
 }
@@ -83,10 +83,10 @@
 		self.tableView.estimatedSectionHeaderHeight = 0;
 	}
 	
-	@weakify(self);
+    kWeakSelf;
 	self.headView.checkOnBlock = ^{
-		@strongify(self);
-		[self signRequest];
+        
+		[weakSelf signRequest];
 	};
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUserInfo) name:UPDATE_USERINFO_NOTIFICATION object:nil];
@@ -409,10 +409,10 @@
             if ([@"" length]) {
                 THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
                 edit.title = @"个人资料编辑";
-                 [self.navigationController pushViewController:edit animated:YES];
+                 [weakSelf.navigationController pushViewController:edit animated:YES];
             } else {
                 THLoginVC *loginVc = [[THLoginVC alloc] init];
-                 [self.navigationController pushViewController:loginVc animated:YES];
+                 [weakSelf.navigationController pushViewController:loginVc animated:YES];
             }
 		};
 	}

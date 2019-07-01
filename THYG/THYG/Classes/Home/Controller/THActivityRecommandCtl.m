@@ -9,7 +9,7 @@
 #import "THActivityRecommandCtl.h"
 #import "THSingImgCell.h"
 
-@interface THActivityRecommandCtl ()
+@interface THActivityRecommandCtl () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 

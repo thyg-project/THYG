@@ -182,7 +182,7 @@
         // 取消固定高度约束
     }
     
-    CGFloat margin = 5;
+//    CGFloat margin = 5;
     
     UIView *lastTopView = nil;
     
@@ -205,7 +205,7 @@
     for (int i = 0; i < self.commentItemsArray.count; i++) {
         UILabel *label = (UILabel *)self.commentLabelsArray[i];
         label.hidden = NO;
-        CGFloat topMargin = (i == 0 && likeItemsArray.count == 0) ? 10 : 5;
+//        CGFloat topMargin = (i == 0 && likeItemsArray.count == 0) ? 10 : 5;
         
     }
     

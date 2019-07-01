@@ -312,7 +312,7 @@ static CGFloat textFieldH = 40;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // >>>>>>>>>>>>>>>>>>>>> * cell自适应 * >>>>>>>>>>>>>>>>>>>>>>>>
-    id model = self.dataArray[indexPath.row];
+//    id model = self.dataArray[indexPath.row];
     return 0;
 }
 

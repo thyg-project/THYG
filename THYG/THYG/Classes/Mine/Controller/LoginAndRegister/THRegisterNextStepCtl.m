@@ -76,7 +76,7 @@ dispatch_source_t _source_t;
 
 - (IBAction)finishAction:(id)sender {
 	
-	NSString *url = self.isForgetPwd ? @"/User/set_pwd" : @"/Login/register";
+//    NSString *url = self.isForgetPwd ? @"/User/set_pwd" : @"/Login/register";
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
 
 	if (self.isForgetPwd) {

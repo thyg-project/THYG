@@ -115,7 +115,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
         }
     }
     
-    NSArray *views = @[_avatarImgView, _nameLabel, _timeLabel, _contentLabel, _moreButton, _picContainerView, _buttomView, _buttomToolView];
+//    NSArray *views = @[_avatarImgView, _nameLabel, _timeLabel, _contentLabel, _moreButton, _picContainerView, _buttomView, _buttomToolView];
     
     
     

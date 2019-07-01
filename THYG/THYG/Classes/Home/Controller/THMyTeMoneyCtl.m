@@ -12,7 +12,7 @@
 #import "THHomeSectionHead.h"
 #import "THFavouriteGoodsModel.h"
 
-@interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource, YYRefreshExtensionDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;

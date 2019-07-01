@@ -12,7 +12,7 @@
 #import "THOrderConfirmCtl.h"
 #import "THShareView.h"
 
-@interface THShoppingCartCtl ()
+@interface THShoppingCartCtl () <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *selectBtn; // 全选
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;  // 分享
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn; // 删除

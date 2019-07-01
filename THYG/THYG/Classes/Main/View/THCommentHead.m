@@ -16,7 +16,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        THCommentCateView *commentCate = [[THCommentCateView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
+//        THCommentCateView *commentCate = [[THCommentCateView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
     }
     return self;
 }

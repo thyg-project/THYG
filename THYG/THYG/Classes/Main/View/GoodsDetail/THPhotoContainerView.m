@@ -82,7 +82,7 @@
 #pragma mark - 浏览图片
 - (void)tapImageView:(UITapGestureRecognizer *)tap
 {
-    UIView *imageView = tap.view;
+//    UIView *imageView = tap.view;
 }
 
 @end

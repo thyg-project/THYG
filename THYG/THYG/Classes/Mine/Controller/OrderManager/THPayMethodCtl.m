@@ -12,7 +12,7 @@
 #import "THPayMethodCell.h"
 #import "THPaySuccessBlockPage.h"
 
-@interface THPayMethodCtl ()
+@interface THPayMethodCtl () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *payTotalMoneyLabel;
 
 @property (nonatomic, strong) UITableView *tableView;

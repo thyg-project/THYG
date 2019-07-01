@@ -9,7 +9,7 @@
 #import "THAcountDetailCtl.h"
 #import "THAccountDetailCell.h"
 
-@interface THAcountDetailCtl ()
+@interface THAcountDetailCtl () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headView;
 
 @property (nonatomic, strong) UITableView *tableView;

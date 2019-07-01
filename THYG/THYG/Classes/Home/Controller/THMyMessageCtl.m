@@ -13,7 +13,7 @@
 #import "THSystemMessageCtl.h"
 
 
-@interface THMyMessageCtl ()
+@interface THMyMessageCtl () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *customServiceBtn;
 @property (weak, nonatomic) IBOutlet UIButton *systemNotificationBtn;
 @property (weak, nonatomic) IBOutlet UIButton *activityRecommendBtn;

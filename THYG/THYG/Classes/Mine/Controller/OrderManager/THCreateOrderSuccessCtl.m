@@ -13,7 +13,7 @@
 #import "THPay.h"
 #import "THPaySuccessBlockPage.h"
 
-@interface THCreateOrderSuccessCtl () {
+@interface THCreateOrderSuccessCtl () <UITableViewDataSource, UITableViewDelegate> {
     NSArray * _itemArray;
 }
 @property (nonatomic, strong) THOrderConfirmPayButtomView *payView;

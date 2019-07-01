@@ -12,7 +12,7 @@
 #import "THMineOrderFooterView.h"
 #import "THMineOrderDetailVC.h"
 
-@interface THMineOrderListPageVC ()
+@interface THMineOrderListPageVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -45,7 +45,7 @@
     
     [self.dataSource removeAllObjects];
     
-    NSString *url = self.type ? @"/Order/getReturnGoodsList" : @"/Order/getUserOrderList";
+//    NSString *url = self.type ? @"/Order/getReturnGoodsList" : @"/Order/getUserOrderList";
     
 //    [THNetworkTool POST:API(url) parameters:@{@"token":@"", @"type":self.status} completion:^(id responseObject, NSDictionary *allResponseObject) {
 //        self.dataSourceArray = [THOrderListModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"][@"list"]];

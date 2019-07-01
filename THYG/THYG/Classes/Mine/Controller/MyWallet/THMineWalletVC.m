@@ -35,7 +35,7 @@
 
 #pragma mark - 银行卡列表 （请求成功，未添加时候，没有数据）
 - (void)loadDatas {
-    kWeakSelf;
+//    kWeakSelf;
 //    [THNetworkTool POST:API(@"/User/wallet") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
 //        NSLog(@"responseObject %@", responseObject);
 //        

@@ -10,7 +10,7 @@
 #import "THCouponsCell.h"
 #import "THCartDetailModel.h"
 
-@interface THUseCouponCtl ()
+@interface THUseCouponCtl () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 

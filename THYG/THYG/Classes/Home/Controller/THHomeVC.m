@@ -24,8 +24,9 @@
 #import "THMyTeMoneyCtl.h"
 #import "THMyMessageCtl.h"
 #import "THScreeningGoodsCtl.h"
+#import "THHomeShowMenuView.h"
 
-@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) THHomeShowMenuView *menuView;
@@ -108,14 +109,14 @@
     self.menuView.selectedAction = ^(NSInteger index) {
         if (index == 0) {//我的二维码
             THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
-             [self.navigationController pushViewController:shareVc animated:YES];
+             [weakSelf.navigationController pushViewController:shareVc animated:YES];
             
         } else if (index == 1) {//我的消息
             THMyMessageCtl *myMessage = [[THMyMessageCtl alloc] init];
-             [self.navigationController pushViewController:myMessage animated:YES];
+             [weakSelf.navigationController pushViewController:myMessage animated:YES];
         } else {//我的关注
             THMyCollectCtl *collectVc = [[THMyCollectCtl alloc] init];
-             [self.navigationController pushViewController:collectVc animated:YES];
+             [weakSelf.navigationController pushViewController:collectVc animated:YES];
         }
     };
 }

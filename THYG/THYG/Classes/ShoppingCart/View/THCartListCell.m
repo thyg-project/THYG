@@ -133,7 +133,7 @@
 
 #pragma mark - 购物车改变数量， 单个选中 或者取消
 - (void)changeNum:(NSInteger)goodsNum isSelected:(BOOL)selected carId:(NSString *)carId {
-    NSDictionary *dict = @{@"token":@"", @"cart_id":carId, @"goods_num": @(goodsNum), @"selected":@(selected)};
+//    NSDictionary *dict = @{@"token":@"", @"cart_id":carId, @"goods_num": @(goodsNum), @"selected":@(selected)};
 //    [THNetworkTool POST:API(@"/Cart/changeNum") parameters:dict completion:^(id responseObject, NSDictionary *allResponseObject) {
 //        NSLog(@"responseObject %@", responseObject);
 //    }];

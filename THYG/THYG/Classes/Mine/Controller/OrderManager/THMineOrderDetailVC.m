@@ -13,7 +13,7 @@
 #import "THMineOrderDetailToolView.h"
 #import "THOrderModel.h"
 
-@interface THMineOrderDetailVC ()
+@interface THMineOrderDetailVC () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) THOrderModel *orderModel;
 @property (nonatomic, strong) THMineOrderDetailToolView *toolView;
 @property (nonatomic, strong) UITableView *tableView;
@@ -31,7 +31,8 @@
 - (void)setupUI {
     self.navigationItem.title = @"订单详情";
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    _tableView.delegate = _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     [self.tableView registerClass:[THMineOrderDetailCell class] forCellReuseIdentifier:NSStringFromClass(THMineOrderDetailCell.class)];
     [self.tableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineOrderCell.class)];
     [self.tableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THMineOrderFooterView.class)];

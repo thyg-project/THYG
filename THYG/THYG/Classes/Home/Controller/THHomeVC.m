@@ -72,38 +72,7 @@
 
 #pragma mark - 猜你喜欢
 - (void)requestNetWorkingWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    /*
-    [THHUD show];
-    [THNetworkTool POST:API(@"/Goods/favouriteGoods") parameters:@{@"page":@(pageNum)} completion:^(id responseObject, NSDictionary *allResponseObject) {
-        [THHUD dismiss];
-        NSArray *tempArr = [THFavouriteGoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-        
-        if (tempArr.count) {
-            if (isHeader) {
-                [self.collectionView endHeaderRefreshWithChangePageIndex:YES];
-                [self.dataSourceArray removeAllObjects];
-                [self.dataSourceArray addObjectsFromArray:tempArr];
-
-            } else {
-                [self.collectionView endFooterRefreshWithChangePageIndex:YES];
-                if (tempArr.count) {
-                    [self.dataSourceArray addObjectsFromArray:tempArr];
-                }else {
-                    [self.collectionView noMoreData];
-                }
-            }
-            
-        } else {
-            NSLog(@"请求失败");
-            if (isHeader) {
-                [self.collectionView endHeaderRefreshWithChangePageIndex:NO];
-            }else {
-                [self.collectionView endFooterRefreshWithChangePageIndex:NO];
-            }
-        }
-        [self.collectionView reloadData];
-    }];
-*/
+    
 }
 
 #pragma mark - 菜单
@@ -186,39 +155,33 @@
             headerV.clickMenuItem = ^(NSInteger itemIndex, NSString *itemName) {
               
                 switch (itemIndex) {
-                    case 0://我的特币
-                    {
+                    case 0: {
                         THMyTeMoneyCtl *te = [[THMyTeMoneyCtl alloc] init];
                          [self.navigationController pushViewController:te animated:YES];
                     }
                         break;
-                    case 1://农副批发
-                    {
+                    case 1: {
                         
                     }
                         break;
-                    case 2://时令预售
-                    {
+                    case 2: {
                         
 
                     }
                         break;
-                    case 3://每日推荐
-                    {
+                    case 3: {
                         THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
                         limitSpellGroup.title = itemName;
                          [self.navigationController pushViewController:limitSpellGroup animated:YES];
                     }
                         break;
-                    case 4://团购
-                    {
+                    case 4: {
                         THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
                         spellGroup.title = itemName;
                          [self.navigationController pushViewController:spellGroup animated:YES];
                     }
                         break;
-                    case 5://秒杀
-                    {
+                    case 5: {
                         THFlashCtl *flash = [[THFlashCtl alloc] init];
                         flash.title = itemName;
                          [self.navigationController pushViewController:flash animated:YES];
@@ -276,16 +239,14 @@
 	return UIEdgeInsetsMake(1, 1, 1, 1);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     if (section==1) {
         return 2;
     }
     return CGFLOAT_MIN;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     if (section==1) {
         return 1;
     }

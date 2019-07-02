@@ -32,18 +32,15 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"THSingImgCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THSingImgCell.class)];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THSingImgCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THSingImgCell.class)];
     
     return cell;

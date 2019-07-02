@@ -145,28 +145,24 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
-        case 0:
-        {
+        case 0: {
             switch (indexPath.row) {
                     //定量团
-                case 0:
-                {
+                case 0: {
                     THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
                     limitSpellGroup.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
                      [self.navigationController pushViewController:limitSpellGroup animated:YES];
                 }
                     break;
                     //拼团
-                case 1:
-                {
+                case 1: {
                     THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
                     spellGroup.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
                      [self.navigationController pushViewController:spellGroup animated:YES];
                 }
                     break;
                     //秒杀
-                case 2:
-                {
+                case 2: {
                     THFlashCtl *flash = [[THFlashCtl alloc] init];
                     flash.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
                      [self.navigationController pushViewController:flash animated:YES];
@@ -177,16 +173,14 @@
             }
         }
             break;
-        case 1:
-        {
+        case 1: {
             THScreeningGoodsCtl *screening = [[THScreeningGoodsCtl alloc] init];
             screening.cat_id = [NSString stringWithFormat:@"%@", _itemsArray[indexPath.section][indexPath.row][@"id"]];
             screening.isShowSearchBar = YES;
              [self.navigationController pushViewController:screening animated:YES];
         }
             break;
-        case 2:
-        {
+        case 2: {
         }
             break;
         default:

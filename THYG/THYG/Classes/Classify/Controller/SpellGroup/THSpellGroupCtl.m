@@ -80,7 +80,9 @@
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (SECTION == 0) return CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+210);
+    if (indexPath.section == 0) {
+        return CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+210);
+    }
     return CGSizeMake(kScreenWidth, 130);
 }
 
@@ -98,13 +100,11 @@
     return UIEdgeInsetsMake(1, 1, 1, 1);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 2;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 2;
 }
 

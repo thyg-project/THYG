@@ -43,49 +43,16 @@
 
 #pragma mark - 猜你喜欢
 - (void)requestNetWorkingWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    /*
-    [THHUD show];
-    [THNetworkTool POST:API(@"/Goods/favouriteGoods") parameters:@{@"page":@(pageNum)} completion:^(id responseObject, NSDictionary *allResponseObject) {
-        [THHUD dismiss];
-        NSArray *tempArr = [THFavouriteGoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-        
-        if (tempArr.count) {
-            if (isHeader) {
-                [self.collectionView endHeaderRefreshWithChangePageIndex:YES];
-                [self.dataSourceArray removeAllObjects];
-                [self.dataSourceArray addObjectsFromArray:tempArr];
-                
-            } else {
-                [self.collectionView endFooterRefreshWithChangePageIndex:YES];
-                if (tempArr.count) {
-                    [self.dataSourceArray addObjectsFromArray:tempArr];
-                }else {
-                    [self.collectionView noMoreData];
-                }
-            }
-            
-        } else {
-            NSLog(@"请求失败");
-            if (isHeader) {
-                [self.collectionView endHeaderRefreshWithChangePageIndex:NO];
-            }else {
-                [self.collectionView endFooterRefreshWithChangePageIndex:NO];
-            }
-        }
-        [self.collectionView reloadData];
-    }];
-    */
+    
 }
 
 
 #pragma mark - collectionView 代理 & 数据源
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 2;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return !section ? 0 : self.dataSource.count;
 }
 
@@ -152,16 +119,14 @@
     return UIEdgeInsetsMake(1, 1, 1, 1);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     if (section==1) {
         return 2;
     }
     return CGFLOAT_MIN;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     if (section==1) {
         return 1;
     }

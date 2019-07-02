@@ -47,8 +47,7 @@ static CGFloat textFieldH = 40;
 
 @implementation THTeCtl
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -74,8 +73,7 @@ static CGFloat textFieldH = 40;
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [IQKeyboardManager sharedManager].enable = YES;
     if (!_refreshHeader.superview) {
@@ -87,14 +85,12 @@ static CGFloat textFieldH = 40;
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated {
     [_textField resignFirstResponder];
     [IQKeyboardManager sharedManager].enable = NO;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [_refreshHeader removeFromSuperview];
     [_refreshFooter removeFromSuperview];
     
@@ -102,8 +98,7 @@ static CGFloat textFieldH = 40;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)setupTextField
-{
+- (void)setupTextField {
     _textField = [UITextField new];
     _textField.returnKeyType = UIReturnKeyDone;
     _textField.delegate = self;
@@ -142,7 +137,7 @@ static CGFloat textFieldH = 40;
 
 // 右栏目按钮点击事件
 
-- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
+- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender {
     
     if ([[LEETheme currentThemeTag] isEqualToString:DAY]) {
         
@@ -153,8 +148,7 @@ static CGFloat textFieldH = 40;
     }
 }
 
-- (NSArray *)creatModelsWithCount:(NSInteger)count
-{
+- (NSArray *)creatModelsWithCount:(NSInteger)count {
     NSArray *iconImageNamesArray = @[@"icon0.jpg",
                                      @"icon1.jpg",
                                      @"icon2.jpg",
@@ -261,13 +255,11 @@ static CGFloat textFieldH = 40;
     return [resArr copy];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SDTimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:kTimeLineTableViewCellId];
     cell.indexPath = indexPath;
     __weak typeof(self) weakSelf = self;
@@ -300,20 +292,17 @@ static CGFloat textFieldH = 40;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // >>>>>>>>>>>>>>>>>>>>> * cell自适应 * >>>>>>>>>>>>>>>>>>>>>>>>
-    id model = self.dataArray[indexPath.row];
+//    id model = self.dataArray[indexPath.row];
     return 40;
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [_textField resignFirstResponder];
     _textField.placeholder = nil;
 }
@@ -323,8 +312,7 @@ static CGFloat textFieldH = 40;
 
 #pragma mark - SDTimeLineCellDelegate
 
-- (void)didClickcCommentButtonInCell:(UITableViewCell *)cell
-{
+- (void)didClickcCommentButtonInCell:(UITableViewCell *)cell {
     [_textField becomeFirstResponder];
     _currentEditingIndexthPath = [self.tableView indexPathForCell:cell];
     
@@ -332,8 +320,7 @@ static CGFloat textFieldH = 40;
     
 }
 
-- (void)didClickLikeButtonInCell:(UITableViewCell *)cell
-{
+- (void)didClickLikeButtonInCell:(UITableViewCell *)cell {
     NSIndexPath *index = [self.tableView indexPathForCell:cell];
     SDTimeLineCellModel *model = self.dataArray[index.row];
     NSMutableArray *temp = [NSMutableArray arrayWithArray:model.likeItemsArray];
@@ -364,8 +351,7 @@ static CGFloat textFieldH = 40;
 
 #pragma mark - UITextFieldDelegate
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.text.length) {
         [_textField resignFirstResponder];
         

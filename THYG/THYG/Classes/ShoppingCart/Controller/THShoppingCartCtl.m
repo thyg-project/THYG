@@ -83,14 +83,7 @@
 - (void)loadData {
     self.buyBtn.hidden = NO;
     self.shareBtn.hidden = self.removeBtn.hidden = self.deleteBtn.hidden = YES;
-    /*
-    [THNetworkTool POST:API(@"/Cart/getCartList")
-             parameters:@{@"token":@""}
-             completion:^(id responseObject, NSDictionary *allResponseObject) {
-                 self.tableDelegate.data = [THShoppingCartModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-             [self.mTable reloadData];
-    }];
-     */
+    
 }
 
 #pragma mark -- 全选按钮
@@ -105,15 +98,7 @@
         }
     }
     cart_ids = [[cart_ids substringToIndex:cart_ids.length-1] stringByAppendingString:@"]"];
-    /*
-    [THNetworkTool POST:API(@"/Cart/selectAll")
-             parameters:@{@"token":@"",
-                          @"cart_ids":cart_ids,
-                          @"selected":sender.selected ? @1 : @0
-                          }
-             completion:^(id responseObject, NSDictionary *allResponseObject) {
-             }];
-     */
+    
 }
 
 #pragma mark -- 结算
@@ -217,18 +202,7 @@
 
 #pragma mark - 删除商品
 - (void)deleteGoodsFromCar:(NSString *)cart_ids {
-    /*
-    [THNetworkTool POST:API(@"/Cart/delete") parameters:@{@"token":@"", @"cart_ids":cart_ids} completion:^(id responseObject, NSDictionary *allResponseObject) {
-        
-        if ([responseObject[@"status"] integerValue] == 200) {
-            [THHUD showSuccess:@"删除成功"];
-            [self finishingStatus];
-            [self.tableDelegate.dataArray removeAllObjects];
-            [self loadData];
-        }
-        
-    }];
-    */
+    
 }
 
 #pragma mark - 商品移入我的关注
@@ -240,20 +214,7 @@
     }
     goods_ids = [[goods_ids substringToIndex:goods_ids.length-1] stringByAppendingString:@"]"];
     
-    /*
-    [THNetworkTool POST:API(@"/Cart/moveToCollect") parameters:@{@"token":@"", @"cart_ids":cart_ids, @"goods_ids":goods_ids} completion:^(id responseObject, NSDictionary *allResponseObject) {
-        
-        if ([responseObject[@"status"] integerValue] == 200) {
-            [THHUD showSuccess:@"移入关注成功"];
-            [self finishingStatus];
-            [self.tableDelegate.dataArray removeAllObjects];
-            
-            [self loadData];
-            [_navBtn setTitle:@"管理" forState:UIControlStateNormal];
-        }
-        
-    }];
-     */
+    
 }
 
 #pragma mark - 空数据

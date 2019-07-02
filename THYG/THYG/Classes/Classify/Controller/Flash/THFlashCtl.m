@@ -29,10 +29,10 @@
     self.navigationItem.title = @"秒杀";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGB(59, 59, 59)] forBarMetrics:UIBarMetricsDefault];
     [self.view addSubview:self.headView];
-     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.left.top.right.equalTo(self.view);
-         make.height.mas_equalTo(50);
-     }];
+    [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(50);
+    }];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
@@ -54,46 +54,7 @@
 
 #pragma mark - 秒杀
 - (void)getFlashSaleListWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    /*
-    [THHUD show];
     
-    [THNetworkTool POST:API(@"/Activity/getFlashSaleList") parameters:@{@"page":@(pageNum), @"start_time":@"1528218000",@"end_time":@"1528221600"} completion:^(id responseObject, NSDictionary *allResponseObject) {
-        [THHUD dismiss];
-        
-        NSArray *mvpArr = [THFlashSaleModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"][@"mvp"]];
-        NSArray *listArr = [THFlashSaleModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"][@"list"]];
-        
-        if (mvpArr.count || listArr.count) {
-            if (isHeader) {
-                [self.collectionView endHeaderRefreshWithChangePageIndex:YES];
-                [self.mvpArray removeAllObjects];
-                [self.listArray removeAllObjects];
-                [self.mvpArray addObjectsFromArray:mvpArr];
-                [self.listArray addObjectsFromArray:listArr];
-
-            } else {
-                [self.collectionView endFooterRefreshWithChangePageIndex:YES];
-                if (mvpArr.count || listArr.count) {
-                    [self.mvpArray addObjectsFromArray:mvpArr];
-                    [self.listArray addObjectsFromArray:listArr];
-                } else {
-                    [self.collectionView noMoreData];
-                }
-            }
-
-        } else {
-            NSLog(@"请求失败");
-            if (isHeader) {
-                [self.collectionView endHeaderRefreshWithChangePageIndex:NO];
-            }else {
-                [self.collectionView endFooterRefreshWithChangePageIndex:NO];
-            }
-        }
-        
-        [self.collectionView reloadData];
-        
-    }];
-    */
 }
 
 #pragma mark - collectionView 代理 & 数据源
@@ -128,7 +89,7 @@
         headerV.sectionTitle = @[@"秒杀最低价MVP",@"更多精彩秒杀"][indexPath.section];
         reusableview = headerV;
         
-    }else{
+    } else {
         reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"foot" forIndexPath:indexPath];
     }
     return reusableview;
@@ -162,13 +123,11 @@
     return UIEdgeInsetsMake(1, 1, 1, 1);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 2;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 2;
 }
 

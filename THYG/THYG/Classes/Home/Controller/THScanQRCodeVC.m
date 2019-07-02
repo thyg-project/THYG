@@ -9,7 +9,7 @@
 #import "THScanQRCodeVC.h"
 #import "THAVCaptureSessionManager.h"
 
-@interface THScanQRCodeVC () <UIImagePickerControllerDelegate>
+@interface THScanQRCodeVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) CADisplayLink *link;
 @property (nonatomic, strong) THAVCaptureSessionManager *session;
 @property(assign, nonatomic) BOOL TorchState;
@@ -39,14 +39,14 @@
 }
 
 // 在页面将要显示的时候添加定时器
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.session start];
     [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 // 在页面将要消失的时候移除定时器
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.session stop];
     [self.link removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];

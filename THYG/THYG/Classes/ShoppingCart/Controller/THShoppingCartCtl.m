@@ -11,6 +11,7 @@
 #import "THShoppingCartModel.h"
 #import "THOrderConfirmCtl.h"
 #import "THShareView.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 @interface THShoppingCartCtl () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *selectBtn; // 全选

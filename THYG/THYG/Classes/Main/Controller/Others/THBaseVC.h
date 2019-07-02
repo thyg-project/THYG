@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import "UIScrollView+MJRefreshExtension.h"
 
 @interface THBaseVC : UIViewController
 

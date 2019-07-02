@@ -27,6 +27,7 @@
 #import "THFavouriteGoodsModel.h"
 #import "THTeCtl.h"
 #import "THGoodsListOfCollectionLayoutCell.h"
+#import "UIScrollView+MJRefreshExtension.h"
 
 @interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, YYRefreshExtensionDelegate> {
 	NSArray *_dataArray;

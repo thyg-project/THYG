@@ -11,6 +11,7 @@
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "THHomeSectionHead.h"
 #import "THFavouriteGoodsModel.h"
+#import "UIScrollView+MJRefreshExtension.h"
 
 @interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource, YYRefreshExtensionDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;

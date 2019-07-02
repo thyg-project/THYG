@@ -13,6 +13,7 @@
 #import "THMoreLimitSpellGroupCell.h"
 #import "THSpellGroupHead.h"
 #import "THFlashSaleModel.h"
+#import "UIScrollView+MJRefreshExtension.h"
 
 @interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, YYRefreshExtensionDelegate>
 @property (nonatomic, strong) NSMutableArray *mvpArray;

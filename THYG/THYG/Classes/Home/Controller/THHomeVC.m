@@ -27,6 +27,7 @@
 #import "THHomeShowMenuView.h"
 #import "THAVCaptureSessionManager.h"
 #import "THScanQRCodeVC.h"
+#import "UIScrollView+MJRefreshExtension.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;

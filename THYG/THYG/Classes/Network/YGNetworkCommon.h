@@ -12,6 +12,8 @@
 
 @interface YGNetworkCommon : NSObject
 
++ (NSURLSessionTask *)login:(NSString *)userName psd:(NSString *)psd success:(SuccessBlock)success failed:(FailedBlock)failed;
+
 
 
 @end

@@ -17,5 +17,6 @@
 #import "SDImageCache.h"
 #import <YYKit/YYKit.h>
 #import "YGNetworkCommon.h"
+#import "UIViewController+SessionTask.h"
 
 #endif /* PrefixHeader_pch */

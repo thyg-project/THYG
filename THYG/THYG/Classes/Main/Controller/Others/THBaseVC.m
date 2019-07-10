@@ -7,8 +7,9 @@
 //
 
 #import "THBaseVC.h"
+#import "THBaseProtocol.h"
 
-@interface THBaseVC ()
+@interface THBaseVC () <THBaseProtocol>
 
 @end
 
@@ -27,6 +28,10 @@
 
 - (BOOL)fd_prefersNavigationBarHidden {
     return NO;
+}
+
+- (void)getTask:(NSURLSessionTask *)task {
+    [self addTask:task];
 }
 
 @end

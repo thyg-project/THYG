@@ -15,6 +15,7 @@
 		02C377CE22C33D420038AC5A /* YGInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377CC22C33D420038AC5A /* YGInfo.m */; };
 		02C377D122C4A5190038AC5A /* THUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D022C4A5190038AC5A /* THUIFactory.m */; };
 		02C377D722C4AC190038AC5A /* UIView+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D622C4AC180038AC5A /* UIView+CHExtension.m */; };
+		02D154A922D5B2FE005D6277 /* THBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154A822D5B2FE005D6277 /* THBasePresenter.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
@@ -335,6 +336,9 @@
 		02C377D022C4A5190038AC5A /* THUIFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUIFactory.m; sourceTree = "<group>"; };
 		02C377D522C4AC180038AC5A /* UIView+CHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CHExtension.h"; sourceTree = "<group>"; };
 		02C377D622C4AC180038AC5A /* UIView+CHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CHExtension.m"; sourceTree = "<group>"; };
+		02D154A722D5B2FE005D6277 /* THBasePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBasePresenter.h; sourceTree = "<group>"; };
+		02D154A822D5B2FE005D6277 /* THBasePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBasePresenter.m; sourceTree = "<group>"; };
+		02D154AA22D5B31E005D6277 /* THBaseProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseProtocol.h; sourceTree = "<group>"; };
 		04054D9020A2156E009CE4F1 /* THSelectAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectAddressView.h; sourceTree = "<group>"; };
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
@@ -903,6 +907,23 @@
 			path = Encrypt;
 			sourceTree = "<group>";
 		};
+		02D154A522D5B2EA005D6277 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				02D154AA22D5B31E005D6277 /* THBaseProtocol.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		02D154A622D5B2EA005D6277 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				02D154A722D5B2FE005D6277 /* THBasePresenter.h */,
+				02D154A822D5B2FE005D6277 /* THBasePresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		04178EFE207276EF0048875E /* GoodsDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1244,6 +1265,8 @@
 		512D78AD205906540088A4A0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				02D154A622D5B2EA005D6277 /* Presenter */,
+				02D154A522D5B2EA005D6277 /* Protocol */,
 				02C377C122C324700038AC5A /* Network */,
 				512D78C5205906540088A4A0 /* AppDelegate */,
 				512D78CB205909950088A4A0 /* NewFeature */,
@@ -2576,6 +2599,7 @@
 				04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */,
 				572792DA20CED4DD00E498AD /* THCommentCateViewCell.m in Sources */,
 				04178F04207276EF0048875E /* THGoodsHeaderView.m in Sources */,
+				02D154A922D5B2FE005D6277 /* THBasePresenter.m in Sources */,
 				576EEA6D2087A0EB0088B1EB /* THTeCtl.m in Sources */,
 				8FC10B80207383D400ED3FB8 /* THCartListCell.m in Sources */,
 				57F67FA420C97F21004431C2 /* THPayMethodCtl.m in Sources */,

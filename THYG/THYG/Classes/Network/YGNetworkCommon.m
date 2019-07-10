@@ -20,8 +20,6 @@
     [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"Authentication"];
 }
 
-
-
 + (NSURLSessionTask *)login:(NSString *)userName psd:(NSString *)psd success:(SuccessBlock)success failed:(FailedBlock)failed {
    return [[YGNetWorkTools sharedTools] post:@"" sessionConfig:^(AFHTTPSessionManager *manager) {
         

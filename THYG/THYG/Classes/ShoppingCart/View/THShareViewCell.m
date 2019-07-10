@@ -24,7 +24,6 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.btn.frame = self.bounds;
-    [self.btn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:8];
 }
 
 - (void)setImageName:(NSString *)imageName {

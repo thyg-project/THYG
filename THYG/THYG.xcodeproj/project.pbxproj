@@ -16,6 +16,7 @@
 		02C377D122C4A5190038AC5A /* THUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D022C4A5190038AC5A /* THUIFactory.m */; };
 		02C377D722C4AC190038AC5A /* UIView+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D622C4AC180038AC5A /* UIView+CHExtension.m */; };
 		02D154A922D5B2FE005D6277 /* THBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154A822D5B2FE005D6277 /* THBasePresenter.m */; };
+		02D154AD22D5CEC7005D6277 /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AC22D5CEC7005D6277 /* THButton.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
@@ -116,7 +117,6 @@
 		512D790E205B6A920088A4A0 /* THMineAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D790C205B6A920088A4A0 /* THMineAdCell.xib */; };
 		512D7912205B774B0088A4A0 /* THMineOrderHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7910205B774B0088A4A0 /* THMineOrderHeaderCell.m */; };
 		512D7913205B774B0088A4A0 /* THMineOrderHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */; };
-		512D7916205B97640088A4A0 /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7915205B97640088A4A0 /* UIButton+ImageTitleSpacing.m */; };
 		512D7919205BA27F0088A4A0 /* UIBarButtonItem+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */; };
 		512D7938205E098E0088A4A0 /* THAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7937205E098E0088A4A0 /* THAPI.m */; };
 		512D793B205E0F840088A4A0 /* THNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793A205E0F840088A4A0 /* THNewFeatureVC.m */; };
@@ -339,6 +339,8 @@
 		02D154A722D5B2FE005D6277 /* THBasePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBasePresenter.h; sourceTree = "<group>"; };
 		02D154A822D5B2FE005D6277 /* THBasePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBasePresenter.m; sourceTree = "<group>"; };
 		02D154AA22D5B31E005D6277 /* THBaseProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseProtocol.h; sourceTree = "<group>"; };
+		02D154AB22D5CEC7005D6277 /* THButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THButton.h; sourceTree = "<group>"; };
+		02D154AC22D5CEC7005D6277 /* THButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THButton.m; sourceTree = "<group>"; };
 		04054D9020A2156E009CE4F1 /* THSelectAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectAddressView.h; sourceTree = "<group>"; };
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
@@ -520,8 +522,6 @@
 		512D790F205B774B0088A4A0 /* THMineOrderHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineOrderHeaderCell.h; sourceTree = "<group>"; };
 		512D7910205B774B0088A4A0 /* THMineOrderHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMineOrderHeaderCell.m; sourceTree = "<group>"; };
 		512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMineOrderHeaderCell.xib; sourceTree = "<group>"; };
-		512D7914205B97640088A4A0 /* UIButton+ImageTitleSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpacing.h"; sourceTree = "<group>"; };
-		512D7915205B97640088A4A0 /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
 		512D7917205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CHExtension.h"; sourceTree = "<group>"; };
 		512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CHExtension.m"; sourceTree = "<group>"; };
 		512D7936205E098E0088A4A0 /* THAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAPI.h; sourceTree = "<group>"; };
@@ -1544,8 +1544,6 @@
 				512D78DD205927D10088A4A0 /* UIImage+CHImage.m */,
 				02C377D522C4AC180038AC5A /* UIView+CHExtension.h */,
 				02C377D622C4AC180038AC5A /* UIView+CHExtension.m */,
-				512D7914205B97640088A4A0 /* UIButton+ImageTitleSpacing.h */,
-				512D7915205B97640088A4A0 /* UIButton+ImageTitleSpacing.m */,
 				512D7917205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.h */,
 				512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */,
 				8F5168AA20747D8F005E956E /* UISearchBar+FMAdd.h */,
@@ -1586,6 +1584,8 @@
 				57D5104920C6F31E00B78087 /* THPay.m */,
 				02C377CF22C4A5190038AC5A /* THUIFactory.h */,
 				02C377D022C4A5190038AC5A /* THUIFactory.m */,
+				02D154AB22D5CEC7005D6277 /* THButton.h */,
+				02D154AC22D5CEC7005D6277 /* THButton.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2569,6 +2569,7 @@
 				8F5168B32074A5E2005E956E /* THScreeningView.m in Sources */,
 				512D793B205E0F840088A4A0 /* THNewFeatureVC.m in Sources */,
 				044A48A6207907E200DF1AAD /* THGoodsCommentModel.m in Sources */,
+				02D154AD22D5CEC7005D6277 /* THButton.m in Sources */,
 				57CBC3CD2088E477007D6069 /* GoodsPriceModel.m in Sources */,
 				512D794F205E2F9C0088A4A0 /* THClassifyItemCell.m in Sources */,
 				8F5168B72074A921005E956E /* THSingleLabelCell.m in Sources */,
@@ -2594,7 +2595,6 @@
 				576EEAC52087A5510088B1EB /* NSAttributedString+MLLabel.m in Sources */,
 				57417E5B20CB88E100F5085F /* THAboutTHCtl.m in Sources */,
 				8F0DC2B82062360D009AE20B /* THAceSpellGroupListCell.m in Sources */,
-				512D7916205B97640088A4A0 /* UIButton+ImageTitleSpacing.m in Sources */,
 				025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */,
 				04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */,
 				572792DA20CED4DD00E498AD /* THCommentCateViewCell.m in Sources */,

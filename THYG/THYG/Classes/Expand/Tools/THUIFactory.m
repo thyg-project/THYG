@@ -36,7 +36,6 @@
     if (bgColor) {
         [button setBackgroundColor:bgColor];
     }
-    
     button.titleLabel.font = [UIFont systemFontOfSize:size > 0 ? : 17];
     button.adjustsImageWhenHighlighted = NO;
     if (textColor) {
@@ -93,7 +92,6 @@
     if (target) {
         [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     }
-    
     return button;
 }
 
@@ -116,12 +114,10 @@
  * 通过标题创建按钮
  */
 + (UIButton *)buttonWithTitle:(NSString *)title fontSize:(CGFloat)size textColor:(UIColor *)textColor bgColor:(UIColor *)bgColor radius:(CGFloat)radius target:(id)target action:(SEL)action {
-    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     if (YGInfo.validString(title)) {
         [button setTitle:title forState:UIControlStateNormal];
     }
-    
     button.titleLabel.font = [UIFont systemFontOfSize:size > 0 ? : 17];
     if (textColor) {
         [button setTitleColor:textColor forState:UIControlStateNormal];
@@ -129,9 +125,7 @@
     if (bgColor) {
         [button setBackgroundColor:bgColor];
     }
-    
     button.adjustsImageWhenHighlighted = NO;
-    
     if (radius) {
         button.layer.cornerRadius = radius;
     }

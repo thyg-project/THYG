@@ -20,9 +20,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [defaultBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:4];
-    [editBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:4];
-    [deleteBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:4];
     [self setLabelSpace:addressLabel value:@"" font:[UIFont systemFontOfSize:12] spacing:6];
 }
 

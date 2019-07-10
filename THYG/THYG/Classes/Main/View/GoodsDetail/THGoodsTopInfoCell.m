@@ -20,7 +20,6 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [focusBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:5];
 }
 
 - (void)setGoodsDetailModel:(THGoosDetailModel *)goodsDetailModel

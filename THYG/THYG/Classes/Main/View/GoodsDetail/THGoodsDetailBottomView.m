@@ -68,7 +68,6 @@
         [btn addTarget:self action:@selector(buttomButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
         if (i < 2) {
-            [btn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:2];
         }
     }
 }

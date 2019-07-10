@@ -30,7 +30,6 @@
     [super viewDidLoad];
     
     self.btnData = @[self.allBtn,self.generalBtn,self.specifiedBtn,self.screeningBtn];
-    [self.screeningBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleRight imageTitleSpace:3];
     
     self.navigationController.topViewController.navigationItem.titleView = self.titleBtnView;
     
@@ -156,7 +155,6 @@
         [_titleBtnView setImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
         [_titleBtnView setImage:[UIImage imageNamed:@"up"] forState:UIControlStateSelected];
         _titleBtnView.titleLabel.font = Font(15);
-        [_titleBtnView layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleRight imageTitleSpace:3];
         [_titleBtnView addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _titleBtnView;

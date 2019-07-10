@@ -71,8 +71,6 @@
         bX = i * (bW + 1);
         
         button.frame = CGRectMake(bX, bY, bW, bH);
-        
-        [button layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleRight imageTitleSpace:3];
         [self addSubview:button];
         
         [self.btnData addObject:button];

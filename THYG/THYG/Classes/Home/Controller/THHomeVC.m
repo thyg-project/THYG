@@ -28,6 +28,7 @@
 #import "THAVCaptureSessionManager.h"
 #import "THScanQRCodeVC.h"
 #import "UIScrollView+MJRefreshExtension.h"
+#import "THButton.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -49,7 +50,6 @@
         searchButton.frame = CGRectMake(0,0, kScreenWidth,30);
         searchButton.layer.cornerRadius = 15;
         searchButton.clipsToBounds = YES;
-        [searchButton layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:8];
         searchButton;
     });
     _menuView = [THHomeShowMenuView new];
@@ -273,18 +273,20 @@
 }
 
 - (void)setTools {
-    UIButton *left = [THUIFactory buttonWithImage:@"dingbu-saoyisao" selectedImage:@"dingbu-saoyisao" target:self action:@selector(scanAction)];
-    left.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    THButton *left = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
+    left.image = [UIImage imageNamed:@"dingbu-saoyisao"];
     left.frame = CGRectMake(0, 0, 40, 44);
-    [left setTitle:@"扫一扫" forState:UIControlStateNormal];
-    left.titleLabel.font = Font(9);
-    [left layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:4];
-    UIButton *right = [THUIFactory buttonWithImage:@"dingbugengduo" selectedImage:@"dingbugengduo" target:self action:@selector(menuAction)];
-    right.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    left.title = @"扫一扫";
+    left.font = Font(9);
+    left.textColor = UIColor.whiteColor;
+    [left addTarget:self action:@selector(scanAction)];
+    THButton *right = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
+    right.image = [UIImage imageNamed:@"dingbugengduo"];
+    right.textColor = [UIColor whiteColor];
+    [right addTarget:self action:@selector(menuAction)];
     right.frame = CGRectMake(0, 0, 40, 44);
-    [right setTitle:@"更多" forState:UIControlStateNormal];
-    right.titleLabel.font = Font(9);
-    [right layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:4];
+    right.title = @"更多";
+    right.font = Font(9);
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:left];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:right];

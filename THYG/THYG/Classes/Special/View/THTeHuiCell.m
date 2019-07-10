@@ -111,7 +111,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
             
             btn.frame = CGRectMake((56+38)*i, 0, 56, 42);
             [_buttomToolView addSubview:btn];
-            [btn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:10];
+
         }
     }
     

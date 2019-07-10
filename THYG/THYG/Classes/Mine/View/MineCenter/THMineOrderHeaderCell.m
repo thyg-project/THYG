@@ -7,6 +7,7 @@
 //
 
 #import "THMineOrderHeaderCell.h"
+#import "THButton.h"
 #define bX kScreenWidth / 5
 
 @interface THMineOrderHeaderCell () {
@@ -29,20 +30,20 @@
 	_imageArr = @[@"daifukuan", @"daishouhuo", @"daipingjia", @"tuihuanhuo", @"quanbudingdan"];
 	_titleArr = @[@"待付款", @"待收货", @"待评价", @"退/换货", @"全部订单"];
 	for (NSInteger i = 0; i <5; i++) {
-		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		THButton *button = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
 		button.tag = i + bX;
-		[button setTitle:_titleArr[i] forState:UIControlStateNormal];
-		[button setTitleColor:GRAY_COLOR(51) forState:UIControlStateNormal];
-		[button setImage:[UIImage imageNamed:_imageArr[i]] forState:UIControlStateNormal];
-		button.titleLabel.font = [UIFont systemFontOfSize:13];
-		[button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        button.title = _titleArr[i];
+        button.textColor = GRAY_COLOR(51);
+        button.image = [UIImage imageNamed:_imageArr[i]];
+		
+		button.font = [UIFont systemFontOfSize:13];
+        [button addTarget:self action:@selector(buttonAction:)];
 		button.frame = CGRectMake(bX * i, 0, bX, 65);
-		[button layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleTop imageTitleSpace:12];
 		[self.contentView addSubview:button];
 	}
 }
 
-- (void)buttonAction:(UIButton *)button {
+- (void)buttonAction:(THButton *)button {
 	!self.orderAction?:self.orderAction(button.tag - bX);
 }
 

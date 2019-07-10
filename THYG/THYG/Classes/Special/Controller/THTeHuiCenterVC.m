@@ -129,7 +129,7 @@
         [_titleBtnView setImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
         [_titleBtnView setImage:[UIImage imageNamed:@"up"] forState:UIControlStateSelected];
         _titleBtnView.titleLabel.font = Font(15);
-        [_titleBtnView layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleRight imageTitleSpace:3];
+        
         [_titleBtnView addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _titleBtnView;

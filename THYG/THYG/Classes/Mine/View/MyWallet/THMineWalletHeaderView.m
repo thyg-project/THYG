@@ -28,7 +28,7 @@
             view.layer.borderColor = BGColor.CGColor;
             view.layer.borderWidth = 1;
             view.layer.cornerRadius = view.height * 0.5;
-            [(UIButton *)view layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:4];
+            
         }
     }
 }

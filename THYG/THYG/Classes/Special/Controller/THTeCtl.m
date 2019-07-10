@@ -29,8 +29,6 @@
 
 #define kTimeLineTableViewCellId @"SDTimeLineCell"
 
-static CGFloat textFieldH = 40;
-
 @interface THTeCtl () <SDTimeLineCellDelegate, UITextFieldDelegate> {
     MJRefreshAutoNormalFooter *_refreshFooter;
     MJRefreshNormalHeader *_refreshHeader;

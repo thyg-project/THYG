@@ -33,9 +33,6 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
     self.window.rootViewController = rootVc;
     [self.window makeKeyAndVisible];
     
-    //读取本地用户数据
-//    UserInfo = [THUserInfoModel wzx_unArchiveToName:USER_INFO_KEY];
-    
     [WXApi registerApp:@"wx1792977a45662b26"];
     
     [Bugly startWithAppId:@"3739643c93"];

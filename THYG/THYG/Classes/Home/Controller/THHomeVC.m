@@ -52,8 +52,8 @@
         [searchButton layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:8];
         searchButton;
     });
-    self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
     _menuView = [THHomeShowMenuView new];
+    self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
     [self.view addSubview:self.menuView];
     
     [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:NO delegate:self animation:YES];

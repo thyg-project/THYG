@@ -21,7 +21,7 @@
 /**
  * 创建UIButton (文字，图片)
  */
-+ (UIButton *)buttonWithTitle:(NSString *)title image:(NSString *)image fontSize:(CGFloat)size textColor:(UIColor *)textColor  target:(id)target action:(SEL)action;
++ (UIButton *)buttonWithTitle:(NSString *)title image:(NSString *)image fontSize:(CGFloat)size textColor:(UIColor *)textColor target:(id)target action:(SEL)action;
 
 /**
  * 通过图片创建按钮

@@ -64,6 +64,7 @@
 }
 
 - (void)setButtonType:(THButtonType)buttonType {
+    _buttonType = buttonType;
     switch (buttonType) {
         case THButtonType_None: {
             [self addSubview:self.contentLabel];
@@ -128,8 +129,41 @@
            
         }
             break;
-            
-        
+    }
+}
+
+- (void)setMargen:(CGFloat)margen {
+    _margen = margen;
+    if (margen != 3.0) {
+        switch (self.buttonType) {
+            case THButtonType_imageTop: {
+                [self.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(self.imageView.mas_bottom).with.offset(_margen);
+                }];
+            }
+                break;
+            case THButtonType_imageLeft: {
+                [self.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                   make.left.equalTo(self.imageView.mas_right).offset(_margen);
+                }];
+            }
+                break;
+            case THButtonType_imageRight: {
+                [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
+                   make.left.equalTo(self.imageView.mas_right).offset(_margen);
+                }];
+            }
+                break;
+            case THButtonType_ImageBottom: {
+                [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(self.contentLabel.mas_bottom).offset(_margen);
+                }];
+            }
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 

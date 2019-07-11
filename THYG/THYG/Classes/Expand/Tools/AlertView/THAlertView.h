@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^confirmClickBlock)();
-typedef void (^cancelClickBlock)();
+typedef void (^confirmClickBlock)(void);
+typedef void (^cancelClickBlock)(void);
 @interface THAlertView : NSObject
 
 + (void)alertViewWithTitle:(NSString *)title

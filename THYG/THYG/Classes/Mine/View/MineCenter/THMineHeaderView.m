@@ -29,7 +29,6 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	
 	[self.userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.offset(25);
 		make.bottom.offset(-25);
@@ -83,7 +82,7 @@
 
 - (UIImageView*)headImgView {
 	if (_headImgView == nil) {
-		_headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
+		_headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 100+kNaviHeight)];
 		_headImgView.image = [UIImage imageNamed:@"noLogin"];
 	}
 	return _headImgView;

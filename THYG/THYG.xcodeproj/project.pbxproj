@@ -17,6 +17,8 @@
 		02C377D722C4AC190038AC5A /* UIView+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D622C4AC180038AC5A /* UIView+CHExtension.m */; };
 		02D154A922D5B2FE005D6277 /* THBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154A822D5B2FE005D6277 /* THBasePresenter.m */; };
 		02D154AD22D5CEC7005D6277 /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AC22D5CEC7005D6277 /* THButton.m */; };
+		02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AF22D7254C005D6277 /* THHomePresenter.m */; };
+		02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154B322D72B0D005D6277 /* THMinePresenter.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
@@ -341,6 +343,12 @@
 		02D154AA22D5B31E005D6277 /* THBaseProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseProtocol.h; sourceTree = "<group>"; };
 		02D154AB22D5CEC7005D6277 /* THButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THButton.h; sourceTree = "<group>"; };
 		02D154AC22D5CEC7005D6277 /* THButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THButton.m; sourceTree = "<group>"; };
+		02D154AE22D7254C005D6277 /* THHomePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHomePresenter.h; sourceTree = "<group>"; };
+		02D154AF22D7254C005D6277 /* THHomePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHomePresenter.m; sourceTree = "<group>"; };
+		02D154B122D72613005D6277 /* THHomeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHomeProtocol.h; sourceTree = "<group>"; };
+		02D154B222D72B0D005D6277 /* THMinePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMinePresenter.h; sourceTree = "<group>"; };
+		02D154B322D72B0D005D6277 /* THMinePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMinePresenter.m; sourceTree = "<group>"; };
+		02D154B522D72B1D005D6277 /* THMineProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineProtocol.h; sourceTree = "<group>"; };
 		04054D9020A2156E009CE4F1 /* THSelectAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectAddressView.h; sourceTree = "<group>"; };
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
@@ -911,6 +919,8 @@
 			isa = PBXGroup;
 			children = (
 				02D154AA22D5B31E005D6277 /* THBaseProtocol.h */,
+				02D154B122D72613005D6277 /* THHomeProtocol.h */,
+				02D154B522D72B1D005D6277 /* THMineProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -920,6 +930,10 @@
 			children = (
 				02D154A722D5B2FE005D6277 /* THBasePresenter.h */,
 				02D154A822D5B2FE005D6277 /* THBasePresenter.m */,
+				02D154AE22D7254C005D6277 /* THHomePresenter.h */,
+				02D154AF22D7254C005D6277 /* THHomePresenter.m */,
+				02D154B222D72B0D005D6277 /* THMinePresenter.h */,
+				02D154B322D72B0D005D6277 /* THMinePresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2405,6 +2419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				510EDC2D20629D8300F595E7 /* Utils.m in Sources */,
+				02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */,
 				57CBC3CF2088E477007D6069 /* SizeAttributeModel.m in Sources */,
 				8FDC4E5220732AF100FEFE40 /* THMySupplierCell.m in Sources */,
 				57417E4720CB779E00F5085F /* THSystemMessageCtl.m in Sources */,
@@ -2545,6 +2560,7 @@
 				576EEAC42087A5510088B1EB /* NSString+MLLabel.m in Sources */,
 				576EEADA2087A5B20088B1EB /* SDPhotoBrowser.m in Sources */,
 				512D78F42059FFC00088A4A0 /* THHomeHeaderItemCell.m in Sources */,
+				02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */,
 				8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */,
 				8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */,
 				576EEA892087A2F40088B1EB /* SDTimeLineTableHeaderView.m in Sources */,

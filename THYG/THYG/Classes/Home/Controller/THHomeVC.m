@@ -25,21 +25,24 @@
 #import "THMyMessageCtl.h"
 #import "THScreeningGoodsCtl.h"
 #import "THHomeShowMenuView.h"
-#import "THAVCaptureSessionManager.h"
 #import "THScanQRCodeVC.h"
 #import "UIScrollView+MJRefreshExtension.h"
 #import "THButton.h"
+#import "THHomePresenter.h"
+#import "THHomeProtocol.h"
 
-@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate>
+@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate, THHomeProtocol>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) THHomeShowMenuView *menuView;
+@property (nonatomic, strong) THHomePresenter *presenter;
 @end
 
 @implementation THHomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THHomePresenter alloc] initPresenterWithProtocol:self];
     [self setTools];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -52,13 +55,29 @@
         searchButton.clipsToBounds = YES;
         searchButton;
     });
-    _menuView = [THHomeShowMenuView new];
-    self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
-    [self.view addSubview:self.menuView];
-    
+    [self addMuneView];
     [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:NO delegate:self animation:YES];
     [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
 
+}
+
+- (void)addMuneView {
+    _menuView = [THHomeShowMenuView new];
+    self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
+    [self.view addSubview:self.menuView];
+    kWeakSelf
+    self.menuView.selectedAction = ^(NSInteger index) {
+        if (index == 0) {//我的二维码
+            THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
+            [weakSelf.navigationController pushViewController:shareVc animated:YES];
+        } else if (index == 1) {//我的消息
+            THMyMessageCtl *myMessage = [[THMyMessageCtl alloc] init];
+            [weakSelf.navigationController pushViewController:myMessage animated:YES];
+        } else {//我的关注
+            THMyCollectCtl *collectVc = [[THMyCollectCtl alloc] init];
+            [weakSelf.navigationController pushViewController:collectVc animated:YES];
+        }
+    };
 }
 
 #pragma mark - YYRefreshExtensionDelegate
@@ -78,20 +97,6 @@
 #pragma mark - 菜单
 - (void)menuAction {
     [self.menuView show];
-    kWeakSelf
-    self.menuView.selectedAction = ^(NSInteger index) {
-        if (index == 0) {//我的二维码
-            THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
-             [weakSelf.navigationController pushViewController:shareVc animated:YES];
-            
-        } else if (index == 1) {//我的消息
-            THMyMessageCtl *myMessage = [[THMyMessageCtl alloc] init];
-             [weakSelf.navigationController pushViewController:myMessage animated:YES];
-        } else {//我的关注
-            THMyCollectCtl *collectVc = [[THMyCollectCtl alloc] init];
-             [weakSelf.navigationController pushViewController:collectVc animated:YES];
-        }
-    };
 }
 
 - (void)searchClick {
@@ -114,22 +119,18 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
         THHomeMallActivityCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THHomeMallActivityCell.class) forIndexPath:indexPath];
-        
         cell.selectItemBlock = ^(NSInteger item) {
-          
             if (item == 0) {
                 THFlashCtl *flash = [[THFlashCtl alloc] init];
                  [self.navigationController pushViewController:flash animated:YES];
-                
             } else if (item == 1) {
                 THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
                  [self.navigationController pushViewController:spellGroup animated:YES];
-                
             } else {
                 THScreeningGoodsCtl *screenGoods = [[THScreeningGoodsCtl alloc] init];
                 if (item == 2) {
                     screenGoods.title = @"每日推荐";
-                }else if (item == 3){
+                } else if (item == 3){
                     screenGoods.title = @"必买清单";
                 }
                  [self.navigationController pushViewController:screenGoods animated:YES];
@@ -143,7 +144,6 @@
         THGoodsListOfCollectionLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) forIndexPath:indexPath];
         cell.favModel = self.dataSource[indexPath.item];
         return cell;
-        
     }
 }
 
@@ -187,13 +187,9 @@
                          [self.navigationController pushViewController:flash animated:YES];
                     }
                         break;
-                        
-                    default:
-                        break;
                 }
             };
             reusableview = headerV;
-            
         } else {
             THHomeSectionHead *sectionHead = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class) forIndexPath:indexPath];
             reusableview = sectionHead;
@@ -209,7 +205,7 @@
         THGoodsDetailVC *detailVc = [[THGoodsDetailVC alloc] init];
         THFavouriteGoodsModel *model = self.dataSource[indexPath.item];
         detailVc.goodsId = model.goods_id;
-         [self.navigationController pushViewController:detailVc animated:YES];
+        [self.navigationController pushViewController:detailVc animated:YES];
     }
     
 }
@@ -276,6 +272,7 @@
     THButton *left = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
     left.image = [UIImage imageNamed:@"dingbu-saoyisao"];
     left.frame = CGRectMake(0, 0, 40, 44);
+    left.margen = 4;
     left.title = @"扫一扫";
     left.font = Font(9);
     left.textColor = UIColor.whiteColor;
@@ -285,6 +282,7 @@
     right.textColor = [UIColor whiteColor];
     [right addTarget:self action:@selector(menuAction)];
     right.frame = CGRectMake(0, 0, 40, 44);
+    right.margen = 4;
     right.title = @"更多";
     right.font = Font(9);
     
@@ -293,20 +291,23 @@
 }
 
 - (void)scanAction {
-    
     // 检查权限
-    [THAVCaptureSessionManager checkAuthorizationStatusForCameraWithGrantBlock:^{
-        THScanQRCodeVC *scanVc = [[THScanQRCodeVC alloc] init];
-        [self.navigationController pushViewController:scanVc animated:YES];
-    } DeniedBlock:^{
-        UIAlertAction *aciton = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-        }];
-        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"权限未开启" message:@"您未开启相机权限，点击确定跳转至系统设置开启" preferredStyle:UIAlertControllerStyleAlert];
-        [controller addAction:aciton];
-        [self presentViewController:controller animated:YES completion:nil];
+    [self.presenter checkCameraState];
+}
+
+#pragma mark --
+- (void)authCameraFailed {
+    UIAlertAction *aciton = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
     }];
-    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"权限未开启" message:@"您未开启相机权限，点击确定跳转至系统设置开启" preferredStyle:UIAlertControllerStyleAlert];
+    [controller addAction:aciton];
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)authCameraSuccess {
+    THScanQRCodeVC *scanVc = [[THScanQRCodeVC alloc] init];
+    [self.navigationController pushViewController:scanVc animated:YES];
 }
 
 

@@ -32,6 +32,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
@@ -53,6 +54,10 @@
     THMyMessageListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMyMessageListCell.class)];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 - (IBAction)customServiceBtnClick:(id)sender {

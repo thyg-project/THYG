@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) THGoodsModel *goodsModel;
 
-@property (nonatomic, copy) void(^addCartAction)();
+@property (nonatomic, copy) void(^addCartAction)(void);
 
 @end

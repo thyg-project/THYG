@@ -28,15 +28,18 @@
 #import "THTeCtl.h"
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "UIScrollView+MJRefreshExtension.h"
+#import "THMinePresenter.h"
 
-@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, YYRefreshExtensionDelegate> {
+
+@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, YYRefreshExtensionDelegate, THMineProtocol> {
 	NSArray *_dataArray;
     CGFloat _lastOffsetY;
 }
-@property (nonatomic, strong) UITableView * tableView;
-@property (nonatomic, strong) UICollectionView * collectionView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) THMineHeaderView *headView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) THMinePresenter *presenter;
 @end
 
 @implementation THMineVC
@@ -74,63 +77,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THMinePresenter alloc] initPresenterWithProtocol:self];
+    [self.presenter getLocailData];
     [self initUI];
 	[self.view addSubview:self.tableView];
-	// iOS 11 适配
-	if (@available(iOS 11, *)) {
-		self.tableView.estimatedRowHeight = 0.0;
-		self.tableView.estimatedSectionFooterHeight = 0;
-		self.tableView.estimatedSectionHeaderHeight = 0;
-	}
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self autoLayoutSizeContentView:self.tableView];
 	
-    kWeakSelf;
 	self.headView.checkOnBlock = ^{
         
-		[weakSelf signRequest];
+		
 	};
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUserInfo) name:UPDATE_USERINFO_NOTIFICATION object:nil];
-    
-	_dataArray = @[@[
-					   @{@"image":@"",
-						 @"title":@""},
-					   ],
-				   @[
-					   @{@"image":@"tuiguangerweima_red",
-						 @"title":@"推广二维码"},
-					   @{@"image":@"gongyingzhuanyuanshenqing",
-						 @"title":@"供应专员申请"},
-					   @{@"image":@"chengweigongyingshang",
-						 @"title":@"成为供应商"},
-					   ],
-				   @[
-					   @{@"image":@"youhuiquan",
-						 @"title":@"优惠券"},
-					   @{@"image":@"qianbao",
-						 @"title":@"钱包"},
-					   ],
-				   @[
-					   @{@"image":@"yaoqingguanli",
-						 @"title":@"邀请管理"},
-					   @{@"image":@"wodeguanzhu",
-						 @"title":@"我的关注"},
-					   @{@"image":@"liulanjilu",
-						 @"title":@"浏览记录"},
-					   @{@"image":@"wodetechanquan",
-						 @"title":@"我的晒单"},
-					   @{@"image":@"woderenwu",
-						 @"title":@"我的任务"},
-					   ],
-				   @[
-					   @{@"image":@"",
-						 @"title":@""},
-					   ],
-				   @[
-					   @{@"image":@"",
-						 @"title":@"猜你喜欢"},
-					   ],
-				   ];
-    
     
     [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:YES delegate:self animation:YES];
     [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
@@ -145,69 +106,14 @@
 - (void)onLoadingMoreData:(id)control pageNum:(NSNumber *)pageNum {
     [self requestNetWorkingWithPageNum:pageNum.integerValue isHeader:NO];
 }
-
-#pragma mark - 签到
-- (void)signRequest {
-	
-//    [THNetworkTool POST:API(@"/User/sign") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        if ([responseObject[@"status"] integerValue] == 200) {
-//            [THHUD showMsg:@"签到成功"];
-//            BOOL isSigned = [(responseObject[@"info"][@"is_sign"]) integerValue];
-//            self.headView.isSigned = isSigned;
-//        } else {
-//            self.headView.isSigned = NO;
-//        }
-//    }];
-
-}
-
 #pragma mark - 猜你喜欢
 - (void)requestNetWorkingWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    
-//    [THHUD show];
-//    [THNetworkTool POST:API(@"/Goods/favouriteGoods") parameters:@{@"page":@(pageNum)} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        [THHUD dismiss];
-//        NSArray *tempArr = [THFavouriteGoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-//
-//        if (tempArr.count) {
-//            if (isHeader) {
-//                [self.collectionView endHeaderRefreshWithChangePageIndex:YES];
-//                [self.dataSourceArray removeAllObjects];
-//                [self.dataSourceArray addObjectsFromArray:tempArr];
-//
-//            } else {
-//                [self.collectionView endFooterRefreshWithChangePageIndex:YES];
-//                if (tempArr.count) {
-//                    [self.dataSourceArray addObjectsFromArray:tempArr];
-//                }else {
-//                    [self.collectionView noMoreData];
-//                }
-//            }
-//
-//        } else {
-//            NSLog(@"请求失败");
-//            if (isHeader) {
-//                [self.collectionView endHeaderRefreshWithChangePageIndex:NO];
-//            }else {
-//                [self.collectionView endFooterRefreshWithChangePageIndex:NO];
-//            }
-//        }
-//        [self.collectionView reloadData];
-//    }];
     
 }
 
 #pragma mark - 更新用户信息
 - (void)reloadUserInfo {
-//    [THNetworkTool POST:API(@"/User/userinfo") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        UserInfo = [THUserInfoModel mj_objectWithKeyValues:responseObject[@"info"]];
-//        if (!UserInfo) {
-//            [WZXArchiverManager clearAll];
-//        } else {
-//            [UserInfo wzx_archiveToName:USER_INFO_KEY];
-//        }
-//        
-//    }];
+
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -232,7 +138,6 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[color colorWithAlphaComponent:0.0]] forBarMetrics:UIBarMetricsDefault];
         self.navigationItem.title = @"";
     }
-    
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -241,14 +146,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if (section == 1) return 3;
-	else if (section == 2) return 2;
-	else if (section == 3) return 5;
-	else return 1;
+    if (section == 1) {
+        return 3;
+    } else if (section == 2) {
+        return 2;
+    } else if (section == 3) {
+        return 5;
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
 	UITableViewCell *cell = nil;
 	
 	if (indexPath.section == 0) {
@@ -361,9 +270,7 @@
     if (section == 5) {
         return kScreenHeight-kNaviHeight-kTabBarHeight;
     }
-    
 	return CGFLOAT_MIN;
-    
 }
 
 #pragma mark - collectionView 代理 & 数据源
@@ -390,7 +297,7 @@
 
 - (UITableView *)tableView {
 	if (!_tableView) {
-		_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight) style:UITableViewStyleGrouped];
+		_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
 		_tableView.delegate = self;
 		_tableView.dataSource = self;
 		[_tableView registerNib:[UINib nibWithNibName:@"THMineSectionCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineSectionCell.class)];
@@ -403,7 +310,7 @@
 
 - (THMineHeaderView *)headView {
 	if (_headView == nil) {
-		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  100)];
+		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  100+kNaviHeight)];
         kWeakSelf;
 		_headView.gotoMotifyInfoPage = ^{
             if ([@"" length]) {
@@ -434,6 +341,11 @@
         [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
     }
     return _collectionView;
+}
+
+#pragma mark --
+- (void)getLocalDataSuccess:(NSArray<NSArray<NSString *> *> *)datas {
+    _dataArray = datas;
 }
 
 @end

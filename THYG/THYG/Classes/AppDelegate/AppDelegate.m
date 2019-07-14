@@ -15,6 +15,7 @@
 #import <Bugly/Bugly.h>
 #import "THShareTool.h"
 #import "IQKeyboardManager.h"
+#import "AvoidCrash.h"
 
 @interface AppDelegate ()
 
@@ -32,7 +33,7 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
     UIViewController *rootVc = [THGuideViewTool chooseRootViewController];
     self.window.rootViewController = rootVc;
     [self.window makeKeyAndVisible];
-    
+    [AvoidCrash becomeEffective];
     [WXApi registerApp:@"wx1792977a45662b26"];
     
     [Bugly startWithAppId:@"3739643c93"];

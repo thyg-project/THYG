@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022CD97B22DA239400A6518A /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */; };
+		022CD97C22DA239400A6518A /* NSString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96522DA239300A6518A /* NSString+AvoidCrash.m */; };
+		022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96622DA239300A6518A /* NSDictionary+AvoidCrash.m */; };
+		022CD97E22DA239400A6518A /* NSMutableDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96822DA239300A6518A /* NSMutableDictionary+AvoidCrash.m */; };
+		022CD97F22DA239400A6518A /* NSMutableString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96922DA239300A6518A /* NSMutableString+AvoidCrash.m */; };
+		022CD98022DA239400A6518A /* NSObject+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96A22DA239300A6518A /* NSObject+AvoidCrash.m */; };
+		022CD98122DA239400A6518A /* NSUserDefaults+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96B22DA239300A6518A /* NSUserDefaults+AvoidCrash.m */; };
+		022CD98222DA239400A6518A /* NSMutableArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96C22DA239300A6518A /* NSMutableArray+AvoidCrash.m */; };
+		022CD98322DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96D22DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m */; };
+		022CD98422DA239400A6518A /* NSAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96F22DA239400A6518A /* NSAttributedString+AvoidCrash.m */; };
+		022CD98522DA239400A6518A /* AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97222DA239400A6518A /* AvoidCrash.m */; };
+		022CD98622DA239400A6518A /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97822DA239400A6518A /* NSNull+NullSafe.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
@@ -322,6 +334,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96422DA239300A6518A /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
+		022CD96522DA239300A6518A /* NSString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96622DA239300A6518A /* NSDictionary+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96722DA239300A6518A /* NSAttributedString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD96822DA239300A6518A /* NSMutableDictionary+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96922DA239300A6518A /* NSMutableString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96A22DA239300A6518A /* NSObject+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96B22DA239300A6518A /* NSUserDefaults+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96C22DA239300A6518A /* NSMutableArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96D22DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD96E22DA239400A6518A /* NSNull+NullSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+NullSafe.h"; sourceTree = "<group>"; };
+		022CD96F22DA239400A6518A /* NSAttributedString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+AvoidCrash.m"; sourceTree = "<group>"; };
+		022CD97022DA239400A6518A /* NSDictionary+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97122DA239400A6518A /* NSString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97222DA239400A6518A /* AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvoidCrash.m; sourceTree = "<group>"; };
+		022CD97322DA239400A6518A /* NSArray+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97422DA239400A6518A /* NSMutableDictionary+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97522DA239400A6518A /* NSUserDefaults+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97622DA239400A6518A /* NSObject+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97722DA239400A6518A /* NSMutableString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97822DA239400A6518A /* NSNull+NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+NullSafe.m"; sourceTree = "<group>"; };
+		022CD97922DA239400A6518A /* NSMutableAttributedString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD97A22DA239400A6518A /* NSMutableArray+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AvoidCrash.h"; sourceTree = "<group>"; };
 		025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SessionTask.h"; sourceTree = "<group>"; };
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
@@ -892,6 +928,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022CD96222DA239300A6518A /* AvoidCrash */ = {
+			isa = PBXGroup;
+			children = (
+				022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */,
+				022CD96422DA239300A6518A /* AvoidCrash.h */,
+				022CD96522DA239300A6518A /* NSString+AvoidCrash.m */,
+				022CD96622DA239300A6518A /* NSDictionary+AvoidCrash.m */,
+				022CD96722DA239300A6518A /* NSAttributedString+AvoidCrash.h */,
+				022CD96822DA239300A6518A /* NSMutableDictionary+AvoidCrash.m */,
+				022CD96922DA239300A6518A /* NSMutableString+AvoidCrash.m */,
+				022CD96A22DA239300A6518A /* NSObject+AvoidCrash.m */,
+				022CD96B22DA239300A6518A /* NSUserDefaults+AvoidCrash.m */,
+				022CD96C22DA239300A6518A /* NSMutableArray+AvoidCrash.m */,
+				022CD96D22DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m */,
+				022CD96E22DA239400A6518A /* NSNull+NullSafe.h */,
+				022CD96F22DA239400A6518A /* NSAttributedString+AvoidCrash.m */,
+				022CD97022DA239400A6518A /* NSDictionary+AvoidCrash.h */,
+				022CD97122DA239400A6518A /* NSString+AvoidCrash.h */,
+				022CD97222DA239400A6518A /* AvoidCrash.m */,
+				022CD97322DA239400A6518A /* NSArray+AvoidCrash.h */,
+				022CD97422DA239400A6518A /* NSMutableDictionary+AvoidCrash.h */,
+				022CD97522DA239400A6518A /* NSUserDefaults+AvoidCrash.h */,
+				022CD97622DA239400A6518A /* NSObject+AvoidCrash.h */,
+				022CD97722DA239400A6518A /* NSMutableString+AvoidCrash.h */,
+				022CD97822DA239400A6518A /* NSNull+NullSafe.m */,
+				022CD97922DA239400A6518A /* NSMutableAttributedString+AvoidCrash.h */,
+				022CD97A22DA239400A6518A /* NSMutableArray+AvoidCrash.h */,
+			);
+			path = AvoidCrash;
+			sourceTree = "<group>";
+		};
 		02C377C122C324700038AC5A /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1279,6 +1346,7 @@
 		512D78AD205906540088A4A0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				022CD96222DA239300A6518A /* AvoidCrash */,
 				02D154A622D5B2EA005D6277 /* Presenter */,
 				02D154A522D5B2EA005D6277 /* Protocol */,
 				02C377C122C324700038AC5A /* Network */,
@@ -2418,6 +2486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				022CD97B22DA239400A6518A /* NSArray+AvoidCrash.m in Sources */,
 				510EDC2D20629D8300F595E7 /* Utils.m in Sources */,
 				02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */,
 				57CBC3CF2088E477007D6069 /* SizeAttributeModel.m in Sources */,
@@ -2451,6 +2520,7 @@
 				8F31CBF4206A314300A48F2D /* THAlertLayer.m in Sources */,
 				8F51689A20747B07005E956E /* THGoodsPageSiftView.m in Sources */,
 				04054DB120AEF5E2009CE4F1 /* THTeHuiCell.m in Sources */,
+				022CD97E22DA239400A6518A /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				512D7908205B63F70088A4A0 /* THMineSectionCell.m in Sources */,
 				04DD7E7C20C9A6560057884A /* THMineOrderDetailVC.m in Sources */,
 				515EB86620C8C64600890072 /* THOrderModel.m in Sources */,
@@ -2471,10 +2541,13 @@
 				57CBC3D02088E477007D6069 /* GoodsModel.m in Sources */,
 				8F31CBE22069EE3B00A48F2D /* THHUDProgress.m in Sources */,
 				0418A63F20C59A2D00527C80 /* THFavouriteGoodsModel.m in Sources */,
+				022CD98022DA239400A6518A /* NSObject+AvoidCrash.m in Sources */,
 				8F1712C620720F7A00EFDFCB /* THCouponsCtl.m in Sources */,
+				022CD98422DA239400A6518A /* NSAttributedString+AvoidCrash.m in Sources */,
 				042891D820CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m in Sources */,
 				57CBC3E22088EE2E007D6069 /* THBuyGoodsCell.m in Sources */,
 				0486977820C110A100C12DF7 /* THShareViewCell.m in Sources */,
+				022CD98622DA239400A6518A /* NSNull+NullSafe.m in Sources */,
 				576EEA872087A2F40088B1EB /* SDTimeLineCellCommentView.m in Sources */,
 				512D78EA205931D10088A4A0 /* THHomeVC.m in Sources */,
 				044AEE3E2098468700824A05 /* THAddressModel.m in Sources */,
@@ -2488,10 +2561,12 @@
 				57417E3020CB063600F5085F /* THTeMoneyHead.m in Sources */,
 				8F0DC2C620624E30009AE20B /* THSpellGroupHead.m in Sources */,
 				8F1712BC207201F200EFDFCB /* THMyCollectCtl.m in Sources */,
+				022CD97C22DA239400A6518A /* NSString+AvoidCrash.m in Sources */,
 				57417E4C20CB77F600F5085F /* THSystemMessageCell.m in Sources */,
 				576EEAC12087A5510088B1EB /* TTTAttributedLabel.m in Sources */,
 				0418A64420C5AAEB00527C80 /* UIScrollView+MJRefreshExtension.m in Sources */,
 				572792DE20CED6D200E498AD /* THCommentCateModel.m in Sources */,
+				022CD98522DA239400A6518A /* AvoidCrash.m in Sources */,
 				04D0A31B2071254B003BE300 /* THMineSubmitApplicationVC.m in Sources */,
 				57417E3520CB707700F5085F /* THMyMessageCtl.m in Sources */,
 				57CBC3CC2088E477007D6069 /* ChoosTypeTableViewCell.m in Sources */,
@@ -2530,8 +2605,10 @@
 				512D7943205E1D1E0088A4A0 /* THGuideViewTool.m in Sources */,
 				8FDC4E4D2073200C00FEFE40 /* THInvitationManageCtl.m in Sources */,
 				0484F09E2089B2FB008144B2 /* THMineApplymentVC.m in Sources */,
+				022CD98122DA239400A6518A /* NSUserDefaults+AvoidCrash.m in Sources */,
 				576EEAC82087A5510088B1EB /* MLTextAttachment.m in Sources */,
 				57CBC3CA2088E477007D6069 /* GoodsInfoView.m in Sources */,
+				022CD97F22DA239400A6518A /* NSMutableString+AvoidCrash.m in Sources */,
 				512D7919205BA27F0088A4A0 /* UIBarButtonItem+CHExtension.m in Sources */,
 				512D7912205B774B0088A4A0 /* THMineOrderHeaderCell.m in Sources */,
 				576EEA8B2087A2F40088B1EB /* SDTimeLineCellOperationMenu.m in Sources */,
@@ -2573,6 +2650,7 @@
 				576EEAC02087A5510088B1EB /* MLEmojiLabel.m in Sources */,
 				8F4D139A207A23120024C3D4 /* THHelpCenterCtl.m in Sources */,
 				8FC10B842073859300ED3FB8 /* THShoppingCartListDelegate.m in Sources */,
+				022CD98222DA239400A6518A /* NSMutableArray+AvoidCrash.m in Sources */,
 				57417E5120CB7F7900F5085F /* THAcountDetailCtl.m in Sources */,
 				0418A64820C6F54100527C80 /* THFlashSaleModel.m in Sources */,
 				8FDAF714206E38DF0090FBCC /* THUserBaseInfo.m in Sources */,
@@ -2603,6 +2681,7 @@
 				576EEA862087A2F40088B1EB /* SDWeiXinPhotoContainerView.m in Sources */,
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
+				022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */,
 				512D78DE205927D10088A4A0 /* UIImage+CHImage.m in Sources */,
 				512D7900205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m in Sources */,
 				576EEAD12087A5730088B1EB /* LEETheme.m in Sources */,
@@ -2613,6 +2692,7 @@
 				8F0DC2B82062360D009AE20B /* THAceSpellGroupListCell.m in Sources */,
 				025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */,
 				04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */,
+				022CD98322DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m in Sources */,
 				572792DA20CED4DD00E498AD /* THCommentCateViewCell.m in Sources */,
 				04178F04207276EF0048875E /* THGoodsHeaderView.m in Sources */,
 				02D154A922D5B2FE005D6277 /* THBasePresenter.m in Sources */,

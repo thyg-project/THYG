@@ -15,12 +15,15 @@
 #import "THLimitSpellGroupCtl.h"
 #import "THFlashCtl.h"
 #import "THScreeningGoodsCtl.h"
+#import "THCategoryPresenter.h"
 
-@interface THClassifyVC () <UICollectionViewDelegate, UICollectionViewDataSource> {
+@interface THClassifyVC () <UICollectionViewDelegate, UICollectionViewDataSource, THCategoryProtocol> {
 	NSArray <NSArray *>*_itemsArray;
 }
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) THSearchView *searchView;
+
+@property (nonatomic, strong) THCategoryPresenter *presenter;
 
 @end
 
@@ -32,79 +35,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THCategoryPresenter alloc] initPresenterWithProtocol:self];
     [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     self.navigationItem.leftBarButtonItem = self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.titleView = ({
         self.searchView = [[THSearchView alloc] initWithFrame:CGRectMake(WIDTH(20),0, kScreenWidth - WIDTH(40),30)];
         self.searchView;
     });
     
-    [self getGoodsCategoryData];
+    [self.presenter loadLocalizedData];
     
-}
-
-- (void)getGoodsCategoryData {
-    /*
-    [THHUD show];
-    [THNetworkTool POST:API(@"/Goods/getGoodsCategory") parameters:nil completion:^(id responseObject, NSDictionary *allResponseObject) {
-        NSArray *categoryData = responseObject[@"info"];
-        if (categoryData.count) {
-            [THHUD dismiss];
-        }
-        _itemsArray = @[
-                        @[
-                            @{@"image":@"dingliangtuantubiao",
-                              @"mobile_name":@"定量团"},
-                            @{@"image":@"pintuantubiao",
-                              @"mobile_name":@"拼团"},
-                            @{@"image":@"miaoshatubiao",
-                              @"mobile_name":@"秒杀"}
-                            ],
-     
-                        @[
-                            @{}
-                            ]
-                        ];
-        [self.collectionView reloadData];
-        
-    }];*/
-
-    if (!_itemsArray.count) {
-        [THHUD dismiss];
-        _itemsArray = @[
-                        @[
-                            @{@"image":@"dingliangtuantubiao",
-                              @"mobile_name":@"定量团"},
-                            @{@"image":@"pintuantubiao",
-                              @"mobile_name":@"拼团"},
-                            @{@"image":@"miaoshatubiao",
-                              @"mobile_name":@"秒杀"}
-                            ],
-                        @[
-                            @{@"image":@"mjmc",
-                              @"title":@"名酒茗茶"},
-                            @{@"image":@"zsyb",
-                              @"title":@"滋生养补"},
-                            @{@"image":@"msxc",
-                              @"title":@"美食小吃"},
-                            @{@"image":@"lysp",
-                              @"title":@"粮油食品"},
-                            @{@"image":@"hxsc",
-                              @"title":@"海鲜水产"},
-                            @{@"image":@"rldp",
-                              @"title":@"肉类蛋品"},
-                            @{@"image":@"scgg",
-                              @"title":@"蔬菜瓜果"},
-                            @{@"image":@"yxsg",
-                              @"title":@"优选水果"},
-                            ],
-                        @[
-                            @{}
-                            ]
-                        ];
-         [self.collectionView reloadData];
-    }
-
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -216,6 +159,12 @@
 		
 	}
 	return _collectionView;
+}
+
+#pragma mark---
+- (void)loadLocalizedSuccess:(NSArray<NSArray<NSDictionary *> *> *)data {
+    _itemsArray = data;
+    [self.collectionView reloadData];
 }
 
 @end

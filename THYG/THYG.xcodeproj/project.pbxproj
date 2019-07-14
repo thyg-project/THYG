@@ -19,6 +19,7 @@
 		022CD98422DA239400A6518A /* NSAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96F22DA239400A6518A /* NSAttributedString+AvoidCrash.m */; };
 		022CD98522DA239400A6518A /* AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97222DA239400A6518A /* AvoidCrash.m */; };
 		022CD98622DA239400A6518A /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97822DA239400A6518A /* NSNull+NullSafe.m */; };
+		022CD98922DB1E4500A6518A /* THCategoryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98822DB1E4400A6518A /* THCategoryPresenter.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
@@ -358,6 +359,9 @@
 		022CD97822DA239400A6518A /* NSNull+NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+NullSafe.m"; sourceTree = "<group>"; };
 		022CD97922DA239400A6518A /* NSMutableAttributedString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+AvoidCrash.h"; sourceTree = "<group>"; };
 		022CD97A22DA239400A6518A /* NSMutableArray+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AvoidCrash.h"; sourceTree = "<group>"; };
+		022CD98722DB1E4400A6518A /* THCategoryPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCategoryPresenter.h; sourceTree = "<group>"; };
+		022CD98822DB1E4400A6518A /* THCategoryPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCategoryPresenter.m; sourceTree = "<group>"; };
+		022CD98A22DB1E7300A6518A /* THCategoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCategoryProtocol.h; sourceTree = "<group>"; };
 		025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SessionTask.h"; sourceTree = "<group>"; };
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
@@ -988,6 +992,7 @@
 				02D154AA22D5B31E005D6277 /* THBaseProtocol.h */,
 				02D154B122D72613005D6277 /* THHomeProtocol.h */,
 				02D154B522D72B1D005D6277 /* THMineProtocol.h */,
+				022CD98A22DB1E7300A6518A /* THCategoryProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1001,6 +1006,8 @@
 				02D154AF22D7254C005D6277 /* THHomePresenter.m */,
 				02D154B222D72B0D005D6277 /* THMinePresenter.h */,
 				02D154B322D72B0D005D6277 /* THMinePresenter.m */,
+				022CD98722DB1E4400A6518A /* THCategoryPresenter.h */,
+				022CD98822DB1E4400A6518A /* THCategoryPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2672,6 +2679,7 @@
 				02C377D722C4AC190038AC5A /* UIView+CHExtension.m in Sources */,
 				0417B86B2073F2D1003566C4 /* THMineOrderCell.m in Sources */,
 				576EEACA2087A5510088B1EB /* MLExpressionManager.m in Sources */,
+				022CD98922DB1E4500A6518A /* THCategoryPresenter.m in Sources */,
 				8FF84FE5206507E400A78368 /* THMoreLimitSpellGroupCell.m in Sources */,
 				512D78CA205906540088A4A0 /* AppDelegate.m in Sources */,
 				044AEE46209B6E9C00824A05 /* THAddAddressCell.m in Sources */,

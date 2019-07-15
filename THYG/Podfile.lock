@@ -30,9 +30,6 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - RTRootNavigationController (0.7.1):
-    - RTRootNavigationController/Core (= 0.7.1)
-  - RTRootNavigationController/Core (0.7.1)
   - SDCycleScrollView (1.80):
     - SDWebImage (>= 5.0.0)
   - SDWebImage (5.0.6):
@@ -74,7 +71,6 @@ DEPENDENCIES:
   - MJRefresh
   - MSWeakTimer
   - ReactiveCocoa (~> 2.5)
-  - RTRootNavigationController
   - SDCycleScrollView
   - SVProgressHUD
   - "UITableView+FDTemplateLayoutCell"
@@ -100,7 +96,6 @@ SPEC REPOS:
     - MJRefresh
     - MSWeakTimer
     - ReactiveCocoa
-    - RTRootNavigationController
     - SDCycleScrollView
     - SDWebImage
     - SQLiteRepairKit
@@ -127,7 +122,6 @@ SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  RTRootNavigationController: afa6913402be26f8326f7f37fc1550aa67baddcc
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
@@ -142,6 +136,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YZDisplayViewController: 621f737a9aa3dfbc95a901e89e5e7c4b2ea6ef79
 
-PODFILE CHECKSUM: 917d8978869f59b2bead1a4176afd8fec151eb42
+PODFILE CHECKSUM: 60664676077f94b26479d25219fc730f5ef5e808
 
 COCOAPODS: 1.5.3

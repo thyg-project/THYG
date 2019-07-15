@@ -13,6 +13,11 @@
 
 - (void)loadLocalizedSuccess:(NSArray <NSArray <NSDictionary *> *> *)data;
 
+
+- (void)searchSuccess:(id)result;
+
+- (void)searchFailed:(id)errorInfo;
+
 @end
 
 

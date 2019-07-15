@@ -14,6 +14,8 @@
 
 - (void)loadLocalizedData;
 
+- (void)searchDataWithContent:(NSString *)content;
+
 @end
 
 

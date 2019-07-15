@@ -13,7 +13,7 @@ targetsArray.each do |t|
 	pod 'MJRefresh'
 	pod 'MSWeakTimer'
     pod 'ReactiveCocoa','~> 2.5’
-	pod 'RTRootNavigationController'
+#    pod 'RTRootNavigationController'
 	pod 'SDCycleScrollView'
 	pod 'SVProgressHUD'
 	pod 'UMCCommon'

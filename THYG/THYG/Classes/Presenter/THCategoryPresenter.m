@@ -17,4 +17,19 @@
     }
 }
 
+- (void)searchDataWithContent:(NSString *)content {
+    NSURLSessionTask *task = [YGNetworkCommon login:content psd:nil success:^(id responseObject) {
+        if ([self.delegate respondsToSelector:@selector(searchSuccess:)]) {
+            [(id <THCategoryProtocol>)self.delegate searchSuccess:responseObject];
+        }
+    } failed:^(NSDictionary *errorInfo) {
+        if ([self.delegate respondsToSelector:@selector(searchFailed:)]) {
+            [(id <THCategoryProtocol>)self.delegate searchFailed:errorInfo];
+        }
+    }];
+    if ([self.delegate respondsToSelector:@selector(getTask:)]) {
+        [self.delegate getTask:task];
+    }
+}
+
 @end

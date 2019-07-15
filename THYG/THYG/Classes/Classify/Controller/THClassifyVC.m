@@ -17,7 +17,7 @@
 #import "THScreeningGoodsCtl.h"
 #import "THCategoryPresenter.h"
 
-@interface THClassifyVC () <UICollectionViewDelegate, UICollectionViewDataSource, THCategoryProtocol> {
+@interface THClassifyVC () <UICollectionViewDelegate, UICollectionViewDataSource, THCategoryProtocol, THSearchResultDelegate> {
 	NSArray <NSArray *>*_itemsArray;
 }
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -29,21 +29,26 @@
 
 @implementation THClassifyVC
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (BOOL)fd_prefersNavigationBarHidden {
+    return YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _presenter = [[THCategoryPresenter alloc] initPresenterWithProtocol:self];
+    self.searchView = [[THSearchView alloc] init];
+    self.searchView.container = self;
+    self.searchView.delegate = self;
+    [self.view addSubview:self.searchView];
+    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(kNaviHeight);
+    }];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.searchView.mas_bottom);
     }];
-    self.navigationItem.titleView = ({
-        self.searchView = [[THSearchView alloc] initWithFrame:CGRectMake(WIDTH(20),0, kScreenWidth - WIDTH(40),30)];
-        self.searchView;
-    });
     
     [self.presenter loadLocalizedData];
     
@@ -161,6 +166,22 @@
 - (void)loadLocalizedSuccess:(NSArray<NSArray<NSDictionary *> *> *)data {
     _itemsArray = data;
     [self.collectionView reloadData];
+}
+
+- (void)searchSuccess:(id)result {
+    self.searchView.searchResult = result;
+}
+
+- (void)searchFailed:(id)errorInfo {
+    
+}
+#pragma mark--Search
+- (void)beginSearch:(NSString *)content {
+    [self.presenter searchDataWithContent:content];
+}
+
+- (void)pushNext:(id)model {
+    
 }
 
 @end

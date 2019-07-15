@@ -9,8 +9,6 @@
 #import "THRegisterNextStepCtl.h"
 #import "ReactiveCocoa.h"
 
-#import <RTRootNavigationController/RTRootNavigationController.h>
-
 
 @interface THRegisterNextStepCtl ()
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumOfRevCodeLabel;
@@ -34,8 +32,7 @@
 
 }
 
-- (void)initSignal
-{
+- (void)initSignal {
     RACSignal *validVerifyCodeSignal = [self.verifyCodeField.rac_textSignal map:^id(NSString *text) {
         return @(self.verifyCodeField.text.length);
     }];

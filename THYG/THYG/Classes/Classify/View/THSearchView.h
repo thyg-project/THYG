@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol THSearchResultDelegate;
+
 @interface THSearchView : UIView
+
+@property (nonatomic, strong) UIViewController *container;
+
+@property (nonatomic, weak) id <THSearchResultDelegate> delegate;
+
+@property (nonatomic, strong) NSArray *searchResult;
+
+@end
+
+
+@protocol THSearchResultDelegate <NSObject>
+
+- (void)beginSearch:(NSString *)content;
+
+- (void)pushNext:(id)model;
 
 @end

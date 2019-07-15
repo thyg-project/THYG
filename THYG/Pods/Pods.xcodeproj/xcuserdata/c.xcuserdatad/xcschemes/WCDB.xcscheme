@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8963E45D770FB002274363116C52A7AE"
+               BlueprintIdentifier = "B25B2F4A2A38AEAA0A71ECCC764712B0"
                BlueprintName = "WCDB"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "WCDB.framework">

@@ -97,13 +97,11 @@
     return UIEdgeInsetsMake(1, 1, 1, 1);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 2;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 2;
 }
 
@@ -127,8 +125,7 @@
     return _collectionView;
 }
 
-- (THSpellGroupHead *)headView
-{
+- (THSpellGroupHead *)headView {
     if (!_headView) {
         _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectZero];
     }

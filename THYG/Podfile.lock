@@ -21,8 +21,12 @@ PODS:
   - HDAlertView (3.0)
   - IQKeyboardManager (6.3.0)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
   - MJRefresh (3.2.0)
   - MSWeakTimer (1.1.0)
+  - MWPhotoBrowser (0.0.1):
+    - MBProgressHUD
+    - SDWebImage
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -56,6 +60,7 @@ PODS:
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
   - WechatOpenSDK (1.8.4)
+  - WMPageController (2.5.2)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -72,6 +77,7 @@ DEPENDENCIES:
   - Masonry
   - MJRefresh
   - MSWeakTimer
+  - MWPhotoBrowser
   - ReactiveCocoa (~> 2.5)
   - RTRootNavigationController
   - SDCycleScrollView
@@ -82,6 +88,7 @@ DEPENDENCIES:
   - UMCShare/UI
   - WCDB
   - WechatOpenSDK
+  - WMPageController
   - YYKit
   - YZDisplayViewController
 
@@ -95,8 +102,10 @@ SPEC REPOS:
     - HDAlertView
     - IQKeyboardManager
     - Masonry
+    - MBProgressHUD
     - MJRefresh
     - MSWeakTimer
+    - MWPhotoBrowser
     - ReactiveCocoa
     - RTRootNavigationController
     - SDCycleScrollView
@@ -109,6 +118,7 @@ SPEC REPOS:
     - WCDB
     - WCDBOptimizedSQLCipher
     - WechatOpenSDK
+    - WMPageController
     - YYKit
     - YZDisplayViewController
 
@@ -121,8 +131,10 @@ SPEC CHECKSUMS:
   HDAlertView: bd71d43b310595ecb48642517d0969fa89276d25
   IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
+  MWPhotoBrowser: 0c74261360f399c22b68b63a28aedf24ebd44ae0
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   RTRootNavigationController: afa6913402be26f8326f7f37fc1550aa67baddcc
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
@@ -135,9 +147,10 @@ SPEC CHECKSUMS:
   WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
+  WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YZDisplayViewController: 621f737a9aa3dfbc95a901e89e5e7c4b2ea6ef79
 
-PODFILE CHECKSUM: 3c0c9a9a4f95fbbc01fe908b6c6fb46c03d38d22
+PODFILE CHECKSUM: e5237e8f41ee0fa246ba675c969786bd63bf63be
 
 COCOAPODS: 1.5.3

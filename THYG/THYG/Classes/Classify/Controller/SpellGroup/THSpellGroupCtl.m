@@ -128,8 +128,7 @@
     return _collectionView;
 }
 
-- (THSpellGroupHead *)headView
-{
+- (THSpellGroupHead *)headView {
     if (!_headView) {
         _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectZero];
     }

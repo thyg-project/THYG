@@ -95,17 +95,6 @@
 #pragma mark - 获取商品详情
 - (void)getGoodsDetail {
 
-//    [THNetworkTool POST:API(@"/Goods/getGoodsDetail") parameters:@{@"token":@"", @"goods_id":self.goodsId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//        if (responseObject) {
-//            self.detailModel = [THGoosDetailModel mj_objectWithKeyValues:responseObject[@"info"][@"goods"]];
-//            self.goodsVc.bannerArr = [THGoodsDetailBannerModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"][@"goods_images_list"]];
-//            self.detailModel.isCollected = [responseObject[@"info"][@"collect"] integerValue];
-//            self.goodsVc.detailModel = self.detailModel;
-//            self.webVc.webContent = self.detailModel.goods_content;
-//        }
-//
-//    }];
 }
 
 #pragma mark -- 添加购物车
@@ -116,44 +105,14 @@
         self.count = @"1";
     }
     
-//    [THNetworkTool POST:API(@"/Cart/addCart")
-//             parameters:@{@"goods_id":self.detailModel.goods_id,
-//                          @"goods_num":self.count,
-//                          @"item_id":self.itemId,
-//                          @"token":@""
-//                          }
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//                 [THHUD showSuccess:@"成功加入购物车"];
-//
-//             }];
 }
 
 #pragma mark - comment
 - (void)getComments {
-//    [THNetworkTool POST:API(@"/Goods/getCommentList") parameters:@{@"token":@"", @"goods_id":self.goodsId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        if (responseObject) {
-//            self.goodsVc.commentArr = [THGoodsCommentModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-//            [self.goodsVc.commentArr enumerateObjectsUsingBlock:^(THGoodsCommentModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//
-//                int columnCount = obj.img.count < 4 ? 1 : (obj.img.count%4 ? obj.img.count%4+1 : obj.img.count%4);
-//                CGFloat picHeight = obj.img.count == 0 ? 0 : ((kScreenWidth - 10 * (4+1)) / 4) * columnCount + (columnCount - 1)*10;
-//                obj.cellHeight = [obj.content boundingRectWithSize:CGSizeMake(kScreenWidth-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:Font(11)} context:nil].size.height + picHeight + 120;
-//
-//            }];
-//            self.goodsVc.commentRatio = responseObject[@"goods_ratio"];
-//        }
-//
-//    }];
 }
 
 #pragma mark - 获取商品规格
 - (void)getCartSpec {
-//    [THNetworkTool POST:API(@"/Cart/getCartSpec") parameters:@{@"token":@"", @"goods_id":self.goodsId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        
-//        self.goodsVc.goodsSpecModel = [THGoodsSpecModel mj_objectWithKeyValues:responseObject[@"info"]];
-//    
-//    }];
     
 }
 

@@ -40,7 +40,6 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    self.navigationItem.leftBarButtonItem = self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.titleView = ({
         self.searchView = [[THSearchView alloc] initWithFrame:CGRectMake(WIDTH(20),0, kScreenWidth - WIDTH(40),30)];
         self.searchView;
@@ -85,8 +84,7 @@
 	return headerView;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
             switch (indexPath.row) {
@@ -133,7 +131,9 @@
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section < 2) return CGSizeMake(kScreenWidth / 4, WIDTH(76));
+    if (indexPath.section < 2) {
+        return CGSizeMake(kScreenWidth / 4, WIDTH(76));
+    }
 	return CGSizeMake(kScreenWidth, WIDTH(180));
 }
 
@@ -150,13 +150,9 @@
 		_collectionView.showsHorizontalScrollIndicator = NO;
 		_collectionView.backgroundColor = [UIColor whiteColor];
 		_collectionView.pagingEnabled = YES;
-		
 		[_collectionView registerNib:[UINib nibWithNibName:@"THHomeHeaderItemCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THHomeHeaderItemCell.class)];
-		
 		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyItemCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THClassifyItemCell.class)];
-		
 		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THClassifyHeaderView.class)];
-		
 	}
 	return _collectionView;
 }

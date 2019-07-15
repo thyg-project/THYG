@@ -35,6 +35,7 @@
 		02D154AD22D5CEC7005D6277 /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AC22D5CEC7005D6277 /* THButton.m */; };
 		02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AF22D7254C005D6277 /* THHomePresenter.m */; };
 		02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154B322D72B0D005D6277 /* THMinePresenter.m */; };
+		02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
@@ -396,6 +397,8 @@
 		02D154B222D72B0D005D6277 /* THMinePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMinePresenter.h; sourceTree = "<group>"; };
 		02D154B322D72B0D005D6277 /* THMinePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMinePresenter.m; sourceTree = "<group>"; };
 		02D154B522D72B1D005D6277 /* THMineProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineProtocol.h; sourceTree = "<group>"; };
+		02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNavigationView.h; sourceTree = "<group>"; };
+		02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THNavigationView.m; sourceTree = "<group>"; };
 		04054D9020A2156E009CE4F1 /* THSelectAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectAddressView.h; sourceTree = "<group>"; };
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
@@ -1548,6 +1551,8 @@
 				57CBC3D92088EDB6007D6069 /* OrderConfirm */,
 				0417B8672073F2B0003566C4 /* MineOrder */,
 				042891CF20CD92CA00A6DBAB /* MineCenter */,
+				02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */,
+				02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2542,6 +2547,7 @@
 				022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */,
 				57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */,
 				04D0A310207116F7003BE300 /* THRegisterCtl.m in Sources */,
+				02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */,
 				5133D1E620DD06B800DE632A /* THWalletHeaderModel.m in Sources */,
 				8F0DC29D20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m in Sources */,
 				8F0DC2CA20624F83009AE20B /* THSpellGroupHeadCell.m in Sources */,

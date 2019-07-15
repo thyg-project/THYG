@@ -30,8 +30,7 @@
     self.tableView.tableFooterView = [UIView new];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     THHelpCenterDetailCtl *detail = [[THHelpCenterDetailCtl alloc] init];
     if (indexPath.row==0) {

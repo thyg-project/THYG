@@ -34,63 +34,55 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"账号设置";
 
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row<2 && ![@"" length]) {
         return 0;
     }
     return 45;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return self.footer;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (![@"" length]) {
         return 0;
     }
     return 60;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
-        case 0:
-        {
+        case 0: {
             THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
             edit.title = @"个人信息编辑";
             [self.navigationController pushViewController:edit animated:YES];
         }
             break;
-        case 1:
-        {
+        case 1: {
             THModifyPwdVC *modifyVc = [[THModifyPwdVC alloc] init];
             [self.navigationController pushViewController:modifyVc animated:YES];
             
         }
             break;
-        case 2:
-        {
+        case 2: {
             THAddressVC *addressVc = [[THAddressVC alloc] init];
             [self.navigationController pushViewController:addressVc animated:YES];
         }
             break;
-        case 3:
-        {
+        case 3: {
             THAboutTHCtl *aboutVc = [[THAboutTHCtl alloc] init];
             aboutVc.title = @"关于特汇易购";
             [self.navigationController pushViewController:aboutVc animated:YES];
         }
             break;
-        case 4:
-        {
+        case 4: {
             [THHUD show:@"清理缓存中..."];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -105,8 +97,7 @@
             
         }
             break;
-        case 5:
-        {
+        case 5: {
             THHelpCenterCtl *help = [[THHelpCenterCtl alloc] init];
             help.title = @"帮助中心";
             [self.navigationController pushViewController:help animated:YES];
@@ -135,8 +126,7 @@
 }
 
 #pragma mark -- 退出账户
-- (void)loginOutBtn
-{
+- (void)loginOutBtn {
 //    UserInfo = nil;
 //    UserDefaultsSetObj(nil, @"token");
     
@@ -144,8 +134,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UIView*)footer
-{
+- (UIView *)footer {
     if (!_footer) {
         _footer = [[UIView alloc] init];
         UIButton *loginOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -129,6 +129,13 @@
            
         }
             break;
+        case THButtonType_OnlyImage: {
+            [self addSubview:self.imageView];
+            [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(UIEdgeInsetsMake(0, 3, 0, 3));
+            }];
+        }
+            break;
     }
 }
 

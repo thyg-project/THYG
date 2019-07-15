@@ -29,11 +29,13 @@
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "UIScrollView+MJRefreshExtension.h"
 #import "THMinePresenter.h"
+#import "THNavigationView.h"
 
 
-@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, YYRefreshExtensionDelegate, THMineProtocol> {
+@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, YYRefreshExtensionDelegate, THMineProtocol, THNaviagationViewDelegate> {
 	NSArray *_dataArray;
     CGFloat _lastOffsetY;
+    THNavigationView *_customNav;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -44,22 +46,8 @@
 
 @implementation THMineVC
 
-- (void)initUI {
-    UIBarButtonItem *menuAction = [UIBarButtonItem itemWithImage:@"dingbugengduo" highLightImage:@"dingbugengduo" target:self action:@selector(menuAction)];
-    UIBarButtonItem *settingAction = [UIBarButtonItem itemWithImage:@"shezhi" highLightImage:@"shezhi" target:self action:@selector(settingBtnClick)];
-    self.navigationItem.rightBarButtonItems = @[menuAction,settingAction];
-}
-
-#pragma mark - 菜单
-- (void)menuAction {
-    
-}
-
-#pragma mark - 账户设置
-- (void)settingBtnClick {
-    THSettingCtl *setting = [[THSettingCtl alloc] init];
-    setting.title = @"账户设置";
-    [self.navigationController pushViewController:setting animated:YES];
+- (BOOL)fd_prefersNavigationBarHidden {
+    return YES;
 }
 
 #pragma mark - 更新用户信息
@@ -70,8 +58,6 @@
 #pragma mark - 生命周期
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    CGFloat alpha = MIN(1, 1 - ((10 + kNaviHeight - _lastOffsetY) / kNaviHeight));
-    [self setNavigationBarColor:[GLOBAL_RED_COLOR colorWithAlphaComponent:alpha]];
     [self updateUserInfo];
 }
 
@@ -79,8 +65,21 @@
     [super viewDidLoad];
     _presenter = [[THMinePresenter alloc] initPresenterWithProtocol:self];
     [self.presenter getLocailData];
-    [self initUI];
+    _customNav = [THNavigationView new];
+    _customNav.backgroundColor = GLOBAL_RED_COLOR;
+    _customNav.content = @"个人中心";
+    _customNav.alpha = 0;
+    _customNav.textColor = [UIColor whiteColor];
+    _customNav.leftButtonImage = nil;
+    _customNav.delegate = self;
+    _customNav.rightButtonsImages = @[[UIImage imageNamed:@"dingbugengduo"],[UIImage imageNamed:@"shezhi"]];
+    [self.view addSubview:_customNav];
+    [_customNav mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.height.mas_equalTo(kNaviHeight);
+    }];
 	[self.view addSubview:self.tableView];
+    [self.view bringSubviewToFront:_customNav];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
@@ -126,18 +125,13 @@
         self.headView.headImgView.frame = rect;
     }
     
-    UIColor * color = GLOBAL_RED_COLOR;
     CGFloat offsetY = scrollView.contentOffset.y;
     _lastOffsetY = offsetY;
     CGFloat alpha = 0;
     if (offsetY > 10) {
         alpha = MIN(1, 1 - ((10 + kNaviHeight - offsetY) / kNaviHeight));
-        [self setNavigationBarColor:[color colorWithAlphaComponent:alpha]];
-        self.navigationItem.title = @"个人中心";
-    } else {
-        [self setNavigationBarColor:[color colorWithAlphaComponent:0.0]];
-        self.navigationItem.title = @"";
     }
+     _customNav.alpha = alpha;
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -346,6 +340,17 @@
 #pragma mark --
 - (void)getLocalDataSuccess:(NSArray<NSArray<NSString *> *> *)datas {
     _dataArray = datas;
+}
+
+
+#pragma mark --Navigation
+- (void)rightAction:(NSInteger)tag {
+    if (tag == 0) {
+        //菜单
+    } else if (tag == 1) {
+        //设置
+        [self.navigationController pushViewController:[THSettingCtl new] animated:YES];
+    }
 }
 
 @end

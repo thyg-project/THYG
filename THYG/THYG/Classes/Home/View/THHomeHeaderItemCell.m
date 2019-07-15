@@ -31,7 +31,11 @@
 - (void)setItemDict:(NSDictionary *)itemDict {
 	_itemDict = itemDict;
 	[self.iconImgView sd_setImageWithURL:[NSURL URLWithString:itemDict[@"image"]] placeholderImage:[UIImage imageNamed:itemDict[@"image"]]];
-	self.nameLabel.text = itemDict[@"mobile_name"];
+    if ([itemDict.allKeys containsObject:@"mobile_name"]) {
+        self.nameLabel.text = itemDict[@"mobile_name"];
+    } else {
+        self.nameLabel.text = itemDict[@"title"];
+    }
 }
 
 - (void)awakeFromNib {

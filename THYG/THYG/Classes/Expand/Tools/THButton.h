@@ -13,7 +13,8 @@ typedef NS_ENUM(NSInteger, THButtonType) {
     THButtonType_imageLeft          = 0,
     THButtonType_imageTop           = 1,
     THButtonType_imageRight         = 2,
-    THButtonType_ImageBottom        = 3
+    THButtonType_ImageBottom        = 3,
+    THButtonType_OnlyImage          = 4
 };
 
 

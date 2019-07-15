@@ -27,14 +27,7 @@
     if (![self checkPwd]) return;
     
 //    NSDictionary *dict = @{@"token":@"",@"old_password":[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.originPwd.text]], @"new_password":[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.lastestPwd.text]], @"confirm_password":[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.confirmPwd.text]]};
-//    [THNetworkTool POST:API(@"/User/password") parameters:dict completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        [THHUD showMsg:responseObject[@"msg"]];
-//        if ([responseObject[@"status"] integerValue] == 200) {
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }
-//        
-//        
-//    }];
+
     
 }
 

@@ -72,25 +72,13 @@
 }
 
 #pragma mark -- 获取用户基本信息
-- (void)getUserInfo
-{
-//    [THNetworkTool GET:API(@"/PersonalCenter/personal") parameters:@{@"token":@""} success:^(id responseObject) {
-//
-//    } failure:^(NSError *error) {
-//
-//    }];
+- (void)getUserInfo {
+
 }
 
 #pragma mark - 获取分类
 - (void)getCategory {
-//    [THNetworkTool POST:API(@"/Goods/getGoodsCategory") parameters:nil completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        NSArray *categoryData = responseObject[@"info"];
-//        if (categoryData.count) {
-//            for (NSDictionary *dict in categoryData) {
-//                [self.dataSourceArray addObject:dict[@"mobile_name"]];
-//            }
-//        }
-//    }];
+
 }
 
 #pragma mark - 上传头像
@@ -119,12 +107,7 @@
 
 #pragma mark - 确认修改
 - (IBAction)okClick {
-//    [THNetworkTool POST:API(@"/User/updateUserInfo") parameters:self.params completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        if (responseObject) {
-//            [THHUD showSuccess:@"修改成功"];
-//        }
-//        NSLog(@"responseObject %@", responseObject);
-//    }];
+
 }
 
 - (void)dismiss {
@@ -145,17 +128,7 @@
     // 上传头像
     self.avatarImgView.image = image;
     
-//    [THNetworkTool uploadImagesWithURL:API(@"/User/upload_headpic") parameters:@{@"token":@""} name:@"head_pic" images:@[image] fileNames:nil imageScale:0.001 imageType:@"png" progress:nil success:^(id responseObject) {
-//        // NSLog(@"responseObject%@", responseObject);
-//        if ([responseObject[@"status"] integerValue] == 200) {
-//            [THHUD showSuccess:@"修改成功"];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:UPDATE_USERINFO_NOTIFICATION object:nil];
-//            [self popVC];
-//        }
-//
-//    } failure:^(NSError *error) {
-//        NSLog(@"error %@", error);
-//    }];
+
     
 }
 

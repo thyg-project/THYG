@@ -39,28 +39,18 @@
     [self loadData];
 }
 
-- (void)loadData
-{
-//    [THNetworkTool POST:API(@"/User/coupon") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        
-//        self.canGetData = [THCouponsModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-////        self.getedData = [THCouponsModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-//        [self.mTable reloadData];
-//    }];
+- (void)loadData {
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.type?self.canGetData.count:self.getedData.count;
 }
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THCouponsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THCouponsCell.class)];
     [cell refreshWithModel:self.type?self.canGetData[indexPath.row]:self.getedData[indexPath.row] type:self.type];
     cell.btnClickAcion = ^{
@@ -76,8 +66,7 @@
     return cell;
 }
 
-- (void)btnClick
-{
+- (void)btnClick {
     [self.selectView show];
     
     self.titleBtnView.selected = YES;
@@ -114,8 +103,7 @@
     [self btnClick:sender];
 }
 
-- (void)btnClick:(UIButton*)sender
-{
+- (void)btnClick:(UIButton*)sender {
     [self.btnData enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         obj.selected = NO;
@@ -124,8 +112,7 @@
 }
 
 
-- (UITableView *)mTable
-{
+- (UITableView *)mTable {
     if (!_mTable) {
         _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 41, kScreenWidth, kScreenHeight-kNaviHeight-40) style:UITableViewStylePlain];
         _mTable.delegate = self;
@@ -138,16 +125,14 @@
     return _mTable;
 }
 
-- (THCouponsTypeSelectView *)selectView
-{
+- (THCouponsTypeSelectView *)selectView {
     if (!_selectView) {
         _selectView = [[THCouponsTypeSelectView alloc] init];
     }
     return _selectView;
 }
 
-- (UIButton*)titleBtnView
-{
+- (UIButton*)titleBtnView {
     if (!_titleBtnView) {
         _titleBtnView = [UIButton buttonWithType:UIButtonTypeCustom];
         _titleBtnView.frame = CGRectMake(0, 0, 100, 40);
@@ -160,16 +145,14 @@
     return _titleBtnView;
 }
 
-- (NSMutableArray*)canGetData
-{
+- (NSMutableArray*)canGetData {
     if (!_canGetData) {
         _canGetData = [[NSMutableArray alloc] init];
     }
     return _canGetData;
 }
 
-- (NSMutableArray*)getedData
-{
+- (NSMutableArray*)getedData {
     if (!_getedData) {
         _getedData = [[NSMutableArray alloc] init];
     }
@@ -186,8 +169,7 @@
 
 @implementation THCouponsTypeSelectView
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.data = @[@"我的优惠券",@"领券中心"];
@@ -200,16 +182,14 @@
     return self;
 }
 
-- (void)show
-{
+- (void)show {
     self.height = kScreenHeight;
     [UIView animateWithDuration:0.3 animations:^{
         self.mTable.height = 45*self.data.count;
     }];
 }
 
-- (void)hidden
-{
+- (void)hidden {
     [UIView animateWithDuration:0.3 animations:^{
         self.mTable.height = 0;
     } completion:^(BOOL finished) {
@@ -217,20 +197,18 @@
     }];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.data.count;
 }
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.textLabel.font = Font(15);
     cell.textLabel.text = self.data[indexPath.row];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self hidden];
     if (self.selectTypeAction) {
@@ -238,8 +216,7 @@
     }
 }
 
-- (UITableView *)mTable
-{
+- (UITableView *)mTable {
     if (!_mTable) {
         _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0) style:UITableViewStylePlain];
         _mTable.delegate = self;

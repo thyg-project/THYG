@@ -88,10 +88,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-//    if (SECTION > 0 ) {
-//
-//    }
-//
 }
 
 #pragma mark - item宽高
@@ -114,7 +110,7 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 2) {
-//        return UIEdgeInsetsMake(0, 10, 10, 10);
+        return UIEdgeInsetsMake(0, 10, 10, 10);
     }
     return UIEdgeInsetsMake(1, 1, 1, 1);
 }

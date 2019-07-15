@@ -71,7 +71,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     CGFloat alpha = MIN(1, 1 - ((10 + kNaviHeight - _lastOffsetY) / kNaviHeight));
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[GLOBAL_RED_COLOR colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
+    [self setNavigationBarColor:[GLOBAL_RED_COLOR colorWithAlphaComponent:alpha]];
     [self updateUserInfo];
 }
 
@@ -132,10 +132,10 @@
     CGFloat alpha = 0;
     if (offsetY > 10) {
         alpha = MIN(1, 1 - ((10 + kNaviHeight - offsetY) / kNaviHeight));
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[color colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
+        [self setNavigationBarColor:[color colorWithAlphaComponent:alpha]];
         self.navigationItem.title = @"个人中心";
     } else {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[color colorWithAlphaComponent:0.0]] forBarMetrics:UIBarMetricsDefault];
+        [self setNavigationBarColor:[color colorWithAlphaComponent:0.0]];
         self.navigationItem.title = @"";
     }
 }

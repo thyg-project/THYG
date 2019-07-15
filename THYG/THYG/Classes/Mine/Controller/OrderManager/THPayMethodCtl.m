@@ -68,22 +68,6 @@
     [tableView reloadData];
 }
 - (IBAction)payBtnClick:(id)sender {
-    
-//    [THNetworkTool POST:API(@"/pay/payOrder")
-//             parameters:@{@"token":@"",
-//                          @"order_id":self.orderId,
-//                          @"pay_code":!_curSelectIndex ? @"unionpay" : (_curSelectIndex == 1 ? @"alipay" : @"weixin")
-//                          }
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//                 
-//                 if (!_curSelectIndex) {
-//                     [[THPay sharePay] weChatPay:responseObject[@"info"][@"pay"]];
-//                 }else{
-//                     [[THPay sharePay] aliPay:responseObject[@"info"][@"pay"]];
-//                 }
-//                 
-//             }];
-//    
     //微信支付成功回调
     [THPay sharePay].paySuccessByWeChatCallBack = ^(PayResp *resp) {
         

@@ -88,50 +88,10 @@ dispatch_source_t _source_t;
 	params[@"password"] = [Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]];
 	params[@"confirm_password"] = [Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]];
 	
-//    [THNetworkTool POST:API(url)
-//             parameters:params
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//                 if ([responseObject[@"status"] integerValue] == 200) {
-//                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                         [THHUD showSuccess:self.isForgetPwd?@"密码设置成功,请重新登录":@"注册成功"];
-//                     });
-//
-//                     if (!self.isForgetPwd) {
-//                         UserDefaultsSetObj(responseObject[@"info"][@"token"], @"token");
-//                         [self getUserInfo];
-//
-//                     } else {
-//                         [self.navigationController popToViewController:self.rt_navigationController.childViewControllers[1] animated:YES];
-////                         NSLog(@"rt_navigationController%@", self.rt_navigationController.childViewControllers);
-//
-//                     }
-//
-//                 } else {
-//                     [THHUD showSuccess:responseObject[@"msg"]];
-//                 }
-//
-//
-//             }];
-//
 }
 
-- (void)getUserInfo
-{
-//    [THNetworkTool POST:API(@"/User/userinfo")
-//             parameters:@{@"token":@""}
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//                
-//                 UserInfo = [THUserInfoModel mj_objectWithKeyValues:responseObject[@"info"]];
-//                 if (!UserInfo) {
-//                     [WZXArchiverManager clearAll];
-//                 }else{
-//                     [UserInfo wzx_archiveToName:USER_INFO_KEY];
-//                 }
-//                 
-//                 [self.navigationController popToRootViewControllerAnimated:YES];
-//                 
-//            }];
+- (void)getUserInfo {
+
 }
 
 - (void)setTextFieldLeftPadding:(UITextField *)textField forWidth:(CGFloat)leftWidth {

@@ -5,6 +5,7 @@ targetsArray = ['THYG']
 targetsArray.each do |t|
 	target t do
 	pod 'AFNetworking'
+#    pod 'MWPhotoBrowser'
 	pod 'Bugly'
 	pod 'DZNEmptyDataSet'
 	pod 'IQKeyboardManager'
@@ -27,7 +28,7 @@ targetsArray.each do |t|
     pod 'WCDB'
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'FDFullscreenPopGesture'
-    pod 'MWPhotoBrowser'
+#    pod 'SDWebImage', '3.7'
     pod 'WMPageController'
 #    pod 'AliPaySDK'
 	end

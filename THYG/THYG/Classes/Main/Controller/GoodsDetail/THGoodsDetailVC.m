@@ -19,7 +19,8 @@
 @interface THGoodsDetailVC () <UIScrollViewDelegate>
 @property (nonatomic, strong) THGoodsDetailBottomView *bottomView;
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIView *bgView;@property (weak, nonatomic)   UIButton *selectBtn;  // 记录上一次选中的Button
+@property (nonatomic, strong) UIView *bgView;
+@property (weak, nonatomic)   UIButton *selectBtn;  // 记录上一次选中的Button
 @property (weak, nonatomic)   UIView *indicatorView; // 标题按钮地下的
 /** 商品详情数组*/
 @property (nonatomic, strong) THGoosDetailModel *detailModel;

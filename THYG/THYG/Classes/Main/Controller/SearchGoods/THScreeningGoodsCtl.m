@@ -180,58 +180,17 @@
 
 #pragma mark -- 获取筛选条件数据
 - (void)getFilterData {
-//    [THNetworkTool POST:API(@"/Goods/getGoodsCategory") parameters:nil completion:^(id responseObject, NSDictionary *allResponseObject) {
-////        self.categoryData = responseObject[@"info"];
-//        self.screeningView.dataArray = responseObject[@"info"];
-//    }];
+
 }
 
 
 - (void)requestData:(BOOL)isClearDataSource {
-    /*
-     [THNetworkTool POST:API(@"/Goods/getGoodsList")
-              parameters:@{@"keyword":self.searchBar.text.length ? self.searchBar.text : @"",
-                           @"page":[NSString stringWithFormat:@"%ld",self.pageIndex],
-                           @"sort":self.sortParma.length ? self.sortParma : @"",//排序类型，有 goods_id（综合），comment_count（评论），sales_sum（销量），shop_price（价格）
-                           @"sort_asc":self.sort_ascParma.length ? self.sort_ascParma : @"",//排序是升还是降， asc 升， desc 降
-                           @"cat_id":self.cat_id.length ? self.cat_id : @"",//分类id
-                           @"start_price":self.start_priceParma.length ? self.start_priceParma : @"",//最低价
-                           @"end_price":self.end_priceParma.length ? self.end_priceParma : @"",//最高价
-                           @"page": @(self.pageIndex)
-                           }
-             completion:^(id responseObject, NSDictionary *allResponseObject) {
-                
-                 if (isClearDataSource) {
-                     [self.dataSourceArray removeAllObjects];
-                 }
-                 self.collectionView.mj_footer.hidden = NO;
-                 NSArray *data = [THGoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-                 [self.dataSourceArray addObjectsFromArray:data];
-                 [self.collectionView reloadData];
-                 if (!data.count) {
-                     [self.collectionView.mj_footer endRefreshingWithNoMoreData];
-                 }else{
-                     [self.collectionView.mj_footer resetNoMoreData];
-                 }
-                 
-             }];
- */
+    
 }
 
 #pragma mark -- 添加购物车
 - (void)addCart:(THGoodsModel *)goodsModel {
-//    
-//    [THNetworkTool POST:API(@"/Cart/addCart")
-//             parameters:@{@"goods_id":goodsModel.goods_id,
-//                          @"goods_num":@"1",
-//                          @"item_id":@"",
-//                          @"token":@""
-//                          }
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//                
-//                 [THHUD showSuccess:@"成功加入购物车"];
-//                 
-//             }];
+
 }
 
 #pragma mark - UICollectionViewDataSource & UICollectionViewDelegate

@@ -24,7 +24,7 @@
 #import "THMyTeMoneyCtl.h"
 #import "THMyMessageCtl.h"
 #import "THScreeningGoodsCtl.h"
-#import "THHomeShowMenuView.h"
+#import "THMenuView.h"
 #import "THScanQRCodeVC.h"
 #import "UIScrollView+MJRefreshExtension.h"
 #import "THButton.h"
@@ -34,7 +34,7 @@
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate, THHomeProtocol>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, strong) THHomeShowMenuView *menuView;
+@property (nonatomic, strong) THMenuView *menuView;
 @property (nonatomic, strong) THHomePresenter *presenter;
 @end
 
@@ -62,7 +62,7 @@
 }
 
 - (void)addMuneView {
-    _menuView = [THHomeShowMenuView new];
+    _menuView = [THMenuView new];
     self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
     [self.view addSubview:self.menuView];
     kWeakSelf

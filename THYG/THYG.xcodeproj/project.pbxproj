@@ -20,6 +20,9 @@
 		022CD98522DA239400A6518A /* AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97222DA239400A6518A /* AvoidCrash.m */; };
 		022CD98622DA239400A6518A /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97822DA239400A6518A /* NSNull+NullSafe.m */; };
 		022CD98922DB1E4500A6518A /* THCategoryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98822DB1E4400A6518A /* THCategoryPresenter.m */; };
+		022CD99322DC2B8B00A6518A /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98D22DC2B8B00A6518A /* SDPhotoBrowser.m */; };
+		022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98E22DC2B8B00A6518A /* SDWaitingView.m */; };
+		022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
@@ -59,7 +62,7 @@
 		0418A64420C5AAEB00527C80 /* UIScrollView+MJRefreshExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A64320C5AAEA00527C80 /* UIScrollView+MJRefreshExtension.m */; };
 		0418A64820C6F54100527C80 /* THFlashSaleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A64720C6F54100527C80 /* THFlashSaleModel.m */; };
 		0421E89D2088FCD8008D85A0 /* THBaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89C2088FCD8008D85A0 /* THBaseWebVC.m */; };
-		0421E8A0208978FE008D85A0 /* THHomeShowMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89F208978FE008D85A0 /* THHomeShowMenuView.m */; };
+		0421E8A0208978FE008D85A0 /* THMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89F208978FE008D85A0 /* THMenuView.m */; };
 		042891D220CD93AA00A6DBAB /* THOrderConfirmPayButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042891D120CD93AA00A6DBAB /* THOrderConfirmPayButtomView.m */; };
 		042891D420CD93BC00A6DBAB /* THOrderConfirmPayButtomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042891D320CD93BC00A6DBAB /* THOrderConfirmPayButtomView.xib */; };
 		042891D820CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042891D620CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m */; };
@@ -207,9 +210,6 @@
 		576EEACC2087A5510088B1EB /* MLLabelLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB92087A5510088B1EB /* MLLabelLayoutManager.m */; };
 		576EEACD2087A5510088B1EB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 576EEABC2087A5510088B1EB /* README.md */; };
 		576EEAD12087A5730088B1EB /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAD02087A5730088B1EB /* LEETheme.m */; };
-		576EEADA2087A5B20088B1EB /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAD42087A5B20088B1EB /* SDPhotoBrowser.m */; };
-		576EEADB2087A5B20088B1EB /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAD52087A5B20088B1EB /* SDWaitingView.m */; };
-		576EEADC2087A5B20088B1EB /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAD62087A5B20088B1EB /* SDBrowserImageView.m */; };
 		57CBC3C92088E477007D6069 /* CountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BA2088E477007D6069 /* CountView.m */; };
 		57CBC3CA2088E477007D6069 /* GoodsInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BB2088E477007D6069 /* GoodsInfoView.m */; };
 		57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BC2088E477007D6069 /* ChoseGoodsTypeAlert.m */; };
@@ -362,6 +362,13 @@
 		022CD98722DB1E4400A6518A /* THCategoryPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCategoryPresenter.h; sourceTree = "<group>"; };
 		022CD98822DB1E4400A6518A /* THCategoryPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCategoryPresenter.m; sourceTree = "<group>"; };
 		022CD98A22DB1E7300A6518A /* THCategoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCategoryProtocol.h; sourceTree = "<group>"; };
+		022CD98C22DC2B8B00A6518A /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		022CD98D22DC2B8B00A6518A /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		022CD98E22DC2B8B00A6518A /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		022CD99022DC2B8B00A6518A /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		022CD99122DC2B8B00A6518A /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		022CD99222DC2B8B00A6518A /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SessionTask.h"; sourceTree = "<group>"; };
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
@@ -440,8 +447,8 @@
 		0418A64720C6F54100527C80 /* THFlashSaleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFlashSaleModel.m; sourceTree = "<group>"; };
 		0421E89B2088FCD7008D85A0 /* THBaseWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseWebVC.h; sourceTree = "<group>"; };
 		0421E89C2088FCD8008D85A0 /* THBaseWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBaseWebVC.m; sourceTree = "<group>"; };
-		0421E89E208978FE008D85A0 /* THHomeShowMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHomeShowMenuView.h; sourceTree = "<group>"; };
-		0421E89F208978FE008D85A0 /* THHomeShowMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHomeShowMenuView.m; sourceTree = "<group>"; };
+		0421E89E208978FE008D85A0 /* THMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMenuView.h; sourceTree = "<group>"; };
+		0421E89F208978FE008D85A0 /* THMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMenuView.m; sourceTree = "<group>"; };
 		042891D020CD93AA00A6DBAB /* THOrderConfirmPayButtomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THOrderConfirmPayButtomView.h; sourceTree = "<group>"; };
 		042891D120CD93AA00A6DBAB /* THOrderConfirmPayButtomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THOrderConfirmPayButtomView.m; sourceTree = "<group>"; };
 		042891D320CD93BC00A6DBAB /* THOrderConfirmPayButtomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THOrderConfirmPayButtomView.xib; sourceTree = "<group>"; };
@@ -701,13 +708,6 @@
 		576EEABC2087A5510088B1EB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		576EEACF2087A5730088B1EB /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
 		576EEAD02087A5730088B1EB /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
-		576EEAD32087A5B20088B1EB /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
-		576EEAD42087A5B20088B1EB /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
-		576EEAD52087A5B20088B1EB /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
-		576EEAD62087A5B20088B1EB /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
-		576EEAD72087A5B20088B1EB /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
-		576EEAD82087A5B20088B1EB /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
-		576EEAD92087A5B20088B1EB /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		57CBC3B62088E441007D6069 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		57CBC3B82088E477007D6069 /* ChoseGoodsTypeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseGoodsTypeAlert.h; sourceTree = "<group>"; };
 		57CBC3B92088E477007D6069 /* ChoosTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosTypeTableViewCell.h; sourceTree = "<group>"; };
@@ -961,6 +961,20 @@
 				022CD97A22DA239400A6518A /* NSMutableArray+AvoidCrash.h */,
 			);
 			path = AvoidCrash;
+			sourceTree = "<group>";
+		};
+		022CD98B22DC2B8B00A6518A /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				022CD98C22DC2B8B00A6518A /* SDPhotoBrowserConfig.h */,
+				022CD98D22DC2B8B00A6518A /* SDPhotoBrowser.m */,
+				022CD98E22DC2B8B00A6518A /* SDWaitingView.m */,
+				022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */,
+				022CD99022DC2B8B00A6518A /* SDWaitingView.h */,
+				022CD99122DC2B8B00A6518A /* SDPhotoBrowser.h */,
+				022CD99222DC2B8B00A6518A /* SDBrowserImageView.h */,
+			);
+			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		02C377C122C324700038AC5A /* Network */ = {
@@ -1434,8 +1448,8 @@
 				8F0DC29520622AC0009AE20B /* THGoodsListOfTableLayoutCell.h */,
 				8F0DC29620622AC0009AE20B /* THGoodsListOfTableLayoutCell.m */,
 				8F0DC29720622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib */,
-				0421E89E208978FE008D85A0 /* THHomeShowMenuView.h */,
-				0421E89F208978FE008D85A0 /* THHomeShowMenuView.m */,
+				0421E89E208978FE008D85A0 /* THMenuView.h */,
+				0421E89F208978FE008D85A0 /* THMenuView.m */,
 				57417E2D20CB063600F5085F /* THTeMoneyHead.h */,
 				57417E2E20CB063600F5085F /* THTeMoneyHead.m */,
 				57417E2F20CB063600F5085F /* THTeMoneyHead.xib */,
@@ -1682,8 +1696,8 @@
 		512D7921205E090A0088A4A0 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				022CD98B22DC2B8B00A6518A /* SDPhotoBrowser */,
 				57D5104B20C6F41600B78087 /* AlipaySDK */,
-				576EEAD22087A5B20088B1EB /* SDPhotoBrowser */,
 				576EEACE2087A5730088B1EB /* LEETheme */,
 				576EEA982087A5510088B1EB /* MLEmojiLabel */,
 			);
@@ -1930,20 +1944,6 @@
 				576EEAD02087A5730088B1EB /* LEETheme.m */,
 			);
 			path = LEETheme;
-			sourceTree = "<group>";
-		};
-		576EEAD22087A5B20088B1EB /* SDPhotoBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				576EEAD32087A5B20088B1EB /* SDPhotoBrowserConfig.h */,
-				576EEAD42087A5B20088B1EB /* SDPhotoBrowser.m */,
-				576EEAD52087A5B20088B1EB /* SDWaitingView.m */,
-				576EEAD62087A5B20088B1EB /* SDBrowserImageView.m */,
-				576EEAD72087A5B20088B1EB /* SDWaitingView.h */,
-				576EEAD82087A5B20088B1EB /* SDPhotoBrowser.h */,
-				576EEAD92087A5B20088B1EB /* SDBrowserImageView.h */,
-			);
-			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		57CBC3B72088E477007D6069 /* views */ = {
@@ -2423,10 +2423,8 @@
 				"${BUILT_PRODUCTS_DIR}/FDKeychain/FDKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/HDAlertView/HDAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MSWeakTimer/MSWeakTimer.framework",
-				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/RTRootNavigationController/RTRootNavigationController.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
@@ -2451,10 +2449,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSWeakTimer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RTRootNavigationController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
@@ -2529,7 +2525,6 @@
 				512D78F6205A13FC0088A4A0 /* THHomeHeaderView.m in Sources */,
 				57CBC3CE2088E477007D6069 /* GoodsTypeModel.m in Sources */,
 				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
-				576EEADC2087A5B20088B1EB /* SDBrowserImageView.m in Sources */,
 				8F31CBF4206A314300A48F2D /* THAlertLayer.m in Sources */,
 				8F51689A20747B07005E956E /* THGoodsPageSiftView.m in Sources */,
 				04054DB120AEF5E2009CE4F1 /* THTeHuiCell.m in Sources */,
@@ -2539,12 +2534,14 @@
 				515EB86620C8C64600890072 /* THOrderModel.m in Sources */,
 				02C377D122C4A5190038AC5A /* THUIFactory.m in Sources */,
 				57D5103F20C6E75B00B78087 /* THUseCouponCtl.m in Sources */,
+				022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */,
 				57CBC3D72088ED45007D6069 /* THOrderConfirmCtl.m in Sources */,
 				576EEA702087A26F0088B1EB /* THBaseTableCtl.m in Sources */,
 				512D7904205A78CC0088A4A0 /* THMineVC.m in Sources */,
 				51DA2C0A20DAA2B2006A82B6 /* THMineAddBankCardCell.m in Sources */,
 				51DA2C1820DABFED006A82B6 /* THMineBankCardListCell.m in Sources */,
 				0448EB9520923A31006E1E17 /* THAddressVC.m in Sources */,
+				022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */,
 				57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */,
 				04D0A310207116F7003BE300 /* THRegisterCtl.m in Sources */,
 				5133D1E620DD06B800DE632A /* THWalletHeaderModel.m in Sources */,
@@ -2602,7 +2599,7 @@
 				515EB86920C966B600890072 /* THMineOrderFooterView.m in Sources */,
 				8F0DC2B3206235F8009AE20B /* THMoreSpellGroupListCell.m in Sources */,
 				8F1ABEA9207AFB2F0093F104 /* THGoodsModel.m in Sources */,
-				0421E8A0208978FE008D85A0 /* THHomeShowMenuView.m in Sources */,
+				0421E8A0208978FE008D85A0 /* THMenuView.m in Sources */,
 				512A26AB20B7BD720091B58B /* THUploadImageTool.m in Sources */,
 				576EEACB2087A5510088B1EB /* MLLabel.m in Sources */,
 				51EF4DE720DDF66A00B7F9AA /* THShareTool.m in Sources */,
@@ -2636,6 +2633,7 @@
 				57417E3A20CB747300F5085F /* THMyMessageListCell.m in Sources */,
 				576EEACC2087A5510088B1EB /* MLLabelLayoutManager.m in Sources */,
 				51DA2C1420DAAC58006A82B6 /* THMineBankCardVC.m in Sources */,
+				022CD99322DC2B8B00A6518A /* SDPhotoBrowser.m in Sources */,
 				57417E5620CB868800F5085F /* THAccountDetailCell.m in Sources */,
 				04178F082072789F0048875E /* THGoodsTopInfoCell.m in Sources */,
 				576EEAC72087A5510088B1EB /* NSAttributedString+MLExpression.m in Sources */,
@@ -2648,7 +2646,6 @@
 				512D78A6205903130088A4A0 /* main.m in Sources */,
 				04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */,
 				576EEAC42087A5510088B1EB /* NSString+MLLabel.m in Sources */,
-				576EEADA2087A5B20088B1EB /* SDPhotoBrowser.m in Sources */,
 				512D78F42059FFC00088A4A0 /* THHomeHeaderItemCell.m in Sources */,
 				02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */,
 				8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */,
@@ -2668,7 +2665,6 @@
 				0418A64820C6F54100527C80 /* THFlashSaleModel.m in Sources */,
 				8FDAF714206E38DF0090FBCC /* THUserBaseInfo.m in Sources */,
 				8F51689E20747B1A005E956E /* THHomeHotGoodsCell.m in Sources */,
-				576EEADB2087A5B20088B1EB /* SDWaitingView.m in Sources */,
 				8F5168A320747BB6005E956E /* THGoodsTransLayoutCell.m in Sources */,
 				0417B8632073ED5B003566C4 /* THMineOrderManageVC.m in Sources */,
 				512D7946205E1F380088A4A0 /* THClassifyVC.m in Sources */,

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)autoLayoutSizeContentView:(UIScrollView *)scrollView;
 
+- (void)setNavigationBarColor:(UIColor *)color;
+
 @end
 
 NS_ASSUME_NONNULL_END

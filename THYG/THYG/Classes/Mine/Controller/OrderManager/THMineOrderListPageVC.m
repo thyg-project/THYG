@@ -45,70 +45,28 @@
     
     [self.dataSource removeAllObjects];
     
-//    NSString *url = self.type ? @"/Order/getReturnGoodsList" : @"/Order/getUserOrderList";
-    
-//    [THNetworkTool POST:API(url) parameters:@{@"token":@"", @"type":self.status} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        self.dataSourceArray = [THOrderListModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"][@"list"]];
-//        [self.dataTableView reloadData];
-//    }];
 }
 
 #pragma mark - 删除订单
 - (void)deleteOrder:(NSString *)orderId {
     [THHUD show];
-//    [THNetworkTool POST:API(@"/Order/delete") parameters:@{@"token":@"", @"order_id":orderId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//        if ([responseObject[@"code"] integerValue] == 200) {
-//            [THHUD showSuccess:@"删除成功"];
-//            [self getUserOrderList];
-//        } else {
-//            [THHUD showSuccess:responseObject[@"msg"]];
-//        }
-//
-//    }];
+
 }
 
 #pragma mark - 取消订单
 - (void)cancelOrder:(NSString *)orderId {
     [THHUD show];
-//    [THNetworkTool POST:API(@"/Order/cancel") parameters:@{@"token":@"", @"order_id":orderId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//        if ([responseObject[@"code"] integerValue] == 200) {
-//            [THHUD showSuccess:@"取消订单成功"];
-//            [self getUserOrderList];
-//        } else {
-//            [THHUD showSuccess:responseObject[@"msg"]];
-//        }
-//
-//    }];
+
 }
 
 #pragma mark - 查看物流信息
 - (void)scanExpress:(NSString *)orderId {
-//    [THNetworkTool POST:API(@"/Order/express") parameters:@{@"token":@"", @"order_id":orderId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//        [THHUD showSuccess:responseObject[@"msg"]];
-//        if ([responseObject[@"code"] integerValue] == 200) {
-//
-//        } else {
-//
-//        }
-//
-//    }];
+
 }
 
 #pragma mark - 提醒发货
 - (void)noticeOrder:(NSString *)orderId {
-//    [THNetworkTool POST:API(@"/Order/notice") parameters:@{@"token":@"", @"order_id":orderId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//        [THHUD showSuccess:responseObject[@"msg"]];
-//        if ([responseObject[@"code"] integerValue] == 200) {
-//
-//        } else {
-//
-//        }
-//
-//    }];
+
 }
 
 

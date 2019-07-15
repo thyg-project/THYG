@@ -43,8 +43,9 @@
 }
 
 - (void)setupUI {
-    self.title = @"收货地址";
+    self.navigationItem.title = @"收货地址";
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    [self autoLayoutSizeContentView:self.tableView];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:self.tableView];
@@ -81,12 +82,6 @@
 }
 
 #pragma mark - 获取
-//- (void)getAddressList {
-//    [THNetworkTool POST:API(@"/Address/getAddressList") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-////        self.dataSourceArray = [THAddressModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-////        [self.dataTableView reloadData];
-//    }];
-//}
 
 
 - (void)checkParmaMethod {
@@ -135,8 +130,7 @@
     return CGFLOAT_MIN;
 }
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THAddAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THAddAddressCell.class)];
     cell.modelData = self.dataSource[indexPath.row];
     cell.textField.tag = indexPath.row;
@@ -173,8 +167,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     kWeakSelf;
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -200,30 +193,6 @@
     } else {
         address = [[self getTextField:3].text substringFromIndex:address.length-1];
     }
-    
-    /*
-    [THNetworkTool POST:API(@"/Address/post")
-             parameters:@{@"token":@"",
-                          @"consignee":[self getTextField:0].text,//性别 0=保密 1=男 2=女
-                          @"province":@(self.provinceSelModel.iD?:[self.modelData.province integerValue]),//省份id
-                          @"city":@(self.citySelModel.iD?:[self.modelData.city integerValue]),//城市id
-                          @"district":@(self.districtSelModel.iD?:[self.modelData.district integerValue]),//区县id
-                          @"address":address,//具体地址
-                          @"mobile":[self getTextField:1].text,//手机号
-                          @"address_id":self.optiontype==editOption?self.modelData.address_id:@""//地址id，添加时传可不传，修改时传
-                          }
-             completion:^(id responseObject, NSDictionary *allResponseObject) {
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [THHUD showSuccess:@"添加成功"];
-            if (self.optionSuccessBlock) {
-                self.optionSuccessBlock();
-            }
-            [self popVC];
-            
-        });
-    }];
-     */
 }
 
 #pragma mark - 懒加载
@@ -239,7 +208,7 @@
     return _footerBtn;
 }
 
-- (THSelectAddressView*)selectAddressView {
+- (THSelectAddressView *)selectAddressView {
     if (_selectAddressView==nil) {
         _selectAddressView = [[THSelectAddressView alloc] init];
     }

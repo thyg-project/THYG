@@ -50,8 +50,7 @@
     
 }
 
-- (THChangeCountView *)changeView
-{
+- (THChangeCountView *)changeView {
     if (!_changeView) {
         _changeView = [[THChangeCountView alloc] initWithFrame:CGRectMake(kScreenWidth-110, self.frame.size.height - 35, 100, 35) chooseCount:1 totalCount:NSIntegerMax];
         [_changeView.subButton addTarget:self action:@selector(subButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -70,9 +69,7 @@
     if (self.maxCount <= self.choosedCount) {
         self.choosedCount = self.maxCount;
         _changeView.addButton.enabled = NO;
-    }
-    else
-    {
+    } else {
         _changeView.subButton.enabled = YES;
     }
     
@@ -87,17 +84,14 @@
 }
 
 //减
-- (void)subButtonPressed:(id)sender
-{
+- (void)subButtonPressed:(id)sender {
     
     -- self.choosedCount ;
     
     if (self.choosedCount==1) {
         self.choosedCount = 1;
         _changeView.subButton.enabled = NO;
-    }
-    else
-    {
+    } else {
         _changeView.addButton.enabled = YES;
         
     }
@@ -111,8 +105,7 @@
     
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     _changeView.numberFD = textField;
     
     if ([_changeView.numberFD.text isEqualToString:@""] || [_changeView.numberFD.text isEqualToString:@"0"] || [_changeView.numberFD.text integerValue]<0) {
@@ -134,9 +127,7 @@
 #pragma mark - 购物车改变数量， 单个选中 或者取消
 - (void)changeNum:(NSInteger)goodsNum isSelected:(BOOL)selected carId:(NSString *)carId {
 //    NSDictionary *dict = @{@"token":@"", @"cart_id":carId, @"goods_num": @(goodsNum), @"selected":@(selected)};
-//    [THNetworkTool POST:API(@"/Cart/changeNum") parameters:dict completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        NSLog(@"responseObject %@", responseObject);
-//    }];
+
 }
 
 @end

@@ -53,45 +53,11 @@
 
 - (IBAction)loginAction:(id)sender {  
     
-//    [THNetworkTool POST:API(@"/Login/login")
-//             parameters:@{@"mobile":self.accountField.text,
-//                          @"password":[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]]}
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//                 if ([responseObject[@"status"] integerValue] == 200) {
-//
-//                     [THHUD showSuccess:@"登录成功"];
-//                     if (responseObject[@"info"][@"token"]) {
-//                         UserDefaultsSetObj(responseObject[@"info"][@"token"], @"token");
-//                     }
-//                     // 登录成功
-//                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                         [self getUserInfo];
-//                     });
-//
-//                 } else {
-//                     [THHUD showMsg:allResponseObject[@"msg"]];
-//                 }
-//
-//    }];
+
 }
 
 - (void)getUserInfo {
-//    [THNetworkTool POST:API(@"/User/userinfo")
-//             parameters:@{@"token":@""}
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//                 
-//                 UserInfo = [THUserInfoModel mj_objectWithKeyValues:responseObject[@"info"]];
-//                 
-//                 if (!UserInfo) {
-//                     [WZXArchiverManager clearAll];
-//                 }else{
-//                     [UserInfo wzx_archiveToName:USER_INFO_KEY];
-//                 }
-//                 
-//                 [self.navigationController popToRootViewControllerAnimated:YES];
-//                 
-//             }];
+
 }
 
 - (IBAction)registerAction:(id)sender {

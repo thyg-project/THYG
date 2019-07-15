@@ -74,28 +74,13 @@
 
 #pragma mark - payMethod
 - (void)payMethod {
-    /*
-    [THNetworkTool POST:API(@"/pay/payOrder")
-             parameters:@{@"token":@"",
-                          @"order_id":self.orderId,
-                          @"pay_code":(self.currentRow - 1 == 1) ? @"weixin" : @"alipay"
-                          }
-             completion:^(id responseObject, NSDictionary *allResponseObject) {
-                 
-                 if (self.currentRow == 1) {
-                     [[THPay sharePay] weChatPay:responseObject[@"info"][@"pay"]];
-                 }else{
-                     [[THPay sharePay] aliPay:responseObject[@"info"][@"pay"]];
-                 }
-                 
-             }];
     
     //微信支付成功回调
     [THPay sharePay].paySuccessByWeChatCallBack = ^(PayResp *resp) {
         
         [THHUD showSuccess:@"微信支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
-        [self pushVC:page];
+        
         
     };
     
@@ -104,10 +89,10 @@
         
         [THHUD showSuccess:@"支付宝支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
-        [self pushVC:page];
+        
         
     };
-    */
+    
 }
 
 #pragma mark - tableView 数据源代理

@@ -63,82 +63,18 @@
 #pragma mark - 订单页面相关数据
 - (void)getOrder {
     
-//    [THNetworkTool POST:API(@"/Order/create") parameters:@{@"token":@"", @"action":@"cart", @"cart_ids":self.cart_ids} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        self.modelData = [THCartDetailModel mj_objectWithKeyValues:responseObject[@"info"]];
-//        [self.mTable reloadData];
-//    }];
+
     
 }
 
 #pragma mark - 获取默认地址
 - (void)getDefaultAddress {
-//    [THNetworkTool POST:API(@"/Address/getUserAddressList") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        self.addressList = [THAddressModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-//        for (THAddressModel *model in self.addressList) {
-//            if (model.is_default) {
-//                self.selectAddressModel = model;
-//            }
-//        }
-//        [self.mTable reloadData];
-//        [self caculateOrderPriceWithAct:nil];
-//    }];
+
 }
 
 #pragma mark -- 计算订单价格
-- (void)caculateOrderPriceWithAct:(NSString *)act
-{
-   /* [THNetworkTool POST:API(@"/Order/submit")
-             parameters:@{@"token":@"",
-                          @"goods_id":@"0",
-                          @"goods_num":@"0",
-                          @"item_id":@"0",
-                          @"action":@"cart",
-                          @"address_id":self.selectAddressModel.address_id.length?self.selectAddressModel.address_id:@"",
-                          @"shipping_code":self.modelData.shippingList.count?self.modelData.shippingList[0].code:@"",
-                          @"invoice_title":@"",
-                          @"invoice_type":@"",//当invoice_title不为空时，这个参数必须传
-                          @"pay_points":@"",
-                          @"user_note":@"",
-                          @"coupon_id":@(self.couponsModel.idField),
-                          @"act":act?act:@""
-                          }
-             completion:^(id responseObject, NSDictionary *allResponseObject) {
-        
-                 if (!responseObject || [allResponseObject[@"status"] integerValue] == -3) {
-                     [THHUD showMsg:allResponseObject[@"msg"]];
-                     _sectionCount = 6;
-                 }
-                
-                 //计算订单价格
-                 if (!act.length) {
-                     
-                     self.orderCouponModel = [THOrderCouponModel mj_objectWithKeyValues:responseObject[@"info"][@"car_price"]];
-                     self.paytotalMoneyLabel.text = [NSString stringWithFormat:@"实付款：%.2lf",self.orderCouponModel.payables];
-                     [self.mTable reloadData];
-                     
-                 } else {
-                     
-                     if (!self.selectAddressModel) {
-                         [HDAlertView showAlertViewWithTitle:nil message:@"您还没有收获地址哦，赶快去设置一个吧!" cancelButtonTitle:@"取消" otherButtonTitles:@[@"去设置"] handler:^(HDAlertView *alertView, NSInteger buttonIndex) {
-                             THAddressVC *address = [[THAddressVC alloc] init];
-                             address.getSelectAddress = ^(THAddressModel *addressModel) {
-                                 self.selectAddressModel = addressModel;
-                                 [self.mTable reloadData];
-                                 [self caculateOrderPriceWithAct:nil];
-                             };
-                             [self pushVC:address];
-                         }];
-                     }else{
-                         //生成订单
-                         THPayMethodCtl *createSuccessCtl = [[THPayMethodCtl alloc] init];
-                         createSuccessCtl.orderId = responseObject[@"info"][@"order_id"];
-                         createSuccessCtl.totalPrice = self.orderCouponModel.payables;
-                         [self pushVC:createSuccessCtl];
-                     }
-                 }
-                 
-    }];
-    */
+- (void)caculateOrderPriceWithAct:(NSString *)act {
+   
 }
 
 #pragma mark -- 提交订单

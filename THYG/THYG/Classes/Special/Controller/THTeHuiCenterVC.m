@@ -9,6 +9,7 @@
 #import "THTeHuiCenterVC.h"
 #import "THTeHuiCell.h"
 #import "THTeHuiModel.h"
+#import "THMenuView.h"
 
 @interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UIButton *titleBtnView;
@@ -18,6 +19,8 @@
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
+@property (nonatomic, strong) THMenuView *menuView;
+
 
 @end
 
@@ -26,20 +29,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    
-//    for (int i = 0; i < 10; i++) {
-//
-//        THTeHuiModel *model = [[THTeHuiModel alloc] init];
-//        model.userName = [NSString stringWithFormat:@"用户%d",i];
-//        model.time = [NSString stringWithFormat:@"%d分钟前",i+arc4random_uniform(40)];
-//        model.content = @"这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论";
-//        model.images = @[@"shangpin1",@"shangpin2",@"shangpin3"];
-//        model.goodsName = @"假数据假数据假数据假数据假数据假数据";
-//        [self.dataSourceArray addObject:model];
-//    }
+    [self setMunes];
     
     [self getMyCommentList:@"1"];
     
+}
+
+- (void)setMunes {
+    _menuView = [THMenuView new];
+    self.menuView.data = @[@"晒单",@"特"];
+    kWeakSelf
+    self.menuView.selectedAction = ^(NSInteger index) {
+        weakSelf.titleBtnView.selected = NO;
+        
+    };
+    [self.view addSubview:self.menuView];
 }
 
 - (void)setupUI {
@@ -52,20 +56,11 @@
     _tableView.delegate = self;
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[THTeHuiCell class] forCellReuseIdentifier:NSStringFromClass(THTeHuiCell.class)];
-    
-//    self.menuView.data = @[@"晒单",@"特"];
-//    [self.view addSubview:self.menuView];
-    
 }
 
 #pragma mark - 获取晒单列表
 - (void)getMyCommentList:(NSString *)type {
-//    [THNetworkTool POST:API(@"/Order/myCommentList") parameters:@{@"token":@"35c93d3dfeaf485acb9676ba2aa5b586", @"type":type} completion:^(id responseObject, NSDictionary *allResponseObject) {
-////        NSLog(@"responseObject %@", responseObject);
-//        self.dataSourceArray = [THTeHuiModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-//        [self.dataTableView reloadData];
-//
-//    }];
+
 }
 
 
@@ -87,31 +82,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    id model = self.dataSourceArray[indexPath.row];
-//    return [self.dataTableView cellHeightForIndexPath:indexPath model:model keyPath:@"teModel" cellClass:[THTeHuiCell class] contentViewWidth:kScreenWidth];
     return 320;
 }
 
-//- (CGFloat)cellContentViewWith
-//{
-//    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//
-//    // 适配ios7横屏
-//    if ([UIApplication sharedApplication].statusBarOrientation != UIInterfaceOrientationPortrait && [[UIDevice currentDevice].systemVersion floatValue] < 8) {
-//        width = [UIScreen mainScreen].bounds.size.height;
-//    }
-//    return width;
-//}
-
 #pragma mark - 按钮点击事件
 - (void)btnClick {
-//    [self.menuView show];
+    [self.menuView show];
     self.titleBtnView.selected = YES;
-//    kWeakSelf
-//    self.menuView.selectedAction = ^(NSInteger index) {
-//        weakSelf.titleBtnView.selected = NO;
-//
-//    };
 }
 
 - (void)topViewClick:(UIButton *)sender {

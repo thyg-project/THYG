@@ -142,16 +142,7 @@
 
 #pragma mark - 取消 / 收藏商品
 - (void)collectGoods:(BOOL)collect {
-//    [THNetworkTool POST:API(@"/Goods/collectionGoods")
-//             parameters:@{@"token":@"", @"goods_id":self.detailModel.goods_id, @"collect": @(collect)}
-//             completion:^(id responseObject, NSDictionary *allResponseObject) {
-//                 if (responseObject) {
-//                     [THHUD showMsg:responseObject[@"msg"]];
-//                 } else {
-//                     [THHUD showMsg:allResponseObject[@"msg"]];
-//                 }
-//                 
-//             }];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

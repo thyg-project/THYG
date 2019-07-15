@@ -59,22 +59,6 @@
 //        [self pushVC:nextStepCtl];
 //        return;
 		
-//        [THNetworkTool POST:API(@"/User/send_validate_code") parameters:@{@"scene":self.type?@"2":@"1", @"mobile":self.phoneNumField.text} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//            
-//            if ([responseObject[@"status"] integerValue] == 200) {
-//                [THHUD showSuccess:@"短信验证码发送成功"];
-//                THRegisterNextStepCtl *nextStepCtl = [[THRegisterNextStepCtl alloc] init];
-//                nextStepCtl.phoneString = self.phoneNumField.text;
-//                nextStepCtl.isForgetPwd = self.type;
-//                nextStepCtl.uniqueId = responseObject[@"info"][@"unique_id"];
-//                [self pushVC:nextStepCtl];
-//                
-//            } else {
-//                NSLog(@"失败信息%@", responseObject[@"msg"]);
-//            }
-//            
-//            
-//        }];
 //        
     } cancelCallback:^{
         

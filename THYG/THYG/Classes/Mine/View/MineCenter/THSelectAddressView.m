@@ -41,41 +41,10 @@
 
 #pragma mark -- 加载省市区数据
 - (void)initDataWithProvinceId:(NSInteger)provinceId cityId:(NSInteger)cityId districtId:(NSInteger)districtId {
-    /*
-    [THNetworkTool POST:API(@"/Address/getAddressList") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-        
-        self.provinceList = [THAddressPCDModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-        NSMutableArray *mut = self.provinceList.mutableCopy;
-        for (NSInteger i = 0; i<mut.count; i++) {
-            THAddressPCDModel *m = mut[i];
-            if (!m.cityList.count) {
-                //空的市 区
-                THAddressPCDModel *model = [[THAddressPCDModel alloc]init];
-                model.name = @"";
-                model.iD = 0;
-                m.cityList = @[model];
-                model.districtList = @[model];
-                
-            }else{
-                for (THAddressPCDModel *subModel in m.cityList) {
-                    if (!subModel.districtList.count) {
-                        THAddressPCDModel *model = [[THAddressPCDModel alloc]init];
-                        model.name = @"";
-                        model.iD = 0;
-                        subModel.districtList = @[model];
-                    }
-                }
-            }
-        }
-        self.provinceList = mut;
-        [self setValueWithProvinceId:provinceId cityId:cityId districtId:districtId];
-        
-    }];
-     */
+    
 }
 
-- (void)setValueWithProvinceId:(NSInteger)provinceId cityId:(NSInteger)cityId districtId:(NSInteger)districtId
-{
+- (void)setValueWithProvinceId:(NSInteger)provinceId cityId:(NSInteger)cityId districtId:(NSInteger)districtId {
     for (NSInteger i = 0; i < self.provinceList.count; i++) {
         if ([self.provinceList[i] iD] == provinceId) {
             self.currentProvinceIndex = i;
@@ -95,8 +64,7 @@
     }
 }
 
-- (void)setDefaultValue
-{
+- (void)setDefaultValue {
     self.cityList = [self.provinceList[self.currentProvinceIndex] cityList];
     self.districtList = [self.cityList[self.currentCityIndex] districtList];
     
@@ -138,8 +106,7 @@
 /*
  隐藏视图
  */
-- (void)hidden
-{
+- (void)hidden {
     [UIView animateWithDuration:0.3 animations:^{
         self.pickerView.y = kScreenHeight;
         self.optionView.y = kScreenHeight;
@@ -147,42 +114,32 @@
     self.bgView.y = kScreenHeight;
 }
 
-- (void)confirmSelectAction
-{
+- (void)confirmSelectAction {
     [self hidden];
     if (self.getDataBlock) {
         self.getDataBlock();
     }
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 3;
 }
 
 //返回当前列显示的行数
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    if(component == 0)
-    {
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if(component == 0) {
         return self.provinceList.count;
-    }
-    else if(component == 1)
-    {
+    } else if(component == 1) {
         return self.cityList.count;
-    }
-    else if(component == 2)
-    {
+    } else if(component == 2) {
         return self.districtList.count;
     }
     return 0;
 }
 
 //选择的行数
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    if(component == 0)
-    {
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if(component == 0) {
         self.currentProvinceIndex = row;
         self.currentCityIndex     = 0;
         self.currentDistrictIndex = 0;
@@ -201,9 +158,7 @@
         self.citySelModel     = self.cityList.count ? self.cityList[self.currentCityIndex] : nil;
         self.districtSelModel = self.districtList.count ? self.districtList[self.currentDistrictIndex] : nil;
         
-    }
-    else if(component == 1)
-    {
+    } else if(component == 1) {
         self.currentCityIndex = row;
         
         self.currentDistrictIndex = 0;
@@ -218,9 +173,7 @@
         self.citySelModel     = self.cityList.count ? self.cityList[self.currentCityIndex] : nil;
         self.districtSelModel = self.districtList.count ? self.districtList[self.currentDistrictIndex] : nil;
         
-    }
-    else if(component == 2)
-    {
+    } else if(component == 2) {
         self.currentDistrictIndex = row;
         
         self.districtSelModel = self.districtList.count ? self.districtList[self.currentDistrictIndex] : nil;
@@ -228,14 +181,11 @@
     
 }
 
-
--(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
-{
+-(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
     return 45.0f;
 }
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
-{
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
     ((UIView *)[pickerView.subviews objectAtIndex:1]).backgroundColor = RGB(229, 229, 229);
     
     ((UIView *)[pickerView.subviews objectAtIndex:2]).backgroundColor = RGB(229, 229, 229);
@@ -246,24 +196,18 @@
     title.textColor = RGB(51, 51, 51);
     title.textAlignment = NSTextAlignmentCenter;
     
-    if(component == 0)
-    {
+    if(component == 0) {
         title.text = [self.provinceList[row]name];
-    }
-    else if(component == 1)
-    {
+    } else if(component == 1) {
         title.text = [self.cityList[row]name];
-    }
-    else if(component == 2)
-    {
+    } else if(component == 2) {
         title.text = [self.districtList[row]name];
     }
     
     return title;
 }
 
-- (UIPickerView*)pickerView
-{
+- (UIPickerView*)pickerView {
     if (_pickerView==nil) {
         _pickerView = [[UIPickerView alloc]init];
         _pickerView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 180);
@@ -275,8 +219,7 @@
     return _pickerView;
 }
 
-- (UIControl*)bgView
-{
+- (UIControl*)bgView {
     if (_bgView==nil) {
         _bgView = [[UIControl alloc]init];
         _bgView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
@@ -286,8 +229,7 @@
     return _bgView;
 }
 
-- (UIView*)optionView
-{
+- (UIView*)optionView {
     if (_optionView==nil) {
         _optionView = [[UIView alloc]initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, 40)];
         _optionView.backgroundColor = [UIColor whiteColor];

@@ -23,6 +23,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"活动消息";
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    [self autoLayoutSizeContentView:self.tableView];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:self.tableView];

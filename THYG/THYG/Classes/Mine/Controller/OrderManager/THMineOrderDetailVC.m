@@ -52,10 +52,7 @@
 #pragma mark - 获取订单详情
 - (void)getOrderDetails {
     
-//    [THNetworkTool POST:API(@"/Order/detail") parameters:@{@"token":@"", @"order_id":self.orderId} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        self.orderModel = [THOrderModel mj_objectWithKeyValues:responseObject[@"info"]];
-//        [self.dataTableView reloadData];
-//    }];
+
 
 }
 

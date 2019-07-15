@@ -29,34 +29,16 @@
 
 #pragma mark - comment
 - (void)getComments {
-    /*
-    [THNetworkTool POST:API(@"/Goods/getCommentList") parameters:@{@"token":@"", @"goods_id":self.goods_id} completion:^(id responseObject, NSDictionary *allResponseObject) {
-        if (responseObject) {
-            self.commentArray = [THGoodsCommentModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-            [self.commentArray enumerateObjectsUsingBlock:^(THGoodsCommentModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-               
-                int columnCount = obj.img.count < 4 ? 1 : (obj.img.count%4 ? obj.img.count%4+1 : obj.img.count%4);
-                CGFloat picHeight = obj.img.count == 0 ? 0 : ((kScreenWidth - 10 * (4+1)) / 4) * columnCount + (columnCount - 1)*10;
-                obj.cellHeight = [obj.content boundingRectWithSize:CGSizeMake(kScreenWidth-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11]} context:nil].size.height + picHeight + 120;
-                
-            }];
-            [self.tableView reloadData];
-        }
-        
-    }];
-     
-     */
+    
 }
 
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     THCommentHead *head = [[THCommentHead alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
     
     return head;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 50;
 }
 

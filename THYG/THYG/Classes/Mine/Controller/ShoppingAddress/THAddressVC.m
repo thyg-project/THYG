@@ -47,10 +47,7 @@
 
 #pragma mark - 获取地址列表
 - (void)getAddressList {
-//    [THNetworkTool POST:API(@"/Address/getUserAddressList") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        self.dataSourceArray = [THAddressModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-//        [self.dataTableView reloadData];
-//    }];
+
 }
 
 #pragma mark -- 跳转到添加界面
@@ -71,26 +68,13 @@
 
 #pragma mark -- 删除地址
 - (void)deleteAddress:(NSString*)aid {
-//    [THNetworkTool POST:API(@"/Address/delete") parameters:@{@"address_id":aid,@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//        [self refreshDataAction];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [THHUD showSuccess:@"删除成功"];
-//        });
-//    }];
+
 }
 
 #pragma mark -- 设置为默认地址
 - (void)defaultBtnOnclick:(THAddressModel *)model {
 
-//    [THNetworkTool POST:API(@"/Address/setDefault") parameters:@{@"token":@"", @"address_id":model.address_id} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//
-//        [self refreshDataAction];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [THHUD showSuccess:@"设置成功"];
-//            
-//        });
-//    }];
+
 }
 
 - (void)refreshDataAction {

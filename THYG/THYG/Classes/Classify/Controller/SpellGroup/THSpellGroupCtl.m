@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"团购";
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGB(59, 59, 59)] forBarMetrics:UIBarMetricsDefault];
+    [self setNavigationBarColor:RGB(59, 59, 59)];
     [self.view addSubview:self.headView];
     [self.view addSubview:self.collectionView];
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {

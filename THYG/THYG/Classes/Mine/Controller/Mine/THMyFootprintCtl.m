@@ -19,11 +19,7 @@
     
 }
 
-- (void)loadData
-{
-//    [THNetworkTool POST:API(@"/User/getVisitList") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        NSLog(@"responseObject %@", responseObject);
-//    }];
+- (void)loadData {
 }
 
 @end

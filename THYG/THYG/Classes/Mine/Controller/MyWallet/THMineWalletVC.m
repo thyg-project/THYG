@@ -35,17 +35,6 @@
 
 #pragma mark - 银行卡列表 （请求成功，未添加时候，没有数据）
 - (void)loadDatas {
-//    kWeakSelf;
-//    [THNetworkTool POST:API(@"/User/wallet") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        NSLog(@"responseObject %@", responseObject);
-//        
-//        weakSelf.walletView.walletModel = [THWalletHeaderModel mj_objectWithKeyValues:responseObject[@"info"][@"money"]];
-//        
-//    }];
-    
-//    [THNetworkTool POST:API(@"/User/bankCardList") parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//         NSLog(@"responseObject %@", responseObject);
-//     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

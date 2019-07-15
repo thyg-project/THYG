@@ -23,4 +23,8 @@
 #endif
 }
 
+- (void)setNavigationBarColor:(UIColor *)color {
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:color] forBarMetrics:UIBarMetricsDefault];
+}
+
 @end

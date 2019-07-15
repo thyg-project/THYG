@@ -35,10 +35,7 @@
         url = @"/User/collectList";
     }
     NSLog(@"url%@", url);
-//    [THNetworkTool POST:API(url) parameters:@{@"token":@""} completion:^(id responseObject, NSDictionary *allResponseObject) {
-//        self.data = [THMyCollectModel mj_objectArrayWithKeyValuesArray:responseObject[@"info"]];
-//        [self.mTable reloadData];
-//    }];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,20 +50,6 @@
     THMyCollectCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMyCollectCell.class)];
     THMyCollectModel *model = self.data[indexPath.row];
     cell.modelData = model;
-    /*
-    cell.addCartAction = ^{
-        [THNetworkTool POST:API(@"/Cart/addCart")
-                 parameters:@{@"goods_id":model.goods_id,
-                              @"goods_num":@"1",
-                              @"item_id":@"",
-                              @"token":@""
-                              }
-                 completion:^(id responseObject, NSDictionary *allResponseObject) {
-                     
-                     [THHUD showSuccess:@"成功加入购物车"];
-                     
-                 }];    };
-     */
     
     return cell;
 }

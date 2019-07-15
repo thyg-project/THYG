@@ -9,14 +9,15 @@
 #ifndef Macros_h
 #define Macros_h
 
+
+#define kBigBang          YGInfo.isBangScreen()
 //iPhone X 顶部44pt  底部34pt
-#define kTabBarHeight  (49)                   // 定义Tabbar高度
-#define kNaviHeight  (64)                   // 导航栏高度
-#define kStatesBarHeight  (20)
+#define kTabBarHeight  (kBigBang ? 83 : 49)                   // 定义Tabbar高度
+#define kNaviHeight  (kBigBang ? 88 : 64)                   // 导航栏高度
+#define kStatesBarHeight  (kBigBang ? 44 : 20)
 
 //iPhone X 底部home区域 34pt
-#define kiPhoneX_bottom_height  34
-
+#define kTabBarBottomMargen  (kBigBang ? 34 : 0)
 //适配上
 #define WIDTH(W) [UIScreen mainScreen].bounds.size.width / 375 * W
 

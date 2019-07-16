@@ -136,7 +136,6 @@
 		512D790E205B6A920088A4A0 /* THMineAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D790C205B6A920088A4A0 /* THMineAdCell.xib */; };
 		512D7912205B774B0088A4A0 /* THMineOrderHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7910205B774B0088A4A0 /* THMineOrderHeaderCell.m */; };
 		512D7913205B774B0088A4A0 /* THMineOrderHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */; };
-		512D7938205E098E0088A4A0 /* THAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7937205E098E0088A4A0 /* THAPI.m */; };
 		512D793B205E0F840088A4A0 /* THNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793A205E0F840088A4A0 /* THNewFeatureVC.m */; };
 		512D793E205E10E40088A4A0 /* THNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793D205E10E40088A4A0 /* THNewFeatureCell.m */; };
 		512D7940205E12270088A4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 512D793F205E12260088A4A0 /* Assets.xcassets */; };
@@ -185,7 +184,6 @@
 		57417E5B20CB88E100F5085F /* THAboutTHCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E5920CB88E100F5085F /* THAboutTHCtl.m */; };
 		57417E5C20CB88E100F5085F /* THAboutTHCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E5A20CB88E100F5085F /* THAboutTHCtl.xib */; };
 		576EEA6D2087A0EB0088B1EB /* THTeCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA6C2087A0EB0088B1EB /* THTeCtl.m */; };
-		576EEA702087A26F0088B1EB /* THBaseTableCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA6F2087A26F0088B1EB /* THBaseTableCtl.m */; };
 		576EEA862087A2F40088B1EB /* SDWeiXinPhotoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA722087A2F40088B1EB /* SDWeiXinPhotoContainerView.m */; };
 		576EEA872087A2F40088B1EB /* SDTimeLineCellCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA762087A2F40088B1EB /* SDTimeLineCellCommentView.m */; };
 		576EEA892087A2F40088B1EB /* SDTimeLineTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA7B2087A2F40088B1EB /* SDTimeLineTableHeaderView.m */; };
@@ -336,6 +334,7 @@
 /* Begin PBXFileReference section */
 		02188A8822DDA08600258F37 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		02188A8922DDA08600258F37 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		02188A8B22DDC2AA00258F37 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AvoidCrash.m"; sourceTree = "<group>"; };
 		022CD96422DA239300A6518A /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
 		022CD96522DA239300A6518A /* NSString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AvoidCrash.m"; sourceTree = "<group>"; };
@@ -577,8 +576,6 @@
 		512D790F205B774B0088A4A0 /* THMineOrderHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineOrderHeaderCell.h; sourceTree = "<group>"; };
 		512D7910205B774B0088A4A0 /* THMineOrderHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMineOrderHeaderCell.m; sourceTree = "<group>"; };
 		512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMineOrderHeaderCell.xib; sourceTree = "<group>"; };
-		512D7936205E098E0088A4A0 /* THAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAPI.h; sourceTree = "<group>"; };
-		512D7937205E098E0088A4A0 /* THAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAPI.m; sourceTree = "<group>"; };
 		512D7939205E0F840088A4A0 /* THNewFeatureVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNewFeatureVC.h; sourceTree = "<group>"; };
 		512D793A205E0F840088A4A0 /* THNewFeatureVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THNewFeatureVC.m; sourceTree = "<group>"; };
 		512D793C205E10E40088A4A0 /* THNewFeatureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNewFeatureCell.h; sourceTree = "<group>"; };
@@ -660,8 +657,6 @@
 		57417E5A20CB88E100F5085F /* THAboutTHCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THAboutTHCtl.xib; sourceTree = "<group>"; };
 		576EEA6B2087A0EB0088B1EB /* THTeCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCtl.h; sourceTree = "<group>"; };
 		576EEA6C2087A0EB0088B1EB /* THTeCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCtl.m; sourceTree = "<group>"; };
-		576EEA6E2087A26F0088B1EB /* THBaseTableCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseTableCtl.h; sourceTree = "<group>"; };
-		576EEA6F2087A26F0088B1EB /* THBaseTableCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBaseTableCtl.m; sourceTree = "<group>"; };
 		576EEA722087A2F40088B1EB /* SDWeiXinPhotoContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWeiXinPhotoContainerView.m; sourceTree = "<group>"; };
 		576EEA732087A2F40088B1EB /* SDWeiXinPhotoContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWeiXinPhotoContainerView.h; sourceTree = "<group>"; };
 		576EEA752087A2F40088B1EB /* SDTimeLineCellCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellCommentView.h; sourceTree = "<group>"; };
@@ -1284,8 +1279,6 @@
 				04D0A323207134AE003BE300 /* THNavigationController.m */,
 				04D0A321207134AE003BE300 /* THBaseVC.h */,
 				04D0A324207134AE003BE300 /* THBaseVC.m */,
-				576EEA6E2087A26F0088B1EB /* THBaseTableCtl.h */,
-				576EEA6F2087A26F0088B1EB /* THBaseTableCtl.m */,
 				0421E89B2088FCD7008D85A0 /* THBaseWebVC.h */,
 				0421E89C2088FCD8008D85A0 /* THBaseWebVC.m */,
 			);
@@ -1295,6 +1288,7 @@
 		3D181980B3D8340BE96F1601 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02188A8B22DDC2AA00258F37 /* MobileCoreServices.framework */,
 				57D5106420C6F98100B78087 /* CoreMotion.framework */,
 				57D5106220C6F97500B78087 /* CFNetwork.framework */,
 				57D5106020C6F96E00B78087 /* Foundation.framework */,
@@ -1655,8 +1649,6 @@
 			isa = PBXGroup;
 			children = (
 				512D78E6205928C60088A4A0 /* Headers.h */,
-				512D7936205E098E0088A4A0 /* THAPI.h */,
-				512D7937205E098E0088A4A0 /* THAPI.m */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -2529,7 +2521,6 @@
 				022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */,
 				02188A8A22DDA08600258F37 /* UIScrollView+Refresh.m in Sources */,
 				57CBC3D72088ED45007D6069 /* THOrderConfirmCtl.m in Sources */,
-				576EEA702087A26F0088B1EB /* THBaseTableCtl.m in Sources */,
 				512D7904205A78CC0088A4A0 /* THMineVC.m in Sources */,
 				51DA2C0A20DAA2B2006A82B6 /* THMineAddBankCardCell.m in Sources */,
 				51DA2C1820DABFED006A82B6 /* THMineBankCardListCell.m in Sources */,
@@ -2630,7 +2621,6 @@
 				57417E5620CB868800F5085F /* THAccountDetailCell.m in Sources */,
 				04178F082072789F0048875E /* THGoodsTopInfoCell.m in Sources */,
 				576EEAC72087A5510088B1EB /* NSAttributedString+MLExpression.m in Sources */,
-				512D7938205E098E0088A4A0 /* THAPI.m in Sources */,
 				0417B8722076F14C003566C4 /* THMineWalletVC.m in Sources */,
 				8F1712B8207201DD00EFDFCB /* THMyCollectCell.m in Sources */,
 				04D0A312207116F7003BE300 /* THLoginVC.m in Sources */,

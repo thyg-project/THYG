@@ -34,19 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.nickNameLabel.delegate = self.professionalField.delegate = self;
-//    self.nickNameLabel.text = UserInfo.nickname;
-//
-//    [self.sexBtn setTitle:(UserInfo.sex == 2)?@"女":(UserInfo.sex == 1)? @"男":@"男/女" forState:UIControlStateNormal];
-//
-//    if (UserInfo.birthday.length > 7) {
-//        [self.yearBtn setTitle:[UserInfo.birthday substringToIndex:4] forState:UIControlStateNormal];
-//        [self.monthBtn setTitle:[UserInfo.birthday substringWithRange:NSMakeRange(4, 2)] forState:UIControlStateNormal];
-//        [self.dayBtn setTitle:[UserInfo.birthday substringFromIndex:UserInfo.birthday.length-2] forState:UIControlStateNormal];
-//    }
-//
-//    self.professionalField.text = UserInfo.job;
-//    [self.categoryBtn setTitle:UserInfo.favorite_cat forState:UIControlStateNormal];
-    
     kWeakSelf;
     self.timeView.selectedTimeBlock = ^(NSString *year, NSString *month, NSString *day) {
         [weakSelf.yearBtn setTitle:year forState:UIControlStateNormal];
@@ -65,20 +52,6 @@
             weakSelf.params[@"favorite_cat"] = category;
         }
     };
-    
-    [self getCategory];
-    [self getUserInfo];
-    
-}
-
-#pragma mark -- 获取用户基本信息
-- (void)getUserInfo {
-
-}
-
-#pragma mark - 获取分类
-- (void)getCategory {
-
 }
 
 #pragma mark - 上传头像
@@ -151,7 +124,6 @@
 - (NSMutableDictionary *)params {
     if (!_params) {
         _params = [NSMutableDictionary dictionaryWithCapacity:0];
-//        _params[@"token"] = @"";
     }
     return _params;
 }

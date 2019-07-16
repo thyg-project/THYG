@@ -36,12 +36,8 @@
     // 设置文字正常时的属性
     NSMutableDictionary * normalAttrs = [NSMutableDictionary dictionary];
     normalAttrs[NSForegroundColorAttributeName] = GRAY_COLOR(102);
-//    normalAttrs[NSFontAttributeName] = Font10;
-    // 选中文字的属性
     NSMutableDictionary * selectedAtrrs = [NSMutableDictionary dictionary];
     selectedAtrrs[NSForegroundColorAttributeName] = [UIColor redColor];
-//    selectedAtrrs[NSFontAttributeName] = Font10;
-    // 设置
     UITabBarItem * item = [UITabBarItem appearance];
     [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAtrrs forState:UIControlStateSelected];

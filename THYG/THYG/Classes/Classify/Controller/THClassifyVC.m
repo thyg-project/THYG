@@ -154,7 +154,7 @@
 		_collectionView.dataSource = self;
 		_collectionView.showsHorizontalScrollIndicator = NO;
 		_collectionView.backgroundColor = [UIColor whiteColor];
-		_collectionView.pagingEnabled = YES;
+//        _collectionView.pagingEnabled = YES;
 		[_collectionView registerNib:[UINib nibWithNibName:@"THHomeHeaderItemCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THHomeHeaderItemCell.class)];
 		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyItemCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THClassifyItemCell.class)];
 		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THClassifyHeaderView.class)];

@@ -21,9 +21,6 @@
 
 @interface THScreeningGoodsCtl ()<UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource> {
     NSMutableDictionary *_siftDict; // 筛选字典 包含品牌和价格区间
-    NSInteger _currentSelectIndex; // 当前选择筛选视图的位置
-    NSInteger _sectionNum; // 分组
-    CGFloat _cellHeight; // cell高度
     UITextField *_searchTextField;
 }
 @property (nonatomic, strong) UISearchBar * searchBar;
@@ -49,8 +46,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self getFilterData];
-    [self requestData:NO];
 }
 
 #pragma mark - 设置UI界面
@@ -132,8 +127,6 @@
                 }
             }
             
-            [strongSelf requestData:YES];
-            
         } else {
             [strongSelf.screeningView show];
         }
@@ -146,7 +139,6 @@
         strongSelf.cat_id = cat_id;
         strongSelf.start_priceParma = startPrice;
         strongSelf.end_priceParma = endPrice;
-        [strongSelf requestData:YES];
     };
     
 }
@@ -169,16 +161,6 @@
     }
     _searchTextField.layer.cornerRadius = self.searchBar.height/2;
     _searchTextField.clipsToBounds = YES;
-}
-
-#pragma mark -- 获取筛选条件数据
-- (void)getFilterData {
-
-}
-
-
-- (void)requestData:(BOOL)isClearDataSource {
-    
 }
 
 #pragma mark -- 添加购物车
@@ -264,7 +246,7 @@
     [searchBar endEditing:YES];
     self.searchText = searchBar.text;
     [self.dataSource removeAllObjects];
-    [self requestData:YES];
+    
 }
 
 #pragma mark - 切换布局

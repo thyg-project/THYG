@@ -46,40 +46,19 @@
     [super viewDidLoad];
     _sectionCount = 7;
     // iOS11 适配
-    if (@available(iOS 11, *)) {
-        self.mTable.estimatedRowHeight = 0;
-        self.mTable.estimatedSectionFooterHeight = 0;
-        self.mTable.estimatedSectionHeaderHeight = 0;
-    }
+    [self autoLayoutSizeContentView:self.mTable];
     [self.view addSubview:self.mTable];
+    [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.bottom.mas_equalTo(-50);
+    }];
     
-    [self getOrder];
-    
-    [self getDefaultAddress];
-    
-}
-
-#pragma mark - 订单页面相关数据
-- (void)getOrder {
-    
-
-    
-}
-
-#pragma mark - 获取默认地址
-- (void)getDefaultAddress {
-
-}
-
-#pragma mark -- 计算订单价格
-- (void)caculateOrderPriceWithAct:(NSString *)act {
-   
 }
 
 #pragma mark -- 提交订单
 - (IBAction)submitOrderAction:(id)sender {
     if (_sectionCount == 7) {
-        [self caculateOrderPriceWithAct:@"submit_order"];
+        
     } else {
         [THHUDProgress showMsg:@"请先填写收货地址"];
     }
@@ -189,7 +168,6 @@
         addressVc.getSelectAddress = ^(THAddressModel *addressModel) {
             self.selectAddressModel = addressModel;
             [self.mTable reloadData];
-            [self caculateOrderPriceWithAct:nil];
         };
         [self.navigationController pushViewController:addressVc animated:YES];
     }else if (indexPath.section == 4 && indexPath.row == 0){
@@ -199,7 +177,6 @@
         selectCouponCtl.selectCouponBlock = ^(THCouponsModel *couponModel) {
             self.couponsModel = couponModel;
             [self.mTable reloadData];
-            [self caculateOrderPriceWithAct:nil];
         };
         [self.navigationController pushViewController:selectCouponCtl animated:YES];
     }
@@ -258,7 +235,7 @@
 
 - (UITableView *)mTable {
     if (!_mTable) {
-        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNaviHeight - 50) style:UITableViewStyleGrouped];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _mTable.delegate = self;
         _mTable.dataSource = self;
         [_mTable registerNib:[UINib nibWithNibName:@"THAddressCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THAddressCell.class)];

@@ -32,13 +32,6 @@ static NSInteger const kRightButtonTag = 100;
     return _rightButton;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        [self initinalieViews];
-    }
-    return self;
-}
-
 - (instancetype)init {
     if (self = [super init]) {
         [self initinalieViews];
@@ -82,6 +75,7 @@ static NSInteger const kRightButtonTag = 100;
         _leftButton.hidden = YES;
         return;
     }
+    _leftButton.hidden = NO;
     _leftButton.image = leftButtonImage;
 }
 

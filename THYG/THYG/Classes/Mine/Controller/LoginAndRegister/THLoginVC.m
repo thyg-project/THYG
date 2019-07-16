@@ -27,8 +27,7 @@
     [self initSignal];
 }
 
-- (void)initSignal
-{
+- (void)initSignal {
     RACSignal *validPhoneSignal = [self.accountField.rac_textSignal map:^id(NSString *text) {
         return @([Utils CheckPhoneNum:text]);
     }];
@@ -53,10 +52,6 @@
 
 - (IBAction)loginAction:(id)sender {  
     
-
-}
-
-- (void)getUserInfo {
 
 }
 

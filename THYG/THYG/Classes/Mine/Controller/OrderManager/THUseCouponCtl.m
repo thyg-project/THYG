@@ -26,8 +26,11 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    
+    [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     [self.tableView registerNib:[UINib nibWithNibName:@"THCouponsCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCouponsCell.class)];
 }
 

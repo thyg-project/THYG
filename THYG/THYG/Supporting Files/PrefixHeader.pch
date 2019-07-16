@@ -10,7 +10,6 @@
 #define PrefixHeader_pch
 
 #import "Headers.h"
-#import "THAPI.h"
 #import "Utils.h"
 #import "YGInfo.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>

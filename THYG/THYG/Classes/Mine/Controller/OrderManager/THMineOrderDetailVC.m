@@ -24,13 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self getOrderDetails];
 }
 
 #pragma mark - setupUI
 - (void)setupUI {
     self.navigationItem.title = @"订单详情";
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    [self autoLayoutSizeContentView:self.tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.tableView registerClass:[THMineOrderDetailCell class] forCellReuseIdentifier:NSStringFromClass(THMineOrderDetailCell.class)];
@@ -47,13 +47,6 @@
         make.height.offset(49);
     }];
     
-}
-
-#pragma mark - 获取订单详情
-- (void)getOrderDetails {
-    
-
-
 }
 
 #pragma mark - 代理 & 数据源

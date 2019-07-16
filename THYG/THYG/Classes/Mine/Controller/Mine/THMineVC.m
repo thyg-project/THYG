@@ -66,7 +66,7 @@
     [super viewDidLoad];
     _presenter = [[THMinePresenter alloc] initPresenterWithProtocol:self];
     [self.presenter getLocailData];
-    _customNav = [THNavigationView new];
+    _customNav = [[THNavigationView alloc] init];
     _customNav.backgroundColor = GLOBAL_RED_COLOR;
     _customNav.content = @"个人中心";
     _customNav.alpha = 0;
@@ -110,6 +110,9 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([scrollView isKindOfClass:[UICollectionView class]]) {
+        return;
+    }
     CGPoint offset = scrollView.contentOffset;
     if (offset.y < 0) {
         CGRect rect = self.headView.frame;
@@ -255,7 +258,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == 5) {
-        return kScreenHeight-kNaviHeight-kTabBarHeight;
+        return kScreenHeight-kTabBarHeight;
     }
 	return CGFLOAT_MIN;
 }
@@ -277,7 +280,7 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 2) {
-        return UIEdgeInsetsMake(0, 10, 10, 10);
+//        return UIEdgeInsetsMake(0, 10, 10, 10);
     }
     return UIEdgeInsetsMake(1, 1, 1, 1);
 }
@@ -320,7 +323,7 @@
         layout.itemSize = CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+80);
         layout.minimumInteritemSpacing = 0;
         layout.minimumLineSpacing = 0;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight-kTabBarHeight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight) collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;

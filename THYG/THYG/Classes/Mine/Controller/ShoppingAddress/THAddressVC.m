@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self getAddressList];
+    
 }
 
 #pragma mark - 设置UI
@@ -45,11 +45,6 @@
     
 }
 
-#pragma mark - 获取地址列表
-- (void)getAddressList {
-
-}
-
 #pragma mark -- 跳转到添加界面
 - (void)addAddressBtnClick {
     [self gotoAddressEditPage:nil type:newOption];
@@ -61,25 +56,9 @@
     vc.optiontype = optiontype;
     vc.modelData = model;
     vc.optionSuccessBlock = ^{
-        [self refreshDataAction];
+        
     };
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-#pragma mark -- 删除地址
-- (void)deleteAddress:(NSString*)aid {
-
-}
-
-#pragma mark -- 设置为默认地址
-- (void)defaultBtnOnclick:(THAddressModel *)model {
-
-
-}
-
-- (void)refreshDataAction {
-    // self.isUp = NO;
-    [self getAddressList];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -100,7 +79,7 @@
     
     cell.deleteAddressBlock = ^{
         NSLog(@"删除地址");
-        [weakSelf deleteAddress:model.address_id];
+        
     };
 
     cell.motifyAddressBlock = ^{
@@ -110,7 +89,7 @@
 
     cell.setDefaultBlock = ^{
         NSLog(@"设置默认地址");
-        [weakSelf defaultBtnOnclick:model];
+        
     };
 
     return cell;

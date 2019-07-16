@@ -6,8 +6,8 @@
 //  Copyright © 2018年 THYG. All rights reserved.
 //
 
-#import "THBaseTableCtl.h"
+#import "THBaseVC.h"
 
-@interface THTeCtl : THBaseTableCtl
+@interface THTeCtl : THBaseVC
 
 @end

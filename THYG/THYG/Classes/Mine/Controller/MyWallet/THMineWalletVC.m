@@ -28,13 +28,12 @@
 }
 
 - (void)setupUI {
-    self.title = @"我的钱包"; 
+    self.navigationItem.title = @"我的钱包";
+    [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
-    [self loadDatas];
-}
-
-#pragma mark - 银行卡列表 （请求成功，未添加时候，没有数据）
-- (void)loadDatas {
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -86,7 +85,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

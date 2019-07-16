@@ -87,10 +87,6 @@ dispatch_source_t _source_t;
 	
 }
 
-- (void)getUserInfo {
-
-}
-
 - (void)setTextFieldLeftPadding:(UITextField *)textField forWidth:(CGFloat)leftWidth {
     CGRect frame = textField.frame;
     frame.size.width = leftWidth;

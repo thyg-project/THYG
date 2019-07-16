@@ -24,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.delegate = self;
 }
 
 #pragma mark - 返回

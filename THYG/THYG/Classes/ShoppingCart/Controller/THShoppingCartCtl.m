@@ -46,7 +46,10 @@
 #pragma mark - 设置视图
 - (void)setupUI {
     [self.view addSubview:self.mTable];
-    [self.mTable reloadData];
+    [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(@(-45));
+    }];
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navBtn];
     self.shareBtn.layer.borderColor = self.removeBtn.layer.borderColor = GRAY_COLOR(220).CGColor;
@@ -231,7 +234,7 @@
 #pragma mark - 懒加载
 - (UITableView *)mTable {
     if (!_mTable) {
-        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight-kTabBarHeight-45) style:UITableViewStylePlain];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _mTable.backgroundColor = BGColor;
         _mTable.tableFooterView = [UIView new];
         [self.tableDelegate registerTable:_mTable];

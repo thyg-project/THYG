@@ -29,7 +29,7 @@
 
 #define kTimeLineTableViewCellId @"SDTimeLineCell"
 
-@interface THTeCtl () <SDTimeLineCellDelegate, UITextFieldDelegate> {
+@interface THTeCtl () <SDTimeLineCellDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource> {
     CGFloat _lastScrollViewOffsetY;
     CGFloat _totalKeybordHeight;
 }
@@ -38,7 +38,8 @@
 @property (nonatomic, assign) BOOL isReplayingComment;
 @property (nonatomic, strong) NSIndexPath *currentEditingIndexthPath;
 @property (nonatomic, copy) NSString *commentToUser;
-
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation THTeCtl
@@ -46,12 +47,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.edgesForExtendedLayout = UIRectEdgeTop;
-    
-    [self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
-    
+    self.dataSource = [self creatModelsWithCount:0].mutableCopy;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self autoLayoutSizeContentView:self.tableView];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     
     [self.tableView registerClass:[SDTimeLineCell class] forCellReuseIdentifier:kTimeLineTableViewCellId];
     
@@ -233,7 +239,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -242,7 +248,7 @@
     __weak typeof(self) weakSelf = self;
     if (!cell.moreButtonClickedBlock) {
         [cell setMoreButtonClickedBlock:^(NSIndexPath *indexPath) {
-            SDTimeLineCellModel *model = weakSelf.dataArray[indexPath.row];
+            SDTimeLineCellModel *model = weakSelf.dataSource[indexPath.row];
             model.isOpening = !model.isOpening;
             [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }];
@@ -265,7 +271,7 @@
     
     ///////////////////////////////////////////////////////////////////////
     
-    cell.model = self.dataArray[indexPath.row];
+    cell.model = self.dataSource[indexPath.row];
     return cell;
 }
 
@@ -299,7 +305,7 @@
 
 - (void)didClickLikeButtonInCell:(UITableViewCell *)cell {
     NSIndexPath *index = [self.tableView indexPathForCell:cell];
-    SDTimeLineCellModel *model = self.dataArray[index.row];
+    SDTimeLineCellModel *model = self.dataSource[index.row];
     NSMutableArray *temp = [NSMutableArray arrayWithArray:model.likeItemsArray];
     
     if (!model.isLiked) {
@@ -332,7 +338,7 @@
     if (textField.text.length) {
         [_textField resignFirstResponder];
         
-        SDTimeLineCellModel *model = self.dataArray[_currentEditingIndexthPath.row];
+        SDTimeLineCellModel *model = self.dataSource[_currentEditingIndexthPath.row];
         NSMutableArray *temp = [NSMutableArray new];
         [temp addObjectsFromArray:model.commentItemsArray];
         SDTimeLineCellCommentItemModel *commentItemModel = [SDTimeLineCellCommentItemModel new];

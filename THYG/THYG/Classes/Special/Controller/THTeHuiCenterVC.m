@@ -31,8 +31,6 @@
     [self setupUI];
     [self setMunes];
     
-    [self getMyCommentList:@"1"];
-    
 }
 
 - (void)setMunes {
@@ -57,12 +55,6 @@
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[THTeHuiCell class] forCellReuseIdentifier:NSStringFromClass(THTeHuiCell.class)];
 }
-
-#pragma mark - 获取晒单列表
-- (void)getMyCommentList:(NSString *)type {
-
-}
-
 
 #pragma mark - UITableView 代理 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -94,7 +86,6 @@
 - (void)topViewClick:(UIButton *)sender {
     NSInteger tag = sender.tag - kScreenWidth;
     NSLog(@"tag %ld", tag);
-    [self getMyCommentList:[NSString stringWithFormat:@"%ld", tag+1]];
 }
 
 #pragma mark - titleBtnView

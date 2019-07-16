@@ -23,8 +23,7 @@
 
 @implementation THSettingCtl
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
+- (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         self = [[UIStoryboard storyboardWithName:@"THSettingCtl" bundle:nil] instantiateInitialViewController];

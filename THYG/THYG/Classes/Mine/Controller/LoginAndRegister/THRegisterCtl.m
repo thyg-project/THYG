@@ -27,8 +27,7 @@
     [self initSignal];
 }
 
-- (void)initSignal
-{
+- (void)initSignal {
     RACSignal *validPhoneSignal = [self.phoneNumField.rac_textSignal map:^id(NSString *text) {
         return @([Utils CheckPhoneNum:text]);
     }];

@@ -28,9 +28,13 @@
 - (void)setupUI {
 	self.navigationItem.title = @"银行卡";
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    [self autoLayoutSizeContentView:self.tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
 	[self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 	[self.tableView registerNib:[UINib nibWithNibName:@"THMineBankCardListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineBankCardListCell.class)];
 }
 

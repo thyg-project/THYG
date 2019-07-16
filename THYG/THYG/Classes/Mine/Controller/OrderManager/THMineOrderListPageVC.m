@@ -26,6 +26,7 @@
     [super viewDidLoad];
 //    self.view.backgroundColor = RANDOMCOLOR;
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    [self autoLayoutSizeContentView:self.tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -47,29 +48,6 @@
     
 }
 
-#pragma mark - 删除订单
-- (void)deleteOrder:(NSString *)orderId {
-    [THHUDProgress show];
-
-}
-
-#pragma mark - 取消订单
-- (void)cancelOrder:(NSString *)orderId {
-    [THHUDProgress show];
-
-}
-
-#pragma mark - 查看物流信息
-- (void)scanExpress:(NSString *)orderId {
-
-}
-
-#pragma mark - 提醒发货
-- (void)noticeOrder:(NSString *)orderId {
-
-}
-
-
 #pragma mark - 数据源代理方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataSource.count;
@@ -85,7 +63,7 @@
     orderCell.orderListModel = model;
     
     orderCell.deleteOrderBlock = ^{
-        [self deleteOrder:model.order_id];
+        
     };
     
     return orderCell;
@@ -127,18 +105,18 @@
             
             if (type == 0) {
                 if (tag == 0) {
-                    [self cancelOrder:model.order_id];
+                    
                 }
             }
             
             if (type == 5) {
                 if (tag == 1) {
-                    [self scanExpress:model.order_id];
+                    
                 }
             }
             
             if (type == 1) {
-                [self noticeOrder:model.order_id];
+                
             }
             
         }

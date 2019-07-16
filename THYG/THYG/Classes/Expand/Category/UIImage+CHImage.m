@@ -127,15 +127,13 @@
     return newImage;
 }
 
-+ (instancetype)stretchableImage:(NSString *)imageName
-{
++ (instancetype)stretchableImage:(NSString *)imageName {
     UIImage *image = [UIImage imageNamed:imageName];
     image  = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
     return image;
 }
 
-+ (UIImage *)resizeImage:(NSString *)imageName
-{
++ (UIImage *)resizeImage:(NSString *)imageName {
     UIImage *image = [UIImage imageNamed:imageName];
     CGFloat imageW = image.size.width * 0.5;
     CGFloat imageH = image.size.height * 0.5;
@@ -143,8 +141,7 @@
 }
 
 // 改变图像的尺寸
-- (UIImage *)scaleToSize:(CGSize) size
-{
+- (UIImage *)scaleToSize:(CGSize) size {
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
     //UIGraphicsBeginImageContext(size);
@@ -166,8 +163,7 @@
  *  @param image 水印图片
  *  @param color 背景颜色
  */
-+ (UIImage *)placeholderImageWithSize:(CGSize)size image:(UIImage *)image backgroundColor:(UIColor *)color
-{
++ (UIImage *)placeholderImageWithSize:(CGSize)size image:(UIImage *)image backgroundColor:(UIColor *)color {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     view.backgroundColor = color;
     UIImageView *placeholderImgView = [[UIImageView alloc] initWithImage:image];
@@ -181,8 +177,7 @@
     return placeholderImage;
 }
 
-+ (UIImage *)createPlaceholderImageWithSize:(CGSize)size
-{
++ (UIImage *)createPlaceholderImageWithSize:(CGSize)size {
 //    Color_G7
     return [self placeholderImageWithSize:size image:[UIImage imageNamed:@"ad_normal"] backgroundColor:BGColor];
 }

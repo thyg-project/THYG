@@ -33,6 +33,10 @@
 }
 
 - (void)show {
+    if (!YGInfo.validArray(self.data)) {
+        NSLog(@"缺少数据");
+        return;
+    }
     self.height = kScreenHeight;
     [UIView animateWithDuration:0.3 animations:^{
         self.mTable.height = 44*self.data.count-1;

@@ -26,12 +26,11 @@
 #import "THScreeningGoodsCtl.h"
 #import "THMenuView.h"
 #import "THScanQRCodeVC.h"
-#import "UIScrollView+MJRefreshExtension.h"
 #import "THButton.h"
 #import "THHomePresenter.h"
 #import "THHomeProtocol.h"
 
-@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,YYRefreshExtensionDelegate, THHomeProtocol>
+@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) THMenuView *menuView;
@@ -56,9 +55,12 @@
         searchButton;
     });
     [self addMuneView];
-    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:NO delegate:self animation:YES];
-    [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
-
+    [self.collectionView addRefreshHeaderAutoRefresh:NO animation:YES refreshBlock:^{
+        
+    }];
+    [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
+        
+    }];
 }
 
 - (void)addMuneView {
@@ -78,20 +80,6 @@
             [weakSelf.navigationController pushViewController:collectVc animated:YES];
         }
     };
-}
-
-#pragma mark - YYRefreshExtensionDelegate
-- (void)onRefreshing:(id)control {
-    [self requestNetWorkingWithPageNum:1 isHeader:YES];
-}
-
-- (void)onLoadingMoreData:(id)control pageNum:(NSNumber *)pageNum {
-    [self requestNetWorkingWithPageNum:pageNum.integerValue isHeader:NO];
-}
-
-#pragma mark - 猜你喜欢
-- (void)requestNetWorkingWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    
 }
 
 #pragma mark - 菜单

@@ -13,9 +13,8 @@
 #import "THMoreLimitSpellGroupCell.h"
 #import "THSpellGroupHead.h"
 #import "THFlashSaleModel.h"
-#import "UIScrollView+MJRefreshExtension.h"
 
-@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, YYRefreshExtensionDelegate>
+@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *mvpArray;
 @property (nonatomic, strong) NSMutableArray *listArray;
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -38,23 +37,12 @@
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self.headView.mas_bottom);
     }];
-    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:NO delegate:self animation:YES];
-    [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
-    
-}
-
-#pragma mark - YYRefreshExtensionDelegate
-- (void)onRefreshing:(id)control {
-    [self getFlashSaleListWithPageNum:1 isHeader:YES];
-}
-
-- (void)onLoadingMoreData:(id)control pageNum:(NSNumber *)pageNum {
-    [self getFlashSaleListWithPageNum:pageNum.integerValue isHeader:NO];
-}
-
-#pragma mark - 秒杀
-- (void)getFlashSaleListWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    
+    [self.collectionView addRefreshHeaderAutoRefresh:NO animation:YES refreshBlock:^{
+        
+    }];
+    [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
+        
+    }];
 }
 
 #pragma mark - collectionView 代理 & 数据源

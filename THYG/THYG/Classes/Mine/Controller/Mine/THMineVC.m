@@ -27,15 +27,16 @@
 #import "THFavouriteGoodsModel.h"
 #import "THTeCtl.h"
 #import "THGoodsListOfCollectionLayoutCell.h"
-#import "UIScrollView+MJRefreshExtension.h"
 #import "THMinePresenter.h"
 #import "THNavigationView.h"
+#import "THMenuView.h"
 
 
-@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, YYRefreshExtensionDelegate, THMineProtocol, THNaviagationViewDelegate> {
+@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, THMineProtocol, THNaviagationViewDelegate> {
 	NSArray *_dataArray;
     CGFloat _lastOffsetY;
     THNavigationView *_customNav;
+    THMenuView *_munuView;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -89,30 +90,22 @@
         
 		
 	};
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUserInfo) name:UPDATE_USERINFO_NOTIFICATION object:nil];
-    
-    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:YES delegate:self animation:YES];
-    [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
-	
+    [self addMenuView];
+    [self.collectionView addRefreshHeaderAutoRefresh:YES animation:YES refreshBlock:^{
+        
+    }];
+    [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
+        
+    }];
 }
 
-#pragma mark - YYRefreshExtensionDelegate
-- (void)onRefreshing:(id)control {
-    [self requestNetWorkingWithPageNum:1 isHeader:YES];
-}
-
-- (void)onLoadingMoreData:(id)control pageNum:(NSNumber *)pageNum {
-    [self requestNetWorkingWithPageNum:pageNum.integerValue isHeader:NO];
-}
-#pragma mark - 猜你喜欢
-- (void)requestNetWorkingWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    
-}
-
-#pragma mark - 更新用户信息
-- (void)reloadUserInfo {
-
+- (void)addMenuView {
+    _munuView = [THMenuView new];
+    _munuView.data = @[@"推广二维码",@"我的消息",@"关注"];
+    [self.view addSubview:_munuView];
+    [_munuView setSelectedAction:^(NSInteger index) {
+        
+    }];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -347,6 +340,7 @@
 - (void)rightAction:(NSInteger)tag {
     if (tag == 0) {
         //菜单
+        [_munuView show];
     } else if (tag == 1) {
         //设置
         [self.navigationController pushViewController:[THSettingCtl new] animated:YES];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02188A8A22DDA08600258F37 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A8922DDA08600258F37 /* UIScrollView+Refresh.m */; };
 		022CD97B22DA239400A6518A /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */; };
 		022CD97C22DA239400A6518A /* NSString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96522DA239300A6518A /* NSString+AvoidCrash.m */; };
 		022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96622DA239300A6518A /* NSDictionary+AvoidCrash.m */; };
@@ -30,7 +31,6 @@
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
 		02C377CE22C33D420038AC5A /* YGInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377CC22C33D420038AC5A /* YGInfo.m */; };
 		02C377D122C4A5190038AC5A /* THUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D022C4A5190038AC5A /* THUIFactory.m */; };
-		02C377D722C4AC190038AC5A /* UIView+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D622C4AC180038AC5A /* UIView+CHExtension.m */; };
 		02D154A922D5B2FE005D6277 /* THBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154A822D5B2FE005D6277 /* THBasePresenter.m */; };
 		02D154AD22D5CEC7005D6277 /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AC22D5CEC7005D6277 /* THButton.m */; };
 		02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AF22D7254C005D6277 /* THHomePresenter.m */; };
@@ -61,7 +61,6 @@
 		0417B8772076F224003566C4 /* THMineWalletHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0417B8762076F224003566C4 /* THMineWalletHeaderView.xib */; };
 		0417B87A2077214D003566C4 /* THBankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8792077214D003566C4 /* THBankCardModel.m */; };
 		0418A63F20C59A2D00527C80 /* THFavouriteGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A63E20C59A2D00527C80 /* THFavouriteGoodsModel.m */; };
-		0418A64420C5AAEB00527C80 /* UIScrollView+MJRefreshExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A64320C5AAEA00527C80 /* UIScrollView+MJRefreshExtension.m */; };
 		0418A64820C6F54100527C80 /* THFlashSaleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A64720C6F54100527C80 /* THFlashSaleModel.m */; };
 		0421E89D2088FCD8008D85A0 /* THBaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89C2088FCD8008D85A0 /* THBaseWebVC.m */; };
 		0421E8A0208978FE008D85A0 /* THMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89F208978FE008D85A0 /* THMenuView.m */; };
@@ -137,7 +136,6 @@
 		512D790E205B6A920088A4A0 /* THMineAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D790C205B6A920088A4A0 /* THMineAdCell.xib */; };
 		512D7912205B774B0088A4A0 /* THMineOrderHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7910205B774B0088A4A0 /* THMineOrderHeaderCell.m */; };
 		512D7913205B774B0088A4A0 /* THMineOrderHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */; };
-		512D7919205BA27F0088A4A0 /* UIBarButtonItem+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */; };
 		512D7938205E098E0088A4A0 /* THAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7937205E098E0088A4A0 /* THAPI.m */; };
 		512D793B205E0F840088A4A0 /* THNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793A205E0F840088A4A0 /* THNewFeatureVC.m */; };
 		512D793E205E10E40088A4A0 /* THNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793D205E10E40088A4A0 /* THNewFeatureCell.m */; };
@@ -336,6 +334,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02188A8822DDA08600258F37 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
+		02188A8922DDA08600258F37 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AvoidCrash.m"; sourceTree = "<group>"; };
 		022CD96422DA239300A6518A /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
 		022CD96522DA239300A6518A /* NSString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AvoidCrash.m"; sourceTree = "<group>"; };
@@ -384,8 +384,6 @@
 		02C377CD22C33D420038AC5A /* YGInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGInfo.h; sourceTree = "<group>"; };
 		02C377CF22C4A5190038AC5A /* THUIFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUIFactory.h; sourceTree = "<group>"; };
 		02C377D022C4A5190038AC5A /* THUIFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUIFactory.m; sourceTree = "<group>"; };
-		02C377D522C4AC180038AC5A /* UIView+CHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CHExtension.h"; sourceTree = "<group>"; };
-		02C377D622C4AC180038AC5A /* UIView+CHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CHExtension.m"; sourceTree = "<group>"; };
 		02D154A722D5B2FE005D6277 /* THBasePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBasePresenter.h; sourceTree = "<group>"; };
 		02D154A822D5B2FE005D6277 /* THBasePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBasePresenter.m; sourceTree = "<group>"; };
 		02D154AA22D5B31E005D6277 /* THBaseProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseProtocol.h; sourceTree = "<group>"; };
@@ -445,9 +443,6 @@
 		0417B8792077214D003566C4 /* THBankCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBankCardModel.m; sourceTree = "<group>"; };
 		0418A63D20C59A2D00527C80 /* THFavouriteGoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFavouriteGoodsModel.h; sourceTree = "<group>"; };
 		0418A63E20C59A2D00527C80 /* THFavouriteGoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFavouriteGoodsModel.m; sourceTree = "<group>"; };
-		0418A64120C5AA8E00527C80 /* YYRefreshExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYRefreshExtensionDelegate.h; sourceTree = "<group>"; };
-		0418A64220C5AAEA00527C80 /* UIScrollView+MJRefreshExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefreshExtension.h"; sourceTree = "<group>"; };
-		0418A64320C5AAEA00527C80 /* UIScrollView+MJRefreshExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefreshExtension.m"; sourceTree = "<group>"; };
 		0418A64620C6F54100527C80 /* THFlashSaleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFlashSaleModel.h; sourceTree = "<group>"; };
 		0418A64720C6F54100527C80 /* THFlashSaleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFlashSaleModel.m; sourceTree = "<group>"; };
 		0421E89B2088FCD7008D85A0 /* THBaseWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseWebVC.h; sourceTree = "<group>"; };
@@ -582,8 +577,6 @@
 		512D790F205B774B0088A4A0 /* THMineOrderHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineOrderHeaderCell.h; sourceTree = "<group>"; };
 		512D7910205B774B0088A4A0 /* THMineOrderHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMineOrderHeaderCell.m; sourceTree = "<group>"; };
 		512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMineOrderHeaderCell.xib; sourceTree = "<group>"; };
-		512D7917205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CHExtension.h"; sourceTree = "<group>"; };
-		512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CHExtension.m"; sourceTree = "<group>"; };
 		512D7936205E098E0088A4A0 /* THAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAPI.h; sourceTree = "<group>"; };
 		512D7937205E098E0088A4A0 /* THAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAPI.m; sourceTree = "<group>"; };
 		512D7939205E0F840088A4A0 /* THNewFeatureVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNewFeatureVC.h; sourceTree = "<group>"; };
@@ -1103,9 +1096,8 @@
 		0418A64020C5AA3B00527C80 /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
-				0418A64120C5AA8E00527C80 /* YYRefreshExtensionDelegate.h */,
-				0418A64220C5AAEA00527C80 /* UIScrollView+MJRefreshExtension.h */,
-				0418A64320C5AAEA00527C80 /* UIScrollView+MJRefreshExtension.m */,
+				02188A8822DDA08600258F37 /* UIScrollView+Refresh.h */,
+				02188A8922DDA08600258F37 /* UIScrollView+Refresh.m */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -1651,10 +1643,6 @@
 				8F1712D1207227B600EFDFCB /* NSString+CHExtension.m */,
 				512D78DC205927D10088A4A0 /* UIImage+CHImage.h */,
 				512D78DD205927D10088A4A0 /* UIImage+CHImage.m */,
-				02C377D522C4AC180038AC5A /* UIView+CHExtension.h */,
-				02C377D622C4AC180038AC5A /* UIView+CHExtension.m */,
-				512D7917205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.h */,
-				512D7918205BA27E0088A4A0 /* UIBarButtonItem+CHExtension.m */,
 				8F5168AA20747D8F005E956E /* UISearchBar+FMAdd.h */,
 				8F5168AB20747D8F005E956E /* UISearchBar+FMAdd.m */,
 				025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */,
@@ -2539,6 +2527,7 @@
 				02C377D122C4A5190038AC5A /* THUIFactory.m in Sources */,
 				57D5103F20C6E75B00B78087 /* THUseCouponCtl.m in Sources */,
 				022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */,
+				02188A8A22DDA08600258F37 /* UIScrollView+Refresh.m in Sources */,
 				57CBC3D72088ED45007D6069 /* THOrderConfirmCtl.m in Sources */,
 				576EEA702087A26F0088B1EB /* THBaseTableCtl.m in Sources */,
 				512D7904205A78CC0088A4A0 /* THMineVC.m in Sources */,
@@ -2580,7 +2569,6 @@
 				022CD97C22DA239400A6518A /* NSString+AvoidCrash.m in Sources */,
 				57417E4C20CB77F600F5085F /* THSystemMessageCell.m in Sources */,
 				576EEAC12087A5510088B1EB /* TTTAttributedLabel.m in Sources */,
-				0418A64420C5AAEB00527C80 /* UIScrollView+MJRefreshExtension.m in Sources */,
 				572792DE20CED6D200E498AD /* THCommentCateModel.m in Sources */,
 				022CD98522DA239400A6518A /* AvoidCrash.m in Sources */,
 				04D0A31B2071254B003BE300 /* THMineSubmitApplicationVC.m in Sources */,
@@ -2625,7 +2613,6 @@
 				576EEAC82087A5510088B1EB /* MLTextAttachment.m in Sources */,
 				57CBC3CA2088E477007D6069 /* GoodsInfoView.m in Sources */,
 				022CD97F22DA239400A6518A /* NSMutableString+AvoidCrash.m in Sources */,
-				512D7919205BA27F0088A4A0 /* UIBarButtonItem+CHExtension.m in Sources */,
 				512D7912205B774B0088A4A0 /* THMineOrderHeaderCell.m in Sources */,
 				576EEA8B2087A2F40088B1EB /* SDTimeLineCellOperationMenu.m in Sources */,
 				8F5168AC20747D90005E956E /* UISearchBar+FMAdd.m in Sources */,
@@ -2684,7 +2671,6 @@
 				8F5168B72074A921005E956E /* THSingleLabelCell.m in Sources */,
 				04D0A30D207116F7003BE300 /* THRegisterNextStepCtl.m in Sources */,
 				042891D220CD93AA00A6DBAB /* THOrderConfirmPayButtomView.m in Sources */,
-				02C377D722C4AC190038AC5A /* UIView+CHExtension.m in Sources */,
 				0417B86B2073F2D1003566C4 /* THMineOrderCell.m in Sources */,
 				576EEACA2087A5510088B1EB /* MLExpressionManager.m in Sources */,
 				022CD98922DB1E4500A6518A /* THCategoryPresenter.m in Sources */,

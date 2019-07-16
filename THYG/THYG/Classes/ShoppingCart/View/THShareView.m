@@ -56,7 +56,7 @@
 
 - (void)cancelClick {
     [UIView animateWithDuration:0.3 animations:^{
-        self.bgView.y = kScreenHeight;
+        self.bgView.top = kScreenHeight;
         
     } completion:^(BOOL finished) {
         [self removeFromSuperview];

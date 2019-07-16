@@ -59,28 +59,26 @@
     }
 }
 
-- (void)show
-{
-    self.x = 0;
+- (void)show {
+    self.left = 0;
     [UIView animateWithDuration:0.3 animations:^{
        
-        self.collectionView.x = LeftSpace;
-        self.topView.x = LeftSpace;
-        self.bottomView.x = LeftSpace;
+        self.collectionView.left = LeftSpace;
+        self.topView.left = LeftSpace;
+        self.bottomView.left = LeftSpace;
         
     }];
 }
 
-- (void)dismissMasView
-{
+- (void)dismissMasView {
     [UIView animateWithDuration:0.3 animations:^{
         
-        self.collectionView.x = kScreenWidth;
-        self.topView.x = kScreenWidth;
-        self.bottomView.x = kScreenWidth;
+        self.collectionView.left = kScreenWidth;
+        self.topView.left = kScreenWidth;
+        self.bottomView.left = kScreenWidth;
     }];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.x = kScreenWidth;
+        self.left = kScreenWidth;
     });
 }
 

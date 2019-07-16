@@ -19,7 +19,13 @@
 #define itemWidth   (kScreenWidth - 3 * 10) * 0.5
 #define MenuTableWidth (kScreenWidth-kScreenWidth*0.15)
 
-@interface THScreeningGoodsCtl ()<UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface THScreeningGoodsCtl ()<UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource> {
+    NSMutableDictionary *_siftDict; // 筛选字典 包含品牌和价格区间
+    NSInteger _currentSelectIndex; // 当前选择筛选视图的位置
+    NSInteger _sectionNum; // 分组
+    CGFloat _cellHeight; // cell高度
+    UITextField *_searchTextField;
+}
 @property (nonatomic, strong) UISearchBar * searchBar;
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) UIButton * layoutButton;
@@ -39,13 +45,6 @@
 @end
 
 @implementation THScreeningGoodsCtl
-{
-    NSMutableDictionary *_siftDict; // 筛选字典 包含品牌和价格区间
-    NSInteger _currentSelectIndex; // 当前选择筛选视图的位置
-    NSInteger _sectionNum; // 分组
-    CGFloat _cellHeight; // cell高度
-    UITextField *_searchTextField;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,12 +67,6 @@
         make.top.equalTo(self.siftView.mas_bottom);
     }];
     self.pageIndex = 1;
-    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        self.pageIndex += 1;
-        [self requestData:NO];
-    }];
-    
-    self.collectionView.mj_footer.hidden = YES;
     
     if (self.isShowSearchBar) {
         UIView *titleView = [[UIView alloc] init];
@@ -162,16 +155,16 @@
     [super viewDidLayoutSubviews];
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0) { // iOS 11
-        self.searchBar.x = 15;
+        self.searchBar.left = 15;
         self.layoutButton.width = 44;
         self.searchBar.width = kScreenWidth - self.layoutButton.width - 10 * 7 - 8;
         self.searchBar.height = kScreenWidth > self.view.height ? 24 : 30;
         _searchTextField.frame = _searchBar.bounds;
     } else {
         UIView *titleView = self.navigationItem.titleView;
-        titleView.x = 10 * 1.5;
-        titleView.y = self.view.width > self.view.height ? 3 : 7;
-        titleView.width = self.view.width - self.layoutButton.width - titleView.x * 2 - 3;
+        titleView.left = 10 * 1.5;
+        titleView.top = self.view.width > self.view.height ? 3 : 7;
+        titleView.width = self.view.width - self.layoutButton.width - titleView.left * 2 - 3;
         titleView.height = self.view.width > self.view.height ? 24 : 30;
     }
     _searchTextField.layer.cornerRadius = self.searchBar.height/2;

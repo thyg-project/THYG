@@ -11,9 +11,8 @@
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "THHomeSectionHead.h"
 #import "THFavouriteGoodsModel.h"
-#import "UIScrollView+MJRefreshExtension.h"
 
-@interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource, YYRefreshExtensionDelegate>
+@interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -29,23 +28,13 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
          make.edges.equalTo(self.view);
      }];
-    [self requestNetWorkingWithPageNum:1 isHeader:YES];
-    [self.collectionView addHeaderWithHeaderClass:nil beginRefresh:YES delegate:self animation:YES];
-    [self.collectionView addFooterWithFooterClass:nil automaticallyRefresh:NO delegate:self];
+    [self.collectionView addRefreshHeaderAutoRefresh:YES animation:YES refreshBlock:^{
+        
+    }];
+    [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
+        
+    }];
 }
-- (void)onRefreshing:(id)control {
-    [self requestNetWorkingWithPageNum:1 isHeader:YES];
-}
-
-- (void)onLoadingMoreData:(id)control pageNum:(NSNumber *)pageNum {
-    [self requestNetWorkingWithPageNum:pageNum.integerValue isHeader:NO];
-}
-
-#pragma mark - 猜你喜欢
-- (void)requestNetWorkingWithPageNum:(NSInteger)pageNum isHeader:(BOOL)isHeader {
-    
-}
-
 
 #pragma mark - collectionView 代理 & 数据源
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

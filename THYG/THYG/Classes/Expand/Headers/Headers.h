@@ -12,17 +12,15 @@
 #import "Macros.h"
 
 //分类
-#import "UIView+CHExtension.h"
 #import "UIImage+CHImage.h"
-#import "UIBarButtonItem+CHExtension.h"
 #import "UIViewController+Tool.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UIScrollView+Refresh.h"
 
 
 //第三方库
 #import <Masonry/Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MJRefresh/MJRefresh.h>
 #import <HDAlertView/HDAlertView.h>
 
 
@@ -31,7 +29,6 @@
 #import "THUserBaseInfo.h"
 #import "THUIFactory.h"
 
-#define UPDATE_USERINFO_NOTIFICATION @"update_userInfo_notifacation"
 
 #define BLOCK(block, ...) if (block) { block(__VA_ARGS__); };
 

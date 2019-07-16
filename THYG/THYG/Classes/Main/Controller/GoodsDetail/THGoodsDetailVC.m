@@ -153,13 +153,13 @@
         _bgView.centerX = kScreenWidth * 0.5;
         _bgView.height = 44;
         _bgView.width = (_bgView.height + margin) * titles.count;
-        _bgView.y = 0;
+        _bgView.top = 0;
     }
     self.navigationItem.titleView = _bgView;
     
     CGFloat buttonW = _bgView.height;
     CGFloat buttonH = _bgView.height;
-    CGFloat buttonY = _bgView.y;
+    CGFloat buttonY = _bgView.left;
     for (NSInteger i = 0; i < titles.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:titles[i] forState:0];
@@ -182,7 +182,7 @@
     indicatorView.backgroundColor = [firstButton titleColorForState:UIControlStateSelected];
     
     indicatorView.height = 2;
-    indicatorView.y = _bgView.height - indicatorView.height;
+    indicatorView.top = _bgView.height - indicatorView.height;
     
     [firstButton.titleLabel sizeToFit];
     indicatorView.width = firstButton.titleLabel.width;

@@ -39,7 +39,6 @@
     [super viewDidLoad];
     [self setupUI];
     [self initData];
-//    [self getAddressList];
 }
 
 - (void)setupUI {
@@ -48,11 +47,18 @@
     [self autoLayoutSizeContentView:self.tableView];
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    [self.view addSubview:self.footerBtn];
+    [self.footerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.mas_equalTo(40);
+    }];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.top.right.equalTo(self.view);
+        make.bottom.equalTo(self.footerBtn.mas_top);
     }];
-    [self.view addSubview:self.footerBtn];
+   
+    
     [self.tableView registerClass:THAddAddressCell.class forCellReuseIdentifier:NSStringFromClass(THAddAddressCell.class)];
     
     [self.selectAddressView initDataWithProvinceId:[self.modelData.province integerValue] cityId:[self.modelData.city integerValue] districtId:[self.modelData.district integerValue]];
@@ -65,7 +71,9 @@
     _placeholdData =  @[@"请输入收货人姓名",@"请输入手机号码",@"请选择地区",@"请输入详细地址"];
     self.optiontype == newOption ? nil : (_valueData = @[self.modelData.consignee, self.modelData.mobile, [NSString stringWithFormat:@"%@ %@ %@", self.modelData.province_str, self.modelData.city_str, self.modelData.district_str], self.modelData.address]);
     self.optiontype == newOption ? nil : (self.valueModel = self.modelData);
-
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray new];
+    }
     NSInteger index = 0;
     for (NSString*string in _titleData) {
         THAddressModel *model = [[THAddressModel alloc]init];
@@ -82,8 +90,6 @@
 }
 
 #pragma mark - 获取
-
-
 - (void)checkParmaMethod {
     //收件人
     RACSignal *nameSingnal = [[self getTextField:0].rac_textSignal map:^id(NSString *text) {
@@ -120,6 +126,10 @@
 
 - (UITextField*)getTextField:(NSInteger)row {
     return ((THAddAddressCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]]).textField;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -200,7 +210,6 @@
     if (!_footerBtn) {
         _footerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_footerBtn setBackgroundColor:[UIColor redColor]];
-        _footerBtn.frame = CGRectMake(0, kScreenHeight-kNaviHeight-40, kScreenWidth, 40);
         [_footerBtn setTitle:@"保存并使用" forState:UIControlStateNormal];
         _footerBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         [_footerBtn addTarget:self action:@selector(saveAndUseClick) forControlEvents:UIControlEventTouchUpInside];

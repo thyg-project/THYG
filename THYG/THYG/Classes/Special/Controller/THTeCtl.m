@@ -30,8 +30,6 @@
 #define kTimeLineTableViewCellId @"SDTimeLineCell"
 
 @interface THTeCtl () <SDTimeLineCellDelegate, UITextFieldDelegate> {
-    MJRefreshAutoNormalFooter *_refreshFooter;
-    MJRefreshNormalHeader *_refreshHeader;
     CGFloat _lastScrollViewOffsetY;
     CGFloat _totalKeybordHeight;
 }
@@ -54,16 +52,6 @@
     
     [self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
     
-    // 上拉加载
-    _refreshFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        
-        [self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
-        
-        
-        [_refreshFooter endRefreshing];
-        
-    }];
-    
     
     [self.tableView registerClass:[SDTimeLineCell class] forCellReuseIdentifier:kTimeLineTableViewCellId];
     
@@ -74,13 +62,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [IQKeyboardManager sharedManager].enable = YES;
-    if (!_refreshHeader.superview) {
-        
-        
-        [self.tableView.superview addSubview:_refreshHeader];
-    } else {
-        [self.tableView.superview bringSubviewToFront:_refreshHeader];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -89,8 +70,6 @@
 }
 
 - (void)dealloc {
-    [_refreshHeader removeFromSuperview];
-    [_refreshFooter removeFromSuperview];
     
     [_textField removeFromSuperview];
     [[NSNotificationCenter defaultCenter] removeObserver:self];

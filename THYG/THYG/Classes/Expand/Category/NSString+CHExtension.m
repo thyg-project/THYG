@@ -95,52 +95,6 @@
 	return attributedString;
 }
 
-
-
-//+ (NSAttributedString *)attributedStringWith:(NSString *)string charaterString:(NSString *)str color:(UIColor*)color subColor:(UIColor *)subColor font:(CGFloat)font subFont:(CGFloat)subFont {
-//    
-//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
-//    NSRange range = [string rangeOfString:str];
-//    
-//    if (!string || !str || ![string containsString:str]) {
-//        return nil;
-//    }
-//    
-//    if (range.location != NSNotFound) {
-//        NSString *subString = [string substringToIndex:range.location+1];
-//        [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:font] range:NSMakeRange(0,subString.length)];
-//        [attributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0,subString.length)];
-//        
-//        [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:subFont] range:NSMakeRange(range.location,string.length-subString.length+1)];
-//        [attributedString addAttribute:NSForegroundColorAttributeName value:subColor range:NSMakeRange(range.location,string.length-subString.length+1)];
-//        
-//    }else{
-//        NSLog(@"Not Found");
-//        return nil;
-//    }
-//    return attributedString;
-//}
-//
-//+ (NSMutableAttributedString *)attributedStringWith:(NSString *)string charaterString:(NSString *)str superDick:(NSDictionary*)superDick subDick:(NSDictionary*)subDick {
-//    
-//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
-//    NSRange range = [string rangeOfString:str];
-//    
-//    if (!string || !str || ![string containsString:str]) {
-//        return nil;
-//    }
-//    
-//    if (range.location != NSNotFound) {
-//        NSString *subString = [string substringToIndex:range.location+1];
-//        [attributedString addAttributes:superDick range:NSMakeRange(0,subString.length)];
-//        [attributedString addAttributes:subDick range:NSMakeRange(range.location,string.length-subString.length+1)];
-//    }else{
-//        NSLog(@"Not Found");
-//        return nil;
-//    }
-//    return attributedString;
-//}
-
 /**
  *  得到当前时间
  *

@@ -8,6 +8,7 @@
 
 #import "THScanQRCodeVC.h"
 #import "THAVCaptureSessionManager.h"
+#import "THButton.h"
 
 @interface THScanQRCodeVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) CADisplayLink *link;
@@ -20,8 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"扫一扫";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"相册" titleColor:[UIColor whiteColor] titleFont:16 target:self action:@selector(showPhotoLibary)];
+    self.navigationItem.title = @"扫一扫";
+    THButton *button = [[THButton alloc] initWithButtonType:THButtonType_None];
+    [button setTitle:@"相册"];
+    [button setTextColor:[UIColor whiteColor]];
+    [button setFont:[UIFont systemFontOfSize:16]];
+    [button addTarget:self action:@selector(showPhotoLibary)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     // 添加跟屏幕刷新频率一样的定时器
     CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(scan)];

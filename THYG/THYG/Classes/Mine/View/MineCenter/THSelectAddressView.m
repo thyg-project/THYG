@@ -94,10 +94,10 @@
         }
         
     };
-    self.bgView.y = 0;
+    self.bgView.top = 0;
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerView.y = kScreenHeight - 180;
-        self.optionView.y = kScreenHeight - 180 - 40.5;
+        self.pickerView.top = kScreenHeight - 180;
+        self.optionView.top = kScreenHeight - 180 - 40.5;
     }];
     
     [self setDefaultValue];
@@ -108,10 +108,10 @@
  */
 - (void)hidden {
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerView.y = kScreenHeight;
-        self.optionView.y = kScreenHeight;
+        self.pickerView.top = kScreenHeight;
+        self.optionView.top = kScreenHeight;
     }];
-    self.bgView.y = kScreenHeight;
+    self.bgView.top = kScreenHeight;
 }
 
 - (void)confirmSelectAction {

@@ -82,7 +82,7 @@
     if (_sectionCount == 7) {
         [self caculateOrderPriceWithAct:@"submit_order"];
     } else {
-        [THHUD showMsg:@"请先填写收货地址"];
+        [THHUDProgress showMsg:@"请先填写收货地址"];
     }
 }
 

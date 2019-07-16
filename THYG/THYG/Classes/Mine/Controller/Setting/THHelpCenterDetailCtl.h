@@ -6,10 +6,9 @@
 //  Copyright © 2018年 THYG. All rights reserved.
 //
 
-#import "THBaseVC.h"
+#import "YGWebViewController.h"
 
-@interface THHelpCenterDetailCtl : THBaseVC
+@interface THHelpCenterDetailCtl : YGWebViewController
 
-@property (nonatomic, copy) NSString *webUrl;
 
 @end

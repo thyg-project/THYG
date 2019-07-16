@@ -22,7 +22,7 @@
     }
     [self.view addSubview:self.webView];
     
-    [SVProgressHUD showWithStatus:@"正在努力加载中"];
+    [THHUDProgress showMsg:@"正在努力加载中"];
     
     [self loadWebView];
 }
@@ -33,12 +33,12 @@
     } else if (self.url.length) {
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
     } else {
-        [SVProgressHUD showErrorWithStatus:@"网页内容不存在"];
+        [THHUDProgress showError:@"网页内容不存在"];
     }
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [SVProgressHUD dismiss];
+    [THHUDProgress dismiss];
 }
 
 - (void)setIsDisableGestures:(BOOL)isDisableGestures {

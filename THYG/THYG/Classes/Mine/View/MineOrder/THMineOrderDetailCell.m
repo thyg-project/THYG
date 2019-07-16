@@ -124,7 +124,7 @@
 - (void)copyClick {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.orderId;
-    [THHUD showSuccess:@"复制成功"];
+    [THHUDProgress showSuccess:@"复制成功"];
 }
 
 #pragma mark - 懒加载

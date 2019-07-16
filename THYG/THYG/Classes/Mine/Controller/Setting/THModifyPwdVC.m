@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"修改密码";
+    self.navigationItem.title = @"修改密码";
 }
 
 #pragma mark - 修改密码
@@ -33,30 +33,29 @@
 
 #pragma mark - 校验密码
 - (BOOL)checkPwd {
-    BOOL result = YES;
-    
-    if (!self.originPwd.text.length) {
-        [THHUD showMsg:@"原密码不能为空"];
-        result = NO;
+    if (YGInfo.validString(self.originPwd.text) == NO) {
+        [THHUDProgress showMsg:@"原密码不能为空"];
+        return NO;
     }
     
-    if (!self.lastestPwd.text.length) {
-        [THHUD showMsg:@"新密码不能为空"];
-        result = NO;
-    } else if (![Utils checkPassword:self.lastestPwd.text]) {
-        [THHUD showMsg:@"新密码格式不正确"];
-        result = NO;
+    if (!YGInfo.validString(self.lastestPwd.text)) {
+        [THHUDProgress showMsg:@"新密码不能为空"];
+        return NO;
+    }
+    if (![Utils checkPassword:self.lastestPwd.text]) {
+        [THHUDProgress showMsg:@"新密码格式不正确"];
+        return NO;
     }
     
-    if (!self.confirmPwd.text.length) {
-        [THHUD showMsg:@"确认密码不能为空"];
-        result = NO;
-    } else if (![self.confirmPwd.text isEqualToString:self.lastestPwd.text]) {
-        [THHUD showMsg:@"两次密码输入不一致"];
-        result = NO;
+    if (!YGInfo.validString(self.confirmPwd.text)) {
+        [THHUDProgress showMsg:@"确认密码不能为空"];
+        return NO;
     }
-    
-    return result;
+    if (![self.confirmPwd.text isEqualToString:self.lastestPwd.text]) {
+        [THHUDProgress showMsg:@"两次密码输入不一致"];
+        return NO;
+    }
+    return YES;
     
 }
 

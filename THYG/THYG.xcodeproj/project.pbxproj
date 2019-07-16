@@ -36,6 +36,7 @@
 		02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AF22D7254C005D6277 /* THHomePresenter.m */; };
 		02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154B322D72B0D005D6277 /* THMinePresenter.m */; };
 		02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */; };
+		02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C4022DD604D00AF5112 /* YGWebViewController.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
@@ -288,7 +289,6 @@
 		8F4D139A207A23120024C3D4 /* THHelpCenterCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D1399207A23120024C3D4 /* THHelpCenterCtl.m */; };
 		8F4D139C207A23210024C3D4 /* THHelpCenterCtl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D139B207A23210024C3D4 /* THHelpCenterCtl.storyboard */; };
 		8F4D13A0207A251A0024C3D4 /* THHelpCenterDetailCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D139E207A251A0024C3D4 /* THHelpCenterDetailCtl.m */; };
-		8F4D13A1207A251A0024C3D4 /* THHelpCenterDetailCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D139F207A251A0024C3D4 /* THHelpCenterDetailCtl.xib */; };
 		8F51687E20746E71005E956E /* THFlashCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51687D20746E71005E956E /* THFlashCtl.m */; };
 		8F51688820747171005E956E /* THFlashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51688620747171005E956E /* THFlashCell.m */; };
 		8F51688920747171005E956E /* THFlashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F51688720747171005E956E /* THFlashCell.xib */; };
@@ -399,6 +399,8 @@
 		02D154B522D72B1D005D6277 /* THMineProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineProtocol.h; sourceTree = "<group>"; };
 		02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNavigationView.h; sourceTree = "<group>"; };
 		02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THNavigationView.m; sourceTree = "<group>"; };
+		02EA6C4022DD604D00AF5112 /* YGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGWebViewController.m; sourceTree = "<group>"; };
+		02EA6C4122DD604D00AF5112 /* YGWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGWebViewController.h; sourceTree = "<group>"; };
 		04054D9020A2156E009CE4F1 /* THSelectAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectAddressView.h; sourceTree = "<group>"; };
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
@@ -834,7 +836,6 @@
 		8F4D139B207A23210024C3D4 /* THHelpCenterCtl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = THHelpCenterCtl.storyboard; sourceTree = "<group>"; };
 		8F4D139D207A251A0024C3D4 /* THHelpCenterDetailCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHelpCenterDetailCtl.h; sourceTree = "<group>"; };
 		8F4D139E207A251A0024C3D4 /* THHelpCenterDetailCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHelpCenterDetailCtl.m; sourceTree = "<group>"; };
-		8F4D139F207A251A0024C3D4 /* THHelpCenterDetailCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THHelpCenterDetailCtl.xib; sourceTree = "<group>"; };
 		8F51687C20746E71005E956E /* THFlashCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFlashCtl.h; sourceTree = "<group>"; };
 		8F51687D20746E71005E956E /* THFlashCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFlashCtl.m; sourceTree = "<group>"; };
 		8F51688520747171005E956E /* THFlashCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFlashCell.h; sourceTree = "<group>"; };
@@ -2211,6 +2212,8 @@
 		8FFAF7B42079FCC500E4D4A2 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				02EA6C4122DD604D00AF5112 /* YGWebViewController.h */,
+				02EA6C4022DD604D00AF5112 /* YGWebViewController.m */,
 				8FFAF7AF2079F5DF00E4D4A2 /* THUserInfoEditCtl.h */,
 				8FFAF7B02079F5DF00E4D4A2 /* THUserInfoEditCtl.m */,
 				8FFAF7B12079F5DF00E4D4A2 /* THUserInfoEditCtl.xib */,
@@ -2225,7 +2228,6 @@
 				8F4D139B207A23210024C3D4 /* THHelpCenterCtl.storyboard */,
 				8F4D139D207A251A0024C3D4 /* THHelpCenterDetailCtl.h */,
 				8F4D139E207A251A0024C3D4 /* THHelpCenterDetailCtl.m */,
-				8F4D139F207A251A0024C3D4 /* THHelpCenterDetailCtl.xib */,
 				57417E5820CB88E100F5085F /* THAboutTHCtl.h */,
 				57417E5920CB88E100F5085F /* THAboutTHCtl.m */,
 				57417E5A20CB88E100F5085F /* THAboutTHCtl.xib */,
@@ -2343,7 +2345,6 @@
 				0484F09F2089B2FB008144B2 /* THMineApplymentVC.xib in Resources */,
 				04D0A30B207116F7003BE300 /* THLoginVC.xib in Resources */,
 				8FF84FE6206507E400A78368 /* THMoreLimitSpellGroupCell.xib in Resources */,
-				8F4D13A1207A251A0024C3D4 /* THHelpCenterDetailCtl.xib in Resources */,
 				044AEE432098A60400824A05 /* THAddressEditListCell.xib in Resources */,
 				8F1712B9207201DD00EFDFCB /* THMyCollectCell.xib in Resources */,
 				8F0DC2B92062360D009AE20B /* THAceSpellGroupListCell.xib in Resources */,
@@ -2552,6 +2553,7 @@
 				8F0DC29D20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m in Sources */,
 				8F0DC2CA20624F83009AE20B /* THSpellGroupHeadCell.m in Sources */,
 				0417B8752076F20E003566C4 /* THMineWalletHeaderView.m in Sources */,
+				02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */,
 				57CBC3D02088E477007D6069 /* GoodsModel.m in Sources */,
 				8F31CBE22069EE3B00A48F2D /* THHUDProgress.m in Sources */,
 				0418A63F20C59A2D00527C80 /* THFavouriteGoodsModel.m in Sources */,

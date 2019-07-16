@@ -49,13 +49,13 @@
 
 #pragma mark - 删除订单
 - (void)deleteOrder:(NSString *)orderId {
-    [THHUD show];
+    [THHUDProgress show];
 
 }
 
 #pragma mark - 取消订单
 - (void)cancelOrder:(NSString *)orderId {
-    [THHUD show];
+    [THHUDProgress show];
 
 }
 

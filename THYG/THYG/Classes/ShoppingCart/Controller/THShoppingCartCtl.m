@@ -118,7 +118,7 @@
         [self.navigationController pushViewController:orderConfirm animated:YES];
         
     } else {
-        [THHUD showMsg:@"您还未选择任何商品"];
+        [THHUDProgress showMsg:@"您还未选择任何商品"];
     }
     
 }
@@ -137,7 +137,7 @@
     
     if (tag == 0) { // 分享
         if (!self.tableDelegate.dataArray.count) {
-            [THHUD showMsg:@"请选择商品"];
+            [THHUDProgress showMsg:@"请选择商品"];
         } else {
             
             THShareView *shareView = [[THShareView alloc] initShareViewWithTitle:@[@"微信好友",@"朋友圈",@"QQ好友",@"QQ空间",@"微博",@"复制链接"] andImageArry:@[@"weixin",@"pengyouquan",@"QQ",@"QQkongjian",@"xinlangweibo",@"fuzhilianjie"]];
@@ -151,14 +151,14 @@
         
     } else if (tag == 1) { // 移入收藏
         if (!self.tableDelegate.dataArray.count) {
-            [THHUD showMsg:@"请选择商品"];
+            [THHUDProgress showMsg:@"请选择商品"];
         } else {
             [self carActionWithCarIds:cart_ids isDelete:NO];
         }
         
     } else { // 删除
         if (!self.tableDelegate.dataArray.count) {
-            [THHUD showMsg:@"请选择商品"];
+            [THHUDProgress showMsg:@"请选择商品"];
         } else {
             [self carActionWithCarIds:cart_ids isDelete:YES];
             

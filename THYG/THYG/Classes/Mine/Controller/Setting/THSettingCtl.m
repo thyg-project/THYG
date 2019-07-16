@@ -83,7 +83,7 @@
         }
             break;
         case 4: {
-            [THHUD show:@"清理缓存中..."];
+            [THHUDProgress show:@"清理缓存中..."];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
@@ -91,7 +91,7 @@
                 
                 // 回到主线程
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [THHUD showSuccess:@"清理缓存成功"];
+                    [THHUDProgress showSuccess:@"清理缓存成功"];
                 });
             });
             

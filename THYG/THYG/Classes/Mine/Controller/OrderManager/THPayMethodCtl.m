@@ -71,7 +71,7 @@
     //微信支付成功回调
     [THPay sharePay].paySuccessByWeChatCallBack = ^(PayResp *resp) {
         
-        [THHUD showSuccess:@"微信支付成功"];
+        [THHUDProgress showSuccess:@"微信支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
         [self.navigationController pushViewController:page animated:YES];
         
@@ -80,7 +80,7 @@
     //支付宝支付成功回调
     [THPay sharePay].paySuccessByAliPayCallBack = ^{
         
-        [THHUD showSuccess:@"支付宝支付成功"];
+        [THHUDProgress showSuccess:@"支付宝支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
         [self.navigationController pushViewController:page animated:YES];
         

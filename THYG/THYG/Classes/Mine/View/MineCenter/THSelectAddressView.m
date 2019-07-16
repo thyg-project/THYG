@@ -88,7 +88,7 @@
     kWeakSelf;
     self.getDataBlock = ^() {
         if (!weakSelf.provinceSelModel && !weakSelf.citySelModel && !weakSelf.districtSelModel) {
-            [THHUD showMsg:@"正在加载数据~"];
+            [THHUDProgress showMsg:@"正在加载数据~"];
         }else{
             getSelectModel(weakSelf.provinceSelModel, weakSelf.citySelModel, weakSelf.districtSelModel);
         }

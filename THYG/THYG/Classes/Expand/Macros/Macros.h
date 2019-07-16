@@ -50,12 +50,6 @@
 #define Font(size) [UIFont systemFontOfSize:size]
 
 
-//网络加载指示器
-#define THHUD   [THHUDProgress sharedProgressHUD]
-
-
-
-
 //判断是真机还是模拟器
 #if TARGET_OS_IPHONE
 //iPhone Device

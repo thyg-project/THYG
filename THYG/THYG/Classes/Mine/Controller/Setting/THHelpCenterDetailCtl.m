@@ -9,7 +9,7 @@
 #import "THHelpCenterDetailCtl.h"
 
 @interface THHelpCenterDetailCtl ()
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation THHelpCenterDetailCtl
@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]]];
+   
 }
 
 

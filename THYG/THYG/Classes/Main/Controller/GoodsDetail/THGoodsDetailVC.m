@@ -64,7 +64,7 @@
         switch (tag) {
                 // 客服
             case 0:
-                [THHUD showMsg:@"没有客服电话"];
+                [THHUDProgress showMsg:@"没有客服电话"];
                 break;
                 // 购物车
             case 1: {

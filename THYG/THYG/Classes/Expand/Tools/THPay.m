@@ -42,6 +42,7 @@
 - (void)aliPay:(NSString *)orderString
 {
     [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"THAliPay" callback:^(NSDictionary *resultDic) {
+        NSString *message = nil;
         switch ([resultDic[@"resultStatus"] integerValue]) {
             case 9000:
                 if (self.paySuccessByAliPayCallBack) {
@@ -49,25 +50,28 @@
                 }
                 break;
             case 8000:
-                [THHUD showError:@"正在处理中，支付结果未知"];
+                message = @"正在处理中，支付结果未知";
                 break;
             case 4000:
-                [THHUD showError:@"支付失败"];
+                 message = @"支付失败";
                 break;
             case 5000:
-                [THHUD showError:@"重复请求"];
+                 message = @"重复请求";
                 break;
             case 6001:
-                [THHUD showMsg:@"取消支付"];
+                 message = @"取消支付";
                 break;
             case 6002:
-                [THHUD showError:@"网络连接出错"];
+                 message = @"网络连接出错";
                 break;
             case 6004:
-                [THHUD showError:@"支付结果未知"];
+                 message = @"支付结果未知";
                 break;
             default:
                 break;
+        }
+        if (YGInfo.validString(message)) {
+            [THHUDProgress showError:message];
         }
         NSLog(@"reslut = %@",resultDic);
     }];
@@ -80,10 +84,10 @@
             self.paySuccessByWeChatCallBack(response);
             break;
         case WXErrCodeUserCancel:
-            [THHUD showMsg:@"取消支付"];
+            [THHUDProgress showMsg:@"取消支付"];
             break;
         default:
-            [THHUD showError:@"支付失败"];
+            [THHUDProgress showError:@"支付失败"];
             break;
     }
 }

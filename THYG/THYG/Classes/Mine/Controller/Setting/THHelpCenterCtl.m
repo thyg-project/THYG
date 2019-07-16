@@ -15,8 +15,7 @@
 
 @implementation THHelpCenterCtl
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
+- (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         self = [[UIStoryboard storyboardWithName:@"THHelpCenterCtl" bundle:nil] instantiateInitialViewController];
@@ -33,22 +32,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     THHelpCenterDetailCtl *detail = [[THHelpCenterDetailCtl alloc] init];
-    if (indexPath.row==0) {
-        detail.title = @"用户注册";
-        detail.webUrl = @"";
-    }else if (indexPath.row==1){
-        detail.title = @"购物流程";
-        detail.webUrl = @"";
-    }else if (indexPath.row==2){
-        detail.title = @"配送方式";
-        detail.webUrl = @"";
-    }else if (indexPath.row==3){
-        detail.title = @"支付方式";
-        detail.webUrl = @"";
-    }else if (indexPath.row==4){
-        detail.title = @"发票支付方式";
-        detail.webUrl = @"";
-    }
+    detail.loadUrl = @"https://www.baidu.com";
     [self.navigationController pushViewController:detail animated:YES];
 }
 

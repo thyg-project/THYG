@@ -35,8 +35,7 @@
 						thumbnail:(id)thumbnail
 					   shareImage:(id)shareImage
 						  success:(success)success
-						  failure:(failure)failure
-{
+						  failure:(failure)failure {
 	UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
 	ContentText ? (messageObject.text = ContentText) : nil;
 	UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
@@ -61,8 +60,7 @@
 								 url:(NSString *)url
 						   StreamUrl:(NSString *)StreamUrl
 							 success:(success)success
-							 failure:(failure)failure
-{
+							 failure:(failure)failure {
 	UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
 	
 	switch (ShareContentType) {

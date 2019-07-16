@@ -16,8 +16,7 @@
            confirmBtnTitle:(NSString*)confirmBtnTitle
             cancelBtnTitle:(NSString*)cancelBtnTitle
            confirmCallback:(confirmClickBlock)confirmCallback
-            cancelCallback:(cancelClickBlock)cancelCallback
-{
+            cancelCallback:(cancelClickBlock)cancelCallback {
     THAlertViewModel *alertModel = [THAlertViewModel new];
     alertModel.title = title;
     alertModel.content = content;

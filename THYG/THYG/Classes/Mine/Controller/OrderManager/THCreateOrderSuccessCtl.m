@@ -33,7 +33,7 @@
 #pragma mark - 设置UI
 - (void)setupUI {
     
-    self.title = @"收银台";
+    self.navigationItem.title = @"收银台";
     [self.view addSubview:self.payView];
     [self.payView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.offset(0);
@@ -54,44 +54,36 @@
                    @{@"iconImage":@"wx", @"title":@"微信"}];
     
     self.payView.price = [NSString stringWithFormat:@"￥%.2f", self.totalPrice];
-    
     #pragma mark - 立即支付
-    @weakify(self);
+    kWeakSelf;
     self.payView.payBlock = ^{
-        @strongify(self);
-        
-        if (self.currentRow > 1) {
-            [self payMethod];
+        kStrongSelf;
+        if (strongSelf.currentRow > 1) {
+            [strongSelf payMethod];
         }
-        
-        if (!self.currentRow) {
+        if (!strongSelf.currentRow) {
             [THHUDProgress showMsg:@"请选择支付方式"];
         }
-        
     };
-    
 }
 
 #pragma mark - payMethod
 - (void)payMethod {
     
     //微信支付成功回调
-    [THPay sharePay].paySuccessByWeChatCallBack = ^(PayResp *resp) {
+    [THPay weChatPay:nil success:^(id response) {
+         [THHUDProgress showSuccess:@"微信支付成功"];
+    } failed:^(id errorInfo) {
         
-        [THHUDProgress showSuccess:@"微信支付成功"];
-        THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
-        
-        
-    };
+    }];
     
     //支付宝支付成功回调
-    [THPay sharePay].paySuccessByAliPayCallBack = ^{
+    [THPay aliPay:nil success:^(id response) {
+         [THHUDProgress showSuccess:@"支付宝支付成功"];
+    } failed:^(id errorInfo) {
         
-        [THHUDProgress showSuccess:@"支付宝支付成功"];
-        THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
-        
-        
-    };
+    }];
+
     
 }
 
@@ -105,14 +97,14 @@
     THOrderConfirmPaymentCell * cell = nil;//[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THOrderConfirmPaymentCell)];
     cell.cellDict = _itemArray[indexPath.row];
     
-    @weakify(cell);
+    kWeakObject(cell)
     cell.selectedBlock = ^(BOOL isSelected) {
-        @strongify(cell);
+        
         if (isSelected && indexPath.row) {
             [tableView.visibleCells enumerateObjectsUsingBlock:^(THOrderConfirmPaymentCell * cell, NSUInteger row, BOOL * _Nonnull stop) {
                 cell.isSelected = NO;
             }];
-            cell.isSelected = YES;
+            weakObject.isSelected = YES;
             _currentRow = indexPath.row + 1;
         }
     };

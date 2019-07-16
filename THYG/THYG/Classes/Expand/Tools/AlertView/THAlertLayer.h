@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) THAlertViewModel *alertModel;
 @property (nonatomic, copy) void(^sureBlock)(NSString *content);
-@property (nonatomic, copy) void(^cancelBlock)();
+@property (nonatomic, copy) void(^cancelBlock)(void);
 @property (nonatomic, copy) void(^textFieldRightIconTappedHander)(void);
 
 @property (nonatomic, strong) UIButton *cancel;

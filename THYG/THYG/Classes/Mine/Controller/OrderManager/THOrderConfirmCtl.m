@@ -33,8 +33,7 @@
 
 @implementation THOrderConfirmCtl
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.invoiceNameParma = @"未开发票";

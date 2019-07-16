@@ -119,41 +119,41 @@
     
     [self.dataSource removeAllObjects];
     
-    @weakify(self);
+    kWeakSelf;
     // 综合 0  销量 1  价格 2  筛选 3
     self.siftView.siftClickBlock = ^(NSInteger idx) {
         //排序类型，有 goods_id（综合），comment_count（评论），sales_sum（销量），shop_price（价格）
-        @strongify(self);
+        kStrongSelf;
         if (idx != 3) {
-            self.sortParma = (idx == 0) ? @"goods_id" : (idx == 1) ? @"sales_sum" : @"shop_price";
+            strongSelf.sortParma = (idx == 0) ? @"goods_id" : (idx == 1) ? @"sales_sum" : @"shop_price";
             if (idx == 2) {
                 
-                if (self.sort_ascParma && !self.sort_ascParma.length) {
-                    self.sort_ascParma = @"asc";
+                if (strongSelf.sort_ascParma && !self.sort_ascParma.length) {
+                    strongSelf.sort_ascParma = @"asc";
                 } else {
-                    if ([self.sort_ascParma isEqualToString:@"asc"]) {
-                        self.sort_ascParma = @"desc";
+                    if ([strongSelf.sort_ascParma isEqualToString:@"asc"]) {
+                        strongSelf.sort_ascParma = @"desc";
                     } else {
-                        self.sort_ascParma = @"asc";
+                        strongSelf.sort_ascParma = @"asc";
                     }
                 }
             }
             
-            [self requestData:YES];
+            [strongSelf requestData:YES];
             
         } else {
-            [self.screeningView show];
+            [strongSelf.screeningView show];
         }
         
     };
     
     // 筛选回调
     self.screeningView.siftResultBlock = ^(NSString *cat_id, NSString *startPrice, NSString *endPrice) {
-        @strongify(self);
-        self.cat_id = cat_id;
-        self.start_priceParma = startPrice;
-        self.end_priceParma = endPrice;
-        [self requestData:YES];
+        kStrongSelf;
+        strongSelf.cat_id = cat_id;
+        strongSelf.start_priceParma = startPrice;
+        strongSelf.end_priceParma = endPrice;
+        [strongSelf requestData:YES];
     };
     
 }

@@ -24,7 +24,9 @@
 /** 弱引用 */
 #define kWeakSelf __weak __typeof(self) weakSelf = self;
 
-#define kStrongSelf __strong __typeof strongSelf = weakSelf;
+#define kStrongSelf __strong __typeof(weakSelf) strongSelf = weakSelf;
+
+#define kWeakObject(object) __weak __typeof(object) weakObject = object;
 /*****************  屏幕适配  ******************/
 
 //色值

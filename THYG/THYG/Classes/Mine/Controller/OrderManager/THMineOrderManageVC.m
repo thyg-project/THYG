@@ -21,7 +21,7 @@
 }
 
 - (void)setupUI {
-    self.title = self.type ? @"退/换货订单" : @"我的订单";
+    self.navigationItem.title = self.type ? @"退/换货订单" : @"我的订单";
     NSArray *titleArray = self.type ? @[@"全部",@"待确认",@"待退回",@"已完成"] : @[@"全部",@"待付款",@"待发货",@"待收货",@"待评价"];
     NSArray *statusArray = self.type ? @[@"", @"0", @"1", @"3"] : @[@"", @"WAITPAY", @"WAITSEND",@"WAITRECEIVE",@"WAITCCOMMENT"];
     NSInteger index = 0;

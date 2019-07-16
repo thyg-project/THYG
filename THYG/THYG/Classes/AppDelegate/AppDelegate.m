@@ -58,7 +58,7 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //微信支付回调
     if ([url.host isEqual:@"pay"]) {
-        return [WXApi handleOpenURL:url delegate:[THPay sharePay]];
+        return [WXApi handleOpenURL:url delegate:(id)[THPay class]];
     }
     //支付宝支付
     else if ([url.host isEqualToString:@"safepay"]){

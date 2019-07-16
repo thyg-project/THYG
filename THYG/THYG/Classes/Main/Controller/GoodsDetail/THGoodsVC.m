@@ -191,7 +191,8 @@
             specCell.defaultSpec = self.goodsSpecModel.defaultSpec.default_str;
             
             cell = specCell;
-            
+            kWeakSelf;
+            kWeakObject(specCell)
             specCell.selectSpecBtnBlock = ^{
                 
                 ChoseGoodsTypeAlert *_alert = [[ChoseGoodsTypeAlert alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) andHeight:0];
@@ -201,9 +202,9 @@
                 _alert.selectSize = ^(SizeAttributeModel *sizeModel) {
                     //sizeModel 选择的属性模型
                     
-                    specCell.defaultSpec = sizeModel.value;
+                    weakObject.defaultSpec = sizeModel.value;
                     
-                    !self.specBlock?:self.specBlock(sizeModel.sizeid, sizeModel.count);
+                    !weakSelf.specBlock?:weakSelf.specBlock(sizeModel.sizeid, sizeModel.count);
                     
                 };
                 [_alert initData:model];

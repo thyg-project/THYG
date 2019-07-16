@@ -74,7 +74,7 @@
     kWeakSelf;
     self.selectView.selectTypeAction = ^(NSInteger type, NSString *title) {
       
-        self.titleBtnView.selected = NO;
+        weakSelf.titleBtnView.selected = NO;
         
         [weakSelf.titleBtnView setTitle:title forState:UIControlStateNormal];
         weakSelf.type = type;

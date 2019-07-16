@@ -15,18 +15,12 @@
 
 @implementation THPay
 
-+ (THPay *)sharePay
-{
-    static THPay *pay = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        pay = [[THPay alloc]init];
-    });
-    return pay;
-}
+PayResultComplete paySuccess;
+PayResultComplete payFailed;
 
-- (void)weChatPay:(NSDictionary *)payReqDic
-{
++ (void)weChatPay:(NSDictionary *)payReqDic success:(PayResultComplete)success failed:(PayResultComplete)failed {
+    paySuccess = success;
+    payFailed = failed;
     //调起微信支付
     PayReq* req             = [[PayReq alloc] init];
     req.openID              = payReqDic[@"appid"];
@@ -39,32 +33,35 @@
     [WXApi sendReq:req];
 }
 
-- (void)aliPay:(NSString *)orderString
-{
++ (void)aliPay:(NSString *)orderString success:(PayResultComplete)success failed:(PayResultComplete)failed {
     [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"THAliPay" callback:^(NSDictionary *resultDic) {
         NSString *message = nil;
         switch ([resultDic[@"resultStatus"] integerValue]) {
             case 9000:
-                if (self.paySuccessByAliPayCallBack) {
-                    self.paySuccessByAliPayCallBack();
-                }
+                BLOCK(success, resultDic);
                 break;
             case 8000:
+                BLOCK(failed,resultDic);
                 message = @"正在处理中，支付结果未知";
                 break;
             case 4000:
+                 BLOCK(failed,resultDic);
                  message = @"支付失败";
                 break;
             case 5000:
+                 BLOCK(failed,resultDic);
                  message = @"重复请求";
                 break;
             case 6001:
+                 BLOCK(failed,resultDic);
                  message = @"取消支付";
                 break;
             case 6002:
+                 BLOCK(failed,resultDic);
                  message = @"网络连接出错";
                 break;
             case 6004:
+                 BLOCK(failed,resultDic);
                  message = @"支付结果未知";
                 break;
             default:
@@ -77,16 +74,18 @@
     }];
 }
 
--(void)onResp:(BaseResp*)resp{
++ (void)onResp:(BaseResp *)resp {
     PayResp*response=(PayResp*)resp;
     switch (resp.errCode){
         case WXSuccess:
-            self.paySuccessByWeChatCallBack(response);
+            BLOCK(paySuccess,response);
             break;
         case WXErrCodeUserCancel:
+            BLOCK(payFailed,response);
             [THHUDProgress showMsg:@"取消支付"];
             break;
         default:
+            BLOCK(payFailed,response);
             [THHUDProgress showError:@"支付失败"];
             break;
     }

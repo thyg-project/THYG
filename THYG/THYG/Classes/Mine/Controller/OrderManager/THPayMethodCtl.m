@@ -12,7 +12,9 @@
 #import "THPayMethodCell.h"
 #import "THPaySuccessBlockPage.h"
 
-@interface THPayMethodCtl () <UITableViewDataSource, UITableViewDelegate>
+@interface THPayMethodCtl () <UITableViewDataSource, UITableViewDelegate> {
+     NSInteger _curSelectIndex;
+}
 @property (weak, nonatomic) IBOutlet UILabel *payTotalMoneyLabel;
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -20,9 +22,6 @@
 @end
 
 @implementation THPayMethodCtl
-{
-    NSInteger _curSelectIndex;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,18 +37,15 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"THPayMethodCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 45;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THPayMethodCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     NSString *imgName = @[@"bank",@"pay",@"wx"][indexPath.row];
     cell.icon.image = [UIImage imageNamed:imgName];
@@ -62,29 +58,31 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _curSelectIndex = indexPath.row;
     [tableView reloadData];
 }
 - (IBAction)payBtnClick:(id)sender {
     //微信支付成功回调
-    [THPay sharePay].paySuccessByWeChatCallBack = ^(PayResp *resp) {
+    [THPay weChatPay:nil success:^(id response) {
         
         [THHUDProgress showSuccess:@"微信支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
         [self.navigationController pushViewController:page animated:YES];
+    } failed:^(id errorInfo) {
         
-    };
+    }];
+   
     
     //支付宝支付成功回调
-    [THPay sharePay].paySuccessByAliPayCallBack = ^{
-        
+    [THPay aliPay:nil success:^(id response) {
         [THHUDProgress showSuccess:@"支付宝支付成功"];
         THPaySuccessBlockPage *page = [[THPaySuccessBlockPage alloc] init];
         [self.navigationController pushViewController:page animated:YES];
+    } failed:^(id errorInfo) {
         
-    };
+    }];
+    
     
 }
 

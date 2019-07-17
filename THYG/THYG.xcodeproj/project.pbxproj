@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02188A8A22DDA08600258F37 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A8922DDA08600258F37 /* UIScrollView+Refresh.m */; };
+		02188A9522DEECD900258F37 /* THDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A9422DEECD900258F37 /* THDatabaseManager.m */; };
 		022CD97B22DA239400A6518A /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */; };
 		022CD97C22DA239400A6518A /* NSString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96522DA239300A6518A /* NSString+AvoidCrash.m */; };
 		022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96622DA239300A6518A /* NSDictionary+AvoidCrash.m */; };
@@ -335,6 +336,8 @@
 		02188A8822DDA08600258F37 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		02188A8922DDA08600258F37 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		02188A8B22DDC2AA00258F37 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		02188A9322DEECD900258F37 /* THDatabaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THDatabaseManager.h; sourceTree = "<group>"; };
+		02188A9422DEECD900258F37 /* THDatabaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THDatabaseManager.m; sourceTree = "<group>"; };
 		022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AvoidCrash.m"; sourceTree = "<group>"; };
 		022CD96422DA239300A6518A /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
 		022CD96522DA239300A6518A /* NSString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AvoidCrash.m"; sourceTree = "<group>"; };
@@ -924,6 +927,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02188A9222DEECC700258F37 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				02188A9322DEECD900258F37 /* THDatabaseManager.h */,
+				02188A9422DEECD900258F37 /* THDatabaseManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		022CD96222DA239300A6518A /* AvoidCrash */ = {
 			isa = PBXGroup;
 			children = (
@@ -1357,6 +1369,7 @@
 		512D78AD205906540088A4A0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				02188A9222DEECC700258F37 /* Database */,
 				022CD96222DA239300A6518A /* AvoidCrash */,
 				02D154A622D5B2EA005D6277 /* Presenter */,
 				02D154A522D5B2EA005D6277 /* Protocol */,
@@ -2413,13 +2426,11 @@
 				"${BUILT_PRODUCTS_DIR}/MSWeakTimer/MSWeakTimer.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
 				"${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 				"${BUILT_PRODUCTS_DIR}/YZDisplayViewController/YZDisplayViewController.framework",
@@ -2438,13 +2449,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSWeakTimer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqliterk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITableView_FDTemplateLayoutCell.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPageController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YZDisplayViewController.framework",
@@ -2633,6 +2642,7 @@
 				02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */,
 				8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */,
 				8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */,
+				02188A9522DEECD900258F37 /* THDatabaseManager.m in Sources */,
 				576EEA892087A2F40088B1EB /* SDTimeLineTableHeaderView.m in Sources */,
 				57417E4320CB770300F5085F /* THActivityRecommandCtl.m in Sources */,
 				8FC10B7C207382B900ED3FB8 /* THCartSectionHead.m in Sources */,

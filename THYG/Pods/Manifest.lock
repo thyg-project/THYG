@@ -30,13 +30,14 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - Realm (3.17.1):
+    - Realm/Headers (= 3.17.1)
+  - Realm/Headers (3.17.1)
   - SDCycleScrollView (1.80):
     - SDWebImage (>= 5.0.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
-  - SQLiteRepairKit (1.2.2):
-    - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - UMCCommon (2.1.0)
@@ -48,10 +49,6 @@ PODS:
   - UMCShare/UI (6.9.6):
     - UMCCommon
     - UMCShare/Core
-  - WCDB (1.0.7.5):
-    - SQLiteRepairKit (~> 1.2.0)
-    - WCDBOptimizedSQLCipher (~> 1.2.0)
-  - WCDBOptimizedSQLCipher (1.2.1)
   - WechatOpenSDK (1.8.4)
   - WMPageController (2.5.2)
   - YYKit (1.0.9):
@@ -71,13 +68,13 @@ DEPENDENCIES:
   - MJRefresh
   - MSWeakTimer
   - ReactiveCocoa (~> 2.5)
+  - Realm
   - SDCycleScrollView
   - SVProgressHUD
   - "UITableView+FDTemplateLayoutCell"
   - UMCCommon
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
-  - WCDB
   - WechatOpenSDK
   - WMPageController
   - YYKit
@@ -96,15 +93,13 @@ SPEC REPOS:
     - MJRefresh
     - MSWeakTimer
     - ReactiveCocoa
+    - Realm
     - SDCycleScrollView
     - SDWebImage
-    - SQLiteRepairKit
     - SVProgressHUD
     - "UITableView+FDTemplateLayoutCell"
     - UMCCommon
     - UMCShare
-    - WCDB
-    - WCDBOptimizedSQLCipher
     - WechatOpenSDK
     - WMPageController
     - YYKit
@@ -122,20 +117,18 @@ SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  Realm: c204f1a890f07dea43b14132a6aad118c054b8f2
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
-  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   UMCCommon: c9637200488c482b30cdebebb0bd595b9adf0847
   UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
-  WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
-  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YZDisplayViewController: 621f737a9aa3dfbc95a901e89e5e7c4b2ea6ef79
 
-PODFILE CHECKSUM: 60664676077f94b26479d25219fc730f5ef5e808
+PODFILE CHECKSUM: 6e9b0e95cd2d4d16545568a8386a2d56f5e2d7bb
 
 COCOAPODS: 1.5.3

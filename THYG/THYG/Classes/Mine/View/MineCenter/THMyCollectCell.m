@@ -10,8 +10,7 @@
 #import "THMyCollectCell.h"
 #import "THMyCollectModel.h"
 
-@implementation THMyCollectCell
-{
+@implementation THMyCollectCell {
     __weak IBOutlet UIImageView *goodsImgV;
     __weak IBOutlet UILabel *goodsNameLabel;
     __weak IBOutlet UILabel *goodsPriceLabel;

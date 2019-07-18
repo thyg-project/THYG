@@ -8,8 +8,7 @@
 
 #import "THOrderConfirmPaymentCell.h"
 
-@implementation THOrderConfirmPaymentCell
-{
+@implementation THOrderConfirmPaymentCell {
     __weak IBOutlet UIImageView *iconImgView;
     __weak IBOutlet UILabel *titleLabel;
     __weak IBOutlet UIButton *selButton;

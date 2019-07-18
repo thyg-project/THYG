@@ -9,8 +9,7 @@
 #import "THMineOrderCell.h"
 #import "THOrderModel.h"
 
-@implementation THMineOrderCell
-{
+@implementation THMineOrderCell {
     __weak IBOutlet UILabel *orderNumberLabel;
     __weak IBOutlet UILabel *orderStatusLabel;
     __weak IBOutlet UILabel *goodsNameLabel;

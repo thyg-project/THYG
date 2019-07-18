@@ -11,13 +11,11 @@
 #import "THLogisticsCell.h"
 #import "THCartDetailModel.h"
 
-@implementation THLogisticsCell
-{
+@implementation THLogisticsCell {
     __weak IBOutlet UILabel *shippingLabel;
 }
 
-- (void)setModelData:(NSArray *)modelData
-{
+- (void)setModelData:(NSArray *)modelData {
     _modelData = modelData;
     NSMutableString *mutStr = [[NSMutableString alloc] initWithString:@"在线支付\n商品对应物流："];
     for (THShippingListModel *model in modelData) {
@@ -38,8 +36,7 @@
     // Configure the view for the selected state
 }
 
-+ (CGFloat)cellHeight
-{
++ (CGFloat)cellHeight {
     return 100;
 }
 

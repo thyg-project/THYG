@@ -85,7 +85,7 @@
         self.navigationItem.titleView = titleView;
         self.searchBar.placeholder = @"搜索关键词";
         self.searchBar.barTintColor = [UIColor whiteColor];
-        [self.searchBar setImage:[UIImage imageNamed:@"bSearch"]forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+        [self.searchBar setImage:[UIImage imageNamed:@"bSearch"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
         self.searchBar.delegate = self;
         
         for (UIView *subView in [[self.searchBar.subviews lastObject] subviews]) {

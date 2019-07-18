@@ -49,8 +49,7 @@
 	
 }
 
-- (void)refreshUI
-{
+- (void)refreshUI {
     if ([@"" length]) {
         self.headImgView.image = [UIImage imageNamed:@"beijing"];
 //        [self.userImgView sd_setImageWithURL:[NSURL URLWithString:UserInfo.head_pic] placeholderImage:[UIImage imageNamed:@"touxiang"]];

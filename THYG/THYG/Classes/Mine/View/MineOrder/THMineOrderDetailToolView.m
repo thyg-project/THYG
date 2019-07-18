@@ -9,8 +9,7 @@
 #import "THMineOrderDetailToolView.h"
 #define kTag 100
 
-@implementation THMineOrderDetailToolView
-{
+@implementation THMineOrderDetailToolView {
     __weak IBOutlet UIButton *btnOne;
     __weak IBOutlet UIButton *btnTwo;
     __weak IBOutlet UIButton *btnThree;

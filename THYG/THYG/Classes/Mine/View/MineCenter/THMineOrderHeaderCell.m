@@ -10,9 +10,12 @@
 #import "THButton.h"
 #define bX kScreenWidth / 5
 
-@interface THMineOrderHeaderCell () {
+@interface THMineOrderHeaderCell ()/* <UICollectionViewDelegate, UICollectionViewDataSource> */{
 	NSArray * _imageArr;
 	NSArray * _titleArr;
+    
+//    UICollectionView *_collectionView;
+    
 }
 
 @end
@@ -25,6 +28,17 @@
 	}
 	return self;
 }
+
+//- (void)initinalizedView {
+//    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+//    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+//    _collectionView.delegate = self;
+//    _collectionView.dataSource = self;
+//    [self addSubview:_collectionView];
+//    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self);
+//    }];
+//}
 
 - (void)setupUI {
 	_imageArr = @[@"daifukuan", @"daishouhuo", @"daipingjia", @"tuihuanhuo", @"quanbudingdan"];

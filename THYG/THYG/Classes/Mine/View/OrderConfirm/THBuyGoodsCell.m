@@ -9,8 +9,7 @@
 #import "THBuyGoodsCell.h"
 #import "THCartDetailModel.h"
 
-@implementation THBuyGoodsCell
-{
+@implementation THBuyGoodsCell {
     __weak IBOutlet UIImageView *goodsImgV;
     __weak IBOutlet UILabel *goodsNameLabel;
     __weak IBOutlet UILabel *goodsSpecValueLabel;
@@ -18,8 +17,7 @@
     __weak IBOutlet UILabel *goodsNumLabel;
 }
 
-- (void)setModelData:(THCartGoodListModel *)modelData
-{
+- (void)setModelData:(THCartGoodListModel *)modelData {
     _modelData = modelData;
     [goodsImgV sd_setImageWithURL:[NSURL URLWithString:_modelData.goods.original_img] placeholderImage:nil];
     goodsNameLabel.text = _modelData.goods_name;
@@ -39,8 +37,7 @@
     // Configure the view for the selected state
 }
 
-+ (CGFloat)cellHeight
-{
++ (CGFloat)cellHeight {
     return 90;
 }
 

@@ -46,8 +46,7 @@
     [self btnAction:sender];
 }
 
-- (void)btnAction:(UIButton*)btn
-{
+- (void)btnAction:(UIButton*)btn {
     self.curIndex = btn.tag;
     
     [self.btnData enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -61,9 +60,7 @@
     [self.mTable reloadData];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-//    return self.data.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (self.curIndex) {
         case 1:
             return 3;
@@ -80,8 +77,7 @@
     return 0;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.curIndex) {
         case 1:
         case 2:
@@ -96,19 +92,16 @@
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.curIndex) {
         case 1:
-        case 2:
-        {
+        case 2: {
             THMySupplierCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMySupplierCell.class)];
             
             return cell;
         }
             break;
-        case 3:
-        {
+        case 3: {
             THRecommendedCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THRecommendedCell.class)];
             
             return cell;
@@ -120,10 +113,9 @@
     return nil;
 }
 
-- (UITableView *)mTable
-{
+- (UITableView *)mTable {
     if (!_mTable) {
-//        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 41, kScreenWidth, kScreenHeight-kNaviHeight-41) style:UITableViewStylePlain];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 41, kScreenWidth, kScreenHeight-kNaviHeight-41) style:UITableViewStylePlain];
         _mTable.backgroundColor = BGColor;
         _mTable.delegate = self;
         _mTable.dataSource = self;
@@ -134,8 +126,7 @@
     return _mTable;
 }
 
-- (NSMutableArray* )data
-{
+- (NSMutableArray* )data {
     if (!_data) {
         _data = [[NSMutableArray alloc] init];
     }

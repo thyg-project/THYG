@@ -20,21 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"填写申请资料";
+    self.navigationItem.title = @"填写申请资料";
     self.submitButton.layer.borderColor = GLOBAL_RED_COLOR.CGColor;
 }
 
 - (IBAction)submitClick {
     NSLog(@"确认提交");
     
-    // 发送请求
-    /*
-    [PPNetworkHelper POST:API(@"") parameters:nil success:^(id responseObject) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
-     */
+   
 }
 
 @end

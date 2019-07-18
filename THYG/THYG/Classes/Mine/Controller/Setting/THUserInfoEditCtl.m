@@ -7,11 +7,10 @@
 //
 
 #import "THUserInfoEditCtl.h"
-#import "THUploadImageTool.h"
 #import "THSelectTimeView.h"
 #import "THSelectedCategoryView.h"
 
-@interface THUserInfoEditCtl () <THUploadImageToolDelegate, THSelectTimeViewDelegate, UITextFieldDelegate>
+@interface THUserInfoEditCtl () <THSelectTimeViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sexBtn;
@@ -56,7 +55,7 @@
 
 #pragma mark - 上传头像
 - (IBAction)uploadImage:(id)sender {
-    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
+    
 }
 
 #pragma mark - 选择性别
@@ -94,15 +93,6 @@
         _params[@"job"] = textField.text;
     }
     return YES;
-}
-
-#pragma mark - THUploadImageToolDelegate
-- (void)uploadImageToServerWithImage:(UIImage *)image {
-    // 上传头像
-    self.avatarImgView.image = image;
-    
-
-    
 }
 
 #pragma mark - 懒加载

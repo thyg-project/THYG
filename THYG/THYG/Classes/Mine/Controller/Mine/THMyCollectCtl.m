@@ -20,22 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = self.type? @"浏览记录" :@"我的关注";
     [self.view addSubview:self.mTable];
-    self.title = self.type? @"浏览记录" :@"我的关注";
-    [self loadData];
-}
-
-- (void)loadData {
-    
-    NSString *url = @"";
-    
-    if (self.type) {
-        url = @"/User/getVisit";
-    } else {
-        url = @"/User/collectList";
-    }
-    NSLog(@"url%@", url);
-
+    [self autoLayoutSizeContentView:self.mTable];
+    [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,7 +50,7 @@
 
 - (UITableView *)mTable {
     if (!_mTable) {
-        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight) style:UITableViewStylePlain];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
         _mTable.backgroundColor = BGColor;

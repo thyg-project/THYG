@@ -116,7 +116,6 @@
 		04DD7E8020C9AFA80057884A /* THMineOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD7E7E20C9AFA80057884A /* THMineOrderDetailCell.m */; };
 		0D44736B3833CFBFC55DFF13 /* Pods_THYG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EA45D4CDFE146F156A84C5 /* Pods_THYG.framework */; };
 		510EDC2D20629D8300F595E7 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 510EDC2C20629D8300F595E7 /* Utils.m */; };
-		512A26AB20B7BD720091B58B /* THUploadImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A26AA20B7BD720091B58B /* THUploadImageTool.m */; };
 		512A26AE20B7D36A0091B58B /* THSelectTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A26AD20B7D36A0091B58B /* THSelectTimeView.m */; };
 		512A26B120B8134B0091B58B /* THSelectedCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A26B020B8134B0091B58B /* THSelectedCategoryView.m */; };
 		512D789E205903130088A4A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512D789C205903130088A4A0 /* Main.storyboard */; };
@@ -539,8 +538,6 @@
 		300D45B6D570375E2178BF09 /* Pods-THYG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-THYG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-THYG/Pods-THYG.debug.xcconfig"; sourceTree = "<group>"; };
 		510EDC2B20629D8300F595E7 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		510EDC2C20629D8300F595E7 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		512A26A920B7BD720091B58B /* THUploadImageTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUploadImageTool.h; sourceTree = "<group>"; };
-		512A26AA20B7BD720091B58B /* THUploadImageTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUploadImageTool.m; sourceTree = "<group>"; };
 		512A26AC20B7D36A0091B58B /* THSelectTimeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectTimeView.h; sourceTree = "<group>"; };
 		512A26AD20B7D36A0091B58B /* THSelectTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectTimeView.m; sourceTree = "<group>"; };
 		512A26AF20B8134B0091B58B /* THSelectedCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectedCategoryView.h; sourceTree = "<group>"; };
@@ -1317,15 +1314,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		512A26A820B7BD4F0091B58B /* UploadImageTool */ = {
-			isa = PBXGroup;
-			children = (
-				512A26A920B7BD720091B58B /* THUploadImageTool.h */,
-				512A26AA20B7BD720091B58B /* THUploadImageTool.m */,
-			);
-			path = UploadImageTool;
-			sourceTree = "<group>";
-		};
 		512D788A205903130088A4A0 = {
 			isa = PBXGroup;
 			children = (
@@ -1670,7 +1658,6 @@
 			isa = PBXGroup;
 			children = (
 				51EF4DE420DDF63300B7F9AA /* ShareTool */,
-				512A26A820B7BD4F0091B58B /* UploadImageTool */,
 				04548D712070AD6A002F73C6 /* QRTool */,
 				8F31CBEB206A302100A48F2D /* AlertView */,
 				044A48A0207901A000DF1AAD /* Star */,
@@ -2594,7 +2581,6 @@
 				8F0DC2B3206235F8009AE20B /* THMoreSpellGroupListCell.m in Sources */,
 				8F1ABEA9207AFB2F0093F104 /* THGoodsModel.m in Sources */,
 				0421E8A0208978FE008D85A0 /* THMenuView.m in Sources */,
-				512A26AB20B7BD720091B58B /* THUploadImageTool.m in Sources */,
 				576EEACB2087A5510088B1EB /* MLLabel.m in Sources */,
 				51EF4DE720DDF66A00B7F9AA /* THShareTool.m in Sources */,
 				512D78FC205A566E0088A4A0 /* THHomeMallActivityCell.m in Sources */,

@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"申请成为供应商";
+    self.navigationItem.title = @"申请成为供应商";
 }
 
 @end

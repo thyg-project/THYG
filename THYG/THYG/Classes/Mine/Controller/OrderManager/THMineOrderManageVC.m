@@ -31,13 +31,6 @@
     [self setupUI];
 }
 
-//- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-//    if (self = [super initWithCoder:aDecoder]) {
-//         _titles = self.type ? @[@"全部",@"待确认",@"待退回",@"已完成"] : @[@"全部",@"待付款",@"待发货",@"待收货",@"待评价"];
-//    }
-//    return self;
-//}
-
 - (void)setupUI {
     self.navigationItem.title = self.type ? @"退/换货订单" : @"我的订单";
     NSArray *statusArray = self.type ? @[@"", @"0", @"1", @"3"] : @[@"", @"WAITPAY", @"WAITSEND",@"WAITRECEIVE",@"WAITCCOMMENT"];

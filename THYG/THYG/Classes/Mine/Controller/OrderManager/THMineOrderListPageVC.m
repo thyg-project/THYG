@@ -37,15 +37,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineOrderCell.class)];
     [self.tableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
     
-    [self getUserOrderList];
-    
-}
-
-#pragma mark - 我的订单列表
-- (void)getUserOrderList {
-    
-    [self.dataSource removeAllObjects];
-    
 }
 
 #pragma mark - 数据源代理方法

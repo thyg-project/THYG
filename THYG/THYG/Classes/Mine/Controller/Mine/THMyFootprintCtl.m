@@ -19,7 +19,4 @@
     
 }
 
-- (void)loadData {
-}
-
 @end

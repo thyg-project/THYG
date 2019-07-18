@@ -16,35 +16,30 @@
 
 @implementation THMyTaskCtl
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.view addSubview:self.mTable];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-//    return self.data.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     return 10;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THMyTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMyTaskCell.class)];
     [cell refreshWithIndexPath:indexPath];
     return cell;
 }
 
-- (UITableView *)mTable
-{
+- (UITableView *)mTable {
     if (!_mTable) {
-//        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight) style:UITableViewStylePlain];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight) style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
         _mTable.backgroundColor = BGColor;
@@ -55,8 +50,7 @@
     return _mTable;
 }
 
-- (NSMutableArray *)data
-{
+- (NSMutableArray *)data {
     if (!_data) {
         _data = [[NSMutableArray alloc] init];
     }

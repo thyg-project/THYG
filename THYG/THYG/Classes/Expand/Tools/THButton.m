@@ -47,6 +47,10 @@
     return self;
 }
 
++ (instancetype)buttonWithType:(THButtonType)buttonType {
+    return [[self alloc] initWithButtonType:buttonType];
+}
+
 - (void)setFont:(UIFont *)font {
     self.contentLabel.font = font;
 }

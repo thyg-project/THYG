@@ -12,6 +12,7 @@
 #import "Headers.h"
 #import "Utils.h"
 #import "YGInfo.h"
+#import "THUserManager.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "SDImageCache.h"
 #import <YYKit/YYKit.h>

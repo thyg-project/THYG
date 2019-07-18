@@ -26,7 +26,6 @@
 
 //工具类
 #import "THHUDProgress.h"
-#import "THUserBaseInfo.h"
 #import "THUIFactory.h"
 
 

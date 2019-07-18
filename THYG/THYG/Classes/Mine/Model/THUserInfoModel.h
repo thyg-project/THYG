@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface THUserInfoModel : NSObject
+@interface THUserInfoModel : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *birthday;
 

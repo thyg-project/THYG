@@ -30,15 +30,12 @@
 
 #pragma mark - share
 - (IBAction)shareClick {
-    NSLog(@"分享操作");
-    
     THShareView *shareView = [[THShareView alloc] initShareViewWithTitle:@[@"微信好友",@"朋友圈",@"QQ好友",@"QQ空间",@"微博",@"复制链接"] andImageArry:@[@"weixin",@"pengyouquan",@"QQ",@"QQkongjian",@"xinlangweibo",@"fuzhilianjie"]];
-    [[UIApplication sharedApplication].keyWindow addSubview:shareView];
+    [self.navigationController.view addSubview:shareView];
     
     shareView.selectItemBlock = ^(NSInteger index) {
         NSLog(@"fenxiang %ld", index);
     };
-    
 }
 
 

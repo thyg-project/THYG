@@ -7,9 +7,10 @@
 //
 
 #import "THShareViewCell.h"
+#import "THButton.h"
 
 @interface THShareViewCell ()
-@property (nonatomic, strong) UIButton *btn;
+@property (nonatomic, strong) THButton *btn;
 @end
 
 @implementation THShareViewCell
@@ -17,31 +18,29 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self.contentView addSubview:self.btn];
+        [self.btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.contentView);
+        }];
     }
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.btn.frame = self.bounds;
-}
-
 - (void)setImageName:(NSString *)imageName {
     _imageName = imageName;
-    [_btn setImage:[UIImage imageNamed:_imageName] forState:UIControlStateNormal];
+    _btn.image = [UIImage imageNamed:_imageName];
 }
 
 - (void)setIconName:(NSString *)iconName {
     _iconName = iconName;
-    [_btn setTitle:_iconName forState:UIControlStateNormal];
+    _btn.title = _iconName;
 }
 
-- (UIButton *)btn {
+- (THButton *)btn {
     if (!_btn) {
-        _btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_btn setTitleColor:GRAY_51 forState:UIControlStateNormal];
-//        _btn.titleLabel.font = [UIFont systemFontOfSize:12];
+        _btn = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
+        _btn.textColor = GRAY_51;
         _btn.userInteractionEnabled = NO;
+        _btn.font = [UIFont systemFontOfSize:12];
     }
     return _btn;
 }

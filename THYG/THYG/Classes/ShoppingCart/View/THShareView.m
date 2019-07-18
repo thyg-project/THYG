@@ -92,10 +92,12 @@
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
+        CGFloat width = (kScreenWidth - 50) / 4;
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake(kScreenWidth * 0.25, kScreenWidth * 0.25);
-        layout.minimumLineSpacing = 0;
-        layout.minimumInteritemSpacing = 0;
+        layout.itemSize = CGSizeMake(width, width);
+        layout.minimumLineSpacing = 10;
+        layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        layout.minimumInteritemSpacing = 5;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;

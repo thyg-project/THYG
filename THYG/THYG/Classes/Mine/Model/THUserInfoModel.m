@@ -7,8 +7,16 @@
 //
 
 #import "THUserInfoModel.h"
+#import "NSObject+YYModel.h"
 
 @implementation THUserInfoModel
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [self modelEncodeWithCoder:aCoder];
+}
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    return [self modelInitWithCoder:aDecoder];
+}
 
 
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 THYG. All rights reserved.
 //
 
-#import <YZDisplayViewController/YZDisplayViewController.h>
+#import <WMPageController/WMPageController.h>
 
 typedef NS_ENUM(NSUInteger, MineOrderManageVCType) {
     MineOrderManageVCTypeOrder, // 订单
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, MineOrderManageVCType) {
 };
 
 
-@interface THMineOrderManageVC : YZDisplayViewController
+@interface THMineOrderManageVC : WMPageController
 
 /** 订单类型，0为 普通， 1为 退换货*/
 @property (nonatomic, assign) MineOrderManageVCType type;

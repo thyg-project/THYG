@@ -155,6 +155,9 @@
         
         orderCell.orderAction = ^(NSInteger index) {
             THMineOrderManageVC *manageVc = [[THMineOrderManageVC alloc] init];
+            manageVc.menuViewStyle = WMMenuViewStyleLine;
+            manageVc.automaticallyCalculatesItemWidths = YES;
+            manageVc.title = @"测试";
             if (index != 3) {
                 manageVc.selectIndex = (index==0) ? 1 : (index == 1) ? 3 : (index == 2) ? 4 : 0;
             } else {

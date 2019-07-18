@@ -15,7 +15,6 @@
     if ([self.delegate respondsToSelector:@selector(getLocalDataSuccess:)]) {
         [(id <THMineProtocol>)self.delegate getLocalDataSuccess:data];
     }
-    
 }
 
 @end

@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, THButtonType) {
 
 - (instancetype)initWithButtonType:(THButtonType)buttonType;
 
++ (instancetype)buttonWithType:(THButtonType)buttonType;
+
 - (void)addTarget:(id)target action:(SEL)action;
 
 @end

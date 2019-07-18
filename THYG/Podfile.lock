@@ -54,7 +54,6 @@ PODS:
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
-  - YZDisplayViewController (1.0.6)
 
 DEPENDENCIES:
   - AFNetworking
@@ -78,7 +77,6 @@ DEPENDENCIES:
   - WechatOpenSDK
   - WMPageController
   - YYKit
-  - YZDisplayViewController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -103,7 +101,6 @@ SPEC REPOS:
     - WechatOpenSDK
     - WMPageController
     - YYKit
-    - YZDisplayViewController
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -127,8 +124,7 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
-  YZDisplayViewController: 621f737a9aa3dfbc95a901e89e5e7c4b2ea6ef79
 
-PODFILE CHECKSUM: 6e9b0e95cd2d4d16545568a8386a2d56f5e2d7bb
+PODFILE CHECKSUM: b63a49bf28799443a8f82cd16b02ef34fa718d95
 
 COCOAPODS: 1.5.3

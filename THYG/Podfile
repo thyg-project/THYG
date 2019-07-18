@@ -22,7 +22,7 @@ targetsArray.each do |t|
     pod 'UMCShare/Social/ReducedWeChat'
     pod 'HDAlertView'
     pod 'WechatOpenSDK'
-    pod 'YZDisplayViewController'
+#    pod 'YZDisplayViewController'
     pod 'YYKit'
     pod 'FDKeychain'
     pod 'Realm'

@@ -31,15 +31,10 @@
     
     self.btnData = @[self.allBtn,self.generalBtn,self.specifiedBtn,self.screeningBtn];
     
-    self.navigationController.topViewController.navigationItem.titleView = self.titleBtnView;
+    self.navigationItem.titleView = self.titleBtnView;
     
     [self.view addSubview:self.mTable];
     [self.view addSubview:self.selectView];
-    
-    [self loadData];
-}
-
-- (void)loadData {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,20 +62,13 @@
 }
 
 - (void)btnClick {
+    if (self.titleBtnView.selected) {
+        [self.selectView hidden];
+        self.titleBtnView.selected = NO;
+        return;
+    }
     [self.selectView show];
-    
     self.titleBtnView.selected = YES;
-    
-    kWeakSelf;
-    self.selectView.selectTypeAction = ^(NSInteger type, NSString *title) {
-      
-        weakSelf.titleBtnView.selected = NO;
-        
-        [weakSelf.titleBtnView setTitle:title forState:UIControlStateNormal];
-        weakSelf.type = type;
-        [weakSelf.mTable reloadData];
-        
-    };
 }
 
 - (IBAction)allBtnClick:(UIButton*)sender {
@@ -128,6 +116,16 @@
 - (THCouponsTypeSelectView *)selectView {
     if (!_selectView) {
         _selectView = [[THCouponsTypeSelectView alloc] init];
+        kWeakSelf;
+        _selectView.selectTypeAction = ^(NSInteger type, NSString *title) {
+            
+            weakSelf.titleBtnView.selected = NO;
+            
+            [weakSelf.titleBtnView setTitle:title forState:UIControlStateNormal];
+            weakSelf.type = type;
+            [weakSelf.mTable reloadData];
+            
+        };
     }
     return _selectView;
 }

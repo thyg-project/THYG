@@ -14,8 +14,7 @@
 
 @implementation THSpellGroupSectionHead
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -34,14 +33,12 @@
 }
 
 
-- (void)setSectionTitle:(NSString *)sectionTitle
-{
+- (void)setSectionTitle:(NSString *)sectionTitle {
     _sectionTitle = sectionTitle;
     self.sectionTitleLabel.text = _sectionTitle;
 }
 
-- (UILabel *)sectionTitleLabel
-{
+- (UILabel *)sectionTitleLabel {
     if (!_sectionTitleLabel) {
         _sectionTitleLabel = [[UILabel alloc] init];
         _sectionTitleLabel.textAlignment = NSTextAlignmentCenter;

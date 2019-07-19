@@ -11,8 +11,7 @@
 #import "THMoreLimitSpellGroupCell.h"
 #import "THFlashSaleModel.h"
 
-@implementation THMoreLimitSpellGroupCell
-{
+@implementation THMoreLimitSpellGroupCell {
     __weak IBOutlet UIImageView *imageView;
     __weak IBOutlet UILabel *nameLbel;
     __weak IBOutlet UILabel *shopPriceLabel;

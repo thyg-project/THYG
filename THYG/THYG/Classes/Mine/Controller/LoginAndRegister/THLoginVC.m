@@ -11,12 +11,14 @@
 #import "THForgetPswCtl.h"
 #import "Utils.h"
 #import "ReactiveCocoa.h"
+#import "THLoginPresenter.h"
 
 
-@interface THLoginVC ()
+@interface THLoginVC () <THLoginProtocol>
 @property (weak, nonatomic) IBOutlet UITextField *accountField;
 @property (weak, nonatomic) IBOutlet UITextField *pswField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (nonatomic, strong) THLoginPresenter *presenter;
 @end
 
 @implementation THLoginVC
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"会员登录";
+    _presenter = [[THLoginPresenter alloc] initPresenterWithProtocol:self];
     [self initSignal];
 }
 
@@ -51,7 +54,7 @@
 }
 
 - (IBAction)loginAction:(id)sender {  
-    
+    [self.presenter loginMobile:@"" pwd:@""];
 
 }
 
@@ -71,6 +74,21 @@
 	
 }
 
+#pragma mark -
+- (void)loginSuccess:(NSDictionary *)response {
+    [self.presenter getUserInfo];
+}
 
+- (void)loginFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getUserInfoFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getUserInfoSuccess:(NSDictionary *)response {
+    
+}
 
 @end

@@ -19,7 +19,10 @@
 #import "THUseCouponCtl.h"
 #import "THPayMethodCtl.h"
 
-@interface THOrderConfirmCtl ()<UITableViewDelegate,UITableViewDataSource>
+@interface THOrderConfirmCtl ()<UITableViewDelegate,UITableViewDataSource> {
+    NSArray *_leftValues;
+    NSArray *_rightValues;
+}
 @property (nonatomic,strong) UITableView *mTable;
 @property (nonatomic, strong) NSArray *addressList;
 @property (weak, nonatomic) IBOutlet UILabel *paytotalMoneyLabel;
@@ -45,6 +48,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _sectionCount = 7;
+    _leftValues = @[@[@"发票",self.invoiceNameParma],@[@"使用优惠券",self.couponsModel.name.length?self.couponsModel.name:@"暂无优惠券可用"],@[@"备注"],@[@"商品金额",@"运费"]];
+    _rightValues = @[@[@"未开发票",@""],@[[NSString stringWithFormat:@"%ld张可用",self.modelData.userCartCouponList.count],@""],@[@""],@[[NSString stringWithFormat:@"￥%.2lf",self.orderCouponModel.goodsFee],[NSString stringWithFormat:@"￥%.2lf",self.orderCouponModel.postFee]]];
+    
+    
     // iOS11 适配
     [self autoLayoutSizeContentView:self.mTable];
     [self.view addSubview:self.mTable];
@@ -95,28 +102,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (_sectionCount == 7) {
-//        if (SECTION == 0) {
-//            return [THAddressCell cellHeight];
-//        } else if (SECTION == 1) {
-//            return [THBuyGoodsCell cellHeight];
-//        } else if (SECTION == 2) {
-//            return [THLogisticsCell cellHeight];
-//        } else {
-//            return [THOrderConfirmListCell cellHeight];
-//        }
-        
-    } else {
-        
-//        if (SECTION == 0) {
-//            return [THBuyGoodsCell cellHeight];
-//        } else if (SECTION == 1) {
-//            return [THLogisticsCell cellHeight];
-//        } else {
-//            return [THOrderConfirmListCell cellHeight];
-//        }
-    }
     return 0;
 }
 
@@ -129,32 +114,7 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (_sectionCount == 7) {
-//        if (SECTION < 3) {
-//            if (SECTION == 0) {
-//                return [self addressCell:tableView];
-//            } else if (SECTION == 1) {
-//                return [self buyGoodsCell:tableView indexPath:indexPath];
-//            } else {
-//                return [self logisticsCell:tableView];
-//            }
-//
-//        } else {
-//            return [self orderConfirmListCell:tableView indexPath:indexPath];
-//        }
-//
-//    } else {
-//        if (SECTION < 2) {
-//            if (SECTION == 0) {
-//                return [self buyGoodsCell:tableView indexPath:indexPath];
-//            } else {
-//                return [self logisticsCell:tableView];
-//            }
-//        } else {
-//            return [self orderConfirmListCell:tableView indexPath:indexPath];
-//        }
-//
     }
     return 0;
 }
@@ -208,20 +168,8 @@
 - (UITableViewCell *)orderConfirmListCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     THOrderConfirmListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THOrderConfirmListCell.class)];
     NSInteger currentRow = _sectionCount == 7 ? 3 : 2;
-    NSLog(@"每一行展示的数据>>>>>%@",@[@[@"发票",self.invoiceNameParma],
-                               @[@"使用优惠券",self.couponsModel.name.length?self.couponsModel.name:@"暂无优惠"],
-                               @[@"备注"],
-                               @[@"商品金额",@"运费"]
-                               ][indexPath.section-currentRow][indexPath.row]);
-    cell.leftLabel.text = @[@[@"发票",self.invoiceNameParma],
-                            @[@"使用优惠券",self.couponsModel.name.length?self.couponsModel.name:@"暂无优惠券可用"],
-                            @[@"备注"],
-                            @[@"商品金额",@"运费"]
-                            ][indexPath.section-currentRow][indexPath.row];
-    cell.rightLabel.text = @[@[@"未开发票",@""],
-                             @[[NSString stringWithFormat:@"%ld张可用",self.modelData.userCartCouponList.count],@""],
-                             @[@""],
-                             @[[NSString stringWithFormat:@"￥%.2lf",self.orderCouponModel.goodsFee],[NSString stringWithFormat:@"￥%.2lf",self.orderCouponModel.postFee]]][indexPath.section-currentRow][indexPath.row];
+    cell.leftLabel.text = _leftValues[indexPath.section-currentRow][indexPath.row];
+    cell.rightLabel.text = _rightValues[indexPath.section-currentRow][indexPath.row];
     return cell;
 }
 

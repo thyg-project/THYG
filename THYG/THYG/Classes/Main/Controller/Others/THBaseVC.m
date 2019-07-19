@@ -34,4 +34,8 @@
     [self addTask:task];
 }
 
+- (void)dealloc {
+    [self cancelTask];
+}
+
 @end

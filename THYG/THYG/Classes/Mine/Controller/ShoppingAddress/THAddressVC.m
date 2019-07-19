@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    
 }
 
 #pragma mark - 设置UI
@@ -32,6 +31,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -70,13 +70,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     THAddressEditListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THAddressEditListCell.class)];
     THAddressModel *model = self.dataSource[indexPath.section];;
     cell.addressModel = model;
-
     kWeakSelf;
-    
     cell.deleteAddressBlock = ^{
         NSLog(@"删除地址");
         
@@ -120,7 +117,6 @@
     if (_addAddressBtn == nil) {
         _addAddressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _addAddressBtn.frame =  CGRectMake(0, kScreenHeight - 40 - kNaviHeight, kScreenWidth, 40);
-       
         _addAddressBtn.titleLabel.font = Font(15);
         _addAddressBtn.backgroundColor = [UIColor redColor];
         [_addAddressBtn setTitle: @"添加收货地址" forState:UIControlStateNormal];

@@ -9,8 +9,7 @@
 
 #import "THAceSpellGroupListCell.h"
 
-@implementation THAceSpellGroupListCell
-{
+@implementation THAceSpellGroupListCell {
     __weak IBOutlet UIImageView *goodsImgV;
     __weak IBOutlet UILabel *goodsTitleLabel;
     

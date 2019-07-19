@@ -19,8 +19,7 @@
 
 @implementation THSpellGroupHead
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -33,20 +32,17 @@
     return self;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.data.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     THSpellGroupHeadCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THSpellGroupHeadCell.class) forIndexPath:indexPath];
     [cell refreshWithDic:self.data[indexPath.row]];
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     for (NSMutableDictionary *dic in self.data) {
         dic[IS_ING_KEY] = @"0";
     }
@@ -55,16 +51,9 @@
     [collectionView reloadData];
 }
 
-- (NSMutableArray *)data
-{
+- (NSMutableArray *)data {
     if (!_data) {
-        _data = [[NSMutableArray alloc] init];
-        [_data addObjectsFromArray:@[@{TIME_KEY:@"18:00",STATUS_KEY:@"团购中",IS_ING_KEY:@"1"}.mutableCopy,
-                                     @{TIME_KEY:@"19:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"}.mutableCopy,
-                                     @{TIME_KEY:@"20:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"}.mutableCopy,
-                                     @{TIME_KEY:@"21:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"}.mutableCopy,
-                                     @{TIME_KEY:@"22:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"}.mutableCopy
-                                     ]];
+        _data = @[@{TIME_KEY:@"18:00",STATUS_KEY:@"团购中",IS_ING_KEY:@"1"},@{TIME_KEY:@"19:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"},@{TIME_KEY:@"20:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"},@{TIME_KEY:@"21:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"},@{TIME_KEY:@"22:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"}].mutableCopy;;
     }
     return _data;
 }

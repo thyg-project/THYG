@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, THGender) {
+    THGender_unknow         = 0,
+    THGender_man            = 1,
+    THGender_woman          = 2,
+};
+
 @interface THUserInfoModel : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *birthday;
@@ -40,7 +46,7 @@
 
 @property (nonatomic, copy) NSString *user_money;
 
-@property (nonatomic, assign) NSInteger sex;
+@property (nonatomic, assign) THGender gender;
 
 @property (nonatomic, copy) NSString *favorite_cat;
 

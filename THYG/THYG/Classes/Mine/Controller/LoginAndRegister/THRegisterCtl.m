@@ -11,18 +11,21 @@
 #import "Utils.h"
 #import "THAlertView.h"
 #import "ReactiveCocoa.h"
+#import "THRegisterPresenter.h"
 
-@interface THRegisterCtl ()
+@interface THRegisterCtl () <THRegisterProtocol>
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumField;
 @property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
 @property (weak, nonatomic) IBOutlet UILabel *contactServicerLabel;
+@property (nonatomic, strong) THRegisterPresenter *presenter;
 @end
 
 @implementation THRegisterCtl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.title = self.type ? @"忘记密码" : @"会员注册";
+	self.navigationItem.title = self.type ? @"忘记密码" : @"会员注册";
+    _presenter = [[THRegisterPresenter alloc] initPresenterWithProtocol:self];
 	self.contactServicerLabel.hidden = self.type;
     [self initSignal];
 }
@@ -49,20 +52,27 @@
 - (IBAction)nextBtnAction:(id)sender {
 	
 	[self.view endEditing:YES];
-	
+    kWeakSelf;
 	[THAlertView alertViewWithTitle:nil content:[NSString stringWithFormat:@"我们将发送短信验证码至:\n\n%@",self.phoneNumField.text] confirmBtnTitle:@"确定" cancelBtnTitle:@"取消" confirmCallback:^{
-        
-//        //先写死
-//        THRegisterNextStepCtl *nextStepCtl = [[THRegisterNextStepCtl alloc] init];
-//        nextStepCtl.phoneString = self.phoneNumField.text;
-//        [self pushVC:nextStepCtl];
-//        return;
-		
-//        
+        [weakSelf.presenter sendVerifyCode:weakSelf.phoneNumField.text];
     } cancelCallback:^{
         
     }];
     
 }
+
+#pragma mark---
+- (void)sendVerifyCodeFailed:(NSDictionary *)errorInfo {
+    THRegisterNextStepCtl *nextStepCtl = [[THRegisterNextStepCtl alloc] init];
+    nextStepCtl.phoneString = self.phoneNumField.text;
+    [self.navigationController pushViewController:nextStepCtl animated:YES];
+}
+
+- (void)sendVerifyCodeSuccess:(NSDictionary *)response {
+    THRegisterNextStepCtl *nextStepCtl = [[THRegisterNextStepCtl alloc] init];
+    nextStepCtl.phoneString = self.phoneNumField.text;
+    [self.navigationController pushViewController:nextStepCtl animated:YES];
+}
+
 
 @end

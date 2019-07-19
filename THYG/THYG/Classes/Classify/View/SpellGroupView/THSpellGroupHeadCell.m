@@ -8,15 +8,13 @@
 
 #import "THSpellGroupHeadCell.h"
 
-@implementation THSpellGroupHeadCell
-{
+@implementation THSpellGroupHeadCell {
     __weak IBOutlet UILabel *timeLabel;
     __weak IBOutlet UILabel *statusLabel;
     
 }
 
-- (void)refreshWithDic:(NSDictionary *)dic
-{
+- (void)refreshWithDic:(NSDictionary *)dic {
     timeLabel.text = dic[@"time"];
     statusLabel.text = dic[@"status"];
     

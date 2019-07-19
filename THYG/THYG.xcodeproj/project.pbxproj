@@ -11,6 +11,8 @@
 		02188A9522DEECD900258F37 /* THDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A9422DEECD900258F37 /* THDatabaseManager.m */; };
 		02188A9E22DF180D00258F37 /* THUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A9D22DF180D00258F37 /* THUserManager.m */; };
 		02188AA122DF195F00258F37 /* YGCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188AA022DF195F00258F37 /* YGCacheManager.m */; };
+		02188AA622E16A8A00258F37 /* THLoginPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188AA522E16A8A00258F37 /* THLoginPresenter.m */; };
+		02188AA922E16AA100258F37 /* THRegisterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188AA822E16AA100258F37 /* THRegisterPresenter.m */; };
 		022CD97B22DA239400A6518A /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */; };
 		022CD97C22DA239400A6518A /* NSString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96522DA239300A6518A /* NSString+AvoidCrash.m */; };
 		022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96622DA239300A6518A /* NSDictionary+AvoidCrash.m */; };
@@ -341,6 +343,12 @@
 		02188A9D22DF180D00258F37 /* THUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserManager.m; sourceTree = "<group>"; };
 		02188A9F22DF195F00258F37 /* YGCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGCacheManager.h; sourceTree = "<group>"; };
 		02188AA022DF195F00258F37 /* YGCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGCacheManager.m; sourceTree = "<group>"; };
+		02188AA422E16A8A00258F37 /* THLoginPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THLoginPresenter.h; sourceTree = "<group>"; };
+		02188AA522E16A8A00258F37 /* THLoginPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THLoginPresenter.m; sourceTree = "<group>"; };
+		02188AA722E16AA100258F37 /* THRegisterPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THRegisterPresenter.h; sourceTree = "<group>"; };
+		02188AA822E16AA100258F37 /* THRegisterPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THRegisterPresenter.m; sourceTree = "<group>"; };
+		02188AAA22E16AB700258F37 /* THLoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THLoginProtocol.h; sourceTree = "<group>"; };
+		02188AAB22E16AC500258F37 /* THRegisterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THRegisterProtocol.h; sourceTree = "<group>"; };
 		022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AvoidCrash.m"; sourceTree = "<group>"; };
 		022CD96422DA239300A6518A /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
 		022CD96522DA239300A6518A /* NSString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AvoidCrash.m"; sourceTree = "<group>"; };
@@ -1010,6 +1018,8 @@
 				02D154B122D72613005D6277 /* THHomeProtocol.h */,
 				02D154B522D72B1D005D6277 /* THMineProtocol.h */,
 				022CD98A22DB1E7300A6518A /* THCategoryProtocol.h */,
+				02188AAA22E16AB700258F37 /* THLoginProtocol.h */,
+				02188AAB22E16AC500258F37 /* THRegisterProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1025,6 +1035,10 @@
 				02D154B322D72B0D005D6277 /* THMinePresenter.m */,
 				022CD98722DB1E4400A6518A /* THCategoryPresenter.h */,
 				022CD98822DB1E4400A6518A /* THCategoryPresenter.m */,
+				02188AA422E16A8A00258F37 /* THLoginPresenter.h */,
+				02188AA522E16A8A00258F37 /* THLoginPresenter.m */,
+				02188AA722E16AA100258F37 /* THRegisterPresenter.h */,
+				02188AA822E16AA100258F37 /* THRegisterPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2501,6 +2515,7 @@
 				8FD0DC01207C650700AD8B3D /* THShoppingCartModel.m in Sources */,
 				04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */,
 				8FF84FE0206503E800A78368 /* THLimitSpellGroupListCtl.m in Sources */,
+				02188AA622E16A8A00258F37 /* THLoginPresenter.m in Sources */,
 				512D78F6205A13FC0088A4A0 /* THHomeHeaderView.m in Sources */,
 				57CBC3CE2088E477007D6069 /* GoodsTypeModel.m in Sources */,
 				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
@@ -2523,6 +2538,7 @@
 				02188A9E22DF180D00258F37 /* THUserManager.m in Sources */,
 				022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */,
 				57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */,
+				02188AA922E16AA100258F37 /* THRegisterPresenter.m in Sources */,
 				04D0A310207116F7003BE300 /* THRegisterCtl.m in Sources */,
 				02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */,
 				5133D1E620DD06B800DE632A /* THWalletHeaderModel.m in Sources */,

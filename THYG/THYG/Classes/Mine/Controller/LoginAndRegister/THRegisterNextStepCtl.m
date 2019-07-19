@@ -8,14 +8,16 @@
 
 #import "THRegisterNextStepCtl.h"
 #import "ReactiveCocoa.h"
+#import "THRegisterPresenter.h"
 
 
-@interface THRegisterNextStepCtl ()
+@interface THRegisterNextStepCtl () <THRegisterProtocol>
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumOfRevCodeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *verifyCodeField;
 @property (weak, nonatomic) IBOutlet UIButton *getVerifyCodeBtn;
 @property (weak, nonatomic) IBOutlet UITextField *pswField;
 @property (weak, nonatomic) IBOutlet UIButton *finishBtn;
+@property (nonatomic, strong) THRegisterPresenter *presenter;
 
 @end
 
@@ -24,12 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"会员注册";
+    _presenter = [[THRegisterPresenter alloc] initPresenterWithProtocol:self];
     [self setTextFieldLeftPadding:self.verifyCodeField forWidth:10];
     [self setTextFieldLeftPadding:self.pswField forWidth:10];
     self.phoneNumOfRevCodeLabel.text = [NSString stringWithFormat:@"请输入%@收到的验证码",self.phoneString];
     [self getVerifyCodeAction:self.getVerifyCodeBtn];
     [self initSignal];
-
 }
 
 - (void)initSignal {
@@ -56,23 +58,12 @@
 
 dispatch_source_t _source_t;
 - (IBAction)getVerifyCodeAction:(id)sender {
-    
     self.getVerifyCodeBtn.backgroundColor = GRAY_COLOR(230);
     [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    [Utils scheduledCountdown:^(BOOL stop, NSTimeInterval inertval, dispatch_source_t source_t) {
-        _source_t = source_t;
-        if (stop) {
-            [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-            self.getVerifyCodeBtn.backgroundColor = GLOBAL_RED_COLOR;
-        } else {
-            [self.getVerifyCodeBtn setTitle:@(inertval).stringValue forState:UIControlStateNormal];
-        }
-    } totalTimeInterval:60];
+    [self.presenter sendVerifyCode:@""];
 }
 
 - (IBAction)finishAction:(id)sender {
-	
-//    NSString *url = self.isForgetPwd ? @"/User/set_pwd" : @"/Login/register";
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
 
 	if (self.isForgetPwd) {
@@ -84,7 +75,7 @@ dispatch_source_t _source_t;
 	params[@"mobile"] = self.phoneString;
 	params[@"password"] = [Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]];
 	params[@"confirm_password"] = [Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]];
-	
+    [self.presenter registerUser:@"" verifyCode:@"" pwd:@""];
 }
 
 - (void)setTextFieldLeftPadding:(UITextField *)textField forWidth:(CGFloat)leftWidth {
@@ -93,6 +84,39 @@ dispatch_source_t _source_t;
     UIView *leftview = [[UIView alloc] initWithFrame:frame];
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.leftView = leftview;
+}
+
+#pragma mark ---
+- (void)registerSuccess:(NSDictionary *)response {
+    [self.presenter getUserInfo];
+}
+
+- (void)registerFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)sendVerifyCodeFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)sendVerifyCodeSuccess:(NSDictionary *)response {
+    [Utils scheduledCountdown:^(BOOL stop, NSTimeInterval inertval, dispatch_source_t source_t) {
+        _source_t = source_t;
+        if (stop) {
+            [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+            self.getVerifyCodeBtn.backgroundColor = GLOBAL_RED_COLOR;
+        } else {
+            [self.getVerifyCodeBtn setTitle:@(inertval).stringValue forState:UIControlStateNormal];
+        }
+    } totalTimeInterval:60];
+}
+
+- (void)getUserInfoFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getUserInfoSuccess:(NSDictionary *)response {
+    
 }
 
 - (void)dealloc {

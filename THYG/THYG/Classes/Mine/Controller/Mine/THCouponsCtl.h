@@ -20,4 +20,5 @@ typedef void(^selectTypeBlock)(NSInteger type, NSString *title);
 
 - (void)show;
 
+- (void)hidden;
 @end

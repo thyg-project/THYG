@@ -9,8 +9,7 @@
 #import "THFlashCell.h"
 #import "THFlashSaleModel.h"
 
-@implementation THFlashCell
-{
+@implementation THFlashCell {
     __weak IBOutlet UIImageView *imageView;
     __weak IBOutlet UILabel *nameLbel;
     __weak IBOutlet UILabel *shopPriceLabel;

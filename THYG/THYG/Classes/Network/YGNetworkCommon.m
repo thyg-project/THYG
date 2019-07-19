@@ -26,18 +26,18 @@
     } parameters:@{} success:success failed:failed];
 }
 
-+ (NSURLSessionTask *)register:(NSString *)phone psd:(NSString *)psd success:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] post:@"" sessionConfig:nil parameters:@{} success:success failed:failed];
-}
-
 + (NSURLSessionTask *)getUserInfo:(SuccessBlock)success failed:(FailedBlock)failed {
     return [[YGNetWorkTools sharedTools] get:@"" sessionConfig:^(AFHTTPSessionManager *manager) {
         [self setRequestHeaderInfo:manager];
     } parameters:@{} success:success failed:failed];
 }
 
++ (NSURLSessionTask *)registerUser:(NSString *)mobile success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:@"" parameters:@{} success:success failed:failed];
+}
 
-
-
++ (NSURLSessionTask *)sendVerifyCode:(NSString *)mobile success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:@"" parameters:@{} success:success failed:failed];
+}
 
 @end

@@ -25,8 +25,7 @@
 #pragma mark - 修改密码
 - (IBAction)okClick:(id)sender {
     if (![self checkPwd]) return;
-    
-//    NSDictionary *dict = @{@"token":@"",@"old_password":[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.originPwd.text]], @"new_password":[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.lastestPwd.text]], @"confirm_password":[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.confirmPwd.text]]};
+
 
     
 }

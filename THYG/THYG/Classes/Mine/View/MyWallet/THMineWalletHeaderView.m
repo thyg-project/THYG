@@ -9,13 +9,16 @@
 #import "THMineWalletHeaderView.h"
 #import "THWalletHeaderModel.h"
 
-@implementation THMineWalletHeaderView {
+@interface THMineWalletHeaderView() {
     __weak IBOutlet UILabel *balanceLabel; // 余额
     __weak IBOutlet UILabel *redBagLabel; // 红包
     __weak IBOutlet UILabel *commissionLabel;// 佣金
     __weak IBOutlet UILabel *coinLabel; // 特币
 }
 
+@end
+
+@implementation THMineWalletHeaderView
 
 + (instancetype)walletView {
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:self options:nil].lastObject;

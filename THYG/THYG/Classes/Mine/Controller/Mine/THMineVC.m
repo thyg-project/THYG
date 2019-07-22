@@ -37,6 +37,8 @@
     CGFloat _lastOffsetY;
     THNavigationView *_customNav;
     THMenuView *_munuView;
+    
+    NSArray *_tableViewClass;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -56,15 +58,10 @@
     [self.headView refreshUI];
 }
 
-#pragma mark - 生命周期
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self updateUserInfo];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     _presenter = [[THMinePresenter alloc] initPresenterWithProtocol:self];
+    _tableViewClass = @[@[@""],@[@"THMineShareQRCodeVC",@"THMineSubmitApplicationVC",@"THMineApplymentVC"],@[@"THCouponsCtl",@"THMineWalletVC"],@[@"THInvitationManageCtl",@"THMyCollectCtl",@"THMyCollectCtl",@"THTeCtl",@"THMyTaskCtl"]];
     [self.presenter getLocailData];
     _customNav = [[THNavigationView alloc] init];
     _customNav.backgroundColor = GLOBAL_RED_COLOR;
@@ -188,64 +185,12 @@
 }
 
 - (void)pushWithIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *controller = nil;
-    switch (indexPath.section) {
-        case 1: {
-            switch (indexPath.row) {
-                case 0: {
-                    controller = [[THMineShareQRCodeVC alloc] init];
-                }
-                    break;
-                case 1: {
-                     controller = [[THMineSubmitApplicationVC alloc] init];
-                }
-                    break;
-                case 2: {
-                    controller = [[THMineApplymentVC alloc] init];
-                }
-                    break;
-            }
+    Class class = NSClassFromString(_tableViewClass[indexPath.section][indexPath.row]);
+    if (class) {
+        UIViewController *controller = [[class alloc] init];
+        if (indexPath.section == 3 && (indexPath.row == 1 || indexPath.section == 2)) {
+            [controller setValue:@(indexPath.row == 2 ? MineGoodsTypeScanHistory : MineGoodsTypeMyAttention) forKey:@"type"];
         }
-            break;
-        case 2: {
-            switch (indexPath.row) {
-                case 0: {
-                    controller = [[THCouponsCtl alloc] init];
-                }
-                    break;
-                case 1: {
-                    controller = [[THMineWalletVC alloc] init];
-                }
-                    break;
-            }
-        }
-            break;
-        case 3: {
-            switch (indexPath.row) {
-                case 0: {
-                    controller = [[THInvitationManageCtl alloc] init];
-                }
-                    break;
-                case 1:
-                case 2: {
-                    controller = [[THMyCollectCtl alloc] init];
-                    [controller setValue:@(indexPath.row == 2 ? MineGoodsTypeScanHistory : MineGoodsTypeMyAttention) forKey:@"type"];
-                }
-                    break;
-                case 3: {
-                    controller = [[THTeCtl alloc] init];
-                    controller.title = @"我的晒单";
-                }
-                    break;
-                case 4: {
-                    controller = [[THMyTaskCtl alloc] init];
-                }
-                    break;
-            }
-        }
-            break;
-    }
-    if (controller) {
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

@@ -14,7 +14,9 @@
 #import "THAboutTHCtl.h"
 #define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 
-@interface THSettingCtl ()
+@interface THSettingCtl () {
+    NSArray *_classList;
+}
 
 
 @property (nonatomic,strong) UIView *footer;
@@ -34,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"账号设置";
-
+    _classList = @[@"THUserInfoEditCtl",@"THModifyPwdVC",@"THAddressVC",@"THAboutTHCtl",@"",@"THHelpCenterCtl"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,53 +59,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    switch (indexPath.row) {
-        case 0: {
-            THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
-            edit.title = @"个人信息编辑";
-            [self.navigationController pushViewController:edit animated:YES];
-        }
-            break;
-        case 1: {
-            THModifyPwdVC *modifyVc = [[THModifyPwdVC alloc] init];
-            [self.navigationController pushViewController:modifyVc animated:YES];
+    Class class = NSClassFromString(_classList[indexPath.row]);
+    if (class) {
+        UIViewController *controller = [[class alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        [THHUDProgress show:@"清理缓存中..."];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
-        }
-            break;
-        case 2: {
-            THAddressVC *addressVc = [[THAddressVC alloc] init];
-            [self.navigationController pushViewController:addressVc animated:YES];
-        }
-            break;
-        case 3: {
-            THAboutTHCtl *aboutVc = [[THAboutTHCtl alloc] init];
-            aboutVc.title = @"关于特汇易购";
-            [self.navigationController pushViewController:aboutVc animated:YES];
-        }
-            break;
-        case 4: {
-            [THHUDProgress show:@"清理缓存中..."];
+            [self cleanCaches:filePath];
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                
-                [self cleanCaches:filePath];
-                
-                // 回到主线程
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [THHUDProgress showSuccess:@"清理缓存成功"];
-                });
+            // 回到主线程
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [THHUDProgress showSuccess:@"清理缓存成功"];
             });
-            
-        }
-            break;
-        case 5: {
-            THHelpCenterCtl *help = [[THHelpCenterCtl alloc] init];
-            help.title = @"帮助中心";
-            [self.navigationController pushViewController:help animated:YES];
-        }
-            break;
-        default:
-            break;
+        });
     }
 }
 

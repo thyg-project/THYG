@@ -28,6 +28,8 @@
 - (void)setupUI {
 	self.navigationItem.title = @"银行卡";
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor clearColor];
     [self autoLayoutSizeContentView:self.tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;

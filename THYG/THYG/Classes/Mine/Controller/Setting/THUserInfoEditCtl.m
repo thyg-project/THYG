@@ -32,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"个人信息编辑";
     self.nickNameLabel.delegate = self.professionalField.delegate = self;
     kWeakSelf;
     self.timeView.selectedTimeBlock = ^(NSString *year, NSString *month, NSString *day) {

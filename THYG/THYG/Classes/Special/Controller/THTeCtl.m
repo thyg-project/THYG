@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.navigationItem.title = @"我的晒单";
     self.edgesForExtendedLayout = UIRectEdgeTop;
     self.dataSource = [self creatModelsWithCount:0].mutableCopy;
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

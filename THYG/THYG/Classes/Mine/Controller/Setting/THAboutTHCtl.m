@@ -17,8 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.curVersionLabel.text = [NSString stringWithFormat:@"当前版本：v%@",[NSString stringWithFormat:@"%@",[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"]]];
+    self.navigationItem.title = @"关于特汇易购";
+    self.curVersionLabel.text = [NSString stringWithFormat:@"当前版本：v%@",YGInfo.appVersion()];
 }
 
 @end

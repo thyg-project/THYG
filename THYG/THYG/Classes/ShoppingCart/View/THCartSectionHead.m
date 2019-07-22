@@ -9,15 +9,18 @@
 #import "THCartSectionHead.h"
 #import "THShoppingCartModel.h"
 
-@implementation THCartSectionHead
-{
+@interface THCartSectionHead() {
     __weak IBOutlet UIButton *selectBtn;
     __weak IBOutlet UILabel *sectionTitleLabel;
     __weak IBOutlet UILabel *postageLabel;
 }
 
-- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
-{
+@end
+
+@implementation THCartSectionHead
+
+
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithReuseIdentifier:reuseIdentifier];
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(THCartSectionHead.class) owner:self options:nil] firstObject];
@@ -26,8 +29,7 @@
     return self;
 }
 
-- (void)setModelData:(THSuppliersModel *)modelData
-{
+- (void)setModelData:(THSuppliersModel *)modelData {
     _modelData = modelData;
     sectionTitleLabel.text = _modelData.suppliers_name;
     postageLabel.text = [NSString stringWithFormat:@"运费：￥%.2lf",_modelData.shipping_price];

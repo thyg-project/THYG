@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@interface THShareObject : NSObject
+
+@property (nonatomic, copy) NSString *content;
+
+@property (nonatomic, strong) id thumbnail;
+
+@property (nonatomic, strong) id shareImage;
+
+@end
+
 @interface THShareView : UIView
+
+@property (nonatomic, strong) THShareObject *shareObject;
 
 // 选择分享
 @property (nonatomic, copy) void(^selectItemBlock)(NSInteger index);

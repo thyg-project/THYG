@@ -10,19 +10,19 @@
 #import "THChangeCountView.h"
 #import "THShoppingCartModel.h"
 
-@interface THCartListCell()<UITextFieldDelegate>
+@interface THCartListCell()<UITextFieldDelegate> {
+    __weak IBOutlet UIButton *selectBtn;
+    __weak IBOutlet UIImageView *goodsImgV;
+    __weak IBOutlet UILabel *goodsNameLabel;
+    __weak IBOutlet UILabel *goodsPriceLabel;
+}
 
 @property (nonatomic,strong) THChangeCountView *changeView;
 
 @end
 
 @implementation THCartListCell
-{
-    __weak IBOutlet UIButton *selectBtn;
-    __weak IBOutlet UIImageView *goodsImgV;
-    __weak IBOutlet UILabel *goodsNameLabel;
-    __weak IBOutlet UILabel *goodsPriceLabel;
-}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;

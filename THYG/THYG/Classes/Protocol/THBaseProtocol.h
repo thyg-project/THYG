@@ -14,10 +14,6 @@
 
 - (void)getTask:(NSURLSessionTask *)task;
 
-- (void)getDataSuccess:(id)success extra:(NSDictionary *)extra;
-
-- (void)getDataFailed:(NSDictionary *)errorMessage extra:(NSDictionary *)extra;
-
 @end
 
 

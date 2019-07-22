@@ -14,13 +14,9 @@
 
 - (void)checkCameraState {
     [THAVCaptureSessionManager checkAuthorizationStatusForCameraWithGrantBlock:^{
-        if ([self.delegate respondsToSelector:@selector(authCameraSuccess)]) {
-            [(id <THHomeProtocol>)self.delegate authCameraSuccess];
-        }
+        [self performToSelector:@selector(authCameraSuccess) params:nil];
     } DeniedBlock:^{
-        if ([self.delegate respondsToSelector:@selector(authCameraFailed)]) {
-            [(id <THHomeProtocol>)self.delegate authCameraFailed];
-        }
+        [self performToSelector:@selector(authCameraFailed) params:nil];
     }];
    
 }

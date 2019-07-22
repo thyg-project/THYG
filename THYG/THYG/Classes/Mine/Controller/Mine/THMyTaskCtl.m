@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"任务中心";
     [self.view addSubview:self.mTable];
 }
 

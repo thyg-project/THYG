@@ -8,9 +8,10 @@
 
 #import "THSpellGroupHead.h"
 #import "THSpellGroupHeadCell.h"
-#define TIME_KEY @"time"
-#define STATUS_KEY @"status"
-#define IS_ING_KEY @"is_ing"
+
+static NSString *const kTimeKey = @"time";
+static NSString *const kStatusKey = @"status";
+static NSString *const kImageValidateKey = @"is_ing";
 
 @interface THSpellGroupHead()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -44,16 +45,16 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     for (NSMutableDictionary *dic in self.data) {
-        dic[IS_ING_KEY] = @"0";
+        dic[kImageValidateKey] = @"0";
     }
     NSMutableDictionary *dic = self.data[indexPath.row];
-    dic[IS_ING_KEY] = @"1";
+    dic[kImageValidateKey] = @"1";
     [collectionView reloadData];
 }
 
 - (NSMutableArray *)data {
     if (!_data) {
-        _data = @[@{TIME_KEY:@"18:00",STATUS_KEY:@"团购中",IS_ING_KEY:@"1"},@{TIME_KEY:@"19:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"},@{TIME_KEY:@"20:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"},@{TIME_KEY:@"21:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"},@{TIME_KEY:@"22:00",STATUS_KEY:@"即将开始",IS_ING_KEY:@"0"}].mutableCopy;;
+        _data = @[@{kTimeKey:@"18:00",kStatusKey:@"团购中",kImageValidateKey:@"1"}.mutableCopy,@{kTimeKey:@"19:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy,@{kTimeKey:@"20:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy,@{kTimeKey:@"21:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy,@{kTimeKey:@"22:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy].mutableCopy;;
     }
     return _data;
 }

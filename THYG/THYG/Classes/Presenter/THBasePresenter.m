@@ -17,18 +17,21 @@
     return self;
 }
 
-- (void)test {
-   NSURLSessionTask *task = [YGNetworkCommon login:@"" psd:@"" success:^(id responseObject) {
-       if ([self.delegate respondsToSelector:@selector(getDataSuccess:extra:)]) {
-           [self.delegate getDataSuccess:responseObject extra:nil];
-       }
-    } failed:^(NSDictionary *errorInfo) {
-        if ([self.delegate respondsToSelector:@selector(getDataFailed:extra:)]) {
-            [self.delegate respondsToSelector:@selector(getDataFailed:extra:)];
-        }
-    }];
+- (void)getTask:(NSURLSessionTask *)task {
+    if (!task) {
+        return;
+    }
     if ([self.delegate respondsToSelector:@selector(getTask:)]) {
         [self.delegate getTask:task];
+    }
+}
+
+- (void)performToSelector:(SEL)aSelecter params:(id)param {
+    if ([self.delegate respondsToSelector:aSelecter]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self.delegate performSelector:aSelecter withObject:param];
+#pragma clang diagnostic pop
     }
 }
 

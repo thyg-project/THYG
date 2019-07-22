@@ -17,8 +17,7 @@
     self.clipsToBounds = YES;
 }
 
-- (void)setIsSelected:(BOOL)isSelected
-{
+- (void)setIsSelected:(BOOL)isSelected {
     _isSelected = isSelected;
     if (_isSelected) {
         self.contentView.backgroundColor = GLOBAL_RED_COLOR;

@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"优惠券";
     self.btnData = @[self.allBtn,self.generalBtn,self.specifiedBtn,self.screeningBtn];
     
     self.navigationItem.titleView = self.titleBtnView;

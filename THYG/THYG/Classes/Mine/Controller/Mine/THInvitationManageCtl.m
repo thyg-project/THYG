@@ -25,10 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.navigationItem.title = @"邀请管理";
+    _curIndex = 1;
     self.btnData = @[self.mySupplierBtn,self.myMembersBtn,self.recommendedBtn];
     
     [self.view addSubview:self.mTable];
+    self.mySupplierBtn.selected = YES;
+    [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(@(41));
+    }];
 }
 
 - (IBAction)mySupplierBtnClick:(id)sender {
@@ -115,7 +121,7 @@
 
 - (UITableView *)mTable {
     if (!_mTable) {
-        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 41, kScreenWidth, kScreenHeight-kNaviHeight-41) style:UITableViewStylePlain];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _mTable.backgroundColor = BGColor;
         _mTable.delegate = self;
         _mTable.dataSource = self;

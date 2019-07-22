@@ -8,15 +8,14 @@
 
 #import "THScreeningPriceCell.h"
 
-@interface THScreeningPriceCell () <UITextFieldDelegate>
+@interface THScreeningPriceCell () <UITextFieldDelegate> {
+    __weak IBOutlet UITextField *leftField;
+    __weak IBOutlet UITextField *rightField;
+}
 
 @end
 
 @implementation THScreeningPriceCell
-{
-    __weak IBOutlet UITextField *leftField;
-    __weak IBOutlet UITextField *rightField;
-}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

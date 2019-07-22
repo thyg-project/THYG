@@ -8,6 +8,13 @@
 
 #import "THShareView.h"
 #import "THShareViewCell.h"
+#import "THShareTool.h"
+
+@implementation THShareObject
+
+
+
+@end
 
 @interface THShareView () <UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -55,9 +62,12 @@
 }
 
 - (void)cancelClick {
+    [self dismiss];
+}
+
+- (void)dismiss {
     [UIView animateWithDuration:0.3 animations:^{
         self.bgView.top = kScreenHeight;
-        
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
@@ -86,8 +96,39 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
-    !self.selectItemBlock?:self.selectItemBlock(indexPath.item);
-    [self cancelClick];
+    if (!self.shareObject) {
+        return;
+    }
+    BLOCK(self.selectItemBlock,indexPath.item);
+    [self dismiss];
+    UMSocialPlatformType type = UMSocialPlatformType_UnKnown;
+    if (indexPath.item == 0) {
+        type = UMSocialPlatformType_WechatSession;
+    } else if (indexPath.item == 1) {
+        type = UMSocialPlatformType_WechatTimeLine;
+    } else if (indexPath.item == 2) {
+        type = UMSocialPlatformType_QQ;
+    } else if (indexPath.item == 3) {
+        type = UMSocialPlatformType_Qzone;
+    } else if (indexPath.item == 4) {
+        type = UMSocialPlatformType_Sina;
+    } else if (indexPath.item == 5) {
+        if (!YGInfo.validString(self.shareObject.content)) {
+            return;
+        }
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = self.shareObject.content;
+        [THHUDProgress showMsg:@"复制成功"];
+        return;
+    }
+    if (type != UMSocialPlatformType_UnKnown) {
+        [THShareTool shareGraphicToPlatformType:type ContentText:self.shareObject.content thumbnail:self.shareObject.thumbnail shareImage:self.shareObject.shareImage success:^(id result) {
+            [THHUDProgress showMsg:@"分享成功"];
+        } failure:^(NSError *error) {
+            [THHUDProgress showMsg:@"分享失败"];
+        }];
+    }
+    
 }
 
 - (UICollectionView *)collectionView {

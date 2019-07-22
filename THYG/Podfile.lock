@@ -41,12 +41,16 @@ PODS:
   - SVProgressHUD (2.2.5)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - UMCCommon (2.1.0)
+  - UMCCommonLog (1.0.0)
   - UMCShare/Core (6.9.6):
     - UMCCommon
-  - UMCShare/Social/ReducedWeChat (6.9.6):
+  - UMCShare/Social/ReducedQQ (6.9.6):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/UI (6.9.6):
+  - UMCShare/Social/ReducedSina (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.6):
     - UMCCommon
     - UMCShare/Core
   - WechatOpenSDK (1.8.4)
@@ -72,8 +76,10 @@ DEPENDENCIES:
   - SVProgressHUD
   - "UITableView+FDTemplateLayoutCell"
   - UMCCommon
+  - UMCCommonLog
+  - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedSina
   - UMCShare/Social/ReducedWeChat
-  - UMCShare/UI
   - WechatOpenSDK
   - WMPageController
   - YYKit
@@ -97,6 +103,7 @@ SPEC REPOS:
     - SVProgressHUD
     - "UITableView+FDTemplateLayoutCell"
     - UMCCommon
+    - UMCCommonLog
     - UMCShare
     - WechatOpenSDK
     - WMPageController
@@ -120,11 +127,12 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   UMCCommon: c9637200488c482b30cdebebb0bd595b9adf0847
+  UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b63a49bf28799443a8f82cd16b02ef34fa718d95
+PODFILE CHECKSUM: 888e4fbd7f95be9efc96cd2c1c2cd6d767ba4b91
 
 COCOAPODS: 1.5.3

@@ -38,8 +38,7 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
     
     [Bugly startWithAppId:@"3739643c93"];
 	
-	[THShareTool openLog:YES];
-	[THShareTool initUmSocialShare];
+    [THShareTool configShareSDK];
 	
 	return YES;
     
@@ -85,10 +84,16 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
             NSLog(@"授权结果 authCode = %@", authCode?:@"");
         }];
         return YES;
+    } else {
+       return [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
     }
     return YES;
 }
 
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [[UMSocialManager defaultManager] handleOpenURL:url];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

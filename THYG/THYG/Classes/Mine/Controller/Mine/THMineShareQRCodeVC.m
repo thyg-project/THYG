@@ -31,6 +31,8 @@
 #pragma mark - share
 - (IBAction)shareClick {
     THShareView *shareView = [[THShareView alloc] initShareViewWithTitle:@[@"微信好友",@"朋友圈",@"QQ好友",@"QQ空间",@"微博",@"复制链接"] andImageArry:@[@"weixin",@"pengyouquan",@"QQ",@"QQkongjian",@"xinlangweibo",@"fuzhilianjie"]];
+    shareView.shareObject = [THShareObject new];
+    shareView.shareObject.content = @"ahahhahaha";
     [self.navigationController.view addSubview:shareView];
     
     shareView.selectItemBlock = ^(NSInteger index) {

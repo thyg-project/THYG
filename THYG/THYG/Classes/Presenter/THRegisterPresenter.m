@@ -12,47 +12,29 @@
 
 - (void)registerUser:(NSString *)mobile verifyCode:(NSString *)code pwd:(NSString *)pwd {
     NSURLSessionTask *task = [YGNetworkCommon registerUser:mobile success:^(id responseObject) {
-        if ([self.delegate respondsToSelector:@selector(registerSuccess:)]) {
-            [self.delegate performSelector:@selector(registerSuccess:) withObject:responseObject];
-        }
+        [self performToSelector:@selector(registerSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
-        if ([self.delegate respondsToSelector:@selector(registerFailed:)]) {
-            [self.delegate performSelector:@selector(registerFailed:) withObject:errorInfo];
-        }
+        [self performToSelector:@selector(registerFailed:) params:errorInfo];
     }];
-    if ([self.delegate respondsToSelector:@selector(getTask:)]) {
-        [self.delegate getTask:task];
-    }
+    [self getTask:task];
 }
 
 - (void)sendVerifyCode:(NSString *)mobile {
     NSURLSessionTask *task = [YGNetworkCommon registerUser:mobile success:^(id responseObject) {
-        if ([self.delegate respondsToSelector:@selector(sendVerifyCodeSuccess:)]) {
-            [self.delegate performSelector:@selector(sendVerifyCodeSuccess:) withObject:responseObject];
-        }
+         [self performToSelector:@selector(sendVerifyCodeSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
-        if ([self.delegate respondsToSelector:@selector(sendVerifyCodeFailed:)]) {
-            [self.delegate performSelector:@selector(sendVerifyCodeFailed:) withObject:errorInfo];
-        }
+        [self performToSelector:@selector(sendVerifyCodeFailed:) params:errorInfo];
     }];
-    if ([self.delegate respondsToSelector:@selector(getTask:)]) {
-        [self.delegate getTask:task];
-    }
+    [self getTask:task];
 }
 
 - (void)getUserInfo {
     NSURLSessionTask *task = [YGNetworkCommon getUserInfo:^(id responseObject) {
-        if ([self.delegate respondsToSelector:@selector(getUserInfoSuccess:)]) {
-            [self.delegate performSelector:@selector(getUserInfoSuccess:) withObject:responseObject];
-        }
+         [self performToSelector:@selector(getUserInfoSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
-        if ([self.delegate respondsToSelector:@selector(getUserInfoFailed:)]) {
-            [self.delegate performSelector:@selector(getUserInfoFailed:) withObject:errorInfo];
-        }
+        [self performToSelector:@selector(getUserInfoFailed:) params:errorInfo];
     }];
-    if ([self.delegate respondsToSelector:@selector(getTask:)]) {
-        [self.delegate getTask:task];
-    }
+    [self getTask:task];
 }
 
 @end

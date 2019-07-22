@@ -11,17 +11,15 @@
 #import "THCartSectionHead.h"
 #import "THShoppingCartModel.h"
 
-@interface THShoppingCartListDelegate()
+@interface THShoppingCartListDelegate() {
+    UITableView *_mTable;
+}
 @property (nonatomic, copy) void(^refreshHeadView)(THShoppingCartModel *model);
 @end
 
 @implementation THShoppingCartListDelegate
-{
-    UITableView *_mTable;
-}
 
-- (void)registerTable:(UITableView *)table
-{
+- (void)registerTable:(UITableView *)table {
     
     _mTable = table;
     [table registerNib:[UINib nibWithNibName:NSStringFromClass(THCartListCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCartListCell.class)];
@@ -35,24 +33,20 @@
     };
 }
 
-- (void)setData:(NSArray *)data
-{
+- (void)setData:(NSArray *)data {
     _data = data;
     [self  caculateteTotalPrice];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 45;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 5;
 }
 
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     THCartSectionHead *head = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THCartSectionHead.class)];
     head.contentView.backgroundColor = GRAY_COLOR(222);
     THShoppingCartModel *model = self.data[section];
@@ -69,8 +63,7 @@
 }
 
 #pragma mark -- 全选/取消全选一个分组
-- (void)selectOptionGroup:(THShoppingCartModel *)model
-{
+- (void)selectOptionGroup:(THShoppingCartModel *)model {
     self.totalPrice = 0;
     if (!model.suppliers.isSelect) {
         self.selectBtn.selected = NO;
@@ -87,8 +80,7 @@
     
 }
 #pragma mark -- 全选/取消全选整个购物车
-- (void)selectOptionAll:(BOOL)isSelect
-{
+- (void)selectOptionAll:(BOOL)isSelect {
     if (!isSelect) {
         self.selectBtn.selected = NO;
     }
@@ -111,8 +103,7 @@
 }
 
 #pragma mark -- 计算总价格
-- (void)caculateteTotalPrice
-{
+- (void)caculateteTotalPrice {
     BOOL isSelectAll = YES;
     for (THShoppingCartModel *model in self.data) {
         
@@ -146,28 +137,23 @@
     [_mTable reloadData];
 }
 
-- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return nil;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.data.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[self.data[section] cart] count];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 110;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THCartListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THCartListCell.class)];
     THCartGoodsModel *model = [self.data[indexPath.section] cart][indexPath.row];
     cell.choosedCount = model.goods_num;
@@ -198,8 +184,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

@@ -16,10 +16,6 @@ targetsArray.each do |t|
     pod 'ReactiveCocoa','~> 2.5’
 	pod 'SDCycleScrollView'
 	pod 'SVProgressHUD'
-	pod 'UMCCommon'
-#    pod 'UMCShare'
-    pod 'UMCShare/UI'
-    pod 'UMCShare/Social/ReducedWeChat'
     pod 'HDAlertView'
     pod 'WechatOpenSDK'
 #    pod 'YZDisplayViewController'
@@ -30,6 +26,14 @@ targetsArray.each do |t|
     pod 'FDFullscreenPopGesture'
 #    pod 'SDWebImage', '3.7'
     pod 'WMPageController'
+    pod 'UMCCommonLog'
+    pod 'UMCCommon'
+#    pod 'UMCSecurityPlugins'
+    #    pod 'UMCShare'
+#    pod 'UMCShare/UI'
+    pod 'UMCShare/Social/ReducedWeChat'
+    pod 'UMCShare/Social/ReducedQQ'
+    pod 'UMCShare/Social/ReducedSina'
 #    pod 'AliPaySDK'
 	end
 end

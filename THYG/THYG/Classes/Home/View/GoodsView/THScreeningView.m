@@ -10,12 +10,11 @@
 #import "THSingleLabelCell.h"
 #import "THScreeningPriceCell.h"
 
-#define LeftSpace     40
-#define SpaceWidth    10
-#define RowNumbers    4
+static CGFloat const kLeftSpace = 40;
+static CGFloat const kSpaceWidth = 10;
+static CGFloat const kRowNumbers = 4;
 
-@interface THScreeningView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-{
+@interface THScreeningView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout> {
     NSString *_catId, *_startPrice, *_endPrice;
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -26,8 +25,7 @@
 
 @implementation THScreeningView
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-kNaviHeight);
@@ -40,8 +38,7 @@
     return self;
 }
 
-- (void)buttomButtonClick:(UIButton *)btn
-{
+- (void)buttomButtonClick:(UIButton *)btn {
     switch (btn.tag) {
         case 0:
             // 重置选择项
@@ -63,9 +60,9 @@
     self.left = 0;
     [UIView animateWithDuration:0.3 animations:^{
        
-        self.collectionView.left = LeftSpace;
-        self.topView.left = LeftSpace;
-        self.bottomView.left = LeftSpace;
+        self.collectionView.left = kLeftSpace;
+        self.topView.left = kLeftSpace;
+        self.bottomView.left = kLeftSpace;
         
     }];
 }
@@ -92,16 +89,14 @@
     return 2;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section==0) {
         return 1;
     }
     return self.dataArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
         THScreeningPriceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THScreeningPriceCell.class) forIndexPath:indexPath];
         cell.resetValue = YES;
@@ -124,8 +119,7 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section) {
         [[collectionView visibleCells] enumerateObjectsUsingBlock:^(UICollectionViewCell * cell, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([cell isKindOfClass:[THSingleLabelCell class]]) {
@@ -142,34 +136,29 @@
     }
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
         return CGSizeMake(self.collectionView.width, 60);
     }
-    return CGSizeMake((kScreenWidth - LeftSpace - (RowNumbers + 1) * SpaceWidth) / RowNumbers, (kScreenWidth - LeftSpace - (RowNumbers + 1) * SpaceWidth) / RowNumbers / 2);
+    return CGSizeMake((kScreenWidth - kLeftSpace - (kRowNumbers + 1) * kSpaceWidth) / kRowNumbers, (kScreenWidth - kLeftSpace - (kRowNumbers + 1) * kSpaceWidth) / kRowNumbers / 2);
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section==0) {
         return UIEdgeInsetsMake(0, 0, 0, 0);
     }
-    return UIEdgeInsetsMake(SpaceWidth, SpaceWidth, SpaceWidth, SpaceWidth);
+    return UIEdgeInsetsMake(kSpaceWidth, kSpaceWidth, kSpaceWidth, kSpaceWidth);
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(self.collectionView.width, 40);
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(self.collectionView.width, 5);
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         THScreeningViewSectionHead *head = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"head" forIndexPath:indexPath];
         head.titleLabel.text = @[@"价格区间",@"全部分类",@"属性1",@"属性2",@"属性3"][indexPath.section];
@@ -180,10 +169,9 @@
     return foot;
 }
 
-- (UICollectionView *)collectionView
-{
+- (UICollectionView *)collectionView {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kScreenWidth, 40, kScreenWidth-LeftSpace, kScreenHeight-kNaviHeight-44-40) collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kScreenWidth, 40, kScreenWidth-kLeftSpace, kScreenHeight-kNaviHeight-44-40) collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -196,10 +184,9 @@
     return _collectionView;
 }
 
-- (UIView *)topView
-{
+- (UIView *)topView {
     if (!_topView) {
-        _topView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth-SpaceWidth, 40)];
+        _topView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth - kSpaceWidth, 40)];
         _topView.backgroundColor = [UIColor whiteColor];
         UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, _topView.width, _topView.height)];
         title.font = Font(15);
@@ -212,7 +199,7 @@
 
 - (UIView *)bottomView {
     if (!_bottomView) {
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, kScreenHeight-kNaviHeight-44, kScreenWidth-LeftSpace, 44)];
+        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, kScreenHeight-kNaviHeight-44, kScreenWidth-kLeftSpace, 44)];
         _bottomView.backgroundColor = BGColor;
         for (NSInteger  i = 0; i < 2; i++) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -234,8 +221,7 @@
 
 @implementation THScreeningViewSectionHead
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
@@ -249,8 +235,7 @@
     return self;
 }
 
-- (UILabel *)titleLabel
-{
+- (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = GRAY_COLOR(81);

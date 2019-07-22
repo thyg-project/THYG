@@ -21,8 +21,7 @@
 
 @implementation THGoodsTransLayoutCell
 
-- (void)setGoodsModel:(THGoodsModel *)goodsModel
-{
+- (void)setGoodsModel:(THGoodsModel *)goodsModel {
     _goodsModel = goodsModel;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:_goodsModel.original_img] placeholderImage:nil];
     self.nameLabel.text = _goodsModel.goods_name;
@@ -38,8 +37,7 @@
 }
 
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(135, self.frame.size.height-0.5, kScreenWidth, 0.5)];
     [GRAY_COLOR(229) set];
     [path fill];

@@ -10,25 +10,9 @@
 #define UMENG_APPKEY @"5b2dbda68f4a9d0bf300005e"
 #import <UMShare/UMShare.h>
 #import <UMShare/UMSocialManager.h>
+#import <UMCommon/UMCommon.h>
 
 @implementation THShareTool
-
-+ (void)openLog:(BOOL)isOpen {
-	[[UMSocialManager defaultManager] openLog:isOpen];
-}
-
-+ (BOOL)handleOpenURL:(NSURL *)URL {
-	return [[UMSocialManager defaultManager] handleOpenURL:URL];
-}
-
-+ (void)initUmSocialShare {
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:UMENG_APPKEY appSecret:nil redirectURL:nil];
-//    [[UMSocialManager defaultManager] setUmSocialAppkey:UMENG_APPKEY];
-}
-
-+ (BOOL)setPlatform:(UMSocialPlatformType)platform appKey:(NSString *)appKey appSecret:(NSString *)appSecret redirectURL:(NSString *)redirectURL {
-	return [[UMSocialManager defaultManager] setPlaform:platform appKey:appKey appSecret:appSecret redirectURL:redirectURL];
-}
 
 + (void)shareGraphicToPlatformType:(UMSocialPlatformType)platformType
 					  ContentText:(NSString *)ContentText
@@ -98,6 +82,18 @@
 			success(data);
 		}
 	}];
+}
+
++ (void)configShareSDK {
+    [UMConfigure initWithAppkey:UMENG_APPKEY channel:nil];
+#ifdef Debug
+    [UMConfigure setLogEnabled:YES];
+#else
+    [UMConfigure setLogEnabled:NO];
+#endif
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"" appSecret:@"" redirectURL:@""];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"" appSecret:@"" redirectURL:@""];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"" appSecret:@"" redirectURL:@""];
 }
 
 @end

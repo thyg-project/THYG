@@ -12,32 +12,20 @@
 
 - (void)getUserInfo {
     NSURLSessionTask *task = [YGNetworkCommon getUserInfo:^(id responseObject) {
-        if ([self.delegate respondsToSelector:@selector(getUserInfoSuccess:)]) {
-            [self.delegate performSelector:@selector(getUserInfoSuccess:) withObject:responseObject];
-        }
+        [self performToSelector:@selector(getUserInfoSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
-        if ([self.delegate respondsToSelector:@selector(getUserInfoFailed:)]) {
-            [self.delegate performSelector:@selector(getUserInfoFailed:) withObject:errorInfo];
-        }
+        [self performToSelector:@selector(getUserInfoFailed:) params:errorInfo];
     }];
-    if ([self.delegate respondsToSelector:@selector(getTask:)]) {
-        [self.delegate getTask:task];
-    }
+    [self getTask:task];
 }
 
 - (void)loginMobile:(NSString *)mobile pwd:(NSString *)pwd {
     NSURLSessionTask *task = [YGNetworkCommon login:mobile psd:pwd success:^(id responseObject) {
-        if ([self.delegate respondsToSelector:@selector(loginSuccess:)]) {
-            [self.delegate performSelector:@selector(loginSuccess:) withObject:responseObject];
-        }
+        [self performToSelector:@selector(loginSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
-        if ([self.delegate respondsToSelector:@selector(loginFailed:)]) {
-            [self.delegate performSelector:@selector(loginFailed:) withObject:errorInfo];
-        }
+        [self performToSelector:@selector(loginFailed:) params:errorInfo];
     }];
-    if ([self.delegate respondsToSelector:@selector(getTask:)]) {
-        [self.delegate getTask:task];
-    }
+    [self getTask:task];
 }
 
 @end

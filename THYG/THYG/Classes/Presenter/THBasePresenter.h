@@ -15,6 +15,10 @@
 
 - (instancetype)initPresenterWithProtocol:(id <THBaseProtocol>)protocol;
 
+- (void)getTask:(NSURLSessionTask *)task;
+
+- (void)performToSelector:(SEL)aSelecter params:(id)param;
+
 @end
 
 

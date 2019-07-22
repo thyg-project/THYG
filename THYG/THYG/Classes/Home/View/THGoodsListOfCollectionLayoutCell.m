@@ -9,13 +9,15 @@
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "THFavouriteGoodsModel.h"
 
-@implementation THGoodsListOfCollectionLayoutCell
-{
+@interface THGoodsListOfCollectionLayoutCell() {
     __weak IBOutlet UIImageView *goodsImgV;
     __weak IBOutlet UILabel *goodsTitleLabel;
     __weak IBOutlet UILabel *goodsPriceLabel;
-    
 }
+
+@end
+
+@implementation THGoodsListOfCollectionLayoutCell
 
 - (void)setFavModel:(THFavouriteGoodsModel *)favModel {
     _favModel = favModel;

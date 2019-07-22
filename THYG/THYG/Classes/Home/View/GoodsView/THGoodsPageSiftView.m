@@ -14,8 +14,7 @@
 
 @implementation THGoodsPageSiftView
 
-- (NSMutableArray<UIButton*>*)btnData
-{
+- (NSMutableArray<UIButton*>*)btnData {
     if (!_btnData) {
         _btnData = [[NSMutableArray alloc]init];
     }
@@ -39,8 +38,7 @@
 //    }
 //}
 
-- (void)setIsAscOfPrice:(BOOL)isAscOfPrice
-{
+- (void)setIsAscOfPrice:(BOOL)isAscOfPrice {
     _isAscOfPrice = isAscOfPrice;
     if (_isAscOfPrice) {
         [self.btnData[2] setImage:[UIImage imageNamed:@"up_thrAngle"] forState:UIControlStateNormal];

@@ -21,40 +21,6 @@ typedef void (^failure)(NSError *error);
 
 @interface THShareTool : NSObject
 
-//==================================================
-// 首先：配置第三方平台URL Scheme ->1->2->3->4
-//==================================================
-
-/**
- *  1.打开日志
- *
- *  @param isOpen YES代表打开，No代表关闭
- */
-+ (void)openLog:(BOOL)isOpen;
-
-/**
- *  2.初始化友盟，即设置友盟AppKey
- */
-+ (void)initUmSocialShare;
-
-/**
- *  3.设置平台的appkey
- *
- *  @param platform 平台类型 @see UMSocialPlatformType
- *  @param appKey       第三方平台的appKey（QQ平台为appID）
- *  @param appSecret    第三方平台的appSecret（QQ平台为appKey）
- *  @param redirectURL  redirectURL
- */
-+ (BOOL)setPlatform:(UMSocialPlatformType)platform appKey:(NSString *)appKey appSecret:(NSString *)appSecret redirectURL:(NSString *)redirectURL;
-
-/**
- *  4.获得从sso或者web端回调到本app的回调 << - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation >>
- *
- *  @param URL 第三方sdk的打开本app的回调的url
- *
- *  @return 是否处理  YES代表处理成功，NO代表不处理
- */
-+ (BOOL)handleOpenURL:(NSURL *)URL;
 
 //==================================================
 // 分享功能(适用自定义分享UI页面)
@@ -93,5 +59,12 @@ typedef void (^failure)(NSError *error);
 						   StreamUrl:(NSString *)StreamUrl
 							 success:(success)success
 							 failure:(failure)failure;
+
+
+
+
+
+
++ (void)configShareSDK;
 
 @end

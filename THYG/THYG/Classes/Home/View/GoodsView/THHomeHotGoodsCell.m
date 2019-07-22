@@ -21,8 +21,7 @@
 
 @implementation THHomeHotGoodsCell
 
-- (void)setGoodsModel:(THGoodsModel *)goodsModel
-{
+- (void)setGoodsModel:(THGoodsModel *)goodsModel {
     _goodsModel = goodsModel;
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:_goodsModel.original_img] placeholderImage:nil];
     self.goodNameLabel.text = _goodsModel.goods_name;

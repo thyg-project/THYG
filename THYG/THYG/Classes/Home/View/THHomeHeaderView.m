@@ -88,8 +88,7 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 	return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.clickMenuItem) {
         
         THHomeHeaderItemModel *model = _itemsArray[indexPath.item];
@@ -99,7 +98,7 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 
 - (SDCycleScrollView *)cycleScrollView {
 	if (!_cycleScrollView) {
-		_cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:[UIImage imageNamed:@"banner                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        "]];
+		_cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:[UIImage imageNamed:@"banner"]];
 	}
 	return _cycleScrollView;
 }

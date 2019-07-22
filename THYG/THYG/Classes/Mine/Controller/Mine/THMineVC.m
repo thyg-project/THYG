@@ -157,7 +157,6 @@
             THMineOrderManageVC *manageVc = [[THMineOrderManageVC alloc] init];
             manageVc.menuViewStyle = WMMenuViewStyleLine;
             manageVc.automaticallyCalculatesItemWidths = YES;
-            manageVc.title = @"测试";
             if (index != 3) {
                 manageVc.selectIndex = (index==0) ? 1 : (index == 1) ? 3 : (index == 2) ? 4 : 0;
             } else {
@@ -189,60 +188,65 @@
 }
 
 - (void)pushWithIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 1) {
-        
-        if (indexPath.row == 0) {
-            THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
-            [self.navigationController pushViewController:shareVc animated:YES];
-        } else if (indexPath.row == 1) {
-            THMineSubmitApplicationVC *submitVc = [[THMineSubmitApplicationVC alloc] init];
-             [self.navigationController pushViewController:submitVc animated:YES];
-        } else {
-            THMineApplymentVC *applyVc = [[THMineApplymentVC alloc] init];
-             [self.navigationController pushViewController:applyVc animated:YES];
+    UIViewController *controller = nil;
+    switch (indexPath.section) {
+        case 1: {
+            switch (indexPath.row) {
+                case 0: {
+                    controller = [[THMineShareQRCodeVC alloc] init];
+                }
+                    break;
+                case 1: {
+                     controller = [[THMineSubmitApplicationVC alloc] init];
+                }
+                    break;
+                case 2: {
+                    controller = [[THMineApplymentVC alloc] init];
+                }
+                    break;
+            }
         }
-        
-    } else if (indexPath.section == 2){
-        
-        if (indexPath.row==0) {
-            
-            THCouponsCtl *coupons = [[THCouponsCtl alloc] init];
-            coupons.title = _dataArray[indexPath.section][indexPath.row][@"title"];
-             [self.navigationController pushViewController:coupons animated:YES];
-            
-        }else if (indexPath.row==1){
-            THMineWalletVC *walletVc = [[THMineWalletVC alloc] init];
-             [self.navigationController pushViewController:walletVc animated:YES];
+            break;
+        case 2: {
+            switch (indexPath.row) {
+                case 0: {
+                    controller = [[THCouponsCtl alloc] init];
+                }
+                    break;
+                case 1: {
+                    controller = [[THMineWalletVC alloc] init];
+                }
+                    break;
+            }
         }
-        
-    }else if (indexPath.section == 3){
-        
-        if (indexPath.row == 0) {
-            
-            THInvitationManageCtl *invitationManage = [[THInvitationManageCtl alloc] init];
-            invitationManage.title = _dataArray[indexPath.section][indexPath.row][@"title"];
-             [self.navigationController pushViewController:invitationManage animated:YES];
-            
-        } else if (indexPath.row < 3){
-            
-            THMyCollectCtl *collect = [[THMyCollectCtl alloc] init];
-            collect.title = _dataArray[indexPath.section][indexPath.row][@"title"];
-            collect.type = indexPath.row == 2 ? MineGoodsTypeScanHistory : MineGoodsTypeMyAttention;
-             [self.navigationController pushViewController:collect animated:YES];
-            
-        } else if (indexPath.row == 3) {
-            THTeCtl *te = [[THTeCtl alloc] init];
-            te.title = @"我的晒单";
-             [self.navigationController pushViewController:te animated:YES];
-        } else if (indexPath.row == 4) {
-            
-            THMyTaskCtl *taskCtl = [[THMyTaskCtl alloc] init];
-            taskCtl.title = _dataArray[indexPath.section][indexPath.row][@"title"];
-             [self.navigationController pushViewController:taskCtl animated:YES];
-            
+            break;
+        case 3: {
+            switch (indexPath.row) {
+                case 0: {
+                    controller = [[THInvitationManageCtl alloc] init];
+                }
+                    break;
+                case 1:
+                case 2: {
+                    controller = [[THMyCollectCtl alloc] init];
+                    [controller setValue:@(indexPath.row == 2 ? MineGoodsTypeScanHistory : MineGoodsTypeMyAttention) forKey:@"type"];
+                }
+                    break;
+                case 3: {
+                    controller = [[THTeCtl alloc] init];
+                    controller.title = @"我的晒单";
+                }
+                    break;
+                case 4: {
+                    controller = [[THMyTaskCtl alloc] init];
+                }
+                    break;
+            }
         }
-        
+            break;
+    }
+    if (controller) {
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

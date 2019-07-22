@@ -10,10 +10,11 @@
 #import "THMineOrderListPageVC.h"
 
 @interface THMineOrderManageVC () <WMPageControllerDelegate, WMPageControllerDataSource> {
-    
+    NSArray *_stateList;
 }
 
 @property (nonatomic, strong) NSArray *localizedTitles;
+
 
 @end
 
@@ -22,6 +23,7 @@
 - (NSArray *)localizedTitles {
     if (!_localizedTitles) {
         _localizedTitles = self.type ? @[@"全部",@"待确认",@"待退回",@"已完成"] : @[@"全部",@"待付款",@"待发货",@"待收货",@"待评价"];
+        _stateList = self.type ? @[@"", @"0", @"1", @"3"] : @[@"", @"WAITPAY", @"WAITSEND",@"WAITRECEIVE",@"WAITCCOMMENT"];
     }
     return _localizedTitles;
 }
@@ -33,7 +35,6 @@
 
 - (void)setupUI {
     self.navigationItem.title = self.type ? @"退/换货订单" : @"我的订单";
-    NSArray *statusArray = self.type ? @[@"", @"0", @"1", @"3"] : @[@"", @"WAITPAY", @"WAITSEND",@"WAITRECEIVE",@"WAITCCOMMENT"];
     self.titleColorNormal = RGB(102, 102, 102);
     self.titleColorSelected = GLOBAL_RED_COLOR;
     self.titleSizeNormal = 14;
@@ -51,7 +52,7 @@
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
     THMineOrderListPageVC *vc = [[THMineOrderListPageVC alloc] init];
     vc.title = self.localizedTitles[index];
-    //        pageVc.status = statusArray[index++];
+    vc.status = _stateList[index++];
     vc.type = self.type;
     return vc;
 }

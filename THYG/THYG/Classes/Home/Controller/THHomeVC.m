@@ -48,7 +48,7 @@
         make.edges.equalTo(self.view);
     }];
     self.navigationItem.titleView = ({
-        UIButton *searchButton = [THUIFactory buttonWithTitle:@"搜索" image:@"" selectedImage:@"" fontSize:13 textColor:GRAY_COLOR(222) bgColor:[UIColor whiteColor] borderColor:nil radius:4 target:self action:@selector(searchClick)];
+        UIButton *searchButton = [THUIFactory buttonWithTitle:@"搜索" image:@"" selectedImage:@"" fontSize:13 textColor:RGB(222,222,222) bgColor:[UIColor whiteColor] borderColor:nil radius:4 target:self action:@selector(searchClick)];
         searchButton.frame = CGRectMake(0,0, kScreenWidth,30);
         searchButton.layer.cornerRadius = 15;
         searchButton.clipsToBounds = YES;
@@ -244,7 +244,7 @@
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
 		_collectionView.showsVerticalScrollIndicator = NO;
-		_collectionView.backgroundColor = BGColor;
+		_collectionView.backgroundColor = kBackgroundColor;
 		
 		[_collectionView registerClass:[THHomeMallActivityCell class] forCellWithReuseIdentifier:NSStringFromClass(THHomeMallActivityCell.class)];
         [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsListOfCollectionLayoutCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];

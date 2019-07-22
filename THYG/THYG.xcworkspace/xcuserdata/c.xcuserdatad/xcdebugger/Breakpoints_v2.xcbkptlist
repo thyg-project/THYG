@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "THYG/Classes/Mine/Controller/LoginAndRegister/THRegisterCtl.m"
-            timestampString = "585460582.8440599"
+            timestampString = "585474261.3583961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
@@ -90,12 +90,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "THYG/Classes/Mine/Controller/LoginAndRegister/THRegisterCtl.m"
-            timestampString = "585460582.844175"
+            timestampString = "585474261.358507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "-nextBtnAction:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "THYG/Classes/Mine/Controller/Setting/YGWebViewController.m"
+            timestampString = "585474261.35859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-webView:didFailProvisionalNavigation:withError:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

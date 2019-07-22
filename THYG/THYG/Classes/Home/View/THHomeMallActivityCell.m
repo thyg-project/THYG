@@ -109,7 +109,7 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 		_collectionView.dataSource = self;
 		_collectionView.scrollEnabled = NO;
 		_collectionView.showsHorizontalScrollIndicator = NO;
-		_collectionView.backgroundColor = BGColor;
+		_collectionView.backgroundColor = kBackgroundColor;
 		[_collectionView registerClass:[THHomeMallActivityItemCell class] forCellWithReuseIdentifier:THHomeMallActivityItemCellId];
 	}
 	return _collectionView;

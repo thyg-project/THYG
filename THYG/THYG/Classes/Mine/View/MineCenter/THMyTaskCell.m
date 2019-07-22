@@ -17,7 +17,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
-    optionBtn.layer.borderColor = GLOBAL_RED_COLOR.CGColor;
+    optionBtn.layer.borderColor = RGB(213, 0, 27).CGColor;
 }
 
 - (void)refreshWithIndexPath:(NSIndexPath *)indexPath

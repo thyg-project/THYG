@@ -129,7 +129,7 @@
 
 - (UILabel *)subLabel {
 	if (!_subLabel) {
-		_subLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:GRAY_COLOR(151)];
+		_subLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:RGB(151,151,151)];
 	}
 	return _subLabel;
 }

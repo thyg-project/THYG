@@ -50,7 +50,7 @@
         self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
         
         topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, WIDTH(40))];
-        topV.backgroundColor = GRAY_COLOR(242);
+        topV.backgroundColor = RGB(242, 242, 242);
         [self addSubview:topV];
         
         UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -244,7 +244,7 @@
     //设置文字的属性
     UILabel *genderLabel = [[UILabel alloc] init];
     genderLabel.textAlignment = NSTextAlignmentCenter;
-    genderLabel.textColor = GRAY_151;
+    genderLabel.textColor = RGB(151, 151, 151);
     genderLabel.font = [UIFont systemFontOfSize:14];
     if (component == 0) {
         

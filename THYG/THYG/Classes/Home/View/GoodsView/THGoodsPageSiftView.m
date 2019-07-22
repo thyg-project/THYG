@@ -49,7 +49,7 @@
 
 #pragma mark - 设置UI界面
 - (void)setupUI {
-    self.backgroundColor = BGColor;
+    self.backgroundColor = kBackgroundColor;
     NSArray *titles = @[@"综合",@"销量",@"价格",@"筛选"];
     NSArray *images = @[@"",@"",@"shangxiajiantou",@"shaixuan"];
     
@@ -59,10 +59,9 @@
     CGFloat bH = 44;
     
     for (NSInteger i = 0; i < 4; i++) {
-        UIButton *button = [THUIFactory buttonWithTitle:titles[i] image:images[i] fontSize:13 textColor:GRAY_COLOR(80) target:self action:@selector(conditionSift:)];
+        UIButton *button = [THUIFactory buttonWithTitle:titles[i] image:images[i] fontSize:13 textColor:RGB(80, 80, 80) target:self action:@selector(conditionSift:)];
         button.backgroundColor = [UIColor whiteColor];
-        [button setTitleColor:GRAY_COLOR(80) forState:UIControlStateNormal];
-        [button setTitleColor:GLOBAL_RED_COLOR forState:UIControlStateSelected];
+        [button setTitleColor:RGB(213, 0, 27) forState:UIControlStateSelected];
         button.tag = i;
         
         bW = (kScreenWidth - (titles.count-1))/titles.count;

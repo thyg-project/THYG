@@ -105,7 +105,7 @@
         _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 41, kScreenWidth, kScreenHeight-kNaviHeight-40) style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
-        _mTable.backgroundColor = BGColor;
+        _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         _mTable.allowsSelection = NO;
         [_mTable registerNib:[UINib nibWithNibName:NSStringFromClass(THCouponsCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCouponsCell.class)];
@@ -219,7 +219,7 @@
         _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0) style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
-        _mTable.backgroundColor = BGColor;
+        _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         [_mTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     }

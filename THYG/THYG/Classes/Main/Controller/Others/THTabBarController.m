@@ -35,7 +35,7 @@
 - (void)setTextAttributes {
     // 设置文字正常时的属性
     NSMutableDictionary * normalAttrs = [NSMutableDictionary dictionary];
-    normalAttrs[NSForegroundColorAttributeName] = GRAY_COLOR(102);
+    normalAttrs[NSForegroundColorAttributeName] = RGB(102, 102, 102);
     NSMutableDictionary * selectedAtrrs = [NSMutableDictionary dictionary];
     selectedAtrrs[NSForegroundColorAttributeName] = [UIColor redColor];
     UITabBarItem * item = [UITabBarItem appearance];
@@ -84,7 +84,7 @@
 #pragma mark - 添加一个子控制器
 - (void)setupOneChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage {
     vc.title = title;
-    vc.view.backgroundColor = BGColor;
+    vc.view.backgroundColor = kBackgroundColor;
     vc.tabBarItem.image = [UIImage imageNamed:image];
     vc.tabBarItem.selectedImage = [UIImage imageWithOrignalImageNamed:selectedImage];
 	THNavigationController *nav = [[THNavigationController alloc] initWithRootViewController:vc];

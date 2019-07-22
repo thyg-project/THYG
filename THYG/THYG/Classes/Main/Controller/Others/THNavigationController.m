@@ -16,7 +16,7 @@
 
 #pragma mark - 设置UIUINavigationBar的主题
 + (void)initialize {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:GLOBAL_RED_COLOR] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:RGB(213, 0, 27)] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:@{/*NSFontAttributeName:[UIFont systemFontOfSize:19],*/ NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];

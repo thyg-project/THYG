@@ -115,7 +115,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = BGColor;
+        _collectionView.backgroundColor = kBackgroundColor;
         
         [_collectionView registerNib:[UINib nibWithNibName:@"THAceSpellGroupListCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THAceSpellGroupListCell.class)];
         [_collectionView registerNib:[UINib nibWithNibName:@"THMoreSpellGroupListCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THMoreSpellGroupListCell.class)];

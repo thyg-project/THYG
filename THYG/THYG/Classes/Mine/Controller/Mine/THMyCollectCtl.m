@@ -53,7 +53,7 @@
         _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
-        _mTable.backgroundColor = BGColor;
+        _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         [_mTable registerNib:[UINib nibWithNibName:NSStringFromClass(THMyCollectCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyCollectCell.class)];
     }

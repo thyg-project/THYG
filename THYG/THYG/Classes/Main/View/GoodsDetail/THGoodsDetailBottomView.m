@@ -43,9 +43,9 @@
 //            }
         }
 //        btn.titleLabel.font = i < 2 ? [UIFont systemFontOfSize:11] : [UIFont systemFontOfSize:14];
-        [btn setTitleColor:(i < 2)?GRAY_COLOR(110):[UIColor whiteColor] forState:UIControlStateNormal];
-        [btn setBackgroundColor:((i == 2) ?  GLOBAL_RED_COLOR : [UIColor whiteColor])];
-//        [btn setBackgroundColor:((i > 2) ? ((i == 3) ? RGB(252, 85, 8): GLOBAL_RED_COLOR) : [UIColor whiteColor])];
+        [btn setTitleColor:(i < 2)?RGB(110,110,110):[UIColor whiteColor] forState:UIControlStateNormal];
+        [btn setBackgroundColor:((i == 2) ?  RGB(213, 0, 27) : [UIColor whiteColor])];
+//        [btn setBackgroundColor:((i > 2) ? ((i == 3) ? RGB(252, 85, 8): RGB(213, 0, 27)) : [UIColor whiteColor])];
         if (i<2) {
             bW = kSmallWidth / 2 ;
             bX = bW * i;

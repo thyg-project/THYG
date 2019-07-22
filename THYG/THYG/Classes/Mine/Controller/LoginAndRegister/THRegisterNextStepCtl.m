@@ -48,7 +48,7 @@
     }];
     
     RAC(self.finishBtn, backgroundColor) = [signUpActiveSignal map:^id(NSNumber *nextValid){
-        return [nextValid boolValue] ? GLOBAL_RED_COLOR : GRAY_COLOR(230);
+        return [nextValid boolValue] ? RGB(213, 0, 27) : RGB(230,230,230);
     }];
     
     [signUpActiveSignal subscribeNext:^(NSNumber*signupActive){
@@ -58,7 +58,7 @@
 
 dispatch_source_t _source_t;
 - (IBAction)getVerifyCodeAction:(id)sender {
-    self.getVerifyCodeBtn.backgroundColor = GRAY_COLOR(230);
+    self.getVerifyCodeBtn.backgroundColor = RGB(230,230,230);
     [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     [self.presenter sendVerifyCode:@""];
 }
@@ -104,7 +104,7 @@ dispatch_source_t _source_t;
         _source_t = source_t;
         if (stop) {
             [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-            self.getVerifyCodeBtn.backgroundColor = GLOBAL_RED_COLOR;
+            self.getVerifyCodeBtn.backgroundColor = RGB(213, 0, 27);
         } else {
             [self.getVerifyCodeBtn setTitle:@(inertval).stringValue forState:UIControlStateNormal];
         }

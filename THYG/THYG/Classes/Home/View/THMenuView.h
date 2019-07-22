@@ -17,4 +17,6 @@
 
 - (void)show;
 
+- (void)showRect:(CGRect)rect;
+
 @end

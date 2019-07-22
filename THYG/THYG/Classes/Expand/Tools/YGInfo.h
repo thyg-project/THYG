@@ -32,6 +32,10 @@ typedef struct _YGInfo_t {
     
     NSString * (*deviceModel)(void);
     
+    UIEdgeInsets (*applicationSafeAreaInsets)(void);
+    
+    CGFloat (*statesBarHeight)(void);
+    
 } YGInfo_t;
 OBJC_EXTERN YGInfo_t YGInfo;
 

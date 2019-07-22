@@ -39,7 +39,7 @@
 
 - (void)drawRect:(CGRect)rect {
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(135, self.frame.size.height-0.5, kScreenWidth, 0.5)];
-    [GRAY_COLOR(229) set];
+    [RGB(229,229,229) set];
     [path fill];
 }
 

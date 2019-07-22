@@ -155,8 +155,8 @@
         _orderBtnOne = [[UIButton alloc] init];
         _orderBtnOne.layer.borderWidth = 1;
         _orderBtnOne.layer.cornerRadius = 14;
-        _orderBtnOne.layer.borderColor = GRAY_COLOR(221).CGColor;
-        [_orderBtnOne setTitleColor:GRAY_51 forState:UIControlStateNormal];
+        _orderBtnOne.layer.borderColor = RGB(221,221,221).CGColor;
+        [_orderBtnOne setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
         _orderBtnOne.titleLabel.font = [UIFont systemFontOfSize:14];
         _orderBtnOne.tag = kTag;
         [_orderBtnOne addTarget:self action:@selector(orderAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -169,8 +169,8 @@
         _orderBtnTwo = [[UIButton alloc] init];
         _orderBtnTwo.layer.borderWidth = 1;
         _orderBtnTwo.layer.cornerRadius = 14;
-        _orderBtnTwo.layer.borderColor = GRAY_COLOR(221).CGColor;
-        [_orderBtnTwo setTitleColor:GRAY_51 forState:UIControlStateNormal];
+        _orderBtnTwo.layer.borderColor = RGB(221,221,221).CGColor;
+        [_orderBtnTwo setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
         _orderBtnTwo.titleLabel.font = [UIFont systemFontOfSize:14];
         _orderBtnTwo.tag = kTag + 1;
         [_orderBtnTwo addTarget:self action:@selector(orderAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -183,8 +183,8 @@
         _orderBtnThr = [[UIButton alloc] init];
         _orderBtnThr.layer.borderWidth = 1;
         _orderBtnThr.layer.cornerRadius = 14;
-        _orderBtnThr.layer.borderColor = GRAY_COLOR(221).CGColor;
-        [_orderBtnThr setTitleColor:GRAY_51 forState:UIControlStateNormal];
+        _orderBtnThr.layer.borderColor = RGB(221,221,221).CGColor;
+        [_orderBtnThr setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
         _orderBtnThr.titleLabel.font = [UIFont systemFontOfSize:14];
         _orderBtnThr.tag = kTag + 2;
         [_orderBtnThr addTarget:self action:@selector(orderAction:) forControlEvents:UIControlEventTouchUpInside];

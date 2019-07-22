@@ -39,7 +39,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.layer.borderColor = GRAY_COLOR(229).CGColor;
+    self.layer.borderColor = RGB(229,229,229).CGColor;
     self.layer.borderWidth = 0.5;
     self.layer.masksToBounds = YES;
 }

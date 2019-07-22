@@ -20,7 +20,7 @@
 
 - (void)setFlashModel:(THFlashSaleModel *)flashModel {
     _flashModel = flashModel;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:_flashModel.original_img] placeholderImage:[UIImage imageWithColor:BGColor]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:_flashModel.original_img] placeholderImage:[UIImage imageWithColor:kBackgroundColor]];
     nameLbel.text = _flashModel.goods_name;
     shopPriceLabel.text = [NSString stringWithFormat:@"￥%@",_flashModel.shop_price];
     priceLabel.text = [NSString stringWithFormat:@"￥%@",_flashModel.price];

@@ -27,8 +27,9 @@
         selectBtn.layer.borderColor = [UIColor redColor].CGColor;
         selectBtn.layer.borderWidth = 1;
     }else{
-        selectBtn.layer.borderColor =GRAY_COLOR(240).CGColor;
+        selectBtn.layer.borderColor =RGB(240,240,240).CGColor;
         selectBtn.layer.borderWidth = 1;
+        
     }
 }
 

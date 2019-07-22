@@ -107,8 +107,8 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 	if (!_pageControl) {
 		_pageControl = [[UIPageControl alloc] init];
 		_pageControl.numberOfPages = 1;
-		_pageControl.tintColor = GRAY_COLOR(151);
-		_pageControl.currentPageIndicatorTintColor = GRAY_COLOR(51);
+		_pageControl.tintColor = RGB(151, 151, 151);
+		_pageControl.currentPageIndicatorTintColor = RGB(51, 51, 51);
 	}
 	return _pageControl;
 }
@@ -128,7 +128,7 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
 		_collectionView.showsHorizontalScrollIndicator = NO;
-		_collectionView.backgroundColor = BGColor;
+		_collectionView.backgroundColor = kBackgroundColor;
 		_collectionView.pagingEnabled = YES;
         [_collectionView registerNib:[UINib nibWithNibName:@"THHomeHeaderItemCell" bundle:nil] forCellWithReuseIdentifier:THHomeHeaderItemCellId];
 	}

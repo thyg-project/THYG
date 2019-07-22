@@ -38,9 +38,9 @@
     _numberFD.textAlignment=NSTextAlignmentCenter;
     _numberFD.keyboardType=UIKeyboardTypeNumberPad;
     _numberFD.clipsToBounds = YES;
-    _numberFD.layer.borderColor = [GRAY_COLOR(221) CGColor];
+    _numberFD.layer.borderColor = [RGB(221,221,221) CGColor];
     _numberFD.layer.borderWidth = 0.5;
-    _numberFD.textColor = GRAY_COLOR(81);
+    _numberFD.textColor = RGB(81,81,81);
     _numberFD.font = [UIFont systemFontOfSize:13];
     _numberFD.backgroundColor = [UIColor whiteColor];
     _numberFD.text = [NSString stringWithFormat:@"%zi",self.choosedCount];

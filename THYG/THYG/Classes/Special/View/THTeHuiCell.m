@@ -45,15 +45,15 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     }
     
     if (!_nameLabel) {
-        _nameLabel = [THUIFactory labelWithText:@"lalalala" fontSize:16 tintColor:GRAY_51];
+        _nameLabel = [THUIFactory labelWithText:@"lalalala" fontSize:16 tintColor:RGB(51, 51, 51)];
     }
     
     if (!_timeLabel) {
-        _timeLabel = [THUIFactory labelWithText:@"hehehehehe" fontSize:12 tintColor:GRAY_151];
+        _timeLabel = [THUIFactory labelWithText:@"hehehehehe" fontSize:12 tintColor:RGB(151, 151, 151)];
     }
     
     if (!_contentLabel) {
-        _contentLabel = [THUIFactory labelWithText:@"aldlasdladladladlaldalsaldaldaldladsladlbsdfhahfasdhfahfahfhasdfhafhahdfahfhashdfhahfahfhashdfahdfhashdfahsdfhasfdhashdfahf" fontSize:16 tintColor:GRAY_51];
+        _contentLabel = [THUIFactory labelWithText:@"aldlasdladladladlaldalsaldaldaldladsladlbsdfhahfasdhfahfahfhasdfhafhahdfahfhashdfhahfahfhashdfahdfhashdfahsdfhasfdhashdfahf" fontSize:16 tintColor:RGB(51, 51, 51)];
         _contentLabel.numberOfLines = 0;
         if (maxContentLblHeight == 0) {
             maxContentLblHeight = _contentLabel.font.lineHeight * 3;
@@ -79,7 +79,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     
     if (!_buttomView) {
         _buttomView = [[UIView alloc] init];
-        _buttomView.backgroundColor = BGColor;
+        _buttomView.backgroundColor = kBackgroundColor;
         
         _iconImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chanpintu"]];
         [_buttomView addSubview:_iconImgView];
@@ -100,7 +100,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
             [_buttonArr addObject:btn];
             btn.tag = i + kScreenHeight;
             [btn setTitle:titles[i] forState:UIControlStateNormal];
-            [btn setTitleColor:GRAY_51 forState:UIControlStateNormal];
+            [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
 //            btn.titleLabel.font = [UIFont systemFontOfSize:16];
             [btn setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
             if (i == 2) {

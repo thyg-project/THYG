@@ -42,7 +42,7 @@
         _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight) style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
-        _mTable.backgroundColor = BGColor;
+        _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         _mTable.allowsSelection = NO;
         [_mTable registerNib:[UINib nibWithNibName:NSStringFromClass(THMyTaskCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyTaskCell.class)];

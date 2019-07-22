@@ -38,7 +38,7 @@
 - (THButton *)btn {
     if (!_btn) {
         _btn = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
-        _btn.textColor = GRAY_51;
+        _btn.textColor = RGB(51, 51, 51);
         _btn.userInteractionEnabled = NO;
         _btn.font = [UIFont systemFontOfSize:12];
     }

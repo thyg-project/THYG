@@ -18,7 +18,7 @@
 + (void)config {
     //设置属性
     [SVProgressHUD setDefaultAnimationType:SVProgressHUDAnimationTypeNative];
-    [SVProgressHUD setBackgroundColor:GRAY(0, 0.7)];
+    [SVProgressHUD setBackgroundColor:RGBA(0,0,0, 0.7)];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD setMinimumDismissTimeInterval:2];
     [SVProgressHUD setMaximumDismissTimeInterval:4];

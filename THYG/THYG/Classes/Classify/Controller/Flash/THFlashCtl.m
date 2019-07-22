@@ -126,7 +126,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = BGColor;
+        _collectionView.backgroundColor = kBackgroundColor;
         
         [_collectionView registerNib:[UINib nibWithNibName:@"THFlashCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THFlashCell.class)];
         [_collectionView registerNib:[UINib nibWithNibName:@"THMoreLimitSpellGroupCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THMoreLimitSpellGroupCell.class)];

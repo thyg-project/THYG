@@ -109,7 +109,7 @@ static CGFloat const kRowNumbers = 4;
         return cell;
     }
     THSingleLabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THSingleLabelCell.class) forIndexPath:indexPath];
-    cell.contentView.backgroundColor = GRAY_COLOR(234);
+    cell.contentView.backgroundColor = RGB(213, 213, 213);
     cell.singleLabel.text = self.dataArray[indexPath.row][@"mobile_name"];
     if ([collectionView.indexPathsForSelectedItems containsObject:indexPath]) {
         cell.isSelected = YES;
@@ -165,7 +165,7 @@ static CGFloat const kRowNumbers = 4;
         return head;
     }
     UICollectionReusableView *foot = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"foot" forIndexPath:indexPath];
-    foot.backgroundColor = BGColor;
+    foot.backgroundColor = kBackgroundColor;
     return foot;
 }
 
@@ -190,7 +190,7 @@ static CGFloat const kRowNumbers = 4;
         _topView.backgroundColor = [UIColor whiteColor];
         UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, _topView.width, _topView.height)];
         title.font = Font(15);
-        title.textColor = GRAY_COLOR(81);
+        title.textColor = RGB(81,81,81);
         title.text = @"筛选";
         [_topView addSubview:title];
     }
@@ -200,14 +200,14 @@ static CGFloat const kRowNumbers = 4;
 - (UIView *)bottomView {
     if (!_bottomView) {
         _bottomView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, kScreenHeight-kNaviHeight-44, kScreenWidth-kLeftSpace, 44)];
-        _bottomView.backgroundColor = BGColor;
+        _bottomView.backgroundColor = kBackgroundColor;
         for (NSInteger  i = 0; i < 2; i++) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [btn setTitle:@[@"重置",@"确定"][i] forState:UIControlStateNormal];
             btn.titleLabel.font = Font(15);
             [btn addTarget:self action:@selector(buttomButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn.backgroundColor = i?GLOBAL_RED_COLOR:[UIColor whiteColor];
-            [btn setTitleColor:(i?[UIColor whiteColor]:GRAY_COLOR(100)) forState:UIControlStateNormal];
+            btn.backgroundColor = i?RGB(213, 0, 27):[UIColor whiteColor];
+            [btn setTitleColor:(i?[UIColor whiteColor]:RGB(100,100,100)) forState:UIControlStateNormal];
             btn.frame = CGRectMake(_bottomView.width*0.5*i, 1, _bottomView.width*0.5, 44);
             btn.tag = i;
             [_bottomView addSubview:btn];
@@ -238,7 +238,7 @@ static CGFloat const kRowNumbers = 4;
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.textColor = GRAY_COLOR(81);
+        _titleLabel.textColor = RGB(81,81,18);
         _titleLabel.font = Font(15);
     }
     return _titleLabel;

@@ -47,7 +47,7 @@
 		THButton *button = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
 		button.tag = i + bX;
         button.title = _titleArr[i];
-        button.textColor = GRAY_COLOR(51);
+        button.textColor = RGB(51,51,51);
         button.image = [UIImage imageNamed:_imageArr[i]];
 		
 		button.font = [UIFont systemFontOfSize:13];

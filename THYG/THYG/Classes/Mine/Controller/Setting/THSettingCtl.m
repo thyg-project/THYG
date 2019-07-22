@@ -109,7 +109,7 @@
         _footer = [[UIView alloc] init];
         UIButton *loginOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         loginOutBtn.frame = CGRectMake(20, 20, kScreenWidth-40, 40);
-        loginOutBtn.backgroundColor = GLOBAL_RED_COLOR;
+        loginOutBtn.backgroundColor = RGB(213, 0, 27);
         loginOutBtn.titleLabel.font = Font(15);
         [loginOutBtn setTitle:@"退出账户" forState:UIControlStateNormal];
         [loginOutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

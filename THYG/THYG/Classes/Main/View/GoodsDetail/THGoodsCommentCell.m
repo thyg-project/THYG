@@ -114,7 +114,7 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         
-        _nameLabel = [THUIFactory labelWithText:@"" fontSize:15 tintColor:GRAY_51];
+        _nameLabel = [THUIFactory labelWithText:@"" fontSize:15 tintColor:RGB(51, 51, 51)];
 //        _nameLabel.backgroundColor = RANDOMCOLOR;
     }
     return _nameLabel;
@@ -122,7 +122,7 @@
 
 - (UILabel *)commentLabel {
     if (!_commentLabel) {
-        _commentLabel = [THUIFactory labelWithText:@"" fontSize:11 tintColor:GRAY_51];
+        _commentLabel = [THUIFactory labelWithText:@"" fontSize:11 tintColor:RGB(51, 51, 51)];
         _commentLabel.numberOfLines = 0;
 //        _commentLabel.backgroundColor = RANDOMCOLOR;
     }
@@ -131,7 +131,7 @@
 
 - (UILabel *)unitLabel {
     if (!_unitLabel) {
-        _unitLabel = [THUIFactory labelWithText:@"xxx" fontSize:11 tintColor:GRAY_151];
+        _unitLabel = [THUIFactory labelWithText:@"xxx" fontSize:11 tintColor:RGB(151, 151, 151)];
 //        _unitLabel.backgroundColor = RANDOMCOLOR;
     }
     return _unitLabel;
@@ -140,7 +140,7 @@
 - (UILabel *)lineLabel {
     if (!_lineLabel) {
         _lineLabel = [[UILabel alloc] init];
-        _lineLabel.backgroundColor = LINECOLOR;
+        _lineLabel.backgroundColor = kLineColor;
     }
     return _lineLabel;
 }

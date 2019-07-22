@@ -20,11 +20,11 @@
 - (void)setIsSelected:(BOOL)isSelected {
     _isSelected = isSelected;
     if (_isSelected) {
-        self.contentView.backgroundColor = GLOBAL_RED_COLOR;
+        self.contentView.backgroundColor = RGB(213, 0, 27);
         self.singleLabel.textColor = [UIColor whiteColor];
     }else{
-        self.contentView.backgroundColor = GRAY_COLOR(234);
-        self.singleLabel.textColor = GRAY_COLOR(66);
+        self.contentView.backgroundColor = RGB(234, 234, 234);
+        self.singleLabel.textColor = RGB(66, 66, 66);
     }
 }
 

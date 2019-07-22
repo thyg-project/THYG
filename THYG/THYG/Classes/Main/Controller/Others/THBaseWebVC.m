@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = BGColor;
+    self.view.backgroundColor = kBackgroundColor;
     if (self.webHeight) {
         self.webView.height = self.webHeight;
     }
@@ -50,7 +50,7 @@
 - (UIWebView*)webView {
 //    if (_webView==nil) {
 //        _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight)];
-//        _webView.backgroundColor = BGColor;
+//        _webView.backgroundColor = kBackgroundColor;
 //        _webView.delegate = self;
 //    }
     return _webView;

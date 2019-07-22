@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"填写申请资料";
-    self.submitButton.layer.borderColor = GLOBAL_RED_COLOR.CGColor;
+    self.submitButton.layer.borderColor = RGB(213, 0, 27).CGColor;
 }
 
 - (IBAction)submitClick {

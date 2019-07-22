@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.backgroundColor = GRAY_COLOR(180);
+        self.backgroundColor = RGB(180, 180, 180);
         [self addSubview:self.sectionTitleLabel];
         
         [self.sectionTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

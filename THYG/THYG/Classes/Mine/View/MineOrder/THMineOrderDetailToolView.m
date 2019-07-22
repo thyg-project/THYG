@@ -21,7 +21,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    btnOne.layer.borderColor = btnTwo.layer.borderColor = btnThree.layer.borderColor = GRAY_COLOR(221).CGColor;
+    btnOne.layer.borderColor = btnTwo.layer.borderColor = btnThree.layer.borderColor = RGB(221,221,221).CGColor;
 }
 
 - (IBAction)orderAction:(UIButton *)sender {

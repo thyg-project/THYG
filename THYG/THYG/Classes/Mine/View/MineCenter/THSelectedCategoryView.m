@@ -30,7 +30,7 @@
     if (self = [super initWithFrame:[UIApplication sharedApplication].keyWindow.frame]) {
         self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
         topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, WIDTH(40))];
-        topV.backgroundColor = GRAY_COLOR(242);
+        topV.backgroundColor = RGB(242, 242, 242);
         [self addSubview:topV];
         
         UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];

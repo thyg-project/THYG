@@ -30,6 +30,7 @@
 #import "THMinePresenter.h"
 #import "THNavigationView.h"
 #import "THMenuView.h"
+#import "THMyMessageCtl.h"
 
 
 @interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, THMineProtocol, THNaviagationViewDelegate> {
@@ -64,7 +65,7 @@
     _tableViewClass = @[@[@""],@[@"THMineShareQRCodeVC",@"THMineSubmitApplicationVC",@"THMineApplymentVC"],@[@"THCouponsCtl",@"THMineWalletVC"],@[@"THInvitationManageCtl",@"THMyCollectCtl",@"THMyCollectCtl",@"THTeCtl",@"THMyTaskCtl"]];
     [self.presenter getLocailData];
     _customNav = [[THNavigationView alloc] init];
-    _customNav.backgroundColor = GLOBAL_RED_COLOR;
+    _customNav.backgroundColor = RGB(213, 0, 27);
     _customNav.content = @"个人中心";
     _customNav.alpha = 0;
     _customNav.textColor = [UIColor whiteColor];
@@ -100,8 +101,17 @@
     _munuView = [THMenuView new];
     _munuView.data = @[@"推广二维码",@"我的消息",@"关注"];
     [self.view addSubview:_munuView];
+    kWeakSelf;
     [_munuView setSelectedAction:^(NSInteger index) {
-        
+        UIViewController *controller = nil;
+        if (index == 0) {//我的二维码
+            controller = [[THMineShareQRCodeVC alloc] init];
+        } else if (index == 1) {//我的消息
+            controller = [[THMyMessageCtl alloc] init];
+        } else {//我的关注
+            controller = [[THMyCollectCtl alloc] init];
+        }
+        [weakSelf.navigationController pushViewController:controller animated:YES];
     }];
 }
 
@@ -279,7 +289,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = BGColor;
+        _collectionView.backgroundColor = kBackgroundColor;
         [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
     }
     return _collectionView;
@@ -295,7 +305,7 @@
 - (void)rightAction:(NSInteger)tag {
     if (tag == 0) {
         //菜单
-        [_munuView show];
+        [_munuView showRect:CGRectMake(0, kNaviHeight, kScreenWidth, kScreenHeight - kNaviHeight - kTabBarHeight)];
     } else if (tag == 1) {
         //设置
         [self.navigationController pushViewController:[THSettingCtl new] animated:YES];

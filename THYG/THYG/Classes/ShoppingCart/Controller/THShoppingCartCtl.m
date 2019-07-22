@@ -52,7 +52,7 @@
     }];
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navBtn];
-    self.shareBtn.layer.borderColor = self.removeBtn.layer.borderColor = GRAY_COLOR(220).CGColor;
+    self.shareBtn.layer.borderColor = self.removeBtn.layer.borderColor = RGB(220, 220, 220).CGColor;
     self.deleteBtn.layer.borderColor = [UIColor redColor].CGColor;
 }
 
@@ -226,7 +226,7 @@
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"暂无商品，快去逛逛吧~" attributes:@{NSForegroundColorAttributeName:GRAY_151, NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"暂无商品，快去逛逛吧~" attributes:@{NSForegroundColorAttributeName:RGB(151, 151, 151), NSFontAttributeName:[UIFont systemFontOfSize:14]}];
     return string;
 }
 
@@ -235,7 +235,7 @@
 - (UITableView *)mTable {
     if (!_mTable) {
         _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _mTable.backgroundColor = BGColor;
+        _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         [self.tableDelegate registerTable:_mTable];
         self.tableDelegate.totalPriceLabel = self.totalPriceLabel;

@@ -36,7 +36,7 @@
 - (void)setupUI {
     self.navigationItem.title = self.type ? @"退/换货订单" : @"我的订单";
     self.titleColorNormal = RGB(102, 102, 102);
-    self.titleColorSelected = GLOBAL_RED_COLOR;
+    self.titleColorSelected = RGB(213, 0, 27);
     self.titleSizeNormal = 14;
     self.titleSizeSelected = 16;
 }

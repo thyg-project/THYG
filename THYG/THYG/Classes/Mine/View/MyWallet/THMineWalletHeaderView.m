@@ -28,7 +28,7 @@
     [super awakeFromNib];
     for (UIView *view in self.subviews) {
         if ([view isKindOfClass:[UIButton class]]) {
-            view.layer.borderColor = BGColor.CGColor;
+            view.layer.borderColor = kBackgroundColor.CGColor;
             view.layer.borderWidth = 1;
             view.layer.cornerRadius = view.height * 0.5;
             

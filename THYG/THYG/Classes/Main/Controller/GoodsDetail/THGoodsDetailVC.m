@@ -139,7 +139,7 @@
     
     THCommentVC *commentVc = [[THCommentVC alloc] init];
     commentVc.goods_id = self.goodsId;
-    commentVc.view.backgroundColor = BGColor;
+    commentVc.view.backgroundColor = kBackgroundColor;
     [self addChildViewController:commentVc];
     
 }
@@ -163,7 +163,7 @@
     for (NSInteger i = 0; i < titles.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:titles[i] forState:0];
-        [button setTitleColor:GRAY_COLOR(17) forState:UIControlStateNormal];
+        [button setTitleColor:RGB(17,17,17) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         button.tag = i;
         button.titleLabel.font = Font(16);

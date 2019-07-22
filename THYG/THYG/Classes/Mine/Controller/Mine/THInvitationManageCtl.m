@@ -122,7 +122,7 @@
 - (UITableView *)mTable {
     if (!_mTable) {
         _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _mTable.backgroundColor = BGColor;
+        _mTable.backgroundColor = kBackgroundColor;
         _mTable.delegate = self;
         _mTable.dataSource = self;
         _mTable.tableFooterView = [UIView new];

@@ -32,7 +32,7 @@
 - (instancetype)initShareViewWithTitle:(NSArray *)titleArray andImageArry:(NSArray *)imageArray  {
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-        self.backgroundColor = GRAY(0, 0.3);
+        self.backgroundColor = RGBA(0, 0, 0, 0.3);
         _shareBtnImageArray = imageArray;
         _shareBtnTitleArray = titleArray;
         [self addSubview:self.bgView];
@@ -150,7 +150,7 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [THUIFactory labelWithText:@"分享到" fontSize:16 tintColor:GRAY_151];
+        _titleLabel = [THUIFactory labelWithText:@"分享到" fontSize:16 tintColor:RGB(151, 151, 151)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
@@ -160,9 +160,9 @@
     if (!_cancelBtn) {
         _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-        [_cancelBtn setTitleColor:GRAY_51 forState:UIControlStateNormal];
+        [_cancelBtn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
         _cancelBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-        _cancelBtn.backgroundColor = GRAY_COLOR(242);
+        _cancelBtn.backgroundColor = RGB(242, 242, 242);
         [_cancelBtn addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cancelBtn;

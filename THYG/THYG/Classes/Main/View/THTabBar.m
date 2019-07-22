@@ -48,7 +48,7 @@ static NSInteger const THTabBarTag = 100000;
             btn.adjustsImageWhenHighlighted = NO;
             // 设置文字
             [btn setTitle:item.title forState:UIControlStateNormal];
-            [btn setTitleColor:GRAY_102 forState:UIControlStateNormal];
+            [btn setTitleColor:RGB(102, 102, 102) forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
             [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
             

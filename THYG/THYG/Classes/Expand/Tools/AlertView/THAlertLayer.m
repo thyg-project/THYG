@@ -240,7 +240,7 @@
     if (!_title) {
         _title = [UILabel new];
         _title.font = Font(16);
-        _title.textColor = GRAY_COLOR(51);
+        _title.textColor = RGB(51, 51, 51);
     }
     return _title;
 }
@@ -249,7 +249,7 @@
     if (!_content) {
         _content = [UILabel new];
         _content.font = Font(14);
-        _content.textColor = GRAY_COLOR(51);
+        _content.textColor = RGB(51, 51, 51);
         _content.numberOfLines = 0;
         _content.textAlignment = NSTextAlignmentLeft;
     }
@@ -259,11 +259,11 @@
 - (UIButton *)cancel {
     if (!_cancel) {
         _cancel = [UIButton new];
-        _cancel.backgroundColor = GRAY_COLOR(244);
+        _cancel.backgroundColor = RGB(244, 244, 244);
         _cancel.titleLabel.font = Font(14);
         _cancel.layer.cornerRadius = 5.f;
         [_cancel.layer setMasksToBounds:YES];
-        [_cancel setTitleColor:GRAY_COLOR(101) forState:UIControlStateNormal];
+        [_cancel setTitleColor:RGB(101, 101, 101) forState:UIControlStateNormal];
         [_cancel setTitle:@"取消" forState:UIControlStateNormal];
         [_cancel addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -273,12 +273,12 @@
 - (UIButton *)sure {
     if (!_sure) {
         _sure = [UIButton new];
-        _sure.backgroundColor = GLOBAL_RED_COLOR;
+        _sure.backgroundColor = RGB(213, 0, 27);
         _sure.titleLabel.font = Font(14);
         _sure.layer.cornerRadius = 5.f;
         [_sure.layer setMasksToBounds:YES];
-        [_sure setBackgroundImage:[UIImage imageWithColor:GLOBAL_RED_COLOR] forState:UIControlStateNormal];
-        [_sure setBackgroundImage:[UIImage imageWithColor:GLOBAL_RED_COLOR] forState:UIControlStateHighlighted];
+        [_sure setBackgroundImage:[UIImage imageWithColor:RGB(213, 0, 27)] forState:UIControlStateNormal];
+        [_sure setBackgroundImage:[UIImage imageWithColor:RGB(213, 0, 27)] forState:UIControlStateHighlighted];
         [_sure setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_sure setTitle:@"确定" forState:UIControlStateNormal];
         [_sure addTarget:self action:@selector(sureAction) forControlEvents:UIControlEventTouchUpInside];
@@ -289,7 +289,7 @@
 - (UIView *)textBackground {
     if (!_textBackground) {
         _textBackground = [UIView new];
-        _textBackground.layer.borderColor = GRAY_COLOR(244).CGColor;
+        _textBackground.layer.borderColor = RGB(244, 244, 244).CGColor;
         _textBackground.layer.borderWidth = .5f;
         _textBackground.layer.cornerRadius = 5.f;
         [_textBackground.layer setMasksToBounds:YES];
@@ -301,7 +301,7 @@
     if (!_textField) {
         _textField = [[UITextField alloc] init];
         _textField.font = Font(14);
-        _textField.textColor = GLOBAL_RED_COLOR;
+        _textField.textColor = RGB(213, 0, 27);
         _textField.delegate = self;
     }
     return _textField;

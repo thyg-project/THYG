@@ -106,7 +106,7 @@
 - (UIView *)topView {
     if (!_topView) {
         _topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
-        _topView.backgroundColor = BGColor;
+        _topView.backgroundColor = kBackgroundColor;
         NSArray *titles = @[@"综合",@"评论数",@"好评率"];
         CGFloat bW = (kScreenWidth - 2) / 3;
         CGFloat bX = 0;
@@ -116,7 +116,7 @@
             btn.tag = i + kScreenWidth;
 //            btn.titleLabel.font = [UIFont systemFontOfSize:14];
             btn.backgroundColor = [UIColor whiteColor];
-            [btn setTitleColor:GRAY_51 forState:UIControlStateNormal];
+            [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
             [btn setTitle:titles[i] forState:UIControlStateNormal];
             bX = i > 0 ? (bW + 1) * i  : 0;
             btn.frame = CGRectMake(bX, 0, bW, 44);

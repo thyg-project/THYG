@@ -179,7 +179,7 @@
 
 + (UIImage *)createPlaceholderImageWithSize:(CGSize)size {
 //    Color_G7
-    return [self placeholderImageWithSize:size image:[UIImage imageNamed:@"ad_normal"] backgroundColor:BGColor];
+    return [self placeholderImageWithSize:size image:[UIImage imageNamed:@"ad_normal"] backgroundColor:kBackgroundColor];
 }
 
 - (void)setImgAndSizeWithImg:(UIImage *)img{

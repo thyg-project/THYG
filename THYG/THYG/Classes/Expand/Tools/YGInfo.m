@@ -23,10 +23,29 @@ static BOOL isBangScreen(void) {
     static BOOL bangScreen = NO;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        int height = MAX([UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-        bangScreen = (height == 812 || height == 896);
+        bangScreen = [UIApplication sharedApplication].statusBarFrame.size.height > 20;
     });
     return bangScreen;
+}
+
+static CGFloat statesBarHeight(void) {
+    static  CGFloat stateBarHeight = 20;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        stateBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    });
+    return stateBarHeight;
+}
+
+static UIEdgeInsets applicationSafeAreaInsets(void) {
+    static UIEdgeInsets safeAreaInsets = {0,0,0,0};
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (@available(iOS 11.0, *)) {
+            safeAreaInsets = [UIApplication sharedApplication].delegate.window.safeAreaInsets;
+        }
+    });
+    return safeAreaInsets;
 }
 
 static BOOL validDictionary(NSDictionary *dictionary) {
@@ -172,6 +191,8 @@ YGInfo_t YGInfo = {
     IDFV,
     appVersion,
     deviceVersion,
-    deviceModel
+    deviceModel,
+    applicationSafeAreaInsets,
+    statesBarHeight,
 };
 

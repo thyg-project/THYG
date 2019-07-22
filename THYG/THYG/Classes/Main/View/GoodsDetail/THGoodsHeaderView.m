@@ -26,7 +26,7 @@
 }
 
 - (void)setUpUI {
-    self.contentView.backgroundColor = BGColor;
+    self.contentView.backgroundColor = kBackgroundColor;
     [self.contentView addSubview:self.cycleScrollView];
     [self.cycleScrollView addSubview:self.label];
 }
@@ -84,7 +84,7 @@
         _cycleScrollView.showPageControl = NO;
         _cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
         _cycleScrollView.clipsToBounds = YES;
-        _cycleScrollView.backgroundColor = BGColor;
+        _cycleScrollView.backgroundColor = kBackgroundColor;
     }
     return _cycleScrollView;
 }
@@ -93,7 +93,7 @@
     if (!_label) {
         _label = [THUIFactory labelWithText:@"" fontSize:14 tintColor:[UIColor whiteColor]];
         _label.textAlignment = NSTextAlignmentCenter;
-        _label.backgroundColor = GRAY(0, 0.6);
+        _label.backgroundColor = RGBA(0, 0, 0, 0.6);
         _label.layer.cornerRadius = 4;
         _label.layer.masksToBounds = YES;
     }
@@ -103,7 +103,7 @@
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, self.frame.size.height-0.5, kScreenWidth, 0.5)];
-    [LINECOLOR set];
+    [kLineColor set];
     [path fill];
 }
 

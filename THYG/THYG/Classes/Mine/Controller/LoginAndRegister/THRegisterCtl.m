@@ -40,7 +40,7 @@
     }];
     
     RAC(self.nextStepBtn, backgroundColor) = [signUpActiveSignal map:^id(NSNumber *nextValid){
-        return [nextValid boolValue] ? GLOBAL_RED_COLOR : GRAY_COLOR(230);
+        return [nextValid boolValue] ? RGB(213, 0, 27) : RGB(230, 230, 230);
     }];
     
     [signUpActiveSignal subscribeNext:^(NSNumber*signupActive){

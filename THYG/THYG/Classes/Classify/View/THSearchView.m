@@ -30,7 +30,7 @@
             UITextField *field = [[UITextField alloc] init];
             field.placeholder = @"商品关键字";
             field.font = [UIFont systemFontOfSize:13];
-            field.textColor = GRAY_151;
+            field.textColor = RGB(151, 151, 151);
             field.backgroundColor = [UIColor whiteColor];
             field.delegate = self;
             field.layer.cornerRadius = 34 * 0.5;

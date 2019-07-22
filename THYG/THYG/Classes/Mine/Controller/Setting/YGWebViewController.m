@@ -39,13 +39,13 @@
         make.edges.equalTo(self.view);
     }];
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    NSString *appUserAgent = @"MMApp/1.0.0 NetType/WIFI Language/zh_CN(MM iOS APP/1.0)";
-    [self.webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id result, NSError * _Nullable error) {
-        NSString *userAgent = result;
-        NSString *newUserAgent = [userAgent stringByAppendingString:appUserAgent];
-        NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent, @"UserAgent", nil];
-        [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
-    }];
+//    NSString *appUserAgent = @"MMApp/1.0.0 NetType/WIFI Language/zh_CN(MM iOS APP/1.0)";
+//    [self.webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id result, NSError * _Nullable error) {
+//        NSString *userAgent = result;
+//        NSString *newUserAgent = [userAgent stringByAppendingString:appUserAgent];
+//        NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent, @"UserAgent", nil];
+//        [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+//    }];
 //    if (@available(iOS 9.0, *)) {
 //        _webView.customUserAgent = userAgent;
 //    } else {
@@ -85,6 +85,7 @@
 }
 
 - (void)dealloc {
+    [THHUDProgress dismiss];
     @try {
         [self.webView removeObserver:self forKeyPath:@"title"];
     } @catch (NSException *exception) {

@@ -92,8 +92,8 @@
             if ([[subView class] isSubclassOfClass:[UITextField class]]) {
                 UITextField *textField = (UITextField *)subView;
                 textField.font = [UIFont systemFontOfSize:14];
-                textField.textColor = GRAY_COLOR(17);
-                textField.backgroundColor = BGColor;
+                textField.textColor = RGB(17,17,17);
+                textField.backgroundColor = kBackgroundColor;
                 self.searchText.length ? textField.placeholder = self.searchText : nil;
                 _searchTextField = textField;
                 break;
@@ -264,7 +264,7 @@
     if (!_collectionView) {
         UICollectionViewFlowLayout*layout = [[UICollectionViewFlowLayout alloc] init];
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 44, kScreenWidth, kScreenHeight-kNaviHeight-44) collectionViewLayout:layout];
-        _collectionView.backgroundColor = BGColor;
+        _collectionView.backgroundColor = kBackgroundColor;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THHomeHotGoodsCell.class) bundle:nil]  forCellWithReuseIdentifier:NSStringFromClass(THHomeHotGoodsCell.class)];

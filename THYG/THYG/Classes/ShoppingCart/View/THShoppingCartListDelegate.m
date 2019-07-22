@@ -48,7 +48,7 @@
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     THCartSectionHead *head = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THCartSectionHead.class)];
-    head.contentView.backgroundColor = GRAY_COLOR(222);
+    head.contentView.backgroundColor = RGB(222, 222, 222);
     THShoppingCartModel *model = self.data[section];
     NSLog(@">>>%@%@,,,,,%ld",model.suppliers.suppliers_name,model.suppliers.suppliers_id,section);
     head.modelData = model.suppliers;

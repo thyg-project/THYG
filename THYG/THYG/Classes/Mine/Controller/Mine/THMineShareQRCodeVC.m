@@ -24,7 +24,7 @@
 #pragma mark - 设置UI
 - (void)setupUI {
     self.navigationItem.title = @"推广二维码";
-    self.shareButton.layer.borderColor = GLOBAL_RED_COLOR.CGColor;
+    self.shareButton.layer.borderColor = RGB(213, 0, 27).CGColor;
     self.shareButton.layer.borderWidth = 1;
 }
 

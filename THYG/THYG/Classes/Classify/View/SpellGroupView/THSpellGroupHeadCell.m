@@ -8,26 +8,30 @@
 
 #import "THSpellGroupHeadCell.h"
 
-@implementation THSpellGroupHeadCell {
+@interface THSpellGroupHeadCell() {
     __weak IBOutlet UILabel *timeLabel;
     __weak IBOutlet UILabel *statusLabel;
     
 }
+
+@end
+
+@implementation THSpellGroupHeadCell 
 
 - (void)refreshWithDic:(NSDictionary *)dic {
     timeLabel.text = dic[@"time"];
     statusLabel.text = dic[@"status"];
     
     if (![dic[@"is_ing"] integerValue]) {
-        self.backgroundColor = GRAY_COLOR(200);
-        timeLabel.textColor = GRAY_COLOR(81);
-        statusLabel.textColor = GRAY_COLOR(81);
+        self.backgroundColor = RGB(200, 200, 200);
+        timeLabel.textColor = RGB(81, 81, 81);
+        statusLabel.textColor = RGB(81, 81, 81);
         timeLabel.font = Font(14);
         statusLabel.font = Font(13);
     }else{
-        self.backgroundColor = GLOBAL_RED_COLOR;
-        timeLabel.textColor = GRAY_COLOR(255);
-        statusLabel.textColor = GRAY_COLOR(255);
+        self.backgroundColor = RGB(213, 0, 27);
+        timeLabel.textColor = RGB(255, 255, 255);
+        statusLabel.textColor = RGB(255, 255, 255);
         timeLabel.font = Font(16);
         statusLabel.font = Font(15);
         

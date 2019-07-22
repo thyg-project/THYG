@@ -71,7 +71,7 @@ static NSString *const kImageValidateKey = @"is_ing";
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = BGColor;
+        _collectionView.backgroundColor = kBackgroundColor;
         
         [_collectionView registerNib:[UINib nibWithNibName:@"THSpellGroupHeadCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THSpellGroupHeadCell.class)];
     }

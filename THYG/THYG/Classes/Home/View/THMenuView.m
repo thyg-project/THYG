@@ -43,6 +43,20 @@
     }];
 }
 
+- (void)showRect:(CGRect)rect {
+    if (!YGInfo.validArray(self.data)) {
+        NSLog(@"缺少数据");
+        return;
+    }
+    self.top = CGRectGetMinY(rect);
+    self.left = CGRectGetMinX(rect);
+    self.right = CGRectGetWidth(rect);
+    self.height = CGRectGetHeight(rect);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.mTable.height = 44*self.data.count-1;
+    }];
+}
+
 - (void)hidden {
     [UIView animateWithDuration:0.3 animations:^{
         self.mTable.height = 0;
@@ -77,7 +91,7 @@
         _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0) style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
-        _mTable.backgroundColor = BGColor;
+        _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         [_mTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     }

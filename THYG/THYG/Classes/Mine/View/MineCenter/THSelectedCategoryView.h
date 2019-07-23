@@ -8,14 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol THCategoryDelegate;
 @interface THSelectedCategoryView : UIView
-
-@property (nonatomic, copy) void (^selectedItemBlock)(NSString *category);
 
 @property (nonatomic, strong) NSArray *dataArray;
 
-+ (instancetype)sharedInstance;
+@property (nonatomic, weak) id <THCategoryDelegate> delegate;
 
-- (void)show;
+
+- (void)showInView:(UIView *)inView;
+
+@end
+
+@protocol THCategoryDelegate <NSObject>
+
+- (void)dismiss:(THSelectedCategoryView *)view;;
+
+- (void)catogoryView:(THSelectedCategoryView *)category didSelectedItem:(NSString *)item;
 
 @end

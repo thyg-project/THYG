@@ -10,7 +10,7 @@
 #import "THSelectTimeView.h"
 #import "THSelectedCategoryView.h"
 
-@interface THUserInfoEditCtl () <THSelectTimeViewDelegate, UITextFieldDelegate>
+@interface THUserInfoEditCtl () <THSelectTimeViewDelegate, UITextFieldDelegate, THCategoryDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sexBtn;
@@ -34,24 +34,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息编辑";
     self.nickNameLabel.delegate = self.professionalField.delegate = self;
-    kWeakSelf;
-    self.timeView.selectedTimeBlock = ^(NSString *year, NSString *month, NSString *day) {
-        [weakSelf.yearBtn setTitle:year forState:UIControlStateNormal];
-        [weakSelf.monthBtn setTitle:month forState:UIControlStateNormal];
-        [weakSelf.dayBtn setTitle:day forState:UIControlStateNormal];
-        NSString *time = [[[year substringToIndex:year.length-1] stringByAppendingString:[month substringToIndex:month.length-1]] stringByAppendingString:[day substringToIndex:day.length-1]];
-        weakSelf.params[@"birthday"] = @([time integerValue]);
-    };
     
-    self.categoryView.selectedItemBlock = ^(NSString *category) {
-        if (weakSelf.isSelectedSex) {
-            [weakSelf.sexBtn setTitle:category forState:UIControlStateNormal];
-            weakSelf.params[@"sex"] = [category isEqualToString:@"男"] ? @"1" : @"2";
-        } else {
-            [weakSelf.categoryBtn setTitle:category forState:UIControlStateNormal];
-            weakSelf.params[@"favorite_cat"] = category;
-        }
-    };
 }
 
 #pragma mark - 上传头像
@@ -63,19 +46,19 @@
 - (IBAction)sexBtnClick:(id)sender {
     _isSelectedSex = YES;
     self.categoryView.dataArray = @[@"男",@"女"];
-    [self.categoryView show];
+    [self.categoryView showInView:self.view];
 }
 
 #pragma mark - 选择时间
 - (IBAction)timeClick:(id)sender {
-    [self.timeView show];
+    [self.timeView showInView:self.view];
 }
 
 #pragma mark - 选择分类
 - (IBAction)categoryBtnClick:(id)sender {
     _isSelectedSex = NO;
     self.categoryView.dataArray = self.dataSourceArray;
-    [self.categoryView show];
+    [self.categoryView showInView:self.view];
 }
 
 #pragma mark - 确认修改
@@ -84,7 +67,29 @@
 }
 
 - (void)dismiss {
-    [self.timeView removeFromSuperview];
+    
+}
+
+- (void)selectedItemWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day {
+    [self.yearBtn setTitle:year forState:UIControlStateNormal];
+    [self.monthBtn setTitle:month forState:UIControlStateNormal];
+    [self.dayBtn setTitle:day forState:UIControlStateNormal];
+    NSString *time = [[[year substringToIndex:year.length-1] stringByAppendingString:[month substringToIndex:month.length-1]] stringByAppendingString:[day substringToIndex:day.length-1]];
+    self.params[@"birthday"] = @([time integerValue]);
+}
+
+- (void)dismiss:(THSelectedCategoryView *)view {
+    
+}
+
+- (void)catogoryView:(THSelectedCategoryView *)category didSelectedItem:(NSString *)item {
+    if (self.isSelectedSex) {
+        [self.sexBtn setTitle:item forState:UIControlStateNormal];
+        self.params[@"sex"] = [item isEqualToString:@"男"] ? @"1" : @"2";
+    } else {
+        [self.categoryBtn setTitle:item forState:UIControlStateNormal];
+        self.params[@"favorite_cat"] = item;
+    }
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
@@ -99,7 +104,7 @@
 #pragma mark - 懒加载
 - (THSelectTimeView *)timeView {
     if (!_timeView) {
-        _timeView = [THSelectTimeView sharedInstance];
+        _timeView = [THSelectTimeView new];
         _timeView.delegate = self;
     }
     return _timeView;
@@ -107,7 +112,8 @@
 
 - (THSelectedCategoryView *)categoryView {
     if (!_categoryView) {
-        _categoryView = [THSelectedCategoryView sharedInstance];
+        _categoryView = [THSelectedCategoryView new];
+        _categoryView.delegate = self;
     }
     return _categoryView;
 }

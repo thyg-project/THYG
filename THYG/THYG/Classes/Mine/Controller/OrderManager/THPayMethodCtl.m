@@ -53,7 +53,7 @@
     cell.titleLabel.text = @[@"银行卡",@"支付宝支付",@"微信支付"][indexPath.row];
     if (indexPath.row==_curSelectIndex) {
         cell.selectStatus.selected = YES;
-    }else{
+    } else {
         cell.selectStatus.selected = NO;
     }
     return cell;

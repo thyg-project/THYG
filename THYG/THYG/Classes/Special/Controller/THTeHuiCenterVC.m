@@ -11,6 +11,8 @@
 #import "THTeHuiModel.h"
 #import "THMenuView.h"
 
+static NSInteger const kButtonTag = 10086;
+
 @interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UIButton *titleBtnView;
 @property (nonatomic, strong) UIView *topView;
@@ -30,7 +32,6 @@
     [super viewDidLoad];
     [self setupUI];
     [self setMunes];
-    
 }
 
 - (void)setMunes {
@@ -45,14 +46,17 @@
 }
 
 - (void)setupUI {
-    self.navigationItem.leftBarButtonItem = self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.titleView = self.titleBtnView;
     [self.view addSubview:self.topView];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     [self.tableView registerClass:[THTeHuiCell class] forCellReuseIdentifier:NSStringFromClass(THTeHuiCell.class)];
 }
 
@@ -84,7 +88,7 @@
 }
 
 - (void)topViewClick:(UIButton *)sender {
-    NSInteger tag = sender.tag - kScreenWidth;
+    NSInteger tag = sender.tag - kButtonTag;
     NSLog(@"tag %ld", tag);
 }
 
@@ -113,8 +117,8 @@
         for (NSInteger i = 0; i < titles.count; i++) {
             UIButton *btn = [[UIButton alloc] init];
             
-            btn.tag = i + kScreenWidth;
-//            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+            btn.tag = i + kButtonTag;
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
             btn.backgroundColor = [UIColor whiteColor];
             [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
             [btn setTitle:titles[i] forState:UIControlStateNormal];

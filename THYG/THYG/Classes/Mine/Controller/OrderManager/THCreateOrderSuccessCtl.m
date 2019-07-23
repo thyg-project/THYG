@@ -94,7 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    THOrderConfirmPaymentCell * cell = nil;//[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THOrderConfirmPaymentCell)];
+    THOrderConfirmPaymentCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THOrderConfirmPaymentCell.class)];
     cell.cellDict = _itemArray[indexPath.row];
     
     kWeakObject(cell)

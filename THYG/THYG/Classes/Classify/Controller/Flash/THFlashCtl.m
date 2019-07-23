@@ -84,6 +84,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     THGoodsDetailVC *goodDetailVc = [[THGoodsDetailVC alloc] init];
     THFlashSaleModel *flashModel = self.listArray[indexPath.item];
     goodDetailVc.goodsId = flashModel.goods_id;

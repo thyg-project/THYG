@@ -174,13 +174,6 @@
 }
 
 #pragma mark - 懒加载
-- (NSArray *)addressList {
-    if (!_addressList) {
-        _addressList = [NSArray array];
-    }
-    return _addressList;
-}
-
 - (UITableView *)mTable {
     if (!_mTable) {
         _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];

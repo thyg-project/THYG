@@ -17,54 +17,53 @@
 
 @implementation THSelectedCategoryView
 
-+ (instancetype)sharedInstance {
-    static THSelectedCategoryView *selectedItenView = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        selectedItenView = [[THSelectedCategoryView alloc] init];
-    });
-    return selectedItenView;
-}
-
 - (instancetype)init {
-    if (self = [super initWithFrame:[UIApplication sharedApplication].keyWindow.frame]) {
-        self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-        topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, WIDTH(40))];
-        topV.backgroundColor = RGB(242, 242, 242);
-        [self addSubview:topV];
-        
-        UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        cancelBtn.frame = CGRectMake(0, 0, WIDTH(100), WIDTH(40));
-        [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-        
-        [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        [cancelBtn addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
-        [topV addSubview:cancelBtn];
-        
-        UIButton *yesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        yesBtn.frame = CGRectMake(kScreenWidth - WIDTH(100), 0, WIDTH(100), WIDTH(40));
-        [yesBtn setTitle:@"完成" forState:UIControlStateNormal];
-        [yesBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [yesBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        [yesBtn addTarget:self action:@selector(okClick) forControlEvents:UIControlEventTouchUpInside];
-        [topV addSubview:yesBtn];
-        
-        _picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(150))];
-        _picker.dataSource = self;
-        _picker.delegate = self;
-        _picker.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_picker];
+    if (self = [super init]) {
+        [self setUp];
     }
     return self;
 }
 
-- (void)show {
+- (void)setUp {
+    self.frame = UIScreen.mainScreen.bounds;
+    self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, WIDTH(40))];
+    topV.backgroundColor = RGB(242, 242, 242);
+    [self addSubview:topV];
+    
+    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelBtn.frame = CGRectMake(0, 0, WIDTH(100), WIDTH(40));
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    
+    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [cancelBtn addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
+    [topV addSubview:cancelBtn];
+    
+    UIButton *yesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    yesBtn.frame = CGRectMake(kScreenWidth - WIDTH(100), 0, WIDTH(100), WIDTH(40));
+    [yesBtn setTitle:@"完成" forState:UIControlStateNormal];
+    [yesBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [yesBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [yesBtn addTarget:self action:@selector(okClick) forControlEvents:UIControlEventTouchUpInside];
+    [topV addSubview:yesBtn];
+    
+    _picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(150))];
+    _picker.dataSource = self;
+    _picker.delegate = self;
+    _picker.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_picker];
+}
+
+- (void)showInView:(UIView *)inView {
+    if (!inView) {
+        inView = UIApplication.sharedApplication.delegate.window;
+    }
     [UIView animateWithDuration:0.25 animations:^{
         topV.frame = CGRectMake(0, kScreenHeight - WIDTH(190), kScreenWidth, WIDTH(40));
         _picker.frame = CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(150));
     }];
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [inView addSubview:self];
 }
 
 - (void)setDataArray:(NSArray *)dataArray {
@@ -94,8 +93,10 @@
 }
 
 - (void)okClick {
-    !self.selectedItemBlock?:self.selectedItemBlock(self.dataArray[selectedIndex]);
     [self remove];
+    if ([self.delegate respondsToSelector:@selector(catogoryView:didSelectedItem:)]) {
+        [self.delegate catogoryView:self didSelectedItem:self.dataArray[selectedIndex]];
+    }
 }
 
 - (void)cancelClick {
@@ -103,14 +104,17 @@
 }
 
 - (void)remove {
-    
     [UIView animateWithDuration:0.25 animations:^{
         topV.frame = CGRectMake(0, kScreenHeight,  kScreenWidth, WIDTH(40));
         _picker.frame = CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(150));
     } completion:^(BOOL finished) {
+         [self removeFromSuperview];
+        if ([self.delegate respondsToSelector:@selector(dismiss:)]) {
+            [self.delegate dismiss:self];
+        }
     }];
     
-    [self removeFromSuperview];
+   
     
 }
 

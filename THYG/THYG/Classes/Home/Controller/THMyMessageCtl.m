@@ -62,10 +62,12 @@
 
 - (IBAction)customServiceBtnClick:(id)sender {
 }
+
 - (IBAction)systemNotificationBtnClick:(id)sender {
     THSystemMessageCtl *sysMsg = [[THSystemMessageCtl alloc] init];
     [self.navigationController pushViewController:sysMsg animated:YES];
 }
+
 - (IBAction)activityRecommandBtnClick:(id)sender {
     THActivityRecommandCtl *activity = [[THActivityRecommandCtl alloc] init];
     [self.navigationController pushViewController:activity animated:YES];

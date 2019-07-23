@@ -27,95 +27,94 @@
 
 @implementation THSelectTimeView
 
-+ (instancetype)sharedInstance {
-    static THSelectTimeView *_selectedTimeView = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _selectedTimeView = [[THSelectTimeView alloc] init];
-    });
-    return _selectedTimeView;
-}
 
-- (void)show {
+- (void)showInView:(UIView *)inView {
+    if (!inView) {
+        inView = [UIApplication sharedApplication].delegate.window;
+    }
     [UIView animateWithDuration:0.25 animations:^{
         topV.frame = CGRectMake(0, kScreenHeight - WIDTH(247), kScreenWidth, WIDTH(40));
         _pickerView.frame = CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(207));
     }];
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [inView addSubview:self];
 }
 
 - (instancetype)init {
-    self = [super initWithFrame:[UIApplication sharedApplication].keyWindow.frame];
-    if (self) {
-        self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-        
-        topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, WIDTH(40))];
-        topV.backgroundColor = RGB(242, 242, 242);
-        [self addSubview:topV];
-        
-        UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        cancelBtn.frame = CGRectMake(0, 0, WIDTH(100), WIDTH(40));
-        [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-        [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        [cancelBtn addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
-        [topV addSubview:cancelBtn];
-        
-        UIButton *yesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        yesBtn.frame = CGRectMake(kScreenWidth - WIDTH(100), 0, WIDTH(100), WIDTH(40));
-        [yesBtn setTitle:@"完成" forState:UIControlStateNormal];
-        [yesBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [yesBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        [yesBtn addTarget:self action:@selector(okClick) forControlEvents:UIControlEventTouchUpInside];
-        [topV addSubview:yesBtn];
-        
-        
-        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(207))];
-        _pickerView.dataSource = self;
-        _pickerView.delegate = self;
-        _pickerView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_pickerView];
-        
-        NSCalendar *calendar = [[NSCalendar alloc]
-                                initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        // 定义一个时间字段的旗标，指定将会获取指定年、月、日、时、分、秒的信息
-        unsigned unitFlags = NSCalendarUnitYear |
-        NSCalendarUnitMonth |  NSCalendarUnitDay |
-        NSCalendarUnitHour |  NSCalendarUnitMinute |
-        NSCalendarUnitSecond | NSCalendarUnitWeekday;
-        // 获取不同时间字段的信息
-        NSDateComponents *comp = [calendar components: unitFlags fromDate:[NSDate date]];
-        
-        yearIndex = [self.yearArray indexOfObject:[NSString stringWithFormat:@"%ld年", comp.year]];
-        monthIndex = [self.monthArray indexOfObject:[NSString stringWithFormat:@"%02ld月", comp.month]];
-        dayIndex = [self.dayArray indexOfObject:[NSString stringWithFormat:@"%02ld日", comp.day]];
-        
-        [_pickerView selectRow:yearIndex inComponent:0 animated:YES];
-        [_pickerView selectRow:monthIndex inComponent:1 animated:YES];
-        [_pickerView selectRow:dayIndex inComponent:2 animated:YES];
-        
-        [self pickerView:_pickerView didSelectRow:yearIndex inComponent:0];
-        [self pickerView:_pickerView didSelectRow:monthIndex inComponent:1];
-        [self pickerView:_pickerView didSelectRow:dayIndex inComponent:2];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            UILabel *label = (UILabel *)[_pickerView viewForRow:yearIndex forComponent:0];
-            label.textColor = TEXT_COLOR;
-            label.font = [UIFont systemFontOfSize:16];
-            
-            label = (UILabel *)[_pickerView viewForRow:monthIndex forComponent:1];
-            label.textColor = TEXT_COLOR;
-            label.font = [UIFont systemFontOfSize:16];
-            
-            label = (UILabel *)[_pickerView viewForRow:dayIndex forComponent:2];
-            label.textColor = TEXT_COLOR;
-            label.font = [UIFont systemFontOfSize:16];
-            
-        });
-        
+    if (self = [super init]) {
+        self.frame = UIScreen.mainScreen.bounds;
+        [self setUp];
     }
     return self;
+}
+
+- (void)setUp {
+    self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    
+    topV = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, WIDTH(40))];
+    topV.backgroundColor = RGB(242, 242, 242);
+    [self addSubview:topV];
+    
+    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelBtn.frame = CGRectMake(0, 0, WIDTH(100), WIDTH(40));
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [cancelBtn addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
+    [topV addSubview:cancelBtn];
+    
+    UIButton *yesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    yesBtn.frame = CGRectMake(kScreenWidth - WIDTH(100), 0, WIDTH(100), WIDTH(40));
+    [yesBtn setTitle:@"完成" forState:UIControlStateNormal];
+    [yesBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [yesBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [yesBtn addTarget:self action:@selector(okClick) forControlEvents:UIControlEventTouchUpInside];
+    [topV addSubview:yesBtn];
+    
+    
+    _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(207))];
+    _pickerView.dataSource = self;
+    _pickerView.delegate = self;
+    _pickerView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_pickerView];
+    
+    NSCalendar *calendar = [[NSCalendar alloc]
+                            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    // 定义一个时间字段的旗标，指定将会获取指定年、月、日、时、分、秒的信息
+    unsigned unitFlags = NSCalendarUnitYear |
+    NSCalendarUnitMonth |  NSCalendarUnitDay |
+    NSCalendarUnitHour |  NSCalendarUnitMinute |
+    NSCalendarUnitSecond | NSCalendarUnitWeekday;
+    // 获取不同时间字段的信息
+    NSDateComponents *comp = [calendar components: unitFlags fromDate:[NSDate date]];
+    
+    yearIndex = [self.yearArray indexOfObject:[NSString stringWithFormat:@"%ld年", comp.year]];
+    monthIndex = [self.monthArray indexOfObject:[NSString stringWithFormat:@"%02ld月", comp.month]];
+    dayIndex = [self.dayArray indexOfObject:[NSString stringWithFormat:@"%02ld日", comp.day]];
+    
+    [_pickerView selectRow:yearIndex inComponent:0 animated:YES];
+    [_pickerView selectRow:monthIndex inComponent:1 animated:YES];
+    [_pickerView selectRow:dayIndex inComponent:2 animated:YES];
+    
+    [self pickerView:_pickerView didSelectRow:yearIndex inComponent:0];
+    [self pickerView:_pickerView didSelectRow:monthIndex inComponent:1];
+    [self pickerView:_pickerView didSelectRow:dayIndex inComponent:2];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        UILabel *label = (UILabel *)[_pickerView viewForRow:yearIndex forComponent:0];
+        label.textColor = TEXT_COLOR;
+        label.font = [UIFont systemFontOfSize:16];
+        
+        label = (UILabel *)[_pickerView viewForRow:monthIndex forComponent:1];
+        label.textColor = TEXT_COLOR;
+        label.font = [UIFont systemFontOfSize:16];
+        
+        label = (UILabel *)[_pickerView viewForRow:dayIndex forComponent:2];
+        label.textColor = TEXT_COLOR;
+        label.font = [UIFont systemFontOfSize:16];
+        
+    });
+    
 }
 
 #pragma mark -UIPickerView
@@ -156,8 +155,9 @@
     yearString = [NSString stringWithFormat:@"%@",((UILabel *)[_pickerView viewForRow:yearIndex forComponent:0]).text];
     monthString = [NSString stringWithFormat:@"%@",((UILabel *)[_pickerView viewForRow:monthIndex forComponent:1]).text];
     dayString = [NSString stringWithFormat:@"%@",((UILabel *)[_pickerView viewForRow:dayIndex forComponent:2]).text];
-    
-    !self.selectedTimeBlock?:self.selectedTimeBlock(yearString, monthString, dayString);
+    if ([self.delegate respondsToSelector:@selector(selectedItemWithYear:month:day:)]) {
+        [self.delegate selectedItemWithYear:yearString month:monthString day:dayString];
+    }
     [self remove];
 }
 
@@ -166,77 +166,49 @@
 }
 
 - (void)remove {
-    
     [UIView animateWithDuration:0.25 animations:^{
         topV.frame = CGRectMake(0, kScreenHeight,  kScreenWidth, WIDTH(40));
         _pickerView.frame = CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(207));
     } completion:^(BOOL finished) {
-        //[self removeFromSuperview];
+        [self removeFromSuperview];
+        if ([self.delegate respondsToSelector:@selector(dismiss)]) {
+            [self.delegate dismiss];
+        }
     }];
-    
-    if ([self.delegate respondsToSelector:@selector(dismiss)]) {
-        [self.delegate dismiss];
-    }
-    
 }
 #pragma mark -UIPickerView的代理
 
 // 滚动UIPickerView就会调用
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if (component == 0) {
-        
         yearIndex = row;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
-            label.textColor = TEXT_COLOR;
-            label.font = [UIFont systemFontOfSize:16];
-            
-        });
-        
-    }else if (component == 1) {
-        
+        UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
+        label.textColor = TEXT_COLOR;
+        label.font = [UIFont systemFontOfSize:16];
+    } else if (component == 1) {
         monthIndex = row;
-        
         [pickerView reloadComponent:2];
-        
-        
         if (monthIndex + 1 == 4 || monthIndex + 1 == 6 || monthIndex + 1 == 9 || monthIndex + 1 == 11) {
-            
             if (dayIndex + 1 == 31) {
-                
                 dayIndex--;
             }
-        }else if (monthIndex + 1 == 2) {
-            
+        } else if (monthIndex + 1 == 2) {
             if (dayIndex + 1 > 28) {
                 dayIndex = 27;
             }
         }
         [pickerView selectRow:dayIndex inComponent:2 animated:YES];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
-            label.textColor = TEXT_COLOR;
-            label.font = [UIFont systemFontOfSize:16];
-            
-            label = (UILabel *)[pickerView viewForRow:dayIndex forComponent:2];
-            label.textColor = TEXT_COLOR;
-            label.font = [UIFont systemFontOfSize:16];
-            
-        });
-    }else {
-        
+        UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
+        label.textColor = TEXT_COLOR;
+        label.font = [UIFont systemFontOfSize:16];
+        label = (UILabel *)[pickerView viewForRow:dayIndex forComponent:2];
+        label.textColor = TEXT_COLOR;
+        label.font = [UIFont systemFontOfSize:16];
+    } else {
         dayIndex = row;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
-            label.textColor = TEXT_COLOR;
-            label.font = [UIFont systemFontOfSize:16];
-            
-        });
+        UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
+        label.textColor = TEXT_COLOR;
+        label.font = [UIFont systemFontOfSize:16];
     }
 }
 
@@ -247,23 +219,17 @@
     genderLabel.textColor = RGB(151, 151, 151);
     genderLabel.font = [UIFont systemFontOfSize:14];
     if (component == 0) {
-        
         genderLabel.text = self.yearArray[row];
-        
-    }else if (component == 1) {
-        
+    } else if (component == 1) {
         genderLabel.text = self.monthArray[row];
-        
-    }else {
-        
+    } else {
         genderLabel.text = self.dayArray[row];
     }
-    
     return genderLabel;
 }
 
 - (NSMutableArray *)yearArray {
-    if (_yearArray == nil) {
+    if (!_yearArray) {
         _yearArray = [NSMutableArray array];
         
         NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -281,7 +247,7 @@
 }
 
 - (NSMutableArray *)monthArray {
-    if (_monthArray == nil) {
+    if (!_monthArray) {
         _monthArray = [NSMutableArray array];
         for (int month = 1; month <= 12; month++) {
             NSString *str = [NSString stringWithFormat:@"%02d月", month];
@@ -292,7 +258,7 @@
 }
 
 - (NSMutableArray *)dayArray {
-    if (_dayArray == nil) {
+    if (!_dayArray) {
         _dayArray = [NSMutableArray array];
         for (int day = 1; day <= 31; day++) {
             NSString *str = [NSString stringWithFormat:@"%02d日", day];

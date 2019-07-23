@@ -74,7 +74,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 

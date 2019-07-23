@@ -9,8 +9,8 @@
 #import "THMineHeaderView.h"
 
 @interface THMineHeaderView()
-@property (nonatomic,strong) UIImageView *userImgView;
-@property (nonatomic,strong) UILabel *userNameLabel;
+@property (nonatomic, strong) UIImageView *userImgView;
+@property (nonatomic, strong) UILabel *userNameLabel;
 @property (nonatomic, strong) UIButton *checkOnBtn;
 @end
 
@@ -19,34 +19,9 @@
 #pragma mark - Intial
 - (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
-		[self addSubview:self.headImgView];
-		[self addSubview:self.userImgView];
-		[self addSubview:self.userNameLabel];
-        [self addSubview:self.checkOnBtn];
+        [self initinalizedViews];
 	}
 	return self;
-}
-
-- (void)layoutSubviews {
-	[super layoutSubviews];
-	[self.userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.left.offset(25);
-		make.bottom.offset(-25);
-		make.width.height.offset(56);
-	}];
-	
-	[self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.left.equalTo(self.userImgView.mas_right).offset(10);
-		make.centerY.equalTo(self.userImgView.mas_centerY);
-	}];
-    
-    [self.checkOnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.offset(-20);
-        make.centerY.equalTo(self.userNameLabel.mas_centerY);
-        make.width.offset(60);
-        make.height.offset(25);
-    }];
-	
 }
 
 - (void)refreshUI {
@@ -79,58 +54,60 @@
     !self.checkOnBlock?:self.checkOnBlock();
 }
 
-- (UIImageView*)headImgView {
-	if (_headImgView == nil) {
-		_headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 100+kNaviHeight)];
-		_headImgView.image = [UIImage imageNamed:@"noLogin"];
-	}
-	return _headImgView;
-}
-
-- (UIImageView*)userImgView {
-	if (_userImgView == nil) {
-		_userImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"touxiang"]];
-		_userImgView.contentMode = UIViewContentModeScaleAspectFill;
-		_userImgView.layer.cornerRadius = 28;
-		_userImgView.clipsToBounds = YES;
-		_userImgView.userInteractionEnabled = YES;
-		UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoMotifyPage)];
-		[_userImgView addGestureRecognizer:tap];
-	}
-	return _userImgView;
-}
-
-- (UILabel*)userNameLabel {
-	if (_userNameLabel==nil) {
-		_userNameLabel = [[UILabel alloc]init];
-		_userNameLabel.textColor = [UIColor whiteColor];
-        if (@available(iOS 8.2, *)) {
-            _userNameLabel.font = [UIFont systemFontOfSize:16 weight:2];
-        } else {
-            // Fallback on earlier versions
-        }
-		_userNameLabel.text = @"登录 / 注册";
-		_userNameLabel.userInteractionEnabled = YES;
-		UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoMotifyPage)];
-		[_userNameLabel addGestureRecognizer:tap];
-	}
-	return _userNameLabel;
-}
-
-- (UIButton *)checkOnBtn {
-    if (!_checkOnBtn) {
-        _checkOnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_checkOnBtn setTitleColor:RGB(255, 216, 0) forState:UIControlStateNormal];
-        [_checkOnBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-        [_checkOnBtn setBackgroundColor:[UIColor clearColor]];
-        _checkOnBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-        [_checkOnBtn setTitle:@"签到" forState:UIControlStateNormal];
-        [_checkOnBtn addTarget:self action:@selector(checkOnClick:) forControlEvents:UIControlEventTouchUpInside];
-        _checkOnBtn.layer.borderWidth = 1;
-        _checkOnBtn.layer.cornerRadius = 12.5;
-        _checkOnBtn.layer.borderColor = RGB(255, 216, 0).CGColor;
+- (void)initinalizedViews {
+    _checkOnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_checkOnBtn setTitleColor:RGB(255, 216, 0) forState:UIControlStateNormal];
+    [_checkOnBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+    [_checkOnBtn setBackgroundColor:[UIColor clearColor]];
+    _checkOnBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_checkOnBtn setTitle:@"签到" forState:UIControlStateNormal];
+    [_checkOnBtn addTarget:self action:@selector(checkOnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _checkOnBtn.layer.borderWidth = 1;
+    _checkOnBtn.layer.cornerRadius = 12.5;
+    _checkOnBtn.layer.borderColor = RGB(255, 216, 0).CGColor;
+    
+    _userNameLabel = [[UILabel alloc]init];
+    _userNameLabel.textColor = [UIColor whiteColor];
+    if (@available(iOS 8.2, *)) {
+        _userNameLabel.font = [UIFont systemFontOfSize:16 weight:2];
     }
-    return _checkOnBtn;
+    _userNameLabel.text = @"登录 / 注册";
+    _userNameLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoMotifyPage)];
+    [_userNameLabel addGestureRecognizer:tap];
+    
+    _userImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"touxiang"]];
+    _userImgView.contentMode = UIViewContentModeScaleAspectFill;
+    _userImgView.layer.cornerRadius = 28;
+    _userImgView.clipsToBounds = YES;
+    _userImgView.userInteractionEnabled = YES;
+    [_userImgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoMotifyPage)]];
+    
+    _headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 100+kNaviHeight)];
+    _headImgView.image = [UIImage imageNamed:@"noLogin"];
+    
+    [self addSubview:self.headImgView];
+    [self addSubview:self.userImgView];
+    [self addSubview:self.userNameLabel];
+    [self addSubview:self.checkOnBtn];
+    [self.userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(25);
+        make.bottom.offset(-25);
+        make.width.height.offset(56);
+    }];
+    
+    [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.userImgView.mas_right).offset(10);
+        make.centerY.equalTo(self.userImgView.mas_centerY);
+    }];
+    
+    [self.checkOnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.offset(-20);
+        make.centerY.equalTo(self.userNameLabel.mas_centerY);
+        make.width.offset(60);
+        make.height.offset(25);
+    }];
+    
 }
 
 @end

@@ -12,16 +12,14 @@
 
 - (void)dismiss;
 
+- (void)selectedItemWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day;
+
 @end
 
 @interface THSelectTimeView : UIView
 
-@property (nonatomic, copy) void (^selectedTimeBlock)(NSString *year, NSString *month, NSString *day);
-
 @property (nonatomic, weak) id <THSelectTimeViewDelegate> delegate;
 
-+ (instancetype)sharedInstance;
-
-- (void)show;
+- (void)showInView:(UIView *)inView;
 
 @end

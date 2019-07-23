@@ -262,13 +262,14 @@
 
 - (THMineHeaderView *)headView {
 	if (_headView == nil) {
+        
 		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  100+kNaviHeight)];
         kWeakSelf;
 		_headView.gotoMotifyInfoPage = ^{
-            if ([@"" length]) {
+            if (YES) {
                 THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
                 edit.title = @"个人资料编辑";
-                 [weakSelf.navigationController pushViewController:edit animated:YES];
+                [weakSelf.navigationController pushViewController:edit animated:YES];
             } else {
                 THLoginVC *loginVc = [[THLoginVC alloc] init];
                  [weakSelf.navigationController pushViewController:loginVc animated:YES];

@@ -13,9 +13,6 @@
     NSInteger yearIndex;
     NSInteger monthIndex;
     NSInteger dayIndex;
-    NSString *yearString;
-    NSString *monthString;
-    NSString *dayString;
     UIView *topV;
 }
 @property (nonatomic, strong) UIPickerView *pickerView;
@@ -42,6 +39,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.frame = UIScreen.mainScreen.bounds;
+        [self initDatas];
         [self setUp];
     }
     return self;
@@ -94,27 +92,11 @@
     [_pickerView selectRow:yearIndex inComponent:0 animated:YES];
     [_pickerView selectRow:monthIndex inComponent:1 animated:YES];
     [_pickerView selectRow:dayIndex inComponent:2 animated:YES];
-    
-    [self pickerView:_pickerView didSelectRow:yearIndex inComponent:0];
-    [self pickerView:_pickerView didSelectRow:monthIndex inComponent:1];
-    [self pickerView:_pickerView didSelectRow:dayIndex inComponent:2];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        UILabel *label = (UILabel *)[_pickerView viewForRow:yearIndex forComponent:0];
-        label.textColor = TEXT_COLOR;
-        label.font = [UIFont systemFontOfSize:16];
-        
-        label = (UILabel *)[_pickerView viewForRow:monthIndex forComponent:1];
-        label.textColor = TEXT_COLOR;
-        label.font = [UIFont systemFontOfSize:16];
-        
-        label = (UILabel *)[_pickerView viewForRow:dayIndex forComponent:2];
-        label.textColor = TEXT_COLOR;
-        label.font = [UIFont systemFontOfSize:16];
-        
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self pickerView:_pickerView didSelectRow:yearIndex inComponent:0];
+        [self pickerView:_pickerView didSelectRow:monthIndex inComponent:1];
+        [self pickerView:_pickerView didSelectRow:dayIndex inComponent:2];
     });
-    
 }
 
 #pragma mark -UIPickerView
@@ -152,11 +134,8 @@
 }
 
 - (void)okClick {
-    yearString = [NSString stringWithFormat:@"%@",((UILabel *)[_pickerView viewForRow:yearIndex forComponent:0]).text];
-    monthString = [NSString stringWithFormat:@"%@",((UILabel *)[_pickerView viewForRow:monthIndex forComponent:1]).text];
-    dayString = [NSString stringWithFormat:@"%@",((UILabel *)[_pickerView viewForRow:dayIndex forComponent:2]).text];
     if ([self.delegate respondsToSelector:@selector(selectedItemWithYear:month:day:)]) {
-        [self.delegate selectedItemWithYear:yearString month:monthString day:dayString];
+        [self.delegate selectedItemWithYear:self.yearArray[yearIndex] month:self.monthArray[monthIndex] day:self.dayArray[dayIndex]];
     }
     [self remove];
 }
@@ -228,44 +207,25 @@
     return genderLabel;
 }
 
-- (NSMutableArray *)yearArray {
-    if (!_yearArray) {
-        _yearArray = [NSMutableArray array];
-        
-        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        // 定义一个时间字段的旗标，指定将会获取指定年、月、日、时、分、秒的信息
-        unsigned unitFlags = NSCalendarUnitYear;
-        // 获取不同时间字段的信息
-        NSDateComponents *comp = [calendar components: unitFlags fromDate:[NSDate date]];
-        
-        for (NSInteger year = comp.year - 80; year <= comp.year; year++) {
-            NSString *str = [NSString stringWithFormat:@"%ld年", year];
-            [_yearArray addObject:str];
-        }
+- (void)initDatas {
+    _dayArray = [NSMutableArray new];
+    for (int day = 1; day <= 31; day++) {
+        NSString *str = [NSString stringWithFormat:@"%02d日", day];
+        [_dayArray addObject:str];
     }
-    return _yearArray;
+    _monthArray = [NSMutableArray new];
+    for (int month = 1; month <= 12; month++) {
+        NSString *str = [NSString stringWithFormat:@"%02d月", month];
+        [_monthArray addObject:str];
+    }
+    _yearArray = [NSMutableArray new];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comp = [calendar components:NSCalendarUnitYear fromDate:[NSDate date]];
+    for (NSInteger year = comp.year - 100; year <= comp.year; year++) {
+        NSString *str = [NSString stringWithFormat:@"%ld年", year];
+        [_yearArray addObject:str];
+    }
 }
 
-- (NSMutableArray *)monthArray {
-    if (!_monthArray) {
-        _monthArray = [NSMutableArray array];
-        for (int month = 1; month <= 12; month++) {
-            NSString *str = [NSString stringWithFormat:@"%02d月", month];
-            [_monthArray addObject:str];
-        }
-    }
-    return _monthArray;
-}
-
-- (NSMutableArray *)dayArray {
-    if (!_dayArray) {
-        _dayArray = [NSMutableArray array];
-        for (int day = 1; day <= 31; day++) {
-            NSString *str = [NSString stringWithFormat:@"%02d日", day];
-            [_dayArray addObject:str];
-        }
-    }
-    return _dayArray;
-}
 
 @end

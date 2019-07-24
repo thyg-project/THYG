@@ -43,6 +43,10 @@
     }];
 }
 
+- (CGRect)visibleRect {
+    return CGRectMake(self.left, self.top, self.width, self.height);
+}
+
 - (void)showRect:(CGRect)rect {
     if (!YGInfo.validArray(self.data)) {
         NSLog(@"缺少数据");
@@ -58,6 +62,12 @@
 }
 
 - (void)hidden {
+    if ([self.delegate respondsToSelector:@selector(menuViewDismiss:)]) {
+        [self.delegate menuViewDismiss:self];
+    }
+}
+
+- (void)dismiss {
     [UIView animateWithDuration:0.3 animations:^{
         self.mTable.height = 0;
     } completion:^(BOOL finished) {
@@ -79,12 +89,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self hidden];
-    if (self.selectedAction) {
-        self.selectedAction(indexPath.row);
+    if ([self.delegate respondsToSelector:@selector(menuView:didSelectedIndex:)]) {
+        [self.delegate menuView:self didSelectedIndex:indexPath.row];
     }
 }
-
 
 - (UITableView *)mTable {
     if (!_mTable) {

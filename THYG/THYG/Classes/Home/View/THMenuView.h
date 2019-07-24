@@ -8,15 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol THMemuViewDelegate;
+
 @interface THMenuView : UIControl
 
 /** 数据源 */
 @property (nonatomic,strong) NSArray *data;
 /** 选择事件*/
-@property (nonatomic, copy) void (^selectedAction)(NSInteger index);
+@property (nonatomic, weak) id <THMemuViewDelegate> delegate;
+
+
+@property (nonatomic, assign, readonly) CGRect visibleRect;
 
 - (void)show;
 
 - (void)showRect:(CGRect)rect;
+
+- (void)dismiss;
+
+@end
+
+@protocol THMemuViewDelegate <NSObject>
+
+- (void)menuView:(THMenuView *)menuView didSelectedIndex:(NSInteger)index;
+
+- (void)menuViewDismiss:(THMenuView *)menuView;
 
 @end

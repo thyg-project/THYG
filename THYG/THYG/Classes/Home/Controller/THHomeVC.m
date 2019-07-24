@@ -30,7 +30,7 @@
 #import "THHomePresenter.h"
 #import "THHomeProtocol.h"
 
-@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol>
+@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) THMenuView *menuView;
@@ -66,25 +66,17 @@
 - (void)addMuneView {
     _menuView = [THMenuView new];
     self.menuView.data = @[@"推广二维码",@"我的消息",@"关注"];
+    _menuView.delegate = self;
     [self.view addSubview:self.menuView];
-    kWeakSelf
-    self.menuView.selectedAction = ^(NSInteger index) {
-        if (index == 0) {//我的二维码
-            THMineShareQRCodeVC *shareVc = [[THMineShareQRCodeVC alloc] init];
-            [weakSelf.navigationController pushViewController:shareVc animated:YES];
-        } else if (index == 1) {//我的消息
-            THMyMessageCtl *myMessage = [[THMyMessageCtl alloc] init];
-            [weakSelf.navigationController pushViewController:myMessage animated:YES];
-        } else {//我的关注
-            THMyCollectCtl *collectVc = [[THMyCollectCtl alloc] init];
-            [weakSelf.navigationController pushViewController:collectVc animated:YES];
-        }
-    };
 }
 
 #pragma mark - 菜单
 - (void)menuAction {
-    [self.menuView show];
+    if (CGRectGetHeight(self.menuView.visibleRect) > 0) {
+        [self.menuView dismiss];
+    } else {
+        [self.menuView show];
+    }
 }
 
 - (void)searchClick {
@@ -296,6 +288,24 @@
 - (void)authCameraSuccess {
     THScanQRCodeVC *scanVc = [[THScanQRCodeVC alloc] init];
     [self.navigationController pushViewController:scanVc animated:YES];
+}
+
+#pragma mark --THMenuViewDelegate
+- (void)menuViewDismiss:(THMenuView *)menuView {
+    [menuView dismiss];
+}
+
+- (void)menuView:(THMenuView *)menuView didSelectedIndex:(NSInteger)index {
+    [menuView dismiss];
+    UIViewController *controller = nil;
+    if (index == 0) {//我的二维码
+        controller = [[THMineShareQRCodeVC alloc] init];
+    } else if (index == 1) {//我的消息
+        controller = [[THMyMessageCtl alloc] init];
+    } else {//我的关注
+        controller = [[THMyCollectCtl alloc] init];
+    }
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

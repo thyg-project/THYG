@@ -13,7 +13,7 @@
 
 static NSInteger const kButtonTag = 10086;
 
-@interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate>
+@interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate, THMemuViewDelegate>
 @property (nonatomic, strong) UIButton *titleBtnView;
 @property (nonatomic, strong) UIView *topView;
 
@@ -37,11 +37,7 @@ static NSInteger const kButtonTag = 10086;
 - (void)setMunes {
     _menuView = [THMenuView new];
     self.menuView.data = @[@"晒单",@"特"];
-    kWeakSelf
-    self.menuView.selectedAction = ^(NSInteger index) {
-        weakSelf.titleBtnView.selected = NO;
-        
-    };
+    _menuView.delegate = self;
     [self.view addSubview:self.menuView];
 }
 
@@ -83,8 +79,14 @@ static NSInteger const kButtonTag = 10086;
 
 #pragma mark - 按钮点击事件
 - (void)btnClick {
-    [self.menuView show];
-    self.titleBtnView.selected = YES;
+    if (CGRectGetHeight(self.menuView.visibleRect) > 0) {
+        self.titleBtnView.selected = NO;
+        [self.menuView dismiss];
+    } else {
+        [self.menuView show];
+        self.titleBtnView.selected = YES;
+    }
+    
 }
 
 - (void)topViewClick:(UIButton *)sender {
@@ -132,4 +134,15 @@ static NSInteger const kButtonTag = 10086;
     return _topView;
 }
 
+
+#pragma mark --THMenuViewDelegate
+- (void)menuView:(THMenuView *)menuView didSelectedIndex:(NSInteger)index {
+    self.titleBtnView.selected = NO;
+    [menuView dismiss];
+}
+
+- (void)menuViewDismiss:(THMenuView *)menuView {
+    [menuView dismiss];
+    self.titleBtnView.selected = NO;
+}
 @end

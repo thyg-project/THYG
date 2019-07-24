@@ -32,6 +32,8 @@
 		022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
+		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
+		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
@@ -391,6 +393,11 @@
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
 		025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tool.m"; sourceTree = "<group>"; };
+		0271234322E82D19002DF961 /* THTeCenterPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterPresenter.h; sourceTree = "<group>"; };
+		0271234422E82D19002DF961 /* THTeCenterPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCenterPresenter.m; sourceTree = "<group>"; };
+		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
+		0271234722E8315F002DF961 /* THFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterView.h; sourceTree = "<group>"; };
+		0271234822E8315F002DF961 /* THFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterView.m; sourceTree = "<group>"; };
 		02C377C222C324700038AC5A /* YGNetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetWorkTools.h; sourceTree = "<group>"; };
 		02C377C322C324700038AC5A /* YGNetworkCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetworkCommon.m; sourceTree = "<group>"; };
 		02C377C522C324700038AC5A /* YGEncryptTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEncryptTool.h; sourceTree = "<group>"; };
@@ -1025,6 +1032,7 @@
 				02188AAA22E16AB700258F37 /* THLoginProtocol.h */,
 				02188AAB22E16AC500258F37 /* THRegisterProtocol.h */,
 				02188AB422E552A100258F37 /* THOrderDetailProtocol.h */,
+				0271234622E82D2E002DF961 /* THTeCenterProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1046,6 +1054,8 @@
 				02188AA822E16AA100258F37 /* THRegisterPresenter.m */,
 				02188AB122E5528700258F37 /* THOrderDetailPresenter.h */,
 				02188AB222E5528700258F37 /* THOrderDetailPresenter.m */,
+				0271234322E82D19002DF961 /* THTeCenterPresenter.h */,
+				0271234422E82D19002DF961 /* THTeCenterPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1810,6 +1820,8 @@
 				576EEA712087A2F40088B1EB /* PhotoContainer */,
 				04054DAF20AEF5E2009CE4F1 /* THTeHuiCell.h */,
 				04054DB020AEF5E2009CE4F1 /* THTeHuiCell.m */,
+				0271234722E8315F002DF961 /* THFilterView.h */,
+				0271234822E8315F002DF961 /* THFilterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2534,6 +2546,7 @@
 				512D7908205B63F70088A4A0 /* THMineSectionCell.m in Sources */,
 				04DD7E7C20C9A6560057884A /* THMineOrderDetailVC.m in Sources */,
 				515EB86620C8C64600890072 /* THOrderModel.m in Sources */,
+				0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */,
 				02C377D122C4A5190038AC5A /* THUIFactory.m in Sources */,
 				57D5103F20C6E75B00B78087 /* THUseCouponCtl.m in Sources */,
 				022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */,
@@ -2557,6 +2570,7 @@
 				57CBC3D02088E477007D6069 /* GoodsModel.m in Sources */,
 				8F31CBE22069EE3B00A48F2D /* THHUDProgress.m in Sources */,
 				0418A63F20C59A2D00527C80 /* THFavouriteGoodsModel.m in Sources */,
+				0271234922E8315F002DF961 /* THFilterView.m in Sources */,
 				022CD98022DA239400A6518A /* NSObject+AvoidCrash.m in Sources */,
 				8F1712C620720F7A00EFDFCB /* THCouponsCtl.m in Sources */,
 				022CD98422DA239400A6518A /* NSAttributedString+AvoidCrash.m in Sources */,

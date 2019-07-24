@@ -10,18 +10,22 @@
 #import "THTeHuiCell.h"
 #import "THTeHuiModel.h"
 #import "THMenuView.h"
+#import "THTeCenterPresenter.h"
+#import "THFilterView.h"
 
 static NSInteger const kButtonTag = 10086;
 
-@interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate, THMemuViewDelegate>
+@interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate, THMemuViewDelegate, THTeCenterProtocol, THFilterViewDelegate> {
+    THFilterView *_filterView;
+}
 @property (nonatomic, strong) UIButton *titleBtnView;
-@property (nonatomic, strong) UIView *topView;
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
 @property (nonatomic, strong) THMenuView *menuView;
+@property (nonatomic, strong) THTeCenterPresenter *presenter;
 
 
 @end
@@ -30,6 +34,8 @@ static NSInteger const kButtonTag = 10086;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THTeCenterPresenter alloc] initPresenterWithProtocol:self];
+    [_presenter getTeData];
     [self setupUI];
     [self setMunes];
 }
@@ -43,7 +49,14 @@ static NSInteger const kButtonTag = 10086;
 
 - (void)setupUI {
     self.navigationItem.titleView = self.titleBtnView;
-    [self.view addSubview:self.topView];
+//    [self.view addSubview:self.topView];
+    _filterView = [[THFilterView alloc] initWithDatas:@[@"综合",@"评论数",@"好评率"]];
+    _filterView.delegate = self;
+    [self.view addSubview:_filterView];
+    [_filterView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.mas_equalTo(44);
+    }];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
@@ -51,7 +64,8 @@ static NSInteger const kButtonTag = 10086;
     [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(_filterView.mas_bottom);
     }];
     [self.tableView registerClass:[THTeHuiCell class] forCellReuseIdentifier:NSStringFromClass(THTeHuiCell.class)];
 }
@@ -61,10 +75,12 @@ static NSInteger const kButtonTag = 10086;
     return self.dataSource.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    THTeHuiCell * cell = nil;
-    [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THTeHuiCell.class)];
+    THTeHuiCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THTeHuiCell.class)];
     cell.teModel = self.dataSource[indexPath.row];
     return cell;
 }
@@ -86,16 +102,10 @@ static NSInteger const kButtonTag = 10086;
         [self.menuView show];
         self.titleBtnView.selected = YES;
     }
-    
-}
-
-- (void)topViewClick:(UIButton *)sender {
-    NSInteger tag = sender.tag - kButtonTag;
-    NSLog(@"tag %ld", tag);
 }
 
 #pragma mark - titleBtnView
-- (UIButton*)titleBtnView {
+- (UIButton *)titleBtnView {
     if (!_titleBtnView) {
         _titleBtnView = [UIButton buttonWithType:UIButtonTypeCustom];
         _titleBtnView.frame = CGRectMake(0, 0, 100, 40);
@@ -103,37 +113,10 @@ static NSInteger const kButtonTag = 10086;
         [_titleBtnView setImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
         [_titleBtnView setImage:[UIImage imageNamed:@"up"] forState:UIControlStateSelected];
         _titleBtnView.titleLabel.font = Font(15);
-        
         [_titleBtnView addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _titleBtnView;
 }
-
-- (UIView *)topView {
-    if (!_topView) {
-        _topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
-        _topView.backgroundColor = kBackgroundColor;
-        NSArray *titles = @[@"综合",@"评论数",@"好评率"];
-        CGFloat bW = (kScreenWidth - 2) / 3;
-        CGFloat bX = 0;
-        for (NSInteger i = 0; i < titles.count; i++) {
-            UIButton *btn = [[UIButton alloc] init];
-            
-            btn.tag = i + kButtonTag;
-            btn.titleLabel.font = [UIFont systemFontOfSize:14];
-            btn.backgroundColor = [UIColor whiteColor];
-            [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
-            [btn setTitle:titles[i] forState:UIControlStateNormal];
-            bX = i > 0 ? (bW + 1) * i  : 0;
-            btn.frame = CGRectMake(bX, 0, bW, 44);
-            [btn addTarget:self action:@selector(topViewClick:) forControlEvents:UIControlEventTouchUpInside];
-            [_topView addSubview:btn];
-        }
-        
-    }
-    return _topView;
-}
-
 
 #pragma mark --THMenuViewDelegate
 - (void)menuView:(THMenuView *)menuView didSelectedIndex:(NSInteger)index {
@@ -144,5 +127,17 @@ static NSInteger const kButtonTag = 10086;
 - (void)menuViewDismiss:(THMenuView *)menuView {
     [menuView dismiss];
     self.titleBtnView.selected = NO;
+}
+
+- (void)filterView:(THFilterView *)filterView disSelectedItem:(NSString *)item selectedIndex:(NSInteger)index {
+    
+}
+#pragma mark --Protocol
+- (void)loadTeSuccess:(NSArray<THTeHuiModel *> *)response {
+    _dataSource = response.mutableCopy;
+}
+
+- (void)loadTeFailed:(NSDictionary *)errorInfo {
+    
 }
 @end

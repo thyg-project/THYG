@@ -30,6 +30,7 @@
 		022CD99322DC2B8B00A6518A /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98D22DC2B8B00A6518A /* SDPhotoBrowser.m */; };
 		022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98E22DC2B8B00A6518A /* SDWaitingView.m */; };
 		022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */; };
+		024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D14C922E8668F00D872DD /* THCardSettleView.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
@@ -312,7 +313,6 @@
 		8FC10B81207383D400ED3FB8 /* THCartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B7F207383D400ED3FB8 /* THCartListCell.xib */; };
 		8FC10B842073859300ED3FB8 /* THShoppingCartListDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B832073859300ED3FB8 /* THShoppingCartListDelegate.m */; };
 		8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B8820738D6700ED3FB8 /* THShoppingCartCtl.m */; };
-		8FC10B8B20738D6700ED3FB8 /* THShoppingCartCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B8920738D6700ED3FB8 /* THShoppingCartCtl.xib */; };
 		8FD0DC01207C650700AD8B3D /* THShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0DC00207C650700AD8B3D /* THShoppingCartModel.m */; };
 		8FDAF711206E37D00090FBCC /* THUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF710206E37D00090FBCC /* THUserInfoModel.m */; };
 		8FDC4E4D2073200C00FEFE40 /* THInvitationManageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */; };
@@ -389,6 +389,8 @@
 		022CD99022DC2B8B00A6518A /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		022CD99122DC2B8B00A6518A /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
 		022CD99222DC2B8B00A6518A /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		024D14C822E8668F00D872DD /* THCardSettleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardSettleView.h; sourceTree = "<group>"; };
+		024D14C922E8668F00D872DD /* THCardSettleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardSettleView.m; sourceTree = "<group>"; };
 		025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SessionTask.h"; sourceTree = "<group>"; };
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
@@ -880,7 +882,6 @@
 		8FC10B832073859300ED3FB8 /* THShoppingCartListDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THShoppingCartListDelegate.m; sourceTree = "<group>"; };
 		8FC10B8720738D6700ED3FB8 /* THShoppingCartCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THShoppingCartCtl.h; sourceTree = "<group>"; };
 		8FC10B8820738D6700ED3FB8 /* THShoppingCartCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THShoppingCartCtl.m; sourceTree = "<group>"; };
-		8FC10B8920738D6700ED3FB8 /* THShoppingCartCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THShoppingCartCtl.xib; sourceTree = "<group>"; };
 		8FD0DBFF207C650700AD8B3D /* THShoppingCartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THShoppingCartModel.h; sourceTree = "<group>"; };
 		8FD0DC00207C650700AD8B3D /* THShoppingCartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THShoppingCartModel.m; sourceTree = "<group>"; };
 		8FDAF70F206E37D00090FBCC /* THUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoModel.h; sourceTree = "<group>"; };
@@ -2140,7 +2141,6 @@
 			children = (
 				8FC10B8720738D6700ED3FB8 /* THShoppingCartCtl.h */,
 				8FC10B8820738D6700ED3FB8 /* THShoppingCartCtl.m */,
-				8FC10B8920738D6700ED3FB8 /* THShoppingCartCtl.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2173,6 +2173,8 @@
 				0486977420C06F1700C12DF7 /* THShareView.m */,
 				0486977620C110A000C12DF7 /* THShareViewCell.h */,
 				0486977720C110A000C12DF7 /* THShareViewCell.m */,
+				024D14C822E8668F00D872DD /* THCardSettleView.h */,
+				024D14C922E8668F00D872DD /* THCardSettleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2380,7 +2382,6 @@
 				8FC10B81207383D400ED3FB8 /* THCartListCell.xib in Resources */,
 				512D789E205903130088A4A0 /* Main.storyboard in Resources */,
 				8F5168B82074A921005E956E /* THSingleLabelCell.xib in Resources */,
-				8FC10B8B20738D6700ED3FB8 /* THShoppingCartCtl.xib in Resources */,
 				8FF84FE1206503E800A78368 /* THLimitSpellGroupListCtl.xib in Resources */,
 				0417B8772076F224003566C4 /* THMineWalletHeaderView.xib in Resources */,
 				57CBC3F72088EEE1007D6069 /* THOrderConfirmListCell.xib in Resources */,
@@ -2703,6 +2704,7 @@
 				04D0A30C207116F7003BE300 /* THForgetPswCtl.m in Sources */,
 				025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */,
 				576EEA862087A2F40088B1EB /* SDWeiXinPhotoContainerView.m in Sources */,
+				024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */,
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */,

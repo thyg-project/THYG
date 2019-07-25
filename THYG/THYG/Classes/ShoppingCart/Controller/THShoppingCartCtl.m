@@ -12,19 +12,14 @@
 #import "THOrderConfirmCtl.h"
 #import "THShareView.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "THCardSettleView.h"
 
-@interface THShoppingCartCtl () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *selectBtn; // 全选
-@property (weak, nonatomic) IBOutlet UIButton *shareBtn;  // 分享
-@property (weak, nonatomic) IBOutlet UIButton *deleteBtn; // 删除
-@property (weak, nonatomic) IBOutlet UIButton *removeBtn; // 移入关注
-@property (weak, nonatomic) IBOutlet UIButton *buyBtn; // 结算
-@property (weak, nonatomic) IBOutlet UILabel *selectStateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
+@interface THShoppingCartCtl () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, THCardSettleDelegate> {
+    THCardSettleView *_settleView;
+}
 @property (nonatomic, strong) UITableView *mTable;
 @property (nonatomic, strong) UIButton *navBtn; // 导航按钮
 @property (nonatomic,strong) THShoppingCartListDelegate *tableDelegate;
-@property (nonatomic, assign) BOOL isEditing; // 是否在编辑状态
 
 @end
 
@@ -38,137 +33,37 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.selectBtn.selected = NO;
     [self.tableDelegate.dataArray removeAllObjects];
-    [self loadData];
 }
 
 #pragma mark - 设置视图
 - (void)setupUI {
+    _settleView = [THCardSettleView new];
+    _settleView.operaType = THCardOperaType_Settle;
+    _settleView.delegate = self;
+    [self.view addSubview:_settleView];
+    [_settleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.mas_equalTo(45);
+    }];
     [self.view addSubview:self.mTable];
     [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
-        make.bottom.equalTo(@(-45));
+        make.bottom.equalTo(_settleView.mas_top);
     }];
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navBtn];
-    self.shareBtn.layer.borderColor = self.removeBtn.layer.borderColor = RGB(220, 220, 220).CGColor;
-    self.deleteBtn.layer.borderColor = [UIColor redColor].CGColor;
 }
 
 #pragma mark - 编辑操作
 - (void)editClick {
-    if (!self.isEditing) {
-        [self editingStatus];
+    if (_settleView.operaType == THCardOperaType_Settle) {
+        _settleView.operaType = THCardOperaType_Editing;
+         [_navBtn setTitle:@"完成" forState:UIControlStateNormal];
     } else {
-        [self finishingStatus];
+        _settleView.operaType = THCardOperaType_Settle;
+         [_navBtn setTitle:@"编辑" forState:UIControlStateNormal];
     }
-}
-
-#pragma mark - 编辑状态
-- (void)editingStatus {
-    self.totalPriceLabel.hidden = YES;
-    self.isEditing = YES;
-    self.buyBtn.hidden = YES;
-    self.shareBtn.hidden = self.removeBtn.hidden = self.deleteBtn.hidden = NO;
-    [_navBtn setTitle:@"完成" forState:UIControlStateNormal];
-}
-
-#pragma mark - 完成状态
-- (void)finishingStatus {
-    self.totalPriceLabel.hidden = NO;
-    self.isEditing = NO;
-    self.buyBtn.hidden = NO;
-    self.shareBtn.hidden = self.removeBtn.hidden = self.deleteBtn.hidden = YES;
-    [_navBtn setTitle:@"编辑" forState:UIControlStateNormal];
-}
-
-- (void)loadData {
-    self.buyBtn.hidden = NO;
-    self.shareBtn.hidden = self.removeBtn.hidden = self.deleteBtn.hidden = YES;
-    
-}
-
-#pragma mark -- 全选按钮
-- (IBAction)selectBtnAction:(UIButton*)sender {
-    sender.selected = !sender.selected;
-    sender.selected ? (self.totalPriceLabel.text = @"取消全选") : (self.totalPriceLabel.text = @"全选");
-    self.tableDelegate.selectOptionAllBlock(sender.selected);
-    NSString *cart_ids = @"[";
-    for (THShoppingCartModel *model in self.tableDelegate.data) {
-        for (THCartGoodsModel *subModel in model.cart) {
-            cart_ids = [[cart_ids stringByAppendingString:subModel.cid] stringByAppendingString:@","];
-        }
-    }
-    cart_ids = [[cart_ids substringToIndex:cart_ids.length-1] stringByAppendingString:@"]"];
-    
-}
-
-#pragma mark -- 结算
-- (IBAction)settlementBtnClick:(id)sender {
-    
-    if (self.tableDelegate.dataArray.count) {
-        
-        NSString *cart_ids = @"[";
-        for (THCartGoodsModel *model in self.tableDelegate.dataArray) {
-            cart_ids = [[cart_ids stringByAppendingString:model.cid] stringByAppendingString:@","];
-        }
-        cart_ids = [[cart_ids substringToIndex:cart_ids.length-1] stringByAppendingString:@"]"];
-
-        THOrderConfirmCtl *orderConfirm = [[THOrderConfirmCtl alloc] init];
-        orderConfirm.cart_ids = cart_ids;
-        orderConfirm.title = @"填写订单";
-        [self.navigationController pushViewController:orderConfirm animated:YES];
-        
-    } else {
-        [THHUDProgress showMsg:@"您还未选择任何商品"];
-    }
-    
-}
-
-#pragma mark - 分享 & 移入收藏 & 删除
-- (IBAction)bottomButtonAction:(UIButton *)btn {
-    NSInteger tag = btn.tag - 1000;
-    
-    NSString *cart_ids = @"[";
-    if (self.tableDelegate.dataArray.count) {
-        for (THCartGoodsModel *model in self.tableDelegate.dataArray) {
-            cart_ids = [[cart_ids stringByAppendingString:model.cid] stringByAppendingString:@","];
-        }
-        cart_ids = [[cart_ids substringToIndex:cart_ids.length-1] stringByAppendingString:@"]"];
-    }
-    
-    if (tag == 0) { // 分享
-        if (!self.tableDelegate.dataArray.count) {
-            [THHUDProgress showMsg:@"请选择商品"];
-        } else {
-            
-            THShareView *shareView = [[THShareView alloc] initShareViewWithTitle:@[@"微信好友",@"朋友圈",@"QQ好友",@"QQ空间",@"微博",@"复制链接"] andImageArry:@[@"weixin",@"pengyouquan",@"QQ",@"QQkongjian",@"xinlangweibo",@"fuzhilianjie"]];
-            [[UIApplication sharedApplication].keyWindow addSubview:shareView];
-            
-            shareView.selectItemBlock = ^(NSInteger index) {
-                NSLog(@"fenxiang %ld", index);
-            };
-            
-        }
-        
-    } else if (tag == 1) { // 移入收藏
-        if (!self.tableDelegate.dataArray.count) {
-            [THHUDProgress showMsg:@"请选择商品"];
-        } else {
-            [self carActionWithCarIds:cart_ids isDelete:NO];
-        }
-        
-    } else { // 删除
-        if (!self.tableDelegate.dataArray.count) {
-            [THHUDProgress showMsg:@"请选择商品"];
-        } else {
-            [self carActionWithCarIds:cart_ids isDelete:YES];
-            
-        }
-        
-    }
-    
 }
 
 #pragma mark - 购物车操作
@@ -185,7 +80,6 @@
     
     UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (delete) {
-            [self deleteGoodsFromCar:carId];
         } else {
             [self removeGoodsFromCar:carId];
         }
@@ -199,12 +93,6 @@
     [alertController addAction:sure];
     [alertController addAction:cancle];
     [self presentViewController:alertController animated:YES completion:nil];
-    
-}
-
-
-#pragma mark - 删除商品
-- (void)deleteGoodsFromCar:(NSString *)cart_ids {
     
 }
 
@@ -230,6 +118,31 @@
     return string;
 }
 
+#pragma mark --
+- (void)share:(THCardSettleView *)settleView {
+    
+}
+
+- (void)settle:(THCardSettleView *)settleView {
+    
+}
+
+- (void)selectedAll:(THCardSettleView *)settleView selected:(BOOL)selected {
+    if (selected) {
+         [_settleView updateContentText:@"合计：¥0.00"];
+    } else {
+         [_settleView updateContentText:nil];
+    }
+   
+}
+
+- (void)move:(THCardSettleView *)settleView {
+    
+}
+
+- (void)deleteGoods:(THCardSettleView *)settleView {
+    
+}
 
 #pragma mark - 懒加载
 - (UITableView *)mTable {
@@ -238,8 +151,6 @@
         _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         [self.tableDelegate registerTable:_mTable];
-        self.tableDelegate.totalPriceLabel = self.totalPriceLabel;
-        self.tableDelegate.selectBtn = self.selectBtn;
         _mTable.delegate = self.tableDelegate;
         _mTable.dataSource = self.tableDelegate;
         _mTable.emptyDataSetSource = self;

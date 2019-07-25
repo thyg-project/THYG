@@ -84,17 +84,17 @@
     if (!isSelect) {
         self.selectBtn.selected = NO;
     }
-    [self.data enumerateObjectsUsingBlock:^(THShoppingCartModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        obj.suppliers.isSelect = isSelect;
-        
-        [obj.cart enumerateObjectsUsingBlock:^(THCartGoodsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-           
-            obj.selected = isSelect;
-            
-        }];
-        
-    }];
+//    [self.data enumerateObjectsUsingBlock:^(THShoppingCartModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        
+//        obj.suppliers.isSelect = isSelect;
+//        
+//        [obj.cart enumerateObjectsUsingBlock:^(THCartGoodsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//           
+//            obj.selected = isSelect;
+//            
+//        }];
+//        
+//    }];
     
     [self caculateteTotalPrice];
     

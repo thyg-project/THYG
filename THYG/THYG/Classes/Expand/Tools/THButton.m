@@ -52,20 +52,38 @@
 }
 
 - (void)setFont:(UIFont *)font {
+    _font = font;
     self.contentLabel.font = font;
 }
 
 - (void)setImage:(UIImage *)image {
+    _image = image;
     self.imageView.image = image;
 }
 
 - (void)setTitle:(NSString *)title {
+    _title = title;
     self.contentLabel.text = title;
 }
 
 - (void)setTextColor:(UIColor *)textColor {
+    _textColor = textColor;
     self.contentLabel.textColor = textColor;
 }
+
+- (void)setSelected:(BOOL)selected {
+    _selected = selected;
+    if (self.selectedImage && self.image) {
+        self.imageView.image = selected ? self.selectedImage : self.image;
+    }
+    if (YGInfo.validString(self.title) && YGInfo.validString(self.selectedTitle)) {
+        self.contentLabel.text = selected ? self.selectedTitle : self.title;
+    }
+    if (self.textColor && self.selectedTextColor) {
+        self.contentLabel.textColor = selected ? self.selectedTextColor : self.textColor;
+    }
+}
+
 
 - (void)setButtonType:(THButtonType)buttonType {
     _buttonType = buttonType;

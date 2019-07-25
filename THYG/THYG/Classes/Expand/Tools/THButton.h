@@ -30,6 +30,14 @@ typedef NS_ENUM(NSInteger, THButtonType) {
 //图片和文字间的间距（默认是3）
 @property (nonatomic, assign) CGFloat margen;
 
+@property (nonatomic, assign) BOOL selected;
+
+@property (nonatomic, strong) UIImage *selectedImage;
+
+@property (nonatomic, strong) NSString *selectedTitle;
+
+@property (nonatomic, strong) UIColor *selectedTextColor;
+
 - (instancetype)initWithButtonType:(THButtonType)buttonType;
 
 + (instancetype)buttonWithType:(THButtonType)buttonType;

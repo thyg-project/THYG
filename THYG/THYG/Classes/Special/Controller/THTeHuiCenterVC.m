@@ -13,7 +13,6 @@
 #import "THTeCenterPresenter.h"
 #import "THFilterView.h"
 
-static NSInteger const kButtonTag = 10086;
 
 @interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate, THMemuViewDelegate, THTeCenterProtocol, THFilterViewDelegate> {
     THFilterView *_filterView;
@@ -49,7 +48,6 @@ static NSInteger const kButtonTag = 10086;
 
 - (void)setupUI {
     self.navigationItem.titleView = self.titleBtnView;
-//    [self.view addSubview:self.topView];
     _filterView = [[THFilterView alloc] initWithDatas:@[@"综合",@"评论数",@"好评率"]];
     _filterView.delegate = self;
     [self.view addSubview:_filterView];

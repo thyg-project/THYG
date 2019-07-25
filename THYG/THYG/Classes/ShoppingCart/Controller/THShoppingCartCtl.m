@@ -33,7 +33,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableDelegate.dataArray removeAllObjects];
 }
 
 #pragma mark - 设置视图
@@ -51,7 +50,6 @@
         make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(_settleView.mas_top);
     }];
-    self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navBtn];
 }
 
@@ -64,48 +62,6 @@
         _settleView.operaType = THCardOperaType_Settle;
          [_navBtn setTitle:@"编辑" forState:UIControlStateNormal];
     }
-}
-
-#pragma mark - 购物车操作
-/**
- 购物车操作
- @param carId 选中商品购物车id数组
- @param delete YES 为delete 商品， NO为移入收藏
- */
-- (void)carActionWithCarIds:(NSString *)carId isDelete:(BOOL)delete {
-    NSString *message = delete ? @"确定要删除所选产品吗?" : @"确定要关注所选商品吗？关注成功后，将从购物车删除，请您确认";
-    NSString *title = delete ? @"删除所选产品" : @"关注所选商品";
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        if (delete) {
-        } else {
-            [self removeGoodsFromCar:carId];
-        }
-        
-    }];
-    
-    [sure setValue:[UIColor redColor] forKey:@"_titleTextColor"];
-    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *_Nonnull action) {
-    }];
-    
-    [alertController addAction:sure];
-    [alertController addAction:cancle];
-    [self presentViewController:alertController animated:YES completion:nil];
-    
-}
-
-#pragma mark - 商品移入我的关注
-- (void)removeGoodsFromCar:(NSString *)cart_ids {
-    
-    NSString *goods_ids = @"[";
-    for (THCartGoodsModel *model in self.tableDelegate.dataArray) {
-        goods_ids = [[goods_ids stringByAppendingString:model.goods_id] stringByAppendingString:@","];
-    }
-    goods_ids = [[goods_ids substringToIndex:goods_ids.length-1] stringByAppendingString:@"]"];
-    
-    
 }
 
 #pragma mark - 空数据

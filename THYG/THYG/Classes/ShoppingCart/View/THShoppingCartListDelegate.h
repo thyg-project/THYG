@@ -8,20 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol THTableViewDelegate;
+
 @interface THShoppingCartListDelegate : NSObject <UITableViewDelegate,UITableViewDataSource>
 
 - (void)registerTable:(UITableView*)table;
 
-@property (nonatomic, assign) CGFloat totalPrice;
 /** 传入的数据源*/
 @property (nonatomic, strong) NSArray *data;
-/** 选择购物车商品数据*/
-@property (nonatomic, strong) NSMutableArray *dataArray;
 
-@property (nonatomic, strong) UIButton *selectBtn;
+@property (nonatomic, weak) id <THTableViewDelegate> delegate;
 
-@property (nonatomic, strong) UILabel *totalPriceLabel;
+@end
 
-@property (nonatomic, copy) void(^selectOptionAllBlock)(BOOL isSelect);
+@protocol THTableViewDelegate <NSObject>
+
+
 
 @end

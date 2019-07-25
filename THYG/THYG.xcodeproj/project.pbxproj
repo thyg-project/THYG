@@ -44,6 +44,7 @@
 		02D154AD22D5CEC7005D6277 /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AC22D5CEC7005D6277 /* THButton.m */; };
 		02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AF22D7254C005D6277 /* THHomePresenter.m */; };
 		02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154B322D72B0D005D6277 /* THMinePresenter.m */; };
+		02DCC82A22E97920002602A5 /* THAlertTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82922E97920002602A5 /* THAlertTools.m */; };
 		02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */; };
 		02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C4022DD604D00AF5112 /* YGWebViewController.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
@@ -421,6 +422,8 @@
 		02D154B222D72B0D005D6277 /* THMinePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMinePresenter.h; sourceTree = "<group>"; };
 		02D154B322D72B0D005D6277 /* THMinePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMinePresenter.m; sourceTree = "<group>"; };
 		02D154B522D72B1D005D6277 /* THMineProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineProtocol.h; sourceTree = "<group>"; };
+		02DCC82822E97920002602A5 /* THAlertTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAlertTools.h; sourceTree = "<group>"; };
+		02DCC82922E97920002602A5 /* THAlertTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAlertTools.m; sourceTree = "<group>"; };
 		02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNavigationView.h; sourceTree = "<group>"; };
 		02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THNavigationView.m; sourceTree = "<group>"; };
 		02EA6C4022DD604D00AF5112 /* YGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGWebViewController.m; sourceTree = "<group>"; };
@@ -2071,6 +2074,8 @@
 				8F31CBF0206A30D000A48F2D /* THAlertViewModel.m */,
 				8F31CBF2206A314300A48F2D /* THAlertLayer.h */,
 				8F31CBF3206A314300A48F2D /* THAlertLayer.m */,
+				02DCC82822E97920002602A5 /* THAlertTools.h */,
+				02DCC82922E97920002602A5 /* THAlertTools.m */,
 			);
 			path = AlertView;
 			sourceTree = "<group>";
@@ -2557,6 +2562,7 @@
 				51DA2C0A20DAA2B2006A82B6 /* THMineAddBankCardCell.m in Sources */,
 				51DA2C1820DABFED006A82B6 /* THMineBankCardListCell.m in Sources */,
 				0448EB9520923A31006E1E17 /* THAddressVC.m in Sources */,
+				02DCC82A22E97920002602A5 /* THAlertTools.m in Sources */,
 				02188A9E22DF180D00258F37 /* THUserManager.m in Sources */,
 				022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */,
 				57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */,

@@ -39,6 +39,21 @@ static NSInteger const kRightButtonTag = 100;
     return self;
 }
 
+- (void)setTitleView:(UIView *)titleView {
+    if (!titleView) {
+        return;
+    }
+    _titleView = titleView;
+    _titleLabel.hidden = YES;
+    [self addSubview:_titleView];
+    [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(kStatesBarHeight));
+        make.bottom.equalTo(self);
+        make.left.equalTo(@(80));
+        make.right.equalTo(@(-80));
+    }];
+}
+
 - (void)initinalieViews {
     _titleLabel = [UILabel new];
     _titleLabel.font = [UIFont systemFontOfSize:18];

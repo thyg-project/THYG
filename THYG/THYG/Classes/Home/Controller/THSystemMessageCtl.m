@@ -8,10 +8,15 @@
 
 #import "THSystemMessageCtl.h"
 #import "THSystemMessageCell.h"
+#import "THMessagePresenter.h"
 
-@interface THSystemMessageCtl () <UITableViewDataSource, UITableViewDelegate>
+@interface THSystemMessageCtl () <UITableViewDataSource, UITableViewDelegate, THMessageProtocol> {
+    NSMutableArray <THMessageModel *> *_dataSource;
+}
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) THMessagePresenter *presenter;
 
 @end
 
@@ -20,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"系统消息";
+    _presenter = [[THMessagePresenter alloc] initPresenterWithProtocol:self];
+    [_presenter loadSystemMessage];
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -32,7 +39,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return _dataSource.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -48,4 +55,12 @@
     return cell;
 }
 
+#pragma mark --
+- (void)loadMessageSuccess:(NSArray<THMessageModel *> *)response {
+    _dataSource = response.mutableCopy;
+}
+
+- (void)loadMessageFailed:(NSDictionary *)errorInfo {
+    
+}
 @end

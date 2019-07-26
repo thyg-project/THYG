@@ -45,6 +45,8 @@
 		02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AF22D7254C005D6277 /* THHomePresenter.m */; };
 		02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154B322D72B0D005D6277 /* THMinePresenter.m */; };
 		02DCC82A22E97920002602A5 /* THAlertTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82922E97920002602A5 /* THAlertTools.m */; };
+		02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82C22EAE597002602A5 /* THMessageModel.m */; };
+		02DCC83022EAE5BC002602A5 /* THMessagePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */; };
 		02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */; };
 		02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C4022DD604D00AF5112 /* YGWebViewController.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
@@ -424,6 +426,11 @@
 		02D154B522D72B1D005D6277 /* THMineProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineProtocol.h; sourceTree = "<group>"; };
 		02DCC82822E97920002602A5 /* THAlertTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAlertTools.h; sourceTree = "<group>"; };
 		02DCC82922E97920002602A5 /* THAlertTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAlertTools.m; sourceTree = "<group>"; };
+		02DCC82B22EAE597002602A5 /* THMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMessageModel.h; sourceTree = "<group>"; };
+		02DCC82C22EAE597002602A5 /* THMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMessageModel.m; sourceTree = "<group>"; };
+		02DCC82E22EAE5BC002602A5 /* THMessagePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMessagePresenter.h; sourceTree = "<group>"; };
+		02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMessagePresenter.m; sourceTree = "<group>"; };
+		02DCC83122EAE5D1002602A5 /* THMessageProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMessageProtocol.h; sourceTree = "<group>"; };
 		02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNavigationView.h; sourceTree = "<group>"; };
 		02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THNavigationView.m; sourceTree = "<group>"; };
 		02EA6C4022DD604D00AF5112 /* YGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGWebViewController.m; sourceTree = "<group>"; };
@@ -1037,6 +1044,7 @@
 				02188AAB22E16AC500258F37 /* THRegisterProtocol.h */,
 				02188AB422E552A100258F37 /* THOrderDetailProtocol.h */,
 				0271234622E82D2E002DF961 /* THTeCenterProtocol.h */,
+				02DCC83122EAE5D1002602A5 /* THMessageProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1060,6 +1068,8 @@
 				02188AB222E5528700258F37 /* THOrderDetailPresenter.m */,
 				0271234322E82D19002DF961 /* THTeCenterPresenter.h */,
 				0271234422E82D19002DF961 /* THTeCenterPresenter.m */,
+				02DCC82E22EAE5BC002602A5 /* THMessagePresenter.h */,
+				02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1448,6 +1458,8 @@
 				512D78F8205A21C90088A4A0 /* THHomeHeaderItemModel.m */,
 				0418A63D20C59A2D00527C80 /* THFavouriteGoodsModel.h */,
 				0418A63E20C59A2D00527C80 /* THFavouriteGoodsModel.m */,
+				02DCC82B22EAE597002602A5 /* THMessageModel.h */,
+				02DCC82C22EAE597002602A5 /* THMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2568,6 +2580,7 @@
 				57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */,
 				02188AA922E16AA100258F37 /* THRegisterPresenter.m in Sources */,
 				04D0A310207116F7003BE300 /* THRegisterCtl.m in Sources */,
+				02DCC83022EAE5BC002602A5 /* THMessagePresenter.m in Sources */,
 				02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */,
 				5133D1E620DD06B800DE632A /* THWalletHeaderModel.m in Sources */,
 				8F0DC29D20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m in Sources */,
@@ -2714,6 +2727,7 @@
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */,
+				02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */,
 				512D78DE205927D10088A4A0 /* UIImage+CHImage.m in Sources */,
 				512D7900205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m in Sources */,
 				576EEAD12087A5730088B1EB /* LEETheme.m in Sources */,

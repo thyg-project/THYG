@@ -68,7 +68,7 @@
 
 - (void)searchAction {
     if (_isCancel) {
-         [self animationTableView:NO];
+        [self animationTableView:NO];
     } else {
         [self initinalView];
         if ([self.delegate respondsToSelector:@selector(beginSearch:)]) {
@@ -85,6 +85,9 @@
 }
 
 - (void)initinalView {
+    if (!_container) {
+        return;
+    }
     if (self.resultTableView) {
         [self.container.view bringSubviewToFront:self.resultTableView];
         return;
@@ -102,11 +105,15 @@
 
 #pragma mark----
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    }
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.searchResult.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -31,6 +31,11 @@
 
 @property (nonatomic, copy) NSString *leftButtonTitle;
 
+/**
+ 自定义view
+ */
+@property (nonatomic, strong) UIView *titleView;
+
 @end
 
 @protocol THNaviagationViewDelegate <NSObject>

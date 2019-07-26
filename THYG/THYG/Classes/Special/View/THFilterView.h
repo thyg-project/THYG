@@ -25,7 +25,11 @@
 
 @property (nonatomic, weak) id <THFilterViewDelegate> delegate;
 
+@property (nonatomic, assign) CGFloat imageMargenToText;
+
 - (instancetype)initWithDatas:(NSArray <NSString *>*)datas;
+
+- (void)setImage:(UIImage *)image selectedImage:(UIImage *)selectedImage index:(NSInteger)index;
 
 @end
 

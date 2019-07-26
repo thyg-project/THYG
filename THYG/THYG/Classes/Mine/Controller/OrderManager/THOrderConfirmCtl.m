@@ -31,7 +31,6 @@
 @property (nonatomic, strong) THCouponsModel *couponsModel;
 @property (nonatomic, strong) THAddressModel *selectAddressModel;//当前选择的地址
 @property (nonatomic, strong) THOrderCouponModel *orderCouponModel;
-@property (nonatomic, assign) NSInteger sectionCount;
 @end
 
 @implementation THOrderConfirmCtl
@@ -47,7 +46,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _sectionCount = 7;
     _leftValues = @[@[@"发票",self.invoiceNameParma],@[@"使用优惠券",self.couponsModel.name.length?self.couponsModel.name:@"暂无优惠券可用"],@[@"备注"],@[@"商品金额",@"运费"]];
     _rightValues = @[@[@"未开发票",@""],@[[NSString stringWithFormat:@"%ld张可用",self.modelData.userCartCouponList.count],@""],@[@""],@[[NSString stringWithFormat:@"￥%.2lf",self.orderCouponModel.goodsFee],[NSString stringWithFormat:@"￥%.2lf",self.orderCouponModel.postFee]]];
     
@@ -64,41 +62,16 @@
 
 #pragma mark -- 提交订单
 - (IBAction)submitOrderAction:(id)sender {
-    if (_sectionCount == 7) {
-        
-    } else {
-        [THHUDProgress showMsg:@"请先填写收货地址"];
-    }
+    [THHUDProgress showMsg:@"请先填写收货地址"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _sectionCount;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (_sectionCount == 7) {
-        
-        if (section == 0 || section == 2 || section == 5) {
-            return 1;
-        } else if (section == 1) {
-            return self.modelData.cartGoodsList.count;
-        } else {
-            return 2;
-        }
-        
-    } else {
-        
-        if (section == 1 || section == 4) {
-            return 1;
-        } else if (section == 0) {
-            return self.modelData.cartGoodsList.count;
-        } else {
-            return 2;
-        }
-        
-    }
-
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -114,8 +87,7 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_sectionCount == 7) {
-    }
+    
     return 0;
 }
 
@@ -133,7 +105,6 @@
     }else if (indexPath.section == 4 && indexPath.row == 0){
         //选择优惠券
         THUseCouponCtl *selectCouponCtl = [[THUseCouponCtl alloc] init];
-//        selectCouponCtl.dataSourceArray = self.modelData.userCartCouponList.mutableCopy;
         selectCouponCtl.selectCouponBlock = ^(THCouponsModel *couponModel) {
             self.couponsModel = couponModel;
             [self.mTable reloadData];
@@ -141,36 +112,6 @@
         [self.navigationController pushViewController:selectCouponCtl animated:YES];
     }
     
-}
-
-#pragma mark - 地址cell
-- (UITableViewCell*)addressCell:(UITableView *)tableView {
-    THAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([THAddressCell class])];
-    cell.addressModel = self.selectAddressModel;
-    return cell;
-}
-
-#pragma mark - THBuyGoodsCell
-- (UITableViewCell*)buyGoodsCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    THBuyGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([THBuyGoodsCell class])];
-    cell.modelData = self.modelData.cartGoodsList[indexPath.row];
-    return cell;    
-}
-
-#pragma mark - THLogisticsCell
-- (UITableViewCell*)logisticsCell:(UITableView *)tableView {
-    THLogisticsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THLogisticsCell.class)];
-    cell.modelData = self.modelData.shippingList;
-    return cell;
-}
-
-#pragma mark - THOrderConfirmListCell
-- (UITableViewCell *)orderConfirmListCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    THOrderConfirmListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THOrderConfirmListCell.class)];
-    NSInteger currentRow = _sectionCount == 7 ? 3 : 2;
-    cell.leftLabel.text = _leftValues[indexPath.section-currentRow][indexPath.row];
-    cell.rightLabel.text = _rightValues[indexPath.section-currentRow][indexPath.row];
-    return cell;
 }
 
 #pragma mark - 懒加载

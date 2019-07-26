@@ -19,6 +19,7 @@
     self = [super init];
     if (self) {
         [self addSubview:self.mTable];
+        _itemAlignment = THMenuViewItemTextAlignment_Center;
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
         self.mTable.frame = CGRectMake(0, 0, kScreenWidth, 0);
         self.frame = CGRectMake(0, 0, kScreenWidth, 0);
@@ -82,7 +83,13 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.textLabel.font = Font(15);
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    NSTextAlignment alignment = NSTextAlignmentLeft;
+    if (_itemAlignment == THMenuViewItemTextAlignment_Center) {
+        alignment = NSTextAlignmentCenter;
+    } else if (_itemAlignment == THMenuViewItemTextAlignment_Right) {
+        alignment = NSTextAlignmentRight;
+    }
+    cell.textLabel.textAlignment = alignment;
     cell.textLabel.text = self.data[indexPath.row];
     return cell;
 }
@@ -91,6 +98,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([self.delegate respondsToSelector:@selector(menuView:didSelectedIndex:)]) {
         [self.delegate menuView:self didSelectedIndex:indexPath.row];
+    }
+    if ([self.delegate respondsToSelector:@selector(menuView:didSelectedItem:index:)]) {
+        [self.delegate menuView:self didSelectedItem:_data[indexPath.row] index:indexPath.row];
     }
 }
 

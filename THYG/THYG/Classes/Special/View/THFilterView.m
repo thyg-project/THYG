@@ -49,6 +49,28 @@
     }];
 }
 
+- (void)setImage:(UIImage *)image selectedImage:(UIImage *)selectedImage index:(NSInteger)index {
+    UIButton *button = [self viewWithTag:index];
+    if (!button) {
+        return;
+    }
+    if (image) {
+        [button setImage:image forState:UIControlStateNormal];
+    }
+    if (selectedImage) {
+        [button setImage:selectedImage forState:UIControlStateSelected];
+    }
+}
+
+- (void)setImageMargenToText:(CGFloat)imageMargenToText {
+    for (UIButton *button in self.subviews) {
+        if ([button isKindOfClass:[UIButton class]] && button.imageView.image) {
+            button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, imageMargenToText);
+//            button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, imageMargenToText);
+        }
+    }
+}
+
 - (void)setNormalTitles:(NSArray<NSString *> *)normalTitles {
     _normalDatas = normalTitles.mutableCopy;
     [self clear];
@@ -81,6 +103,7 @@
         if ([view isKindOfClass:[UIButton class]]) {
             UIButton *button = (UIButton *)view;
             [button setTitleColor:selectedColor forState:UIControlStateSelected];
+            [button setTitle:button.titleLabel.text forState:UIControlStateSelected];
         }
     }
 }
@@ -95,8 +118,21 @@
 }
 
 - (void)topViewClick:(UIButton *)sender {
+    [self resetState:sender.tag];
     if ([self.delegate respondsToSelector:@selector(filterView:disSelectedItem:selectedIndex:)]) {
         [self.delegate filterView:self disSelectedItem:_normalDatas[sender.tag] selectedIndex:sender.tag];
+    }
+}
+
+- (void)resetState:(NSInteger)index {
+    for (UIButton *button in self.subviews) {
+        if ([button isKindOfClass:[UIButton class]]) {
+            if (button.tag == index) {
+                button.selected = YES;
+            } else {
+                button.selected = NO;
+            }
+        }
     }
 }
 

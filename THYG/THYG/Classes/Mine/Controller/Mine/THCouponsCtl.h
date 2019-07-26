@@ -11,14 +11,3 @@
 @interface THCouponsCtl : THBaseVC
 
 @end
-
-typedef void(^selectTypeBlock)(NSInteger type, NSString *title);
-
-@interface THCouponsTypeSelectView : UIControl
-
-@property (nonatomic,copy) selectTypeBlock selectTypeAction;
-
-- (void)show;
-
-- (void)hidden;
-@end

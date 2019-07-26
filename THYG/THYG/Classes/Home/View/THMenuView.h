@@ -10,13 +10,19 @@
 
 @protocol THMemuViewDelegate;
 
+typedef NS_ENUM(NSInteger, THMenuViewItemTextAlignment) {
+    THMenuViewItemTextAlignment_Left                = 0,
+    THMenuViewItemTextAlignment_Center              = 1,
+    THMenuViewItemTextAlignment_Right               = 2
+};
 @interface THMenuView : UIControl
 
 /** 数据源 */
 @property (nonatomic,strong) NSArray *data;
 /** 选择事件*/
 @property (nonatomic, weak) id <THMemuViewDelegate> delegate;
-
+//default center
+@property (nonatomic, assign) THMenuViewItemTextAlignment itemAlignment;
 
 @property (nonatomic, assign, readonly) CGRect visibleRect;
 
@@ -30,8 +36,12 @@
 
 @protocol THMemuViewDelegate <NSObject>
 
+@optional
+
 - (void)menuView:(THMenuView *)menuView didSelectedIndex:(NSInteger)index;
 
 - (void)menuViewDismiss:(THMenuView *)menuView;
+
+- (void)menuView:(THMenuView *)menuView didSelectedItem:(NSString *)item index:(NSInteger)index;
 
 @end

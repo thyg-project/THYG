@@ -281,7 +281,6 @@
 		8F1712BF2072076200EFDFCB /* THMyCollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712BE2072076200EFDFCB /* THMyCollectModel.m */; };
 		8F1712C220720A5500EFDFCB /* THMyFootprintCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C120720A5500EFDFCB /* THMyFootprintCtl.m */; };
 		8F1712C620720F7A00EFDFCB /* THCouponsCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C420720F7A00EFDFCB /* THCouponsCtl.m */; };
-		8F1712C720720F7A00EFDFCB /* THCouponsCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1712C520720F7A00EFDFCB /* THCouponsCtl.xib */; };
 		8F1712CA20721F1000EFDFCB /* THCouponsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C920721F1000EFDFCB /* THCouponsModel.m */; };
 		8F1712CE207221A000EFDFCB /* THCouponsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712CC207221A000EFDFCB /* THCouponsCell.m */; };
 		8F1712CF207221A000EFDFCB /* THCouponsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1712CD207221A000EFDFCB /* THCouponsCell.xib */; };
@@ -832,7 +831,6 @@
 		8F1712C120720A5500EFDFCB /* THMyFootprintCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyFootprintCtl.m; sourceTree = "<group>"; };
 		8F1712C320720F7A00EFDFCB /* THCouponsCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponsCtl.h; sourceTree = "<group>"; };
 		8F1712C420720F7A00EFDFCB /* THCouponsCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCouponsCtl.m; sourceTree = "<group>"; };
-		8F1712C520720F7A00EFDFCB /* THCouponsCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THCouponsCtl.xib; sourceTree = "<group>"; };
 		8F1712C820721F1000EFDFCB /* THCouponsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponsModel.h; sourceTree = "<group>"; };
 		8F1712C920721F1000EFDFCB /* THCouponsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCouponsModel.m; sourceTree = "<group>"; };
 		8F1712CB207221A000EFDFCB /* THCouponsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponsCell.h; sourceTree = "<group>"; };
@@ -1182,7 +1180,6 @@
 				57417E5020CB7F7900F5085F /* THAcountDetailCtl.xib */,
 				8F1712C320720F7A00EFDFCB /* THCouponsCtl.h */,
 				8F1712C420720F7A00EFDFCB /* THCouponsCtl.m */,
-				8F1712C520720F7A00EFDFCB /* THCouponsCtl.xib */,
 				8FDC4E4A2073200C00FEFE40 /* THInvitationManageCtl.h */,
 				8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */,
 				8FDC4E4C2073200C00FEFE40 /* THInvitationManageCtl.xib */,
@@ -2389,7 +2386,6 @@
 				57F67FA520C97F21004431C2 /* THPayMethodCtl.xib in Resources */,
 				044727CE2070F94F00CB8326 /* THScanQRCodeVC.xib in Resources */,
 				576EEACD2087A5510088B1EB /* README.md in Resources */,
-				8F1712C720720F7A00EFDFCB /* THCouponsCtl.xib in Resources */,
 				57CBC3E32088EE2E007D6069 /* THBuyGoodsCell.xib in Resources */,
 				512D7940205E12270088A4A0 /* Assets.xcassets in Resources */,
 				572792DB20CED4DD00E498AD /* THCommentCateViewCell.xib in Resources */,

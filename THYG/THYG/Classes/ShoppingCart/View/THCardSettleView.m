@@ -92,8 +92,8 @@
 
 - (void)layoutViews {
     [self.selectedAllButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@5);
-        make.bottom.equalTo(@(-5));
+        make.top.equalTo(@7);
+        make.bottom.equalTo(@(-7));
         make.left.equalTo(@10);
         make.width.mas_equalTo(80);
     }];

@@ -9,13 +9,9 @@
 #import "THSpellGroupHead.h"
 #import "THSpellGroupHeadCell.h"
 
-static NSString *const kTimeKey = @"time";
-static NSString *const kStatusKey = @"status";
-static NSString *const kImageValidateKey = @"is_ing";
-
 @interface THSpellGroupHead()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, strong) NSArray *data;
 @end
 
 @implementation THSpellGroupHead
@@ -23,12 +19,10 @@ static NSString *const kImageValidateKey = @"is_ing";
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
         [self addSubview:self.collectionView];
         [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
-        
     }
     return self;
 }
@@ -39,22 +33,28 @@ static NSString *const kImageValidateKey = @"is_ing";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     THSpellGroupHeadCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THSpellGroupHeadCell.class) forIndexPath:indexPath];
-    [cell refreshWithDic:self.data[indexPath.row]];
+    [cell refreshWithModel:self.data[indexPath.row]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    for (NSMutableDictionary *dic in self.data) {
-        dic[kImageValidateKey] = @"0";
+    for (THSpellModel *m in self.data) {
+        m.validate = NO;
     }
-    NSMutableDictionary *dic = self.data[indexPath.row];
-    dic[kImageValidateKey] = @"1";
+    THSpellModel *model = self.data[indexPath.row];
+    model.validate = YES;
     [collectionView reloadData];
 }
 
-- (NSMutableArray *)data {
+- (NSArray *)data {
     if (!_data) {
-        _data = @[@{kTimeKey:@"18:00",kStatusKey:@"团购中",kImageValidateKey:@"1"}.mutableCopy,@{kTimeKey:@"19:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy,@{kTimeKey:@"20:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy,@{kTimeKey:@"21:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy,@{kTimeKey:@"22:00",kStatusKey:@"即将开始",kImageValidateKey:@"0"}.mutableCopy].mutableCopy;;
+        NSMutableArray *tep = [NSMutableArray new];
+        [tep addObject:[[THSpellModel alloc] initWithTime:@"18:00" state:@"团购中" validate:YES]];
+        [tep addObject:[[THSpellModel alloc] initWithTime:@"19:00" state:@"即将开始" validate:NO]];
+        [tep addObject:[[THSpellModel alloc] initWithTime:@"20:00" state:@"即将开始" validate:NO]];
+        [tep addObject:[[THSpellModel alloc] initWithTime:@"21:00" state:@"即将开始" validate:NO]];
+        [tep addObject:[[THSpellModel alloc] initWithTime:@"22:00" state:@"即将开始" validate:NO]];
+        _data = tep.copy;
     }
     return _data;
 }

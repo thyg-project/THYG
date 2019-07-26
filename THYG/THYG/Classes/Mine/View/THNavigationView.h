@@ -39,7 +39,7 @@
 
 - (void)back;
 
-- (void)rightAction:(NSInteger)tag;
+- (void)rightAction:(NSInteger)index;
 
 
 

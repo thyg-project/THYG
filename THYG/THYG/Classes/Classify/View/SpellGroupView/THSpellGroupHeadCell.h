@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@interface THSpellModel : NSObject
+
+- (instancetype)initWithTime:(NSString *)time state:(NSString *)state validate:(BOOL)validate;
+
+@property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *status;
+@property (nonatomic, assign) BOOL validate;
+
+@end
+
 @interface THSpellGroupHeadCell : UICollectionViewCell
 
-- (void)refreshWithDic:(NSDictionary*)dic;
+- (void)refreshWithModel:(THSpellModel*)model;
 
 @end

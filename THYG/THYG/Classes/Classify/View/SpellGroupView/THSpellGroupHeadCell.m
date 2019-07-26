@@ -8,6 +8,22 @@
 
 #import "THSpellGroupHeadCell.h"
 
+
+@implementation THSpellModel
+
+- (instancetype)initWithTime:(NSString *)time state:(NSString *)state validate:(BOOL)validate {
+    if (self = [super init]) {
+        _time = time;
+        _status = state;
+        _validate = validate;
+    }
+    return self;
+}
+
+@end
+
+
+
 @interface THSpellGroupHeadCell() {
     __weak IBOutlet UILabel *timeLabel;
     __weak IBOutlet UILabel *statusLabel;
@@ -18,11 +34,11 @@
 
 @implementation THSpellGroupHeadCell 
 
-- (void)refreshWithDic:(NSDictionary *)dic {
-    timeLabel.text = dic[@"time"];
-    statusLabel.text = dic[@"status"];
+- (void)refreshWithModel:(THSpellModel *)model {
+    timeLabel.text = model.time;
+    statusLabel.text = model.status;
     
-    if (![dic[@"is_ing"] integerValue]) {
+    if (!model.validate) {
         self.backgroundColor = RGB(200, 200, 200);
         timeLabel.textColor = RGB(81, 81, 81);
         statusLabel.textColor = RGB(81, 81, 81);

@@ -9,7 +9,6 @@
 #import "THHomeHeaderView.h"
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import "THHomeHeaderItemCell.h"
-#import "THHomeHeaderItemModel.h"
 
 @interface THHomeHeaderView () <SDCycleScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource> {
 	NSArray *_images, *_titles;
@@ -89,10 +88,9 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (self.clickMenuItem) {
-        
-        THHomeHeaderItemModel *model = _itemsArray[indexPath.item];
-        self.clickMenuItem(indexPath.row,model.name);
+        self.clickMenuItem(indexPath.item,_itemsArray[indexPath.item]);
     }
 }
 

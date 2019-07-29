@@ -9,14 +9,13 @@
 #import "THInvitationManageCtl.h"
 #import "THMySupplierCell.h"
 #import "THRecommendedCell.h"
+#import "THFilterView.h"
 
-@interface THInvitationManageCtl ()<UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UIButton *mySupplierBtn;
-@property (weak, nonatomic) IBOutlet UIButton *myMembersBtn;
-@property (weak, nonatomic) IBOutlet UIButton *recommendedBtn;
+@interface THInvitationManageCtl ()<UITableViewDelegate,UITableViewDataSource, THFilterViewDelegate> {
+    THFilterView *_filterView;
+}
 @property (nonatomic,strong) UITableView *mTable;
 @property (nonatomic,strong) NSMutableArray *data;
-@property (nonatomic,strong) NSArray<UIButton*> *btnData;
 //当前的位置：1.我的供应商 2.我的注册会员 3.推荐有奖
 @property (nonatomic,assign) NSInteger curIndex;
 @end
@@ -27,54 +26,31 @@
     [super viewDidLoad];
     self.navigationItem.title = @"邀请管理";
     _curIndex = 1;
-    self.btnData = @[self.mySupplierBtn,self.myMembersBtn,self.recommendedBtn];
-    
+    _filterView = [[THFilterView alloc] initWithDatas:@[@"我的供应商",@"我的注册会员",@"推荐有奖"]];
+    _filterView.selectedColor = [UIColor redColor];
+    _filterView.delegate = self;
+    _filterView.selectedIndex = 0;
+    [self.view addSubview:_filterView];
+    [_filterView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(40);
+    }];
     [self.view addSubview:self.mTable];
-    self.mySupplierBtn.selected = YES;
     [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(@(41));
+        make.top.equalTo(_filterView.mas_bottom).offset(1);
     }];
-}
-
-- (IBAction)mySupplierBtnClick:(id)sender {
-    
-    [self btnAction:sender];
-}
-
-- (IBAction)myMembersBtnClick:(id)sender {
-    
-    [self btnAction:sender];
-}
-
-- (IBAction)recommendedBtnClick:(id)sender {
-    
-    [self btnAction:sender];
-}
-
-- (void)btnAction:(UIButton*)btn {
-    self.curIndex = btn.tag;
-    
-    [self.btnData enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       
-        obj.selected = NO;
-        
-    }];
-    
-    btn.selected = YES;
-    
-    [self.mTable reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (self.curIndex) {
-        case 1:
+        case 0:
             return 3;
             break;
-        case 2:
+        case 1:
             return 5;
             break;
-        case 3:
+        case 2:
             return 1;
             break;
         default:
@@ -85,11 +61,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.curIndex) {
+        case 0:
         case 1:
-        case 2:
             return 110;
             break;
-        case 3:
+        case 2:
             return 120;
             break;
         default:
@@ -100,14 +76,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.curIndex) {
-        case 1:
-        case 2: {
+        case 0:
+        case 1: {
             THMySupplierCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMySupplierCell.class)];
             
             return cell;
         }
             break;
-        case 3: {
+        case 2: {
             THRecommendedCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THRecommendedCell.class)];
             
             return cell;
@@ -132,11 +108,10 @@
     return _mTable;
 }
 
-- (NSMutableArray* )data {
-    if (!_data) {
-        _data = [[NSMutableArray alloc] init];
-    }
-    return _data;
+#pragma mark --
+- (void)filterView:(THFilterView *)filterView disSelectedItem:(NSString *)item selectedIndex:(NSInteger)index {
+    _curIndex = index;
+    [self.mTable reloadData];
 }
 
 @end

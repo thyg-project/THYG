@@ -39,7 +39,7 @@
         return;
     }
     if (YGInfo.validArray(self.tasks)) {
-        [YGNetWorkTools cancelTasks:self.tasks];
+        [YGNetWorkTools  cancelTasks:self.tasks];
     }
 }
 

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "THHomeHeaderItemModel.h"
 
 @interface THHomeHeaderView : UICollectionReusableView
 
 @property (nonatomic, strong) NSArray * imageUrls;
-@property (nonatomic, copy) void(^clickMenuItem)(NSInteger itemIndex, NSString *itemName);
+@property (nonatomic, copy) void(^clickMenuItem)(NSInteger itemIndex, THHomeHeaderItemModel *item);
 
 @end

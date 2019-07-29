@@ -20,10 +20,8 @@
 #import "THLimitSpellGroupCtl.h"
 #import "THGoodsModel.h"
 #import "THFavouriteGoodsModel.h"
-#import "THFlashCtl.h"
 #import "THMyTeMoneyCtl.h"
 #import "THMyMessageCtl.h"
-#import "THScreeningGoodsCtl.h"
 #import "THMenuView.h"
 #import "THScanQRCodeVC.h"
 #import "THButton.h"
@@ -132,7 +130,7 @@
 	if (kind == UICollectionElementKindSectionHeader) {
         if (indexPath.section==0) {
             THHomeHeaderView *headerV = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass(THHomeHeaderView.class) forIndexPath:indexPath];
-            headerV.clickMenuItem = ^(NSInteger itemIndex, NSString *itemName) {
+            headerV.clickMenuItem = ^(NSInteger itemIndex, THHomeHeaderItemModel *item) {
               
                 switch (itemIndex) {
                     case 0: {
@@ -151,19 +149,19 @@
                         break;
                     case 3: {
                         THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
-                        limitSpellGroup.title = itemName;
+                        limitSpellGroup.title = item.name;
                          [self.navigationController pushViewController:limitSpellGroup animated:YES];
                     }
                         break;
                     case 4: {
                         THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
-                        spellGroup.title = itemName;
+                        spellGroup.title = item.name;
                          [self.navigationController pushViewController:spellGroup animated:YES];
                     }
                         break;
                     case 5: {
                         THFlashCtl *flash = [[THFlashCtl alloc] init];
-                        flash.title = itemName;
+                        flash.title = item.name;
                          [self.navigationController pushViewController:flash animated:YES];
                     }
                         break;
@@ -180,14 +178,12 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-	
     if (indexPath.section > 0 ) {
         THGoodsDetailVC *detailVc = [[THGoodsDetailVC alloc] init];
         THFavouriteGoodsModel *model = self.dataSource[indexPath.item];
         detailVc.goodsId = model.goods_id;
         [self.navigationController pushViewController:detailVc animated:YES];
     }
-    
 }
 
 #pragma mark - item宽高

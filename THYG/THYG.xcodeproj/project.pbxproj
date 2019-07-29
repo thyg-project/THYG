@@ -178,7 +178,6 @@
 		57417E3020CB063600F5085F /* THTeMoneyHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E2E20CB063600F5085F /* THTeMoneyHead.m */; };
 		57417E3120CB063600F5085F /* THTeMoneyHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E2F20CB063600F5085F /* THTeMoneyHead.xib */; };
 		57417E3520CB707700F5085F /* THMyMessageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3320CB707700F5085F /* THMyMessageCtl.m */; };
-		57417E3620CB707700F5085F /* THMyMessageCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E3420CB707700F5085F /* THMyMessageCtl.xib */; };
 		57417E3A20CB747300F5085F /* THMyMessageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3820CB747300F5085F /* THMyMessageListCell.m */; };
 		57417E3B20CB747300F5085F /* THMyMessageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E3920CB747300F5085F /* THMyMessageListCell.xib */; };
 		57417E3F20CB764400F5085F /* THSingImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3D20CB764400F5085F /* THSingImgCell.m */; };
@@ -318,7 +317,6 @@
 		8FD0DC01207C650700AD8B3D /* THShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0DC00207C650700AD8B3D /* THShoppingCartModel.m */; };
 		8FDAF711206E37D00090FBCC /* THUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF710206E37D00090FBCC /* THUserInfoModel.m */; };
 		8FDC4E4D2073200C00FEFE40 /* THInvitationManageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */; };
-		8FDC4E4E2073200C00FEFE40 /* THInvitationManageCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4C2073200C00FEFE40 /* THInvitationManageCtl.xib */; };
 		8FDC4E5220732AF100FEFE40 /* THMySupplierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5020732AF100FEFE40 /* THMySupplierCell.m */; };
 		8FDC4E5320732AF100FEFE40 /* THMySupplierCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5120732AF100FEFE40 /* THMySupplierCell.xib */; };
 		8FDC4E5C20732B3B00FEFE40 /* THRecommendedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5A20732B3B00FEFE40 /* THRecommendedCell.m */; };
@@ -664,7 +662,6 @@
 		57417E2F20CB063600F5085F /* THTeMoneyHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THTeMoneyHead.xib; sourceTree = "<group>"; };
 		57417E3220CB707700F5085F /* THMyMessageCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMyMessageCtl.h; sourceTree = "<group>"; };
 		57417E3320CB707700F5085F /* THMyMessageCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyMessageCtl.m; sourceTree = "<group>"; };
-		57417E3420CB707700F5085F /* THMyMessageCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMyMessageCtl.xib; sourceTree = "<group>"; };
 		57417E3720CB747300F5085F /* THMyMessageListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMyMessageListCell.h; sourceTree = "<group>"; };
 		57417E3820CB747300F5085F /* THMyMessageListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyMessageListCell.m; sourceTree = "<group>"; };
 		57417E3920CB747300F5085F /* THMyMessageListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMyMessageListCell.xib; sourceTree = "<group>"; };
@@ -896,7 +893,6 @@
 		8FDAF710206E37D00090FBCC /* THUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserInfoModel.m; sourceTree = "<group>"; };
 		8FDC4E4A2073200C00FEFE40 /* THInvitationManageCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInvitationManageCtl.h; sourceTree = "<group>"; };
 		8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THInvitationManageCtl.m; sourceTree = "<group>"; };
-		8FDC4E4C2073200C00FEFE40 /* THInvitationManageCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THInvitationManageCtl.xib; sourceTree = "<group>"; };
 		8FDC4E4F20732AF100FEFE40 /* THMySupplierCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMySupplierCell.h; sourceTree = "<group>"; };
 		8FDC4E5020732AF100FEFE40 /* THMySupplierCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMySupplierCell.m; sourceTree = "<group>"; };
 		8FDC4E5120732AF100FEFE40 /* THMySupplierCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMySupplierCell.xib; sourceTree = "<group>"; };
@@ -1182,7 +1178,6 @@
 				8F1712C420720F7A00EFDFCB /* THCouponsCtl.m */,
 				8FDC4E4A2073200C00FEFE40 /* THInvitationManageCtl.h */,
 				8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */,
-				8FDC4E4C2073200C00FEFE40 /* THInvitationManageCtl.xib */,
 				8FDC4E6120736C6B00FEFE40 /* THMyTaskCtl.h */,
 				8FDC4E6220736C6B00FEFE40 /* THMyTaskCtl.m */,
 				0484F09B2089B2FB008144B2 /* THMineApplymentVC.h */,
@@ -1439,7 +1434,6 @@
 				57417E2920CB009800F5085F /* THMyTeMoneyCtl.m */,
 				57417E3220CB707700F5085F /* THMyMessageCtl.h */,
 				57417E3320CB707700F5085F /* THMyMessageCtl.m */,
-				57417E3420CB707700F5085F /* THMyMessageCtl.xib */,
 				57417E4120CB770300F5085F /* THActivityRecommandCtl.h */,
 				57417E4220CB770300F5085F /* THActivityRecommandCtl.m */,
 				57417E4420CB779E00F5085F /* THSystemMessageCtl.h */,
@@ -2341,7 +2335,6 @@
 				04D0A30F207116F7003BE300 /* THForgetPswCtl.xib in Resources */,
 				51DA2C1020DAA81E006A82B6 /* THMineBankCardCell.xib in Resources */,
 				04178F092072789F0048875E /* THGoodsTopInfoCell.xib in Resources */,
-				8FDC4E4E2073200C00FEFE40 /* THInvitationManageCtl.xib in Resources */,
 				8F0DC29920622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib in Resources */,
 				04D0A30E207116F7003BE300 /* THRegisterNextStepCtl.xib in Resources */,
 				0484F0A42089B555008144B2 /* THMineApplymentInputVC.xib in Resources */,
@@ -2357,7 +2350,6 @@
 				512D7913205B774B0088A4A0 /* THMineOrderHeaderCell.xib in Resources */,
 				57417E3B20CB747300F5085F /* THMyMessageListCell.xib in Resources */,
 				57D5104420C6ECC400B78087 /* THCreateOrderSuccessVC.xib in Resources */,
-				57417E3620CB707700F5085F /* THMyMessageCtl.xib in Resources */,
 				512D78A3205903130088A4A0 /* LaunchScreen.storyboard in Resources */,
 				8F0DC2CB20624F83009AE20B /* THSpellGroupHeadCell.xib in Resources */,
 				8F51688920747171005E956E /* THFlashCell.xib in Resources */,

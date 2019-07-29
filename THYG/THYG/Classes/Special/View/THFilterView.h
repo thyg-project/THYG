@@ -27,7 +27,13 @@
 
 @property (nonatomic, assign) CGFloat imageMargenToText;
 
+@property (nonatomic, assign) NSInteger selectedIndex;
+
+@property (nonatomic, strong) NSArray <NSString *> *imageNames;
+
 - (instancetype)initWithDatas:(NSArray <NSString *>*)datas;
+
+- (instancetype)initWithDatas:(NSArray <NSString *>*)datas horizontalSpace:(CGFloat)horizontalSpace;
 
 - (void)setImage:(UIImage *)image selectedImage:(UIImage *)selectedImage index:(NSInteger)index;
 

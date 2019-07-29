@@ -8,10 +8,12 @@
 
 #import "THFilterView.h"
 
+static NSInteger const kButtonTag = 10086;
+
 @interface THFilterView() {
     NSArray <NSString *> *_normalDatas;
     
-    
+    CGFloat _horizontalSpace;
 }
 
 @end
@@ -20,8 +22,13 @@
 @implementation THFilterView
 
 - (instancetype)initWithDatas:(NSArray <NSString *>*)datas {
+    return [self initWithDatas:datas horizontalSpace:1];
+}
+
+- (instancetype)initWithDatas:(NSArray<NSString *> *)datas horizontalSpace:(CGFloat)horizontalSpace {
     if (self = [super init]) {
         _normalDatas = datas.mutableCopy;
+        _horizontalSpace = horizontalSpace;
         [self initinalizedView];
     }
     return self;
@@ -34,7 +41,7 @@
     NSMutableArray *buttons = [NSMutableArray new];
     for (NSInteger i = 0; i < _normalDatas.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.tag = i;
+        btn.tag = i + kButtonTag;
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         btn.backgroundColor = [UIColor whiteColor];
         [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
@@ -43,14 +50,28 @@
         [self addSubview:btn];
         [buttons addObject:btn];
     }
-    [buttons mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:1 leadSpacing:0 tailSpacing:0];
+    [buttons mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:_horizontalSpace leadSpacing:0 tailSpacing:0];
     [buttons mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
     }];
 }
 
+- (void)setHorizontalSpace:(CGFloat)horizontalSpace {
+   
+}
+
+- (void)setImageNames:(NSArray<NSString *> *)imageNames {
+    for (int i = 0; i < imageNames.count; i ++) {
+        UIButton *button = [self viewWithTag:i + kButtonTag];
+        if ([button isKindOfClass:[UIButton class]]) {
+            [button setImage:[UIImage imageNamed:imageNames[i]] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:imageNames[i]] forState:UIControlStateHighlighted];
+        }
+    }
+}
+
 - (void)setImage:(UIImage *)image selectedImage:(UIImage *)selectedImage index:(NSInteger)index {
-    UIButton *button = [self viewWithTag:index];
+    UIButton *button = [self viewWithTag:index + kButtonTag];
     if (!button) {
         return;
     }
@@ -66,7 +87,14 @@
     for (UIButton *button in self.subviews) {
         if ([button isKindOfClass:[UIButton class]] && button.imageView.image) {
             button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, imageMargenToText);
-//            button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, imageMargenToText);
+        }
+    }
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    for (UIButton *button in self.subviews) {
+        if ([button isKindOfClass:[UIButton class]] && button.tag == selectedIndex) {
+            button.selected = YES;
         }
     }
 }
@@ -82,7 +110,7 @@
         return;
     }
     for (int i = 0; i < selectedTitles.count; i ++) {
-        UIView *view = [self viewWithTag:i];
+        UIView *view = [self viewWithTag:i + kButtonTag];
         if ([view isKindOfClass:[UIButton class]]) {
             [((UIButton *)view) setTitle:selectedTitles[i] forState:UIControlStateSelected];
         }
@@ -120,7 +148,7 @@
 - (void)topViewClick:(UIButton *)sender {
     [self resetState:sender.tag];
     if ([self.delegate respondsToSelector:@selector(filterView:disSelectedItem:selectedIndex:)]) {
-        [self.delegate filterView:self disSelectedItem:_normalDatas[sender.tag] selectedIndex:sender.tag];
+        [self.delegate filterView:self disSelectedItem:_normalDatas[sender.tag - kButtonTag] selectedIndex:(sender.tag - kButtonTag)];
     }
 }
 

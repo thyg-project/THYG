@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Realm/Realm.h>
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,13 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
-- (BOOL)addObject:(RLMObject *)object;
-
-- (BOOL)updateObject:(RLMObject *)object;
-
-- (BOOL)deleteObject:(RLMObject *)object;
-
-- (NSArray <RLMObject *>*)allObject;
 
 @end
 

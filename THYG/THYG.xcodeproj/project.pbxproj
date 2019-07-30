@@ -47,6 +47,7 @@
 		02DCC82A22E97920002602A5 /* THAlertTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82922E97920002602A5 /* THAlertTools.m */; };
 		02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82C22EAE597002602A5 /* THMessageModel.m */; };
 		02DCC83022EAE5BC002602A5 /* THMessagePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */; };
+		02DCC83422EED26E002602A5 /* YGAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC83222EED26E002602A5 /* YGAuthTool.m */; };
 		02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */; };
 		02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C4022DD604D00AF5112 /* YGWebViewController.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
@@ -428,6 +429,8 @@
 		02DCC82E22EAE5BC002602A5 /* THMessagePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMessagePresenter.h; sourceTree = "<group>"; };
 		02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMessagePresenter.m; sourceTree = "<group>"; };
 		02DCC83122EAE5D1002602A5 /* THMessageProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMessageProtocol.h; sourceTree = "<group>"; };
+		02DCC83222EED26E002602A5 /* YGAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAuthTool.m; sourceTree = "<group>"; };
+		02DCC83322EED26E002602A5 /* YGAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAuthTool.h; sourceTree = "<group>"; };
 		02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNavigationView.h; sourceTree = "<group>"; };
 		02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THNavigationView.m; sourceTree = "<group>"; };
 		02EA6C4022DD604D00AF5112 /* YGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGWebViewController.m; sourceTree = "<group>"; };
@@ -1277,6 +1280,8 @@
 		04548D712070AD6A002F73C6 /* QRTool */ = {
 			isa = PBXGroup;
 			children = (
+				02DCC83322EED26E002602A5 /* YGAuthTool.h */,
+				02DCC83222EED26E002602A5 /* YGAuthTool.m */,
 				04548D7D2070B098002F73C6 /* sound.caf */,
 				04548D792070AE71002F73C6 /* THAVCaptureSessionManager.h */,
 				04548D7A2070AE71002F73C6 /* THAVCaptureSessionManager.m */,
@@ -2446,13 +2451,13 @@
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/FDKeychain/FDKeychain.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/HDAlertView/HDAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MSWeakTimer/MSWeakTimer.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -2468,13 +2473,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDKeychain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSWeakTimer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -2716,6 +2721,7 @@
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */,
 				02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */,
+				02DCC83422EED26E002602A5 /* YGAuthTool.m in Sources */,
 				512D78DE205927D10088A4A0 /* UIImage+CHImage.m in Sources */,
 				512D7900205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m in Sources */,
 				576EEAD12087A5730088B1EB /* LEETheme.m in Sources */,

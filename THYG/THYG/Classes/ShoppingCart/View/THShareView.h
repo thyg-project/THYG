@@ -38,4 +38,8 @@
 
 - (instancetype)initShareViewWithTitle:(NSArray *)titleArray andImageArry:(NSArray *)imageArray;
 
+- (instancetype)initShareView;
+
+- (void)showInView:(UIView *)inView;
+
 @end

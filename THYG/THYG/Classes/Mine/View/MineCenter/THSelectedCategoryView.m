@@ -60,7 +60,7 @@
         inView = UIApplication.sharedApplication.delegate.window;
     }
     [UIView animateWithDuration:0.25 animations:^{
-        topV.frame = CGRectMake(0, kScreenHeight - WIDTH(190), kScreenWidth, WIDTH(40));
+        topV.frame = CGRectMake(0, kScreenHeight - WIDTH(190) - kNaviHeight, kScreenWidth, WIDTH(40));
         _picker.frame = CGRectMake(0, topV.bottom, kScreenWidth, WIDTH(150));
     }];
     [inView addSubview:self];

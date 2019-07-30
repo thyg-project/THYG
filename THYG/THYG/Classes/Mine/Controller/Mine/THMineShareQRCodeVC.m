@@ -12,9 +12,24 @@
 @interface THMineShareQRCodeVC ()
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
+@property (nonatomic, strong) THShareView *shareView;
+
 @end
 
 @implementation THMineShareQRCodeVC
+
+- (THShareView *)shareView {
+    if (!_shareView) {
+        _shareView = [THShareView new];
+        [_shareView setSelectItemBlock:^(NSInteger index) {
+            
+        }];
+        THShareObject *object = [THShareObject new];
+        object.content = @"二维码";
+        _shareView.shareObject = object;
+    }
+    return _shareView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,14 +45,7 @@
 
 #pragma mark - share
 - (IBAction)shareClick {
-    THShareView *shareView = [[THShareView alloc] initShareViewWithTitle:@[@"微信好友",@"朋友圈",@"QQ好友",@"QQ空间",@"微博",@"复制链接"] andImageArry:@[@"weixin",@"pengyouquan",@"QQ",@"QQkongjian",@"xinlangweibo",@"fuzhilianjie"]];
-    shareView.shareObject = [THShareObject new];
-    shareView.shareObject.content = @"ahahhahaha";
-    [self.navigationController.view addSubview:shareView];
-    
-    shareView.selectItemBlock = ^(NSInteger index) {
-        NSLog(@"fenxiang %ld", index);
-    };
+    [self.shareView showInView:self.navigationController.view];
 }
 
 

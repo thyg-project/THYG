@@ -7,18 +7,30 @@
 //
 
 #import "THDatabaseManager.h"
+#import <FMDB/FMDB.h>
 
 
+static NSString *const kGoodsDBName = @"goods.db";
 
 @interface THDatabaseManager()
 
-@property (nonatomic, strong) RLMRealm *realm;
+@property (nonatomic, strong) FMDatabase *database;
+
+@property (nonatomic, copy) NSString *goodsPath;
 
 @end
 
 
 
 @implementation THDatabaseManager
+
+- (NSString *)goodsPath {
+    if (!_goodsPath) {
+        NSString *docuPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+        _goodsPath = [docuPath stringByAppendingPathComponent:kGoodsDBName];
+    }
+    return _goodsPath;
+}
 
 + (instancetype)sharedInstance {
     static THDatabaseManager *m = nil;
@@ -31,40 +43,19 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-        _realm = [RLMRealm realmWithConfiguration:config error:nil];
+        _database = [FMDatabase databaseWithPath:self.goodsPath];
+        if ([_database open]) {
+            NSString *sql = @"create table if not exists t_goods ()";
+            BOOL result = [_database executeUpdate:sql];
+            if (result) {
+                NSLog(@"create table success");
+            }
+        }
+        [_database close];
+       
     }
     return self;
 }
 
-- (BOOL)addObject:(RLMObject *)object {
-    return [self.realm transactionWithBlock:^{
-        [self.realm addObject:object];
-    } error:nil];
-}
-
-- (BOOL)updateObject:(RLMObject *)object {
-    BOOL result = [self.realm transactionWithBlock:^{
-        [self.realm addObject:object];
-    } error:nil];
-    if (!result) {
-        return NO;
-    }
-    [self.realm transactionWithBlock:^{
-        [self.realm addOrUpdateObject:object];
-    }];
-    return YES;
-}
-
-- (BOOL)deleteObject:(RLMObject *)object {
-    return [self.realm transactionWithBlock:^{
-        [self.realm deleteObject:object];
-    } error:nil];
-}
-
-- (NSArray <RLMObject *>*)allObject {
-//    RLMResults *result = RLMObject.allObjects;
-    return @[];
-}
 
 @end

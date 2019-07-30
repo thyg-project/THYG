@@ -19,7 +19,9 @@
 }
 @property (nonatomic, strong) UITableView *mTable;
 @property (nonatomic, strong) UIButton *navBtn; // 导航按钮
-@property (nonatomic,strong) THShoppingCartListDelegate *tableDelegate;
+@property (nonatomic, strong) THShoppingCartListDelegate *tableDelegate;
+
+@property (nonatomic, strong) THShareView *shareView;
 
 @end
 
@@ -31,8 +33,14 @@
     [self setupUI];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (THShareView *)shareView {
+    if (!_shareView) {
+        _shareView = [[THShareView alloc] initShareView];
+        [_shareView setSelectItemBlock:^(NSInteger index) {
+            
+        }];
+    }
+    return _shareView;
 }
 
 #pragma mark - 设置视图
@@ -76,7 +84,10 @@
 
 #pragma mark --
 - (void)share:(THCardSettleView *)settleView {
-    
+    THShareObject *object = [THShareObject new];
+    object.content = @"购物车";
+    self.shareView.shareObject = object;
+    [self.shareView showInView:self.tabBarController.view];
 }
 
 - (void)settle:(THCardSettleView *)settleView {

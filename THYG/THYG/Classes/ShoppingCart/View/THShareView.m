@@ -29,6 +29,14 @@
 
 @implementation THShareView
 
+- (instancetype)init {
+    return [self initShareView];
+}
+
+- (instancetype)initShareView {
+    return [self initShareViewWithTitle:@[@"微信好友",@"朋友圈",@"QQ好友",@"QQ空间",@"微博",@"复制链接"] andImageArry:@[@"weixin",@"pengyouquan",@"QQ",@"QQkongjian",@"xinlangweibo",@"fuzhilianjie"]];
+}
+
 - (instancetype)initShareViewWithTitle:(NSArray *)titleArray andImageArry:(NSArray *)imageArray  {
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
@@ -43,22 +51,23 @@
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelClick)];
         tapGes.delegate = self;
         [self addGestureRecognizer:tapGes];
+        self.bgView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 44*2+kScreenWidth*0.5);
+        self.titleLabel.frame = CGRectMake(0, 0, kScreenWidth, 44);
+        self.collectionView.frame = CGRectMake(0, 44, kScreenWidth, self.bgView.height-44*2);
+        self.cancelBtn.frame = CGRectMake(0, self.bgView.height-44, kScreenWidth, 44);
         
     }
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.bgView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 44*2+kScreenWidth*0.5);
-    self.titleLabel.frame = CGRectMake(0, 0, kScreenWidth, 44);
-    self.collectionView.frame = CGRectMake(0, 44, kScreenWidth, self.bgView.height-44*2);
-    self.cancelBtn.frame = CGRectMake(0, self.bgView.height-44, kScreenWidth, 44);
-    //    弹出
+- (void)showInView:(UIView *)inView {
+    if (!inView) {
+        inView = UIApplication.sharedApplication.delegate.window;
+    }
+    [inView addSubview:self];
     [UIView animateWithDuration:0.3 animations:^{
         self.bgView.frame = CGRectMake(0, kScreenHeight - self.bgView.height, kScreenWidth, self.bgView.height);
     }];
-    
 }
 
 - (void)cancelClick {

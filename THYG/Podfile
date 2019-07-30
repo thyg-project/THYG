@@ -21,7 +21,7 @@ targetsArray.each do |t|
 #    pod 'YZDisplayViewController'
     pod 'YYKit'
     pod 'FDKeychain'
-    pod 'Realm'
+    pod 'FMDB'
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'FDFullscreenPopGesture'
 #    pod 'SDWebImage', '3.7'

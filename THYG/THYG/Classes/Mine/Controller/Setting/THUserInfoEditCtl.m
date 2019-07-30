@@ -9,8 +9,10 @@
 #import "THUserInfoEditCtl.h"
 #import "THSelectTimeView.h"
 #import "THSelectedCategoryView.h"
+#import "THAlertTools.h"
+#import "YGAuthTool.h"
 
-@interface THUserInfoEditCtl () <THSelectTimeViewDelegate, UITextFieldDelegate, THCategoryDelegate>
+@interface THUserInfoEditCtl () <THSelectTimeViewDelegate, UITextFieldDelegate, THCategoryDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sexBtn;
@@ -22,6 +24,7 @@
 @property (nonatomic, strong) THSelectTimeView *timeView;
 @property (nonatomic, strong) THSelectedCategoryView *categoryView;
 @property (assign, nonatomic) BOOL isSelectedSex;
+@property (nonatomic, strong) UIImagePickerController *imagePickerController;
 @property (nonatomic, copy) NSMutableDictionary *params;
 
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
@@ -34,12 +37,47 @@
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息编辑";
     self.nickNameLabel.delegate = self.professionalField.delegate = self;
-    
+}
+
+- (UIImagePickerController *)imagePickerController {
+    if (!_imagePickerController) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
+        _imagePickerController.allowsEditing = YES;
+    }
+    return _imagePickerController;
 }
 
 #pragma mark - 上传头像
 - (IBAction)uploadImage:(id)sender {
-    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancel];
+    kWeakSelf;
+    UIAlertAction *takeCamera = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (![YGAuthTool cameraAuth]) {
+            [THAlertTools alertTitle:@"没有权限" message:nil confirm:@"去开启" container:weakSelf confirmHandler:^{
+                if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) {
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                }
+                
+            } cancel:@"取消" cancelHandler:nil];
+            return ;
+        }
+        weakSelf.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        weakSelf.imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
+        weakSelf.imagePickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        [weakSelf presentViewController:weakSelf.imagePickerController animated:YES completion:nil];
+    }];
+    [alertController addAction:takeCamera];
+    UIAlertAction *takePhoto = [UIAlertAction actionWithTitle:@"从相册中选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [YGAuthTool requestPhotoAuth:^{
+            weakSelf.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [weakSelf presentViewController:weakSelf.imagePickerController animated:YES completion:nil];
+        }];
+    }];
+    [alertController addAction:takePhoto];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - 选择性别
@@ -123,6 +161,19 @@
         _params = [NSMutableDictionary dictionaryWithCapacity:0];
     }
     return _params;
+}
+
+#pragma mark -- UIImagePickerController
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
+    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    kWeakSelf;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 @end

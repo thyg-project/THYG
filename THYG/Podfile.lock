@@ -21,6 +21,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - HXPhotoPicker (2.3.1)
   - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
   - MJRefresh (3.2.0)
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - FDFullscreenPopGesture
   - FDKeychain
   - FMDB
+  - HXPhotoPicker
   - IQKeyboardManager
   - Masonry
   - MJRefresh
@@ -88,6 +90,7 @@ SPEC REPOS:
     - FDFullscreenPopGesture
     - FDKeychain
     - FMDB
+    - HXPhotoPicker
     - IQKeyboardManager
     - Masonry
     - MJRefresh
@@ -110,6 +113,7 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FDKeychain: bd010f28f97ffe7068b3421b77d162b5c2531d61
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  HXPhotoPicker: 3845637c6a6e98ebf5bfad5ed67bcab8ce3786c2
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
@@ -125,6 +129,6 @@ SPEC CHECKSUMS:
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 54cd022832631c076ccc5c31ca67a8817ccdaaaf
+PODFILE CHECKSUM: e414198dddbb684bb32b5a8ea0a23c4b99da190b
 
 COCOAPODS: 1.5.3

@@ -57,5 +57,42 @@ static NSString *const kGoodsDBName = @"goods.db";
     return self;
 }
 
+- (BOOL)insertCollectModel:(id)model {
+    return YES;
+}
+
+- (BOOL)deleteCollectModel:(id)model {
+    return YES;
+}
+
+- (BOOL)updateCollectModel:(id)model {
+    return YES;
+}
+
+- (NSArray *)AllCollectModels {
+    return nil;
+}
+
+- (BOOL)insertMessage:(id)message {
+    return YES;
+}
+
+- (BOOL)deleteMessage:(id)message {
+    return YES;
+}
+
+- (BOOL)updateMessage:(id)message {
+    return YES;
+}
+
+- (NSArray *)AllMessages {
+    return nil;
+}
+
+- (NSArray *)messagesWithCondition:(id)condition {
+    return nil;
+}
+
+
 
 @end

@@ -6,19 +6,17 @@ targetsArray = ['THYG']
 targetsArray.each do |t|
 	target t do
 	pod 'AFNetworking'
-#    pod 'MWPhotoBrowser'
 	pod 'Bugly'
 	pod 'DZNEmptyDataSet'
 	pod 'IQKeyboardManager'
 	pod 'Masonry'
 	pod 'MJRefresh'
-	pod 'MSWeakTimer'
+#    pod 'MSWeakTimer'
     pod 'ReactiveCocoa','~> 2.5’
 	pod 'SDCycleScrollView'
 	pod 'SVProgressHUD'
-    pod 'HDAlertView'
+#    pod 'HDAlertView'
     pod 'WechatOpenSDK'
-#    pod 'YZDisplayViewController'
     pod 'YYKit'
     pod 'FDKeychain'
     pod 'FMDB'
@@ -28,13 +26,11 @@ targetsArray.each do |t|
     pod 'WMPageController'
     pod 'UMCCommonLog'
     pod 'UMCCommon'
-#    pod 'UMCSecurityPlugins'
     #    pod 'UMCShare'
 #    pod 'UMCShare/UI'
     pod 'UMCShare/Social/ReducedWeChat'
     pod 'UMCShare/Social/ReducedQQ'
     pod 'UMCShare/Social/ReducedSina'
-#    pod 'AliPaySDK'
 #pod 'HXPhotoPicker'
 	end
 end

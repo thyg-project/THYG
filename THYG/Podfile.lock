@@ -21,11 +21,9 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - HDAlertView (3.0)
   - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
   - MJRefresh (3.2.0)
-  - MSWeakTimer (1.1.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -66,11 +64,9 @@ DEPENDENCIES:
   - FDFullscreenPopGesture
   - FDKeychain
   - FMDB
-  - HDAlertView
   - IQKeyboardManager
   - Masonry
   - MJRefresh
-  - MSWeakTimer
   - ReactiveCocoa (~> 2.5)
   - SDCycleScrollView
   - SVProgressHUD
@@ -92,11 +88,9 @@ SPEC REPOS:
     - FDFullscreenPopGesture
     - FDKeychain
     - FMDB
-    - HDAlertView
     - IQKeyboardManager
     - Masonry
     - MJRefresh
-    - MSWeakTimer
     - ReactiveCocoa
     - SDCycleScrollView
     - SDWebImage
@@ -116,11 +110,9 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FDKeychain: bd010f28f97ffe7068b3421b77d162b5c2531d61
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  HDAlertView: bd71d43b310595ecb48642517d0969fa89276d25
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
-  MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
@@ -133,6 +125,6 @@ SPEC CHECKSUMS:
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 663b2e4ee11715fd5176f507c8113496129aa0ce
+PODFILE CHECKSUM: 54cd022832631c076ccc5c31ca67a8817ccdaaaf
 
 COCOAPODS: 1.5.3

@@ -209,7 +209,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == 5) {
-        return kScreenHeight-kTabBarHeight;
+        return 100;
     }
 	return CGFLOAT_MIN;
 }

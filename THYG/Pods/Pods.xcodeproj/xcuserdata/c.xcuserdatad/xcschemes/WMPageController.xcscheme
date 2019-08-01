@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A4841E336001957CCB4A473E78A161C"
+               BlueprintIdentifier = "D6F13403CE6D87489424B72FC5FECB61"
                BlueprintName = "WMPageController"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "WMPageController.framework">

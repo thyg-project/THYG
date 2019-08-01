@@ -7,7 +7,6 @@
 //
 
 #import "THTeHuiCell.h"
-#import "SDWeiXinPhotoContainerView.h"
 #import "THTeHuiModel.h"
 
 const CGFloat contentLblFontSize = 15;
@@ -24,7 +23,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     UIImageView *_avatarImgView;
     UIImageView *_iconImgView;
     UILabel *_buttonSubLabel;
-    SDWeiXinPhotoContainerView *_picContainerView;
+//    SDWeiXinPhotoContainerView *_picContainerView;
 }
 @property (nonatomic, strong) NSMutableArray <UIButton *> *buttonArr;
 
@@ -73,9 +72,9 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
 //        _groupImgView.backgroundColor = RANDOMCOLOR;
 //    }
     
-    if (!_picContainerView) {
-        _picContainerView = [SDWeiXinPhotoContainerView new];
-    }
+//    if (!_picContainerView) {
+//        _picContainerView = [SDWeiXinPhotoContainerView new];
+//    }
     
     if (!_buttomView) {
         _buttomView = [[UIView alloc] init];
@@ -140,7 +139,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     _nameLabel.text = _teModel.username;
     _timeLabel.text = _teModel.add_time;
     _contentLabel.text = _teModel.content;
-    _picContainerView.picPathStringsArray = _teModel.img;
+//    _picContainerView.picPathStringsArray = _teModel.img;
     [_iconImgView sd_setImageWithURL:[NSURL URLWithString:_teModel.original_img] placeholderImage:[UIImage imageNamed:@"chanpintu"]];
     _buttonSubLabel.text = _teModel.goods_name;
 

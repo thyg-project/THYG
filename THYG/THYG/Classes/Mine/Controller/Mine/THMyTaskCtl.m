@@ -50,11 +50,5 @@
     return _mTable;
 }
 
-- (NSMutableArray *)data {
-    if (!_data) {
-        _data = [[NSMutableArray alloc] init];
-    }
-    return _data;
-}
 
 @end

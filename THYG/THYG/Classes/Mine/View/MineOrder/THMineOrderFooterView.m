@@ -146,7 +146,7 @@
 
 #pragma mark - 订单事件
 - (void)orderAction:(UIButton *)sender {
-    !self.orderActionBlock?:self.orderActionBlock(self.orderStatus, sender.tag - kTag);
+    
 }
 
 #pragma mark - 懒加载

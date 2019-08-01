@@ -12,6 +12,7 @@
 #import "THMenuView.h"
 #import "THTeCenterPresenter.h"
 #import "THFilterView.h"
+#import "THTeCtl.h"
 
 
 @interface THTeHuiCenterVC () <UITableViewDataSource, UITableViewDelegate, THMemuViewDelegate, THTeCenterProtocol, THFilterViewDelegate> {

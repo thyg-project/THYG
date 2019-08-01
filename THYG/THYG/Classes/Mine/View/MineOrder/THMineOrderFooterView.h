@@ -19,6 +19,8 @@ typedef NS_ENUM(NSUInteger, OrderStatusType) {
     OrderStatusTypeCancelled,   // 交易作废
 };
 
+@protocol THMineOrderFooterViewDelegate;
+
 @interface THMineOrderFooterView : UITableViewHeaderFooterView
 
 /** 订单状态*/
@@ -27,7 +29,13 @@ typedef NS_ENUM(NSUInteger, OrderStatusType) {
 /** 是否是退换货*/
 @property (nonatomic, assign) BOOL isReturnOrExchange;
 
-/** 订单事件回调， 返回type 和 按钮的tag*/
-@property (nonatomic, copy) void (^orderActionBlock)(OrderStatusType type, NSInteger tag);
+@property (nonatomic, weak) id <THMineOrderFooterViewDelegate> delegate;
+
+@end
+
+
+@protocol THMineOrderFooterViewDelegate <NSObject>
+
+
 
 @end

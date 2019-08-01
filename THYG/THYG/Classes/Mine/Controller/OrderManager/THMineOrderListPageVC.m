@@ -24,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = RANDOMCOLOR;
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self autoLayoutSizeContentView:self.tableView];
     _tableView.delegate = self;
@@ -74,51 +73,13 @@
     THOrderListModel *model = self.dataSource[section];
     footer.orderStatus = self.type? [model.status integerValue] : [THOrderListModel orderTypeWithCode:model.order_status_code];
     footer.isReturnOrExchange = self.type;
-    
-    footer.orderActionBlock = ^(OrderStatusType type, NSInteger tag) {
-        NSLog(@"type %ld, tag %ld", type, tag);
         
-        /*
-        OrderStatusTypeWaitPay = 0, // 待支付
-        OrderStatusTypeWaitSend,    // 待发货
-        OrderStatusTypePortionSend, // 部分发货
-        OrderStatusTypeWaitReceive, // 待收货
-        OrderStatusTypeWaitCommit,  // 待评价
-        OrderStatusTypeCancel,      // 交易取消
-        OrderStatusTypeFinish,      // 交易成功
-        OrderStatusTypeCancelled,   // 交易作废
-         */
-        
-        if (self.type) {
-            
-            
-        } else {
-            
-            if (type == 0) {
-                if (tag == 0) {
-                    
-                }
-            }
-            
-            if (type == 5) {
-                if (tag == 1) {
-                    
-                }
-            }
-            
-            if (type == 1) {
-                
-            }
-            
-        }
-        
-    };
     
     return footer;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;//DEFAULT_TABLEVIEW_HEADER_HEAGHT;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

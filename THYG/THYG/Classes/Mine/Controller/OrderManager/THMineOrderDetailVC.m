@@ -13,7 +13,7 @@
 #import "THMineOrderDetailToolView.h"
 #import "THOrderModel.h"
 
-@interface THMineOrderDetailVC () <UITableViewDataSource, UITableViewDelegate>
+@interface THMineOrderDetailVC () <UITableViewDataSource, UITableViewDelegate, THMineOrderFooterViewDelegate>
 @property (nonatomic, strong) THOrderModel *orderModel;
 @property (nonatomic, strong) THMineOrderDetailToolView *toolView;
 @property (nonatomic, strong) UITableView *tableView;
@@ -112,7 +112,7 @@
         THOrderListModel *model = self.orderModel.order_info;
         footer.orderStatus = self.type? [model.status integerValue] : [THOrderListModel orderTypeWithCode:model.order_status_code];
         footer.isReturnOrExchange = self.type;
-
+        footer.delegate = self;
         return footer;
     }
     return nil;

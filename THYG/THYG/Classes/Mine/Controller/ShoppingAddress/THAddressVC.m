@@ -92,11 +92,6 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    THAddressModel *model = self.dataSource[indexPath.section];
-    return [self getSpaceLabelHeight:model.full_address withFont:[UIFont systemFontOfSize:12] withWidth:kScreenWidth-2*12] + 110;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 8.0f;
 }

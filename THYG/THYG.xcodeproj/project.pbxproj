@@ -33,7 +33,10 @@
 		024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D14C922E8668F00D872DD /* THCardSettleView.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
-		0265CE1922F27DB7000363F0 /* THMineTableViewReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE1822F27DB7000363F0 /* THMineTableViewReusableView.m */; };
+		0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */; };
+		0265CE2222F2BCEB000363F0 /* THTeCommonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2122F2BCEB000363F0 /* THTeCommonView.m */; };
+		0265CE2522F2BCFB000363F0 /* THTeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */; };
+		0265CE2822F2BD61000363F0 /* THTeHuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2622F2BD61000363F0 /* THTeHuiCell.m */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
 		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
@@ -55,7 +58,6 @@
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
 		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
 		04054DAE20ADECB5009CE4F1 /* THTeHuiCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054DAD20ADECB5009CE4F1 /* THTeHuiCenterVC.m */; };
-		04054DB120AEF5E2009CE4F1 /* THTeHuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054DB020AEF5E2009CE4F1 /* THTeHuiCell.m */; };
 		04054DB420AEF7FC009CE4F1 /* THTeHuiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054DB320AEF7FC009CE4F1 /* THTeHuiModel.m */; };
 		04178ECD20715B100048875E /* THGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178ECC20715B100048875E /* THGoodsVC.m */; };
 		04178F03207276EF0048875E /* THGoodsDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F00207276EF0048875E /* THGoodsDetailBottomView.m */; };
@@ -195,12 +197,6 @@
 		57417E5B20CB88E100F5085F /* THAboutTHCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E5920CB88E100F5085F /* THAboutTHCtl.m */; };
 		57417E5C20CB88E100F5085F /* THAboutTHCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E5A20CB88E100F5085F /* THAboutTHCtl.xib */; };
 		576EEA6D2087A0EB0088B1EB /* THTeCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA6C2087A0EB0088B1EB /* THTeCtl.m */; };
-		576EEA862087A2F40088B1EB /* SDWeiXinPhotoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA722087A2F40088B1EB /* SDWeiXinPhotoContainerView.m */; };
-		576EEA872087A2F40088B1EB /* SDTimeLineCellCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA762087A2F40088B1EB /* SDTimeLineCellCommentView.m */; };
-		576EEA892087A2F40088B1EB /* SDTimeLineTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA7B2087A2F40088B1EB /* SDTimeLineTableHeaderView.m */; };
-		576EEA8A2087A2F40088B1EB /* SDTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA7F2087A2F40088B1EB /* SDTimeLineCell.m */; };
-		576EEA8B2087A2F40088B1EB /* SDTimeLineCellOperationMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA822087A2F40088B1EB /* SDTimeLineCellOperationMenu.m */; };
-		576EEA972087A5090088B1EB /* SDTimeLineCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA962087A5080088B1EB /* SDTimeLineCellModel.m */; };
 		576EEABD2087A5510088B1EB /* MLEmoji_Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9A2087A5510088B1EB /* MLEmoji_Expression.plist */; };
 		576EEABE2087A5510088B1EB /* MLEmoji_Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9B2087A5510088B1EB /* MLEmoji_Expression.bundle */; };
 		576EEABF2087A5510088B1EB /* MLEmoji_ExpressionImage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9C2087A5510088B1EB /* MLEmoji_ExpressionImage.plist */; };
@@ -218,7 +214,6 @@
 		576EEACB2087A5510088B1EB /* MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB72087A5510088B1EB /* MLLabel.m */; };
 		576EEACC2087A5510088B1EB /* MLLabelLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB92087A5510088B1EB /* MLLabelLayoutManager.m */; };
 		576EEACD2087A5510088B1EB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 576EEABC2087A5510088B1EB /* README.md */; };
-		576EEAD12087A5730088B1EB /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAD02087A5730088B1EB /* LEETheme.m */; };
 		57CBC3C92088E477007D6069 /* CountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BA2088E477007D6069 /* CountView.m */; };
 		57CBC3CA2088E477007D6069 /* GoodsInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BB2088E477007D6069 /* GoodsInfoView.m */; };
 		57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BC2088E477007D6069 /* ChoseGoodsTypeAlert.m */; };
@@ -397,8 +392,14 @@
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
 		025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tool.m"; sourceTree = "<group>"; };
-		0265CE1722F27DB7000363F0 /* THMineTableViewReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMineTableViewReusableView.h; sourceTree = "<group>"; };
-		0265CE1822F27DB7000363F0 /* THMineTableViewReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMineTableViewReusableView.m; sourceTree = "<group>"; };
+		0265CE1D22F2BCCB000363F0 /* THTeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeTableViewCell.h; sourceTree = "<group>"; };
+		0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeTableViewCell.m; sourceTree = "<group>"; };
+		0265CE2022F2BCEB000363F0 /* THTeCommonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCommonView.h; sourceTree = "<group>"; };
+		0265CE2122F2BCEB000363F0 /* THTeCommonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCommonView.m; sourceTree = "<group>"; };
+		0265CE2322F2BCFB000363F0 /* THTeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeHeaderView.h; sourceTree = "<group>"; };
+		0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHeaderView.m; sourceTree = "<group>"; };
+		0265CE2622F2BD61000363F0 /* THTeHuiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTeHuiCell.m; sourceTree = "<group>"; };
+		0265CE2722F2BD61000363F0 /* THTeHuiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTeHuiCell.h; sourceTree = "<group>"; };
 		0271234322E82D19002DF961 /* THTeCenterPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterPresenter.h; sourceTree = "<group>"; };
 		0271234422E82D19002DF961 /* THTeCenterPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCenterPresenter.m; sourceTree = "<group>"; };
 		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
@@ -446,8 +447,6 @@
 		04054D9720AB5288009CE4F1 /* THTabBarButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTabBarButton.m; sourceTree = "<group>"; };
 		04054DAC20ADECB5009CE4F1 /* THTeHuiCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeHuiCenterVC.h; sourceTree = "<group>"; };
 		04054DAD20ADECB5009CE4F1 /* THTeHuiCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHuiCenterVC.m; sourceTree = "<group>"; };
-		04054DAF20AEF5E2009CE4F1 /* THTeHuiCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeHuiCell.h; sourceTree = "<group>"; };
-		04054DB020AEF5E2009CE4F1 /* THTeHuiCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHuiCell.m; sourceTree = "<group>"; };
 		04054DB220AEF7FB009CE4F1 /* THTeHuiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeHuiModel.h; sourceTree = "<group>"; };
 		04054DB320AEF7FC009CE4F1 /* THTeHuiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHuiModel.m; sourceTree = "<group>"; };
 		04178ECB20715B100048875E /* THGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGoodsVC.h; sourceTree = "<group>"; };
@@ -692,18 +691,6 @@
 		57417E5A20CB88E100F5085F /* THAboutTHCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THAboutTHCtl.xib; sourceTree = "<group>"; };
 		576EEA6B2087A0EB0088B1EB /* THTeCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCtl.h; sourceTree = "<group>"; };
 		576EEA6C2087A0EB0088B1EB /* THTeCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCtl.m; sourceTree = "<group>"; };
-		576EEA722087A2F40088B1EB /* SDWeiXinPhotoContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWeiXinPhotoContainerView.m; sourceTree = "<group>"; };
-		576EEA732087A2F40088B1EB /* SDWeiXinPhotoContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWeiXinPhotoContainerView.h; sourceTree = "<group>"; };
-		576EEA752087A2F40088B1EB /* SDTimeLineCellCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellCommentView.h; sourceTree = "<group>"; };
-		576EEA762087A2F40088B1EB /* SDTimeLineCellCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellCommentView.m; sourceTree = "<group>"; };
-		576EEA7B2087A2F40088B1EB /* SDTimeLineTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineTableHeaderView.m; sourceTree = "<group>"; };
-		576EEA7C2087A2F40088B1EB /* SDTimeLineTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineTableHeaderView.h; sourceTree = "<group>"; };
-		576EEA7E2087A2F40088B1EB /* SDTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCell.h; sourceTree = "<group>"; };
-		576EEA7F2087A2F40088B1EB /* SDTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCell.m; sourceTree = "<group>"; };
-		576EEA812087A2F40088B1EB /* SDTimeLineCellOperationMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellOperationMenu.h; sourceTree = "<group>"; };
-		576EEA822087A2F40088B1EB /* SDTimeLineCellOperationMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellOperationMenu.m; sourceTree = "<group>"; };
-		576EEA952087A5080088B1EB /* SDTimeLineCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellModel.h; sourceTree = "<group>"; };
-		576EEA962087A5080088B1EB /* SDTimeLineCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellModel.m; sourceTree = "<group>"; };
 		576EEA992087A5510088B1EB /* MLEmojiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLEmojiLabel.h; sourceTree = "<group>"; };
 		576EEA9A2087A5510088B1EB /* MLEmoji_Expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MLEmoji_Expression.plist; sourceTree = "<group>"; };
 		576EEA9B2087A5510088B1EB /* MLEmoji_Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MLEmoji_Expression.bundle; sourceTree = "<group>"; };
@@ -734,8 +721,6 @@
 		576EEABA2087A5510088B1EB /* MLLabelLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLabelLayoutManager.h; sourceTree = "<group>"; };
 		576EEABB2087A5510088B1EB /* MLLabel+Override.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLLabel+Override.h"; sourceTree = "<group>"; };
 		576EEABC2087A5510088B1EB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		576EEACF2087A5730088B1EB /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
-		576EEAD02087A5730088B1EB /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		57CBC3B62088E441007D6069 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		57CBC3B82088E477007D6069 /* ChoseGoodsTypeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseGoodsTypeAlert.h; sourceTree = "<group>"; };
 		57CBC3B92088E477007D6069 /* ChoosTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosTypeTableViewCell.h; sourceTree = "<group>"; };
@@ -1587,8 +1572,6 @@
 				042891CF20CD92CA00A6DBAB /* MineCenter */,
 				02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */,
 				02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */,
-				0265CE1722F27DB7000363F0 /* THMineTableViewReusableView.h */,
-				0265CE1822F27DB7000363F0 /* THMineTableViewReusableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1732,7 +1715,6 @@
 			children = (
 				022CD98B22DC2B8B00A6518A /* SDPhotoBrowser */,
 				57D5104B20C6F41600B78087 /* AlipaySDK */,
-				576EEACE2087A5730088B1EB /* LEETheme */,
 				576EEA982087A5510088B1EB /* MLEmojiLabel */,
 			);
 			path = Lib;
@@ -1819,8 +1801,6 @@
 		576EEA692087A0DE0088B1EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				576EEA952087A5080088B1EB /* SDTimeLineCellModel.h */,
-				576EEA962087A5080088B1EB /* SDTimeLineCellModel.m */,
 				04054DB220AEF7FB009CE4F1 /* THTeHuiModel.h */,
 				04054DB320AEF7FC009CE4F1 /* THTeHuiModel.m */,
 			);
@@ -1835,9 +1815,9 @@
 				576EEA7A2087A2F40088B1EB /* HeaderView */,
 				576EEA802087A2F40088B1EB /* OperationMenu */,
 				576EEA712087A2F40088B1EB /* PhotoContainer */,
-				04054DAF20AEF5E2009CE4F1 /* THTeHuiCell.h */,
-				04054DB020AEF5E2009CE4F1 /* THTeHuiCell.m */,
 				0271234722E8315F002DF961 /* THFilterView.h */,
+				0265CE2722F2BD61000363F0 /* THTeHuiCell.h */,
+				0265CE2622F2BD61000363F0 /* THTeHuiCell.m */,
 				0271234822E8315F002DF961 /* THFilterView.m */,
 			);
 			path = View;
@@ -1846,8 +1826,6 @@
 		576EEA712087A2F40088B1EB /* PhotoContainer */ = {
 			isa = PBXGroup;
 			children = (
-				576EEA722087A2F40088B1EB /* SDWeiXinPhotoContainerView.m */,
-				576EEA732087A2F40088B1EB /* SDWeiXinPhotoContainerView.h */,
 			);
 			path = PhotoContainer;
 			sourceTree = "<group>";
@@ -1855,8 +1833,8 @@
 		576EEA742087A2F40088B1EB /* CommentView */ = {
 			isa = PBXGroup;
 			children = (
-				576EEA752087A2F40088B1EB /* SDTimeLineCellCommentView.h */,
-				576EEA762087A2F40088B1EB /* SDTimeLineCellCommentView.m */,
+				0265CE2022F2BCEB000363F0 /* THTeCommonView.h */,
+				0265CE2122F2BCEB000363F0 /* THTeCommonView.m */,
 			);
 			path = CommentView;
 			sourceTree = "<group>";
@@ -1864,8 +1842,8 @@
 		576EEA7A2087A2F40088B1EB /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				576EEA7B2087A2F40088B1EB /* SDTimeLineTableHeaderView.m */,
-				576EEA7C2087A2F40088B1EB /* SDTimeLineTableHeaderView.h */,
+				0265CE2322F2BCFB000363F0 /* THTeHeaderView.h */,
+				0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */,
 			);
 			path = HeaderView;
 			sourceTree = "<group>";
@@ -1873,8 +1851,8 @@
 		576EEA7D2087A2F40088B1EB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				576EEA7E2087A2F40088B1EB /* SDTimeLineCell.h */,
-				576EEA7F2087A2F40088B1EB /* SDTimeLineCell.m */,
+				0265CE1D22F2BCCB000363F0 /* THTeTableViewCell.h */,
+				0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1882,8 +1860,6 @@
 		576EEA802087A2F40088B1EB /* OperationMenu */ = {
 			isa = PBXGroup;
 			children = (
-				576EEA812087A2F40088B1EB /* SDTimeLineCellOperationMenu.h */,
-				576EEA822087A2F40088B1EB /* SDTimeLineCellOperationMenu.m */,
 			);
 			path = OperationMenu;
 			sourceTree = "<group>";
@@ -1971,15 +1947,6 @@
 				576EEABB2087A5510088B1EB /* MLLabel+Override.h */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		576EEACE2087A5730088B1EB /* LEETheme */ = {
-			isa = PBXGroup;
-			children = (
-				576EEACF2087A5730088B1EB /* LEETheme.h */,
-				576EEAD02087A5730088B1EB /* LEETheme.m */,
-			);
-			path = LEETheme;
 			sourceTree = "<group>";
 		};
 		57CBC3B72088E477007D6069 /* views */ = {
@@ -2533,7 +2500,6 @@
 				8FDC4E5C20732B3B00FEFE40 /* THRecommendedCell.m in Sources */,
 				576EEAC92087A5510088B1EB /* NSString+MLExpression.m in Sources */,
 				8F1712CE207221A000EFDFCB /* THCouponsCell.m in Sources */,
-				576EEA972087A5090088B1EB /* SDTimeLineCellModel.m in Sources */,
 				04D0A3162071171C003BE300 /* THMineShareQRCodeVC.m in Sources */,
 				57417E2B20CB009800F5085F /* THMyTeMoneyCtl.m in Sources */,
 				02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */,
@@ -2553,7 +2519,6 @@
 				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
 				8F31CBF4206A314300A48F2D /* THAlertLayer.m in Sources */,
 				8F51689A20747B07005E956E /* THGoodsPageSiftView.m in Sources */,
-				04054DB120AEF5E2009CE4F1 /* THTeHuiCell.m in Sources */,
 				022CD97E22DA239400A6518A /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				512D7908205B63F70088A4A0 /* THMineSectionCell.m in Sources */,
 				04DD7E7C20C9A6560057884A /* THMineOrderDetailVC.m in Sources */,
@@ -2580,7 +2545,6 @@
 				8F0DC29D20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m in Sources */,
 				8F0DC2CA20624F83009AE20B /* THSpellGroupHeadCell.m in Sources */,
 				0417B8752076F20E003566C4 /* THMineWalletHeaderView.m in Sources */,
-				0265CE1922F27DB7000363F0 /* THMineTableViewReusableView.m in Sources */,
 				02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */,
 				57CBC3D02088E477007D6069 /* GoodsModel.m in Sources */,
 				8F31CBE22069EE3B00A48F2D /* THHUDProgress.m in Sources */,
@@ -2593,7 +2557,6 @@
 				57CBC3E22088EE2E007D6069 /* THBuyGoodsCell.m in Sources */,
 				0486977820C110A100C12DF7 /* THShareViewCell.m in Sources */,
 				022CD98622DA239400A6518A /* NSNull+NullSafe.m in Sources */,
-				576EEA872087A2F40088B1EB /* SDTimeLineCellCommentView.m in Sources */,
 				512D78EA205931D10088A4A0 /* THHomeVC.m in Sources */,
 				044AEE3E2098468700824A05 /* THAddressModel.m in Sources */,
 				04178F03207276EF0048875E /* THGoodsDetailBottomView.m in Sources */,
@@ -2613,6 +2576,7 @@
 				022CD98522DA239400A6518A /* AvoidCrash.m in Sources */,
 				04D0A31B2071254B003BE300 /* THMineSubmitApplicationVC.m in Sources */,
 				57417E3520CB707700F5085F /* THMyMessageCtl.m in Sources */,
+				0265CE2822F2BD61000363F0 /* THTeHuiCell.m in Sources */,
 				57CBC3CC2088E477007D6069 /* ChoosTypeTableViewCell.m in Sources */,
 				04D0A326207134AE003BE300 /* THNavigationController.m in Sources */,
 				04D0A327207134AE003BE300 /* THBaseVC.m in Sources */,
@@ -2622,6 +2586,7 @@
 				04D0A325207134AE003BE300 /* THTabBarController.m in Sources */,
 				8F1ABEAC207B59340093F104 /* THPhotoContainerView.m in Sources */,
 				8FFAF7B82079FD0400E4D4A2 /* THSettingCtl.m in Sources */,
+				0265CE2522F2BCFB000363F0 /* THTeHeaderView.m in Sources */,
 				57CBC3F62088EEE1007D6069 /* THOrderConfirmListCell.m in Sources */,
 				8F51688E207477E1005E956E /* THScreeningGoodsCtl.m in Sources */,
 				512D790D205B6A920088A4A0 /* THMineAdCell.m in Sources */,
@@ -2653,7 +2618,6 @@
 				57CBC3CA2088E477007D6069 /* GoodsInfoView.m in Sources */,
 				022CD97F22DA239400A6518A /* NSMutableString+AvoidCrash.m in Sources */,
 				512D7912205B774B0088A4A0 /* THMineOrderHeaderCell.m in Sources */,
-				576EEA8B2087A2F40088B1EB /* SDTimeLineCellOperationMenu.m in Sources */,
 				8F5168AC20747D90005E956E /* UISearchBar+FMAdd.m in Sources */,
 				8F51687E20746E71005E956E /* THFlashCtl.m in Sources */,
 				576EEAC32087A5510088B1EB /* NSMutableAttributedString+MLLabel.m in Sources */,
@@ -2682,7 +2646,6 @@
 				8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */,
 				8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */,
 				02188A9522DEECD900258F37 /* THDatabaseManager.m in Sources */,
-				576EEA892087A2F40088B1EB /* SDTimeLineTableHeaderView.m in Sources */,
 				57417E4320CB770300F5085F /* THActivityRecommandCtl.m in Sources */,
 				8FC10B7C207382B900ED3FB8 /* THCartSectionHead.m in Sources */,
 				8F51688820747171005E956E /* THFlashCell.m in Sources */,
@@ -2698,7 +2661,6 @@
 				8F5168A320747BB6005E956E /* THGoodsTransLayoutCell.m in Sources */,
 				0417B8632073ED5B003566C4 /* THMineOrderManageVC.m in Sources */,
 				512D7946205E1F380088A4A0 /* THClassifyVC.m in Sources */,
-				576EEA8A2087A2F40088B1EB /* SDTimeLineCell.m in Sources */,
 				8F5168B32074A5E2005E956E /* THScreeningView.m in Sources */,
 				512D793B205E0F840088A4A0 /* THNewFeatureVC.m in Sources */,
 				044A48A6207907E200DF1AAD /* THGoodsCommentModel.m in Sources */,
@@ -2717,16 +2679,16 @@
 				57FAA05520C858BE00230A68 /* THPayMethodCell.m in Sources */,
 				04D0A30C207116F7003BE300 /* THForgetPswCtl.m in Sources */,
 				025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */,
-				576EEA862087A2F40088B1EB /* SDWeiXinPhotoContainerView.m in Sources */,
 				024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */,
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
+				0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */,
 				022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */,
 				02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */,
 				02DCC83422EED26E002602A5 /* YGAuthTool.m in Sources */,
+				0265CE2222F2BCEB000363F0 /* THTeCommonView.m in Sources */,
 				512D78DE205927D10088A4A0 /* UIImage+CHImage.m in Sources */,
 				512D7900205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m in Sources */,
-				576EEAD12087A5730088B1EB /* LEETheme.m in Sources */,
 				5169ED6020C673CD00EE1D9A /* THCartDetailModel.m in Sources */,
 				044AEE3B2098463B00824A05 /* THAddressEditVC.m in Sources */,
 				576EEAC52087A5510088B1EB /* NSAttributedString+MLLabel.m in Sources */,

@@ -9,7 +9,7 @@
 #import "THAddressEditListCell.h"
 #import "THAddressModel.h"
 
-@implementation THAddressEditListCell {
+@interface THAddressEditListCell() {
     __weak IBOutlet UILabel *consigneeLabel;
     __weak IBOutlet UILabel *mobileLabel;
     __weak IBOutlet UILabel *addressLabel;
@@ -18,6 +18,9 @@
     __weak IBOutlet UIButton *deleteBtn;
 }
 
+@end
+
+@implementation THAddressEditListCell 
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setLabelSpace:addressLabel value:@"" font:[UIFont systemFontOfSize:12] spacing:6];

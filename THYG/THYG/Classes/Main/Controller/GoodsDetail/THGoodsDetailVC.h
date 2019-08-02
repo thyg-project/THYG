@@ -7,8 +7,9 @@
 //
 
 #import "THBaseVC.h"
+#import "WMPageController.h"
 
-@interface THGoodsDetailVC : THBaseVC
+@interface THGoodsDetailVC : WMPageController
 /* 商品ID */
 @property (strong , nonatomic)NSString *goodsId;
 @end

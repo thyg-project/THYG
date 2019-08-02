@@ -59,6 +59,8 @@ static NSInteger const kRightButtonTag = 100;
     _titleLabel.font = [UIFont systemFontOfSize:18];
     _titleLabel.textColor = [UIColor blackColor];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.numberOfLines = 0;
+    [_titleLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentGesture:)]];
     [self addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@(kStatesBarHeight));
@@ -130,6 +132,7 @@ static NSInteger const kRightButtonTag = 100;
 }
 
 - (void)setRightButtonTitles:(NSArray<NSString *> *)rightButtonTitles {
+    _rightButtonTitles = rightButtonTitles;
     [self clear];
     UIView *lastView = nil;
     for (int i = 0; i < rightButtonTitles.count; i ++) {
@@ -173,6 +176,52 @@ static NSInteger const kRightButtonTag = 100;
     }
 }
 
+- (void)setBackTextFont:(UIFont *)backTextFont {
+    if (_leftButton) {
+        _leftButton.font = backTextFont;
+    }
+}
+
+- (void)setBackTextColor:(UIColor *)backTextColor {
+    if (_leftButton) {
+        _leftButton.textColor = backTextColor;
+    }
+}
+
+- (void)setContentSize:(UIFont *)contentSize {
+    _titleLabel.font = contentSize;
+}
+
+- (void)setRightTextFont:(UIFont *)rightTextFont {
+    if (_rightButton) {
+        _rightButton.font = rightTextFont;
+        return;
+    }
+    if (_rightButtonTitles) {
+        for (int i = 0; i < _rightButtonTitles.count; i ++) {
+            THButton *button = [self viewWithTag:kRightButtonTag + i];
+            button.font = rightTextFont;
+        }
+    }
+}
+
+- (void)setRightTextColor:(UIColor *)rightTextColor {
+    if (_rightButton) {
+        _rightButton.textColor = rightTextColor;
+        return;
+    }
+    if (_rightButtonTitles) {
+        for (int i = 0; i < _rightButtonTitles.count; i ++) {
+            THButton *button = [self viewWithTag:kRightButtonTag + i];
+            button.textColor = rightTextColor;
+        }
+    }
+}
+
+- (void)setAttributedContent:(NSAttributedString *)attributedContent {
+    _titleLabel.attributedText = attributedContent;
+}
+
 - (void)backAction {
     if ([self.delegate respondsToSelector:@selector(back)]) {
         [self.delegate back];
@@ -186,6 +235,13 @@ static NSInteger const kRightButtonTag = 100;
             tag = tag - kRightButtonTag;
         }
         [self.delegate rightAction:tag];
+    }
+}
+
+- (void)contentGesture:(UITapGestureRecognizer *)gesture {
+    if ([self.delegate respondsToSelector:@selector(contentDidTouch:)]) {
+        UILabel *label = (UILabel *)gesture.view;
+        [self.delegate contentDidTouch:label.text ? : label.attributedText];
     }
 }
 

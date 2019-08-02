@@ -139,6 +139,10 @@
                     }
                         break;
                     case 1: {
+                        THGoodsDetailVC *detailVc = [[THGoodsDetailVC alloc] init];
+                       
+                        detailVc.goodsId = @"";
+                        [self.navigationController pushViewController:detailVc animated:YES];
                         
                     }
                         break;

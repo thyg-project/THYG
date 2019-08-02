@@ -37,6 +37,329 @@
 		0265CE2222F2BCEB000363F0 /* THTeCommonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2122F2BCEB000363F0 /* THTeCommonView.m */; };
 		0265CE2522F2BCFB000363F0 /* THTeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */; };
 		0265CE2822F2BD61000363F0 /* THTeHuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2622F2BD61000363F0 /* THTeHuiCell.m */; };
+		0265CE2C22F2C45E000363F0 /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */; };
+		0265CE2D22F2C45E000363F0 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 510EDC2C20629D8300F595E7 /* Utils.m */; };
+		0265CE2E22F2C45E000363F0 /* THMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154B322D72B0D005D6277 /* THMinePresenter.m */; };
+		0265CE2F22F2C45E000363F0 /* SizeAttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3C32088E477007D6069 /* SizeAttributeModel.m */; };
+		0265CE3022F2C45E000363F0 /* THMySupplierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5020732AF100FEFE40 /* THMySupplierCell.m */; };
+		0265CE3122F2C45E000363F0 /* THSystemMessageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E4520CB779E00F5085F /* THSystemMessageCtl.m */; };
+		0265CE3222F2C45E000363F0 /* THTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78D920591F090088A4A0 /* THTabBar.m */; };
+		0265CE3422F2C45E000363F0 /* THMineOrderListPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8652073EF2F003566C4 /* THMineOrderListPageVC.m */; };
+		0265CE3522F2C45E000363F0 /* THCreateOrderSuccessCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D5104120C6ECC400B78087 /* THCreateOrderSuccessCtl.m */; };
+		0265CE3622F2C45E000363F0 /* THHelpCenterDetailCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D139E207A251A0024C3D4 /* THHelpCenterDetailCtl.m */; };
+		0265CE3722F2C45E000363F0 /* THAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F31CBED206A303300A48F2D /* THAlertView.m */; };
+		0265CE3822F2C45E000363F0 /* THRecommendedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5A20732B3B00FEFE40 /* THRecommendedCell.m */; };
+		0265CE3922F2C45E000363F0 /* NSString+MLExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB42087A5510088B1EB /* NSString+MLExpression.m */; };
+		0265CE3A22F2C45E000363F0 /* THCouponsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712CC207221A000EFDFCB /* THCouponsCell.m */; };
+		0265CE3B22F2C45E000363F0 /* THMineShareQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A3142071171C003BE300 /* THMineShareQRCodeVC.m */; };
+		0265CE3C22F2C45E000363F0 /* THMyTeMoneyCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E2920CB009800F5085F /* THMyTeMoneyCtl.m */; };
+		0265CE3D22F2C45E000363F0 /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
+		0265CE3E22F2C45E000363F0 /* THBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F0B207287E50048875E /* THBaseCell.m */; };
+		0265CE3F22F2C45E000363F0 /* YGCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188AA022DF195F00258F37 /* YGCacheManager.m */; };
+		0265CE4022F2C45E000363F0 /* THTeHuiCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054DAD20ADECB5009CE4F1 /* THTeHuiCenterVC.m */; };
+		0265CE4122F2C45E000363F0 /* THNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793D205E10E40088A4A0 /* THNewFeatureCell.m */; };
+		0265CE4222F2C45E000363F0 /* THUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAF710206E37D00090FBCC /* THUserInfoModel.m */; };
+		0265CE4322F2C45E000363F0 /* THGoosDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A489B2078A70600DF1AAD /* THGoosDetailModel.m */; };
+		0265CE4422F2C45E000363F0 /* THShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0DC00207C650700AD8B3D /* THShoppingCartModel.m */; };
+		0265CE4522F2C45E000363F0 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
+		0265CE4622F2C45E000363F0 /* THLimitSpellGroupListCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF84FDE206503E800A78368 /* THLimitSpellGroupListCtl.m */; };
+		0265CE4722F2C45E000363F0 /* THLoginPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188AA522E16A8A00258F37 /* THLoginPresenter.m */; };
+		0265CE4822F2C45E000363F0 /* THHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78EF205968DC0088A4A0 /* THHomeHeaderView.m */; };
+		0265CE4922F2C45E000363F0 /* THOrderDetailPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188AB222E5528700258F37 /* THOrderDetailPresenter.m */; };
+		0265CE4A22F2C45E000363F0 /* GoodsTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3C22088E477007D6069 /* GoodsTypeModel.m */; };
+		0265CE4B22F2C45E000363F0 /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
+		0265CE4C22F2C45E000363F0 /* THAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F31CBF3206A314300A48F2D /* THAlertLayer.m */; };
+		0265CE4D22F2C45E000363F0 /* THGoodsPageSiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51689820747B07005E956E /* THGoodsPageSiftView.m */; };
+		0265CE4E22F2C45E000363F0 /* NSMutableDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96822DA239300A6518A /* NSMutableDictionary+AvoidCrash.m */; };
+		0265CE4F22F2C45E000363F0 /* THMineSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7906205B63F70088A4A0 /* THMineSectionCell.m */; };
+		0265CE5022F2C45E000363F0 /* THMineOrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD7E7B20C9A6560057884A /* THMineOrderDetailVC.m */; };
+		0265CE5122F2C45E000363F0 /* THOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 515EB86520C8C64600890072 /* THOrderModel.m */; };
+		0265CE5222F2C45E000363F0 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
+		0265CE5322F2C45E000363F0 /* THUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377D022C4A5190038AC5A /* THUIFactory.m */; };
+		0265CE5422F2C45E000363F0 /* THUseCouponCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D5103E20C6E75B00B78087 /* THUseCouponCtl.m */; };
+		0265CE5522F2C45E000363F0 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */; };
+		0265CE5622F2C45E000363F0 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A8922DDA08600258F37 /* UIScrollView+Refresh.m */; };
+		0265CE5722F2C45E000363F0 /* THOrderConfirmCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3D52088ED45007D6069 /* THOrderConfirmCtl.m */; };
+		0265CE5822F2C45E000363F0 /* THMineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7903205A78CC0088A4A0 /* THMineVC.m */; };
+		0265CE5922F2C45E000363F0 /* THMineAddBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA2C0820DAA2B2006A82B6 /* THMineAddBankCardCell.m */; };
+		0265CE5A22F2C45E000363F0 /* THMineBankCardListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA2C1620DABFED006A82B6 /* THMineBankCardListCell.m */; };
+		0265CE5B22F2C45E000363F0 /* THAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0448EB9420923A31006E1E17 /* THAddressVC.m */; };
+		0265CE5C22F2C45E000363F0 /* THAlertTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82922E97920002602A5 /* THAlertTools.m */; };
+		0265CE5D22F2C45E000363F0 /* THUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A9D22DF180D00258F37 /* THUserManager.m */; };
+		0265CE5E22F2C45E000363F0 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98E22DC2B8B00A6518A /* SDWaitingView.m */; };
+		0265CE5F22F2C45E000363F0 /* ChoseGoodsTypeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BC2088E477007D6069 /* ChoseGoodsTypeAlert.m */; };
+		0265CE6022F2C45E000363F0 /* THRegisterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188AA822E16AA100258F37 /* THRegisterPresenter.m */; };
+		0265CE6122F2C45E000363F0 /* THRegisterCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A307207116F7003BE300 /* THRegisterCtl.m */; };
+		0265CE6222F2C45E000363F0 /* THMessagePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */; };
+		0265CE6322F2C45E000363F0 /* THNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */; };
+		0265CE6422F2C45E000363F0 /* THWalletHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5133D1E520DD06B800DE632A /* THWalletHeaderModel.m */; };
+		0265CE6522F2C45E000363F0 /* THGoodsListOfCollectionLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC29B20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m */; };
+		0265CE6622F2C45E000363F0 /* THSpellGroupHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2C820624F83009AE20B /* THSpellGroupHeadCell.m */; };
+		0265CE6722F2C45E000363F0 /* THMineWalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8742076F20E003566C4 /* THMineWalletHeaderView.m */; };
+		0265CE6822F2C45E000363F0 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C4022DD604D00AF5112 /* YGWebViewController.m */; };
+		0265CE6922F2C45E000363F0 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3C42088E477007D6069 /* GoodsModel.m */; };
+		0265CE6A22F2C45E000363F0 /* THHUDProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F31CBE12069EE3B00A48F2D /* THHUDProgress.m */; };
+		0265CE6B22F2C45E000363F0 /* THFavouriteGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A63E20C59A2D00527C80 /* THFavouriteGoodsModel.m */; };
+		0265CE6C22F2C45E000363F0 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
+		0265CE6D22F2C45E000363F0 /* NSObject+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96A22DA239300A6518A /* NSObject+AvoidCrash.m */; };
+		0265CE6E22F2C45E000363F0 /* THCouponsCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C420720F7A00EFDFCB /* THCouponsCtl.m */; };
+		0265CE6F22F2C45E000363F0 /* NSAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96F22DA239400A6518A /* NSAttributedString+AvoidCrash.m */; };
+		0265CE7022F2C45E000363F0 /* THOrderConfirmPaymentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042891D620CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m */; };
+		0265CE7122F2C45E000363F0 /* THBuyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3E02088EE2E007D6069 /* THBuyGoodsCell.m */; };
+		0265CE7222F2C45E000363F0 /* THShareViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0486977720C110A000C12DF7 /* THShareViewCell.m */; };
+		0265CE7322F2C45E000363F0 /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97822DA239400A6518A /* NSNull+NullSafe.m */; };
+		0265CE7422F2C45E000363F0 /* THHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78E9205931D10088A4A0 /* THHomeVC.m */; };
+		0265CE7522F2C45E000363F0 /* THAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE3D2098468700824A05 /* THAddressModel.m */; };
+		0265CE7622F2C45E000363F0 /* THGoodsDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F00207276EF0048875E /* THGoodsDetailBottomView.m */; };
+		0265CE7722F2C45E000363F0 /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
+		0265CE7822F2C45E000363F0 /* THAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3DB2088EE0C007D6069 /* THAddressCell.m */; };
+		0265CE7922F2C45E000363F0 /* THAddressEditListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE402098A60400824A05 /* THAddressEditListCell.m */; };
+		0265CE7A22F2C45E000363F0 /* MLLinkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAAD2087A5510088B1EB /* MLLinkLabel.m */; };
+		0265CE7B22F2C45E000363F0 /* THSpellGroupCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2A820623464009AE20B /* THSpellGroupCtl.m */; };
+		0265CE7C22F2C45E000363F0 /* THClassifyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7948205E2BB20088A4A0 /* THClassifyHeaderView.m */; };
+		0265CE7D22F2C45E000363F0 /* THTeMoneyHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E2E20CB063600F5085F /* THTeMoneyHead.m */; };
+		0265CE7E22F2C45E000363F0 /* THSpellGroupHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2C520624E30009AE20B /* THSpellGroupHead.m */; };
+		0265CE7F22F2C45E000363F0 /* THMyCollectCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712BB207201F200EFDFCB /* THMyCollectCtl.m */; };
+		0265CE8022F2C45E000363F0 /* NSString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96522DA239300A6518A /* NSString+AvoidCrash.m */; };
+		0265CE8122F2C45E000363F0 /* THSystemMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E4A20CB77F600F5085F /* THSystemMessageCell.m */; };
+		0265CE8222F2C45E000363F0 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAA02087A5510088B1EB /* TTTAttributedLabel.m */; };
+		0265CE8322F2C45E000363F0 /* THCommentCateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 572792DD20CED6D200E498AD /* THCommentCateModel.m */; };
+		0265CE8422F2C45E000363F0 /* AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97222DA239400A6518A /* AvoidCrash.m */; };
+		0265CE8522F2C45E000363F0 /* THMineSubmitApplicationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A3192071254B003BE300 /* THMineSubmitApplicationVC.m */; };
+		0265CE8622F2C45E000363F0 /* THMyMessageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3320CB707700F5085F /* THMyMessageCtl.m */; };
+		0265CE8722F2C45E000363F0 /* THTeHuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2622F2BD61000363F0 /* THTeHuiCell.m */; };
+		0265CE8822F2C45E000363F0 /* ChoosTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BE2088E477007D6069 /* ChoosTypeTableViewCell.m */; };
+		0265CE8922F2C45E000363F0 /* THNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A323207134AE003BE300 /* THNavigationController.m */; };
+		0265CE8A22F2C45E000363F0 /* THBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A324207134AE003BE300 /* THBaseVC.m */; };
+		0265CE8B22F2C45E000363F0 /* THShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0486977420C06F1700C12DF7 /* THShareView.m */; };
+		0265CE8C22F2C45E000363F0 /* THModifyPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04493A7320B3257800B92A16 /* THModifyPwdVC.m */; };
+		0265CE8D22F2C45E000363F0 /* THSpellGroupSectionHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2C020623957009AE20B /* THSpellGroupSectionHead.m */; };
+		0265CE8E22F2C45E000363F0 /* THTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A322207134AE003BE300 /* THTabBarController.m */; };
+		0265CE8F22F2C45E000363F0 /* THPhotoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1ABEAB207B59340093F104 /* THPhotoContainerView.m */; };
+		0265CE9022F2C45E000363F0 /* THSettingCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAF7B62079FD0400E4D4A2 /* THSettingCtl.m */; };
+		0265CE9122F2C45E000363F0 /* THTeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */; };
+		0265CE9222F2C45E000363F0 /* THOrderConfirmListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3F42088EEE1007D6069 /* THOrderConfirmListCell.m */; };
+		0265CE9322F2C45E000363F0 /* THScreeningGoodsCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51688C207477E1005E956E /* THScreeningGoodsCtl.m */; };
+		0265CE9422F2C45E000363F0 /* THMineAdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D790B205B6A920088A4A0 /* THMineAdCell.m */; };
+		0265CE9522F2C45E000363F0 /* THMyFootprintCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C120720A5500EFDFCB /* THMyFootprintCtl.m */; };
+		0265CE9622F2C45E000363F0 /* CountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BA2088E477007D6069 /* CountView.m */; };
+		0265CE9722F2C45E000363F0 /* THMineOrderDetailToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BB82A20CAF4E500E8FB93 /* THMineOrderDetailToolView.m */; };
+		0265CE9822F2C45E000363F0 /* THOrderCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D5103B20C6E01D00B78087 /* THOrderCouponModel.m */; };
+		0265CE9922F2C45E000363F0 /* THMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D797A205E671E0088A4A0 /* THMineHeaderView.m */; };
+		0265CE9A22F2C45E000363F0 /* THMineOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515EB86820C966B600890072 /* THMineOrderFooterView.m */; };
+		0265CE9B22F2C45E000363F0 /* THMoreSpellGroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B1206235F8009AE20B /* THMoreSpellGroupListCell.m */; };
+		0265CE9C22F2C45E000363F0 /* THGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1ABEA8207AFB2F0093F104 /* THGoodsModel.m */; };
+		0265CE9D22F2C45E000363F0 /* THMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89F208978FE008D85A0 /* THMenuView.m */; };
+		0265CE9E22F2C45E000363F0 /* MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB72087A5510088B1EB /* MLLabel.m */; };
+		0265CE9F22F2C45E000363F0 /* THShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EF4DE620DDF66A00B7F9AA /* THShareTool.m */; };
+		0265CEA022F2C45E000363F0 /* THHomeMallActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78FB205A566E0088A4A0 /* THHomeMallActivityCell.m */; };
+		0265CEA122F2C45E000363F0 /* THHomeSectionHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2A0206230B8009AE20B /* THHomeSectionHead.m */; };
+		0265CEA222F2C45E000363F0 /* THPaySuccessBlockPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F67FA720C9823D004431C2 /* THPaySuccessBlockPage.m */; };
+		0265CEA322F2C45E000363F0 /* THGoodsListOfTableLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC29620622AC0009AE20B /* THGoodsListOfTableLayoutCell.m */; };
+		0265CEA422F2C45E000363F0 /* THMyCollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712BE2072076200EFDFCB /* THMyCollectModel.m */; };
+		0265CEA522F2C45E000363F0 /* THCommentCateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 572792D520CED37700E498AD /* THCommentCateView.m */; };
+		0265CEA622F2C45E000363F0 /* THCommentHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 572792D220CED32A00E498AD /* THCommentHead.m */; };
+		0265CEA722F2C45E000363F0 /* THGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178ECC20715B100048875E /* THGoodsVC.m */; };
+		0265CEA822F2C45E000363F0 /* THGoodsSpecificationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F0E20728D4C0048875E /* THGoodsSpecificationsCell.m */; };
+		0265CEA922F2C45E000363F0 /* THGuideViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7942205E1D1E0088A4A0 /* THGuideViewTool.m */; };
+		0265CEAA22F2C45E000363F0 /* THInvitationManageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4B2073200C00FEFE40 /* THInvitationManageCtl.m */; };
+		0265CEAB22F2C45E000363F0 /* THMineApplymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484F09C2089B2FB008144B2 /* THMineApplymentVC.m */; };
+		0265CEAC22F2C45E000363F0 /* NSUserDefaults+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96B22DA239300A6518A /* NSUserDefaults+AvoidCrash.m */; };
+		0265CEAD22F2C45E000363F0 /* MLTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB12087A5510088B1EB /* MLTextAttachment.m */; };
+		0265CEAE22F2C45E000363F0 /* GoodsInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BB2088E477007D6069 /* GoodsInfoView.m */; };
+		0265CEAF22F2C45E000363F0 /* NSMutableString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96922DA239300A6518A /* NSMutableString+AvoidCrash.m */; };
+		0265CEB022F2C45E000363F0 /* THMineOrderHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7910205B774B0088A4A0 /* THMineOrderHeaderCell.m */; };
+		0265CEB122F2C45E000363F0 /* UISearchBar+FMAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168AB20747D8F005E956E /* UISearchBar+FMAdd.m */; };
+		0265CEB222F2C45E000363F0 /* THFlashCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51687D20746E71005E956E /* THFlashCtl.m */; };
+		0265CEB322F2C45E000363F0 /* NSMutableAttributedString+MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAA62087A5510088B1EB /* NSMutableAttributedString+MLLabel.m */; };
+		0265CEB422F2C45E000363F0 /* THMyTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E6520736E4400FEFE40 /* THMyTaskCell.m */; };
+		0265CEB522F2C45E000363F0 /* THPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D5104920C6F31E00B78087 /* THPay.m */; };
+		0265CEB622F2C45E000363F0 /* THSelectTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A26AD20B7D36A0091B58B /* THSelectTimeView.m */; };
+		0265CEB722F2C45E000363F0 /* THSelectedCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A26B020B8134B0091B58B /* THSelectedCategoryView.m */; };
+		0265CEB822F2C45E000363F0 /* THMineApplymentInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484F0A12089B555008144B2 /* THMineApplymentInputVC.m */; };
+		0265CEB922F2C45E000363F0 /* THMyMessageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3820CB747300F5085F /* THMyMessageListCell.m */; };
+		0265CEBA22F2C45E000363F0 /* MLLabelLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB92087A5510088B1EB /* MLLabelLayoutManager.m */; };
+		0265CEBB22F2C45E000363F0 /* THMineBankCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA2C1320DAAC58006A82B6 /* THMineBankCardVC.m */; };
+		0265CEBC22F2C45E000363F0 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98D22DC2B8B00A6518A /* SDPhotoBrowser.m */; };
+		0265CEBD22F2C45E000363F0 /* THAccountDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E5420CB868800F5085F /* THAccountDetailCell.m */; };
+		0265CEBE22F2C45E000363F0 /* THGoodsTopInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F062072789F0048875E /* THGoodsTopInfoCell.m */; };
+		0265CEBF22F2C45E000363F0 /* NSAttributedString+MLExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB02087A5510088B1EB /* NSAttributedString+MLExpression.m */; };
+		0265CEC022F2C45E000363F0 /* THMineWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8712076F14C003566C4 /* THMineWalletVC.m */; };
+		0265CEC122F2C45E000363F0 /* THMyCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712B6207201DD00EFDFCB /* THMyCollectCell.m */; };
+		0265CEC222F2C45E000363F0 /* THLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A30A207116F7003BE300 /* THLoginVC.m */; };
+		0265CEC322F2C45E000363F0 /* THLimitSpellGroupCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF84FDA206502B200A78368 /* THLimitSpellGroupCtl.m */; };
+		0265CEC422F2C45E000363F0 /* THChangeCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAF7AA2079E8B100E4D4A2 /* THChangeCountView.m */; };
+		0265CEC522F2C45E000363F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78A5205903130088A4A0 /* main.m */; };
+		0265CEC622F2C45E000363F0 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
+		0265CEC722F2C45E000363F0 /* NSString+MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAA92087A5510088B1EB /* NSString+MLLabel.m */; };
+		0265CEC822F2C45E000363F0 /* THHomeHeaderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78F22059FFC00088A4A0 /* THHomeHeaderItemCell.m */; };
+		0265CEC922F2C45E000363F0 /* THHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AF22D7254C005D6277 /* THHomePresenter.m */; };
+		0265CECA22F2C45E000363F0 /* THMyTaskCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E6220736C6B00FEFE40 /* THMyTaskCtl.m */; };
+		0265CECB22F2C45E000363F0 /* THShoppingCartCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B8820738D6700ED3FB8 /* THShoppingCartCtl.m */; };
+		0265CECC22F2C45E000363F0 /* THDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A9422DEECD900258F37 /* THDatabaseManager.m */; };
+		0265CECD22F2C45E000363F0 /* THActivityRecommandCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E4220CB770300F5085F /* THActivityRecommandCtl.m */; };
+		0265CECE22F2C45E000363F0 /* THCartSectionHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B7B207382B900ED3FB8 /* THCartSectionHead.m */; };
+		0265CECF22F2C45E000363F0 /* THFlashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51688620747171005E956E /* THFlashCell.m */; };
+		0265CED022F2C45E000363F0 /* YYStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A48A1207901A000DF1AAD /* YYStarView.m */; };
+		0265CED122F2C45E000363F0 /* THAlertViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F31CBF0206A30D000A48F2D /* THAlertViewModel.m */; };
+		0265CED222F2C45E000363F0 /* MLEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA9D2087A5510088B1EB /* MLEmojiLabel.m */; };
+		0265CED322F2C45E000363F0 /* THHelpCenterCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D1399207A23120024C3D4 /* THHelpCenterCtl.m */; };
+		0265CED422F2C45E000363F0 /* THShoppingCartListDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B832073859300ED3FB8 /* THShoppingCartListDelegate.m */; };
+		0265CED522F2C45E000363F0 /* NSMutableArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96C22DA239300A6518A /* NSMutableArray+AvoidCrash.m */; };
+		0265CED622F2C45E000363F0 /* THAcountDetailCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E4F20CB7F7900F5085F /* THAcountDetailCtl.m */; };
+		0265CED722F2C45E000363F0 /* THFlashSaleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A64720C6F54100527C80 /* THFlashSaleModel.m */; };
+		0265CED822F2C45E000363F0 /* THHomeHotGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51689C20747B1A005E956E /* THHomeHotGoodsCell.m */; };
+		0265CED922F2C45E000363F0 /* THGoodsTransLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168A120747BB6005E956E /* THGoodsTransLayoutCell.m */; };
+		0265CEDA22F2C45E000363F0 /* THMineOrderManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8622073ED5B003566C4 /* THMineOrderManageVC.m */; };
+		0265CEDB22F2C45E000363F0 /* THClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7945205E1F380088A4A0 /* THClassifyVC.m */; };
+		0265CEDC22F2C45E000363F0 /* THScreeningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168B22074A5E2005E956E /* THScreeningView.m */; };
+		0265CEDD22F2C45E000363F0 /* THNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D793A205E0F840088A4A0 /* THNewFeatureVC.m */; };
+		0265CEDE22F2C45E000363F0 /* THGoodsCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A48A5207907E200DF1AAD /* THGoodsCommentModel.m */; };
+		0265CEDF22F2C45E000363F0 /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154AC22D5CEC7005D6277 /* THButton.m */; };
+		0265CEE022F2C45E000363F0 /* GoodsPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3C12088E477007D6069 /* GoodsPriceModel.m */; };
+		0265CEE122F2C45E000363F0 /* THClassifyItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D794D205E2F9C0088A4A0 /* THClassifyItemCell.m */; };
+		0265CEE222F2C45E000363F0 /* THSingleLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168B52074A921005E956E /* THSingleLabelCell.m */; };
+		0265CEE322F2C45E000363F0 /* THRegisterNextStepCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A302207116F7003BE300 /* THRegisterNextStepCtl.m */; };
+		0265CEE422F2C45E000363F0 /* THOrderConfirmPayButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042891D120CD93AA00A6DBAB /* THOrderConfirmPayButtomView.m */; };
+		0265CEE522F2C45E000363F0 /* THMineOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8692073F2D1003566C4 /* THMineOrderCell.m */; };
+		0265CEE622F2C45E000363F0 /* MLExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAB62087A5510088B1EB /* MLExpressionManager.m */; };
+		0265CEE722F2C45E000363F0 /* THCategoryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98822DB1E4400A6518A /* THCategoryPresenter.m */; };
+		0265CEE822F2C45E000363F0 /* THMoreLimitSpellGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF84FE3206507E400A78368 /* THMoreLimitSpellGroupCell.m */; };
+		0265CEE922F2C45E000363F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78C7205906540088A4A0 /* AppDelegate.m */; };
+		0265CEEA22F2C45E000363F0 /* THAddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE45209B6E9C00824A05 /* THAddAddressCell.m */; };
+		0265CEEB22F2C45E000363F0 /* THPayMethodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FAA05320C858BE00230A68 /* THPayMethodCell.m */; };
+		0265CEEC22F2C45E000363F0 /* THForgetPswCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A301207116F7003BE300 /* THForgetPswCtl.m */; };
+		0265CEED22F2C45E000363F0 /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
+		0265CEEE22F2C45E000363F0 /* THCardSettleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D14C922E8668F00D872DD /* THCardSettleView.m */; };
+		0265CEEF22F2C45E000363F0 /* THAVCaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04548D7A2070AE71002F73C6 /* THAVCaptureSessionManager.m */; };
+		0265CEF022F2C45E000363F0 /* THScreeningPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168BA2074BC0D005E956E /* THScreeningPriceCell.m */; };
+		0265CEF122F2C45E000363F0 /* THTeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */; };
+		0265CEF222F2C45E000363F0 /* NSDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96622DA239300A6518A /* NSDictionary+AvoidCrash.m */; };
+		0265CEF322F2C45E000363F0 /* THMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82C22EAE597002602A5 /* THMessageModel.m */; };
+		0265CEF422F2C45E000363F0 /* YGAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC83222EED26E002602A5 /* YGAuthTool.m */; };
+		0265CEF522F2C45E000363F0 /* THTeCommonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2122F2BCEB000363F0 /* THTeCommonView.m */; };
+		0265CEF622F2C45E000363F0 /* UIImage+CHImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78DD205927D10088A4A0 /* UIImage+CHImage.m */; };
+		0265CEF722F2C45E000363F0 /* THHomeMallActivityItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78FE205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m */; };
+		0265CEF822F2C45E000363F0 /* THCartDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5169ED5F20C673CD00EE1D9A /* THCartDetailModel.m */; };
+		0265CEF922F2C45E000363F0 /* THAddressEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE3A2098463B00824A05 /* THAddressEditVC.m */; };
+		0265CEFA22F2C45E000363F0 /* NSAttributedString+MLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEAAB2087A5510088B1EB /* NSAttributedString+MLLabel.m */; };
+		0265CEFB22F2C45E000363F0 /* THAboutTHCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E5920CB88E100F5085F /* THAboutTHCtl.m */; };
+		0265CEFC22F2C45E000363F0 /* THAceSpellGroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B62062360D009AE20B /* THAceSpellGroupListCell.m */; };
+		0265CEFD22F2C45E000363F0 /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
+		0265CEFE22F2C45E000363F0 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
+		0265CEFF22F2C45E000363F0 /* NSMutableAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96D22DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m */; };
+		0265CF0022F2C45E000363F0 /* THCommentCateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 572792D820CED4DD00E498AD /* THCommentCateViewCell.m */; };
+		0265CF0122F2C45E000363F0 /* THGoodsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F01207276EF0048875E /* THGoodsHeaderView.m */; };
+		0265CF0222F2C45E000363F0 /* THBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154A822D5B2FE005D6277 /* THBasePresenter.m */; };
+		0265CF0322F2C45E000363F0 /* THTeCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA6C2087A0EB0088B1EB /* THTeCtl.m */; };
+		0265CF0422F2C45E000363F0 /* THCartListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B7E207383D400ED3FB8 /* THCartListCell.m */; };
+		0265CF0522F2C45E000363F0 /* THPayMethodCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F67FA220C97F21004431C2 /* THPayMethodCtl.m */; };
+		0265CF0622F2C45E000363F0 /* THUserInfoEditCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAF7B02079F5DF00E4D4A2 /* THUserInfoEditCtl.m */; };
+		0265CF0722F2C45E000363F0 /* THBankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8792077214D003566C4 /* THBankCardModel.m */; };
+		0265CF0822F2C45E000363F0 /* THGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A32F20713D34003BE300 /* THGoodsDetailVC.m */; };
+		0265CF0922F2C45E000363F0 /* NSString+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712D1207227B600EFDFCB /* NSString+CHExtension.m */; };
+		0265CF0A22F2C45E000363F0 /* THMineBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA2C0D20DAA81E006A82B6 /* THMineBankCardCell.m */; };
+		0265CF0B22F2C45E000363F0 /* THSingImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3D20CB764400F5085F /* THSingImgCell.m */; };
+		0265CF0C22F2C45E000363F0 /* THLogisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3F92088F064007D6069 /* THLogisticsCell.m */; };
+		0265CF0D22F2C45E000363F0 /* YGInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377CC22C33D420038AC5A /* YGInfo.m */; };
+		0265CF0E22F2C45E000363F0 /* THGoodsCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A489E2078FFCC00DF1AAD /* THGoodsCommentCell.m */; };
+		0265CF0F22F2C45E000363F0 /* THGoodsSpecModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0448EB6A208E3022006E1E17 /* THGoodsSpecModel.m */; };
+		0265CF1022F2C45E000363F0 /* THCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A48A820791F0700DF1AAD /* THCommentVC.m */; };
+		0265CF1122F2C45E000363F0 /* THTeHuiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054DB320AEF7FC009CE4F1 /* THTeHuiModel.m */; };
+		0265CF1222F2C45E000363F0 /* THGoodsCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F13207297B60048875E /* THGoodsCommentHeaderView.m */; };
+		0265CF1322F2C45E000363F0 /* THScanQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04548D7F2070F2EB002F73C6 /* THScanQRCodeVC.m */; };
+		0265CF1422F2C45E000363F0 /* THHomeHeaderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78F8205A21C90088A4A0 /* THHomeHeaderItemModel.m */; };
+		0265CF1522F2C45E000363F0 /* THCouponsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C920721F1000EFDFCB /* THCouponsModel.m */; };
+		0265CF1622F2C45E000363F0 /* THMineOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD7E7E20C9AFA80057884A /* THMineOrderDetailCell.m */; };
+		0265CF1822F2C45E000363F0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5106420C6F98100B78087 /* CoreMotion.framework */; };
+		0265CF1922F2C45E000363F0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5106220C6F97500B78087 /* CFNetwork.framework */; };
+		0265CF1A22F2C45E000363F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5106020C6F96E00B78087 /* Foundation.framework */; };
+		0265CF1B22F2C45E000363F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105E20C6F96700B78087 /* UIKit.framework */; };
+		0265CF1C22F2C45E000363F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105C20C6F96000B78087 /* CoreGraphics.framework */; };
+		0265CF1D22F2C45E000363F0 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105A20C6F95400B78087 /* CoreText.framework */; };
+		0265CF1E22F2C45E000363F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105820C6F94A00B78087 /* QuartzCore.framework */; };
+		0265CF1F22F2C45E000363F0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105620C6F93600B78087 /* CoreTelephony.framework */; };
+		0265CF2022F2C45E000363F0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105420C6F92C00B78087 /* SystemConfiguration.framework */; };
+		0265CF2122F2C45E000363F0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105220C6F92100B78087 /* libz.tbd */; };
+		0265CF2222F2C45E000363F0 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5105020C6F91900B78087 /* libc++.tbd */; };
+		0265CF2322F2C45E000363F0 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5104D20C6F41600B78087 /* AlipaySDK.framework */; };
+		0265CF2422F2C45E000363F0 /* Pods_THYG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EA45D4CDFE146F156A84C5 /* Pods_THYG.framework */; };
+		0265CF2622F2C45E000363F0 /* THMineBankCardListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DA2C1720DABFED006A82B6 /* THMineBankCardListCell.xib */; };
+		0265CF2722F2C45E000363F0 /* THMineShareQRCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A3152071171C003BE300 /* THMineShareQRCodeVC.xib */; };
+		0265CF2822F2C45E000363F0 /* THSystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E4B20CB77F600F5085F /* THSystemMessageCell.xib */; };
+		0265CF2922F2C45E000363F0 /* THForgetPswCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A305207116F7003BE300 /* THForgetPswCtl.xib */; };
+		0265CF2A22F2C45E000363F0 /* THMineBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DA2C0E20DAA81E006A82B6 /* THMineBankCardCell.xib */; };
+		0265CF2B22F2C45E000363F0 /* THGoodsTopInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178F072072789F0048875E /* THGoodsTopInfoCell.xib */; };
+		0265CF2C22F2C45E000363F0 /* THGoodsListOfTableLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC29720622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib */; };
+		0265CF2D22F2C45E000363F0 /* THRegisterNextStepCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A304207116F7003BE300 /* THRegisterNextStepCtl.xib */; };
+		0265CF2E22F2C45E000363F0 /* THMineApplymentInputVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484F0A22089B555008144B2 /* THMineApplymentInputVC.xib */; };
+		0265CF2F22F2C45E000363F0 /* THOrderConfirmPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042891D720CD9BD900A6DBAB /* THOrderConfirmPaymentCell.xib */; };
+		0265CF3022F2C45E000363F0 /* THScreeningPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5168BB2074BC0D005E956E /* THScreeningPriceCell.xib */; };
+		0265CF3122F2C45E000363F0 /* THSingImgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E3E20CB764400F5085F /* THSingImgCell.xib */; };
+		0265CF3222F2C45E000363F0 /* THMySupplierCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5120732AF100FEFE40 /* THMySupplierCell.xib */; };
+		0265CF3322F2C45E000363F0 /* THMineSubmitApplicationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A31A2071254B003BE300 /* THMineSubmitApplicationVC.xib */; };
+		0265CF3422F2C45E000363F0 /* THHomeSectionHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2A1206230B8009AE20B /* THHomeSectionHead.xib */; };
+		0265CF3522F2C45E000363F0 /* THOrderConfirmCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CBC3D62088ED45007D6069 /* THOrderConfirmCtl.xib */; };
+		0265CF3622F2C45E000363F0 /* THLogisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CBC3FA2088F064007D6069 /* THLogisticsCell.xib */; };
+		0265CF3722F2C45E000363F0 /* THMineOrderDetailToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042BB82C20CAF5D500E8FB93 /* THMineOrderDetailToolView.xib */; };
+		0265CF3822F2C45E000363F0 /* THMineOrderHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D7911205B774B0088A4A0 /* THMineOrderHeaderCell.xib */; };
+		0265CF3922F2C45E000363F0 /* THMyMessageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E3920CB747300F5085F /* THMyMessageListCell.xib */; };
+		0265CF3A22F2C45E000363F0 /* THCreateOrderSuccessVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D5104220C6ECC400B78087 /* THCreateOrderSuccessVC.xib */; };
+		0265CF3B22F2C45E000363F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512D78A1205903130088A4A0 /* LaunchScreen.storyboard */; };
+		0265CF3C22F2C45E000363F0 /* THSpellGroupHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2C920624F83009AE20B /* THSpellGroupHeadCell.xib */; };
+		0265CF3D22F2C45E000363F0 /* THFlashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F51688720747171005E956E /* THFlashCell.xib */; };
+		0265CF3E22F2C45E000363F0 /* THMoreSpellGroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B2206235F8009AE20B /* THMoreSpellGroupListCell.xib */; };
+		0265CF3F22F2C45E000363F0 /* THAcountDetailCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E5020CB7F7900F5085F /* THAcountDetailCtl.xib */; };
+		0265CF4022F2C45E000363F0 /* THTeMoneyHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E2F20CB063600F5085F /* THTeMoneyHead.xib */; };
+		0265CF4122F2C45E000363F0 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57D5104C20C6F41600B78087 /* AlipaySDK.bundle */; };
+		0265CF4222F2C45E000363F0 /* THPaySuccessBlockPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F67FA820C9823D004431C2 /* THPaySuccessBlockPage.xib */; };
+		0265CF4322F2C45E000363F0 /* THMineAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D790C205B6A920088A4A0 /* THMineAdCell.xib */; };
+		0265CF4422F2C45E000363F0 /* THAboutTHCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E5A20CB88E100F5085F /* THAboutTHCtl.xib */; };
+		0265CF4522F2C45E000363F0 /* THCartSectionHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B782073810E00ED3FB8 /* THCartSectionHead.xib */; };
+		0265CF4622F2C45E000363F0 /* THGoodsSpecificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178F0F20728D4C0048875E /* THGoodsSpecificationsCell.xib */; };
+		0265CF4722F2C45E000363F0 /* THUserInfoEditCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFAF7B12079F5DF00E4D4A2 /* THUserInfoEditCtl.xib */; };
+		0265CF4822F2C45E000363F0 /* THMineApplymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484F09D2089B2FB008144B2 /* THMineApplymentVC.xib */; };
+		0265CF4922F2C45E000363F0 /* THLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A300207116F7003BE300 /* THLoginVC.xib */; };
+		0265CF4A22F2C45E000363F0 /* THMoreLimitSpellGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF84FE4206507E400A78368 /* THMoreLimitSpellGroupCell.xib */; };
+		0265CF4B22F2C45E000363F0 /* THAddressEditListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044AEE412098A60400824A05 /* THAddressEditListCell.xib */; };
+		0265CF4C22F2C45E000363F0 /* THMyCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1712B7207201DD00EFDFCB /* THMyCollectCell.xib */; };
+		0265CF4D22F2C45E000363F0 /* THAceSpellGroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B72062360D009AE20B /* THAceSpellGroupListCell.xib */; };
+		0265CF4E22F2C45E000363F0 /* THGoodsTransLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5168A220747BB6005E956E /* THGoodsTransLayoutCell.xib */; };
+		0265CF4F22F2C45E000363F0 /* THSettingCtl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFAF7BF207A08B700E4D4A2 /* THSettingCtl.storyboard */; };
+		0265CF5022F2C45E000363F0 /* THCouponsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1712CD207221A000EFDFCB /* THCouponsCell.xib */; };
+		0265CF5122F2C45E000363F0 /* THMyTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E6620736E4400FEFE40 /* THMyTaskCell.xib */; };
+		0265CF5222F2C45E000363F0 /* THModifyPwdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04493A7420B3257800B92A16 /* THModifyPwdVC.xib */; };
+		0265CF5322F2C45E000363F0 /* THMineSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D7907205B63F70088A4A0 /* THMineSectionCell.xib */; };
+		0265CF5422F2C45E000363F0 /* THPayMethodCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F67FA320C97F21004431C2 /* THPayMethodCtl.xib */; };
+		0265CF5522F2C45E000363F0 /* THScanQRCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044727CD2070F94F00CB8326 /* THScanQRCodeVC.xib */; };
+		0265CF5622F2C45E000363F0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 576EEABC2087A5510088B1EB /* README.md */; };
+		0265CF5722F2C45E000363F0 /* THBuyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CBC3E12088EE2E007D6069 /* THBuyGoodsCell.xib */; };
+		0265CF5822F2C45E000363F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 512D793F205E12260088A4A0 /* Assets.xcassets */; };
+		0265CF5922F2C45E000363F0 /* THCommentCateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 572792D920CED4DD00E498AD /* THCommentCateViewCell.xib */; };
+		0265CF5A22F2C45E000363F0 /* THPayMethodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57FAA05420C858BE00230A68 /* THPayMethodCell.xib */; };
+		0265CF5B22F2C45E000363F0 /* THHomeHeaderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D78F32059FFC00088A4A0 /* THHomeHeaderItemCell.xib */; };
+		0265CF5C22F2C45E000363F0 /* MLEmoji_Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9B2087A5510088B1EB /* MLEmoji_Expression.bundle */; };
+		0265CF5D22F2C45E000363F0 /* THCartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B7F207383D400ED3FB8 /* THCartListCell.xib */; };
+		0265CF5E22F2C45E000363F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512D789C205903130088A4A0 /* Main.storyboard */; };
+		0265CF5F22F2C45E000363F0 /* THSingleLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5168B62074A921005E956E /* THSingleLabelCell.xib */; };
+		0265CF6022F2C45E000363F0 /* THLimitSpellGroupListCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF84FDF206503E800A78368 /* THLimitSpellGroupListCtl.xib */; };
+		0265CF6122F2C45E000363F0 /* THMineWalletHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0417B8762076F224003566C4 /* THMineWalletHeaderView.xib */; };
+		0265CF6222F2C45E000363F0 /* THOrderConfirmListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CBC3F52088EEE1007D6069 /* THOrderConfirmListCell.xib */; };
+		0265CF6322F2C45E000363F0 /* THOrderConfirmPayButtomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042891D320CD93BC00A6DBAB /* THOrderConfirmPayButtomView.xib */; };
+		0265CF6422F2C45E000363F0 /* THClassifyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D7949205E2BB20088A4A0 /* THClassifyHeaderView.xib */; };
+		0265CF6522F2C45E000363F0 /* THAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CBC3DC2088EE0C007D6069 /* THAddressCell.xib */; };
+		0265CF6622F2C45E000363F0 /* THHomeHotGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F51689D20747B1A005E956E /* THHomeHotGoodsCell.xib */; };
+		0265CF6722F2C45E000363F0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 576EEAA22087A5510088B1EB /* LICENSE */; };
+		0265CF6822F2C45E000363F0 /* THMineAddBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DA2C0920DAA2B2006A82B6 /* THMineAddBankCardCell.xib */; };
+		0265CF6922F2C45E000363F0 /* THAccountDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E5520CB868800F5085F /* THAccountDetailCell.xib */; };
+		0265CF6A22F2C45E000363F0 /* MLEmoji_ExpressionImage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9C2087A5510088B1EB /* MLEmoji_ExpressionImage.plist */; };
+		0265CF6B22F2C45E000363F0 /* THHelpCenterCtl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D139B207A23210024C3D4 /* THHelpCenterCtl.storyboard */; };
+		0265CF6C22F2C45E000363F0 /* THClassifyItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D794E205E2F9C0088A4A0 /* THClassifyItemCell.xib */; };
+		0265CF6D22F2C45E000363F0 /* THMineOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0417B86A2073F2D1003566C4 /* THMineOrderCell.xib */; };
+		0265CF6E22F2C45E000363F0 /* THRegisterCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A308207116F7003BE300 /* THRegisterCtl.xib */; };
+		0265CF6F22F2C45E000363F0 /* THGoodsListOfCollectionLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC29C20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.xib */; };
+		0265CF7022F2C45E000363F0 /* MLEmoji_Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9A2087A5510088B1EB /* MLEmoji_Expression.plist */; };
+		0265CF7122F2C45E000363F0 /* THRecommendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B20732B3B00FEFE40 /* THRecommendedCell.xib */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
 		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
@@ -78,7 +401,6 @@
 		0417B87A2077214D003566C4 /* THBankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8792077214D003566C4 /* THBankCardModel.m */; };
 		0418A63F20C59A2D00527C80 /* THFavouriteGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A63E20C59A2D00527C80 /* THFavouriteGoodsModel.m */; };
 		0418A64820C6F54100527C80 /* THFlashSaleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418A64720C6F54100527C80 /* THFlashSaleModel.m */; };
-		0421E89D2088FCD8008D85A0 /* THBaseWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89C2088FCD8008D85A0 /* THBaseWebVC.m */; };
 		0421E8A0208978FE008D85A0 /* THMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421E89F208978FE008D85A0 /* THMenuView.m */; };
 		042891D220CD93AA00A6DBAB /* THOrderConfirmPayButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042891D120CD93AA00A6DBAB /* THOrderConfirmPayButtomView.m */; };
 		042891D420CD93BC00A6DBAB /* THOrderConfirmPayButtomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042891D320CD93BC00A6DBAB /* THOrderConfirmPayButtomView.xib */; };
@@ -256,6 +578,7 @@
 		57F67FAA20C9823D004431C2 /* THPaySuccessBlockPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F67FA820C9823D004431C2 /* THPaySuccessBlockPage.xib */; };
 		57FAA05520C858BE00230A68 /* THPayMethodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FAA05320C858BE00230A68 /* THPayMethodCell.m */; };
 		57FAA05620C858BE00230A68 /* THPayMethodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57FAA05420C858BE00230A68 /* THPayMethodCell.xib */; };
+		6E2AA73D4324F5BF83D2F53C /* Pods_THYG_PRO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87F96EBC7E191852FC551CF /* Pods_THYG_PRO.framework */; };
 		8F0DC29820622AC0009AE20B /* THGoodsListOfTableLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC29620622AC0009AE20B /* THGoodsListOfTableLayoutCell.m */; };
 		8F0DC29920622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC29720622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib */; };
 		8F0DC29D20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC29B20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m */; };
@@ -400,6 +723,9 @@
 		0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHeaderView.m; sourceTree = "<group>"; };
 		0265CE2622F2BD61000363F0 /* THTeHuiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTeHuiCell.m; sourceTree = "<group>"; };
 		0265CE2722F2BD61000363F0 /* THTeHuiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTeHuiCell.h; sourceTree = "<group>"; };
+		0265CF7722F2C45E000363F0 /* THYG_PRO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THYG_PRO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0265CF7822F2C45F000363F0 /* THYG copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "THYG copy-Info.plist"; path = "/Users/c/Desktop/work/THYG/THYG/THYG copy-Info.plist"; sourceTree = "<absolute>"; };
+		0265CF7922F2C5DD000363F0 /* THNetworkCondition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNetworkCondition.h; sourceTree = "<group>"; };
 		0271234322E82D19002DF961 /* THTeCenterPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterPresenter.h; sourceTree = "<group>"; };
 		0271234422E82D19002DF961 /* THTeCenterPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCenterPresenter.m; sourceTree = "<group>"; };
 		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
@@ -483,8 +809,6 @@
 		0418A63E20C59A2D00527C80 /* THFavouriteGoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFavouriteGoodsModel.m; sourceTree = "<group>"; };
 		0418A64620C6F54100527C80 /* THFlashSaleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFlashSaleModel.h; sourceTree = "<group>"; };
 		0418A64720C6F54100527C80 /* THFlashSaleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFlashSaleModel.m; sourceTree = "<group>"; };
-		0421E89B2088FCD7008D85A0 /* THBaseWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseWebVC.h; sourceTree = "<group>"; };
-		0421E89C2088FCD8008D85A0 /* THBaseWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBaseWebVC.m; sourceTree = "<group>"; };
 		0421E89E208978FE008D85A0 /* THMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMenuView.h; sourceTree = "<group>"; };
 		0421E89F208978FE008D85A0 /* THMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMenuView.m; sourceTree = "<group>"; };
 		042891D020CD93AA00A6DBAB /* THOrderConfirmPayButtomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THOrderConfirmPayButtomView.h; sourceTree = "<group>"; };
@@ -651,6 +975,7 @@
 		51DA2C1720DABFED006A82B6 /* THMineBankCardListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THMineBankCardListCell.xib; sourceTree = "<group>"; };
 		51EF4DE520DDF66A00B7F9AA /* THShareTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THShareTool.h; sourceTree = "<group>"; };
 		51EF4DE620DDF66A00B7F9AA /* THShareTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THShareTool.m; sourceTree = "<group>"; };
+		55AF22E7CB6B7EEB1DC2B6EC /* Pods-THYG_PRO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-THYG_PRO.release.xcconfig"; path = "Pods/Target Support Files/Pods-THYG_PRO/Pods-THYG_PRO.release.xcconfig"; sourceTree = "<group>"; };
 		572792D120CED32A00E498AD /* THCommentHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCommentHead.h; sourceTree = "<group>"; };
 		572792D220CED32A00E498AD /* THCommentHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCommentHead.m; sourceTree = "<group>"; };
 		572792D420CED37700E498AD /* THCommentCateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCommentCateView.h; sourceTree = "<group>"; };
@@ -784,6 +1109,7 @@
 		57FAA05220C858BE00230A68 /* THPayMethodCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THPayMethodCell.h; sourceTree = "<group>"; };
 		57FAA05320C858BE00230A68 /* THPayMethodCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THPayMethodCell.m; sourceTree = "<group>"; };
 		57FAA05420C858BE00230A68 /* THPayMethodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THPayMethodCell.xib; sourceTree = "<group>"; };
+		88AA6CB5C53A489D49D03DDA /* Pods-THYG_PRO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-THYG_PRO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-THYG_PRO/Pods-THYG_PRO.debug.xcconfig"; sourceTree = "<group>"; };
 		8F0DC29520622AC0009AE20B /* THGoodsListOfTableLayoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGoodsListOfTableLayoutCell.h; sourceTree = "<group>"; };
 		8F0DC29620622AC0009AE20B /* THGoodsListOfTableLayoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THGoodsListOfTableLayoutCell.m; sourceTree = "<group>"; };
 		8F0DC29720622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THGoodsListOfTableLayoutCell.xib; sourceTree = "<group>"; };
@@ -912,10 +1238,32 @@
 		8FFAF7B62079FD0400E4D4A2 /* THSettingCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSettingCtl.m; sourceTree = "<group>"; };
 		8FFAF7BF207A08B700E4D4A2 /* THSettingCtl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = THSettingCtl.storyboard; sourceTree = "<group>"; };
 		902BA96B9D54E4CFF287002D /* Pods-THYG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-THYG.release.xcconfig"; path = "Pods/Target Support Files/Pods-THYG/Pods-THYG.release.xcconfig"; sourceTree = "<group>"; };
+		C87F96EBC7E191852FC551CF /* Pods_THYG_PRO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_THYG_PRO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4EA45D4CDFE146F156A84C5 /* Pods_THYG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_THYG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0265CF1722F2C45E000363F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0265CF1822F2C45E000363F0 /* CoreMotion.framework in Frameworks */,
+				0265CF1922F2C45E000363F0 /* CFNetwork.framework in Frameworks */,
+				0265CF1A22F2C45E000363F0 /* Foundation.framework in Frameworks */,
+				0265CF1B22F2C45E000363F0 /* UIKit.framework in Frameworks */,
+				0265CF1C22F2C45E000363F0 /* CoreGraphics.framework in Frameworks */,
+				0265CF1D22F2C45E000363F0 /* CoreText.framework in Frameworks */,
+				0265CF1E22F2C45E000363F0 /* QuartzCore.framework in Frameworks */,
+				0265CF1F22F2C45E000363F0 /* CoreTelephony.framework in Frameworks */,
+				0265CF2022F2C45E000363F0 /* SystemConfiguration.framework in Frameworks */,
+				0265CF2122F2C45E000363F0 /* libz.tbd in Frameworks */,
+				0265CF2222F2C45E000363F0 /* libc++.tbd in Frameworks */,
+				0265CF2322F2C45E000363F0 /* AlipaySDK.framework in Frameworks */,
+				0265CF2422F2C45E000363F0 /* Pods_THYG.framework in Frameworks */,
+				6E2AA73D4324F5BF83D2F53C /* Pods_THYG_PRO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		512D7890205903130088A4A0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1005,6 +1353,7 @@
 				02C377C822C324700038AC5A /* YGNetWorkTools.m */,
 				025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */,
 				025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */,
+				0265CF7922F2C5DD000363F0 /* THNetworkCondition.h */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1318,8 +1667,6 @@
 				04D0A323207134AE003BE300 /* THNavigationController.m */,
 				04D0A321207134AE003BE300 /* THBaseVC.h */,
 				04D0A324207134AE003BE300 /* THBaseVC.m */,
-				0421E89B2088FCD7008D85A0 /* THBaseWebVC.h */,
-				0421E89C2088FCD8008D85A0 /* THBaseWebVC.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -1340,6 +1687,7 @@
 				57D5105220C6F92100B78087 /* libz.tbd */,
 				57D5105020C6F91900B78087 /* libc++.tbd */,
 				E4EA45D4CDFE146F156A84C5 /* Pods_THYG.framework */,
+				C87F96EBC7E191852FC551CF /* Pods_THYG_PRO.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1351,6 +1699,7 @@
 				512D7894205903130088A4A0 /* Products */,
 				DD698F97C388E49AE319BDAC /* Pods */,
 				3D181980B3D8340BE96F1601 /* Frameworks */,
+				0265CF7822F2C45F000363F0 /* THYG copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1358,6 +1707,7 @@
 			isa = PBXGroup;
 			children = (
 				512D7893205903130088A4A0 /* THYG.app */,
+				0265CF7722F2C45E000363F0 /* THYG_PRO.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2240,6 +2590,8 @@
 			children = (
 				300D45B6D570375E2178BF09 /* Pods-THYG.debug.xcconfig */,
 				902BA96B9D54E4CFF287002D /* Pods-THYG.release.xcconfig */,
+				88AA6CB5C53A489D49D03DDA /* Pods-THYG_PRO.debug.xcconfig */,
+				55AF22E7CB6B7EEB1DC2B6EC /* Pods-THYG_PRO.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2247,6 +2599,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0265CE2922F2C45E000363F0 /* THYG_PRO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0265CF7422F2C45E000363F0 /* Build configuration list for PBXNativeTarget "THYG_PRO" */;
+			buildPhases = (
+				0265CE2A22F2C45E000363F0 /* [CP] Check Pods Manifest.lock */,
+				0265CE2B22F2C45E000363F0 /* Sources */,
+				0265CF1722F2C45E000363F0 /* Frameworks */,
+				0265CF2522F2C45E000363F0 /* Resources */,
+				0265CF7222F2C45E000363F0 /* [CP] Embed Pods Frameworks */,
+				0265CF7322F2C45E000363F0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = THYG_PRO;
+			productName = THYG;
+			productReference = 0265CF7722F2C45E000363F0 /* THYG_PRO.app */;
+			productType = "com.apple.product-type.application";
+		};
 		512D7892205903130088A4A0 /* THYG */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 512D78A9205903130088A4A0 /* Build configuration list for PBXNativeTarget "THYG" */;
@@ -2277,6 +2649,9 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = THYG;
 				TargetAttributes = {
+					0265CE2922F2C45E000363F0 = {
+						ProvisioningStyle = Automatic;
+					};
 					512D7892205903130088A4A0 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -2297,11 +2672,95 @@
 			projectRoot = "";
 			targets = (
 				512D7892205903130088A4A0 /* THYG */,
+				0265CE2922F2C45E000363F0 /* THYG_PRO */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0265CF2522F2C45E000363F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0265CF2622F2C45E000363F0 /* THMineBankCardListCell.xib in Resources */,
+				0265CF2722F2C45E000363F0 /* THMineShareQRCodeVC.xib in Resources */,
+				0265CF2822F2C45E000363F0 /* THSystemMessageCell.xib in Resources */,
+				0265CF2922F2C45E000363F0 /* THForgetPswCtl.xib in Resources */,
+				0265CF2A22F2C45E000363F0 /* THMineBankCardCell.xib in Resources */,
+				0265CF2B22F2C45E000363F0 /* THGoodsTopInfoCell.xib in Resources */,
+				0265CF2C22F2C45E000363F0 /* THGoodsListOfTableLayoutCell.xib in Resources */,
+				0265CF2D22F2C45E000363F0 /* THRegisterNextStepCtl.xib in Resources */,
+				0265CF2E22F2C45E000363F0 /* THMineApplymentInputVC.xib in Resources */,
+				0265CF2F22F2C45E000363F0 /* THOrderConfirmPaymentCell.xib in Resources */,
+				0265CF3022F2C45E000363F0 /* THScreeningPriceCell.xib in Resources */,
+				0265CF3122F2C45E000363F0 /* THSingImgCell.xib in Resources */,
+				0265CF3222F2C45E000363F0 /* THMySupplierCell.xib in Resources */,
+				0265CF3322F2C45E000363F0 /* THMineSubmitApplicationVC.xib in Resources */,
+				0265CF3422F2C45E000363F0 /* THHomeSectionHead.xib in Resources */,
+				0265CF3522F2C45E000363F0 /* THOrderConfirmCtl.xib in Resources */,
+				0265CF3622F2C45E000363F0 /* THLogisticsCell.xib in Resources */,
+				0265CF3722F2C45E000363F0 /* THMineOrderDetailToolView.xib in Resources */,
+				0265CF3822F2C45E000363F0 /* THMineOrderHeaderCell.xib in Resources */,
+				0265CF3922F2C45E000363F0 /* THMyMessageListCell.xib in Resources */,
+				0265CF3A22F2C45E000363F0 /* THCreateOrderSuccessVC.xib in Resources */,
+				0265CF3B22F2C45E000363F0 /* LaunchScreen.storyboard in Resources */,
+				0265CF3C22F2C45E000363F0 /* THSpellGroupHeadCell.xib in Resources */,
+				0265CF3D22F2C45E000363F0 /* THFlashCell.xib in Resources */,
+				0265CF3E22F2C45E000363F0 /* THMoreSpellGroupListCell.xib in Resources */,
+				0265CF3F22F2C45E000363F0 /* THAcountDetailCtl.xib in Resources */,
+				0265CF4022F2C45E000363F0 /* THTeMoneyHead.xib in Resources */,
+				0265CF4122F2C45E000363F0 /* AlipaySDK.bundle in Resources */,
+				0265CF4222F2C45E000363F0 /* THPaySuccessBlockPage.xib in Resources */,
+				0265CF4322F2C45E000363F0 /* THMineAdCell.xib in Resources */,
+				0265CF4422F2C45E000363F0 /* THAboutTHCtl.xib in Resources */,
+				0265CF4522F2C45E000363F0 /* THCartSectionHead.xib in Resources */,
+				0265CF4622F2C45E000363F0 /* THGoodsSpecificationsCell.xib in Resources */,
+				0265CF4722F2C45E000363F0 /* THUserInfoEditCtl.xib in Resources */,
+				0265CF4822F2C45E000363F0 /* THMineApplymentVC.xib in Resources */,
+				0265CF4922F2C45E000363F0 /* THLoginVC.xib in Resources */,
+				0265CF4A22F2C45E000363F0 /* THMoreLimitSpellGroupCell.xib in Resources */,
+				0265CF4B22F2C45E000363F0 /* THAddressEditListCell.xib in Resources */,
+				0265CF4C22F2C45E000363F0 /* THMyCollectCell.xib in Resources */,
+				0265CF4D22F2C45E000363F0 /* THAceSpellGroupListCell.xib in Resources */,
+				0265CF4E22F2C45E000363F0 /* THGoodsTransLayoutCell.xib in Resources */,
+				0265CF4F22F2C45E000363F0 /* THSettingCtl.storyboard in Resources */,
+				0265CF5022F2C45E000363F0 /* THCouponsCell.xib in Resources */,
+				0265CF5122F2C45E000363F0 /* THMyTaskCell.xib in Resources */,
+				0265CF5222F2C45E000363F0 /* THModifyPwdVC.xib in Resources */,
+				0265CF5322F2C45E000363F0 /* THMineSectionCell.xib in Resources */,
+				0265CF5422F2C45E000363F0 /* THPayMethodCtl.xib in Resources */,
+				0265CF5522F2C45E000363F0 /* THScanQRCodeVC.xib in Resources */,
+				0265CF5622F2C45E000363F0 /* README.md in Resources */,
+				0265CF5722F2C45E000363F0 /* THBuyGoodsCell.xib in Resources */,
+				0265CF5822F2C45E000363F0 /* Assets.xcassets in Resources */,
+				0265CF5922F2C45E000363F0 /* THCommentCateViewCell.xib in Resources */,
+				0265CF5A22F2C45E000363F0 /* THPayMethodCell.xib in Resources */,
+				0265CF5B22F2C45E000363F0 /* THHomeHeaderItemCell.xib in Resources */,
+				0265CF5C22F2C45E000363F0 /* MLEmoji_Expression.bundle in Resources */,
+				0265CF5D22F2C45E000363F0 /* THCartListCell.xib in Resources */,
+				0265CF5E22F2C45E000363F0 /* Main.storyboard in Resources */,
+				0265CF5F22F2C45E000363F0 /* THSingleLabelCell.xib in Resources */,
+				0265CF6022F2C45E000363F0 /* THLimitSpellGroupListCtl.xib in Resources */,
+				0265CF6122F2C45E000363F0 /* THMineWalletHeaderView.xib in Resources */,
+				0265CF6222F2C45E000363F0 /* THOrderConfirmListCell.xib in Resources */,
+				0265CF6322F2C45E000363F0 /* THOrderConfirmPayButtomView.xib in Resources */,
+				0265CF6422F2C45E000363F0 /* THClassifyHeaderView.xib in Resources */,
+				0265CF6522F2C45E000363F0 /* THAddressCell.xib in Resources */,
+				0265CF6622F2C45E000363F0 /* THHomeHotGoodsCell.xib in Resources */,
+				0265CF6722F2C45E000363F0 /* LICENSE in Resources */,
+				0265CF6822F2C45E000363F0 /* THMineAddBankCardCell.xib in Resources */,
+				0265CF6922F2C45E000363F0 /* THAccountDetailCell.xib in Resources */,
+				0265CF6A22F2C45E000363F0 /* MLEmoji_ExpressionImage.plist in Resources */,
+				0265CF6B22F2C45E000363F0 /* THHelpCenterCtl.storyboard in Resources */,
+				0265CF6C22F2C45E000363F0 /* THClassifyItemCell.xib in Resources */,
+				0265CF6D22F2C45E000363F0 /* THMineOrderCell.xib in Resources */,
+				0265CF6E22F2C45E000363F0 /* THRegisterCtl.xib in Resources */,
+				0265CF6F22F2C45E000363F0 /* THGoodsListOfCollectionLayoutCell.xib in Resources */,
+				0265CF7022F2C45E000363F0 /* MLEmoji_Expression.plist in Resources */,
+				0265CF7122F2C45E000363F0 /* THRecommendedCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		512D7891205903130088A4A0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2388,6 +2847,98 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0265CE2A22F2C45E000363F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-THYG_PRO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0265CF7222F2C45E000363F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-THYG_PRO/Pods-THYG_PRO-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/FDKeychain/FDKeychain.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/HXPhotoPicker/HXPhotoPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework",
+				"${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDKeychain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HXPhotoPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITableView_FDTemplateLayoutCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPageController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-THYG_PRO/Pods-THYG_PRO-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0265CF7322F2C45E000363F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-THYG_PRO/Pods-THYG_PRO-resources.sh",
+				"${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMCommonLog.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-THYG_PRO/Pods-THYG_PRO-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		447434C0A9ACEDD484C59DFD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2483,6 +3034,247 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0265CE2B22F2C45E000363F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0265CE2C22F2C45E000363F0 /* NSArray+AvoidCrash.m in Sources */,
+				0265CE2D22F2C45E000363F0 /* Utils.m in Sources */,
+				0265CE2E22F2C45E000363F0 /* THMinePresenter.m in Sources */,
+				0265CE2F22F2C45E000363F0 /* SizeAttributeModel.m in Sources */,
+				0265CE3022F2C45E000363F0 /* THMySupplierCell.m in Sources */,
+				0265CE3122F2C45E000363F0 /* THSystemMessageCtl.m in Sources */,
+				0265CE3222F2C45E000363F0 /* THTabBar.m in Sources */,
+				0265CE3422F2C45E000363F0 /* THMineOrderListPageVC.m in Sources */,
+				0265CE3522F2C45E000363F0 /* THCreateOrderSuccessCtl.m in Sources */,
+				0265CE3622F2C45E000363F0 /* THHelpCenterDetailCtl.m in Sources */,
+				0265CE3722F2C45E000363F0 /* THAlertView.m in Sources */,
+				0265CE3822F2C45E000363F0 /* THRecommendedCell.m in Sources */,
+				0265CE3922F2C45E000363F0 /* NSString+MLExpression.m in Sources */,
+				0265CE3A22F2C45E000363F0 /* THCouponsCell.m in Sources */,
+				0265CE3B22F2C45E000363F0 /* THMineShareQRCodeVC.m in Sources */,
+				0265CE3C22F2C45E000363F0 /* THMyTeMoneyCtl.m in Sources */,
+				0265CE3D22F2C45E000363F0 /* YGEncryptTool.m in Sources */,
+				0265CE3E22F2C45E000363F0 /* THBaseCell.m in Sources */,
+				0265CE3F22F2C45E000363F0 /* YGCacheManager.m in Sources */,
+				0265CE4022F2C45E000363F0 /* THTeHuiCenterVC.m in Sources */,
+				0265CE4122F2C45E000363F0 /* THNewFeatureCell.m in Sources */,
+				0265CE4222F2C45E000363F0 /* THUserInfoModel.m in Sources */,
+				0265CE4322F2C45E000363F0 /* THGoosDetailModel.m in Sources */,
+				0265CE4422F2C45E000363F0 /* THShoppingCartModel.m in Sources */,
+				0265CE4522F2C45E000363F0 /* THSelectAddressView.m in Sources */,
+				0265CE4622F2C45E000363F0 /* THLimitSpellGroupListCtl.m in Sources */,
+				0265CE4722F2C45E000363F0 /* THLoginPresenter.m in Sources */,
+				0265CE4822F2C45E000363F0 /* THHomeHeaderView.m in Sources */,
+				0265CE4922F2C45E000363F0 /* THOrderDetailPresenter.m in Sources */,
+				0265CE4A22F2C45E000363F0 /* GoodsTypeModel.m in Sources */,
+				0265CE4B22F2C45E000363F0 /* YGNetworkCommon.m in Sources */,
+				0265CE4C22F2C45E000363F0 /* THAlertLayer.m in Sources */,
+				0265CE4D22F2C45E000363F0 /* THGoodsPageSiftView.m in Sources */,
+				0265CE4E22F2C45E000363F0 /* NSMutableDictionary+AvoidCrash.m in Sources */,
+				0265CE4F22F2C45E000363F0 /* THMineSectionCell.m in Sources */,
+				0265CE5022F2C45E000363F0 /* THMineOrderDetailVC.m in Sources */,
+				0265CE5122F2C45E000363F0 /* THOrderModel.m in Sources */,
+				0265CE5222F2C45E000363F0 /* THTeCenterPresenter.m in Sources */,
+				0265CE5322F2C45E000363F0 /* THUIFactory.m in Sources */,
+				0265CE5422F2C45E000363F0 /* THUseCouponCtl.m in Sources */,
+				0265CE5522F2C45E000363F0 /* SDBrowserImageView.m in Sources */,
+				0265CE5622F2C45E000363F0 /* UIScrollView+Refresh.m in Sources */,
+				0265CE5722F2C45E000363F0 /* THOrderConfirmCtl.m in Sources */,
+				0265CE5822F2C45E000363F0 /* THMineVC.m in Sources */,
+				0265CE5922F2C45E000363F0 /* THMineAddBankCardCell.m in Sources */,
+				0265CE5A22F2C45E000363F0 /* THMineBankCardListCell.m in Sources */,
+				0265CE5B22F2C45E000363F0 /* THAddressVC.m in Sources */,
+				0265CE5C22F2C45E000363F0 /* THAlertTools.m in Sources */,
+				0265CE5D22F2C45E000363F0 /* THUserManager.m in Sources */,
+				0265CE5E22F2C45E000363F0 /* SDWaitingView.m in Sources */,
+				0265CE5F22F2C45E000363F0 /* ChoseGoodsTypeAlert.m in Sources */,
+				0265CE6022F2C45E000363F0 /* THRegisterPresenter.m in Sources */,
+				0265CE6122F2C45E000363F0 /* THRegisterCtl.m in Sources */,
+				0265CE6222F2C45E000363F0 /* THMessagePresenter.m in Sources */,
+				0265CE6322F2C45E000363F0 /* THNavigationView.m in Sources */,
+				0265CE6422F2C45E000363F0 /* THWalletHeaderModel.m in Sources */,
+				0265CE6522F2C45E000363F0 /* THGoodsListOfCollectionLayoutCell.m in Sources */,
+				0265CE6622F2C45E000363F0 /* THSpellGroupHeadCell.m in Sources */,
+				0265CE6722F2C45E000363F0 /* THMineWalletHeaderView.m in Sources */,
+				0265CE6822F2C45E000363F0 /* YGWebViewController.m in Sources */,
+				0265CE6922F2C45E000363F0 /* GoodsModel.m in Sources */,
+				0265CE6A22F2C45E000363F0 /* THHUDProgress.m in Sources */,
+				0265CE6B22F2C45E000363F0 /* THFavouriteGoodsModel.m in Sources */,
+				0265CE6C22F2C45E000363F0 /* THFilterView.m in Sources */,
+				0265CE6D22F2C45E000363F0 /* NSObject+AvoidCrash.m in Sources */,
+				0265CE6E22F2C45E000363F0 /* THCouponsCtl.m in Sources */,
+				0265CE6F22F2C45E000363F0 /* NSAttributedString+AvoidCrash.m in Sources */,
+				0265CE7022F2C45E000363F0 /* THOrderConfirmPaymentCell.m in Sources */,
+				0265CE7122F2C45E000363F0 /* THBuyGoodsCell.m in Sources */,
+				0265CE7222F2C45E000363F0 /* THShareViewCell.m in Sources */,
+				0265CE7322F2C45E000363F0 /* NSNull+NullSafe.m in Sources */,
+				0265CE7422F2C45E000363F0 /* THHomeVC.m in Sources */,
+				0265CE7522F2C45E000363F0 /* THAddressModel.m in Sources */,
+				0265CE7622F2C45E000363F0 /* THGoodsDetailBottomView.m in Sources */,
+				0265CE7722F2C45E000363F0 /* YGNetWorkTools.m in Sources */,
+				0265CE7822F2C45E000363F0 /* THAddressCell.m in Sources */,
+				0265CE7922F2C45E000363F0 /* THAddressEditListCell.m in Sources */,
+				0265CE7A22F2C45E000363F0 /* MLLinkLabel.m in Sources */,
+				0265CE7B22F2C45E000363F0 /* THSpellGroupCtl.m in Sources */,
+				0265CE7C22F2C45E000363F0 /* THClassifyHeaderView.m in Sources */,
+				0265CE7D22F2C45E000363F0 /* THTeMoneyHead.m in Sources */,
+				0265CE7E22F2C45E000363F0 /* THSpellGroupHead.m in Sources */,
+				0265CE7F22F2C45E000363F0 /* THMyCollectCtl.m in Sources */,
+				0265CE8022F2C45E000363F0 /* NSString+AvoidCrash.m in Sources */,
+				0265CE8122F2C45E000363F0 /* THSystemMessageCell.m in Sources */,
+				0265CE8222F2C45E000363F0 /* TTTAttributedLabel.m in Sources */,
+				0265CE8322F2C45E000363F0 /* THCommentCateModel.m in Sources */,
+				0265CE8422F2C45E000363F0 /* AvoidCrash.m in Sources */,
+				0265CE8522F2C45E000363F0 /* THMineSubmitApplicationVC.m in Sources */,
+				0265CE8622F2C45E000363F0 /* THMyMessageCtl.m in Sources */,
+				0265CE8722F2C45E000363F0 /* THTeHuiCell.m in Sources */,
+				0265CE8822F2C45E000363F0 /* ChoosTypeTableViewCell.m in Sources */,
+				0265CE8922F2C45E000363F0 /* THNavigationController.m in Sources */,
+				0265CE8A22F2C45E000363F0 /* THBaseVC.m in Sources */,
+				0265CE8B22F2C45E000363F0 /* THShareView.m in Sources */,
+				0265CE8C22F2C45E000363F0 /* THModifyPwdVC.m in Sources */,
+				0265CE8D22F2C45E000363F0 /* THSpellGroupSectionHead.m in Sources */,
+				0265CE8E22F2C45E000363F0 /* THTabBarController.m in Sources */,
+				0265CE8F22F2C45E000363F0 /* THPhotoContainerView.m in Sources */,
+				0265CE9022F2C45E000363F0 /* THSettingCtl.m in Sources */,
+				0265CE9122F2C45E000363F0 /* THTeHeaderView.m in Sources */,
+				0265CE9222F2C45E000363F0 /* THOrderConfirmListCell.m in Sources */,
+				0265CE9322F2C45E000363F0 /* THScreeningGoodsCtl.m in Sources */,
+				0265CE9422F2C45E000363F0 /* THMineAdCell.m in Sources */,
+				0265CE9522F2C45E000363F0 /* THMyFootprintCtl.m in Sources */,
+				0265CE9622F2C45E000363F0 /* CountView.m in Sources */,
+				0265CE9722F2C45E000363F0 /* THMineOrderDetailToolView.m in Sources */,
+				0265CE9822F2C45E000363F0 /* THOrderCouponModel.m in Sources */,
+				0265CE9922F2C45E000363F0 /* THMineHeaderView.m in Sources */,
+				0265CE9A22F2C45E000363F0 /* THMineOrderFooterView.m in Sources */,
+				0265CE9B22F2C45E000363F0 /* THMoreSpellGroupListCell.m in Sources */,
+				0265CE9C22F2C45E000363F0 /* THGoodsModel.m in Sources */,
+				0265CE9D22F2C45E000363F0 /* THMenuView.m in Sources */,
+				0265CE9E22F2C45E000363F0 /* MLLabel.m in Sources */,
+				0265CE9F22F2C45E000363F0 /* THShareTool.m in Sources */,
+				0265CEA022F2C45E000363F0 /* THHomeMallActivityCell.m in Sources */,
+				0265CEA122F2C45E000363F0 /* THHomeSectionHead.m in Sources */,
+				0265CEA222F2C45E000363F0 /* THPaySuccessBlockPage.m in Sources */,
+				0265CEA322F2C45E000363F0 /* THGoodsListOfTableLayoutCell.m in Sources */,
+				0265CEA422F2C45E000363F0 /* THMyCollectModel.m in Sources */,
+				0265CEA522F2C45E000363F0 /* THCommentCateView.m in Sources */,
+				0265CEA622F2C45E000363F0 /* THCommentHead.m in Sources */,
+				0265CEA722F2C45E000363F0 /* THGoodsVC.m in Sources */,
+				0265CEA822F2C45E000363F0 /* THGoodsSpecificationsCell.m in Sources */,
+				0265CEA922F2C45E000363F0 /* THGuideViewTool.m in Sources */,
+				0265CEAA22F2C45E000363F0 /* THInvitationManageCtl.m in Sources */,
+				0265CEAB22F2C45E000363F0 /* THMineApplymentVC.m in Sources */,
+				0265CEAC22F2C45E000363F0 /* NSUserDefaults+AvoidCrash.m in Sources */,
+				0265CEAD22F2C45E000363F0 /* MLTextAttachment.m in Sources */,
+				0265CEAE22F2C45E000363F0 /* GoodsInfoView.m in Sources */,
+				0265CEAF22F2C45E000363F0 /* NSMutableString+AvoidCrash.m in Sources */,
+				0265CEB022F2C45E000363F0 /* THMineOrderHeaderCell.m in Sources */,
+				0265CEB122F2C45E000363F0 /* UISearchBar+FMAdd.m in Sources */,
+				0265CEB222F2C45E000363F0 /* THFlashCtl.m in Sources */,
+				0265CEB322F2C45E000363F0 /* NSMutableAttributedString+MLLabel.m in Sources */,
+				0265CEB422F2C45E000363F0 /* THMyTaskCell.m in Sources */,
+				0265CEB522F2C45E000363F0 /* THPay.m in Sources */,
+				0265CEB622F2C45E000363F0 /* THSelectTimeView.m in Sources */,
+				0265CEB722F2C45E000363F0 /* THSelectedCategoryView.m in Sources */,
+				0265CEB822F2C45E000363F0 /* THMineApplymentInputVC.m in Sources */,
+				0265CEB922F2C45E000363F0 /* THMyMessageListCell.m in Sources */,
+				0265CEBA22F2C45E000363F0 /* MLLabelLayoutManager.m in Sources */,
+				0265CEBB22F2C45E000363F0 /* THMineBankCardVC.m in Sources */,
+				0265CEBC22F2C45E000363F0 /* SDPhotoBrowser.m in Sources */,
+				0265CEBD22F2C45E000363F0 /* THAccountDetailCell.m in Sources */,
+				0265CEBE22F2C45E000363F0 /* THGoodsTopInfoCell.m in Sources */,
+				0265CEBF22F2C45E000363F0 /* NSAttributedString+MLExpression.m in Sources */,
+				0265CEC022F2C45E000363F0 /* THMineWalletVC.m in Sources */,
+				0265CEC122F2C45E000363F0 /* THMyCollectCell.m in Sources */,
+				0265CEC222F2C45E000363F0 /* THLoginVC.m in Sources */,
+				0265CEC322F2C45E000363F0 /* THLimitSpellGroupCtl.m in Sources */,
+				0265CEC422F2C45E000363F0 /* THChangeCountView.m in Sources */,
+				0265CEC522F2C45E000363F0 /* main.m in Sources */,
+				0265CEC622F2C45E000363F0 /* THSearchView.m in Sources */,
+				0265CEC722F2C45E000363F0 /* NSString+MLLabel.m in Sources */,
+				0265CEC822F2C45E000363F0 /* THHomeHeaderItemCell.m in Sources */,
+				0265CEC922F2C45E000363F0 /* THHomePresenter.m in Sources */,
+				0265CECA22F2C45E000363F0 /* THMyTaskCtl.m in Sources */,
+				0265CECB22F2C45E000363F0 /* THShoppingCartCtl.m in Sources */,
+				0265CECC22F2C45E000363F0 /* THDatabaseManager.m in Sources */,
+				0265CECD22F2C45E000363F0 /* THActivityRecommandCtl.m in Sources */,
+				0265CECE22F2C45E000363F0 /* THCartSectionHead.m in Sources */,
+				0265CECF22F2C45E000363F0 /* THFlashCell.m in Sources */,
+				0265CED022F2C45E000363F0 /* YYStarView.m in Sources */,
+				0265CED122F2C45E000363F0 /* THAlertViewModel.m in Sources */,
+				0265CED222F2C45E000363F0 /* MLEmojiLabel.m in Sources */,
+				0265CED322F2C45E000363F0 /* THHelpCenterCtl.m in Sources */,
+				0265CED422F2C45E000363F0 /* THShoppingCartListDelegate.m in Sources */,
+				0265CED522F2C45E000363F0 /* NSMutableArray+AvoidCrash.m in Sources */,
+				0265CED622F2C45E000363F0 /* THAcountDetailCtl.m in Sources */,
+				0265CED722F2C45E000363F0 /* THFlashSaleModel.m in Sources */,
+				0265CED822F2C45E000363F0 /* THHomeHotGoodsCell.m in Sources */,
+				0265CED922F2C45E000363F0 /* THGoodsTransLayoutCell.m in Sources */,
+				0265CEDA22F2C45E000363F0 /* THMineOrderManageVC.m in Sources */,
+				0265CEDB22F2C45E000363F0 /* THClassifyVC.m in Sources */,
+				0265CEDC22F2C45E000363F0 /* THScreeningView.m in Sources */,
+				0265CEDD22F2C45E000363F0 /* THNewFeatureVC.m in Sources */,
+				0265CEDE22F2C45E000363F0 /* THGoodsCommentModel.m in Sources */,
+				0265CEDF22F2C45E000363F0 /* THButton.m in Sources */,
+				0265CEE022F2C45E000363F0 /* GoodsPriceModel.m in Sources */,
+				0265CEE122F2C45E000363F0 /* THClassifyItemCell.m in Sources */,
+				0265CEE222F2C45E000363F0 /* THSingleLabelCell.m in Sources */,
+				0265CEE322F2C45E000363F0 /* THRegisterNextStepCtl.m in Sources */,
+				0265CEE422F2C45E000363F0 /* THOrderConfirmPayButtomView.m in Sources */,
+				0265CEE522F2C45E000363F0 /* THMineOrderCell.m in Sources */,
+				0265CEE622F2C45E000363F0 /* MLExpressionManager.m in Sources */,
+				0265CEE722F2C45E000363F0 /* THCategoryPresenter.m in Sources */,
+				0265CEE822F2C45E000363F0 /* THMoreLimitSpellGroupCell.m in Sources */,
+				0265CEE922F2C45E000363F0 /* AppDelegate.m in Sources */,
+				0265CEEA22F2C45E000363F0 /* THAddAddressCell.m in Sources */,
+				0265CEEB22F2C45E000363F0 /* THPayMethodCell.m in Sources */,
+				0265CEEC22F2C45E000363F0 /* THForgetPswCtl.m in Sources */,
+				0265CEED22F2C45E000363F0 /* UIViewController+SessionTask.m in Sources */,
+				0265CEEE22F2C45E000363F0 /* THCardSettleView.m in Sources */,
+				0265CEEF22F2C45E000363F0 /* THAVCaptureSessionManager.m in Sources */,
+				0265CEF022F2C45E000363F0 /* THScreeningPriceCell.m in Sources */,
+				0265CEF122F2C45E000363F0 /* THTeTableViewCell.m in Sources */,
+				0265CEF222F2C45E000363F0 /* NSDictionary+AvoidCrash.m in Sources */,
+				0265CEF322F2C45E000363F0 /* THMessageModel.m in Sources */,
+				0265CEF422F2C45E000363F0 /* YGAuthTool.m in Sources */,
+				0265CEF522F2C45E000363F0 /* THTeCommonView.m in Sources */,
+				0265CEF622F2C45E000363F0 /* UIImage+CHImage.m in Sources */,
+				0265CEF722F2C45E000363F0 /* THHomeMallActivityItemCell.m in Sources */,
+				0265CEF822F2C45E000363F0 /* THCartDetailModel.m in Sources */,
+				0265CEF922F2C45E000363F0 /* THAddressEditVC.m in Sources */,
+				0265CEFA22F2C45E000363F0 /* NSAttributedString+MLLabel.m in Sources */,
+				0265CEFB22F2C45E000363F0 /* THAboutTHCtl.m in Sources */,
+				0265CEFC22F2C45E000363F0 /* THAceSpellGroupListCell.m in Sources */,
+				0265CEFD22F2C45E000363F0 /* UIViewController+Tool.m in Sources */,
+				0265CEFE22F2C45E000363F0 /* THTabBarButton.m in Sources */,
+				0265CEFF22F2C45E000363F0 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
+				0265CF0022F2C45E000363F0 /* THCommentCateViewCell.m in Sources */,
+				0265CF0122F2C45E000363F0 /* THGoodsHeaderView.m in Sources */,
+				0265CF0222F2C45E000363F0 /* THBasePresenter.m in Sources */,
+				0265CF0322F2C45E000363F0 /* THTeCtl.m in Sources */,
+				0265CF0422F2C45E000363F0 /* THCartListCell.m in Sources */,
+				0265CF0522F2C45E000363F0 /* THPayMethodCtl.m in Sources */,
+				0265CF0622F2C45E000363F0 /* THUserInfoEditCtl.m in Sources */,
+				0265CF0722F2C45E000363F0 /* THBankCardModel.m in Sources */,
+				0265CF0822F2C45E000363F0 /* THGoodsDetailVC.m in Sources */,
+				0265CF0922F2C45E000363F0 /* NSString+CHExtension.m in Sources */,
+				0265CF0A22F2C45E000363F0 /* THMineBankCardCell.m in Sources */,
+				0265CF0B22F2C45E000363F0 /* THSingImgCell.m in Sources */,
+				0265CF0C22F2C45E000363F0 /* THLogisticsCell.m in Sources */,
+				0265CF0D22F2C45E000363F0 /* YGInfo.m in Sources */,
+				0265CF0E22F2C45E000363F0 /* THGoodsCommentCell.m in Sources */,
+				0265CF0F22F2C45E000363F0 /* THGoodsSpecModel.m in Sources */,
+				0265CF1022F2C45E000363F0 /* THCommentVC.m in Sources */,
+				0265CF1122F2C45E000363F0 /* THTeHuiModel.m in Sources */,
+				0265CF1222F2C45E000363F0 /* THGoodsCommentHeaderView.m in Sources */,
+				0265CF1322F2C45E000363F0 /* THScanQRCodeVC.m in Sources */,
+				0265CF1422F2C45E000363F0 /* THHomeHeaderItemModel.m in Sources */,
+				0265CF1522F2C45E000363F0 /* THCouponsModel.m in Sources */,
+				0265CF1622F2C45E000363F0 /* THMineOrderDetailCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		512D788F205903130088A4A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2494,7 +3286,6 @@
 				8FDC4E5220732AF100FEFE40 /* THMySupplierCell.m in Sources */,
 				57417E4720CB779E00F5085F /* THSystemMessageCtl.m in Sources */,
 				512D78DA20591F090088A4A0 /* THTabBar.m in Sources */,
-				0421E89D2088FCD8008D85A0 /* THBaseWebVC.m in Sources */,
 				0417B8662073EF2F003566C4 /* THMineOrderListPageVC.m in Sources */,
 				57D5104320C6ECC400B78087 /* THCreateOrderSuccessCtl.m in Sources */,
 				8F4D13A0207A251A0024C3D4 /* THHelpCenterDetailCtl.m in Sources */,
@@ -2747,6 +3538,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0265CF7522F2C45E000363F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88AA6CB5C53A489D49D03DDA /* Pods-THYG_PRO.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5TT6TZ89W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/THYG/Classes/Expand/Lib/AlipaySDK",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/THYG/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRO=1",
+				);
+				INFOPLIST_FILE = "THYG copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.thyg;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0265CF7622F2C45E000363F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55AF22E7CB6B7EEB1DC2B6EC /* Pods-THYG_PRO.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5TT6TZ89W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/THYG/Classes/Expand/Lib/AlipaySDK",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/THYG/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRO=1",
+				);
+				INFOPLIST_FILE = "THYG copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.thyg;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		512D78A7205903130088A4A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2865,6 +3716,11 @@
 					"$(PROJECT_DIR)/THYG/Classes/Expand/Lib/AlipaySDK",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/THYG/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"CI=1",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/THYG/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2890,6 +3746,11 @@
 					"$(PROJECT_DIR)/THYG/Classes/Expand/Lib/AlipaySDK",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/THYG/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"CI=1",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/THYG/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2904,6 +3765,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0265CF7422F2C45E000363F0 /* Build configuration list for PBXNativeTarget "THYG_PRO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0265CF7522F2C45E000363F0 /* Debug */,
+				0265CF7622F2C45E000363F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		512D788E205903130088A4A0 /* Build configuration list for PBXProject "THYG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

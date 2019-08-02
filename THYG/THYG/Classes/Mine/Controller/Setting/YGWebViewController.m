@@ -22,6 +22,17 @@
     // Do any additional setup after loading the view.
     [self setUp];
     if (!YGInfo.validString(self.loadUrl)) {
+        if (YGInfo.validString(self.loadContent)) {
+            [THHUDProgress show];
+            [_webView loadHTMLString:[self fixImagesInHtmlString:self.loadContent] baseURL:nil];
+        } else {
+            [THHUDProgress showMsg:@"加载出错"];
+            if (self.navigationController) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            }
+        }
         return;
     }
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.loadUrl] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15]];
@@ -94,6 +105,19 @@
         
     }
     
+}
+
+- (NSString *)fixImagesInHtmlString:(NSString *)string {
+    return [NSString stringWithFormat:@"<html> \n"
+            "<head> \n"
+            "<style type=\"text/css\"> \n"
+            "* {margin:0; padding:0;}\n"
+            "img {width:100%%; height:auto; display:block;}\n"
+            "</style> \n"
+            "</head> \n"
+            "<body>%@"
+            "</body>"
+            "</html>",string];
 }
 
 @end

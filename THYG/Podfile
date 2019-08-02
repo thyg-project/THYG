@@ -2,7 +2,7 @@ source 'https://github.com/cocoapods/Specs.git'
 #source ''
 platform:ios, '8.0'
 use_frameworks!
-targetsArray = ['THYG']
+targetsArray = ['THYG','THYG_PRO']
 targetsArray.each do |t|
 	target t do
 	pod 'AFNetworking'
@@ -20,7 +20,6 @@ targetsArray.each do |t|
     pod 'FMDB'
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'FDFullscreenPopGesture'
-#    pod 'SDWebImage', '3.7'
     pod 'WMPageController'
     pod 'UMCCommonLog'
     pod 'UMCCommon'
@@ -28,6 +27,6 @@ targetsArray.each do |t|
     pod 'UMCShare/Social/ReducedWeChat'
     pod 'UMCShare/Social/ReducedQQ'
     pod 'UMCShare/Social/ReducedSina'
-pod 'HXPhotoPicker'
+    pod 'HXPhotoPicker'
 	end
 end

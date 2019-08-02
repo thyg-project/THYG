@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface THGoodsDetailBottomView : UIView
-@property (nonatomic, copy) void (^buttomButtonBlock)(NSInteger tag);
+
 @end

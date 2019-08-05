@@ -321,7 +321,6 @@
 		0265CF4822F2C45E000363F0 /* THMineApplymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484F09D2089B2FB008144B2 /* THMineApplymentVC.xib */; };
 		0265CF4922F2C45E000363F0 /* THLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A300207116F7003BE300 /* THLoginVC.xib */; };
 		0265CF4A22F2C45E000363F0 /* THMoreLimitSpellGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF84FE4206507E400A78368 /* THMoreLimitSpellGroupCell.xib */; };
-		0265CF4B22F2C45E000363F0 /* THAddressEditListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044AEE412098A60400824A05 /* THAddressEditListCell.xib */; };
 		0265CF4C22F2C45E000363F0 /* THMyCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1712B7207201DD00EFDFCB /* THMyCollectCell.xib */; };
 		0265CF4D22F2C45E000363F0 /* THAceSpellGroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B72062360D009AE20B /* THAceSpellGroupListCell.xib */; };
 		0265CF4E22F2C45E000363F0 /* THGoodsTransLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5168A220747BB6005E956E /* THGoodsTransLayoutCell.xib */; };
@@ -421,7 +420,6 @@
 		044AEE3B2098463B00824A05 /* THAddressEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE3A2098463B00824A05 /* THAddressEditVC.m */; };
 		044AEE3E2098468700824A05 /* THAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE3D2098468700824A05 /* THAddressModel.m */; };
 		044AEE422098A60400824A05 /* THAddressEditListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE402098A60400824A05 /* THAddressEditListCell.m */; };
-		044AEE432098A60400824A05 /* THAddressEditListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044AEE412098A60400824A05 /* THAddressEditListCell.xib */; };
 		044AEE46209B6E9C00824A05 /* THAddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044AEE45209B6E9C00824A05 /* THAddAddressCell.m */; };
 		04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04548D7A2070AE71002F73C6 /* THAVCaptureSessionManager.m */; };
 		04548D802070F2EB002F73C6 /* THScanQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04548D7F2070F2EB002F73C6 /* THScanQRCodeVC.m */; };
@@ -844,7 +842,6 @@
 		044AEE3D2098468700824A05 /* THAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAddressModel.m; sourceTree = "<group>"; };
 		044AEE3F2098A60400824A05 /* THAddressEditListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddressEditListCell.h; sourceTree = "<group>"; };
 		044AEE402098A60400824A05 /* THAddressEditListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAddressEditListCell.m; sourceTree = "<group>"; };
-		044AEE412098A60400824A05 /* THAddressEditListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THAddressEditListCell.xib; sourceTree = "<group>"; };
 		044AEE44209B6E9C00824A05 /* THAddAddressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddAddressCell.h; sourceTree = "<group>"; };
 		044AEE45209B6E9C00824A05 /* THAddAddressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAddAddressCell.m; sourceTree = "<group>"; };
 		04548D792070AE71002F73C6 /* THAVCaptureSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAVCaptureSessionManager.h; sourceTree = "<group>"; };
@@ -2337,7 +2334,6 @@
 				57CBC3DC2088EE0C007D6069 /* THAddressCell.xib */,
 				044AEE3F2098A60400824A05 /* THAddressEditListCell.h */,
 				044AEE402098A60400824A05 /* THAddressEditListCell.m */,
-				044AEE412098A60400824A05 /* THAddressEditListCell.xib */,
 				57CBC3DF2088EE2E007D6069 /* THBuyGoodsCell.h */,
 				57CBC3E02088EE2E007D6069 /* THBuyGoodsCell.m */,
 				57CBC3E12088EE2E007D6069 /* THBuyGoodsCell.xib */,
@@ -2719,7 +2715,6 @@
 				0265CF4822F2C45E000363F0 /* THMineApplymentVC.xib in Resources */,
 				0265CF4922F2C45E000363F0 /* THLoginVC.xib in Resources */,
 				0265CF4A22F2C45E000363F0 /* THMoreLimitSpellGroupCell.xib in Resources */,
-				0265CF4B22F2C45E000363F0 /* THAddressEditListCell.xib in Resources */,
 				0265CF4C22F2C45E000363F0 /* THMyCollectCell.xib in Resources */,
 				0265CF4D22F2C45E000363F0 /* THAceSpellGroupListCell.xib in Resources */,
 				0265CF4E22F2C45E000363F0 /* THGoodsTransLayoutCell.xib in Resources */,
@@ -2802,7 +2797,6 @@
 				0484F09F2089B2FB008144B2 /* THMineApplymentVC.xib in Resources */,
 				04D0A30B207116F7003BE300 /* THLoginVC.xib in Resources */,
 				8FF84FE6206507E400A78368 /* THMoreLimitSpellGroupCell.xib in Resources */,
-				044AEE432098A60400824A05 /* THAddressEditListCell.xib in Resources */,
 				8F1712B9207201DD00EFDFCB /* THMyCollectCell.xib in Resources */,
 				8F0DC2B92062360D009AE20B /* THAceSpellGroupListCell.xib in Resources */,
 				8F5168A420747BB6005E956E /* THGoodsTransLayoutCell.xib in Resources */,

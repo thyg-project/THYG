@@ -33,14 +33,17 @@
     _tableView.dataSource = self;
     [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    [self.tableView registerNib:[UINib nibWithNibName:@"THAddressEditListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THAddressEditListCell.class)];
     [self.view addSubview:self.addAddressBtn];
-    
+    [self.addAddressBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.left.right.equalTo(self.view);
+        make.height.mas_equalTo(40);
+    }];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.bottom.equalTo(self.addAddressBtn.mas_top);
+    }];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 }
@@ -62,7 +65,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSource.count;
+    return 5;//self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -70,9 +73,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    THAddressEditListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THAddressEditListCell.class)];
-    THAddressModel *model = self.dataSource[indexPath.section];;
-    cell.addressModel = model;
+    THAddressEditListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"THAddressEditListCell"];
+    if (!cell) {
+        cell = [[THAddressEditListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"THAddressEditListCell"];
+    }
+//    THAddressModel *model = self.dataSource[indexPath.section];;
+//    cell.addressModel = model;
     kWeakSelf;
     cell.deleteAddressBlock = ^{
         NSLog(@"删除地址");
@@ -81,7 +87,7 @@
 
     cell.motifyAddressBlock = ^{
         NSLog(@"修改地址");
-        [weakSelf gotoAddressEditPage:model type:editOption];
+//        [weakSelf gotoAddressEditPage:model type:editOption];
     };
 
     cell.setDefaultBlock = ^{
@@ -111,7 +117,6 @@
 - (UIButton*)addAddressBtn {
     if (_addAddressBtn == nil) {
         _addAddressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _addAddressBtn.frame =  CGRectMake(0, kScreenHeight - 40 - kNaviHeight, kScreenWidth, 40);
         _addAddressBtn.titleLabel.font = Font(15);
         _addAddressBtn.backgroundColor = [UIColor redColor];
         [_addAddressBtn setTitle: @"添加收货地址" forState:UIControlStateNormal];
@@ -119,23 +124,4 @@
     }
     return _addAddressBtn;
 }
-
-- (CGFloat)getSpaceLabelHeight:(NSString*)str withFont:(UIFont*)font withWidth:(CGFloat)width {
-    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
-    paraStyle.alignment = NSTextAlignmentLeft;
-    paraStyle.lineSpacing = 1;
-    paraStyle.hyphenationFactor = 1.0;
-    paraStyle.firstLineHeadIndent = 0.0;
-    paraStyle.paragraphSpacingBefore = 0.0;
-    paraStyle.headIndent = 0;
-    paraStyle.tailIndent = 0;
-    NSDictionary *dic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.5f
-                          };
-    CGSize size = [str boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
-    
-    return size.height;
-    
-}
-
 @end

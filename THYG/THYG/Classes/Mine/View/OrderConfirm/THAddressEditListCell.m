@@ -8,70 +8,128 @@
 
 #import "THAddressEditListCell.h"
 #import "THAddressModel.h"
+#import "THButton.h"
 
 @interface THAddressEditListCell() {
-    __weak IBOutlet UILabel *consigneeLabel;
-    __weak IBOutlet UILabel *mobileLabel;
-    __weak IBOutlet UILabel *addressLabel;
-    __weak IBOutlet UIButton *defaultBtn;
-    __weak IBOutlet UIButton *editBtn;
-    __weak IBOutlet UIButton *deleteBtn;
+
 }
+
+@property (nonatomic, strong) UILabel *nameLabel, *mobileLabel, *addressLabel;
+@property (nonatomic, strong) THButton *defaultButton, *editButton, *deleteButton;
 
 @end
 
-@implementation THAddressEditListCell 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    [self setLabelSpace:addressLabel value:@"" font:[UIFont systemFontOfSize:12] spacing:6];
+@implementation THAddressEditListCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self setupUI];
+    }
+    return self;
+}
+
+- (void)setupUI {
+    _nameLabel = [UILabel new];
+    _mobileLabel = [UILabel new];
+    _addressLabel = [UILabel new];
+    _addressLabel.numberOfLines = 0;
+    _nameLabel.font = [UIFont systemFontOfSize:16];
+    _addressLabel.font = [UIFont systemFontOfSize:12];
+    _mobileLabel.font = [UIFont systemFontOfSize:16];
+    _defaultButton = [THButton buttonWithType:THButtonType_imageLeft];
+    _defaultButton.image = [UIImage imageNamed:@"unselect"];
+    _defaultButton.selectedImage = [UIImage imageNamed:@"select"];
+    _defaultButton.title = @"默认地址";
+    _editButton = [THButton buttonWithType:THButtonType_imageLeft];
+    _editButton.image = [UIImage imageNamed:@"sp"];
+    _editButton.title = @"编辑";
+    _deleteButton = [THButton buttonWithType:THButtonType_imageLeft];
+    _deleteButton.image = [UIImage imageNamed:@"shanchu_red"];
+    _deleteButton.title = @"删除";
+    _defaultButton.font = [UIFont systemFontOfSize:14];
+    _editButton.font = [UIFont systemFontOfSize:14];
+    _deleteButton.font = [UIFont systemFontOfSize:14];
+    [self.contentView addSubview:self.nameLabel];
+    [self.contentView addSubview:self.mobileLabel];
+    [self.contentView addSubview:self.addressLabel];
+    [self.contentView addSubview:self.defaultButton];
+    [self.contentView addSubview:self.editButton];
+    [self.contentView addSubview:self.deleteButton];
+    [self.defaultButton addTarget:self action:@selector(setDefaultAddress)];
+    UILabel *line = [UILabel new];
+    line.backgroundColor = kLineColor;
+    [self.contentView addSubview:line];
+    [self.deleteButton addTarget:self action:@selector(deleteAction)];
+    [self.editButton addTarget:self action:@selector(eidtAction)];
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(16));
+        make.left.equalTo(@12);
+        make.height.mas_equalTo(16);
+    }];
+    [self.mobileLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.nameLabel.mas_right).offset(22);
+        make.top.height.equalTo(self.nameLabel);
+    }];
+    [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(16);
+        make.left.equalTo(@12);
+        make.right.equalTo(@(-12));
+    }];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.addressLabel.mas_bottom).offset(15);
+        make.left.equalTo(@12);
+        make.right.equalTo(@(-12));
+        make.height.mas_equalTo(1);
+    }];
+    [self.defaultButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@16);
+        make.top.equalTo(line.mas_bottom).offset(5);
+        make.height.mas_equalTo(40);
+        make.bottom.equalTo(@(-5));
+    }];
+    [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(self.defaultButton);
+        make.right.equalTo(@(-12));
+        make.centerY.equalTo(self.defaultButton);
+    }];
+    [self.editButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(self.deleteButton);
+        make.right.equalTo(self.deleteButton.mas_left).offset(-12);
+        make.centerY.equalTo(self.defaultButton);
+    }];
+    [self defaultText];
+}
+
+- (void)defaultText {
+    self.nameLabel.text = @"测试";
+    self.mobileLabel.text = @"17621984643";
+    self.addressLabel.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
+}
+
+- (void)setDefaultAddress {
+    _defaultButton.selected = !_defaultButton.selected;
+    BLOCK(self.setDefaultBlock);
+}
+
+- (void)deleteAction {
+    BLOCK(self.deleteAddressBlock);
+}
+
+- (void)eidtAction {
+    BLOCK(self.motifyAddressBlock);
 }
 
 - (void)setAddressModel:(THAddressModel *)addressModel {
     _addressModel = addressModel;
-    consigneeLabel.text = _addressModel.consignee;
-    mobileLabel.text = _addressModel.mobile;
-    addressLabel.text = _addressModel.full_address;
-    defaultBtn.selected = _addressModel.is_default;
+    self.nameLabel.text = _addressModel.consignee;
+    self.mobileLabel.text = _addressModel.mobile;
+    self.addressLabel.text = _addressModel.full_address;
+    self.defaultButton.selected = _addressModel.is_default;
 }
-
-#pragma mark - 设置默认地址
-- (IBAction)setDefaultAddressClick {
-    !self.setDefaultBlock?:self.setDefaultBlock();
-}
-
-#pragma mark - 删除地址
-- (IBAction)deleteAddressClick {
-    !self.deleteAddressBlock?:self.deleteAddressBlock();
-}
-
-#pragma mark - 修改地址
-- (IBAction)editAddressClick {
-    !self.motifyAddressBlock?:self.motifyAddressBlock();
-}
-
-- (void)setLabelSpace:(UILabel*)label value:(NSString*)str font:(UIFont*)font spacing:(CGFloat) spacing {
-    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
-    paraStyle.alignment = NSTextAlignmentLeft;
-    paraStyle.lineSpacing = spacing; // 设置行间距
-    paraStyle.hyphenationFactor = 1.0;
-    paraStyle.firstLineHeadIndent = 0.0;
-    paraStyle.paragraphSpacingBefore = 0.0;
-    paraStyle.headIndent = 0;
-    paraStyle.tailIndent = 0;
-    
-    // 设置字间距 NSKernAttributeName:@1.5f
-    NSDictionary *dic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.5f};
-    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:str attributes:dic];
-    label.attributedText = attributeStr;
-}
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 @end

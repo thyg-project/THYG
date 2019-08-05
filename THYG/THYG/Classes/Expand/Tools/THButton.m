@@ -101,6 +101,7 @@
             [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self).offset(3);
                 make.centerX.equalTo(self);
+                make.right.equalTo(@(-3));
             }];
             [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.imageView.mas_bottom).with.offset(3);
@@ -120,6 +121,7 @@
             [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.imageView.mas_right).offset(3);
                 make.centerY.equalTo(self.imageView);
+                make.right.equalTo(@(-3));
             }];
         }
             break;
@@ -133,6 +135,7 @@
             [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.imageView.mas_right).offset(3);
                 make.centerY.equalTo(self.imageView);
+                make.right.equalTo(@(-3));
             }];
             
         }

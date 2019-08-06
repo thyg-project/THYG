@@ -71,10 +71,8 @@
 	[UIApplication sharedApplication].delegate.window.rootViewController = tabbarVc;
 	[[UIApplication sharedApplication] setStatusBarHidden:NO];
 	// 在点击全新起航的按钮才记录 版本号
-	NSString *versionKey = (__bridge NSString *)kCFBundleVersionKey;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *currentVersion = [NSBundle mainBundle].infoDictionary[versionKey];
-	[defaults setObject:currentVersion forKey:versionKey];
+	[defaults setObject:YGInfo.appVersion() forKey:@"appVersion"];
 	[defaults synchronize];
 }
 

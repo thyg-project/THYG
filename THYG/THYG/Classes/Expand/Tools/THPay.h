@@ -21,4 +21,6 @@ typedef void(^PayResultComplete)(id);
 //支付宝支付
 + (void)aliPay:(NSString *)orderString success:(PayResultComplete)success failed:(PayResultComplete)failed;
 
++ (BOOL)th_application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+
 @end

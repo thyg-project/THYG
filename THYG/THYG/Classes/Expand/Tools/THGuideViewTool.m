@@ -14,12 +14,9 @@
 
 + (UIViewController *)chooseRootViewController {
 	// 获取用户最新的版本号，info.plist
-	NSString *versionKey = (__bridge NSString *)kCFBundleVersionKey;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *lastVersion = [defaults objectForKey:versionKey];
-	NSString *currentVersion = [NSBundle mainBundle].infoDictionary[versionKey];
-	
-	
+	NSString *lastVersion = [defaults objectForKey:@"appVersion"];
+	NSString *currentVersion = YGInfo.appVersion();
 	if ([currentVersion isEqualToString:lastVersion]) { // 广告页面
 		THTabBarController *tabbarVc = [[THTabBarController alloc] init];
 		return tabbarVc;

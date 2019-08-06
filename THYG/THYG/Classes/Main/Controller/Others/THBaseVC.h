@@ -10,5 +10,7 @@
 
 @interface THBaseVC : UIViewController
 
+- (void)back;
+
 
 @end

@@ -10,8 +10,6 @@
 #import "THTabBarController.h"
 #import "THGuideViewTool.h"
 #import "THPay.h"
-#import <WXApi.h>
-#import <AlipaySDK/AlipaySDK.h>
 #import <Bugly/Bugly.h>
 #import "THShareTool.h"
 #import "IQKeyboardManager.h"
@@ -68,47 +66,10 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
     m.enableAutoToolbar = NO;
 }
 
-
 // 支持所有iOS系统
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //微信支付回调
-    if ([url.host isEqual:@"pay"]) {
-        return [WXApi handleOpenURL:url delegate:(id)[THPay class]];
-    }
-    //支付宝支付
-    else if ([url.host isEqualToString:@"safepay"]){
-        // 支付跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-        }];
-        
-        // 授权跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-            // 解析 auth code
-            NSString *result = resultDic[@"result"];
-            NSString *authCode = nil;
-            if (result.length>0) {
-                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
-                for (NSString *subResult in resultArr) {
-                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
-                        authCode = [subResult substringFromIndex:10];
-                        break;
-                    }
-                }
-            }
-            NSLog(@"授权结果 authCode = %@", authCode?:@"");
-        }];
-        return YES;
-    } else {
-       return [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
-    }
-    return YES;
-}
-
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[UMSocialManager defaultManager] handleOpenURL:url];
+    return [THPay th_application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

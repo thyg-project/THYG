@@ -10,24 +10,24 @@
 
 @interface THFlashSaleModel : NSObject
 
-@property (nonatomic, copy) NSString * iD;
-@property (nonatomic, copy) NSString * title;
-@property (nonatomic, copy) NSString * goods_id;
-@property (nonatomic, copy) NSString * item_id;
-@property (nonatomic, copy) NSString * price;
-@property (nonatomic, copy) NSString * goods_num;
-@property (nonatomic, copy) NSString * buy_limit;
-@property (nonatomic, copy) NSString * buy_num;
-@property (nonatomic, copy) NSString * order_num;
-@property (nonatomic, copy) NSString * descript;
-@property (nonatomic, copy) NSString * start_time;
-@property (nonatomic, copy) NSString * end_time;
-@property (nonatomic, copy) NSString * status;
-@property (nonatomic, copy) NSString * is_end;
-@property (nonatomic, copy) NSString * is_del;
-@property (nonatomic, copy) NSString * goods_name;
-@property (nonatomic, copy) NSString * shop_price;
-@property (nonatomic, copy) NSString * original_img;
-@property (nonatomic, copy) NSString * percent;
+@property (nonatomic, copy) NSString *saleID;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *goodsID;
+@property (nonatomic, copy) NSString *itemId;
+@property (nonatomic, assign) CGFloat price;
+@property (nonatomic, assign) NSInteger goodsNum;
+@property (nonatomic, copy) NSString *buyLimit;
+@property (nonatomic, assign) NSInteger buyNum;
+@property (nonatomic, assign) NSInteger orderNum;
+@property (nonatomic, copy) NSString *descript;
+@property (nonatomic, copy) NSString *startTime;
+@property (nonatomic, copy) NSString *endTime;
+@property (nonatomic, copy) NSString *status;
+@property (nonatomic, assign) BOOL isEnd;
+@property (nonatomic, assign) BOOL isDel;
+@property (nonatomic, copy) NSString *goodsName;
+@property (nonatomic, assign) CGFloat shopPrice;
+@property (nonatomic, copy) NSString *originalImg;
+@property (nonatomic, assign) CGFloat percent;
 
 @end

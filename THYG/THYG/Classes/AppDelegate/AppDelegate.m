@@ -17,7 +17,7 @@
 #import "IQKeyboardManager.h"
 #import "AvoidCrash.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <BuglyDelegate>
 
 @end
 
@@ -35,13 +35,29 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
     [self.window makeKeyAndVisible];
     [AvoidCrash becomeEffective];
     [WXApi registerApp:@"wx1792977a45662b26"];
-    
-    [Bugly startWithAppId:@"3739643c93"];
+    [self registerBugly];
 	
     [THShareTool configShareSDK];
 	
 	return YES;
     
+}
+
+- (void)registerBugly {
+    BOOL develop = NO;
+    BuglyConfig *config = [BuglyConfig new];
+    config.version = YGInfo.appVersion();
+    config.channel = @"AppStore";
+    config.delegate = self;
+    config.reportLogLevel = BuglyLogLevelInfo;
+#ifdef DEBUG
+    config.debugMode = YES;
+    develop = YES;
+#endif
+    [Bugly setUserValue:YGInfo.IDFV() forKey:@"IDFV"];
+//    [Bugly setUserValue:YGInfo.IDFA() forKey:@"IDFA"];
+    [Bugly setUserIdentifier:YGInfo.IDFV()];
+    [Bugly startWithAppId:@"3739643c93" developmentDevice:develop config:config];
 }
 
 - (void)registerIQKeyboard {
@@ -126,5 +142,9 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (NSString * BLY_NULLABLE)attachmentForException:(NSException * BLY_NULLABLE)exception {
+    return @"";
+}
 
 @end

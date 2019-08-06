@@ -65,16 +65,15 @@ dispatch_source_t _source_t;
 
 - (IBAction)finishAction:(id)sender {
 	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
-
 	if (self.isForgetPwd) {
-		params[@"code"] = self.verifyCodeField.text;
+        [params setValue:self.verifyCodeField.text forKey:@"code"];
 	} else {
-		params[@"mobile_code"] = self.verifyCodeField.text;
+        [params setValue:self.verifyCodeField.text forKey:@"mobile_code"];
 	}
-	params[@"unique_id"] = self.uniqueId;
-	params[@"mobile"] = self.phoneString;
-	params[@"password"] = [Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]];
-	params[@"confirm_password"] = [Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]];
+    [params setValue:self.uniqueId forKey:@"unique_id"];
+    [params setValue:self.phoneString forKey:@"mobile"];
+    [params setValue:[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]] forKey:@"password"];
+    [params setValue:[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]] forKey:@"confirm_password"];
     [self.presenter registerUser:@"" verifyCode:@"" pwd:@""];
 }
 

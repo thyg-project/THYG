@@ -20,12 +20,12 @@
 
 - (void)setFlashModel:(THFlashSaleModel *)flashModel {
     _flashModel = flashModel;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:_flashModel.original_img] placeholderImage:[UIImage imageWithColor:kBackgroundColor]];
-    nameLbel.text = _flashModel.goods_name;
-    shopPriceLabel.text = [NSString stringWithFormat:@"￥%@",_flashModel.shop_price];
-    priceLabel.text = [NSString stringWithFormat:@"￥%@",_flashModel.price];
-    percentLabel.text = _flashModel.percent;
-    percentView.progress = [[_flashModel.percent substringToIndex:_flashModel.percent.length-1] integerValue] / 100.0;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:_flashModel.originalImg] placeholderImage:[UIImage imageWithColor:kBackgroundColor]];
+    nameLbel.text = _flashModel.goodsName;
+    shopPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",_flashModel.shopPrice];
+    priceLabel.text = [NSString stringWithFormat:@"￥%.2f",_flashModel.price];
+    percentLabel.text = @(_flashModel.percent).stringValue;
+    percentView.progress = [[@(_flashModel.percent).stringValue substringToIndex:@(_flashModel.percent).stringValue.length-1] integerValue] / 100.0;
     
 }
 

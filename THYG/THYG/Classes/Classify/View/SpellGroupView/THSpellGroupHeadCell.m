@@ -44,7 +44,7 @@
         statusLabel.textColor = RGB(81, 81, 81);
         timeLabel.font = Font(14);
         statusLabel.font = Font(13);
-    }else{
+    } else { 
         self.backgroundColor = RGB(213, 0, 27);
         timeLabel.textColor = RGB(255, 255, 255);
         statusLabel.textColor = RGB(255, 255, 255);

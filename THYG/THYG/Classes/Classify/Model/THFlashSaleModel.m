@@ -10,7 +10,7 @@
 
 @implementation THFlashSaleModel
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
++ (NSDictionary *)modelCustomPropertyMapper {
     return @{@"iD":@"id", @"descript":@"description"};
 }
 

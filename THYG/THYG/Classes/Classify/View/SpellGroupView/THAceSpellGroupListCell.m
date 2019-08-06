@@ -9,11 +9,14 @@
 
 #import "THAceSpellGroupListCell.h"
 
-@implementation THAceSpellGroupListCell {
+@interface THAceSpellGroupListCell() {
     __weak IBOutlet UIImageView *goodsImgV;
     __weak IBOutlet UILabel *goodsTitleLabel;
-    
 }
+
+@end
+
+@implementation THAceSpellGroupListCell 
 
 - (void)awakeFromNib {
     [super awakeFromNib];

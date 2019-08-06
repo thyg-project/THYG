@@ -14,7 +14,6 @@
 @interface THShoppingCartListDelegate() {
     UITableView *_mTable;
 }
-@property (nonatomic, copy) void(^refreshHeadView)(THShoppingCartModel *model);
 @end
 
 @implementation THShoppingCartListDelegate
@@ -42,14 +41,11 @@
     THCartSectionHead *head = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THCartSectionHead.class)];
     head.contentView.backgroundColor = RGB(222, 222, 222);
     THShoppingCartModel *model = self.data[section];
-    NSLog(@">>>%@%@,,,,,%ld",model.suppliers.suppliers_name,model.suppliers.suppliers_id,section);
     head.modelData = model.suppliers;
     head.selectBtnClick = ^{
        
     };
-    self.refreshHeadView = ^(THShoppingCartModel *model) {
-        head.modelData = model.suppliers;
-    };
+   
     return head;
 }
 

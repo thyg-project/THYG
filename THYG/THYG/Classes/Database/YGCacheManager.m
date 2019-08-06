@@ -51,4 +51,16 @@
 //    [YGUserInfo.defaultInstance parseUserInfo:dict];
 }
 
++ (void)saveUserInfo {
+    [YGCacheManager.sharedInstance saveUserInfo];
+}
+
++ (void)clearUserInfo {
+    [[YGCacheManager sharedInstance] clearUserInfo];
+}
+
++ (void)loadUserInfo {
+    [[YGCacheManager sharedInstance] loadUserInfo];
+}
+
 @end

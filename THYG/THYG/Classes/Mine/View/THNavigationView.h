@@ -17,82 +17,82 @@
 /**
  标题
  */
-@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy, nullable) NSString *content;
 
 /**
  标题字体大小
  */
-@property (nonatomic, copy) UIFont *contentSize;
+@property (nonatomic, copy, nullable) UIFont *contentSize;
 
 /**
  标题颜色
  */
-@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong, nullable) UIColor *textColor;
 
 /**
  委托
  */
-@property (nonatomic, weak) id <THNaviagationViewDelegate> delegate;
+@property (nonatomic, weak, nullable) id <THNaviagationViewDelegate> delegate;
 
 /**
  自定义导航栏右边图片按钮集合
  */
-@property (nonatomic, strong) NSArray <UIImage *> *rightButtonsImages;
+@property (nonatomic, strong, nullable) NSArray <UIImage *> *rightButtonsImages;
 
 /**
  自定义导航栏右边文字按钮集合
  */
-@property (nonatomic, strong) NSArray <NSString *> *rightButtonTitles;
+@property (nonatomic, strong, nullable) NSArray <NSString *> *rightButtonTitles;
 
 /**
  自定义导航栏右边图片按钮
  */
-@property (nonatomic, strong) UIImage *rightButtonImage;
+@property (nonatomic, strong, nullable) UIImage *rightButtonImage;
 
 /**
  自定义导航栏右边文字按钮
  */
-@property (nonatomic, copy) NSString *rightButtonTitle;
+@property (nonatomic, copy, nullable) NSString *rightButtonTitle;
 
 /**
  自定义导航栏左边图片按钮
  */
-@property (nonatomic, strong) UIImage *leftButtonImage;
+@property (nonatomic, strong, nullable) UIImage *leftButtonImage;
 
 /**
  自定义导航栏左边文字按钮
  */
-@property (nonatomic, copy) NSString *leftButtonTitle;
+@property (nonatomic, copy, nullable) NSString *leftButtonTitle;
 
 /**
  返回按钮文字颜色
  */
-@property (nonatomic, strong) UIColor *backTextColor;
+@property (nonatomic, strong, nullable) UIColor *backTextColor;
 
 /**
  右边按钮文字颜色
  */
-@property (nonatomic, strong) UIColor *rightTextColor;
+@property (nonatomic, strong, nullable) UIColor *rightTextColor;
 
 /**
  返回按钮字体大小
  */
-@property (nonatomic, strong) UIFont *backTextFont;
+@property (nonatomic, strong, nullable) UIFont *backTextFont;
 
 /**
  右边按钮字体大小
  */
-@property (nonatomic, strong) UIFont *rightTextFont;
+@property (nonatomic, strong, nullable) UIFont *rightTextFont;
 
 /**
  给标题设置富文本
  */
-@property (nonatomic, strong) NSAttributedString *attributedContent;
+@property (nonatomic, strong, nullable) NSAttributedString *attributedContent;
 
 /**
  自定义view
  */
-@property (nonatomic, strong) UIView *titleView;
+@property (nonatomic, strong, nullable) UIView *titleView;
 
 @end
 
@@ -104,7 +104,7 @@
 
 - (void)rightAction:(NSInteger)index;
 
-- (void)contentDidTouch:(id)content;
+- (void)contentDidTouch:(nullable id)content;
 
 
 

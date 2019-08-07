@@ -7,10 +7,10 @@
 //
 
 #import "CountView.h"
-#import "Header.h"
+#import "GoodsModel.h"
 @implementation CountView
 @synthesize addButton,reduceButton,countTextField,label;
--(instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         label = nil;

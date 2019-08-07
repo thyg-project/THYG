@@ -19,6 +19,5 @@
 @property (nonatomic, copy) NSArray  *img; // 图片
 @property (nonatomic, copy) NSString *unit; // 单位
 @property (nonatomic, copy) NSString *goods_num; // 购买个数
-@property (nonatomic, assign) CGFloat cellHeight;
 
 @end

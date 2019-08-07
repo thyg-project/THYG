@@ -81,8 +81,7 @@
 }
 
 - (CGFloat)menuView:(WMMenuView *)menu widthForItemAtIndex:(NSInteger)index {
-    CGFloat width = [super menuView:menu widthForItemAtIndex:index];
-    return width;
+    return [super menuView:menu widthForItemAtIndex:index];
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {

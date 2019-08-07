@@ -10,20 +10,27 @@
 #import "ChoseGoodsTypeAlert.h"
 #import "ChoosTypeTableViewCell.h"
 #import "GoodsTypeModel.h"
-#import "Header.h"
 #import "GoodsInfoView.h"
 #import "CountView.h"
-@implementation ChoseGoodsTypeAlert
-{
+#import "GoodsModel.h"
+
+@interface ChoseGoodsTypeAlert() {
     UIButton *sureButton;
     UIView *view;
     UIView *bgView;
     SizeAttributeModel *sizeModel;
     GoodsInfoView *goodsInfo;
     CountView *countView;
+    
 }
 
--(instancetype)initWithFrame:(CGRect)frame andHeight:(float)height {
+
+@end
+
+@implementation ChoseGoodsTypeAlert
+
+
+- (instancetype)initWithFrame:(CGRect)frame andHeight:(float)height {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
@@ -55,32 +62,25 @@
     }
     return self;
 }
+
 #pragma mark - methods
--(void)hideView
-{
+- (void)hideView {
     [self tfresignFirstResponder];
-    [UIView animateWithDuration:0.25 animations:^
-     {
+    [UIView animateWithDuration:0.25 animations:^ {
          bgView.centerY = bgView.centerY+CGRectGetHeight(bgView.frame);
-         
-     } completion:^(BOOL fin){
+     } completion:^(BOOL fin) {
          [self removeFromSuperview];
-         
      }];
-    
 }
 //
--(void)showView
-{
+- (void)showView {
     self.alpha = 1;
-    [UIView animateWithDuration:0.25 animations:^
-     {
+    [UIView animateWithDuration:0.25 animations:^ {
          bgView.centerY = bgView.centerY-CGRectGetHeight(bgView.frame);
-         
-     } completion:^(BOOL fin){}];
+     } completion:nil];
 }
--(void)initData:(GoodsModel *)model
-{
+
+- (void)initData:(GoodsModel *)model {
     _model = model;
     [goodsInfo initData:model];
     [_dataSource removeAllObjects];
@@ -90,8 +90,8 @@
     [self reloadGoodsInfo];
     [self.tableview reloadData];
 }
--(void)reloadGoodsInfo
-{
+
+- (void)reloadGoodsInfo {
     for (GoodsTypeModel *model in _dataSource) {
         if (model.selectIndex<0) {
             goodsInfo.promatLabel.text =[NSString stringWithFormat:@"请选择%@",model.typeName];
@@ -107,8 +107,7 @@
             sizeModel = model;
             if ([countView.countTextField.text intValue]>[sizeModel.stock intValue]) {
                 countView.countTextField.text = [NSString stringWithFormat:@"%d",[sizeModel.stock intValue]];
-            }else if ([countView.countTextField.text intValue]<[sizeModel.stock intValue])
-            {
+            } else if ([countView.countTextField.text intValue]<[sizeModel.stock intValue]) {
                 if ([countView.countTextField.text intValue] == 0) {
                     countView.countTextField.text = @"1";
                 }
@@ -121,38 +120,35 @@
     //没找到匹配的，显示默认数据
     [goodsInfo initData:_model];
 }
+
 //点击确定
--(void)sure
-{
+- (void)sure {
     for (GoodsTypeModel *model in _dataSource) {
         if (model.selectIndex<0) {
-          
             return;
         }
     }
     if (_dataSource.count == 0) {
         //该商品无规格
-       
         [self hideView];
         return;
     }
     //判断库存
-    if ([sizeModel.stock intValue]>0) {
+    if ([sizeModel.stock intValue] > 0) {
         if (self.selectSize) {
             sizeModel.count = countView.countTextField.text;
             self.selectSize(sizeModel);
         }
         [self hideView];
-    }else
-    {
+    } else {
         
     }
     
 }
--(NSString *)getSizeStr
-{
+
+- (NSString *)getSizeStr {
     //拼接属性字符串
-    NSString *str=@"";
+    NSString *str = @"";
     for (GoodsTypeModel *model in _dataSource) {
         if (model.selectIndex>=0) {
             if (str.length == 0) {
@@ -163,17 +159,16 @@
     }
     return str;
 }
+
 #pragma mark-数量加减
--(void)add
-{
+- (void)add {
     int count =[countView.countTextField.text intValue];
     //如果有选好的属性就根据选好的属性库存判断，没选择就按总库存判断，数量不能超过库存
     if (sizeModel) {
-        if (count <[sizeModel.stock intValue]) {
+        if (count < [sizeModel.stock intValue]) {
             countView.countTextField.text = [NSString stringWithFormat:@"%d",count+1];
         }
-    }else
-    {
+    } else {
         if (count < [_model.totalStock intValue]) {
             countView.countTextField.text = [NSString stringWithFormat:@"%d",count+1];
             
@@ -181,8 +176,8 @@
     }
 
 }
--(void)reduce
-{
+
+- (void)reduce {
     int count =[countView.countTextField.text intValue];
     if (count > 1) {
 
@@ -190,22 +185,21 @@
        
     }
 }
+
 #pragma mark-tf
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     self.tableview.contentOffset = CGPointMake(0, countView.frame.origin.y);
     return YES;
 }
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     int count =[countView.countTextField.text intValue];
     if (sizeModel) {
-        if (count >[sizeModel.stock intValue]) {
+        if (count > [sizeModel.stock intValue]) {
             
             countView.countTextField.text = sizeModel.stock;
         }
-    }else
-    {
+    } else {
         if (count > [_model.totalStock intValue]) {
             
             countView.countTextField.text = _model.totalStock;
@@ -213,22 +207,22 @@
         }
     }
 }
--(void)tfresignFirstResponder
-{
+
+- (void)tfresignFirstResponder {
     self.tableview.contentOffset = CGPointMake(0, 0);
     [countView.countTextField resignFirstResponder];
 }
 #pragma mark - tavdelegete
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
    
     return _dataSource.count;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *ID = @"ChoosTypeTableViewCell";
-    ChoosTypeTableViewCell *cell = [[ChoosTypeTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
-    
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ChoosTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[ChoosTypeTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     GoodsTypeModel *model = _dataSource[indexPath.row];
     tableView.rowHeight=[cell setData:model];
@@ -240,16 +234,15 @@
     
 }
 
--(UITableView *)tableview
-{
+- (UITableView *)tableview {
     if (!_tableview) {
-//        _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kWidth, kHeight) style:UITableViewStylePlain];
+        _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
         _tableview.sectionHeaderHeight = 0;
 //        _tableview.backgroundColor = WhiteColor;
         _tableview.delegate = self;
         _tableview.dataSource = self;
         _dataSource = [[NSMutableArray alloc] init];
-//        countView = [[CountView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kSize(50))];
+        countView = [[CountView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, WIDTH(50))];
         countView.countTextField.delegate = self;
         [countView.addButton addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
         [countView.reduceButton addTarget:self action:@selector(reduce) forControlEvents:UIControlEventTouchUpInside];

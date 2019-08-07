@@ -8,18 +8,17 @@
 //
 
 #import "ChoosTypeTableViewCell.h"
-#import "Header.h"
-@interface ChoosTypeTableViewCell()
-{
+#import "GoodsModel.h"
+@interface ChoosTypeTableViewCell() {
     //类型名
     UILabel *typeNameLabel;
     UIView *typeView;//装载所有属性button的视图
 }
 @end
+
 @implementation ChoosTypeTableViewCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
         self.backgroundColor = [UIColor whiteColor];
 
@@ -33,17 +32,16 @@
     }
     return self;
 }
--(float)setData:(GoodsTypeModel *)model
-{
+
+- (float)setData:(GoodsTypeModel *)model {
     _model = model;
     typeNameLabel.text = model.typeName;
     return [self initTypeView];//每次刷新重绘
 }
--(float)initTypeView
-{
+
+- (float)initTypeView {
     //循环删除typeView所有子视图，防止cell重用产生错乱
-    while ([typeView.subviews lastObject] != nil)
-    {
+    while ([typeView.subviews lastObject] != nil) {
         [[typeView.subviews lastObject] removeFromSuperview];
     }
     float upX = 10;
@@ -80,13 +78,12 @@
     return upY+11+40;
 
 }
--(void)touchbtn:(UIButton *)btn
-{
+
+- (void)touchbtn:(UIButton *)btn {
     
     if (btn.selected == NO) {
         _model.selectIndex = (int)btn.tag-100;
-    }else
-    {
+    } else {
         //取消选中
         _model.selectIndex = -1;
     }
@@ -104,6 +101,7 @@
         }
     }
 }
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

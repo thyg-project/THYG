@@ -8,7 +8,7 @@
 //
 
 #import "GoodsInfoView.h"
-#import "Header.h"
+#import "GoodsModel.h"
 #import "SizeAttributeModel.h"
 @interface GoodsInfoView()
 @property(nonatomic, strong)UIImageView *goodsImage;
@@ -18,7 +18,7 @@
 @end
 @implementation GoodsInfoView
 
--(instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         //商品图片
@@ -29,37 +29,36 @@
         [self addSubview:_goodsImage];
         
         //关闭按钮
-//        _closeButton = [JXUIKit buttonWithBackgroundColor:[UIColor whiteColor] imageForNormal:@"guanbi" imageForSelete:@"guanbi"];
+        
+        _closeButton = [THUIFactory buttonWithTitle:nil image:@"guanbi" selectedImage:@"guanbi" fontSize:16 textColor:nil bgColor:UIColor.whiteColor borderColor:nil radius:0 target:self action:nil];;
         [self addSubview:_closeButton];
         
         //标题
-//        _goodsTitleLabel = [JXUIKit labelWithBackgroundColor:WhiteColor textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft numberOfLines:0 fontSize:0 font:[UIFont systemFontOfSize:15] text:@"标题"];
+        _goodsTitleLabel = [THUIFactory labelWithText:@"标题" fontSize:0 tintColor:[UIColor blackColor]];
         [self addSubview:_goodsTitleLabel];
         
         
         //价格
-//        _goodsPriceLabel = [JXUIKit labelWithBackgroundColor:WhiteColor textColor:KBtncol textAlignment:NSTextAlignmentLeft numberOfLines:0 fontSize:0 font:[UIFont systemFontOfSize:14] text:@"197"];
+        _goodsPriceLabel = [THUIFactory labelWithText:@"197" fontSize:14 tintColor:UIColor.redColor];
         [self addSubview:_goodsPriceLabel];
         
         //库存
-//        _goodsCountLabel = [JXUIKit labelWithBackgroundColor:WhiteColor textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft numberOfLines:0 fontSize:0 font:[UIFont systemFontOfSize:14] text:@"库存"];
+        _goodsCountLabel = [THUIFactory labelWithText:@"库存" fontSize:14 tintColor:UIColor.grayColor];
         [self addSubview:_goodsCountLabel];
         
-        
-        
         //选择提示文字
-//        _promatLabel = [JXUIKit labelWithBackgroundColor:WhiteColor textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft numberOfLines:0 fontSize:0 font:[UIFont systemFontOfSize:14] text:@""];
+        _promatLabel = [THUIFactory labelWithText:nil fontSize:0 tintColor:UIColor.grayColor];
         [self addSubview:_promatLabel];
         
         
     }
     return self;
 }
--(void)initData:(GoodsModel *)model
-{
+
+- (void)initData:(GoodsModel *)model {
     _model = model;
     [_goodsImage setImage:[UIImage imageNamed:model.imageId]];
-    //[goodsImage sd_setImageWithURL:[NSURL URLWithString:[kThumbImageUrl stringByAppendingString:model.imageId]] placeholderImage:kDefaultImage];
+    [_goodsImage sd_setImageWithURL:[NSURL URLWithString:[@"" stringByAppendingString:model.imageId]] placeholderImage:nil];
     _goodsTitleLabel.text = model.title;
     _goodsCountLabel.text = [NSString stringWithFormat:@"库存：%@",model.totalStock];
     _goodsPriceLabel.text = [NSString stringWithFormat:@"¥%@ ¥%@",model.price.minPrice,model.price.minOriginalPrice];
@@ -71,8 +70,7 @@
 }
 
 //根据选择的属性组合刷新商品信息
--(void)resetData:(SizeAttributeModel *)sizeModel
-{
+- (void)resetData:(SizeAttributeModel *)sizeModel {
     //如果有图片就显示图片，没图片就显示默认图
     if (sizeModel.imageId.length>0) {
         [_goodsImage setImage:[UIImage imageNamed:sizeModel.imageId]];

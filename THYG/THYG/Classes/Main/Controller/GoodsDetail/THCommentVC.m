@@ -53,13 +53,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    THGoodsCommentModel *model = self.commentArray[indexPath.row];
-    return model.cellHeight;
-    
-}
-
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

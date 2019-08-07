@@ -1043,7 +1043,6 @@
 		576EEABA2087A5510088B1EB /* MLLabelLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLabelLayoutManager.h; sourceTree = "<group>"; };
 		576EEABB2087A5510088B1EB /* MLLabel+Override.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLLabel+Override.h"; sourceTree = "<group>"; };
 		576EEABC2087A5510088B1EB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		57CBC3B62088E441007D6069 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		57CBC3B82088E477007D6069 /* ChoseGoodsTypeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseGoodsTypeAlert.h; sourceTree = "<group>"; };
 		57CBC3B92088E477007D6069 /* ChoosTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosTypeTableViewCell.h; sourceTree = "<group>"; };
 		57CBC3BA2088E477007D6069 /* CountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountView.m; sourceTree = "<group>"; };
@@ -1410,7 +1409,6 @@
 			children = (
 				57CBC3C02088E477007D6069 /* Models */,
 				57CBC3B72088E477007D6069 /* views */,
-				57CBC3B62088E441007D6069 /* Header.h */,
 				04178EFF207276EF0048875E /* THGoodsHeaderView.h */,
 				04178F01207276EF0048875E /* THGoodsHeaderView.m */,
 				04178F02207276EF0048875E /* THGoodsDetailBottomView.h */,

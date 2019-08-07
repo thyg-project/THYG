@@ -155,8 +155,7 @@
     return _starView;
 }
 
-- (THPhotoContainerView *)picContainerView
-{
+- (THPhotoContainerView *)picContainerView {
     if (!_picContainerView) {
         _picContainerView = [[THPhotoContainerView alloc] init];
     }

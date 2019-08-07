@@ -16,7 +16,7 @@
 #import "ChoseGoodsTypeAlert.h"
 #import "SizeAttributeModel.h"
 #import "GoodsTypeModel.h"
-#import "Header.h"
+#import "GoodsModel.h"
 
 
 @interface THGoodsVC () <UITableViewDataSource, UITableViewDelegate> {
@@ -71,14 +71,11 @@
     for (THSpecDefaultModel *model in self.goodsSpecModel.spec_goods_price) {
         NSMutableString *mutStr = [[NSMutableString alloc] init];
         for (THFilterSpecModel *filterModel in self.goodsSpecModel.filter_spec) {
-            
             for (THItemSpecModel *itemM in filterModel.spec) {
-                
                 if ([model.key rangeOfString:itemM.spec_item_id].location != NSNotFound) {
                     [mutStr appendFormat:@"%@、",itemM.item];
                 }
             }
-            
         }
         if (!mutStr.length) {
             continue;
@@ -97,18 +94,11 @@
         type.imageId = self.detailModel.original_img;
         [model.sizeAttribute addObject:type];
     }
-//    [NSString stringWithFormat:@"%d.jpg",arc4random()%4]
 }
 
 - (void)setupUI {
     [self.view addSubview:self.tableView];
-    
-    // iOS11 适配
-    if (@available(iOS 11, *)) {
-        self.tableView.estimatedRowHeight = 0;
-        self.tableView.estimatedSectionFooterHeight = 0;
-        self.tableView.estimatedSectionHeaderHeight = 0;
-    }
+    [self autoLayoutSizeContentView:self.tableView];
 }
 
 - (void)setBannerArr:(NSArray<THGoodsDetailBannerModel *> *)bannerArr {
@@ -169,68 +159,62 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = nil;
-    
     if (indexPath.section == 0) {
-        THGoodsTopInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsTopInfoCell.class)];
-        infoCell.goodsDetailModel = self.detailModel;
-        kWeakSelf;
-        infoCell.focusBtnAction = ^(BOOL isSelected) {
-            if (!weakSelf.detailModel) {
-                return ;
-            }
-            [weakSelf collectGoods:isSelected];
-        };
-        
-        cell = infoCell;
-        
+        cell = [self goodsInfoCellWithTableView:tableView indexPath:indexPath];
     } else if (indexPath.section == 1) {
-        
         if (_goodsSpecModel.filter_spec.count) {
-            
-            THGoodsSpecificationsCell *specCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsSpecificationsCell.class)];
-            specCell.defaultSpec = self.goodsSpecModel.defaultSpec.default_str;
-            
-            cell = specCell;
-            kWeakSelf;
-            kWeakObject(specCell)
-            specCell.selectSpecBtnBlock = ^{
-                
-                ChoseGoodsTypeAlert *_alert = [[ChoseGoodsTypeAlert alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) andHeight:0];
-                _alert.alpha = 0;
-                [[UIApplication sharedApplication].keyWindow addSubview:_alert];
-                
-                _alert.selectSize = ^(SizeAttributeModel *sizeModel) {
-                    //sizeModel 选择的属性模型
-                    
-                    weakObject.defaultSpec = sizeModel.value;
-                    
-                    !weakSelf.specBlock?:weakSelf.specBlock(sizeModel.sizeid, sizeModel.count);
-                    
-                };
-                [_alert initData:model];
-                [_alert showView];
-                
-            };
-        
+            cell = [self goodsSpecificationsCellWithTableView:tableView indexPath:indexPath];
         } else {
-            
-            THGoodsCommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsCommentCell.class)];
-            commentCell.commentModel = _commentArr[indexPath.row];
-            cell = commentCell;
-            
+            cell = [self commonCellWithTableView:tableView indexPath:indexPath];
         }
-        
-        
     } else {
-        
-        THGoodsCommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsCommentCell.class)];
-        commentCell.commentModel = _commentArr[indexPath.row];
-        cell = commentCell;
-        
+        cell = [self commonCellWithTableView:tableView indexPath:indexPath];
     }
-    
     return cell;
-    
+}
+
+- (UITableViewCell *)goodsInfoCellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    THGoodsTopInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsTopInfoCell.class)];
+    infoCell.goodsDetailModel = self.detailModel;
+    kWeakSelf;
+    infoCell.focusBtnAction = ^(BOOL isSelected) {
+        if (!weakSelf.detailModel) {
+            return ;
+        }
+        [weakSelf collectGoods:isSelected];
+    };
+    return infoCell;
+}
+
+- (UITableViewCell *)commonCellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    THGoodsCommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsCommentCell.class)];
+    commentCell.commentModel = _commentArr[indexPath.row];
+    return commentCell;
+}
+
+- (UITableViewCell *)goodsSpecificationsCellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    THGoodsSpecificationsCell *specCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsSpecificationsCell.class)];
+    specCell.defaultSpec = self.goodsSpecModel.defaultSpec.default_str;
+    kWeakSelf;
+    kWeakObject(specCell)
+    specCell.selectSpecBtnBlock = ^{
+        ChoseGoodsTypeAlert *_alert = [[ChoseGoodsTypeAlert alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) andHeight:0];
+        _alert.alpha = 0;
+        [[UIApplication sharedApplication].delegate.window addSubview:_alert];
+        
+        _alert.selectSize = ^(SizeAttributeModel *sizeModel) {
+            //sizeModel 选择的属性模型
+            
+            weakObject.defaultSpec = sizeModel.value;
+            
+            !weakSelf.specBlock?:weakSelf.specBlock(sizeModel.sizeid, sizeModel.count);
+            
+        };
+        [_alert initData:model];
+        [_alert showView];
+        
+    };
+    return specCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -275,8 +259,8 @@
     if (!indexPath.section) {
         return 112;
     } else if (indexPath.section == 2) {
-        THGoodsCommentModel *model = _commentArr[indexPath.row];
-        return model.cellHeight;
+//        THGoodsCommentModel *model = _commentArr[indexPath.row];
+        return 80;
     }
     return 44;
 }

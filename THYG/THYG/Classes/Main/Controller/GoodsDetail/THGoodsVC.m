@@ -98,6 +98,9 @@
 
 - (void)setupUI {
     [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     [self autoLayoutSizeContentView:self.tableView];
 }
 
@@ -130,24 +133,14 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - 取消 / 收藏商品
-- (void)collectGoods:(BOOL)collect {
-
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     if (_commentArr.count && _goodsSpecModel.filter_spec.count) {
         return 3;
-        
     } else if (!_commentArr.count && !_goodsSpecModel.filter_spec.count) {
         return 1;
-        
     } else {
         return 2;
-        
     }
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -181,7 +174,6 @@
         if (!weakSelf.detailModel) {
             return ;
         }
-        [weakSelf collectGoods:isSelected];
     };
     return infoCell;
 }
@@ -257,7 +249,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!indexPath.section) {
-        return 112;
+        return 122;
     } else if (indexPath.section == 2) {
 //        THGoodsCommentModel *model = _commentArr[indexPath.row];
         return 80;
@@ -267,7 +259,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight-kNaviHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -275,8 +267,7 @@
         [_tableView registerClass:THGoodsHeaderView.class forHeaderFooterViewReuseIdentifier:NSStringFromClass(THGoodsHeaderView.class)];
         
         [_tableView registerClass:THGoodsCommentHeaderView.class forHeaderFooterViewReuseIdentifier:NSStringFromClass(THGoodsCommentHeaderView.class)];
-        
-        [_tableView registerNib:[UINib nibWithNibName:@"THGoodsTopInfoCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THGoodsTopInfoCell.class)];
+        [_tableView registerClass:THGoodsTopInfoCell.class forCellReuseIdentifier:@"THGoodsTopInfoCell"];
         
         [_tableView registerNib:[UINib nibWithNibName:@"THGoodsSpecificationsCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THGoodsSpecificationsCell.class)];
         

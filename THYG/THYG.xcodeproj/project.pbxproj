@@ -289,7 +289,6 @@
 		0265CF2822F2C45E000363F0 /* THSystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E4B20CB77F600F5085F /* THSystemMessageCell.xib */; };
 		0265CF2922F2C45E000363F0 /* THForgetPswCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A305207116F7003BE300 /* THForgetPswCtl.xib */; };
 		0265CF2A22F2C45E000363F0 /* THMineBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DA2C0E20DAA81E006A82B6 /* THMineBankCardCell.xib */; };
-		0265CF2B22F2C45E000363F0 /* THGoodsTopInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178F072072789F0048875E /* THGoodsTopInfoCell.xib */; };
 		0265CF2C22F2C45E000363F0 /* THGoodsListOfTableLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC29720622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib */; };
 		0265CF2D22F2C45E000363F0 /* THRegisterNextStepCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A304207116F7003BE300 /* THRegisterNextStepCtl.xib */; };
 		0265CF2E22F2C45E000363F0 /* THMineApplymentInputVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484F0A22089B555008144B2 /* THMineApplymentInputVC.xib */; };
@@ -385,7 +384,6 @@
 		04178F03207276EF0048875E /* THGoodsDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F00207276EF0048875E /* THGoodsDetailBottomView.m */; };
 		04178F04207276EF0048875E /* THGoodsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F01207276EF0048875E /* THGoodsHeaderView.m */; };
 		04178F082072789F0048875E /* THGoodsTopInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F062072789F0048875E /* THGoodsTopInfoCell.m */; };
-		04178F092072789F0048875E /* THGoodsTopInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178F072072789F0048875E /* THGoodsTopInfoCell.xib */; };
 		04178F0C207287E50048875E /* THBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F0B207287E50048875E /* THBaseCell.m */; };
 		04178F1020728D4C0048875E /* THGoodsSpecificationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F0E20728D4C0048875E /* THGoodsSpecificationsCell.m */; };
 		04178F1120728D4C0048875E /* THGoodsSpecificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178F0F20728D4C0048875E /* THGoodsSpecificationsCell.xib */; };
@@ -781,7 +779,6 @@
 		04178F02207276EF0048875E /* THGoodsDetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THGoodsDetailBottomView.h; sourceTree = "<group>"; };
 		04178F052072789F0048875E /* THGoodsTopInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGoodsTopInfoCell.h; sourceTree = "<group>"; };
 		04178F062072789F0048875E /* THGoodsTopInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THGoodsTopInfoCell.m; sourceTree = "<group>"; };
-		04178F072072789F0048875E /* THGoodsTopInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THGoodsTopInfoCell.xib; sourceTree = "<group>"; };
 		04178F0A207287E50048875E /* THBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBaseCell.h; sourceTree = "<group>"; };
 		04178F0B207287E50048875E /* THBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBaseCell.m; sourceTree = "<group>"; };
 		04178F0D20728D4C0048875E /* THGoodsSpecificationsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGoodsSpecificationsCell.h; sourceTree = "<group>"; };
@@ -1415,7 +1412,6 @@
 				04178F00207276EF0048875E /* THGoodsDetailBottomView.m */,
 				04178F052072789F0048875E /* THGoodsTopInfoCell.h */,
 				04178F062072789F0048875E /* THGoodsTopInfoCell.m */,
-				04178F072072789F0048875E /* THGoodsTopInfoCell.xib */,
 				04178F0D20728D4C0048875E /* THGoodsSpecificationsCell.h */,
 				04178F0E20728D4C0048875E /* THGoodsSpecificationsCell.m */,
 				04178F0F20728D4C0048875E /* THGoodsSpecificationsCell.xib */,
@@ -2681,7 +2677,6 @@
 				0265CF2822F2C45E000363F0 /* THSystemMessageCell.xib in Resources */,
 				0265CF2922F2C45E000363F0 /* THForgetPswCtl.xib in Resources */,
 				0265CF2A22F2C45E000363F0 /* THMineBankCardCell.xib in Resources */,
-				0265CF2B22F2C45E000363F0 /* THGoodsTopInfoCell.xib in Resources */,
 				0265CF2C22F2C45E000363F0 /* THGoodsListOfTableLayoutCell.xib in Resources */,
 				0265CF2D22F2C45E000363F0 /* THRegisterNextStepCtl.xib in Resources */,
 				0265CF2E22F2C45E000363F0 /* THMineApplymentInputVC.xib in Resources */,
@@ -2763,7 +2758,6 @@
 				57417E4D20CB77F600F5085F /* THSystemMessageCell.xib in Resources */,
 				04D0A30F207116F7003BE300 /* THForgetPswCtl.xib in Resources */,
 				51DA2C1020DAA81E006A82B6 /* THMineBankCardCell.xib in Resources */,
-				04178F092072789F0048875E /* THGoodsTopInfoCell.xib in Resources */,
 				8F0DC29920622AC0009AE20B /* THGoodsListOfTableLayoutCell.xib in Resources */,
 				04D0A30E207116F7003BE300 /* THRegisterNextStepCtl.xib in Resources */,
 				0484F0A42089B555008144B2 /* THMineApplymentInputVC.xib in Resources */,

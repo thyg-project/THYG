@@ -291,8 +291,7 @@
     return _siftView;
 }
 
-- (THScreeningView *)screeningView
-{
+- (THScreeningView *)screeningView {
     if (!_screeningView) {
         _screeningView = [[THScreeningView alloc] init];
     }

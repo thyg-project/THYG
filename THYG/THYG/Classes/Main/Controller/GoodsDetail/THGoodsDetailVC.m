@@ -35,9 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    backButton.imageInsets = UIEdgeInsetsMake(0, 5, 0, 0);
-    self.navigationItem.leftBarButtonItem = backButton;
+    [self addBackBarItem];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareAction)];
     [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
@@ -52,10 +50,6 @@
         make.left.right.bottom.equalTo(self.view);
         make.height.mas_equalTo(50);
     }];
-}
-
-- (void)back {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)shareAction {

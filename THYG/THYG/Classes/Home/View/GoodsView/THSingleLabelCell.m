@@ -10,11 +10,20 @@
 
 @implementation THSingleLabelCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-    self.layer.cornerRadius = 5;
-    self.clipsToBounds = YES;
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.layer.cornerRadius = 5;
+        self.clipsToBounds = YES;
+        _singleLabel = [UILabel new];
+        _singleLabel.textAlignment = NSTextAlignmentCenter;
+        _singleLabel.font = [UIFont systemFontOfSize:14];
+        [self.contentView addSubview:self.singleLabel];
+        [self.singleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.contentView);
+        }];
+    }
+    return self;
 }
 
 - (void)setIsSelected:(BOOL)isSelected {

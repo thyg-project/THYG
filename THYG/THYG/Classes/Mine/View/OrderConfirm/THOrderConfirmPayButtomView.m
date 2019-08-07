@@ -25,7 +25,7 @@
 
 #pragma mark - 立即支付
 - (IBAction)gotoPayClick {
-    !self.payBlock?:self.payBlock();
+    BLOCK(self.payBlock);
 }
 
 

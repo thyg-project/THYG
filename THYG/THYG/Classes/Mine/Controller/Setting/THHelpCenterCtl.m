@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"帮助中心";
+    [self addBackBarItem];
     self.tableView.tableFooterView = [UIView new];
 }
 

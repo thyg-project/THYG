@@ -7,33 +7,47 @@
 //
 
 #import "THCommentCateViewCell.h"
+#import "THButton.h"
+
+@interface THCommentCateViewCell() {
+    THButton *_selectedButton;
+}
+
+@end
 
 @implementation THCommentCateViewCell
-{
-    __weak IBOutlet UIButton *selectBtn;
-    
-}
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-    selectBtn.layer.borderColor = [UIColor redColor].CGColor;
-    selectBtn.layer.borderWidth = 1;
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        _selectedButton = [THButton buttonWithType:THButtonType_None];
+        _selectedButton.title = @"全部";
+        _selectedButton.font = [UIFont systemFontOfSize:14];
+        _selectedButton.textColor = UIColor.lightGrayColor;
+        _selectedButton.selectedTextColor = UIColor.redColor;
+        [_selectedButton addTarget:self action:@selector(touchAction)];
+        [self.contentView addSubview:_selectedButton];
+        [_selectedButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.contentView);
+        }];
+        _selectedButton.layer.borderColor = UIColor.redColor.CGColor;
+        _selectedButton.layer.borderWidth = 1;
+    }
+    return self;
 }
 
-- (void)setIsSelct:(BOOL)isSelct
-{
-    _isSelct = isSelct;
-    if (_isSelct) {
-        selectBtn.layer.borderColor = [UIColor redColor].CGColor;
-        selectBtn.layer.borderWidth = 1;
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    if (selected) {
+        _selectedButton.layer.borderColor = [UIColor redColor].CGColor;
+        _selectedButton.layer.borderWidth = 1;
     }else{
-        selectBtn.layer.borderColor =RGB(240,240,240).CGColor;
-        selectBtn.layer.borderWidth = 1;
+        _selectedButton.layer.borderColor = RGB(240,240,240).CGColor;
+        _selectedButton.layer.borderWidth = 1;
         
     }
 }
 
-- (IBAction)selectBtnclick:(id)sender {
+- (void)touchAction {
     
     
 }

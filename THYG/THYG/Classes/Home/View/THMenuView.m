@@ -58,7 +58,7 @@
     self.right = CGRectGetWidth(rect);
     self.height = CGRectGetHeight(rect);
     [UIView animateWithDuration:0.3 animations:^{
-        self.mTable.height = 44*self.data.count-1;
+        self.mTable.height = 44 * self.data.count - 1;
     }];
 }
 

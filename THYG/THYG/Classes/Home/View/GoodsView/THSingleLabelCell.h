@@ -10,7 +10,7 @@
 
 @interface THSingleLabelCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *singleLabel;
+@property (strong, nonatomic) UILabel *singleLabel;
 
 @property (nonatomic) BOOL isSelected;
 

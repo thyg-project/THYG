@@ -23,7 +23,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     UIImageView *_avatarImgView;
     UIImageView *_iconImgView;
     UILabel *_buttonSubLabel;
-//    SDWeiXinPhotoContainerView *_picContainerView;
+    //    SDWeiXinPhotoContainerView *_picContainerView;
 }
 @property (nonatomic, strong) NSMutableArray <UIButton *> *buttonArr;
 
@@ -39,89 +39,66 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
 }
 
 - (void)setupUI {
-    if (!_avatarImgView) {
-        _avatarImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"touxiang"]];
+    _avatarImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"touxiang"]];
+    _nameLabel = [THUIFactory labelWithText:@"lalalala" fontSize:16 tintColor:RGB(51, 51, 51)];
+    _timeLabel = [THUIFactory labelWithText:@"hehehehehe" fontSize:12 tintColor:RGB(151, 151, 151)];
+    _contentLabel = [THUIFactory labelWithText:@"aldlasdladladladlaldalsaldaldaldladsladlbsdfhahfasdhfahfahfhasdfhafhahdfahfhashdfhahfahfhashdfahdfhashdfahsdfhasfdhashdfahf" fontSize:16 tintColor:RGB(51, 51, 51)];
+    _contentLabel.numberOfLines = 0;
+    if (maxContentLblHeight == 0) {
+        maxContentLblHeight = _contentLabel.font.lineHeight * 3;
     }
     
-    if (!_nameLabel) {
-        _nameLabel = [THUIFactory labelWithText:@"lalalala" fontSize:16 tintColor:RGB(51, 51, 51)];
-    }
+    _moreButton = [[UIButton alloc] init];
+    [_moreButton setTitle:@"查看全文" forState:UIControlStateNormal];
+    [_moreButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [_moreButton addTarget:self action:@selector(moreButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    //        _moreButton.titleLabel.font = [UIFont systemFontOfSize:16];
     
-    if (!_timeLabel) {
-        _timeLabel = [THUIFactory labelWithText:@"hehehehehe" fontSize:12 tintColor:RGB(151, 151, 151)];
-    }
+    //    if (!_groupImgView) {
+    //        _groupImgView = [[UIView alloc] init];
+    //        _groupImgView.backgroundColor = RANDOMCOLOR;
+    //    }
     
-    if (!_contentLabel) {
-        _contentLabel = [THUIFactory labelWithText:@"aldlasdladladladlaldalsaldaldaldladsladlbsdfhahfasdhfahfahfhasdfhafhahdfahfhashdfhahfahfhashdfahdfhashdfahsdfhasfdhashdfahf" fontSize:16 tintColor:RGB(51, 51, 51)];
-        _contentLabel.numberOfLines = 0;
-        if (maxContentLblHeight == 0) {
-            maxContentLblHeight = _contentLabel.font.lineHeight * 3;
+    //    if (!_picContainerView) {
+    //        _picContainerView = [SDWeiXinPhotoContainerView new];
+    //    }
+    
+    _buttomView = [[UIView alloc] init];
+    _buttomView.backgroundColor = kBackgroundColor;
+    
+    _iconImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chanpintu"]];
+    [_buttomView addSubview:_iconImgView];
+    
+    //        _buttonSubLabel = [THUIFactory labelWithText:@"佳宝怀旧小吃小吃小吃小吃小吃小吃小吃小吃" fontSize:14 tintColor:GRAY_151];
+    _buttonSubLabel.numberOfLines = 2;
+    [_buttomView addSubview:_buttonSubLabel];
+    
+    
+    _buttomToolView = [[UIView alloc] init];
+    _buttomToolView.backgroundColor  = [UIColor whiteColor];
+    NSArray *titles = @[@"0",@"0",@"0"];
+    NSArray *images = @[@"fenxiang",@"pinglun",@"dianzan"];
+    for (int i = 0; i < titles.count; i++) {
+        UIButton *btn = [UIButton new];
+        [_buttonArr addObject:btn];
+        btn.tag = i + kScreenHeight;
+        [btn setTitle:titles[i] forState:UIControlStateNormal];
+        [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
+        //            btn.titleLabel.font = [UIFont systemFontOfSize:16];
+        [btn setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
+        if (i == 2) {
+            [btn setImage:
+             [UIImage imageNamed:@"dianlezan"] forState:UIControlStateSelected];
         }
-    }
-    
-    if (!_moreButton) {
-        _moreButton = [[UIButton alloc] init];
-        [_moreButton setTitle:@"查看全文" forState:UIControlStateNormal];
-        [_moreButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [_moreButton addTarget:self action:@selector(moreButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-//        _moreButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    }
-    
-//    if (!_groupImgView) {
-//        _groupImgView = [[UIView alloc] init];
-//        _groupImgView.backgroundColor = RANDOMCOLOR;
-//    }
-    
-//    if (!_picContainerView) {
-//        _picContainerView = [SDWeiXinPhotoContainerView new];
-//    }
-    
-    if (!_buttomView) {
-        _buttomView = [[UIView alloc] init];
-        _buttomView.backgroundColor = kBackgroundColor;
+        [btn addTarget:self action:@selector(buttonCLick:) forControlEvents:UIControlEventTouchUpInside];
         
-        _iconImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chanpintu"]];
-        [_buttomView addSubview:_iconImgView];
-        
-//        _buttonSubLabel = [THUIFactory labelWithText:@"佳宝怀旧小吃小吃小吃小吃小吃小吃小吃小吃" fontSize:14 tintColor:GRAY_151];
-        _buttonSubLabel.numberOfLines = 2;
-        [_buttomView addSubview:_buttonSubLabel];
+        btn.frame = CGRectMake((56+38)*i, 0, 56, 42);
+        [_buttomToolView addSubview:btn];
         
     }
     
-    if (!_buttomToolView) {
-        _buttomToolView = [[UIView alloc] init];
-        _buttomToolView.backgroundColor  = [UIColor whiteColor];
-        NSArray *titles = @[@"0",@"0",@"0"];
-        NSArray *images = @[@"fenxiang",@"pinglun",@"dianzan"];
-        for (int i = 0; i < titles.count; i++) {
-            UIButton *btn = [UIButton new];
-            [_buttonArr addObject:btn];
-            btn.tag = i + kScreenHeight;
-            [btn setTitle:titles[i] forState:UIControlStateNormal];
-            [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
-//            btn.titleLabel.font = [UIFont systemFontOfSize:16];
-            [btn setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
-            if (i == 2) {
-                [btn setImage:
-                 [UIImage imageNamed:@"dianlezan"] forState:UIControlStateSelected];
-            }
-            [btn addTarget:self action:@selector(buttonCLick:) forControlEvents:UIControlEventTouchUpInside];
-            
-            btn.frame = CGRectMake((56+38)*i, 0, 56, 42);
-            [_buttomToolView addSubview:btn];
-
-        }
-    }
+    //    NSArray *views = @[_avatarImgView, _nameLabel, _timeLabel, _contentLabel, _moreButton, _picContainerView, _buttomView, _buttomToolView];
     
-//    NSArray *views = @[_avatarImgView, _nameLabel, _timeLabel, _contentLabel, _moreButton, _picContainerView, _buttomView, _buttomToolView];
-    
-    
-    
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
     
     
 }
@@ -139,16 +116,16 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     _nameLabel.text = _teModel.username;
     _timeLabel.text = _teModel.add_time;
     _contentLabel.text = _teModel.content;
-//    _picContainerView.picPathStringsArray = _teModel.img;
+    //    _picContainerView.picPathStringsArray = _teModel.img;
     [_iconImgView sd_setImageWithURL:[NSURL URLWithString:_teModel.original_img] placeholderImage:[UIImage imageNamed:@"chanpintu"]];
     _buttonSubLabel.text = _teModel.goods_name;
-
+    
     [_buttonArr[0] setTitle:[NSString stringWithFormat:@"%ld", _teModel.forward_num] forState:UIControlStateNormal];
     [_buttonArr[1] setTitle:[NSString stringWithFormat:@"%ld", _teModel.comment_num] forState:UIControlStateNormal];
     [_buttonArr[2] setTitle:[NSString stringWithFormat:@"%ld", _teModel.zan_num] forState:UIControlStateNormal];
     
-   
-
+    
+    
 }
 
 #pragma mark - 底部按钮点击

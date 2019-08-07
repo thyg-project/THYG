@@ -31,12 +31,12 @@
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    !self.siftPriceBlock?:self.siftPriceBlock(leftField.text, rightField.text);
+    BLOCK(self.siftPriceBlock,leftField.text,rightField.text);
     return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    !self.siftPriceBlock?:self.siftPriceBlock(leftField.text, rightField.text);
+    BLOCK(self.siftPriceBlock,leftField.text,rightField.text);
     return YES;
 }
 

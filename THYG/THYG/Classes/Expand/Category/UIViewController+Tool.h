@@ -16,6 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setNavigationBarColor:(UIColor *)color;
 
+
+- (void)addBackBarItem;
+
+- (void)back;
+
 @end
 
 NS_ASSUME_NONNULL_END

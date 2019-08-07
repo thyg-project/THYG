@@ -24,8 +24,7 @@
     return self;
 }
 
-- (void)setup
-{
+- (void)setup {
     NSMutableArray *temp = [NSMutableArray new];
     
     for (int i = 0; i < 9; i++) {
@@ -42,8 +41,7 @@
 }
 
 
-- (void)setPicPathStringsArray:(NSArray *)picPathStringsArray
-{
+- (void)setPicPathStringsArray:(NSArray *)picPathStringsArray {
     _picPathStringsArray = picPathStringsArray;
     
     [self.imageViewsArray enumerateObjectsUsingBlock:^(UIImageView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -80,8 +78,7 @@
 }
 
 #pragma mark - 浏览图片
-- (void)tapImageView:(UITapGestureRecognizer *)tap
-{
+- (void)tapImageView:(UITapGestureRecognizer *)tap {
 //    UIView *imageView = tap.view;
 }
 

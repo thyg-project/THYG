@@ -20,8 +20,7 @@
     __weak IBOutlet UIButton *actionBtn;
 }
 
-- (void)refreshWithModel:(THCouponsModel *)model type:(NSInteger)type
-{
+- (void)refreshWithModel:(THCouponsModel *)model type:(NSInteger)type {
     if (type) {
 
         [actionBtn setTitle:@"立即领取" forState:UIControlStateNormal];
@@ -30,7 +29,7 @@
         typeLabel.text = @"全品类通用";
         remainingLabel.text = [NSString stringWithFormat:@"剩%.f天",([model.use_end_time floatValue]-[model.use_start_time floatValue])/(3600*24)];
         
-    }else{
+    } else {
         
         [actionBtn setTitle:@"立即使用" forState:UIControlStateNormal];
         titleLabel.text = model.name;
@@ -43,11 +42,7 @@
 }
 
 - (IBAction)actionBtn:(id)sender {
-    
-    if (self.btnClickAcion) {
-        self.btnClickAcion();
-    }
-    
+    BLOCK(self.btnClickAcion);
 }
 
 

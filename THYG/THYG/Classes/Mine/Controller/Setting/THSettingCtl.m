@@ -36,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"账号设置";
+    [self addBackBarItem];
     _classList = @[@"THUserInfoEditCtl",@"THModifyPwdVC",@"THAddressVC",@"THAboutTHCtl",@"",@"THHelpCenterCtl"];
 }
 

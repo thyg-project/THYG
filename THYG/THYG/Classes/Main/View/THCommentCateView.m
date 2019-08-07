@@ -18,14 +18,14 @@
 
 @implementation THCommentCateView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.data = @[].mutableCopy;
+        self.data = [NSMutableArray new];
         NSArray *array = @[@"全部",@"好评",@"中评",@"差评",@"有图"];
         for (NSInteger i = 0; i < array.count; i++) {
             THCommentCateModel *model = [[THCommentCateModel alloc] init];
+            model.name = array[i];
             [self.data addObject:model];
         }
         [self addSubview:self.collectionView];
@@ -33,21 +33,18 @@
     return self;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.data.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     THCommentCateViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"THCommentCateViewCell" forIndexPath:indexPath];
     THCommentCateModel *model = self.data[indexPath.item];
-    cell.isSelct = model.isSelect;
+    cell.selected = model.isSelect;
     return cell;
 }
 
-- (UICollectionView *)collectionView
-{
+- (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.itemSize = CGSizeMake(80, 30);

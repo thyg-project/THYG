@@ -31,9 +31,7 @@
 }
 
 - (IBAction)addCartBtnClick:(id)sender {
-    if (self.addCartAction) {
-        self.addCartAction();
-    }
+    BLOCK(self.addCartAction);
 }
 
 

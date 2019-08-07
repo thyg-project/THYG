@@ -20,12 +20,11 @@
     optionBtn.layer.borderColor = RGB(213, 0, 27).CGColor;
 }
 
-- (void)refreshWithIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row%2==0) {
+- (void)refreshWithIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row % 2 == 0) {
         optionBtn.layer.borderWidth = 1;
         optionBtn.enabled = YES;
-    }else{
+    } else {
         optionBtn.layer.borderWidth = 0;
         optionBtn.enabled = NO;
     }

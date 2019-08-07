@@ -127,7 +127,7 @@
 
 //返回当前列显示的行数
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    if(component == 0) {
+    if (component == 0) {
         return self.provinceList.count;
     } else if(component == 1) {
         return self.cityList.count;
@@ -139,7 +139,7 @@
 
 //选择的行数
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    if(component == 0) {
+    if (component == 0) {
         self.currentProvinceIndex = row;
         self.currentCityIndex     = 0;
         self.currentDistrictIndex = 0;
@@ -158,7 +158,7 @@
         self.citySelModel     = self.cityList.count ? self.cityList[self.currentCityIndex] : nil;
         self.districtSelModel = self.districtList.count ? self.districtList[self.currentDistrictIndex] : nil;
         
-    } else if(component == 1) {
+    } else if (component == 1) {
         self.currentCityIndex = row;
         
         self.currentDistrictIndex = 0;
@@ -173,7 +173,7 @@
         self.citySelModel     = self.cityList.count ? self.cityList[self.currentCityIndex] : nil;
         self.districtSelModel = self.districtList.count ? self.districtList[self.currentDistrictIndex] : nil;
         
-    } else if(component == 2) {
+    } else if (component == 2) {
         self.currentDistrictIndex = row;
         
         self.districtSelModel = self.districtList.count ? self.districtList[self.currentDistrictIndex] : nil;
@@ -181,7 +181,7 @@
     
 }
 
--(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
     return 45.0f;
 }
 
@@ -196,19 +196,19 @@
     title.textColor = RGB(51, 51, 51);
     title.textAlignment = NSTextAlignmentCenter;
     
-    if(component == 0) {
+    if (component == 0) {
         title.text = [self.provinceList[row]name];
-    } else if(component == 1) {
+    } else if (component == 1) {
         title.text = [self.cityList[row]name];
-    } else if(component == 2) {
+    } else if (component == 2) {
         title.text = [self.districtList[row]name];
     }
     
     return title;
 }
 
-- (UIPickerView*)pickerView {
-    if (_pickerView==nil) {
+- (UIPickerView *)pickerView {
+    if (_pickerView == nil) {
         _pickerView = [[UIPickerView alloc]init];
         _pickerView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 180);
         _pickerView.delegate = self;
@@ -219,8 +219,8 @@
     return _pickerView;
 }
 
-- (UIControl*)bgView {
-    if (_bgView==nil) {
+- (UIControl *)bgView {
+    if (_bgView == nil) {
         _bgView = [[UIControl alloc]init];
         _bgView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
         _bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
@@ -229,8 +229,8 @@
     return _bgView;
 }
 
-- (UIView*)optionView {
-    if (_optionView==nil) {
+- (UIView *)optionView {
+    if (_optionView == nil) {
         _optionView = [[UIView alloc]initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, 40)];
         _optionView.backgroundColor = [UIColor whiteColor];
         UIButton* confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];

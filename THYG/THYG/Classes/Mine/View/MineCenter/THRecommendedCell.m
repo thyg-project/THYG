@@ -18,8 +18,7 @@
 
 }
 
-- (void)setImgUrl:(NSString *)imgUrl
-{
+- (void)setImgUrl:(NSString *)imgUrl {
     _imgUrl = imgUrl;
     [imgV sd_setImageWithURL:[NSURL URLWithString:_imgUrl] placeholderImage:nil];
 }

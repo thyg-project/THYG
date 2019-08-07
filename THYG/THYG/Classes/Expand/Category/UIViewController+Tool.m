@@ -27,4 +27,17 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:color] forBarMetrics:UIBarMetricsDefault];
 }
 
+- (void)addBackBarItem {
+    if (self.fd_prefersNavigationBarHidden || self.navigationController.viewControllers.count <= 1) {
+        return;
+    }
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    backButton.imageInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (void)back {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

@@ -212,6 +212,7 @@
     self.tableview.contentOffset = CGPointMake(0, 0);
     [countView.countTextField resignFirstResponder];
 }
+
 #pragma mark - tavdelegete
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
    
@@ -257,12 +258,6 @@
 - (void)dealloc {
     
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

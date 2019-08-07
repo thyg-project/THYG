@@ -10,6 +10,5 @@
 
 @interface THCommentCateViewCell : UICollectionViewCell
 
-@property (nonatomic) BOOL isSelct;
 
 @end

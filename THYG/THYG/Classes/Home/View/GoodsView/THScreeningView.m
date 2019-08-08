@@ -18,8 +18,7 @@ static CGFloat const kRowNumbers = 4;
     NSString *_catId, *_startPrice, *_endPrice;
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UIView *topView;
-@property (nonatomic, strong) UIView *bottomView;
+@property (nonatomic, strong) UIView *containerView;
 
 @end
 
@@ -28,12 +27,56 @@ static CGFloat const kRowNumbers = 4;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-kNaviHeight);
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-        [self addSubview:self.collectionView];
-        [self addSubview:self.topView];
-        [self addSubview:self.bottomView];
+        _containerView = [UIView new];
+        _containerView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:self.containerView];
+        [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@(kLeftSpace));
+            make.right.top.bottom.equalTo(self);
+        }];
+        [self.containerView addSubview:self.collectionView];
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectZero];
+        title.font = Font(15);
+        title.textColor = RGB(81,81,81);
+        title.text = @"筛选";
+        [self.containerView addSubview:title];
+        [title mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@10);
+            make.right.top.equalTo(self.containerView);
+            make.height.mas_equalTo(40);
+        }];
+        
         [self addTarget:self action:@selector(dismissMasView) forControlEvents:UIControlEventTouchUpInside];
+        for (NSInteger  i = 0; i < 2; i++) {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:@[@"重置",@"确定"][i] forState:UIControlStateNormal];
+            btn.titleLabel.font = Font(15);
+            [btn addTarget:self action:@selector(buttomButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+            btn.backgroundColor = i?RGB(213, 0, 27):[UIColor whiteColor];
+            [btn setTitleColor:(i?[UIColor whiteColor]:RGB(100,100,100)) forState:UIControlStateNormal];
+            btn.tag = i;
+            [self.containerView addSubview:btn];
+            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(self.containerView);
+                make.height.mas_equalTo(44);
+                make.width.equalTo(@((kScreenWidth - kLeftSpace) / 2));
+                make.left.mas_equalTo((kScreenWidth - kLeftSpace) / 2 * i);
+            }];
+        }
+        UIView *line = [UIView new];
+        line.backgroundColor = kBackgroundColor;
+        [self.containerView addSubview:line];
+        [line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.containerView);
+            make.height.mas_equalTo(1);
+            make.bottom.equalTo(self.containerView).offset(-44);
+        }];
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.containerView);
+            make.top.equalTo(title.mas_bottom);
+            make.bottom.equalTo(line.mas_top);
+        }];
     }
     return self;
 }
@@ -47,7 +90,9 @@ static CGFloat const kRowNumbers = 4;
             break;
         case 1: {
             //执行回调事件
-            !self.siftResultBlock?:self.siftResultBlock(_catId, _startPrice, _endPrice);
+            if ([self.delegate respondsToSelector:@selector(screenResultContainer:catId:startProce:endPrice:)]) {
+                [self.delegate screenResultContainer:self catId:_catId startProce:_startPrice endPrice:_endPrice];
+            }
             [self dismissMasView];
         }
             break;
@@ -56,27 +101,26 @@ static CGFloat const kRowNumbers = 4;
     }
 }
 
-- (void)show {
-    self.left = 0;
-    [UIView animateWithDuration:0.3 animations:^{
-       
-        self.collectionView.left = kLeftSpace;
-        self.topView.left = kLeftSpace;
-        self.bottomView.left = kLeftSpace;
-        
+- (void)showInView:(UIView *)inView {
+    if (!inView) {
+        inView = [UIApplication sharedApplication].delegate.window;
+    }
+    [inView addSubview:self];
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+    }];
+    [UIView animateWithDuration:.2 animations:^{
+        [self.superview layoutIfNeeded];
     }];
 }
 
 - (void)dismissMasView {
-    [UIView animateWithDuration:0.3 animations:^{
-        
-        self.collectionView.left = kScreenWidth;
-        self.topView.left = kScreenWidth;
-        self.bottomView.left = kScreenWidth;
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@(kScreenWidth));
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.left = kScreenWidth;
-    });
+    [UIView animateWithDuration:.2 animations:^{
+        [self.superview layoutIfNeeded];
+    }];
 }
 
 - (void)setDataArray:(NSArray<NSDictionary *> *)dataArray {
@@ -90,7 +134,7 @@ static CGFloat const kRowNumbers = 4;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section==0) {
+    if (section == 0) {
         return 1;
     }
     return self.dataArray.count;
@@ -171,7 +215,7 @@ static CGFloat const kRowNumbers = 4;
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kScreenWidth, 40, kScreenWidth-kLeftSpace, kScreenHeight-kNaviHeight-44-40) collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -182,38 +226,6 @@ static CGFloat const kRowNumbers = 4;
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"foot"];
     }
     return _collectionView;
-}
-
-- (UIView *)topView {
-    if (!_topView) {
-        _topView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth - kSpaceWidth, 40)];
-        _topView.backgroundColor = [UIColor whiteColor];
-        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, _topView.width, _topView.height)];
-        title.font = Font(15);
-        title.textColor = RGB(81,81,81);
-        title.text = @"筛选";
-        [_topView addSubview:title];
-    }
-    return _topView;
-}
-
-- (UIView *)bottomView {
-    if (!_bottomView) {
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, kScreenHeight-kNaviHeight-44, kScreenWidth-kLeftSpace, 44)];
-        _bottomView.backgroundColor = kBackgroundColor;
-        for (NSInteger  i = 0; i < 2; i++) {
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [btn setTitle:@[@"重置",@"确定"][i] forState:UIControlStateNormal];
-            btn.titleLabel.font = Font(15);
-            [btn addTarget:self action:@selector(buttomButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn.backgroundColor = i?RGB(213, 0, 27):[UIColor whiteColor];
-            [btn setTitleColor:(i?[UIColor whiteColor]:RGB(100,100,100)) forState:UIControlStateNormal];
-            btn.frame = CGRectMake(_bottomView.width*0.5*i, 1, _bottomView.width*0.5, 44);
-            btn.tag = i;
-            [_bottomView addSubview:btn];
-        }
-    }
-    return _bottomView;
 }
 
 @end

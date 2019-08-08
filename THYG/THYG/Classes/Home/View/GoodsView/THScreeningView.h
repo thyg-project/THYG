@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol THScreeningViewDelegate;
 @interface THScreeningView : UIControl
 
 @property (nonatomic, copy) NSArray <NSDictionary *>*dataArray;
+@property (nonatomic, weak) id <THScreeningViewDelegate> delegate;
 
-- (void)show;
+- (void)showInView:(UIView *)inView;
 
-/**
- 筛选结果回调 分类id， 开始价， 结束价
- */
-@property (nonatomic, copy) void (^siftResultBlock)(NSString *cat_id, NSString *startPrice, NSString *endPrice);
+@end
+
+@protocol THScreeningViewDelegate <NSObject>
+
+- (void)screenResultContainer:(THScreeningView *)container catId:(NSString *)catId startProce:(NSString *)startPrice endPrice:(NSString *)endPrice;
 
 @end
 

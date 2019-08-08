@@ -277,11 +277,4 @@
     return _tableView;
 }
 
-- (NSMutableArray *)banners {
-    if (!_banners) {
-        _banners = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _banners;
-}
-
 @end

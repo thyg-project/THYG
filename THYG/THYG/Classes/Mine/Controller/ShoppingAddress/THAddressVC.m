@@ -79,7 +79,7 @@
     }
 //    THAddressModel *model = self.dataSource[indexPath.section];;
 //    cell.addressModel = model;
-    kWeakSelf;
+//    kWeakSelf;
     cell.deleteAddressBlock = ^{
         NSLog(@"删除地址");
         

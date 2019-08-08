@@ -56,10 +56,6 @@ static NSInteger const kButtonTag = 10086;
     }];
 }
 
-- (void)setHorizontalSpace:(CGFloat)horizontalSpace {
-   
-}
-
 - (void)setImageNames:(NSArray<NSString *> *)imageNames {
     for (int i = 0; i < imageNames.count; i ++) {
         UIButton *button = [self viewWithTag:i + kButtonTag];

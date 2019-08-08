@@ -132,18 +132,18 @@
     return _payView;
 }
 
-//#pragma mark -- 立即支付
-//- (IBAction)payBtnClick:(id)sender {
-//    
-//    THPayMethodCtl *pay = [[THPayMethodCtl alloc] init];
-//    pay.orderId = self.orderId;
-//    pay.totalPrice = self.totalPrice;
-//    [self pushVC:pay];
-//}
-//
-//#pragma matk -- 再去逛逛
-//- (IBAction)viewOtherBtn:(id)sender {
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-//}
+#pragma mark -- 立即支付
+- (IBAction)payBtnClick:(id)sender {
+    
+    THPayMethodCtl *pay = [[THPayMethodCtl alloc] init];
+    pay.orderId = self.orderId;
+    pay.totalPrice = self.totalPrice;
+    [self.navigationController pushViewController:pay animated:YES];
+}
+
+#pragma matk -- 再去逛逛
+- (IBAction)viewOtherBtn:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

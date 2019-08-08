@@ -115,11 +115,4 @@
     return _walletView;
 }
 
-- (NSArray *)cardArray {
-    if (!_cardArray) {
-        _cardArray = [NSArray array];
-    }
-    return _cardArray;
-}
-
 @end

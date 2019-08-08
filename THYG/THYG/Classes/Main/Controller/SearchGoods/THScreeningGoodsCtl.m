@@ -20,7 +20,7 @@
 #define itemWidth   (kScreenWidth - 3 * 10) * 0.5
 #define MenuTableWidth (kScreenWidth-kScreenWidth*0.15)
 
-@interface THScreeningGoodsCtl ()<UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource, THNaviagationViewDelegate, THFilterViewDelegate> {
+@interface THScreeningGoodsCtl ()<UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource, THNaviagationViewDelegate, THFilterViewDelegate, THScreeningViewDelegate> {
     NSMutableDictionary *_siftDict; // 筛选字典 包含品牌和价格区间
     UITextField *_searchTextField;
 }
@@ -88,6 +88,11 @@
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self.filterView.mas_bottom);
     }];
+    [self.screeningView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self.view);
+        make.width.mas_equalTo(kScreenWidth);
+        make.left.equalTo(@(kScreenWidth));
+    }];
     self.pageIndex = 1;
     self.searchBar.placeholder = @"搜索关键词";
     self.searchBar.barTintColor = [UIColor whiteColor];
@@ -110,35 +115,6 @@
     
     [self.dataSource removeAllObjects];
     
-    kWeakSelf;
-    // 筛选回调
-    self.screeningView.siftResultBlock = ^(NSString *cat_id, NSString *startPrice, NSString *endPrice) {
-        kStrongSelf;
-        strongSelf.cat_id = cat_id;
-        strongSelf.start_priceParma = startPrice;
-        strongSelf.end_priceParma = endPrice;
-    };
-    
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-//
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0) { // iOS 11
-//        self.searchBar.left = 15;
-//        self.layoutButton.width = 44;
-//        self.searchBar.width = kScreenWidth - self.layoutButton.width - 10 * 7 - 8;
-//        self.searchBar.height = kScreenWidth > self.view.height ? 24 : 30;
-//        _searchTextField.frame = _searchBar.bounds;
-//    } else {
-//        UIView *titleView = self.navigationItem.titleView;
-//        titleView.left = 10 * 1.5;
-//        titleView.top = self.view.width > self.view.height ? 3 : 7;
-//        titleView.width = self.view.width - self.layoutButton.width - titleView.left * 2 - 3;
-//        titleView.height = self.view.width > self.view.height ? 24 : 30;
-//    }
-//    _searchTextField.layer.cornerRadius = self.searchBar.height/2;
-//    _searchTextField.clipsToBounds = YES;
 }
 
 #pragma mark -- 添加购物车
@@ -152,7 +128,6 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     THGoodsModel *goodsModel = self.dataSource[indexPath.row];
     if (self.isTransLayout) {
         THGoodsTransLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsTransLayoutCell.class) forIndexPath:indexPath];
@@ -166,7 +141,6 @@
     THHomeHotGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THHomeHotGoodsCell.class) forIndexPath:indexPath];
     cell.goodsModel = goodsModel;
     cell.addCartAction = ^{
-        
         [self addCart:goodsModel];
     };
     return cell;
@@ -254,15 +228,9 @@
 - (THScreeningView *)screeningView {
     if (!_screeningView) {
         _screeningView = [[THScreeningView alloc] init];
+        _screeningView.delegate = self;
     }
     return _screeningView;
-}
-
-- (NSArray *)categoryData {
-    if (!_categoryData) {
-        _categoryData = [NSArray array];
-    }
-    return _categoryData;
 }
 
 - (void)back:(THNavigationView *)navigationView {
@@ -291,10 +259,14 @@
         }
         
     } else {
-        [self.screeningView show];
+        [self.screeningView showInView:self.view];
     }
-    
+}
 
+- (void)screenResultContainer:(THScreeningView *)container catId:(NSString *)catId startProce:(NSString *)startPrice endPrice:(NSString *)endPrice {
+    self.cat_id = catId;
+    self.start_priceParma = startPrice;
+    self.end_priceParma = endPrice;
 }
 
 @end

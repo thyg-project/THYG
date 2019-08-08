@@ -67,11 +67,5 @@
     return _tableView;
 }
 
-- (NSMutableArray *)commentArray {
-    if (!_commentArray) {
-        _commentArray = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _commentArray;
-}
 
 @end

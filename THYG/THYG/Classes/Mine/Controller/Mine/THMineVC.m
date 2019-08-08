@@ -292,7 +292,7 @@
 
 
 #pragma mark --Navigation
-- (void)rightAction:(NSInteger)tag {
+- (void)rightAction:(NSInteger)tag container:(THNavigationView * _Nullable)navigationView {
     if (tag == 0) {
         if (CGRectGetHeight(_munuView.visibleRect) > 0) {
             [_munuView dismiss];

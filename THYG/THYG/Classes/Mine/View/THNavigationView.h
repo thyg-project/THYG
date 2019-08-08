@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
+@class THButton;
 @protocol THNaviagationViewDelegate;
 
 @interface THNavigationView : UIView
@@ -39,6 +38,8 @@
  */
 @property (nonatomic, strong, nullable) NSArray <UIImage *> *rightButtonsImages;
 
+@property (nonatomic, strong, nullable) NSArray <UIImage *> *rightSelctedImages;
+
 /**
  自定义导航栏右边文字按钮集合
  */
@@ -48,6 +49,11 @@
  自定义导航栏右边图片按钮
  */
 @property (nonatomic, strong, nullable) UIImage *rightButtonImage;
+
+/**
+ 选中图片
+ */
+@property (nonatomic, strong, nullable) UIImage *rightSelectedImage;
 
 /**
  自定义导航栏右边文字按钮
@@ -89,6 +95,10 @@
  */
 @property (nonatomic, strong, nullable) NSAttributedString *attributedContent;
 
+@property (nonatomic, strong, nullable, readonly) THButton *rightBarButton;
+
+@property (nonatomic, strong, nullable, readonly) NSArray <THButton *> *rightBarButtons;
+
 /**
  自定义view
  */
@@ -100,11 +110,13 @@
 
 @optional
 
-- (void)back;
+- (void)back:(THNavigationView *_Nullable)navigationView;
 
-- (void)rightAction:(NSInteger)index;
+- (void)rightAction:(NSInteger)index container:(THNavigationView *_Nullable)navigationView;
 
-- (void)contentDidTouch:(nullable id)content;
+- (void)contentDidTouch:(nullable id)content container:(THNavigationView *_Nullable)navigation;
+
+
 
 
 

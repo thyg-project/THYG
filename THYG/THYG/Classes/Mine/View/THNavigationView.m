@@ -16,6 +16,7 @@ static NSInteger const kRightButtonTag = 100;
     
     THButton *_leftButton;
     
+    NSMutableArray <THButton *> *_rightButtons;
 }
 
 @property (nonatomic, strong) THButton *rightButton;
@@ -43,15 +44,26 @@ static NSInteger const kRightButtonTag = 100;
     if (!titleView) {
         return;
     }
+    [_titleLabel removeFromSuperview];
     _titleView = titleView;
     _titleLabel.hidden = YES;
     [self addSubview:_titleView];
-    [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(kStatesBarHeight));
-        make.bottom.equalTo(self);
-        make.left.equalTo(@(80));
-        make.right.equalTo(@(-80));
-    }];
+    CGRect rect = _titleView.frame;
+    if (CGRectEqualToRect(rect, CGRectZero)) {
+        [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@(kStatesBarHeight));
+            make.bottom.equalTo(self);
+            make.left.equalTo(@(80));
+            make.right.equalTo(@(-80));
+        }];
+    } else {
+        [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(rect.size);
+            make.top.equalTo(@(kStatesBarHeight + (44 - rect.size.height) / 2));
+            make.left.equalTo(self).offset((kScreenWidth - rect.size.width) / 2);
+        }];
+    }
+    
 }
 
 - (void)initinalieViews {
@@ -111,6 +123,8 @@ static NSInteger const kRightButtonTag = 100;
 
 - (void)setRightButtonImage:(UIImage *)rightButtonImage {
     [_rightButton removeFromSuperview];
+    _rightButton = [THButton buttonWithType:THButtonType_OnlyImage];
+    [_rightButton addTarget:self action:@selector(rightAction:)];
     [self addSubview:self.rightButton];
     self.rightButton.image = rightButtonImage;
     [self.rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,6 +132,12 @@ static NSInteger const kRightButtonTag = 100;
         make.top.equalTo(@(kStatesBarHeight));
         make.bottom.equalTo(self);
     }];
+}
+
+- (void)setRightSelectedImage:(UIImage *)rightSelectedImage {
+    if (_rightButton) {
+        _rightButton.selectedImage = rightSelectedImage;
+    }
 }
 
 - (void)setRightButtonTitle:(NSString *)rightButtonTitle {
@@ -141,6 +161,7 @@ static NSInteger const kRightButtonTag = 100;
         button.title = rightButtonTitles[i];
         [button addTarget:self action:@selector(rightAction:)];
         [self addSubview:button];
+        [_rightButtons addObject:button];
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@(kStatesBarHeight));
             make.bottom.equalTo(@(0));
@@ -155,6 +176,7 @@ static NSInteger const kRightButtonTag = 100;
 }
 
 - (void)setRightButtonsImages:(NSArray<UIImage *> *)rightButtonsImages {
+    _rightButtonsImages = rightButtonsImages;
     [self clear];
     UIView *lastView = nil;
     for (int i = 0; i < rightButtonsImages.count; i ++) {
@@ -163,6 +185,7 @@ static NSInteger const kRightButtonTag = 100;
         button.image = rightButtonsImages[i];
         [button addTarget:self action:@selector(rightAction:)];
         [self addSubview:button];
+        [_rightButtons addObject:button];
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@(kStatesBarHeight));
             make.bottom.equalTo(@(0));
@@ -173,6 +196,18 @@ static NSInteger const kRightButtonTag = 100;
             }
         }];
         lastView = button;
+    }
+}
+
+- (void)setRightSelctedImages:(NSArray<UIImage *> *)rightSelctedImages {
+    if (YGInfo.validArray(self.rightButtonsImages) == NO) {
+        return;
+    }
+    for (int i = 0; i < rightSelctedImages.count; i ++) {
+        THButton *button = [self viewWithTag:kRightButtonTag + i];
+        if ([button isKindOfClass:[THButton class]]) {
+            [button setSelectedImage:rightSelctedImages[i]];
+        }
     }
 }
 
@@ -223,34 +258,46 @@ static NSInteger const kRightButtonTag = 100;
 }
 
 - (void)backAction {
-    if ([self.delegate respondsToSelector:@selector(back)]) {
-        [self.delegate back];
+    if ([self.delegate respondsToSelector:@selector(back:)]) {
+        [self.delegate back:self];
     }
 }
 
 - (void)rightAction:(THButton *)button {
-    if ([self.delegate respondsToSelector:@selector(rightAction:)]) {
+    if ([self.delegate respondsToSelector:@selector(rightAction:container:)]) {
         NSInteger tag = button.tag;
         if (tag >= kRightButtonTag) {
             tag = tag - kRightButtonTag;
         }
-        [self.delegate rightAction:tag];
+        [self.delegate rightAction:tag container:self];
     }
 }
 
 - (void)contentGesture:(UITapGestureRecognizer *)gesture {
-    if ([self.delegate respondsToSelector:@selector(contentDidTouch:)]) {
+    if ([self.delegate respondsToSelector:@selector(contentDidTouch:container:)]) {
         UILabel *label = (UILabel *)gesture.view;
-        [self.delegate contentDidTouch:label.text ? : label.attributedText];
+        [self.delegate contentDidTouch:label.text ? : label.attributedText container:self];
     }
 }
 
 - (void)clear {
+    if (!_rightButtons) {
+        _rightButtons = [NSMutableArray new];
+    }
+    [_rightButtons removeAllObjects];
     for (UIView *view in self.subviews) {
         if (view.tag >= 100) {
             [view removeFromSuperview];
         }
     }
+}
+
+- (THButton *)rightBarButton {
+    return _rightButton;
+}
+
+- (NSArray<THButton *> *)rightBarButtons {
+    return _rightButtons;
 }
 
 @end

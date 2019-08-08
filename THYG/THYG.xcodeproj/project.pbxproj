@@ -69,7 +69,6 @@
 		0265CE4A22F2C45E000363F0 /* GoodsTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3C22088E477007D6069 /* GoodsTypeModel.m */; };
 		0265CE4B22F2C45E000363F0 /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		0265CE4C22F2C45E000363F0 /* THAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F31CBF3206A314300A48F2D /* THAlertLayer.m */; };
-		0265CE4D22F2C45E000363F0 /* THGoodsPageSiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51689820747B07005E956E /* THGoodsPageSiftView.m */; };
 		0265CE4E22F2C45E000363F0 /* NSMutableDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96822DA239300A6518A /* NSMutableDictionary+AvoidCrash.m */; };
 		0265CE4F22F2C45E000363F0 /* THMineSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D7906205B63F70088A4A0 /* THMineSectionCell.m */; };
 		0265CE5022F2C45E000363F0 /* THMineOrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD7E7B20C9A6560057884A /* THMineOrderDetailVC.m */; };
@@ -610,7 +609,6 @@
 		8F51688820747171005E956E /* THFlashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51688620747171005E956E /* THFlashCell.m */; };
 		8F51688920747171005E956E /* THFlashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F51688720747171005E956E /* THFlashCell.xib */; };
 		8F51688E207477E1005E956E /* THScreeningGoodsCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51688C207477E1005E956E /* THScreeningGoodsCtl.m */; };
-		8F51689A20747B07005E956E /* THGoodsPageSiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51689820747B07005E956E /* THGoodsPageSiftView.m */; };
 		8F51689E20747B1A005E956E /* THHomeHotGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51689C20747B1A005E956E /* THHomeHotGoodsCell.m */; };
 		8F51689F20747B1A005E956E /* THHomeHotGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F51689D20747B1A005E956E /* THHomeHotGoodsCell.xib */; };
 		8F5168A320747BB6005E956E /* THGoodsTransLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168A120747BB6005E956E /* THGoodsTransLayoutCell.m */; };
@@ -1164,8 +1162,6 @@
 		8F51688720747171005E956E /* THFlashCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THFlashCell.xib; sourceTree = "<group>"; };
 		8F51688B207477E1005E956E /* THScreeningGoodsCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THScreeningGoodsCtl.h; sourceTree = "<group>"; };
 		8F51688C207477E1005E956E /* THScreeningGoodsCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THScreeningGoodsCtl.m; sourceTree = "<group>"; };
-		8F51689620747B07005E956E /* THGoodsPageSiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THGoodsPageSiftView.h; sourceTree = "<group>"; };
-		8F51689820747B07005E956E /* THGoodsPageSiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THGoodsPageSiftView.m; sourceTree = "<group>"; };
 		8F51689B20747B1A005E956E /* THHomeHotGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHomeHotGoodsCell.h; sourceTree = "<group>"; };
 		8F51689C20747B1A005E956E /* THHomeHotGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHomeHotGoodsCell.m; sourceTree = "<group>"; };
 		8F51689D20747B1A005E956E /* THHomeHotGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THHomeHotGoodsCell.xib; sourceTree = "<group>"; };
@@ -2424,8 +2420,6 @@
 		8F51689520747AF6005E956E /* GoodsView */ = {
 			isa = PBXGroup;
 			children = (
-				8F51689620747B07005E956E /* THGoodsPageSiftView.h */,
-				8F51689820747B07005E956E /* THGoodsPageSiftView.m */,
 				8F51689B20747B1A005E956E /* THHomeHotGoodsCell.h */,
 				8F51689C20747B1A005E956E /* THHomeHotGoodsCell.m */,
 				8F51689D20747B1A005E956E /* THHomeHotGoodsCell.xib */,
@@ -3044,7 +3038,6 @@
 				0265CE4A22F2C45E000363F0 /* GoodsTypeModel.m in Sources */,
 				0265CE4B22F2C45E000363F0 /* YGNetworkCommon.m in Sources */,
 				0265CE4C22F2C45E000363F0 /* THAlertLayer.m in Sources */,
-				0265CE4D22F2C45E000363F0 /* THGoodsPageSiftView.m in Sources */,
 				0265CE4E22F2C45E000363F0 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				0265CE4F22F2C45E000363F0 /* THMineSectionCell.m in Sources */,
 				0265CE5022F2C45E000363F0 /* THMineOrderDetailVC.m in Sources */,
@@ -3285,7 +3278,6 @@
 				57CBC3CE2088E477007D6069 /* GoodsTypeModel.m in Sources */,
 				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
 				8F31CBF4206A314300A48F2D /* THAlertLayer.m in Sources */,
-				8F51689A20747B07005E956E /* THGoodsPageSiftView.m in Sources */,
 				022CD97E22DA239400A6518A /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				512D7908205B63F70088A4A0 /* THMineSectionCell.m in Sources */,
 				04DD7E7C20C9A6560057884A /* THMineOrderDetailVC.m in Sources */,

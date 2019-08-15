@@ -9,6 +9,15 @@
 #import "THMineApplymentInputVC.h"
 
 @interface THMineApplymentInputVC ()
+@property (weak, nonatomic) IBOutlet UITextField *applyAccountTF;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTF;
+@property (weak, nonatomic) IBOutlet UITextField *confirePwdTF;
+@property (weak, nonatomic) IBOutlet UITextField *areaTF;
+@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+@property (weak, nonatomic) IBOutlet UITextField *mobileTF;
+@property (weak, nonatomic) IBOutlet UITextField *weChatTF;
+@property (weak, nonatomic) IBOutlet UITextField *vipNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *applyUserID;
 
 @end
 

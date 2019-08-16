@@ -20,6 +20,10 @@
     [super viewDidLoad];
     self.navigationItem.title = @"任务中心";
     [self.view addSubview:self.mTable];
+    [self autoLayoutSizeContentView:self.mTable];
+    [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -39,7 +43,7 @@
 
 - (UITableView *)mTable {
     if (!_mTable) {
-        _mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNaviHeight) style:UITableViewStylePlain];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _mTable.delegate = self;
         _mTable.dataSource = self;
         _mTable.backgroundColor = kBackgroundColor;

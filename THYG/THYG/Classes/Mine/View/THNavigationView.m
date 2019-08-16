@@ -27,7 +27,7 @@ static NSInteger const kRightButtonTag = 100;
 
 - (THButton *)rightButton {
     if (!_rightButton) {
-        _rightButton = [[THButton alloc] initWithButtonType:THButtonType_None];
+        _rightButton = [[THButton alloc] initWithButtonType:THButtonType_Text];
         [_rightButton addTarget:self action:@selector(rightAction:)];
     }
     return _rightButton;
@@ -80,7 +80,7 @@ static NSInteger const kRightButtonTag = 100;
         make.left.equalTo(@(80));
         make.right.equalTo(@(-80));
     }];
-    _leftButton = [[THButton alloc] initWithButtonType:THButtonType_OnlyImage];
+    _leftButton = [[THButton alloc] initWithButtonType:THButtonType_Image];
     _leftButton.image = [UIImage imageNamed:@"back_white"];
     [self addSubview:_leftButton];
     [_leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -110,7 +110,7 @@ static NSInteger const kRightButtonTag = 100;
 
 - (void)setLeftButtonTitle:(NSString *)leftButtonTitle {
     [_leftButton removeFromSuperview];
-    _leftButton = [[THButton alloc] initWithButtonType:THButtonType_None];
+    _leftButton = [[THButton alloc] initWithButtonType:THButtonType_Text];
     _leftButton.title = leftButtonTitle;
     [self addSubview:_leftButton];
     [_leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,7 +123,7 @@ static NSInteger const kRightButtonTag = 100;
 
 - (void)setRightButtonImage:(UIImage *)rightButtonImage {
     [_rightButton removeFromSuperview];
-    _rightButton = [THButton buttonWithType:THButtonType_OnlyImage];
+    _rightButton = [THButton buttonWithType:THButtonType_Image];
     [_rightButton addTarget:self action:@selector(rightAction:)];
     [self addSubview:self.rightButton];
     self.rightButton.image = rightButtonImage;
@@ -156,7 +156,7 @@ static NSInteger const kRightButtonTag = 100;
     [self clear];
     UIView *lastView = nil;
     for (int i = 0; i < rightButtonTitles.count; i ++) {
-        THButton *button = [[THButton alloc] initWithButtonType:THButtonType_None];
+        THButton *button = [[THButton alloc] initWithButtonType:THButtonType_Text];
         button.tag = kRightButtonTag + i;
         button.title = rightButtonTitles[i];
         [button addTarget:self action:@selector(rightAction:)];
@@ -180,7 +180,7 @@ static NSInteger const kRightButtonTag = 100;
     [self clear];
     UIView *lastView = nil;
     for (int i = 0; i < rightButtonsImages.count; i ++) {
-        THButton *button = [[THButton alloc] initWithButtonType:THButtonType_OnlyImage];
+        THButton *button = [[THButton alloc] initWithButtonType:THButtonType_Image];
         button.tag = kRightButtonTag + i;
         button.image = rightButtonsImages[i];
         [button addTarget:self action:@selector(rightAction:)];
@@ -297,7 +297,7 @@ static NSInteger const kRightButtonTag = 100;
 }
 
 - (NSArray<THButton *> *)rightBarButtons {
-    return _rightButtons;
+    return _rightButton ? @[_rightButton] : _rightButtons;
 }
 
 @end

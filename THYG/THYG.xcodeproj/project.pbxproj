@@ -43,7 +43,6 @@
 		0265CE2F22F2C45E000363F0 /* SizeAttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3C32088E477007D6069 /* SizeAttributeModel.m */; };
 		0265CE3022F2C45E000363F0 /* THMySupplierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5020732AF100FEFE40 /* THMySupplierCell.m */; };
 		0265CE3122F2C45E000363F0 /* THSystemMessageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E4520CB779E00F5085F /* THSystemMessageCtl.m */; };
-		0265CE3222F2C45E000363F0 /* THTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78D920591F090088A4A0 /* THTabBar.m */; };
 		0265CE3422F2C45E000363F0 /* THMineOrderListPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8652073EF2F003566C4 /* THMineOrderListPageVC.m */; };
 		0265CE3522F2C45E000363F0 /* THCreateOrderSuccessCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D5104120C6ECC400B78087 /* THCreateOrderSuccessCtl.m */; };
 		0265CE3622F2C45E000363F0 /* THHelpCenterDetailCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D139E207A251A0024C3D4 /* THHelpCenterDetailCtl.m */; };
@@ -245,7 +244,6 @@
 		0265CEFB22F2C45E000363F0 /* THAboutTHCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E5920CB88E100F5085F /* THAboutTHCtl.m */; };
 		0265CEFC22F2C45E000363F0 /* THAceSpellGroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B62062360D009AE20B /* THAceSpellGroupListCell.m */; };
 		0265CEFD22F2C45E000363F0 /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
-		0265CEFE22F2C45E000363F0 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
 		0265CEFF22F2C45E000363F0 /* NSMutableAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96D22DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m */; };
 		0265CF0022F2C45E000363F0 /* THCommentCateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 572792D820CED4DD00E498AD /* THCommentCateViewCell.m */; };
 		0265CF0122F2C45E000363F0 /* THGoodsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F01207276EF0048875E /* THGoodsHeaderView.m */; };
@@ -374,7 +372,6 @@
 		02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C4022DD604D00AF5112 /* YGWebViewController.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
 		04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9420A9FB7C009CE4F1 /* THSearchView.m */; };
-		04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9720AB5288009CE4F1 /* THTabBarButton.m */; };
 		04054DAE20ADECB5009CE4F1 /* THTeHuiCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054DAD20ADECB5009CE4F1 /* THTeHuiCenterVC.m */; };
 		04054DB420AEF7FC009CE4F1 /* THTeHuiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054DB320AEF7FC009CE4F1 /* THTeHuiModel.m */; };
 		04178ECD20715B100048875E /* THGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178ECC20715B100048875E /* THGoodsVC.m */; };
@@ -450,7 +447,6 @@
 		512D78A3205903130088A4A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512D78A1205903130088A4A0 /* LaunchScreen.storyboard */; };
 		512D78A6205903130088A4A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78A5205903130088A4A0 /* main.m */; };
 		512D78CA205906540088A4A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78C7205906540088A4A0 /* AppDelegate.m */; };
-		512D78DA20591F090088A4A0 /* THTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78D920591F090088A4A0 /* THTabBar.m */; };
 		512D78DE205927D10088A4A0 /* UIImage+CHImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78DD205927D10088A4A0 /* UIImage+CHImage.m */; };
 		512D78EA205931D10088A4A0 /* THHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78E9205931D10088A4A0 /* THHomeVC.m */; };
 		512D78F42059FFC00088A4A0 /* THHomeHeaderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78F22059FFC00088A4A0 /* THHomeHeaderItemCell.m */; };
@@ -759,8 +755,6 @@
 		04054D9120A2156E009CE4F1 /* THSelectAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectAddressView.m; sourceTree = "<group>"; };
 		04054D9320A9FB7C009CE4F1 /* THSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSearchView.h; sourceTree = "<group>"; };
 		04054D9420A9FB7C009CE4F1 /* THSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSearchView.m; sourceTree = "<group>"; };
-		04054D9620AB5288009CE4F1 /* THTabBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTabBarButton.h; sourceTree = "<group>"; };
-		04054D9720AB5288009CE4F1 /* THTabBarButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTabBarButton.m; sourceTree = "<group>"; };
 		04054DAC20ADECB5009CE4F1 /* THTeHuiCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeHuiCenterVC.h; sourceTree = "<group>"; };
 		04054DAD20ADECB5009CE4F1 /* THTeHuiCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHuiCenterVC.m; sourceTree = "<group>"; };
 		04054DB220AEF7FB009CE4F1 /* THTeHuiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeHuiModel.h; sourceTree = "<group>"; };
@@ -895,8 +889,6 @@
 		512D78C6205906540088A4A0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		512D78C7205906540088A4A0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		512D78D620591B840088A4A0 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
-		512D78D820591F090088A4A0 /* THTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTabBar.h; sourceTree = "<group>"; };
-		512D78D920591F090088A4A0 /* THTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTabBar.m; sourceTree = "<group>"; };
 		512D78DC205927D10088A4A0 /* UIImage+CHImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CHImage.h"; sourceTree = "<group>"; };
 		512D78DD205927D10088A4A0 /* UIImage+CHImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CHImage.m"; sourceTree = "<group>"; };
 		512D78E6205928C60088A4A0 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
@@ -1975,10 +1967,6 @@
 			isa = PBXGroup;
 			children = (
 				04178EFE207276EF0048875E /* GoodsDetail */,
-				512D78D820591F090088A4A0 /* THTabBar.h */,
-				512D78D920591F090088A4A0 /* THTabBar.m */,
-				04054D9620AB5288009CE4F1 /* THTabBarButton.h */,
-				04054D9720AB5288009CE4F1 /* THTabBarButton.m */,
 				04178F0A207287E50048875E /* THBaseCell.h */,
 				04178F0B207287E50048875E /* THBaseCell.m */,
 				572792D120CED32A00E498AD /* THCommentHead.h */,
@@ -3012,7 +3000,6 @@
 				0265CE2F22F2C45E000363F0 /* SizeAttributeModel.m in Sources */,
 				0265CE3022F2C45E000363F0 /* THMySupplierCell.m in Sources */,
 				0265CE3122F2C45E000363F0 /* THSystemMessageCtl.m in Sources */,
-				0265CE3222F2C45E000363F0 /* THTabBar.m in Sources */,
 				0265CE3422F2C45E000363F0 /* THMineOrderListPageVC.m in Sources */,
 				0265CE3522F2C45E000363F0 /* THCreateOrderSuccessCtl.m in Sources */,
 				0265CE3622F2C45E000363F0 /* THHelpCenterDetailCtl.m in Sources */,
@@ -3214,7 +3201,6 @@
 				0265CEFB22F2C45E000363F0 /* THAboutTHCtl.m in Sources */,
 				0265CEFC22F2C45E000363F0 /* THAceSpellGroupListCell.m in Sources */,
 				0265CEFD22F2C45E000363F0 /* UIViewController+Tool.m in Sources */,
-				0265CEFE22F2C45E000363F0 /* THTabBarButton.m in Sources */,
 				0265CEFF22F2C45E000363F0 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
 				0265CF0022F2C45E000363F0 /* THCommentCateViewCell.m in Sources */,
 				0265CF0122F2C45E000363F0 /* THGoodsHeaderView.m in Sources */,
@@ -3252,7 +3238,6 @@
 				57CBC3CF2088E477007D6069 /* SizeAttributeModel.m in Sources */,
 				8FDC4E5220732AF100FEFE40 /* THMySupplierCell.m in Sources */,
 				57417E4720CB779E00F5085F /* THSystemMessageCtl.m in Sources */,
-				512D78DA20591F090088A4A0 /* THTabBar.m in Sources */,
 				0417B8662073EF2F003566C4 /* THMineOrderListPageVC.m in Sources */,
 				57D5104320C6ECC400B78087 /* THCreateOrderSuccessCtl.m in Sources */,
 				8F4D13A0207A251A0024C3D4 /* THHelpCenterDetailCtl.m in Sources */,
@@ -3454,7 +3439,6 @@
 				57417E5B20CB88E100F5085F /* THAboutTHCtl.m in Sources */,
 				8F0DC2B82062360D009AE20B /* THAceSpellGroupListCell.m in Sources */,
 				025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */,
-				04054D9820AB5288009CE4F1 /* THTabBarButton.m in Sources */,
 				022CD98322DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m in Sources */,
 				572792DA20CED4DD00E498AD /* THCommentCateViewCell.m in Sources */,
 				04178F04207276EF0048875E /* THGoodsHeaderView.m in Sources */,

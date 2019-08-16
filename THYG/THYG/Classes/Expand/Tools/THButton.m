@@ -42,6 +42,7 @@
 
 - (instancetype)initWithButtonType:(THButtonType)buttonType {
     if (self = [super init]) {
+        _margen = 3.0;
         self.buttonType = buttonType;
     }
     return self;
@@ -53,42 +54,51 @@
 
 - (void)setFont:(UIFont *)font {
     _font = font;
-    self.contentLabel.font = font;
+    _contentLabel.font = font;
 }
 
 - (void)setImage:(UIImage *)image {
     _image = image;
-    self.imageView.image = image;
+    _imageView.image = image;
 }
 
 - (void)setTitle:(NSString *)title {
     _title = title;
-    self.contentLabel.text = title;
+    _contentLabel.text = title;
 }
 
 - (void)setTextColor:(UIColor *)textColor {
     _textColor = textColor;
-    self.contentLabel.textColor = textColor;
+    _contentLabel.textColor = textColor;
 }
 
 - (void)setSelected:(BOOL)selected {
     _selected = selected;
     if (self.selectedImage && self.image) {
-        self.imageView.image = selected ? self.selectedImage : self.image;
+        _imageView.image = selected ? self.selectedImage : self.image;
     }
     if (YGInfo.validString(self.title) && YGInfo.validString(self.selectedTitle)) {
-        self.contentLabel.text = selected ? self.selectedTitle : self.title;
+        _contentLabel.text = selected ? self.selectedTitle : self.title;
     }
     if (self.textColor && self.selectedTextColor) {
-        self.contentLabel.textColor = selected ? self.selectedTextColor : self.textColor;
+        _contentLabel.textColor = selected ? self.selectedTextColor : self.textColor;
     }
 }
 
+- (void)setHighlighted:(BOOL)highlighted {
+    _highlighted = highlighted;
+    if (self.highlightTextColor) {
+        _contentLabel.textColor = highlighted ? self.highlightTextColor : self.textColor;
+    }
+    if (self.highlightImage) {
+        _imageView.image = highlighted ? self.highlightImage : self.image;
+    }
+}
 
 - (void)setButtonType:(THButtonType)buttonType {
     _buttonType = buttonType;
     switch (buttonType) {
-        case THButtonType_None: {
+        case THButtonType_Text: {
             [self addSubview:self.contentLabel];
             [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self);
@@ -99,14 +109,14 @@
             [self addSubview:self.imageView];
             [self addSubview:self.contentLabel];
             [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self).offset(3);
+                make.top.equalTo(self).offset(_margen);
                 make.centerX.equalTo(self);
-                make.right.equalTo(@(-3));
+                make.right.equalTo(@(-_margen));
             }];
             [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.imageView.mas_bottom).with.offset(3);
+                make.top.equalTo(self.imageView.mas_bottom).with.offset(_margen);
                 make.left.right.equalTo(self);
-                make.bottom.equalTo(@(-3));
+                make.bottom.equalTo(@(-_margen));
             }];
         }
             break;
@@ -115,13 +125,12 @@
             [self addSubview:self.contentLabel];
             [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.equalTo(self);
-                make.left.equalTo(@(3));
-                
+                make.left.equalTo(@(_margen));
             }];
             [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.imageView.mas_right).offset(3);
+                make.left.equalTo(self.imageView.mas_right).offset(_margen);
                 make.centerY.equalTo(self.imageView);
-                make.right.equalTo(@(-3));
+                make.right.equalTo(@(-_margen));
             }];
         }
             break;
@@ -130,12 +139,12 @@
             [self addSubview:self.contentLabel];
             [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.equalTo(self);
-                make.left.equalTo(@(3));
+                make.left.equalTo(@(_margen));
             }];
             [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.imageView.mas_right).offset(3);
+                make.left.equalTo(self.imageView.mas_right).offset(_margen);
                 make.centerY.equalTo(self.imageView);
-                make.right.equalTo(@(-3));
+                make.right.equalTo(@(-_margen));
             }];
             
         }
@@ -145,19 +154,19 @@
             [self addSubview:self.contentLabel];
             [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(self);
-                make.top.equalTo(@(3));
+                make.top.equalTo(@(_margen));
             }];
             [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.contentLabel.mas_bottom).offset(3);
+                make.top.equalTo(self.contentLabel.mas_bottom).offset(_margen);
                 make.centerX.equalTo(self);
             }];
            
         }
             break;
-        case THButtonType_OnlyImage: {
+        case THButtonType_Image: {
             [self addSubview:self.imageView];
             [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.mas_equalTo(UIEdgeInsetsMake(0, 3, 0, 3));
+                make.edges.mas_equalTo(UIEdgeInsetsMake(0, _margen, 0, _margen));
             }];
         }
             break;
@@ -165,8 +174,8 @@
 }
 
 - (void)setMargen:(CGFloat)margen {
-    _margen = margen;
-    if (margen != 3.0) {
+    if (_margen != margen) {
+        _margen = margen;
         switch (self.buttonType) {
             case THButtonType_imageTop: {
                 [self.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -205,6 +214,14 @@
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)]];
 }
 
+- (SEL)aSelecter {
+    return _aSelecter;
+}
+
+- (id)target {
+    return _target;
+}
+
 - (void)tapGesture:(UITapGestureRecognizer *)ges {
     if ([_target respondsToSelector:_aSelecter]) {
         NSArray *array = [NSStringFromSelector(_aSelecter) componentsSeparatedByString:@":"];
@@ -216,5 +233,16 @@
     }
 }
 
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.highlighted = YES;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.highlighted = NO;
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    self.highlighted = NO;
+}
 
 @end

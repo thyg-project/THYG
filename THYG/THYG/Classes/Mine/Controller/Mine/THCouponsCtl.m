@@ -121,7 +121,7 @@
     return _mTable;
 }
 
-- (UIButton*)titleBtnView {
+- (UIButton *)titleBtnView {
     if (!_titleBtnView) {
         _titleBtnView = [UIButton buttonWithType:UIButtonTypeCustom];
         _titleBtnView.frame = CGRectMake(0, 0, 100, 40);

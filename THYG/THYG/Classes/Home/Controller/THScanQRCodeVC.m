@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"扫一扫";
-    THButton *button = [[THButton alloc] initWithButtonType:THButtonType_None];
+    THButton *button = [[THButton alloc] initWithButtonType:THButtonType_Text];
     [button setTitle:@"相册"];
     [button setTextColor:[UIColor whiteColor]];
     [button setFont:[UIFont systemFontOfSize:16]];

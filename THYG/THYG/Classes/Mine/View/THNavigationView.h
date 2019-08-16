@@ -95,8 +95,14 @@
  */
 @property (nonatomic, strong, nullable) NSAttributedString *attributedContent;
 
+/**
+ 右边按钮
+ */
 @property (nonatomic, strong, nullable, readonly) THButton *rightBarButton;
 
+/**
+ 右边按钮集合
+ */
 @property (nonatomic, strong, nullable, readonly) NSArray <THButton *> *rightBarButtons;
 
 /**

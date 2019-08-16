@@ -45,7 +45,7 @@
     _selectedAllButton.margen = 8;
     [_selectedAllButton addTarget:self action:@selector(selectedAll)];
     [self addSubview:_selectedAllButton];
-    _deleteButton = [THButton buttonWithType:THButtonType_None];
+    _deleteButton = [THButton buttonWithType:THButtonType_Text];
     _deleteButton.textColor = [UIColor redColor];
     _deleteButton.font = [UIFont systemFontOfSize:14];
     _deleteButton.title = @"删除";
@@ -55,7 +55,7 @@
     _deleteButton.layer.borderWidth = 1;
     [_deleteButton addTarget:self action:@selector(deleteAction)];
     [self addSubview:_deleteButton];
-    _moveButton = [THButton buttonWithType:THButtonType_None];
+    _moveButton = [THButton buttonWithType:THButtonType_Text];
     _moveButton.textColor = [UIColor blackColor];
     _moveButton.font = [UIFont systemFontOfSize:14];
     _moveButton.title = @"移入关注";
@@ -65,7 +65,7 @@
     _moveButton.layer.borderWidth = 1;
     [_moveButton addTarget:self action:@selector(moveAction)];
     [self addSubview:_moveButton];
-    _shareButton = [THButton buttonWithType:THButtonType_None];
+    _shareButton = [THButton buttonWithType:THButtonType_Text];
     _shareButton.textColor = [UIColor blackColor];
     _shareButton.font = [UIFont systemFontOfSize:14];
     _shareButton.title = @"分享";
@@ -75,7 +75,7 @@
     _shareButton.layer.borderWidth = 1;
     [_shareButton addTarget:self action:@selector(shareAction)];
     [self addSubview:_shareButton];
-    _settleButton = [THButton buttonWithType:THButtonType_None];
+    _settleButton = [THButton buttonWithType:THButtonType_Text];
     _settleButton.textColor = [UIColor whiteColor];
     _settleButton.font = [UIFont systemFontOfSize:14];
     _settleButton.title = @"结算";

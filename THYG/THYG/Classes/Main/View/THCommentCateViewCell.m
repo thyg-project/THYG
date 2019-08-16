@@ -19,7 +19,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _selectedButton = [THButton buttonWithType:THButtonType_None];
+        _selectedButton = [THButton buttonWithType:THButtonType_Text];
         _selectedButton.title = @"全部";
         _selectedButton.font = [UIFont systemFontOfSize:14];
         _selectedButton.textColor = UIColor.lightGrayColor;

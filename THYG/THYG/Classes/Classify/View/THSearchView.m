@@ -41,7 +41,7 @@
             field;
         });
         [self addSubview:self.textField];
-        _searchButton = [[THButton alloc] initWithButtonType:THButtonType_None];
+        _searchButton = [[THButton alloc] initWithButtonType:THButtonType_Text];
         [self addSubview:self.searchButton];
         self.searchButton.font = [UIFont systemFontOfSize:16];
         self.searchButton.textColor = [UIColor yellowColor];

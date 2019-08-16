@@ -294,7 +294,6 @@
 		0265CF3122F2C45E000363F0 /* THSingImgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E3E20CB764400F5085F /* THSingImgCell.xib */; };
 		0265CF3222F2C45E000363F0 /* THMySupplierCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5120732AF100FEFE40 /* THMySupplierCell.xib */; };
 		0265CF3322F2C45E000363F0 /* THMineSubmitApplicationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0A31A2071254B003BE300 /* THMineSubmitApplicationVC.xib */; };
-		0265CF3422F2C45E000363F0 /* THHomeSectionHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2A1206230B8009AE20B /* THHomeSectionHead.xib */; };
 		0265CF3522F2C45E000363F0 /* THOrderConfirmCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CBC3D62088ED45007D6069 /* THOrderConfirmCtl.xib */; };
 		0265CF3622F2C45E000363F0 /* THLogisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CBC3FA2088F064007D6069 /* THLogisticsCell.xib */; };
 		0265CF3722F2C45E000363F0 /* THMineOrderDetailToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042BB82C20CAF5D500E8FB93 /* THMineOrderDetailToolView.xib */; };
@@ -306,7 +305,6 @@
 		0265CF3D22F2C45E000363F0 /* THFlashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F51688720747171005E956E /* THFlashCell.xib */; };
 		0265CF3E22F2C45E000363F0 /* THMoreSpellGroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B2206235F8009AE20B /* THMoreSpellGroupListCell.xib */; };
 		0265CF3F22F2C45E000363F0 /* THAcountDetailCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E5020CB7F7900F5085F /* THAcountDetailCtl.xib */; };
-		0265CF4022F2C45E000363F0 /* THTeMoneyHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E2F20CB063600F5085F /* THTeMoneyHead.xib */; };
 		0265CF4122F2C45E000363F0 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57D5104C20C6F41600B78087 /* AlipaySDK.bundle */; };
 		0265CF4222F2C45E000363F0 /* THPaySuccessBlockPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F67FA820C9823D004431C2 /* THPaySuccessBlockPage.xib */; };
 		0265CF4322F2C45E000363F0 /* THMineAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D790C205B6A920088A4A0 /* THMineAdCell.xib */; };
@@ -490,7 +488,6 @@
 		572792DE20CED6D200E498AD /* THCommentCateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 572792DD20CED6D200E498AD /* THCommentCateModel.m */; };
 		57417E2B20CB009800F5085F /* THMyTeMoneyCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E2920CB009800F5085F /* THMyTeMoneyCtl.m */; };
 		57417E3020CB063600F5085F /* THTeMoneyHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E2E20CB063600F5085F /* THTeMoneyHead.m */; };
-		57417E3120CB063600F5085F /* THTeMoneyHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E2F20CB063600F5085F /* THTeMoneyHead.xib */; };
 		57417E3520CB707700F5085F /* THMyMessageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3320CB707700F5085F /* THMyMessageCtl.m */; };
 		57417E3A20CB747300F5085F /* THMyMessageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3820CB747300F5085F /* THMyMessageListCell.m */; };
 		57417E3B20CB747300F5085F /* THMyMessageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E3920CB747300F5085F /* THMyMessageListCell.xib */; };
@@ -572,7 +569,6 @@
 		8F0DC29D20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC29B20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m */; };
 		8F0DC29E20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC29C20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.xib */; };
 		8F0DC2A2206230B8009AE20B /* THHomeSectionHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2A0206230B8009AE20B /* THHomeSectionHead.m */; };
-		8F0DC2A3206230B8009AE20B /* THHomeSectionHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2A1206230B8009AE20B /* THHomeSectionHead.xib */; };
 		8F0DC2A920623464009AE20B /* THSpellGroupCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2A820623464009AE20B /* THSpellGroupCtl.m */; };
 		8F0DC2B3206235F8009AE20B /* THMoreSpellGroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B1206235F8009AE20B /* THMoreSpellGroupListCell.m */; };
 		8F0DC2B4206235F8009AE20B /* THMoreSpellGroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC2B2206235F8009AE20B /* THMoreSpellGroupListCell.xib */; };
@@ -968,7 +964,6 @@
 		57417E2920CB009800F5085F /* THMyTeMoneyCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyTeMoneyCtl.m; sourceTree = "<group>"; };
 		57417E2D20CB063600F5085F /* THTeMoneyHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeMoneyHead.h; sourceTree = "<group>"; };
 		57417E2E20CB063600F5085F /* THTeMoneyHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeMoneyHead.m; sourceTree = "<group>"; };
-		57417E2F20CB063600F5085F /* THTeMoneyHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THTeMoneyHead.xib; sourceTree = "<group>"; };
 		57417E3220CB707700F5085F /* THMyMessageCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMyMessageCtl.h; sourceTree = "<group>"; };
 		57417E3320CB707700F5085F /* THMyMessageCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyMessageCtl.m; sourceTree = "<group>"; };
 		57417E3720CB747300F5085F /* THMyMessageListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMyMessageListCell.h; sourceTree = "<group>"; };
@@ -1096,7 +1091,6 @@
 		8F0DC29C20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THGoodsListOfCollectionLayoutCell.xib; sourceTree = "<group>"; };
 		8F0DC29F206230B8009AE20B /* THHomeSectionHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHomeSectionHead.h; sourceTree = "<group>"; };
 		8F0DC2A0206230B8009AE20B /* THHomeSectionHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHomeSectionHead.m; sourceTree = "<group>"; };
-		8F0DC2A1206230B8009AE20B /* THHomeSectionHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THHomeSectionHead.xib; sourceTree = "<group>"; };
 		8F0DC2A720623464009AE20B /* THSpellGroupCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSpellGroupCtl.h; sourceTree = "<group>"; };
 		8F0DC2A820623464009AE20B /* THSpellGroupCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSpellGroupCtl.m; sourceTree = "<group>"; };
 		8F0DC2B0206235F8009AE20B /* THMoreSpellGroupListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMoreSpellGroupListCell.h; sourceTree = "<group>"; };
@@ -1786,7 +1780,6 @@
 				512D78FE205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m */,
 				8F0DC29F206230B8009AE20B /* THHomeSectionHead.h */,
 				8F0DC2A0206230B8009AE20B /* THHomeSectionHead.m */,
-				8F0DC2A1206230B8009AE20B /* THHomeSectionHead.xib */,
 				8F0DC29A20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.h */,
 				8F0DC29B20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m */,
 				8F0DC29C20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.xib */,
@@ -1797,7 +1790,6 @@
 				0421E89F208978FE008D85A0 /* THMenuView.m */,
 				57417E2D20CB063600F5085F /* THTeMoneyHead.h */,
 				57417E2E20CB063600F5085F /* THTeMoneyHead.m */,
-				57417E2F20CB063600F5085F /* THTeMoneyHead.xib */,
 				57417E3720CB747300F5085F /* THMyMessageListCell.h */,
 				57417E3820CB747300F5085F /* THMyMessageListCell.m */,
 				57417E3920CB747300F5085F /* THMyMessageListCell.xib */,
@@ -2659,7 +2651,6 @@
 				0265CF3122F2C45E000363F0 /* THSingImgCell.xib in Resources */,
 				0265CF3222F2C45E000363F0 /* THMySupplierCell.xib in Resources */,
 				0265CF3322F2C45E000363F0 /* THMineSubmitApplicationVC.xib in Resources */,
-				0265CF3422F2C45E000363F0 /* THHomeSectionHead.xib in Resources */,
 				0265CF3522F2C45E000363F0 /* THOrderConfirmCtl.xib in Resources */,
 				0265CF3622F2C45E000363F0 /* THLogisticsCell.xib in Resources */,
 				0265CF3722F2C45E000363F0 /* THMineOrderDetailToolView.xib in Resources */,
@@ -2671,7 +2662,6 @@
 				0265CF3D22F2C45E000363F0 /* THFlashCell.xib in Resources */,
 				0265CF3E22F2C45E000363F0 /* THMoreSpellGroupListCell.xib in Resources */,
 				0265CF3F22F2C45E000363F0 /* THAcountDetailCtl.xib in Resources */,
-				0265CF4022F2C45E000363F0 /* THTeMoneyHead.xib in Resources */,
 				0265CF4122F2C45E000363F0 /* AlipaySDK.bundle in Resources */,
 				0265CF4222F2C45E000363F0 /* THPaySuccessBlockPage.xib in Resources */,
 				0265CF4322F2C45E000363F0 /* THMineAdCell.xib in Resources */,
@@ -2738,7 +2728,6 @@
 				57417E4020CB764400F5085F /* THSingImgCell.xib in Resources */,
 				8FDC4E5320732AF100FEFE40 /* THMySupplierCell.xib in Resources */,
 				04D0A31C2071254B003BE300 /* THMineSubmitApplicationVC.xib in Resources */,
-				8F0DC2A3206230B8009AE20B /* THHomeSectionHead.xib in Resources */,
 				57CBC3D82088ED45007D6069 /* THOrderConfirmCtl.xib in Resources */,
 				57CBC3FC2088F064007D6069 /* THLogisticsCell.xib in Resources */,
 				042BB82D20CAF5D500E8FB93 /* THMineOrderDetailToolView.xib in Resources */,
@@ -2750,7 +2739,6 @@
 				8F51688920747171005E956E /* THFlashCell.xib in Resources */,
 				8F0DC2B4206235F8009AE20B /* THMoreSpellGroupListCell.xib in Resources */,
 				57417E5220CB7F7900F5085F /* THAcountDetailCtl.xib in Resources */,
-				57417E3120CB063600F5085F /* THTeMoneyHead.xib in Resources */,
 				57D5104E20C6F41600B78087 /* AlipaySDK.bundle in Resources */,
 				57F67FAA20C9823D004431C2 /* THPaySuccessBlockPage.xib in Resources */,
 				512D790E205B6A920088A4A0 /* THMineAdCell.xib in Resources */,

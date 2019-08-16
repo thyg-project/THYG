@@ -128,8 +128,8 @@
         _collectionView.backgroundColor = kBackgroundColor;
         
         [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsListOfCollectionLayoutCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:@"THTeMoneyHead" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THTeMoneyHead.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:@"THHomeSectionHead" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class)];
+        [_collectionView registerClass:THTeMoneyHead.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THTeMoneyHead"];
+        [_collectionView registerClass:THHomeSectionHead.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THHomeSectionHead"];
     }
     return _collectionView;
 }

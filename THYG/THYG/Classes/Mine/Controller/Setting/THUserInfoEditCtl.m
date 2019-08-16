@@ -36,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息编辑";
+    self.avatarImgView.layer.masksToBounds = YES;
+    self.avatarImgView.layer.cornerRadius = 40;
     self.nickNameLabel.delegate = self.professionalField.delegate = self;
 }
 
@@ -56,12 +58,12 @@
     kWeakSelf;
     UIAlertAction *takeCamera = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (![YGAuthTool cameraAuth]) {
-            [THAlertTools alertTitle:@"没有权限" message:nil confirm:@"去开启" container:weakSelf confirmHandler:^{
+            [THAlertTools alertTitle:@"没有权限" message:@"" confirm:@"去开启" container:weakSelf confirmHandler:^{
                 if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) {
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
                 }
                 
-            } cancel:@"取消" cancelHandler:nil];
+            } cancel:@"取消" cancelHandler:NULL];
             return ;
         }
         weakSelf.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -172,7 +174,7 @@
     UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
     kWeakSelf;
     [picker dismissViewControllerAnimated:YES completion:^{
-        
+        weakSelf.avatarImgView.image = selectedImage;
     }];
 }
 

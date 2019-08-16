@@ -99,7 +99,7 @@
 /**
  *  获取堆栈主要崩溃精简化的信息<根据正则表达式匹配出来>
  *
- *  @param callStackSymbolStr 堆栈主要崩溃信息
+ *  @param callStackSymbols 堆栈主要崩溃信息
  *
  *  @return 堆栈主要崩溃精简化的信息
  */

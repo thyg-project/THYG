@@ -242,8 +242,7 @@
         [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsListOfCollectionLayoutCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
 		
 		[_collectionView registerClass:[THHomeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeHeaderView.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:@"THHomeSectionHead" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class)];
-    
+        [_collectionView registerClass:THHomeSectionHead.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THHomeSectionHead"];
 	}
 	return _collectionView;
 }

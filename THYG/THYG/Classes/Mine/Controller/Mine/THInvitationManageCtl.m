@@ -10,20 +10,24 @@
 #import "THMySupplierCell.h"
 #import "THRecommendedCell.h"
 #import "THFilterView.h"
+#import "THInvitePresenter.h"
 
-@interface THInvitationManageCtl ()<UITableViewDelegate,UITableViewDataSource, THFilterViewDelegate> {
+@interface THInvitationManageCtl ()<UITableViewDelegate,UITableViewDataSource, THFilterViewDelegate, THInviteProtocol> {
     THFilterView *_filterView;
 }
 @property (nonatomic,strong) UITableView *mTable;
 @property (nonatomic,strong) NSMutableArray *data;
 //当前的位置：1.我的供应商 2.我的注册会员 3.推荐有奖
 @property (nonatomic,assign) NSInteger curIndex;
+
+@property (nonatomic, strong) THInvitePresenter *invitePresenter;
 @end
 
 @implementation THInvitationManageCtl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _invitePresenter = [[THInvitePresenter alloc] initPresenterWithProtocol:self];
     self.navigationItem.title = @"邀请管理";
     _curIndex = 1;
     _filterView = [[THFilterView alloc] initWithDatas:@[@"我的供应商",@"我的注册会员",@"推荐有奖"]];
@@ -112,6 +116,14 @@
 - (void)filterView:(THFilterView *)filterView disSelectedItem:(NSString *)item selectedIndex:(NSInteger)index {
     _curIndex = index;
     [self.mTable reloadData];
+}
+
+- (void)getInviteDataFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getInviteDataSuccess:(NSArray<THInviteInfoModel *> *)response {
+    
 }
 
 @end

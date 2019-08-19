@@ -13,17 +13,20 @@
 #import "THMineAddBankCardCell.h"
 #import "THMineBankCardCell.h"
 #import "THWalletHeaderModel.h"
+#import "THWalletPresenter.h"
 
-@interface THMineWalletVC () <UITableViewDataSource, UITableViewDelegate>
+@interface THMineWalletVC () <UITableViewDataSource, UITableViewDelegate, THWalletProtocol>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) THMineWalletHeaderView *walletView;
 @property (nonatomic, strong) NSArray *cardArray;
+@property (nonatomic, strong) THWalletPresenter *walletPresenter;
 @end
 
 @implementation THMineWalletVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _walletPresenter = [[THWalletPresenter alloc] initPresenterWithProtocol:self];
     [self setupUI];
 }
 

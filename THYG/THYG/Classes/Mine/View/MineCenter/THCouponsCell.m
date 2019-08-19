@@ -7,7 +7,7 @@
 //
 
 #import "THCouponsCell.h"
-#import "THCouponsModel.h"
+#import "THCouponModel.h"
 #import "NSString+CHExtension.h"
 
 @implementation THCouponsCell
@@ -20,7 +20,7 @@
     __weak IBOutlet UIButton *actionBtn;
 }
 
-- (void)refreshWithModel:(THCouponsModel *)model type:(NSInteger)type {
+- (void)refreshWithModel:(THCouponModel *)model type:(NSInteger)type {
     if (type) {
 
         [actionBtn setTitle:@"立即领取" forState:UIControlStateNormal];

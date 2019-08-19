@@ -10,16 +10,19 @@
 #import "THMyCollectCtl.h"
 #import "THMyCollectCell.h"
 #import "THMyCollectModel.h"
+#import "THAttentionPresenter.h"
 
-@interface THMyCollectCtl ()<UITableViewDelegate,UITableViewDataSource>
+@interface THMyCollectCtl ()<UITableViewDelegate,UITableViewDataSource, THAttentionProtocol>
 @property (nonatomic, strong) UITableView *mTable;
 @property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, strong) THAttentionPresenter *presenter;
 @end
 
 @implementation THMyCollectCtl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THAttentionPresenter alloc] initPresenterWithProtocol:self];
     self.navigationItem.title = self.type? @"浏览记录" :@"我的关注";
     [self.view addSubview:self.mTable];
     [self autoLayoutSizeContentView:self.mTable];

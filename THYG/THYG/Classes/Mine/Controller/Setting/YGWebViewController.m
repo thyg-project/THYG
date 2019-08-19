@@ -37,7 +37,6 @@
     }
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.loadUrl] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15]];
     [THHUDProgress show];
-   
 }
 
 - (void)setUp {

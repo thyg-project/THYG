@@ -7,12 +7,12 @@
 //
 
 #import "THCouponsCtl.h"
-#import "THCouponsModel.h"
 #import "THCouponsCell.h"
 #import "THFilterView.h"
 #import "THMenuView.h"
+#import "THCouponPresenter.h"
 
-@interface THCouponsCtl ()<UITableViewDelegate,UITableViewDataSource, THFilterViewDelegate, THMemuViewDelegate> {
+@interface THCouponsCtl ()<UITableViewDelegate,UITableViewDataSource, THFilterViewDelegate, THMemuViewDelegate, THCouponProtocol> {
     THFilterView *_filterView;
     THMenuView *_menuView;
 }
@@ -21,12 +21,14 @@
 @property (nonatomic,strong) NSMutableArray *getedData;
 @property (nonatomic,strong) UIButton *titleBtnView;
 @property (nonatomic,assign) NSInteger type;//0.我的优惠券 1.领券中心
+@property (nonatomic, strong) THCouponPresenter *couponPresenter;
 @end
 
 @implementation THCouponsCtl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _couponPresenter = [[THCouponPresenter alloc] initPresenterWithProtocol:self];
     self.navigationItem.title = @"优惠券";
     _filterView = [[THFilterView alloc] initWithDatas:@[@"全部",@"通用券",@"指定券",@"筛选"]];
     _filterView.delegate = self;
@@ -134,5 +136,12 @@
     return _titleBtnView;
 }
 
+- (void)getCouponListSuccess:(NSArray<THCouponModel *> *)response {
+    
+}
+
+- (void)getCouponListFailed:(NSDictionary *)errorInfo {
+    
+}
 
 @end

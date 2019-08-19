@@ -35,5 +35,7 @@
 //关注列表
 + (NSURLSessionTask *)attentionListSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
 
++ (NSURLSessionTask *)getCouponListSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
+
 @end
 

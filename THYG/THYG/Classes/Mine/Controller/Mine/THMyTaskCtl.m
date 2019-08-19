@@ -8,10 +8,12 @@
 
 #import "THMyTaskCtl.h"
 #import "THMyTaskCell.h"
+#import "THTaskPresenter.h"
 
-@interface THMyTaskCtl ()<UITableViewDelegate,UITableViewDataSource>
+@interface THMyTaskCtl ()<UITableViewDelegate,UITableViewDataSource, THTaskProtocol>
 @property (nonatomic, strong) UITableView *mTable;
 @property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, strong) THTaskPresenter *taskPresenter;
 @end
 
 @implementation THMyTaskCtl
@@ -19,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"任务中心";
+    _taskPresenter = [[THTaskPresenter alloc] initPresenterWithProtocol:self];
     [self.view addSubview:self.mTable];
     [self autoLayoutSizeContentView:self.mTable];
     [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,5 +57,13 @@
     return _mTable;
 }
 
+
+- (void)getTaskListFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getTaskListSuccess:(NSArray<THTaskModel *> *)response {
+    
+}
 
 @end

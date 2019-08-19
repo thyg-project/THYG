@@ -266,7 +266,7 @@
 		0265CF1222F2C45E000363F0 /* THGoodsCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F13207297B60048875E /* THGoodsCommentHeaderView.m */; };
 		0265CF1322F2C45E000363F0 /* THScanQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04548D7F2070F2EB002F73C6 /* THScanQRCodeVC.m */; };
 		0265CF1422F2C45E000363F0 /* THHomeHeaderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D78F8205A21C90088A4A0 /* THHomeHeaderItemModel.m */; };
-		0265CF1522F2C45E000363F0 /* THCouponsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C920721F1000EFDFCB /* THCouponsModel.m */; };
+		0265CF1522F2C45E000363F0 /* THCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C920721F1000EFDFCB /* THCouponModel.m */; };
 		0265CF1622F2C45E000363F0 /* THMineOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD7E7E20C9AFA80057884A /* THMineOrderDetailCell.m */; };
 		0265CF1822F2C45E000363F0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5106420C6F98100B78087 /* CoreMotion.framework */; };
 		0265CF1922F2C45E000363F0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5106220C6F97500B78087 /* CFNetwork.framework */; };
@@ -353,6 +353,22 @@
 		0265CF7122F2C45E000363F0 /* THRecommendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B20732B3B00FEFE40 /* THRecommendedCell.xib */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
 		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
+		02834B4E230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */; };
+		02834B4F230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */; };
+		02834B52230A9C7600B8BFB2 /* THInvitePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B51230A9C7600B8BFB2 /* THInvitePresenter.m */; };
+		02834B53230A9C7600B8BFB2 /* THInvitePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B51230A9C7600B8BFB2 /* THInvitePresenter.m */; };
+		02834B56230A9C9000B8BFB2 /* THCouponPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B55230A9C9000B8BFB2 /* THCouponPresenter.m */; };
+		02834B57230A9C9000B8BFB2 /* THCouponPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B55230A9C9000B8BFB2 /* THCouponPresenter.m */; };
+		02834B5A230A9CB300B8BFB2 /* THAttentionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B59230A9CB300B8BFB2 /* THAttentionPresenter.m */; };
+		02834B5B230A9CB300B8BFB2 /* THAttentionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B59230A9CB300B8BFB2 /* THAttentionPresenter.m */; };
+		02834B64230A9D3A00B8BFB2 /* THWalletPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B63230A9D3A00B8BFB2 /* THWalletPresenter.m */; };
+		02834B65230A9D3A00B8BFB2 /* THWalletPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B63230A9D3A00B8BFB2 /* THWalletPresenter.m */; };
+		02834B68230A9D4700B8BFB2 /* THBankPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B67230A9D4700B8BFB2 /* THBankPresenter.m */; };
+		02834B69230A9D4700B8BFB2 /* THBankPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B67230A9D4700B8BFB2 /* THBankPresenter.m */; };
+		02834B6C230AA06200B8BFB2 /* THTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6B230AA06200B8BFB2 /* THTaskModel.m */; };
+		02834B6D230AA06200B8BFB2 /* THTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6B230AA06200B8BFB2 /* THTaskModel.m */; };
+		02834B70230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */; };
+		02834B71230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
@@ -584,7 +600,7 @@
 		8F1712BF2072076200EFDFCB /* THMyCollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712BE2072076200EFDFCB /* THMyCollectModel.m */; };
 		8F1712C220720A5500EFDFCB /* THMyFootprintCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C120720A5500EFDFCB /* THMyFootprintCtl.m */; };
 		8F1712C620720F7A00EFDFCB /* THCouponsCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C420720F7A00EFDFCB /* THCouponsCtl.m */; };
-		8F1712CA20721F1000EFDFCB /* THCouponsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C920721F1000EFDFCB /* THCouponsModel.m */; };
+		8F1712CA20721F1000EFDFCB /* THCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712C920721F1000EFDFCB /* THCouponModel.m */; };
 		8F1712CE207221A000EFDFCB /* THCouponsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712CC207221A000EFDFCB /* THCouponsCell.m */; };
 		8F1712CF207221A000EFDFCB /* THCouponsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1712CD207221A000EFDFCB /* THCouponsCell.xib */; };
 		8F1712D2207227B600EFDFCB /* NSString+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1712D1207227B600EFDFCB /* NSString+CHExtension.m */; };
@@ -713,6 +729,28 @@
 		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
 		0271234722E8315F002DF961 /* THFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterView.h; sourceTree = "<group>"; };
 		0271234822E8315F002DF961 /* THFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterView.m; sourceTree = "<group>"; };
+		02834B4C230A9C5D00B8BFB2 /* THTaskPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTaskPresenter.h; sourceTree = "<group>"; };
+		02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTaskPresenter.m; sourceTree = "<group>"; };
+		02834B50230A9C7600B8BFB2 /* THInvitePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInvitePresenter.h; sourceTree = "<group>"; };
+		02834B51230A9C7600B8BFB2 /* THInvitePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THInvitePresenter.m; sourceTree = "<group>"; };
+		02834B54230A9C9000B8BFB2 /* THCouponPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponPresenter.h; sourceTree = "<group>"; };
+		02834B55230A9C9000B8BFB2 /* THCouponPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCouponPresenter.m; sourceTree = "<group>"; };
+		02834B58230A9CB300B8BFB2 /* THAttentionPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAttentionPresenter.h; sourceTree = "<group>"; };
+		02834B59230A9CB300B8BFB2 /* THAttentionPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAttentionPresenter.m; sourceTree = "<group>"; };
+		02834B5C230A9CD400B8BFB2 /* THAttentionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAttentionProtocol.h; sourceTree = "<group>"; };
+		02834B5D230A9CE200B8BFB2 /* THInviteProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInviteProtocol.h; sourceTree = "<group>"; };
+		02834B5E230A9CF100B8BFB2 /* THCouponProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponProtocol.h; sourceTree = "<group>"; };
+		02834B5F230A9D0000B8BFB2 /* THTaskProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTaskProtocol.h; sourceTree = "<group>"; };
+		02834B60230A9D1300B8BFB2 /* THWalletProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THWalletProtocol.h; sourceTree = "<group>"; };
+		02834B61230A9D2500B8BFB2 /* THBankProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBankProtocol.h; sourceTree = "<group>"; };
+		02834B62230A9D3A00B8BFB2 /* THWalletPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THWalletPresenter.h; sourceTree = "<group>"; };
+		02834B63230A9D3A00B8BFB2 /* THWalletPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THWalletPresenter.m; sourceTree = "<group>"; };
+		02834B66230A9D4700B8BFB2 /* THBankPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THBankPresenter.h; sourceTree = "<group>"; };
+		02834B67230A9D4700B8BFB2 /* THBankPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THBankPresenter.m; sourceTree = "<group>"; };
+		02834B6A230AA06200B8BFB2 /* THTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTaskModel.h; sourceTree = "<group>"; };
+		02834B6B230AA06200B8BFB2 /* THTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTaskModel.m; sourceTree = "<group>"; };
+		02834B6E230AA13100B8BFB2 /* THInviteInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInviteInfoModel.h; sourceTree = "<group>"; };
+		02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THInviteInfoModel.m; sourceTree = "<group>"; };
 		02C377C222C324700038AC5A /* YGNetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetWorkTools.h; sourceTree = "<group>"; };
 		02C377C322C324700038AC5A /* YGNetworkCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetworkCommon.m; sourceTree = "<group>"; };
 		02C377C522C324700038AC5A /* YGEncryptTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEncryptTool.h; sourceTree = "<group>"; };
@@ -1117,8 +1155,8 @@
 		8F1712C120720A5500EFDFCB /* THMyFootprintCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyFootprintCtl.m; sourceTree = "<group>"; };
 		8F1712C320720F7A00EFDFCB /* THCouponsCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponsCtl.h; sourceTree = "<group>"; };
 		8F1712C420720F7A00EFDFCB /* THCouponsCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCouponsCtl.m; sourceTree = "<group>"; };
-		8F1712C820721F1000EFDFCB /* THCouponsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponsModel.h; sourceTree = "<group>"; };
-		8F1712C920721F1000EFDFCB /* THCouponsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCouponsModel.m; sourceTree = "<group>"; };
+		8F1712C820721F1000EFDFCB /* THCouponModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponModel.h; sourceTree = "<group>"; };
+		8F1712C920721F1000EFDFCB /* THCouponModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCouponModel.m; sourceTree = "<group>"; };
 		8F1712CB207221A000EFDFCB /* THCouponsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCouponsCell.h; sourceTree = "<group>"; };
 		8F1712CC207221A000EFDFCB /* THCouponsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCouponsCell.m; sourceTree = "<group>"; };
 		8F1712CD207221A000EFDFCB /* THCouponsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THCouponsCell.xib; sourceTree = "<group>"; };
@@ -1348,6 +1386,12 @@
 				02188AB422E552A100258F37 /* THOrderDetailProtocol.h */,
 				0271234622E82D2E002DF961 /* THTeCenterProtocol.h */,
 				02DCC83122EAE5D1002602A5 /* THMessageProtocol.h */,
+				02834B5C230A9CD400B8BFB2 /* THAttentionProtocol.h */,
+				02834B5D230A9CE200B8BFB2 /* THInviteProtocol.h */,
+				02834B5E230A9CF100B8BFB2 /* THCouponProtocol.h */,
+				02834B5F230A9D0000B8BFB2 /* THTaskProtocol.h */,
+				02834B60230A9D1300B8BFB2 /* THWalletProtocol.h */,
+				02834B61230A9D2500B8BFB2 /* THBankProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1373,6 +1417,18 @@
 				0271234422E82D19002DF961 /* THTeCenterPresenter.m */,
 				02DCC82E22EAE5BC002602A5 /* THMessagePresenter.h */,
 				02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */,
+				02834B4C230A9C5D00B8BFB2 /* THTaskPresenter.h */,
+				02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */,
+				02834B50230A9C7600B8BFB2 /* THInvitePresenter.h */,
+				02834B51230A9C7600B8BFB2 /* THInvitePresenter.m */,
+				02834B54230A9C9000B8BFB2 /* THCouponPresenter.h */,
+				02834B55230A9C9000B8BFB2 /* THCouponPresenter.m */,
+				02834B58230A9CB300B8BFB2 /* THAttentionPresenter.h */,
+				02834B59230A9CB300B8BFB2 /* THAttentionPresenter.m */,
+				02834B62230A9D3A00B8BFB2 /* THWalletPresenter.h */,
+				02834B63230A9D3A00B8BFB2 /* THWalletPresenter.m */,
+				02834B66230A9D4700B8BFB2 /* THBankPresenter.h */,
+				02834B67230A9D4700B8BFB2 /* THBankPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2478,8 +2534,8 @@
 				8FDAF710206E37D00090FBCC /* THUserInfoModel.m */,
 				8F1712BD2072076200EFDFCB /* THMyCollectModel.h */,
 				8F1712BE2072076200EFDFCB /* THMyCollectModel.m */,
-				8F1712C820721F1000EFDFCB /* THCouponsModel.h */,
-				8F1712C920721F1000EFDFCB /* THCouponsModel.m */,
+				8F1712C820721F1000EFDFCB /* THCouponModel.h */,
+				8F1712C920721F1000EFDFCB /* THCouponModel.m */,
 				0417B8782077214D003566C4 /* THBankCardModel.h */,
 				0417B8792077214D003566C4 /* THBankCardModel.m */,
 				044AEE3C2098468700824A05 /* THAddressModel.h */,
@@ -2489,6 +2545,10 @@
 				515EB86320C8C61800890072 /* Order */,
 				02188A9C22DF180D00258F37 /* THUserManager.h */,
 				02188A9D22DF180D00258F37 /* THUserManager.m */,
+				02834B6A230AA06200B8BFB2 /* THTaskModel.h */,
+				02834B6B230AA06200B8BFB2 /* THTaskModel.m */,
+				02834B6E230AA13100B8BFB2 /* THInviteInfoModel.h */,
+				02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3012,6 +3072,7 @@
 				0265CE4922F2C45E000363F0 /* THOrderDetailPresenter.m in Sources */,
 				0265CE4A22F2C45E000363F0 /* GoodsTypeModel.m in Sources */,
 				0265CE4B22F2C45E000363F0 /* YGNetworkCommon.m in Sources */,
+				02834B53230A9C7600B8BFB2 /* THInvitePresenter.m in Sources */,
 				0265CE4C22F2C45E000363F0 /* THAlertLayer.m in Sources */,
 				0265CE4E22F2C45E000363F0 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				0265CE4F22F2C45E000363F0 /* THMineSectionCell.m in Sources */,
@@ -3031,6 +3092,7 @@
 				0265CE5D22F2C45E000363F0 /* THUserManager.m in Sources */,
 				0265CE5E22F2C45E000363F0 /* SDWaitingView.m in Sources */,
 				0265CE5F22F2C45E000363F0 /* ChoseGoodsTypeAlert.m in Sources */,
+				02834B57230A9C9000B8BFB2 /* THCouponPresenter.m in Sources */,
 				0265CE6022F2C45E000363F0 /* THRegisterPresenter.m in Sources */,
 				0265CE6122F2C45E000363F0 /* THRegisterCtl.m in Sources */,
 				0265CE6222F2C45E000363F0 /* THMessagePresenter.m in Sources */,
@@ -3038,6 +3100,7 @@
 				0265CE6422F2C45E000363F0 /* THWalletHeaderModel.m in Sources */,
 				0265CE6522F2C45E000363F0 /* THGoodsListOfCollectionLayoutCell.m in Sources */,
 				0265CE6622F2C45E000363F0 /* THSpellGroupHeadCell.m in Sources */,
+				02834B71230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */,
 				0265CE6722F2C45E000363F0 /* THMineWalletHeaderView.m in Sources */,
 				0265CE6822F2C45E000363F0 /* YGWebViewController.m in Sources */,
 				0265CE6922F2C45E000363F0 /* GoodsModel.m in Sources */,
@@ -3055,6 +3118,7 @@
 				0265CE7522F2C45E000363F0 /* THAddressModel.m in Sources */,
 				0265CE7622F2C45E000363F0 /* THGoodsDetailBottomView.m in Sources */,
 				0265CE7722F2C45E000363F0 /* YGNetWorkTools.m in Sources */,
+				02834B65230A9D3A00B8BFB2 /* THWalletPresenter.m in Sources */,
 				0265CE7822F2C45E000363F0 /* THAddressCell.m in Sources */,
 				0265CE7922F2C45E000363F0 /* THAddressEditListCell.m in Sources */,
 				0265CE7A22F2C45E000363F0 /* MLLinkLabel.m in Sources */,
@@ -3073,6 +3137,7 @@
 				0265CE8722F2C45E000363F0 /* THTeHuiCell.m in Sources */,
 				0265CE8822F2C45E000363F0 /* ChoosTypeTableViewCell.m in Sources */,
 				0265CE8922F2C45E000363F0 /* THNavigationController.m in Sources */,
+				02834B69230A9D4700B8BFB2 /* THBankPresenter.m in Sources */,
 				0265CE8A22F2C45E000363F0 /* THBaseVC.m in Sources */,
 				0265CE8B22F2C45E000363F0 /* THShareView.m in Sources */,
 				0265CE8C22F2C45E000363F0 /* THModifyPwdVC.m in Sources */,
@@ -3145,6 +3210,7 @@
 				0265CECF22F2C45E000363F0 /* THFlashCell.m in Sources */,
 				0265CED022F2C45E000363F0 /* YYStarView.m in Sources */,
 				0265CED122F2C45E000363F0 /* THAlertViewModel.m in Sources */,
+				02834B4F230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */,
 				0265CED222F2C45E000363F0 /* MLEmojiLabel.m in Sources */,
 				0265CED322F2C45E000363F0 /* THHelpCenterCtl.m in Sources */,
 				0265CED422F2C45E000363F0 /* THShoppingCartListDelegate.m in Sources */,
@@ -3207,11 +3273,13 @@
 				0265CF0E22F2C45E000363F0 /* THGoodsCommentCell.m in Sources */,
 				0265CF0F22F2C45E000363F0 /* THGoodsSpecModel.m in Sources */,
 				0265CF1022F2C45E000363F0 /* THCommentVC.m in Sources */,
+				02834B6D230AA06200B8BFB2 /* THTaskModel.m in Sources */,
 				0265CF1122F2C45E000363F0 /* THTeHuiModel.m in Sources */,
 				0265CF1222F2C45E000363F0 /* THGoodsCommentHeaderView.m in Sources */,
 				0265CF1322F2C45E000363F0 /* THScanQRCodeVC.m in Sources */,
 				0265CF1422F2C45E000363F0 /* THHomeHeaderItemModel.m in Sources */,
-				0265CF1522F2C45E000363F0 /* THCouponsModel.m in Sources */,
+				0265CF1522F2C45E000363F0 /* THCouponModel.m in Sources */,
+				02834B5B230A9CB300B8BFB2 /* THAttentionPresenter.m in Sources */,
 				0265CF1622F2C45E000363F0 /* THMineOrderDetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3250,6 +3318,7 @@
 				02188AB322E5528700258F37 /* THOrderDetailPresenter.m in Sources */,
 				57CBC3CE2088E477007D6069 /* GoodsTypeModel.m in Sources */,
 				02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */,
+				02834B52230A9C7600B8BFB2 /* THInvitePresenter.m in Sources */,
 				8F31CBF4206A314300A48F2D /* THAlertLayer.m in Sources */,
 				022CD97E22DA239400A6518A /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				512D7908205B63F70088A4A0 /* THMineSectionCell.m in Sources */,
@@ -3269,6 +3338,7 @@
 				02188A9E22DF180D00258F37 /* THUserManager.m in Sources */,
 				022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */,
 				57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */,
+				02834B56230A9C9000B8BFB2 /* THCouponPresenter.m in Sources */,
 				02188AA922E16AA100258F37 /* THRegisterPresenter.m in Sources */,
 				04D0A310207116F7003BE300 /* THRegisterCtl.m in Sources */,
 				02DCC83022EAE5BC002602A5 /* THMessagePresenter.m in Sources */,
@@ -3276,6 +3346,7 @@
 				5133D1E620DD06B800DE632A /* THWalletHeaderModel.m in Sources */,
 				8F0DC29D20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.m in Sources */,
 				8F0DC2CA20624F83009AE20B /* THSpellGroupHeadCell.m in Sources */,
+				02834B70230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */,
 				0417B8752076F20E003566C4 /* THMineWalletHeaderView.m in Sources */,
 				02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */,
 				57CBC3D02088E477007D6069 /* GoodsModel.m in Sources */,
@@ -3293,6 +3364,7 @@
 				044AEE3E2098468700824A05 /* THAddressModel.m in Sources */,
 				04178F03207276EF0048875E /* THGoodsDetailBottomView.m in Sources */,
 				02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */,
+				02834B64230A9D3A00B8BFB2 /* THWalletPresenter.m in Sources */,
 				57CBC3DD2088EE0C007D6069 /* THAddressCell.m in Sources */,
 				044AEE422098A60400824A05 /* THAddressEditListCell.m in Sources */,
 				576EEAC62087A5510088B1EB /* MLLinkLabel.m in Sources */,
@@ -3311,6 +3383,7 @@
 				0265CE2822F2BD61000363F0 /* THTeHuiCell.m in Sources */,
 				57CBC3CC2088E477007D6069 /* ChoosTypeTableViewCell.m in Sources */,
 				04D0A326207134AE003BE300 /* THNavigationController.m in Sources */,
+				02834B68230A9D4700B8BFB2 /* THBankPresenter.m in Sources */,
 				04D0A327207134AE003BE300 /* THBaseVC.m in Sources */,
 				0486977520C06F1700C12DF7 /* THShareView.m in Sources */,
 				04493A7520B3257800B92A16 /* THModifyPwdVC.m in Sources */,
@@ -3383,6 +3456,7 @@
 				8F51688820747171005E956E /* THFlashCell.m in Sources */,
 				044A48A3207901A000DF1AAD /* YYStarView.m in Sources */,
 				8F31CBF1206A30D000A48F2D /* THAlertViewModel.m in Sources */,
+				02834B4E230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */,
 				576EEAC02087A5510088B1EB /* MLEmojiLabel.m in Sources */,
 				8F4D139A207A23120024C3D4 /* THHelpCenterCtl.m in Sources */,
 				8FC10B842073859300ED3FB8 /* THShoppingCartListDelegate.m in Sources */,
@@ -3445,11 +3519,13 @@
 				044A489F2078FFCC00DF1AAD /* THGoodsCommentCell.m in Sources */,
 				0448EB6B208E3022006E1E17 /* THGoodsSpecModel.m in Sources */,
 				044A48A920791F0700DF1AAD /* THCommentVC.m in Sources */,
+				02834B6C230AA06200B8BFB2 /* THTaskModel.m in Sources */,
 				04054DB420AEF7FC009CE4F1 /* THTeHuiModel.m in Sources */,
 				04178F14207297B60048875E /* THGoodsCommentHeaderView.m in Sources */,
 				04548D802070F2EB002F73C6 /* THScanQRCodeVC.m in Sources */,
 				512D78F9205A21C90088A4A0 /* THHomeHeaderItemModel.m in Sources */,
-				8F1712CA20721F1000EFDFCB /* THCouponsModel.m in Sources */,
+				8F1712CA20721F1000EFDFCB /* THCouponModel.m in Sources */,
+				02834B5A230A9CB300B8BFB2 /* THAttentionPresenter.m in Sources */,
 				04DD7E8020C9AFA80057884A /* THMineOrderDetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,19 +8,22 @@
 
 #import "THMineBankCardVC.h"
 #import "THMineBankCardListCell.h"
+#import "THBankPresenter.h"
 
-@interface THMineBankCardVC () <UITableViewDelegate, UITableViewDataSource>
+@interface THMineBankCardVC () <UITableViewDelegate, UITableViewDataSource, THBankProtocol>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
+@property (nonatomic, strong) THBankPresenter *bankPresenter;
 @end
 
 @implementation THMineBankCardVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _bankPresenter = [[THBankPresenter alloc] initPresenterWithProtocol:self];
 	[self setupUI];
 }
 

@@ -71,4 +71,10 @@
     return [[YGNetWorkTools sharedTools] upload:kUploadImageDataPath fileName:fileName parameters:nil data:imageData success:success failed:failed];
 }
 
++ (NSURLSessionTask *)getCouponListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] get:kCouponListPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:nil success:success failed:failed];
+}
+
 @end

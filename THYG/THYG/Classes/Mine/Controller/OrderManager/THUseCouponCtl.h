@@ -7,10 +7,10 @@
 //
 
 #import "THBaseVC.h"
-@class THCouponsModel;
+@class THCouponModel;
 
 @interface THUseCouponCtl : THBaseVC
 
-@property (nonatomic, copy) void(^selectCouponBlock)(THCouponsModel *couponModel);
+@property (nonatomic, copy) void(^selectCouponBlock)(THCouponModel *couponModel);
 
 @end

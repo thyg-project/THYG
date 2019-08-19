@@ -58,7 +58,7 @@
     kWeakSelf;
     UIAlertAction *takeCamera = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (![YGAuthTool cameraAuth]) {
-            [THAlertTools alertTitle:@"没有权限" message:@"" confirm:@"去开启" container:weakSelf confirmHandler:^{
+            [THAlertTools alertTitle:@"没有权限" message:nil confirm:@"去开启" container:weakSelf confirmHandler:^{
                 if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) {
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
                 }

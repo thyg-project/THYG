@@ -7,7 +7,7 @@
 //
 
 #import "THBaseCell.h"
-@class THCouponsModel;
+@class THCouponModel;
 typedef void(^btnClickBlock)(void);
 @interface THCouponsCell : THBaseCell
 
@@ -18,8 +18,8 @@ typedef void(^btnClickBlock)(void);
  0.已经领取，用户拥有的券
  1.未领取，领券中心
  */
-- (void)refreshWithModel:(THCouponsModel *)model type:(NSInteger)type;
+- (void)refreshWithModel:(THCouponModel *)model type:(NSInteger)type;
 
-@property (nonatomic, strong) THCouponsModel *modelData;
+@property (nonatomic, strong) THCouponModel *modelData;
 
 @end

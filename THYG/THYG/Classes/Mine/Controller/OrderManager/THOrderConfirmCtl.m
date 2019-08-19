@@ -14,7 +14,7 @@
 #import "THAddressVC.h"
 #import "THAddressModel.h"
 #import "THCartDetailModel.h"
-#import "THCouponsModel.h"
+#import "THCouponModel.h"
 #import "THOrderCouponModel.h"
 #import "THUseCouponCtl.h"
 #import "THPayMethodCtl.h"
@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *paytotalMoneyLabel;
 @property (nonatomic, strong) THCartDetailModel *modelData;
 @property (nonatomic, copy) NSString *invoiceNameParma;//发票抬头名称
-@property (nonatomic, strong) THCouponsModel *couponsModel;
+@property (nonatomic, strong) THCouponModel *couponsModel;
 @property (nonatomic, strong) THAddressModel *selectAddressModel;//当前选择的地址
 @property (nonatomic, strong) THOrderCouponModel *orderCouponModel;
 @end
@@ -39,7 +39,7 @@
     self = [super init];
     if (self) {
         self.invoiceNameParma = @"未开发票";
-        self.couponsModel = [[THCouponsModel alloc] init];
+        self.couponsModel = [[THCouponModel alloc] init];
     }
     return self;
 }
@@ -105,7 +105,7 @@
     }else if (indexPath.section == 4 && indexPath.row == 0){
         //选择优惠券
         THUseCouponCtl *selectCouponCtl = [[THUseCouponCtl alloc] init];
-        selectCouponCtl.selectCouponBlock = ^(THCouponsModel *couponModel) {
+        selectCouponCtl.selectCouponBlock = ^(THCouponModel *couponModel) {
             self.couponsModel = couponModel;
             [self.mTable reloadData];
         };

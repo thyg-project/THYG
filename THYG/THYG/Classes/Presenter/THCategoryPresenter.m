@@ -16,7 +16,7 @@
 }
 
 - (void)searchDataWithContent:(NSString *)content {
-    NSURLSessionTask *task = [YGNetworkCommon login:content psd:nil success:^(id responseObject) {
+    NSURLSessionTask *task = [YGNetworkCommon login:content pwd:nil success:^(id responseObject) {
         [self performToSelector:@selector(searchSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
         [self performToSelector:@selector(searchFailed:) params:errorInfo];

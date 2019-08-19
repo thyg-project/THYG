@@ -38,9 +38,5 @@
     }
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-//	self.iconImgView.image = [UIImage imageWithColor:RANDOMCOLOR];
-}
 
 @end

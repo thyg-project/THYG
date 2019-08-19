@@ -20,7 +20,7 @@
 }
 
 - (void)loginMobile:(NSString *)mobile pwd:(NSString *)pwd {
-    NSURLSessionTask *task = [YGNetworkCommon login:mobile psd:pwd success:^(id responseObject) {
+    NSURLSessionTask *task = [YGNetworkCommon login:mobile pwd:pwd success:^(id responseObject) {
         [self performToSelector:@selector(loginSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
         [self performToSelector:@selector(loginFailed:) params:errorInfo];

@@ -77,4 +77,16 @@
     } parameters:nil success:success failed:failed];
 }
 
++ (NSURLSessionTask *)getBankListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] get:kBankListPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:nil success:success failed:failed];
+}
+
++ (NSURLSessionTask *)getWalletInfoSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] get:kWalletInfoPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:nil success:success failed:failed];
+}
+
 @end

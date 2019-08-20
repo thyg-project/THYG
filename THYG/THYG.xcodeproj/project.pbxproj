@@ -369,6 +369,8 @@
 		02834B6D230AA06200B8BFB2 /* THTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6B230AA06200B8BFB2 /* THTaskModel.m */; };
 		02834B70230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */; };
 		02834B71230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */; };
+		02834B74230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
+		02834B75230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
@@ -751,6 +753,9 @@
 		02834B6B230AA06200B8BFB2 /* THTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTaskModel.m; sourceTree = "<group>"; };
 		02834B6E230AA13100B8BFB2 /* THInviteInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInviteInfoModel.h; sourceTree = "<group>"; };
 		02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THInviteInfoModel.m; sourceTree = "<group>"; };
+		02834B72230B897100B8BFB2 /* THUserInfoPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoPresenter.h; sourceTree = "<group>"; };
+		02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserInfoPresenter.m; sourceTree = "<group>"; };
+		02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoProtocol.h; sourceTree = "<group>"; };
 		02C377C222C324700038AC5A /* YGNetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetWorkTools.h; sourceTree = "<group>"; };
 		02C377C322C324700038AC5A /* YGNetworkCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetworkCommon.m; sourceTree = "<group>"; };
 		02C377C522C324700038AC5A /* YGEncryptTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEncryptTool.h; sourceTree = "<group>"; };
@@ -1392,6 +1397,7 @@
 				02834B5F230A9D0000B8BFB2 /* THTaskProtocol.h */,
 				02834B60230A9D1300B8BFB2 /* THWalletProtocol.h */,
 				02834B61230A9D2500B8BFB2 /* THBankProtocol.h */,
+				02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1429,6 +1435,8 @@
 				02834B63230A9D3A00B8BFB2 /* THWalletPresenter.m */,
 				02834B66230A9D4700B8BFB2 /* THBankPresenter.h */,
 				02834B67230A9D4700B8BFB2 /* THBankPresenter.m */,
+				02834B72230B897100B8BFB2 /* THUserInfoPresenter.h */,
+				02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -3153,6 +3161,7 @@
 				0265CE9622F2C45E000363F0 /* CountView.m in Sources */,
 				0265CE9722F2C45E000363F0 /* THMineOrderDetailToolView.m in Sources */,
 				0265CE9822F2C45E000363F0 /* THOrderCouponModel.m in Sources */,
+				02834B75230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */,
 				0265CE9922F2C45E000363F0 /* THMineHeaderView.m in Sources */,
 				0265CE9A22F2C45E000363F0 /* THMineOrderFooterView.m in Sources */,
 				0265CE9B22F2C45E000363F0 /* THMoreSpellGroupListCell.m in Sources */,
@@ -3399,6 +3408,7 @@
 				57CBC3C92088E477007D6069 /* CountView.m in Sources */,
 				042BB82B20CAF4E500E8FB93 /* THMineOrderDetailToolView.m in Sources */,
 				57D5103C20C6E01D00B78087 /* THOrderCouponModel.m in Sources */,
+				02834B74230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */,
 				512D797B205E671E0088A4A0 /* THMineHeaderView.m in Sources */,
 				515EB86920C966B600890072 /* THMineOrderFooterView.m in Sources */,
 				8F0DC2B3206235F8009AE20B /* THMoreSpellGroupListCell.m in Sources */,

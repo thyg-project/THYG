@@ -28,6 +28,8 @@ static NSString *const kInviteListPath = @"";
 static NSString *const kAttentionListPath = @"";
 static NSString *const kUploadImageDataPath = @"";
 static NSString *const kCouponListPath = @"";
+static NSString *const kBankListPath = @"";
+static NSString *const kWalletInfoPath = @"";
 
 #else
 //正式环境
@@ -44,6 +46,8 @@ static NSString *const kInviteListPath = @"";
 static NSString *const kAttentionListPath = @"";
 static NSString *const kUploadImageDataPath = @"";
 static NSString *const kCouponListPath = @"";
+static NSString *const kBankListPath = @"";
+static NSString *const kWalletInfoPath = @"";
 
 
 #endif

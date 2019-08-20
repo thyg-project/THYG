@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _presenter = [[THAttentionPresenter alloc] initPresenterWithProtocol:self];
+    [_presenter getAttentionInfo];
     self.navigationItem.title = self.type? @"浏览记录" :@"我的关注";
     [self.view addSubview:self.mTable];
     [self autoLayoutSizeContentView:self.mTable];

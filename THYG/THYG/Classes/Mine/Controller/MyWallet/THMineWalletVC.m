@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _walletPresenter = [[THWalletPresenter alloc] initPresenterWithProtocol:self];
+    [_walletPresenter getWalletInfo];
     [self setupUI];
 }
 
@@ -116,6 +117,14 @@
         };
     }
     return _walletView;
+}
+
+- (void)getWalletInfoSuccess:(id)response {
+    
+}
+
+- (void)getWalletInfoFailed:(NSDictionary *)errorInfo {
+    
 }
 
 @end

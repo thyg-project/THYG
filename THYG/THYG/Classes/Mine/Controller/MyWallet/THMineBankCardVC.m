@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _bankPresenter = [[THBankPresenter alloc] initPresenterWithProtocol:self];
+    [_bankPresenter getBankList];
 	[self setupUI];
 }
 
@@ -60,6 +61,14 @@
 	if (section == 1) {
 	}
 	return nil;
+}
+
+- (void)getBankListFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getBankListSuccess:(NSArray<THBankCardModel *> *)response {
+    _dataSource = response.mutableCopy;
 }
 
 @end

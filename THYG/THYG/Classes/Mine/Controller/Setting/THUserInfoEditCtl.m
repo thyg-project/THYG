@@ -11,8 +11,11 @@
 #import "THSelectedCategoryView.h"
 #import "THAlertTools.h"
 #import "YGAuthTool.h"
+#import "THUserInfoPresenter.h"
 
-@interface THUserInfoEditCtl () <THSelectTimeViewDelegate, UITextFieldDelegate, THCategoryDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface THUserInfoEditCtl () <THSelectTimeViewDelegate, UITextFieldDelegate, THCategoryDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, THUserInfoProtocol> {
+    UIImage *_selectedImage;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sexBtn;
@@ -28,6 +31,7 @@
 @property (nonatomic, copy) NSMutableDictionary *params;
 
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
+@property (nonatomic, strong) THUserInfoPresenter *presenter;
 
 @end
 
@@ -36,6 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息编辑";
+    _presenter = [[THUserInfoPresenter alloc] initPresenterWithProtocol:self];
     self.avatarImgView.layer.masksToBounds = YES;
     self.avatarImgView.layer.cornerRadius = 40;
     self.nickNameLabel.delegate = self.professionalField.delegate = self;
@@ -171,11 +176,28 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    _selectedImage = info[UIImagePickerControllerEditedImage];
     kWeakSelf;
     [picker dismissViewControllerAnimated:YES completion:^{
-        weakSelf.avatarImgView.image = selectedImage;
+        [weakSelf.presenter uploadImage:_selectedImage fileName:@"aaa"];
     }];
+}
+
+#pragma mark --
+- (void)updateUserInfoSuccess:(id)response {
+    self.avatarImgView.image = _selectedImage;
+}
+
+- (void)updateUserInfoFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)uploadImageFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)uploadImageSuccess:(id)response {
+    [self.presenter updateAvatar:response];
 }
 
 @end

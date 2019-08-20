@@ -11,7 +11,12 @@
 @implementation THBankPresenter
 
 - (void)getBankList {
-    
+    NSURLSessionTask *task = [YGNetworkCommon getBankListSuccess:^(id responseObject) {
+        [self performToSelector:@selector(getBankListSuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(getBankListFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
 }
 
 @end

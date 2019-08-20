@@ -29,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _couponPresenter = [[THCouponPresenter alloc] initPresenterWithProtocol:self];
+    [_couponPresenter getCouponList];
     self.navigationItem.title = @"优惠券";
     _filterView = [[THFilterView alloc] initWithDatas:@[@"全部",@"通用券",@"指定券",@"筛选"]];
     _filterView.delegate = self;

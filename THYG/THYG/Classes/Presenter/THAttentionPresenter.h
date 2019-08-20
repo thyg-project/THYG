@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface THAttentionPresenter : THBasePresenter
 
+- (void)getAttentionInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

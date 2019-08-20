@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface THWalletPresenter : THBasePresenter
 
+- (void)getWalletInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

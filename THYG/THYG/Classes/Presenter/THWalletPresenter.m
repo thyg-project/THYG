@@ -10,4 +10,13 @@
 
 @implementation THWalletPresenter
 
+- (void)getWalletInfo {
+    NSURLSessionTask *task = [YGNetworkCommon getWalletInfoSuccess:^(id responseObject) {
+        [self performToSelector:@selector(getWalletInfoSuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(getWalletInfoFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
+}
+
 @end

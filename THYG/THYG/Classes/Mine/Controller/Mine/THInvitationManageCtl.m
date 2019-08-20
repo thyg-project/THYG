@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _invitePresenter = [[THInvitePresenter alloc] initPresenterWithProtocol:self];
+    [_invitePresenter getInviteData];
     self.navigationItem.title = @"邀请管理";
     _curIndex = 1;
     _filterView = [[THFilterView alloc] initWithDatas:@[@"我的供应商",@"我的注册会员",@"推荐有奖"]];

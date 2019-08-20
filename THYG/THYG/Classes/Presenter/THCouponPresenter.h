@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface THCouponPresenter : THBasePresenter
 
+- (void)getCouponList;
+
 @end
 
 NS_ASSUME_NONNULL_END

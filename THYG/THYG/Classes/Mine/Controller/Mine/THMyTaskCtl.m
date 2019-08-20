@@ -22,6 +22,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"任务中心";
     _taskPresenter = [[THTaskPresenter alloc] initPresenterWithProtocol:self];
+    [_taskPresenter getTaskListData];
     [self.view addSubview:self.mTable];
     [self autoLayoutSizeContentView:self.mTable];
     [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -31,7 +32,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.data.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,13 +58,12 @@
     return _mTable;
 }
 
-
 - (void)getTaskListFailed:(NSDictionary *)errorInfo {
     
 }
 
 - (void)getTaskListSuccess:(NSArray<THTaskModel *> *)response {
-    
+    self.data = response.mutableCopy;
 }
 
 @end

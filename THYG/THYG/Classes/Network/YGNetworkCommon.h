@@ -12,30 +12,58 @@
 
 @interface YGNetworkCommon : NSObject
 //登录
-+ (NSURLSessionTask *)login:(NSString *)userName pwd:(NSString *)pwd success:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)login:(NSString *)userName
+                        pwd:(NSString *)pwd
+                    success:(SuccessBlock)success
+                     failed:(FailedBlock)failed;
 
 //注册
-+ (NSURLSessionTask *)registerUser:(NSString *)mobile success:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)registerUser:(NSString *)mobile
+                           success:(SuccessBlock)success
+                            failed:(FailedBlock)failed;
 
 //验证码
-+ (NSURLSessionTask *)sendVerifyCode:(NSString *)mobile success:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)sendVerifyCode:(NSString *)mobile
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
 
 //获取用户信息
-+ (NSURLSessionTask *)getUserInfo:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)getUserInfo:(SuccessBlock)success
+                           failed:(FailedBlock)failed;
 
 //我的晒单
-+ (NSURLSessionTask *)getNoboxingListSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)getNoboxingListSuccess:(SuccessBlock)success
+                                      failed:(FailedBlock)failed;
 
 //任务列表
-+ (NSURLSessionTask *)getTaskListSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)getTaskListSuccess:(SuccessBlock)success
+                                  failed:(FailedBlock)failed;
 
 //邀请管理
-+ (NSURLSessionTask *)inviteListSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)inviteListSuccess:(SuccessBlock)success
+                                 failed:(FailedBlock)failed;
 
 //关注列表
-+ (NSURLSessionTask *)attentionListSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)attentionListSuccess:(SuccessBlock)success
+                                    failed:(FailedBlock)failed;
 
-+ (NSURLSessionTask *)getCouponListSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
++ (NSURLSessionTask *)getCouponListSuccess:(SuccessBlock)success
+                                    failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)getBankListSuccess:(SuccessBlock)success
+                                  failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)getWalletInfoSuccess:(SuccessBlock)success
+                                    failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)uploadImage:(NSData *)imageData
+                         fileName:(NSString *)fileName
+                          success:(SuccessBlock)success
+                           failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)updateUserInfo:(NSDictionary *)params
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
 
 @end
 

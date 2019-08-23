@@ -10,8 +10,6 @@
 
 @implementation THFlashSaleModel
 
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"iD":@"id", @"descript":@"description"};
-}
+
 
 @end

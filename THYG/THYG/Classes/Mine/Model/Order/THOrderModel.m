@@ -14,13 +14,6 @@
 
 @implementation THOrderListModel
 
-+ (NSDictionary *)mj_objectClassInArray {
-    return @{@"goods_list":@"THOrderGoodsListModel"};
-}
-
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
-    return @{@"iD":@"id"};
-}
 
 /**
  'WAITPAY' => '待支付',

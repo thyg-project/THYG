@@ -33,7 +33,7 @@
 - (void)setModelData:(THCartGoodsModel *)modelData {
     _modelData = modelData;
     selectBtn.selected = _modelData.selected;
-    [goodsImgV sd_setImageWithURL:[NSURL URLWithString:_modelData.goods.original_img] placeholderImage:nil];
+    [goodsImgV setImageURL:[NSURL URLWithString:_modelData.goods.original_img]];
     goodsNameLabel.text = _modelData.goods.goods_name;
     goodsPriceLabel.text = [NSString stringWithFormat:@"￥%.2lf",[_modelData.goods.shop_price floatValue]];
     self.changeView.numberFD.text = [NSString stringWithFormat:@"%ld",_modelData.goods_num];

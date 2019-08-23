@@ -30,7 +30,7 @@
 
 - (void)setItemDict:(NSDictionary *)itemDict {
 	_itemDict = itemDict;
-	[self.iconImgView sd_setImageWithURL:[NSURL URLWithString:itemDict[@"image"]] placeholderImage:[UIImage imageNamed:itemDict[@"image"]]];
+    [self.iconImgView setImageWithURL:[NSURL URLWithString:itemDict[@"image"]] placeholder:[UIImage imageNamed:itemDict[@"image"]]];
     if ([itemDict.allKeys containsObject:@"mobile_name"]) {
         self.nameLabel.text = itemDict[@"mobile_name"];
     } else {

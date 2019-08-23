@@ -20,7 +20,6 @@
 
 //第三方库
 #import <Masonry/Masonry.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 //#import <HDAlertView/HDAlertView.h>
 
 

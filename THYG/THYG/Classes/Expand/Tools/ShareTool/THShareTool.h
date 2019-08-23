@@ -34,11 +34,12 @@ typedef void (^failure)(NSError *error);
  *  @param shareImage   分享图片
  */
 + (void)shareGraphicToPlatformType:(UMSocialPlatformType)platformType
-					  ContentText:(NSString *)ContentText
-						thumbnail:(id)thumbnail
-					   shareImage:(id)shareImage
-						  success:(success)success
-						  failure:(failure)failure;
+                       contentText:(NSString *)ContentText
+                         thumbnail:(id)thumbnail
+                        shareImage:(id)shareImage
+                  currentContainer:(UIViewController *)container
+                           success:(success)success
+                           failure:(failure)failure;
 /**
  *  多媒体分享	·
  *
@@ -51,14 +52,15 @@ typedef void (^failure)(NSError *error);
  *  @param StreamUrl          数据流地址
  */
 + (void)shareMultimediaToPlatformType:(UMSocialPlatformType)platformType
-					ShareContentType:(ShareContentType)ShareContentType
-							   title:(NSString *)title
-				  contentDescription:(NSString *)contentDescription
-						   thumbnail:(id)thumbnail
-								 url:(NSString *)url
-						   StreamUrl:(NSString *)StreamUrl
-							 success:(success)success
-							 failure:(failure)failure;
+                     shareContentType:(ShareContentType)ShareContentType
+                                title:(NSString *)title
+                   contentDescription:(NSString *)contentDescription
+                            thumbnail:(id)thumbnail
+                                  url:(NSString *)url
+                            streamUrl:(NSString *)StreamUrl
+                     currentContainer:(UIViewController *)container
+                              success:(success)success
+                              failure:(failure)failure;
 
 
 

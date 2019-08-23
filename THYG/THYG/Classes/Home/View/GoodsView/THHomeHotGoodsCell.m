@@ -23,7 +23,7 @@
 
 - (void)setGoodsModel:(THGoodsModel *)goodsModel {
     _goodsModel = goodsModel;
-    [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:_goodsModel.original_img] placeholderImage:nil];
+    [self.goodsImageView setImageURL:[NSURL URLWithString:_goodsModel.original_img]];
     self.goodNameLabel.text = _goodsModel.goods_name;
     self.goodsMarketPriceLabel.text = _goodsModel.shop_price;
     self.highOpinionLabel.text = [NSString stringWithFormat:@"%@条评价",_goodsModel.comment_count];

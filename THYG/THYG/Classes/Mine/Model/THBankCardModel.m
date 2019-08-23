@@ -9,7 +9,5 @@
 #import "THBankCardModel.h"
 
 @implementation THBankCardModel
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
-    return @{@"idField":@"id"};
-}
+
 @end

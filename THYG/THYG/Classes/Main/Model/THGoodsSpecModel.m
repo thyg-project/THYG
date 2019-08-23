@@ -10,16 +10,6 @@
 
 @implementation THGoodsSpecModel
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
-    return @{@"defaultSpec":@"default"};
-}
-
-
-+ (NSDictionary *)mj_objectClassInArray {
-    return @{@"filter_spec":[THFilterSpecModel class],
-             @"spec_goods_price":[THSpecDefaultModel class]
-             };
-}
 
 @end
 

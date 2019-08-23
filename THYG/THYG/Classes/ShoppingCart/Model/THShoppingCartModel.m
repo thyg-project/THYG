@@ -17,18 +17,10 @@
 @end
 
 @implementation THCartGoodsModel
-+ (NSDictionary *)mj_replacedKeyFromPropertyName
-{
-    return @{@"cid":@"id"};
-}
+
 @end
 
 @implementation THShoppingCartModel
 
-+ (NSDictionary *)mj_objectClassInArray
-{
-    return @{@"cart":@"THCartGoodsModel"
-             };
-}
 
 @end

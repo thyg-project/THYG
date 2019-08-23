@@ -25,6 +25,8 @@
 // 选择分享
 @property (nonatomic, copy) void(^selectItemBlock)(NSInteger index);
 
+@property (nonatomic, weak) UIViewController *container;
+
 
 
 /**

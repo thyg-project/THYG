@@ -58,14 +58,12 @@
 - (void)initData:(GoodsModel *)model {
     _model = model;
     [_goodsImage setImage:[UIImage imageNamed:model.imageId]];
-    [_goodsImage sd_setImageWithURL:[NSURL URLWithString:[@"" stringByAppendingString:model.imageId]] placeholderImage:nil];
+    [_goodsImage setImageURL:[NSURL URLWithString:[@"" stringByAppendingString:model.imageId]]];
     _goodsTitleLabel.text = model.title;
     _goodsCountLabel.text = [NSString stringWithFormat:@"库存：%@",model.totalStock];
     _goodsPriceLabel.text = [NSString stringWithFormat:@"¥%@ ¥%@",model.price.minPrice,model.price.minOriginalPrice];
     NSMutableAttributedString *attritu = [[NSMutableAttributedString alloc]initWithString:_goodsPriceLabel.text];
-    [attritu addAttributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleThick), NSForegroundColorAttributeName: [UIColor lightGrayColor],NSBaselineOffsetAttributeName:@(0),
-                             NSFontAttributeName: [UIFont systemFontOfSize:13]
-                             } range:[_goodsPriceLabel.text rangeOfString:[NSString stringWithFormat:@"¥%@",model.price.minOriginalPrice]]];
+    [attritu addAttributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleThick), NSForegroundColorAttributeName: [UIColor lightGrayColor],NSBaselineOffsetAttributeName:@(0),NSFontAttributeName: [UIFont systemFontOfSize:13]} range:[_goodsPriceLabel.text rangeOfString:[NSString stringWithFormat:@"¥%@",model.price.minOriginalPrice]]];
     _goodsPriceLabel.attributedText = attritu;
 }
 

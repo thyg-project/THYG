@@ -14,12 +14,7 @@
 
 @implementation THShareTool
 
-+ (void)shareGraphicToPlatformType:(UMSocialPlatformType)platformType
-					  ContentText:(NSString *)ContentText
-						thumbnail:(id)thumbnail
-					   shareImage:(id)shareImage
-						  success:(success)success
-						  failure:(failure)failure {
++ (void)shareGraphicToPlatformType:(UMSocialPlatformType)platformType contentText:(NSString *)ContentText thumbnail:(id)thumbnail shareImage:(id)shareImage currentContainer:(UIViewController *)container success:(success)success failure:(failure)failure {
 	UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
 	ContentText ? (messageObject.text = ContentText) : nil;
 	UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
@@ -27,7 +22,7 @@
 	[shareObject setShareImage:shareImage];
 	messageObject.shareObject = shareObject;
 	
-	[[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+	[[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:container completion:^(id data, NSError *error) {
 		if (error) {
 			failure(error);
 		}else{
@@ -36,15 +31,7 @@
 	}];
 }
 
-+ (void)shareMultimediaToPlatformType:(UMSocialPlatformType)platformType
-					ShareContentType:(ShareContentType)ShareContentType
-							   title:(NSString *)title
-				  contentDescription:(NSString *)contentDescription
-						   thumbnail:(id)thumbnail
-								 url:(NSString *)url
-						   StreamUrl:(NSString *)StreamUrl
-							 success:(success)success
-							 failure:(failure)failure {
++ (void)shareMultimediaToPlatformType:(UMSocialPlatformType)platformType shareContentType:(ShareContentType)ShareContentType title:(NSString *)title contentDescription:(NSString *)contentDescription thumbnail:(id)thumbnail url:(NSString *)url streamUrl:(NSString *)StreamUrl currentContainer:(UIViewController *)container success:(success)success failure:(failure)failure {
 	UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
 	
 	switch (ShareContentType) {
@@ -75,7 +62,7 @@
 			break;
 	}
 	
-	[[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+	[[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:container completion:^(id data, NSError *error) {
 		if (error) {
 			failure(error);
 		}else{
@@ -92,7 +79,7 @@
     [UMConfigure setLogEnabled:NO];
 #endif
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"" appSecret:@"" redirectURL:@""];
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"" appSecret:@"" redirectURL:@""];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:UMENG_APPKEY appSecret:@"" redirectURL:@""];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"" appSecret:@"" redirectURL:@""];
 }
 

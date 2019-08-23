@@ -105,7 +105,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
-    if (!self.shareObject) {
+    if (!self.shareObject || !self.container) {
         return;
     }
     BLOCK(self.selectItemBlock,indexPath.item);
@@ -131,10 +131,10 @@
         return;
     }
     if (type != UMSocialPlatformType_UnKnown) {
-        [THShareTool shareGraphicToPlatformType:type ContentText:self.shareObject.content thumbnail:self.shareObject.thumbnail shareImage:self.shareObject.shareImage success:^(id result) {
-            [THHUDProgress showMsg:@"分享成功"];
+        [THShareTool shareGraphicToPlatformType:type contentText:self.shareObject.content thumbnail:self.shareObject shareImage:self.shareObject.thumbnail currentContainer:self.container success:^(id result) {
+             [THHUDProgress showMsg:@"分享成功"];
         } failure:^(NSError *error) {
-            [THHUDProgress showMsg:@"分享失败"];
+             [THHUDProgress showMsg:@"分享失败"];
         }];
     }
     

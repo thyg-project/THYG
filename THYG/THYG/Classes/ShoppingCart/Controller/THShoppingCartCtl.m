@@ -36,6 +36,7 @@
 - (THShareView *)shareView {
     if (!_shareView) {
         _shareView = [[THShareView alloc] initShareView];
+        _shareView.container = self;
         [_shareView setSelectItemBlock:^(NSInteger index) {
             
         }];
@@ -86,6 +87,7 @@
 - (void)share:(THCardSettleView *)settleView {
     THShareObject *object = [THShareObject new];
     object.content = @"购物车";
+    object.thumbnail = [UIImage imageNamed:@"AppIcon"];
     self.shareView.shareObject = object;
     [self.shareView showInView:self.tabBarController.view];
 }
@@ -96,11 +98,10 @@
 
 - (void)selectedAll:(THCardSettleView *)settleView selected:(BOOL)selected {
     if (selected) {
-         [_settleView updateContentText:@"合计：¥0.00"];
+        [_settleView updateContentText:@"合计：¥0.00"];
     } else {
-         [_settleView updateContentText:nil];
+        [_settleView updateContentText:nil];
     }
-   
 }
 
 - (void)move:(THCardSettleView *)settleView {

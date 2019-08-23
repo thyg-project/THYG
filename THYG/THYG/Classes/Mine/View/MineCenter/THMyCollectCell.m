@@ -26,7 +26,7 @@
     if (![modelData.original_img containsString:@"http://"]) {
         modelData.original_img = [@"http://th1818.bingogd.com/" stringByAppendingString:modelData.original_img];
     }
-    [goodsImgV sd_setImageWithURL:[NSURL URLWithString:modelData.original_img] placeholderImage:nil];
+    [goodsImgV setImageURL:[NSURL URLWithString:modelData.original_img]];
     goodsNameLabel.text = _modelData.goods_name;
     goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@",_modelData.shop_price];
 }

@@ -14,14 +14,6 @@
 
 @implementation THAddressPCDModel
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
-    return @{@"iD":@"id"};
-}
 
-+ (NSDictionary *)mj_objectClassInArray {
-    return @{@"cityList":@"THAddressPCDModel",
-             @"districtList":@"THAddressPCDModel"
-             };
-}
 
 @end

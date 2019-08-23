@@ -40,8 +40,7 @@
 
 - (void)setCommentModel:(THGoodsCommentModel *)commentModel {
     _commentModel = commentModel;
-    
-    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:_commentModel.head_pic] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [self.iconImgView setImageWithURL:[NSURL URLWithString:_commentModel.head_pic] placeholder:nil options:YYWebImageOptionIgnoreDiskCache completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         if (!error) {
             self.iconImgView.image = [image circleImage];
         }

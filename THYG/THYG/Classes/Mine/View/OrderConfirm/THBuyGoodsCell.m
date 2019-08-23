@@ -19,7 +19,7 @@
 
 - (void)setModelData:(THCartGoodListModel *)modelData {
     _modelData = modelData;
-    [goodsImgV sd_setImageWithURL:[NSURL URLWithString:_modelData.goods.original_img] placeholderImage:nil];
+    [goodsImgV setImageURL:[NSURL URLWithString:_modelData.goods.original_img]];
     goodsNameLabel.text = _modelData.goods_name;
     goodsSpecValueLabel.text = _modelData.spec_key_name;
     goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@",_modelData.goods_price];

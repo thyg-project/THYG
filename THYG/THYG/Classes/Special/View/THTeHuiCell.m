@@ -105,7 +105,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
 
 - (void)setTeModel:(THTeHuiModel *)teModel {
     _teModel = teModel;
-    [_avatarImgView sd_setImageWithURL:[NSURL URLWithString:_teModel.head_pic] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [_avatarImgView setImageWithURL:[NSURL URLWithString:_teModel.head_pic] placeholder:nil options:YYWebImageOptionIgnoreDiskCache completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         if (!error) {
             _avatarImgView.image = [image circleImage];
         } else {
@@ -117,7 +117,7 @@ CGFloat maxContentLblHeight = 0; // 根据具体font而定
     _timeLabel.text = _teModel.add_time;
     _contentLabel.text = _teModel.content;
     //    _picContainerView.picPathStringsArray = _teModel.img;
-    [_iconImgView sd_setImageWithURL:[NSURL URLWithString:_teModel.original_img] placeholderImage:[UIImage imageNamed:@"chanpintu"]];
+    [_iconImgView setImageWithURL:[NSURL URLWithString:_teModel.original_img] placeholder:[UIImage imageNamed:@"chanpintu"]];
     _buttonSubLabel.text = _teModel.goods_name;
     
     [_buttonArr[0] setTitle:[NSString stringWithFormat:@"%ld", _teModel.forward_num] forState:UIControlStateNormal];

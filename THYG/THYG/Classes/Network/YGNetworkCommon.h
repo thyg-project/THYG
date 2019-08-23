@@ -65,5 +65,9 @@
                              success:(SuccessBlock)success
                               failed:(FailedBlock)failed;
 
++ (NSURLSessionTask *)signForState:(BOOL)state
+                           success:(SuccessBlock)success
+                            failed:(FailedBlock)failed;
+
 @end
 

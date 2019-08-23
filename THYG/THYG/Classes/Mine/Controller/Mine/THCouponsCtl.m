@@ -104,6 +104,11 @@
     
     [self.titleBtnView setTitle:item forState:UIControlStateNormal];
     self.type = index;
+    if (index == 0) {
+        [self.couponPresenter getCouponList];
+    } else {
+        [self.couponPresenter getCouponCenterData];
+    }
     [self.mTable reloadData];
 }
 
@@ -142,6 +147,14 @@
 }
 
 - (void)getCouponListFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getCouponCenterFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getCouponCenterSuccess:(NSArray<THCouponModel *> *)response {
     
 }
 

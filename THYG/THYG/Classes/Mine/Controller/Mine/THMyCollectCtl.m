@@ -63,4 +63,13 @@
     }
     return _mTable;
 }
+
+#pragma mark --
+- (void)getAttentionDataFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getAttentionDataSuccess:(NSArray<THMyCollectModel *> *)response {
+    self.data = response.modelCopy;
+}
 @end

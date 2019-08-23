@@ -22,18 +22,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    if (self.balanceCateType != recommandBalanceType) {
-        self.headView.hidden = YES;
-    }
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self autoLayoutSizeContentView:self.tableView];
     [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
+    if (self.balanceCateType != recommandBalanceType) {
+        self.headView.hidden = YES;
+        [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+    } else {
+        [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(self.view);
+            make.top.equalTo(self.headView.mas_bottom);
+        }];
+    }
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(THAccountDetailCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THAccountDetailCell.class)];
 }
 

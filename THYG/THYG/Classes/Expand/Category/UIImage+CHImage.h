@@ -23,10 +23,10 @@
 + (UIImage*)imageWithColor:(UIColor*)color;
 
 /**  返回圆形图片*/
-- (instancetype)circleImage;
+- (UIImage *)circleImage;
 
 /**  返回圆形图片*/
-+ (instancetype)circleImageWithName:(NSString *)name;
++ (UIImage *)circleImageWithName:(NSString *)name;
 
 /**
  *  图片的压缩方法
@@ -39,7 +39,7 @@
 + (UIImage *)imgCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth;
 
 
-+ (instancetype)stretchableImage:(NSString *)imageName;
++ (UIImage *)stretchableImage:(NSString *)imageName;
 
 // 改变图像的尺寸
 + (UIImage *)resizeImage:(NSString *)imageName;
@@ -50,12 +50,5 @@
  *  创建自定义占位图片
  */
 + (UIImage *)createPlaceholderImageWithSize:(CGSize)size;
-
-/**
- *  根据设置图片,并根据图片大小设置view大小
- *
- *  @param img 要传入的图片
- */
-- (void)setImgAndSizeWithImg:(UIImage *)img;
 
 @end

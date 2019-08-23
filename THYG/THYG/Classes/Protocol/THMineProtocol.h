@@ -12,6 +12,10 @@
 
 - (void)getLocalDataSuccess:(NSArray <NSArray <NSString *>*>*)datas;
 
+- (void)signSuccess:(NSDictionary *)response;
+
+- (void)signFailed:(NSDictionary *)errorInfo;
+
 @end
 
 

@@ -10,7 +10,7 @@
 
 @implementation UIImage (CHImage)
 
-+ (UIImage*)systemImageToGray:(UIImage*)image {
++ (UIImage *)systemImageToGray:(UIImage*)image {
     int width = image.size.width;
     int height = image.size.height;
     
@@ -45,7 +45,7 @@
     return [img imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
-+ (UIImage*)imageWithColor:(UIColor*)color {
++ (UIImage *)imageWithColor:(UIColor*)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -56,7 +56,7 @@
     return theImage;
 }
 
-- (instancetype)circleImage {
+- (UIImage *)circleImage {
     // 开启图形上下文
     UIGraphicsBeginImageContext(self.size);
     // 获得上下文
@@ -76,7 +76,7 @@
     return  image;
 }
 
-+ (instancetype)circleImageWithName:(NSString *)name {
++ (UIImage *)circleImageWithName:(NSString *)name {
     return [[self imageNamed:name] circleImage];
 }
 
@@ -127,7 +127,7 @@
     return newImage;
 }
 
-+ (instancetype)stretchableImage:(NSString *)imageName {
++ (UIImage *)stretchableImage:(NSString *)imageName {
     UIImage *image = [UIImage imageNamed:imageName];
     image  = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
     return image;
@@ -180,10 +180,6 @@
 + (UIImage *)createPlaceholderImageWithSize:(CGSize)size {
 //    Color_G7
     return [self placeholderImageWithSize:size image:[UIImage imageNamed:@"ad_normal"] backgroundColor:kBackgroundColor];
-}
-
-- (void)setImgAndSizeWithImg:(UIImage *)img{
-    
 }
 
 @end

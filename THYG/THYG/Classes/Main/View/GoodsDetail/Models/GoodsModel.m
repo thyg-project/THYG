@@ -10,9 +10,5 @@
 #import "GoodsModel.h"
 
 @implementation GoodsModel
-//+ (NSDictionary *)replacedKeyFromPropertyName {
-//    
-//    return @{@"groupid": @"id"};
-//    
-//}
+
 @end

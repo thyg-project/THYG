@@ -19,4 +19,13 @@
     [self getTask:task];
 }
 
+- (void)getCouponCenterData {
+    NSURLSessionTask *task = [YGNetworkCommon getCouponListSuccess:^(id responseObject) {
+        [self performToSelector:@selector(getCouponCenterSuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(getCouponCenterFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
+}
+
 @end

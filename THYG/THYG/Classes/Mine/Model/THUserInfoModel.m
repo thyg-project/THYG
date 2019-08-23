@@ -12,6 +12,12 @@
 @implementation THUserInfoModel
 
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    return [self modelInitWithCoder:aDecoder];
+}
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [self modelEncodeWithCoder:aCoder];
+}
 
 @end

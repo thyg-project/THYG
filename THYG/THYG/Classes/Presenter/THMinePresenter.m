@@ -15,4 +15,13 @@
     [self performToSelector:@selector(getLocalDataSuccess:) params:data];
 }
 
+- (void)sign {
+    NSURLSessionTask *task = [YGNetworkCommon signForState:YES success:^(id responseObject) {
+        [self performToSelector:@selector(signSuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(signFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
+}
+
 @end

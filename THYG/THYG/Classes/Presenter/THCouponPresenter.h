@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getCouponList;
 
+- (void)getCouponCenterData;
+
 @end
 
 NS_ASSUME_NONNULL_END

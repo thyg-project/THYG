@@ -12,11 +12,10 @@
 
 @implementation THCommentHead
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-//        THCommentCateView *commentCate = [[THCommentCateView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
+
     }
     return self;
 }

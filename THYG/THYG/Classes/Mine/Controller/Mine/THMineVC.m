@@ -13,19 +13,11 @@
 #import "THMineHeaderView.h"
 #import "THLoginVC.h"
 #import "THMineShareQRCodeVC.h"
-#import "THMineSubmitApplicationVC.h"
 #import "THMyCollectCtl.h"
-#import "THMyFootprintCtl.h"
-#import "THCouponsCtl.h"
-#import "THInvitationManageCtl.h"
-#import "THMyTaskCtl.h"
 #import "THMineOrderManageVC.h"
-#import "THMineWalletVC.h"
 #import "THUserInfoEditCtl.h"
-#import "THSettingCtl.h"
 #import "THMineApplymentVC.h"
 #import "THFavouriteGoodsModel.h"
-#import "THTeCtl.h"
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "THMinePresenter.h"
 #import "THNavigationView.h"
@@ -33,7 +25,7 @@
 #import "THMyMessageCtl.h"
 
 
-@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, THMineProtocol, THNaviagationViewDelegate, THMemuViewDelegate> {
+@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, THMineProtocol, THNaviagationViewDelegate, THMemuViewDelegate, THMineHeaderDelegate> {
 	NSArray *_dataArray;
     CGFloat _lastOffsetY;
     THNavigationView *_customNav;
@@ -84,10 +76,6 @@
     }];
     [self autoLayoutSizeContentView:self.tableView];
 	
-	self.headView.checkOnBlock = ^{
-        
-		
-	};
     [self addMenuView];
     [self.collectionView addRefreshHeaderAutoRefresh:YES animation:YES refreshBlock:^{
         
@@ -253,17 +241,7 @@
 	if (_headView == nil) {
         
 		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  100+kNaviHeight)];
-        kWeakSelf;
-		_headView.gotoMotifyInfoPage = ^{
-            if (YES) {
-                THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
-                edit.title = @"个人资料编辑";
-                [weakSelf.navigationController pushViewController:edit animated:YES];
-            } else {
-                THLoginVC *loginVc = [[THLoginVC alloc] init];
-                 [weakSelf.navigationController pushViewController:loginVc animated:YES];
-            }
-		};
+        _headView.delegate = self;
 	}
 	return _headView;
 }
@@ -285,11 +263,18 @@
     return _collectionView;
 }
 
-#pragma mark --
+#pragma mark --THPresenterProtocol
 - (void)getLocalDataSuccess:(NSArray<NSArray<NSString *> *> *)datas {
     _dataArray = datas;
 }
 
+- (void)signSuccess:(NSDictionary *)response {
+    [self.headView udpateSignState];
+}
+
+- (void)signFailed:(NSDictionary *)errorInfo {
+    
+}
 
 #pragma mark --Navigation
 - (void)rightAction:(NSInteger)tag container:(THNavigationView * _Nullable)navigationView {
@@ -302,7 +287,7 @@
         }
     } else if (tag == 1) {
         //设置
-        [self.navigationController pushViewController:[THSettingCtl new] animated:YES];
+        [self.navigationController pushViewController:[NSClassFromString(@"THSettingCtl") new] animated:YES];
     }
 }
 
@@ -323,5 +308,21 @@
         controller = [[THMyCollectCtl alloc] init];
     }
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark -THHeaderViewDelegate
+- (void)sign:(THMineHeaderView *)sender {
+    [self.presenter sign];
+}
+
+- (void)toUserInfo:(THMineHeaderView *)sender {
+    if (YES) {
+        THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
+        edit.title = @"个人资料编辑";
+        [self.navigationController pushViewController:edit animated:YES];
+    } else {
+        THLoginVC *loginVc = [[THLoginVC alloc] init];
+        [self.navigationController pushViewController:loginVc animated:YES];
+    }
 }
 @end

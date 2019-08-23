@@ -14,5 +14,7 @@
 
 - (void)getLocailData;
 
+- (void)sign;
+
 @end
 

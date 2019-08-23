@@ -89,4 +89,10 @@
     } parameters:nil success:success failed:failed];
 }
 
++ (NSURLSessionTask *)signForState:(BOOL)state success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kSignPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:@{@"state":@(state)} success:success failed:failed];
+}
+
 @end

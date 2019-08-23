@@ -9,47 +9,69 @@
 #import "CountView.h"
 #import "GoodsModel.h"
 @implementation CountView
-@synthesize addButton,reduceButton,countTextField,label;
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        label = nil;
-        label.text = @"购买数量";
-        label.font = [UIFont systemFontOfSize:14];
-        [self addSubview:label];
+        _label = [UILabel new];
+        _label.text = @"购买数量";
+        _label.font = [UIFont systemFontOfSize:14];
+        [self addSubview:_label];
+        _addButton = [THUIFactory buttonWithImage:@"" selectedImage:@"" target:self action:@selector(addAction)];
         
-        
-        [self addSubview:addButton];
+        [self addSubview:_addButton];
        
-        countTextField = nil;
-        countTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _countTextField = [UITextField new];
+        _countTextField.keyboardType = UIKeyboardTypeNumberPad;
         
-        [self addSubview:countTextField];
+        [self addSubview:_countTextField];
         
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
         
         
-        _textFieldDownButton= nil;
-        _textFieldDownButton.frame = CGRectMake(kScreenWidth-50, 0, 50, 40);
+        _textFieldDownButton = [THUIFactory buttonWithImage:@"" selectedImage:@"" target:self action:@selector(downAction)];
         [view addSubview:_textFieldDownButton];
-        countTextField.inputAccessoryView = view;
+        _countTextField.inputAccessoryView = view;
         
-        reduceButton= nil;
+        _reduceButton = [THUIFactory buttonWithImage:@"" selectedImage:@"" target:self action:@selector(reduceAction)];
         
-        [self addSubview:reduceButton];
+        [self addSubview:_reduceButton];
         
-      
+        [self layoutViews];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)layoutViews {
+    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.reduceButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.textFieldDownButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.countTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
 }
-*/
+
+- (void)downAction {
+    
+}
+
+- (void)reduceAction {
+    
+}
+
+- (void)addAction {
+    
+}
+
 
 @end

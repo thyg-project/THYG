@@ -50,9 +50,30 @@
         _promatLabel = [THUIFactory labelWithText:nil fontSize:0 tintColor:UIColor.grayColor];
         [self addSubview:_promatLabel];
         
-        
+        [self layoutViews];
     }
     return self;
+}
+
+- (void)layoutViews {
+    [self.goodsImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.promatLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.goodsCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.goodsPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.goodsTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
 }
 
 - (void)initData:(GoodsModel *)model {

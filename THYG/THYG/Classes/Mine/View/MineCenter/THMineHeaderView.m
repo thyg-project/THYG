@@ -37,31 +37,32 @@
 }
 
 - (void)gotoMotifyPage {
-	if (self.gotoMotifyInfoPage) {
-		self.gotoMotifyInfoPage();
-	}
-}
-
-- (void)setIsSigned:(BOOL)isSigned {
-	_isSigned = isSigned;
-	self.checkOnBtn.selected = _isSigned;
+    if ([self.delegate respondsToSelector:@selector(toUserInfo:)]) {
+        [self.delegate toUserInfo:self];
+    }
 }
 
 #pragma mark - 签到
 - (void)checkOnClick:(UIButton *)btn {
-    btn.selected = !btn.selected;
-    btn.backgroundColor = btn.selected ? RGB(255, 216, 0) : [UIColor clearColor];
-    !self.checkOnBlock?:self.checkOnBlock();
+    if ([self.delegate respondsToSelector:@selector(sign:)]) {
+        [self.delegate sign:self];
+    }
+}
+
+- (void)udpateSignState {
+    self.checkOnBtn.selected = YES;
 }
 
 - (void)initinalizedViews {
     _checkOnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_checkOnBtn setTitleColor:RGB(255, 216, 0) forState:UIControlStateNormal];
     [_checkOnBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-    [_checkOnBtn setBackgroundColor:[UIColor clearColor]];
     _checkOnBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_checkOnBtn setTitle:@"签到" forState:UIControlStateNormal];
+    [_checkOnBtn setTitle:@"已签到" forState:UIControlStateSelected];
     [_checkOnBtn addTarget:self action:@selector(checkOnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_checkOnBtn setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
+    [_checkOnBtn setBackgroundImage:[UIImage imageWithColor:RGB(255, 216, 0)] forState:UIControlStateSelected];
     _checkOnBtn.layer.borderWidth = 1;
     _checkOnBtn.layer.cornerRadius = 12.5;
     _checkOnBtn.layer.borderColor = RGB(255, 216, 0).CGColor;

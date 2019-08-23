@@ -54,7 +54,7 @@
 - (IBAction)detailBtnClick:(UIButton *)sender {
     
     if (self.detailBtnAction) {
-        self.detailBtnAction(sender.tag - 200,@[@"账户余额",@"红包金额",@"推荐佣金",@"特币（个）"][sender.tag-200]);
+        self.detailBtnAction(sender.tag - 200,@[@"账户余额",@"红包金额",@"推荐佣金",@"特币"][sender.tag-200]);
     }
 }
 

@@ -10,9 +10,5 @@
 #import "SizeAttributeModel.h"
 
 @implementation SizeAttributeModel
-+ (NSDictionary *)replacedKeyFromPropertyName {
-    
-    return @{@"sizeid": @"id"};
-    
-}
+
 @end

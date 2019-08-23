@@ -8,23 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol THMineHeaderDelegate;
+
 @interface THMineHeaderView : UIView
 
 @property (nonatomic,strong) UIImageView *headImgView;
 
-// 是否签到了
-@property (assign, nonatomic) BOOL isSigned;
+@property (nonatomic, weak) id <THMineHeaderDelegate> delegate;
 
-/**
- 修改用户信息回调
- */
-@property (nonatomic,copy) void(^gotoMotifyInfoPage)(void);
-
-/**
- 签到回调信息
- */
-@property (nonatomic,copy) void(^checkOnBlock)(void);
+- (void)udpateSignState;
 
 - (void)refreshUI;
+
+@end
+
+@protocol THMineHeaderDelegate <NSObject>
+
+- (void)sign:(THMineHeaderView *)sender;
+
+- (void)toUserInfo:(THMineHeaderView *)sender;
 
 @end

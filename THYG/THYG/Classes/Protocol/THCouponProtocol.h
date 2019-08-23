@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getCouponListFailed:(NSDictionary *)errorInfo;
 
+- (void)getCouponCenterSuccess:(NSArray <THCouponModel *> *)response;
+
+- (void)getCouponCenterFailed:(NSDictionary *)errorInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

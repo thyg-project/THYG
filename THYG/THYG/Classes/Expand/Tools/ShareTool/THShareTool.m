@@ -6,11 +6,12 @@
 //  Copyright © 2018年 THYG. All rights reserved.
 //
 
-#import "THShareTool.h"
-#define UMENG_APPKEY @"5b2dbda68f4a9d0bf300005e"
+#import "THShareTool.h"//5d633c0e0cafb2a2ea00078b,5b2dbda68f4a9d0bf300005e
+#define UMENG_APPKEY @"5d633c0e0cafb2a2ea00078b"
 #import <UMShare/UMShare.h>
 #import <UMShare/UMSocialManager.h>
 #import <UMCommon/UMCommon.h>
+#import <UMCommonLog/UMCommonLogHeaders.h>
 
 @implementation THShareTool
 
@@ -72,15 +73,16 @@
 }
 
 + (void)configShareSDK {
-    [UMConfigure initWithAppkey:UMENG_APPKEY channel:nil];
-#ifdef Debug
+    [UMConfigure initWithAppkey:UMENG_APPKEY channel:@"AppStore"];
+#ifdef DEBUG
     [UMConfigure setLogEnabled:YES];
+    [UMCommonLogManager setUpUMCommonLogManager];
 #else
     [UMConfigure setLogEnabled:NO];
 #endif
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"" appSecret:@"" redirectURL:@""];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:UMENG_APPKEY appSecret:@"" redirectURL:@""];
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"" appSecret:@"" redirectURL:@""];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"1502380040" appSecret:@"b80116628ef32b919c04090e883f17d6" redirectURL:@""];
 }
 
 @end

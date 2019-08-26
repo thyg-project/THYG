@@ -46,7 +46,7 @@
 }
 
 - (void)loadUserInfo {
-//   NSDictionary *dict = (NSDictionary *)[self.cache objectForKey:@"THUserInfo"];
+   NSDictionary *dict = (NSDictionary *)[self.cache objectForKey:@"THUserInfo"];
 //    [YGUserInfo.defaultInstance parseToken:dict];
 //    [YGUserInfo.defaultInstance parseUserInfo:dict];
 }

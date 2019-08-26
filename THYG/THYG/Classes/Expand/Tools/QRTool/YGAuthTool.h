@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)cameraAuth;
 
 + (BOOL)photosAuth;
-+ (BOOL)isIPhoneXAll;
 
 + (void)requestPhotoAuth:(void (^)(void))confirmHandler;
 @end

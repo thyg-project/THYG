@@ -25,17 +25,17 @@
     THAlertLayer *alertView = [THAlertLayer new];
     [alertView show];
     alertView.alertModel = alertModel;
-    if (confirmBtnTitle.length) {
+    if (YGInfo.validString(confirmBtnTitle)) {
         [alertView.sure setTitle:confirmBtnTitle forState:UIControlStateNormal];
     }
-    if (cancelBtnTitle.length) {
+    if (YGInfo.validString(cancelBtnTitle)) {
         [alertView.cancel setTitle:cancelBtnTitle forState:UIControlStateNormal];
     }
     alertView.sureBlock = ^(NSString *content) {
-        confirmCallback();
+        BLOCK(confirmCallback);
     };
     alertView.cancelBlock = ^{
-        cancelCallback();
+        BLOCK(cancelCallback);
     };
 }
 

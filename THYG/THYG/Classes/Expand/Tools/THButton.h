@@ -40,9 +40,9 @@ typedef NS_ENUM(NSInteger, THButtonType) {
  正常的文案颜色
  */
 @property (nonatomic, strong) UIColor *textColor;
-//图片和文字间的间距（默认是3）
+
 /**
- margen
+ margen图片和文字间的间距（默认是3）
  */
 @property (nonatomic, assign) CGFloat margen;
 
@@ -65,11 +65,6 @@ typedef NS_ENUM(NSInteger, THButtonType) {
  选中文字颜色
  */
 @property (nonatomic, strong) UIColor *selectedTextColor;
-
-/**
- 高亮
- */
-@property (nonatomic, assign) BOOL highlighted;
 
 /**
  高亮文字颜色

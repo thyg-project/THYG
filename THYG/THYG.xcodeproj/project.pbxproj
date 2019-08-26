@@ -930,7 +930,6 @@
 		512D78D620591B840088A4A0 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		512D78DC205927D10088A4A0 /* UIImage+CHImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CHImage.h"; sourceTree = "<group>"; };
 		512D78DD205927D10088A4A0 /* UIImage+CHImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CHImage.m"; sourceTree = "<group>"; };
-		512D78E6205928C60088A4A0 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
 		512D78E7205929360088A4A0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		512D78E8205931D10088A4A0 /* THHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHomeVC.h; sourceTree = "<group>"; };
 		512D78E9205931D10088A4A0 /* THHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHomeVC.m; sourceTree = "<group>"; };
@@ -1872,7 +1871,6 @@
 			children = (
 				512D7921205E090A0088A4A0 /* Lib */,
 				512D791D205E08850088A4A0 /* Tools */,
-				512D78E5205928B50088A4A0 /* Headers */,
 				512D78DB2059270C0088A4A0 /* Category */,
 				512D78D5205919C00088A4A0 /* Macros */,
 			);
@@ -2049,14 +2047,6 @@
 				025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		512D78E5205928B50088A4A0 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				512D78E6205928C60088A4A0 /* Headers.h */,
-			);
-			path = Headers;
 			sourceTree = "<group>";
 		};
 		512D791D205E08850088A4A0 /* Tools */ = {

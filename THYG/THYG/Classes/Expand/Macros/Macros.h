@@ -46,5 +46,7 @@
 
 #define Font(size) [UIFont systemFontOfSize:size]
 
+#define BLOCK(block, ...) if (block) { block(__VA_ARGS__); };
+
 
 #endif /* Macros_h */

@@ -9,7 +9,6 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import "Headers.h"
 #import "Utils.h"
 #import "YGInfo.h"
 #import "THUserManager.h"
@@ -17,5 +16,13 @@
 #import <YYKit/YYKit.h>
 #import "YGNetworkCommon.h"
 #import "UIViewController+SessionTask.h"
+#import "Macros.h"
+#import "UIImage+CHImage.h"
+#import "UIViewController+Tool.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UIScrollView+Refresh.h"
+#import <Masonry/Masonry.h>
+#import "THHUDProgress.h"
+#import "THUIFactory.h"
 
 #endif /* PrefixHeader_pch */

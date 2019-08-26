@@ -1,5 +1,4 @@
 source 'https://github.com/cocoapods/Specs.git'
-#source ''
 platform:ios, '8.0'
 use_frameworks!
 targetsArray = ['THYG','THYG_PRO']

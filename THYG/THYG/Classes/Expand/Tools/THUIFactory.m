@@ -9,6 +9,7 @@
 #import "THUIFactory.h"
 
 @implementation THUIFactory
+
 + (UILabel *)labelWithText:(NSString *)text fontSize:(CGFloat)fontSize tintColor:(UIColor *)color {
     UILabel *label = [UILabel new];
     label.text = text;

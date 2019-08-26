@@ -19,6 +19,11 @@
 
 @property (nonatomic, assign) THButtonType buttonType;
 
+/**
+ 高亮
+ */
+@property (nonatomic, assign) BOOL highlighted;
+
 @end
 
 @implementation THButton

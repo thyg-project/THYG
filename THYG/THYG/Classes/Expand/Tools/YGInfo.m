@@ -29,22 +29,17 @@ static BOOL isBangScreen(void) {
 }
 
 static CGFloat statesBarHeight(void) {
-    static  CGFloat stateBarHeight = 20;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        stateBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    });
+    CGFloat stateBarHeight = 20;
+    CGFloat temp = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    stateBarHeight = temp > 0 ? temp : 20;
     return stateBarHeight;
 }
 
 static UIEdgeInsets applicationSafeAreaInsets(void) {
-    static UIEdgeInsets safeAreaInsets = {0,0,0,0};
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (@available(iOS 11.0, *)) {
-            safeAreaInsets = [UIApplication sharedApplication].delegate.window.safeAreaInsets;
-        }
-    });
+    UIEdgeInsets safeAreaInsets = {0,0,0,0};
+    if (@available(iOS 11.0, *)) {
+        safeAreaInsets = [UIApplication sharedApplication].delegate.window.safeAreaInsets;
+    }
     return safeAreaInsets;
 }
 
@@ -68,7 +63,8 @@ static NSString *IDFV(void) {
     }
     idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     if (idfv) {
-        [YYKeychain setPassword:idfv forService:@"xu.cheng" account:kKeychain];
+        BOOL result = [YYKeychain setPassword:idfv forService:@"xu.cheng" account:kKeychain];
+        NSLog(result ? @"设置idfv成功" : @"设置idfv失败");
     }
     return idfv;
 }

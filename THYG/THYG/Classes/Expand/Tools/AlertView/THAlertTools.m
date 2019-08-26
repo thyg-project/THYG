@@ -20,17 +20,13 @@
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     if (YGInfo.validString(confirm)) {
         UIAlertAction *confirmA = [UIAlertAction actionWithTitle:confirm style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            if (confirmHandler) {
-                confirmHandler();
-            }
+            BLOCK(confirmHandler);
         }];
         [controller addAction:confirmA];
     }
     if (YGInfo.validString(cancel)) {
         UIAlertAction *cancelA = [UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            if (cancelHandler) {
-                cancelHandler();
-            }
+            BLOCK(cancelHandler);
         }];
         [controller addAction:cancelA];
     }

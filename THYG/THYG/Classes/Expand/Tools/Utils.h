@@ -22,7 +22,7 @@
  @param inputString 输入的手机号
  @result 是否是有效的手机号码
  */
-+(BOOL)CheckPhoneNum:(NSString *)inputString;
++ (BOOL)checkPhoneNum:(NSString *)inputString;
 
 /**
  正则匹配用户密码8-12位数字和字母组合

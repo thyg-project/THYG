@@ -32,7 +32,7 @@
 
 - (void)initSignal {
     RACSignal *validPhoneSignal = [self.accountField.rac_textSignal map:^id(NSString *text) {
-        return @([Utils CheckPhoneNum:text]);
+        return @([Utils checkPhoneNum:text]);
     }];
     
     RACSignal *validPwdSignal = [self.pswField.rac_textSignal map:^id(NSString *text) {

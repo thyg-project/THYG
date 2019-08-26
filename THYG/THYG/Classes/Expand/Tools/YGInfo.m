@@ -8,7 +8,7 @@
 
 #import "YGInfo.h"
 #include <sys/sysctl.h>
-#import "FDKeychain.h"
+#import <YYKit/YYKeychain.h>
 static NSString *const kKeychain = @"THYG.com";
 
 static BOOL validString(NSString *string) {
@@ -62,13 +62,13 @@ static NSURL *URLFromString(NSString *urlStr) {
 static NSString *IDFV(void) {
     static NSString *idfv = nil;
     if (idfv) return idfv;
-    idfv = [FDKeychain itemForKey:kKeychain forService:@"xu.cheng" error:nil];
+    idfv = [YYKeychain getPasswordForService:@"xu.cheng" account:kKeychain];
     if (idfv) {
         return idfv;
     }
     idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     if (idfv) {
-        [FDKeychain saveItem:idfv forKey:kKeychain forService:@"xu.cheng" error:nil];
+        [YYKeychain setPassword:idfv forService:@"xu.cheng" account:kKeychain];
     }
     return idfv;
 }

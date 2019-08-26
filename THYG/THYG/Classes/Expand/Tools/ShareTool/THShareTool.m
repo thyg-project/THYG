@@ -26,7 +26,7 @@
 	[[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:container completion:^(id data, NSError *error) {
 		if (error) {
 			failure(error);
-		}else{
+		} else {
 			success(data);
 		}
 	}];
@@ -37,14 +37,12 @@
 	
 	switch (ShareContentType) {
 		case ShareContentTypeWeb:{
-			
 			UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:contentDescription thumImage:thumbnail];
 			shareObject.webpageUrl = url;
 			messageObject.shareObject = shareObject;
 		}
 			break;
 		case ShareContentTypeMusic:{
-			
 			UMShareMusicObject *shareObject = [UMShareMusicObject shareObjectWithTitle:title descr:contentDescription thumImage:thumbnail];
 			shareObject.musicUrl = url;
 			shareObject.musicDataUrl = StreamUrl;
@@ -52,7 +50,6 @@
 		}
 			break;
 		case ShareContentTypeVideo:{
-			
 			UMShareVideoObject *shareObject = [UMShareVideoObject shareObjectWithTitle:title descr:contentDescription thumImage:thumbnail];
 			shareObject.videoUrl = url;
 			shareObject.videoStreamUrl = StreamUrl;
@@ -66,7 +63,7 @@
 	[[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:container completion:^(id data, NSError *error) {
 		if (error) {
 			failure(error);
-		}else{
+		} else {
 			success(data);
 		}
 	}];

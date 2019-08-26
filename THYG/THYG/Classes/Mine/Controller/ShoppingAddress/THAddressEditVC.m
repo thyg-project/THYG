@@ -98,7 +98,7 @@
     
     //手机号码
     RACSignal *phoneSingnal = [[self getTextField:1].rac_textSignal map:^id(NSString *text) {
-        return @(([self getTextField:1].text.length == 11) && [Utils CheckPhoneNum:[self getTextField:1].text]);
+        return @(([self getTextField:1].text.length == 11) && [Utils checkPhoneNum:[self getTextField:1].text]);
     }];
     
     //详细地址

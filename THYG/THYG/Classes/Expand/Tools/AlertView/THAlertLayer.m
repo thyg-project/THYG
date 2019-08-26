@@ -178,7 +178,7 @@
 #pragma mark- actions
 
 - (void)sureAction {
-    if (![Utils CheckPhoneNum:self.textField.text]&&!self.textField.hidden) {
+    if (![Utils checkPhoneNum:self.textField.text]&&!self.textField.hidden) {
         [self errorInfo];
         return;
     }

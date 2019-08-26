@@ -24,7 +24,7 @@
 			];
 }
 
-+ (BOOL)CheckPhoneNum:(NSString *)inputString {
++ (BOOL)checkPhoneNum:(NSString *)inputString {
     NSString *Regex =@"^[1][3-8]+\\d{9}";
     NSPredicate *mobileTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Regex];
     return [mobileTest evaluateWithObject:inputString];

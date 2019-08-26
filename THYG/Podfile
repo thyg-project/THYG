@@ -16,7 +16,6 @@ targetsArray.each do |t|
 	pod 'SVProgressHUD'
     pod 'WechatOpenSDK'
     pod 'YYKit'
-    pod 'FDKeychain'
     pod 'FMDB'
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'FDFullscreenPopGesture'

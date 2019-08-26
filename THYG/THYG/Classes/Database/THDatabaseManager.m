@@ -14,7 +14,9 @@ static NSString *const kGoodsDBName = @"goods.db";
 
 @interface THDatabaseManager()
 
-@property (nonatomic, strong) FMDatabase *database;
+//@property (nonatomic, strong) FMDatabase *database;
+
+@property (nonatomic, strong) FMDatabaseQueue *databaseQueue;
 
 @property (nonatomic, copy) NSString *goodsPath;
 
@@ -23,6 +25,13 @@ static NSString *const kGoodsDBName = @"goods.db";
 
 
 @implementation THDatabaseManager
+
+- (FMDatabaseQueue *)databaseQueue {
+    if (!_databaseQueue) {
+        _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:self.goodsPath];
+    }
+    return _databaseQueue;
+}
 
 - (NSString *)goodsPath {
     if (!_goodsPath) {
@@ -43,55 +52,115 @@ static NSString *const kGoodsDBName = @"goods.db";
 
 - (instancetype)init {
     if (self = [super init]) {
-        _database = [FMDatabase databaseWithPath:self.goodsPath];
-        if ([_database open]) {
-            NSString *sql = @"create table if not exists t_goods ()";
-            BOOL result = [_database executeUpdate:sql];
-            if (result) {
-                NSLog(@"create table success");
+        NSString *goodsSql = @"";
+        NSString *feverateSql = @"";
+        NSString *historySql = @"";
+        
+        [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+            [db open];
+            [db beginTransaction];
+            if (![db executeUpdate:goodsSql]) {
+                NSLog(@"打开/创建商品表失败：%@",[db lastErrorMessage]);
             }
-        }
-        [_database close];
-       
+            if (![db executeUpdate:feverateSql]) {
+                NSLog(@"打开/创建收藏表失败：%@",[db lastErrorMessage]);
+            }
+            if (![db executeUpdate:historySql]) {
+                NSLog(@"打开/创建历史表失败：%@",[db lastErrorMessage]);
+            }
+            [db commit];
+            [db close];
+        }];
     }
     return self;
 }
 
-- (BOOL)insertCollectModel:(id)model {
-    return YES;
+- (BOOL)insertCollectModel:(THMyCollectModel *)model {
+    __block BOOL result = NO;
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        result = [db executeUpdate:@""];
+        [db close];
+    }];
+    return result;
 }
 
-- (BOOL)deleteCollectModel:(id)model {
-    return YES;
+- (BOOL)deleteCollectModel:(THMyCollectModel *)model {
+    __block BOOL result = NO;
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        result = [db executeUpdate:@""];
+        [db close];
+    }];
+    return result;
 }
 
-- (BOOL)updateCollectModel:(id)model {
-    return YES;
+- (BOOL)updateCollectModel:(THMyCollectModel *)model {
+    __block BOOL result = NO;
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        result = [db executeUpdate:@""];
+        [db close];
+    }];
+    return result;
 }
 
-- (NSArray *)AllCollectModels {
-    return nil;
+- (NSArray <THMyCollectModel *>*)AllCollectModels {
+    NSMutableArray <THMyCollectModel *> *models = [NSMutableArray new];
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        FMResultSet *set = [db executeQuery:@""];
+        while ([set next]) {
+            
+        }
+        [db close];
+    }];
+    return [models copy];
 }
 
-- (BOOL)insertMessage:(id)message {
-    return YES;
+- (BOOL)insertMessage:(THMessageModel *)message {
+    __block BOOL result = NO;
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        result = [db executeUpdate:@""];
+        [db close];
+    }];
+    return result;
 }
 
-- (BOOL)deleteMessage:(id)message {
-    return YES;
+- (BOOL)deleteMessage:(THMessageModel *)message {
+    __block BOOL result = NO;
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        result = [db executeUpdate:@""];
+        [db close];
+    }];
+    return result;
 }
 
-- (BOOL)updateMessage:(id)message {
-    return YES;
+- (BOOL)updateMessage:(THMessageModel *)message {
+    __block BOOL result = NO;
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        result = [db executeUpdate:@""];
+        [db close];
+    }];
+    return result;
 }
 
-- (NSArray *)AllMessages {
-    return nil;
+- (NSArray <THMessageModel *>*)allMessages {
+    NSMutableArray <THMessageModel *> *models = [NSMutableArray new];
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        [db open];
+        FMResultSet *set = [db executeQuery:@""];
+        while ([set next]) {
+            
+        }
+        [db close];
+    }];
+    return [models copy];
 }
 
-- (NSArray *)messagesWithCondition:(id)condition {
-    return nil;
-}
 
 
 

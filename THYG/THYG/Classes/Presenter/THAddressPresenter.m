@@ -21,7 +21,9 @@
 
 - (void)setDefaultAddress:(THAddressModel *)model {
     NSURLSessionTask *task = [YGNetworkCommon setDefaultAddress:@{} success:^(id responseObject) {
-        [self performToSelector:@selector(setDefaultAddressSuccess:) params:responseObject];
+        if ([self.delegate respondsToSelector:@selector(setDefaultAddressSuccess:address:)]) {
+            [(id <THAddressProtocol>)self.delegate setDefaultAddressSuccess:responseObject address:model];
+        }
     } failed:^(NSDictionary *errorInfo) {
         [self performToSelector:@selector(setDefaultAddressFailed:) params:errorInfo];
     }];
@@ -30,7 +32,9 @@
 
 - (void)deleteAddress:(THAddressModel *)model {
     NSURLSessionTask *task = [YGNetworkCommon deleteAddress:@{} success:^(id responseObject) {
-        [self performToSelector:@selector(deleteAddressSuccess:) params:responseObject];
+        if ([self.delegate respondsToSelector:@selector(deleteAddressSuccess:address:)]) {
+            [(id <THAddressProtocol>)self.delegate deleteAddressSuccess:responseObject address:model];
+        }
     } failed:^(NSDictionary *errorInfo) {
         [self performToSelector:@selector(deleteAddressFailed:) params:errorInfo];
     }];

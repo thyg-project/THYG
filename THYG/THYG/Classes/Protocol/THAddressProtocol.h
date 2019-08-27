@@ -17,11 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getAddressListFailed:(NSDictionary *)errorInfo;
 
-- (void)deleteAddressSuccess:(NSDictionary *)response;
+- (void)deleteAddressSuccess:(NSDictionary *)response address:(THAddressModel *)model;
 
 - (void)deleteAddressFailed:(NSDictionary *)errorInfo;
 
-- (void)setDefaultAddressSuccess:(NSDictionary *)response;
+- (void)setDefaultAddressSuccess:(NSDictionary *)response address:(THAddressModel *)model;
 
 - (void)setDefaultAddressFailed:(NSDictionary *)errorInfo;
 

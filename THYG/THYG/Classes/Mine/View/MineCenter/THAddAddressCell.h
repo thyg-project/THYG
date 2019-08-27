@@ -11,9 +11,11 @@
 
 @interface THAddAddressCell : THBaseCell
 
-@property (nonatomic,strong) UITextField *textField;
-@property (nonatomic,strong) THAddressModel *modelData;
+@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) THAddressModel *modelData;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, copy) void(^getInsertValue)(NSString *value);
 
-@property (nonatomic,copy) void(^getInsertValue)(NSString *value);
+@property (nonatomic, copy) BOOL (^ showAlertPop)(NSIndexPath *indexPath);
 
 @end

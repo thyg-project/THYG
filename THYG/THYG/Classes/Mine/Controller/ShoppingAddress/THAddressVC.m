@@ -65,7 +65,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;//self.dataSource.count;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -77,22 +77,22 @@
     if (!cell) {
         cell = [[THAddressEditListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"THAddressEditListCell"];
     }
-//    THAddressModel *model = self.dataSource[indexPath.section];;
-//    cell.addressModel = model;
+    THAddressModel *model = self.dataSource[indexPath.section];;
+    cell.addressModel = model;
     kWeakSelf;
     cell.deleteAddressBlock = ^(THAddressModel *model){
-        NSLog(@"删除地址");
-        
+        kStrongSelf;
+        [strongSelf.presenter deleteAddress:model];
     };
 
     cell.motifyAddressBlock = ^(THAddressModel *model){
         NSLog(@"修改地址");
         [weakSelf gotoAddressEditPage:model type:OptionType_Edit];
     };
-
+    
     cell.setDefaultBlock = ^(THAddressModel *model){
-        NSLog(@"设置默认地址");
-        
+        kStrongSelf;
+        [strongSelf.presenter setDefaultAddress:model];
     };
 
     return cell;
@@ -130,15 +130,19 @@
     
 }
 
-- (void)deleteAddressSuccess:(NSDictionary *)response {
-    
+- (void)deleteAddressSuccess:(NSDictionary *)response address:(THAddressModel *)model {
+    NSInteger index = [self.dataSource indexOfObject:model];
+    [self.dataSource removeObject:model];
+    [self.tableView beginUpdates];
+    [self.tableView deleteRow:index inSection:0 withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
 }
 
 - (void)setDefaultAddressFailed:(NSDictionary *)errorInfo {
     
 }
 
-- (void)setDefaultAddressSuccess:(NSDictionary *)response {
+- (void)setDefaultAddressSuccess:(NSDictionary *)response address:(THAddressModel *)model{
     
 }
 

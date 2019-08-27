@@ -10,13 +10,13 @@
 #import "THAdressEditPresenter.h"
 #import "THAddAddressCell.h"
 #import "ReactiveCocoa.h"
-#import "THSelectAddressView.h"
+#import "YGAreaPickerView.h"
 
-@interface THAddressEditVC () <UITableViewDataSource, UITableViewDelegate, THAddressEditProtocol> {
+@interface THAddressEditVC () <UITableViewDataSource, UITableViewDelegate, THAddressEditProtocol, YGAreaPickerViewDelegate> {
     UIButton*_saveBtn;
 }
 
-@property (nonatomic, strong) THSelectAddressView *selectAddressView;
+@property (nonatomic, strong) YGAreaPickerView *pickerView;
 @property (nonatomic, strong) THAddressModel *valueModel;
 @property (nonatomic, strong) THAddressPCDModel *provinceSelModel;
 @property (nonatomic, strong) THAddressPCDModel *citySelModel;
@@ -55,7 +55,6 @@
         make.bottom.equalTo(self.footerBtn.mas_top);
     }];
     [self.tableView registerClass:THAddAddressCell.class forCellReuseIdentifier:NSStringFromClass(THAddAddressCell.class)];
-    [self.selectAddressView initDataWithProvinceId:[self.modelData.province integerValue] cityId:[self.modelData.city integerValue] districtId:[self.modelData.district integerValue]];
 }
 
 - (void)initData {
@@ -137,7 +136,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THAddAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THAddAddressCell.class)];
     cell.modelData = self.dataSource[indexPath.row];
-    cell.textField.tag = indexPath.row;
+    cell.indexPath = indexPath;
     cell.textField.keyboardType = UIKeyboardTypeDefault;
     switch (indexPath.row) {
         case 0:
@@ -168,26 +167,17 @@
         }
         
     };
+    kWeakSelf;
+    [cell setShowAlertPop:^(NSIndexPath *indexPath) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            return YES;
+        }
+        [weakSelf.view endEditing:YES];
+        [weakSelf.pickerView showInView:weakSelf.navigationController.view];
+        return NO;
+    }];
     return cell;
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    kWeakSelf;
-    [self.view endEditing:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.selectAddressView show:^(THAddressPCDModel *provinceModel, THAddressPCDModel *cityModel, THAddressPCDModel *districtModel) {
-        
-        weakSelf.provinceSelModel = provinceModel;
-        weakSelf.citySelModel = cityModel;
-        weakSelf.districtSelModel = districtModel;
-
-        THAddressPCDModel *model = weakSelf.dataSource[2];
-        model.text = [NSString stringWithFormat:@"%@ %@ %@",provinceModel.name,cityModel.name,districtModel.name];
-        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-
-    }];
-}
-
 
 #pragma mark - 保存并使用
 - (void)saveAndUseClick {
@@ -211,11 +201,12 @@
     return _footerBtn;
 }
 
-- (THSelectAddressView *)selectAddressView {
-    if (_selectAddressView == nil) {
-        _selectAddressView = [[THSelectAddressView alloc] init];
+- (YGAreaPickerView *)pickerView {
+    if (!_pickerView) {
+        _pickerView = [[YGAreaPickerView alloc] init];
+        _pickerView.delegate = self;
     }
-    return _selectAddressView;
+    return _pickerView;
 }
 
 #pragma mark --
@@ -239,6 +230,17 @@
 
 - (void)newAddressFailed:(NSDictionary *)errorInfo {
     
+}
+
+- (void)didSelectedPro:(YGProvince *)pro city:(YGCity *)city area:(YGDistrict *)area {
+    
+//    weakSelf.provinceSelModel = provinceModel;
+//    weakSelf.citySelModel = cityModel;
+//    weakSelf.districtSelModel = districtModel;
+//
+//    THAddressPCDModel *model = weakSelf.dataSource[2];
+//    model.text = [NSString stringWithFormat:@"%@ %@ %@",provinceModel.name,cityModel.name,districtModel.name];
+//    [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

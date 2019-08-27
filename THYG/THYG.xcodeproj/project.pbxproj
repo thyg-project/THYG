@@ -357,6 +357,14 @@
 		0265CF7122F2C45E000363F0 /* THRecommendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B20732B3B00FEFE40 /* THRecommendedCell.xib */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
 		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
+		027B4D502314D1290015C508 /* checkbankcard.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4E2314D1290015C508 /* checkbankcard.json */; };
+		027B4D512314D1290015C508 /* checkbankcard.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4E2314D1290015C508 /* checkbankcard.json */; };
+		027B4D522314D1290015C508 /* BRCity.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4F2314D1290015C508 /* BRCity.json */; };
+		027B4D532314D1290015C508 /* BRCity.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4F2314D1290015C508 /* BRCity.json */; };
+		027B4D562314D1C00015C508 /* YGProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D552314D1C00015C508 /* YGProvince.m */; };
+		027B4D572314D1C00015C508 /* YGProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D552314D1C00015C508 /* YGProvince.m */; };
+		027B4D5A2314D1D90015C508 /* YGAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D592314D1D80015C508 /* YGAreaPickerView.m */; };
+		027B4D5B2314D1D90015C508 /* YGAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D592314D1D80015C508 /* YGAreaPickerView.m */; };
 		02834B4E230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */; };
 		02834B4F230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */; };
 		02834B52230A9C7600B8BFB2 /* THInvitePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B51230A9C7600B8BFB2 /* THInvitePresenter.m */; };
@@ -741,6 +749,12 @@
 		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
 		0271234722E8315F002DF961 /* THFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterView.h; sourceTree = "<group>"; };
 		0271234822E8315F002DF961 /* THFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterView.m; sourceTree = "<group>"; };
+		027B4D4E2314D1290015C508 /* checkbankcard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkbankcard.json; sourceTree = "<group>"; };
+		027B4D4F2314D1290015C508 /* BRCity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BRCity.json; sourceTree = "<group>"; };
+		027B4D542314D1C00015C508 /* YGProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGProvince.h; sourceTree = "<group>"; };
+		027B4D552314D1C00015C508 /* YGProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGProvince.m; sourceTree = "<group>"; };
+		027B4D582314D1D80015C508 /* YGAreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGAreaPickerView.h; path = MineCenter/YGAreaPickerView.h; sourceTree = "<group>"; };
+		027B4D592314D1D80015C508 /* YGAreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGAreaPickerView.m; path = MineCenter/YGAreaPickerView.m; sourceTree = "<group>"; };
 		02834B4C230A9C5D00B8BFB2 /* THTaskPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTaskPresenter.h; sourceTree = "<group>"; };
 		02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTaskPresenter.m; sourceTree = "<group>"; };
 		02834B50230A9C7600B8BFB2 /* THInvitePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInvitePresenter.h; sourceTree = "<group>"; };
@@ -1364,6 +1378,23 @@
 			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		027B4D4C2314D1290015C508 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				027B4D4D2314D1290015C508 /* json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		027B4D4D2314D1290015C508 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				027B4D4E2314D1290015C508 /* checkbankcard.json */,
+				027B4D4F2314D1290015C508 /* BRCity.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		02C377C122C324700038AC5A /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1783,6 +1814,7 @@
 		512D78AD205906540088A4A0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				027B4D4C2314D1290015C508 /* Resource */,
 				02188A9222DEECC700258F37 /* Database */,
 				022CD96222DA239300A6518A /* AvoidCrash */,
 				02D154A622D5B2EA005D6277 /* Presenter */,
@@ -1959,6 +1991,8 @@
 		512D78C4205906540088A4A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				027B4D582314D1D80015C508 /* YGAreaPickerView.h */,
+				027B4D592314D1D80015C508 /* YGAreaPickerView.m */,
 				51DA2C0620DAA279006A82B6 /* MyWallet */,
 				57CBC3D92088EDB6007D6069 /* OrderConfirm */,
 				0417B8672073F2B0003566C4 /* MineOrder */,
@@ -2543,6 +2577,8 @@
 		8FDAF70E206E37C30090FBCC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				027B4D542314D1C00015C508 /* YGProvince.h */,
+				027B4D552314D1C00015C508 /* YGProvince.m */,
 				5133D1E320DD069500DE632A /* Wallet */,
 				8FDAF70F206E37D00090FBCC /* THUserInfoModel.h */,
 				8FDAF710206E37D00090FBCC /* THUserInfoModel.m */,
@@ -2712,6 +2748,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027B4D532314D1290015C508 /* BRCity.json in Resources */,
 				0265CF2622F2C45E000363F0 /* THMineBankCardListCell.xib in Resources */,
 				0265CF2722F2C45E000363F0 /* THMineShareQRCodeVC.xib in Resources */,
 				0265CF2822F2C45E000363F0 /* THSystemMessageCell.xib in Resources */,
@@ -2778,6 +2815,7 @@
 				0265CF6B22F2C45E000363F0 /* THHelpCenterCtl.storyboard in Resources */,
 				0265CF6C22F2C45E000363F0 /* THClassifyItemCell.xib in Resources */,
 				0265CF6D22F2C45E000363F0 /* THMineOrderCell.xib in Resources */,
+				027B4D512314D1290015C508 /* checkbankcard.json in Resources */,
 				0265CF6E22F2C45E000363F0 /* THRegisterCtl.xib in Resources */,
 				0265CF6F22F2C45E000363F0 /* THGoodsListOfCollectionLayoutCell.xib in Resources */,
 				0265CF7022F2C45E000363F0 /* MLEmoji_Expression.plist in Resources */,
@@ -2789,6 +2827,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027B4D522314D1290015C508 /* BRCity.json in Resources */,
 				51DA2C1920DABFED006A82B6 /* THMineBankCardListCell.xib in Resources */,
 				04D0A3172071171C003BE300 /* THMineShareQRCodeVC.xib in Resources */,
 				57417E4D20CB77F600F5085F /* THSystemMessageCell.xib in Resources */,
@@ -2855,6 +2894,7 @@
 				8F4D139C207A23210024C3D4 /* THHelpCenterCtl.storyboard in Resources */,
 				512D7950205E2F9C0088A4A0 /* THClassifyItemCell.xib in Resources */,
 				0417B86C2073F2D1003566C4 /* THMineOrderCell.xib in Resources */,
+				027B4D502314D1290015C508 /* checkbankcard.json in Resources */,
 				04D0A311207116F7003BE300 /* THRegisterCtl.xib in Resources */,
 				8F0DC29E20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.xib in Resources */,
 				576EEABD2087A5510088B1EB /* MLEmoji_Expression.plist in Resources */,
@@ -3119,6 +3159,7 @@
 				0265CE6C22F2C45E000363F0 /* THFilterView.m in Sources */,
 				0265CE6D22F2C45E000363F0 /* NSObject+AvoidCrash.m in Sources */,
 				0265CE6E22F2C45E000363F0 /* THCouponsCtl.m in Sources */,
+				027B4D572314D1C00015C508 /* YGProvince.m in Sources */,
 				0265CE6F22F2C45E000363F0 /* NSAttributedString+AvoidCrash.m in Sources */,
 				0265CE7022F2C45E000363F0 /* THOrderConfirmPaymentCell.m in Sources */,
 				0265CE7122F2C45E000363F0 /* THBuyGoodsCell.m in Sources */,
@@ -3190,6 +3231,7 @@
 				0265CEB022F2C45E000363F0 /* THMineOrderHeaderCell.m in Sources */,
 				0265CEB122F2C45E000363F0 /* UISearchBar+FMAdd.m in Sources */,
 				0265CEB222F2C45E000363F0 /* THFlashCtl.m in Sources */,
+				027B4D5B2314D1D90015C508 /* YGAreaPickerView.m in Sources */,
 				0265CEB322F2C45E000363F0 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				0265CEB422F2C45E000363F0 /* THMyTaskCell.m in Sources */,
 				0265CEB522F2C45E000363F0 /* THPay.m in Sources */,
@@ -3368,6 +3410,7 @@
 				0271234922E8315F002DF961 /* THFilterView.m in Sources */,
 				022CD98022DA239400A6518A /* NSObject+AvoidCrash.m in Sources */,
 				8F1712C620720F7A00EFDFCB /* THCouponsCtl.m in Sources */,
+				027B4D562314D1C00015C508 /* YGProvince.m in Sources */,
 				022CD98422DA239400A6518A /* NSAttributedString+AvoidCrash.m in Sources */,
 				042891D820CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m in Sources */,
 				57CBC3E22088EE2E007D6069 /* THBuyGoodsCell.m in Sources */,
@@ -3439,6 +3482,7 @@
 				512D7912205B774B0088A4A0 /* THMineOrderHeaderCell.m in Sources */,
 				8F5168AC20747D90005E956E /* UISearchBar+FMAdd.m in Sources */,
 				8F51687E20746E71005E956E /* THFlashCtl.m in Sources */,
+				027B4D5A2314D1D90015C508 /* YGAreaPickerView.m in Sources */,
 				576EEAC32087A5510088B1EB /* NSMutableAttributedString+MLLabel.m in Sources */,
 				8FDC4E6720736E4400FEFE40 /* THMyTaskCell.m in Sources */,
 				57D5104A20C6F31E00B78087 /* THPay.m in Sources */,

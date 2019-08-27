@@ -44,11 +44,11 @@
     _modelData = modelData;
     self.titleLabel.text = _modelData.title;
     self.textField.placeholder = _modelData.placehold;
-    if (_modelData.type==2) {
-        self.textField.enabled = NO;
-    }else{
-        self.textField.enabled = YES;
-    }
+//    if (_modelData.type==2) {
+//        self.textField.enabled = NO;
+//    }else{
+//        self.textField.enabled = YES;
+//    }
     self.textField.text = _modelData.text;
 }
 
@@ -77,6 +77,13 @@
         _textField.delegate = self;
     }
     return _textField;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (self.showAlertPop) {
+        return self.showAlertPop(self.indexPath);
+    }
+    return YES;
 }
 
 

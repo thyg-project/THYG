@@ -7,11 +7,13 @@
 //
 
 #import "THModifyPwdVC.h"
+#import "THModifyPwdPresenter.h"
 
-@interface THModifyPwdVC ()
+@interface THModifyPwdVC () <THModifyPwdProtocol>
 @property (weak, nonatomic) IBOutlet UITextField *originPwd;
 @property (weak, nonatomic) IBOutlet UITextField *lastestPwd;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPwd;
+@property (nonatomic, strong) THModifyPwdPresenter *presenter;
 
 @end
 
@@ -20,42 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"修改密码";
+    _presenter = [[THModifyPwdPresenter alloc] initPresenterWithProtocol:self];
 }
 
 #pragma mark - 修改密码
 - (IBAction)okClick:(id)sender {
-    if (![self checkPwd]) return;
+    [self.presenter modifyPwdOrigin:self.originPwd.text newPwd:self.lastestPwd.text confirmPwd:self.confirmPwd.text];
+}
 
-
+- (void)modifyPwdSuccess:(NSDictionary *)response {
     
 }
 
-#pragma mark - 校验密码
-- (BOOL)checkPwd {
-    if (YGInfo.validString(self.originPwd.text) == NO) {
-        [THHUDProgress showMsg:@"原密码不能为空"];
-        return NO;
-    }
-    
-    if (!YGInfo.validString(self.lastestPwd.text)) {
-        [THHUDProgress showMsg:@"新密码不能为空"];
-        return NO;
-    }
-    if (![Utils checkPassword:self.lastestPwd.text]) {
-        [THHUDProgress showMsg:@"新密码格式不正确"];
-        return NO;
-    }
-    
-    if (!YGInfo.validString(self.confirmPwd.text)) {
-        [THHUDProgress showMsg:@"确认密码不能为空"];
-        return NO;
-    }
-    if (![self.confirmPwd.text isEqualToString:self.lastestPwd.text]) {
-        [THHUDProgress showMsg:@"两次密码输入不一致"];
-        return NO;
-    }
-    return YES;
-    
+- (void)modifyPwdFailed:(NSDictionary *)response {
+    [THHUDProgress showMsg:response.message];
 }
 
 @end

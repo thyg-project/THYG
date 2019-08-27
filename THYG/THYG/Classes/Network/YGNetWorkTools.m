@@ -60,8 +60,8 @@ NetworkState _lastNetworkState;
     self.manager.requestSerializer.timeoutInterval = _timeoutInterval;
 }
 
-- (NSURLSessionTask *)get:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)faild{
-   return [self.manager GET:formatUrl(url) parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+- (NSURLSessionTask *)get:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)faild {
+    return [self.manager GET:formatUrl(url) parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self parseResponse:responseObject success:success failed:faild];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self parseError:error failed:faild];

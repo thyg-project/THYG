@@ -18,9 +18,9 @@
 
 @property (nonatomic, strong) YGAreaPickerView *pickerView;
 @property (nonatomic, strong) THAddressModel *valueModel;
-@property (nonatomic, strong) THAddressPCDModel *provinceSelModel;
-@property (nonatomic, strong) THAddressPCDModel *citySelModel;
-@property (nonatomic, strong) THAddressPCDModel *districtSelModel;
+@property (nonatomic, strong) YGProvince *provinceModel;
+@property (nonatomic, strong) YGCity *cityModel;
+@property (nonatomic, strong) YGDistrict *districtModel;
 @property (nonatomic, strong) UIButton *footerBtn;
 @property (nonatomic, strong) THAdressEditPresenter *presenter;
 @property (nonatomic, strong) UITableView *tableView;
@@ -187,6 +187,7 @@
     } else {
         address = [[self getTextField:3].text substringFromIndex:address.length-1];
     }
+    [self.presenter newAddress:nil];
 }
 
 #pragma mark - 懒加载
@@ -234,13 +235,13 @@
 
 - (void)didSelectedPro:(YGProvince *)pro city:(YGCity *)city area:(YGDistrict *)area {
     
-//    weakSelf.provinceSelModel = provinceModel;
-//    weakSelf.citySelModel = cityModel;
-//    weakSelf.districtSelModel = districtModel;
-//
-//    THAddressPCDModel *model = weakSelf.dataSource[2];
-//    model.text = [NSString stringWithFormat:@"%@ %@ %@",provinceModel.name,cityModel.name,districtModel.name];
-//    [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    self.provinceModel = pro;
+    self.cityModel = city;
+    self.districtModel = area;
+
+    THAddressPCDModel *model = self.dataSource[2];
+    model.text = [NSString stringWithFormat:@"%@ %@ %@",pro.name,city.name,area.name];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

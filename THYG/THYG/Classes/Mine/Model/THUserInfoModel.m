@@ -20,4 +20,8 @@
     [self modelEncodeWithCoder:aCoder];
 }
 
+- (NSString *)district {
+    return @"aaaa";
+}
+
 @end

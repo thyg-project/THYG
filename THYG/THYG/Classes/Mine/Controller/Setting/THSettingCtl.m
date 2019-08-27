@@ -12,14 +12,16 @@
 #import "THAddressVC.h"
 #import "THModifyPwdVC.h"
 #import "THAboutTHCtl.h"
+#import "THSettingPresenter.h"
 #define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 
-@interface THSettingCtl () {
+@interface THSettingCtl () <THSettingProtocol> {
     NSArray *_classList;
 }
 
-
 @property (nonatomic,strong) UIView *footer;
+
+@property (nonatomic, strong) THSettingPresenter *presenter;
 
 @end
 
@@ -36,12 +38,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"账号设置";
+    _presenter = [[THSettingPresenter alloc] initPresenterWithProtocol:self];
     [self addBackBarItem];
+    self.tableView.tableFooterView = [UIView new];
     _classList = @[@"THUserInfoEditCtl",@"THModifyPwdVC",@"THAddressVC",@"THAboutTHCtl",@"",@"THHelpCenterCtl"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row<2 && ![@"" length]) {
+
+    if (indexPath.row<2 && YGInfo.validString(THUserManager.sharedInstance.userInfo.district) == NO) {
         return 0;
     }
     return 45;
@@ -52,7 +57,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (![@"" length]) {
+    if (YGInfo.validString(THUserManager.sharedInstance.userInfo.district) == NO) {
         return 0;
     }
     return 60;
@@ -98,11 +103,7 @@
 
 #pragma mark -- 退出账户
 - (void)loginOutBtn {
-//    UserInfo = nil;
-//    UserDefaultsSetObj(nil, @"token");
-    
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.presenter logout];
 }
 
 - (UIView *)footer {
@@ -118,6 +119,10 @@
         [_footer addSubview:loginOutBtn];
     }
     return _footer;
+}
+
+- (void)logoutSuccess {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

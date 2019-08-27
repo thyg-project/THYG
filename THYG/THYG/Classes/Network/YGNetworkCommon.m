@@ -125,4 +125,16 @@
     } parameters:params success:success failed:failed];
 }
 
++ (NSURLSessionTask *)logoutSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kLogoutPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:@{} success:success failed:failed];
+}
+
++ (NSURLSessionTask *)modifyPwd:(NSString *)originPwd newPwd:(NSString *)newPwd success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kModifyPwdPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:@{} success:success failed:failed];
+}
+
 @end

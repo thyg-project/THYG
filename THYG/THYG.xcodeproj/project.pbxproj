@@ -365,6 +365,12 @@
 		027B4D572314D1C00015C508 /* YGProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D552314D1C00015C508 /* YGProvince.m */; };
 		027B4D5A2314D1D90015C508 /* YGAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D592314D1D80015C508 /* YGAreaPickerView.m */; };
 		027B4D5B2314D1D90015C508 /* YGAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D592314D1D80015C508 /* YGAreaPickerView.m */; };
+		027B4D622314FE960015C508 /* THSettingPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D612314FE960015C508 /* THSettingPresenter.m */; };
+		027B4D632314FE960015C508 /* THSettingPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D612314FE960015C508 /* THSettingPresenter.m */; };
+		027B4D67231506F10015C508 /* THModifyPwdPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D66231506F10015C508 /* THModifyPwdPresenter.m */; };
+		027B4D68231506F10015C508 /* THModifyPwdPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D66231506F10015C508 /* THModifyPwdPresenter.m */; };
+		027B4D6C23150C0A0015C508 /* NSDictionary+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D6B23150C0A0015C508 /* NSDictionary+Message.m */; };
+		027B4D6D23150C0A0015C508 /* NSDictionary+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 027B4D6B23150C0A0015C508 /* NSDictionary+Message.m */; };
 		02834B4E230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */; };
 		02834B4F230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */; };
 		02834B52230A9C7600B8BFB2 /* THInvitePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B51230A9C7600B8BFB2 /* THInvitePresenter.m */; };
@@ -755,6 +761,14 @@
 		027B4D552314D1C00015C508 /* YGProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGProvince.m; sourceTree = "<group>"; };
 		027B4D582314D1D80015C508 /* YGAreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGAreaPickerView.h; path = MineCenter/YGAreaPickerView.h; sourceTree = "<group>"; };
 		027B4D592314D1D80015C508 /* YGAreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGAreaPickerView.m; path = MineCenter/YGAreaPickerView.m; sourceTree = "<group>"; };
+		027B4D602314FE960015C508 /* THSettingPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSettingPresenter.h; sourceTree = "<group>"; };
+		027B4D612314FE960015C508 /* THSettingPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSettingPresenter.m; sourceTree = "<group>"; };
+		027B4D642314FEA70015C508 /* THSettingProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSettingProtocol.h; sourceTree = "<group>"; };
+		027B4D65231506F10015C508 /* THModifyPwdPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THModifyPwdPresenter.h; sourceTree = "<group>"; };
+		027B4D66231506F10015C508 /* THModifyPwdPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THModifyPwdPresenter.m; sourceTree = "<group>"; };
+		027B4D69231507020015C508 /* THModifyPwdProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THModifyPwdProtocol.h; sourceTree = "<group>"; };
+		027B4D6A23150C0A0015C508 /* NSDictionary+Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Message.h"; sourceTree = "<group>"; };
+		027B4D6B23150C0A0015C508 /* NSDictionary+Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Message.m"; sourceTree = "<group>"; };
 		02834B4C230A9C5D00B8BFB2 /* THTaskPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTaskPresenter.h; sourceTree = "<group>"; };
 		02834B4D230A9C5D00B8BFB2 /* THTaskPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTaskPresenter.m; sourceTree = "<group>"; };
 		02834B50230A9C7600B8BFB2 /* THInvitePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInvitePresenter.h; sourceTree = "<group>"; };
@@ -1440,6 +1454,8 @@
 				02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */,
 				025111892313D04800F9BDDD /* THAddressProtocol.h */,
 				0251118A2313D05B00F9BDDD /* THAddressEditProtocol.h */,
+				027B4D642314FEA70015C508 /* THSettingProtocol.h */,
+				027B4D69231507020015C508 /* THModifyPwdProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1483,6 +1499,10 @@
 				025111822313D02000F9BDDD /* THAddressPresenter.m */,
 				025111852313D02F00F9BDDD /* THAdressEditPresenter.h */,
 				025111862313D02F00F9BDDD /* THAdressEditPresenter.m */,
+				027B4D602314FE960015C508 /* THSettingPresenter.h */,
+				027B4D612314FE960015C508 /* THSettingPresenter.m */,
+				027B4D65231506F10015C508 /* THModifyPwdPresenter.h */,
+				027B4D66231506F10015C508 /* THModifyPwdPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2095,6 +2115,8 @@
 				8F5168AB20747D8F005E956E /* UISearchBar+FMAdd.m */,
 				025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */,
 				025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */,
+				027B4D6A23150C0A0015C508 /* NSDictionary+Message.h */,
+				027B4D6B23150C0A0015C508 /* NSDictionary+Message.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3112,6 +3134,7 @@
 				0265CE3F22F2C45E000363F0 /* YGCacheManager.m in Sources */,
 				0265CE4022F2C45E000363F0 /* THTeHuiCenterVC.m in Sources */,
 				0265CE4122F2C45E000363F0 /* THNewFeatureCell.m in Sources */,
+				027B4D6D23150C0A0015C508 /* NSDictionary+Message.m in Sources */,
 				0265CE4222F2C45E000363F0 /* THUserInfoModel.m in Sources */,
 				0265CE4322F2C45E000363F0 /* THGoosDetailModel.m in Sources */,
 				0265CE4422F2C45E000363F0 /* THShoppingCartModel.m in Sources */,
@@ -3232,6 +3255,7 @@
 				0265CEB122F2C45E000363F0 /* UISearchBar+FMAdd.m in Sources */,
 				0265CEB222F2C45E000363F0 /* THFlashCtl.m in Sources */,
 				027B4D5B2314D1D90015C508 /* YGAreaPickerView.m in Sources */,
+				027B4D68231506F10015C508 /* THModifyPwdPresenter.m in Sources */,
 				0265CEB322F2C45E000363F0 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				0265CEB422F2C45E000363F0 /* THMyTaskCell.m in Sources */,
 				0265CEB522F2C45E000363F0 /* THPay.m in Sources */,
@@ -3254,6 +3278,7 @@
 				0265CEC622F2C45E000363F0 /* THSearchView.m in Sources */,
 				0265CEC722F2C45E000363F0 /* NSString+MLLabel.m in Sources */,
 				0265CEC822F2C45E000363F0 /* THHomeHeaderItemCell.m in Sources */,
+				027B4D632314FE960015C508 /* THSettingPresenter.m in Sources */,
 				025111882313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */,
 				0265CEC922F2C45E000363F0 /* THHomePresenter.m in Sources */,
 				0265CECA22F2C45E000363F0 /* THMyTaskCtl.m in Sources */,
@@ -3363,6 +3388,7 @@
 				02188AA122DF195F00258F37 /* YGCacheManager.m in Sources */,
 				04054DAE20ADECB5009CE4F1 /* THTeHuiCenterVC.m in Sources */,
 				512D793E205E10E40088A4A0 /* THNewFeatureCell.m in Sources */,
+				027B4D6C23150C0A0015C508 /* NSDictionary+Message.m in Sources */,
 				8FDAF711206E37D00090FBCC /* THUserInfoModel.m in Sources */,
 				044A489C2078A70600DF1AAD /* THGoosDetailModel.m in Sources */,
 				8FD0DC01207C650700AD8B3D /* THShoppingCartModel.m in Sources */,
@@ -3483,6 +3509,7 @@
 				8F5168AC20747D90005E956E /* UISearchBar+FMAdd.m in Sources */,
 				8F51687E20746E71005E956E /* THFlashCtl.m in Sources */,
 				027B4D5A2314D1D90015C508 /* YGAreaPickerView.m in Sources */,
+				027B4D67231506F10015C508 /* THModifyPwdPresenter.m in Sources */,
 				576EEAC32087A5510088B1EB /* NSMutableAttributedString+MLLabel.m in Sources */,
 				8FDC4E6720736E4400FEFE40 /* THMyTaskCell.m in Sources */,
 				57D5104A20C6F31E00B78087 /* THPay.m in Sources */,
@@ -3505,6 +3532,7 @@
 				04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */,
 				576EEAC42087A5510088B1EB /* NSString+MLLabel.m in Sources */,
 				512D78F42059FFC00088A4A0 /* THHomeHeaderItemCell.m in Sources */,
+				027B4D622314FE960015C508 /* THSettingPresenter.m in Sources */,
 				025111872313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */,
 				02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */,
 				8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */,

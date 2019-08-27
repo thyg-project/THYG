@@ -6,8 +6,8 @@
 //  Copyright © 2018年 THYG. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "THBaseVC.h"
 
-@interface THModifyPwdVC : UIViewController
+@interface THModifyPwdVC : THBaseVC
 
 @end

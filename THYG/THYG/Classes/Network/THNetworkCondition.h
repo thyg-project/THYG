@@ -35,6 +35,8 @@ static NSString *const kAddressLiatPath = @"";
 static NSString *const kDeleteAddressPath = @"";
 static NSString *const kSetDefaultAddressPath = @"";
 static NSString *const kEditAddressPath = @"";
+static NSString *const kLogoutPath = @"";
+static NSString *const kModifyPwdPath = @"";
 
 #else
 //正式环境
@@ -58,6 +60,8 @@ static NSString *const kAddressLiatPath = @"";
 static NSString *const kDeleteAddressPath = @"";
 static NSString *const kSetDefaultAddressPath = @"";
 static NSString *const kEditAddressPath = @"";
+static NSString *const kLogoutPath = @"";
+static NSString *const kModifyPwdPath = @"";
 
 #endif
 

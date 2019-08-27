@@ -47,46 +47,67 @@
 + (NSURLSessionTask *)attentionListSuccess:(SuccessBlock)success
                                     failed:(FailedBlock)failed;
 
+//优惠券列表
 + (NSURLSessionTask *)getCouponListSuccess:(SuccessBlock)success
                                     failed:(FailedBlock)failed;
 
+//银行卡列表
 + (NSURLSessionTask *)getBankListSuccess:(SuccessBlock)success
                                   failed:(FailedBlock)failed;
 
+//卡包信息
 + (NSURLSessionTask *)getWalletInfoSuccess:(SuccessBlock)success
                                     failed:(FailedBlock)failed;
 
+//上传图片
 + (NSURLSessionTask *)uploadImage:(NSData *)imageData
                          fileName:(NSString *)fileName
                           success:(SuccessBlock)success
                            failed:(FailedBlock)failed;
 
+//更新用户信息
 + (NSURLSessionTask *)updateUserInfo:(NSDictionary *)params
                              success:(SuccessBlock)success
                               failed:(FailedBlock)failed;
 
+//签到
 + (NSURLSessionTask *)signForState:(BOOL)state
                            success:(SuccessBlock)success
                             failed:(FailedBlock)failed;
 
+//设置默认地址
 + (NSURLSessionTask *)setDefaultAddress:(NSDictionary *)params
                                 success:(SuccessBlock)success
                                  failed:(FailedBlock)failed;
 
+//删除地址
 + (NSURLSessionTask *)deleteAddress:(NSDictionary *)params
                             success:(SuccessBlock)success
                              failed:(FailedBlock)failed;
 
+//获取地址列表
 + (NSURLSessionTask *)getAddressListSuccess:(SuccessBlock)success
                                      failed:(FailedBlock)failed;
 
+//添加地址
 + (NSURLSessionTask *)newAddressInfo:(NSDictionary *)params
                              success:(SuccessBlock)success
                               failed:(FailedBlock)failed;
 
+//编辑地址
 + (NSURLSessionTask *)editAddressInfo:(NSDictionary *)params
                               success:(SuccessBlock)success
                                failed:(FailedBlock)failed;
+
+//退出登录
++ (NSURLSessionTask *)logoutSuccess:(SuccessBlock)success
+                             failed:(FailedBlock)failed;
+
+//修改密码
++ (NSURLSessionTask *)modifyPwd:(NSString *)originPwd
+                         newPwd:(NSString *)newPwd
+                        success:(SuccessBlock)success
+                         failed:(FailedBlock)failed;
 
 @end
 

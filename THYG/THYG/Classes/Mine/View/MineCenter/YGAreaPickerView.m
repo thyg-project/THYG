@@ -12,6 +12,7 @@
 @interface YGAreaPickerView() <UIPickerViewDelegate, UIPickerViewDataSource> {
     NSArray <YGProvince *>*_dataSource;
     UIView *_containerView;
+    UIView *_toolBar;
 }
 
 @property (nonatomic, strong) UIPickerView *pickerView;
@@ -45,11 +46,46 @@
         make.height.mas_equalTo(0);
     }];
     [self addSubview:_pickerView];
+    [self loadToolBar];
     [_pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self);
-        make.top.equalTo(@(20));
+        make.top.equalTo(@(30));
     }];
     [_pickerView reloadAllComponents];
+}
+
+- (void)loadToolBar {
+    _toolBar = [UIView new];
+    _toolBar.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_toolBar];
+    UIButton *cancel = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_toolBar addSubview:cancel];
+    [cancel setTitle:@"取消" forState:UIControlStateNormal];
+    cancel.titleLabel.textAlignment = NSTextAlignmentLeft;
+    [cancel setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    cancel.titleLabel.font = [UIFont systemFontOfSize:11];
+    [cancel addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *confrim = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_toolBar addSubview:confrim];
+    [confrim setTitle:@"确定" forState:UIControlStateNormal];
+    confrim.titleLabel.textAlignment = NSTextAlignmentRight;
+    confrim.titleLabel.font = [UIFont systemFontOfSize:11];
+    [confrim setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [confrim addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
+    [_toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self);
+        make.height.mas_equalTo(30);
+    }];
+    [cancel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(_toolBar);
+        make.left.equalTo(@(15));
+        make.width.mas_equalTo(50);
+    }];
+    [confrim mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(_toolBar);
+        make.right.equalTo(@(-15));
+        make.width.mas_equalTo(50);
+    }];
 }
 
 - (void)loadJson {
@@ -144,10 +180,6 @@
         }
             break;
     }
-    if ([self.delegate respondsToSelector:@selector(didSelectedPro:city:area:)]) {
-        YGProvince *pro = _dataSource[self.selectedPro];
-        [self.delegate didSelectedPro:pro city:pro.citylist[self.selectedCity] area:pro.citylist[self.selectedCity].arealist[self.selectedArea]];
-    }
 }
 
 - (void)showInView:(UIView *)inView {
@@ -200,6 +232,18 @@
 
 - (UIView *)container {
     return _containerView;
+}
+
+- (void)cancelAction {
+    [self tap];
+}
+
+- (void)confirmAction {
+    if ([self.delegate respondsToSelector:@selector(didSelectedPro:city:area:)]) {
+        YGProvince *pro = _dataSource[self.selectedPro];
+        [self.delegate didSelectedPro:pro city:pro.citylist[self.selectedCity] area:pro.citylist[self.selectedCity].arealist[self.selectedArea]];
+    }
+    [self tap];
 }
 
 @end

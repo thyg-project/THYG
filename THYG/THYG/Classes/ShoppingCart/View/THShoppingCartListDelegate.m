@@ -37,7 +37,7 @@
     return 5;
 }
 
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     THCartSectionHead *head = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THCartSectionHead.class)];
     head.contentView.backgroundColor = RGB(222, 222, 222);
     THShoppingCartModel *model = self.data[section];
@@ -49,7 +49,7 @@
     return head;
 }
 
-- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return nil;
 }
 
@@ -66,7 +66,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    THCartListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THCartListCell.class)];
+    THCartListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"THCartListCell"];
     THCartGoodsModel *model = [self.data[indexPath.section] cart][indexPath.row];
     cell.choosedCount = model.goods_num;
     cell.maxCount = model.goods.store_count; // 库存

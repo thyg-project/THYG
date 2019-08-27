@@ -31,6 +31,10 @@ static NSString *const kCouponListPath = @"";
 static NSString *const kBankListPath = @"";
 static NSString *const kWalletInfoPath = @"";
 static NSString *const kSignPath = @"";
+static NSString *const kAddressLiatPath = @"";
+static NSString *const kDeleteAddressPath = @"";
+static NSString *const kSetDefaultAddressPath = @"";
+static NSString *const kEditAddressPath = @"";
 
 #else
 //正式环境
@@ -50,7 +54,10 @@ static NSString *const kCouponListPath = @"";
 static NSString *const kBankListPath = @"";
 static NSString *const kWalletInfoPath = @"";
 static NSString *const kSignPath = @"";
-
+static NSString *const kAddressLiatPath = @"";
+static NSString *const kDeleteAddressPath = @"";
+static NSString *const kSetDefaultAddressPath = @"";
+static NSString *const kEditAddressPath = @"";
 
 #endif
 

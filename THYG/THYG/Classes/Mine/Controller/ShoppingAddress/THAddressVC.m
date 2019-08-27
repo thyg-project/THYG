@@ -7,14 +7,14 @@
 //
 
 #import "THAddressVC.h"
-#import "THAddressModel.h"
 #import "THAddressEditListCell.h"
 #import "THAddressEditVC.h"
+#import "THAddressPresenter.h"
 
-@interface THAddressVC () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic,strong) UIButton *addAddressBtn;
+@interface THAddressVC () <UITableViewDataSource, UITableViewDelegate, THAddressProtocol, THEditAddressResultDelegate>
+@property (nonatomic, strong) UIButton *addAddressBtn;
 @property (nonatomic, strong) UITableView *tableView;
-
+@property (nonatomic, strong) THAddressPresenter *presenter;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THAddressPresenter alloc] initPresenterWithProtocol:self];
+    [_presenter getAddressList];
     [self setupUI];
 }
 
@@ -50,17 +52,15 @@
 
 #pragma mark -- 跳转到添加界面
 - (void)addAddressBtnClick {
-    [self gotoAddressEditPage:nil type:newOption];
+    [self gotoAddressEditPage:nil type:OptionType_New];
 }
 
 #pragma mark -- 跳转到编辑界面
-- (void)gotoAddressEditPage:(THAddressModel*)model type:(optionType)optiontype {
+- (void)gotoAddressEditPage:(THAddressModel*)model type:(OptionType)optiontype {
     THAddressEditVC *vc = [[THAddressEditVC alloc] init];
     vc.optiontype = optiontype;
     vc.modelData = model;
-    vc.optionSuccessBlock = ^{
-        
-    };
+    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -79,18 +79,18 @@
     }
 //    THAddressModel *model = self.dataSource[indexPath.section];;
 //    cell.addressModel = model;
-//    kWeakSelf;
-    cell.deleteAddressBlock = ^{
+    kWeakSelf;
+    cell.deleteAddressBlock = ^(THAddressModel *model){
         NSLog(@"删除地址");
         
     };
 
-    cell.motifyAddressBlock = ^{
+    cell.motifyAddressBlock = ^(THAddressModel *model){
         NSLog(@"修改地址");
-//        [weakSelf gotoAddressEditPage:model type:editOption];
+        [weakSelf gotoAddressEditPage:model type:OptionType_Edit];
     };
 
-    cell.setDefaultBlock = ^{
+    cell.setDefaultBlock = ^(THAddressModel *model){
         NSLog(@"设置默认地址");
         
     };
@@ -124,4 +124,38 @@
     }
     return _addAddressBtn;
 }
+
+#pragma mark --
+- (void)deleteAddressFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)deleteAddressSuccess:(NSDictionary *)response {
+    
+}
+
+- (void)setDefaultAddressFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)setDefaultAddressSuccess:(NSDictionary *)response {
+    
+}
+
+- (void)getAddressListFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getAddressListSuccess:(NSArray<THAddressModel *> *)response {
+    _dataSource = [response mutableCopy];
+}
+
+- (void)newAddress:(THAddressEditVC *)container {
+    [self.presenter getAddressList];
+}
+
+- (void)updateAddress:(THAddressEditVC *)container {
+    [self.presenter getAddressList];
+}
+
 @end

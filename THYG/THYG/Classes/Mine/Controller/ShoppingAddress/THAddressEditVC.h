@@ -8,19 +8,29 @@
 
 #import "THBaseVC.h"
 @class THAddressModel;
-typedef NS_ENUM(NSInteger, optionType) {
+typedef NS_ENUM(NSInteger, OptionType) {
     /*新建*/
-    newOption = 0,
+    OptionType_New          = 0,
     /*编辑*/
-    editOption
+    OptionType_Edit
 };
+
+@protocol THEditAddressResultDelegate;
 
 @interface THAddressEditVC : THBaseVC
 
-@property (nonatomic,assign) optionType optiontype;
+@property (nonatomic,assign) OptionType optiontype;
 
 @property (nonatomic,strong) THAddressModel *modelData;
 
-@property (nonatomic,copy) void(^optionSuccessBlock)(void);
+@property (nonatomic, weak) id <THEditAddressResultDelegate> delegate;
+
+@end
+
+@protocol THEditAddressResultDelegate <NSObject>
+
+- (void)updateAddress:(THAddressEditVC *)container;
+
+- (void)newAddress:(THAddressEditVC *)container;
 
 @end

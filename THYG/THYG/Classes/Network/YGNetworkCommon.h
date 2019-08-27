@@ -69,5 +69,24 @@
                            success:(SuccessBlock)success
                             failed:(FailedBlock)failed;
 
++ (NSURLSessionTask *)setDefaultAddress:(NSDictionary *)params
+                                success:(SuccessBlock)success
+                                 failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)deleteAddress:(NSDictionary *)params
+                            success:(SuccessBlock)success
+                             failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)getAddressListSuccess:(SuccessBlock)success
+                                     failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)newAddressInfo:(NSDictionary *)params
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)editAddressInfo:(NSDictionary *)params
+                              success:(SuccessBlock)success
+                               failed:(FailedBlock)failed;
+
 @end
 

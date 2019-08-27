@@ -31,6 +31,10 @@
 		022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98E22DC2B8B00A6518A /* SDWaitingView.m */; };
 		022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */; };
 		024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D14C922E8668F00D872DD /* THCardSettleView.m */; };
+		025111832313D02000F9BDDD /* THAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111822313D02000F9BDDD /* THAddressPresenter.m */; };
+		025111842313D02000F9BDDD /* THAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111822313D02000F9BDDD /* THAddressPresenter.m */; };
+		025111872313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111862313D02F00F9BDDD /* THAdressEditPresenter.m */; };
+		025111882313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111862313D02F00F9BDDD /* THAdressEditPresenter.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
 		0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */; };
@@ -711,6 +715,12 @@
 		022CD99222DC2B8B00A6518A /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		024D14C822E8668F00D872DD /* THCardSettleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardSettleView.h; sourceTree = "<group>"; };
 		024D14C922E8668F00D872DD /* THCardSettleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardSettleView.m; sourceTree = "<group>"; };
+		025111812313D02000F9BDDD /* THAddressPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddressPresenter.h; sourceTree = "<group>"; };
+		025111822313D02000F9BDDD /* THAddressPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAddressPresenter.m; sourceTree = "<group>"; };
+		025111852313D02F00F9BDDD /* THAdressEditPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAdressEditPresenter.h; sourceTree = "<group>"; };
+		025111862313D02F00F9BDDD /* THAdressEditPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAdressEditPresenter.m; sourceTree = "<group>"; };
+		025111892313D04800F9BDDD /* THAddressProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddressProtocol.h; sourceTree = "<group>"; };
+		0251118A2313D05B00F9BDDD /* THAddressEditProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddressEditProtocol.h; sourceTree = "<group>"; };
 		025F821722C9B3ED003E27DF /* UIViewController+SessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SessionTask.h"; sourceTree = "<group>"; };
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
@@ -1397,6 +1407,8 @@
 				02834B60230A9D1300B8BFB2 /* THWalletProtocol.h */,
 				02834B61230A9D2500B8BFB2 /* THBankProtocol.h */,
 				02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */,
+				025111892313D04800F9BDDD /* THAddressProtocol.h */,
+				0251118A2313D05B00F9BDDD /* THAddressEditProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1436,6 +1448,10 @@
 				02834B67230A9D4700B8BFB2 /* THBankPresenter.m */,
 				02834B72230B897100B8BFB2 /* THUserInfoPresenter.h */,
 				02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */,
+				025111812313D02000F9BDDD /* THAddressPresenter.h */,
+				025111822313D02000F9BDDD /* THAddressPresenter.m */,
+				025111852313D02F00F9BDDD /* THAdressEditPresenter.h */,
+				025111862313D02F00F9BDDD /* THAdressEditPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -3196,6 +3212,7 @@
 				0265CEC622F2C45E000363F0 /* THSearchView.m in Sources */,
 				0265CEC722F2C45E000363F0 /* NSString+MLLabel.m in Sources */,
 				0265CEC822F2C45E000363F0 /* THHomeHeaderItemCell.m in Sources */,
+				025111882313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */,
 				0265CEC922F2C45E000363F0 /* THHomePresenter.m in Sources */,
 				0265CECA22F2C45E000363F0 /* THMyTaskCtl.m in Sources */,
 				0265CECB22F2C45E000363F0 /* THShoppingCartCtl.m in Sources */,
@@ -3238,6 +3255,7 @@
 				0265CEEF22F2C45E000363F0 /* THAVCaptureSessionManager.m in Sources */,
 				0265CEF022F2C45E000363F0 /* THScreeningPriceCell.m in Sources */,
 				0265CEF122F2C45E000363F0 /* THTeTableViewCell.m in Sources */,
+				025111842313D02000F9BDDD /* THAddressPresenter.m in Sources */,
 				0265CEF222F2C45E000363F0 /* NSDictionary+AvoidCrash.m in Sources */,
 				0265CEF322F2C45E000363F0 /* THMessageModel.m in Sources */,
 				0265CEF422F2C45E000363F0 /* YGAuthTool.m in Sources */,
@@ -3443,6 +3461,7 @@
 				04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */,
 				576EEAC42087A5510088B1EB /* NSString+MLLabel.m in Sources */,
 				512D78F42059FFC00088A4A0 /* THHomeHeaderItemCell.m in Sources */,
+				025111872313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */,
 				02D154B022D7254C005D6277 /* THHomePresenter.m in Sources */,
 				8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */,
 				8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */,
@@ -3485,6 +3504,7 @@
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */,
+				025111832313D02000F9BDDD /* THAddressPresenter.m in Sources */,
 				022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */,
 				02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */,
 				02DCC83422EED26E002602A5 /* YGAuthTool.m in Sources */,

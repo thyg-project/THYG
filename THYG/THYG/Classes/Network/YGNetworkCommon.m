@@ -95,4 +95,34 @@
     } parameters:@{@"state":@(state)} success:success failed:failed];
 }
 
++ (NSURLSessionTask *)getAddressListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] get:kAddressLiatPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:nil success:success failed:failed];
+}
+
++ (NSURLSessionTask *)deleteAddress:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kDeleteAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:params success:success failed:failed];
+}
+
++ (NSURLSessionTask *)setDefaultAddress:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kSetDefaultAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:params success:success failed:failed];
+}
+
++ (NSURLSessionTask *)newAddressInfo:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kAddAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:params success:success failed:failed];
+}
+
++ (NSURLSessionTask *)editAddressInfo:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kEditAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
+        [self setRequestHeaderInfo:manager];
+    } parameters:params success:success failed:failed];
+}
+
 @end

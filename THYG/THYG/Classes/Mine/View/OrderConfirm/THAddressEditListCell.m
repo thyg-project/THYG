@@ -108,15 +108,15 @@
 
 - (void)setDefaultAddress {
     _defaultButton.selected = !_defaultButton.selected;
-    BLOCK(self.setDefaultBlock);
+    BLOCK(self.setDefaultBlock,self.addressModel);
 }
 
 - (void)deleteAction {
-    BLOCK(self.deleteAddressBlock);
+    BLOCK(self.deleteAddressBlock,self.addressModel);
 }
 
 - (void)eidtAction {
-    BLOCK(self.motifyAddressBlock);
+    BLOCK(self.motifyAddressBlock,self.addressModel);
 }
 
 - (void)setAddressModel:(THAddressModel *)addressModel {

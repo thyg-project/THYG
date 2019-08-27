@@ -7,17 +7,13 @@
 //
 
 #import "THAddressEditVC.h"
-#import "THAddressModel.h"
+#import "THAdressEditPresenter.h"
 #import "THAddAddressCell.h"
 #import "ReactiveCocoa.h"
 #import "THSelectAddressView.h"
 
-@interface THAddressEditVC () <UITableViewDataSource, UITableViewDelegate> {
+@interface THAddressEditVC () <UITableViewDataSource, UITableViewDelegate, THAddressEditProtocol> {
     UIButton*_saveBtn;
-    NSArray *_titleData;
-    NSArray *_typeData;
-    NSArray *_placeholdData;
-    NSArray *_valueData;
 }
 
 @property (nonatomic, strong) THSelectAddressView *selectAddressView;
@@ -26,7 +22,7 @@
 @property (nonatomic, strong) THAddressPCDModel *citySelModel;
 @property (nonatomic, strong) THAddressPCDModel *districtSelModel;
 @property (nonatomic, strong) UIButton *footerBtn;
-
+@property (nonatomic, strong) THAdressEditPresenter *presenter;
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -37,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THAdressEditPresenter alloc] initPresenterWithProtocol:self];
     [self setupUI];
     [self initData];
 }
@@ -57,30 +54,27 @@
         make.left.top.right.equalTo(self.view);
         make.bottom.equalTo(self.footerBtn.mas_top);
     }];
-   
-    
     [self.tableView registerClass:THAddAddressCell.class forCellReuseIdentifier:NSStringFromClass(THAddAddressCell.class)];
-    
     [self.selectAddressView initDataWithProvinceId:[self.modelData.province integerValue] cityId:[self.modelData.city integerValue] districtId:[self.modelData.district integerValue]];
-    
 }
 
 - (void)initData {
-    _titleData = @[@"收货人",@"手机号码",@"选择地区",@"详细地址"];
-    _typeData = @[@"1",@"1",@"2",@"1"];
-    _placeholdData =  @[@"请输入收货人姓名",@"请输入手机号码",@"请选择地区",@"请输入详细地址"];
-    self.optiontype == newOption ? nil : (_valueData = @[self.modelData.consignee, self.modelData.mobile, [NSString stringWithFormat:@"%@ %@ %@", self.modelData.province_str, self.modelData.city_str, self.modelData.district_str], self.modelData.address]);
-    self.optiontype == newOption ? nil : (self.valueModel = self.modelData);
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray new];
+    NSArray *titleData = @[@"收货人",@"手机号码",@"选择地区",@"详细地址"];
+    NSArray *typeData = @[@"1",@"1",@"2",@"1"];
+    NSArray *placeholdData =  @[@"请输入收货人姓名",@"请输入手机号码",@"请选择地区",@"请输入详细地址"];
+    NSArray *valueData = nil;
+    if (self.optiontype != OptionType_New) {
+        valueData = @[self.modelData.consignee, self.modelData.mobile, [NSString stringWithFormat:@"%@ %@ %@", self.modelData.province_str, self.modelData.city_str, self.modelData.district_str], self.modelData.address];
     }
+    self.optiontype == OptionType_New ? nil : (self.valueModel = self.modelData);
+    _dataSource = [NSMutableArray new];
     NSInteger index = 0;
-    for (NSString*string in _titleData) {
+    for (NSString*string in titleData) {
         THAddressModel *model = [[THAddressModel alloc]init];
         model.title = string;
-        model.type = [_typeData[index] integerValue];
-        model.placehold = _placeholdData[index];
-        model.text = _valueData[index];
+        model.type = [typeData[index] integerValue];
+        model.placehold = placeholdData[index];
+        model.text = valueData[index];
         [self.dataSource addObject:model];
         index++;
     }
@@ -218,11 +212,33 @@
 }
 
 - (THSelectAddressView *)selectAddressView {
-    if (_selectAddressView==nil) {
+    if (_selectAddressView == nil) {
         _selectAddressView = [[THSelectAddressView alloc] init];
     }
     return _selectAddressView;
 }
 
+#pragma mark --
+- (void)editAddressFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)eidtAddressSuccess:(NSDictionary *)response {
+    if ([self.delegate respondsToSelector:@selector(updateAddress:)]) {
+        [self.delegate updateAddress:self];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)newAddressSuccess:(NSDictionary *)response {
+    if ([self.delegate respondsToSelector:@selector(newAddress:)]) {
+        [self.delegate newAddress:self];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)newAddressFailed:(NSDictionary *)errorInfo {
+    
+}
 
 @end

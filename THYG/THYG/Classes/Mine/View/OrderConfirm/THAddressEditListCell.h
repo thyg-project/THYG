@@ -13,11 +13,11 @@
 
 @property (nonatomic, strong) THAddressModel *addressModel;
 
-@property (nonatomic,copy) void(^setDefaultBlock)(void);
+@property (nonatomic,copy) void(^setDefaultBlock)(THAddressModel *model);
 
-@property (nonatomic,copy) void(^deleteAddressBlock)(void);
+@property (nonatomic,copy) void(^deleteAddressBlock)(THAddressModel *model);
 
-@property (nonatomic,copy) void(^motifyAddressBlock)(void);
+@property (nonatomic,copy) void(^motifyAddressBlock)(THAddressModel *model);
 
 
 

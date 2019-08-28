@@ -39,6 +39,8 @@ typedef void(^completeBlock)(NSString *reuslt);
 /**音效名称*/
 @property(copy, nonatomic) NSString *soundName;
 
+@property (nonatomic, assign, readonly) AVCaptureType captureType;
+
 /**
  初始化Manager
  

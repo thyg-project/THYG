@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"扫一扫";
+    [self setCropRect:CGRectMake((kScreenWidth - 256) / 2, (kScreenHeight - 256) / 2 - kNaviHeight, 256, 256)];
     THButton *button = [[THButton alloc] initWithButtonType:THButtonType_Text];
     [button setTitle:@"相册"];
     [button setTextColor:[UIColor whiteColor]];
@@ -35,14 +36,32 @@
     // 获取读取读取二维码的会话
     self.session = [[THAVCaptureSessionManager alloc]initWithAVCaptureQuality:AVCaptureQualityHigh
                                                                 AVCaptureType:AVCaptureTypeQRCode
-                                                                   scanRect:CGRectZero
+                                                                   scanRect:CGRectMake((kScreenWidth - 256) / 2, (kScreenHeight - 256) / 2 - kNaviHeight, 256, 256)
                                                                successBlock:^(NSString *reuslt) {
                                                                    [self showResult:reuslt];
                                                                }];
     self.session.isPlaySound = YES;
     [self.session showPreviewLayerInView:self.view];
-    
 }
+
+- (void)setCropRect:(CGRect)cropRect{
+    CAShapeLayer *cropLayer = [[CAShapeLayer alloc] init];
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddRect(path, nil, cropRect);
+    CGPathAddRect(path, nil, CGRectMake(0, 0, self.view.bounds.size.width, kScreenHeight - kNaviHeight));
+    
+    [cropLayer setFillRule:kCAFillRuleEvenOdd];
+    [cropLayer setPath:path];
+    CGPathRelease(path);
+    [cropLayer setFillColor:[UIColor blackColor].CGColor];
+    [cropLayer setOpacity:0.6];
+    
+    
+    [cropLayer setNeedsDisplay];
+    
+    [self.view.layer addSublayer:cropLayer];
+}
+
 
 // 在页面将要显示的时候添加定时器
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +81,8 @@
     [THAVCaptureSessionManager checkAuthorizationStatusForPhotoLibraryWithGrantBlock:^{
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; //（选择类型）表示仅仅从相册中选取照片
+        imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        imagePicker.allowsEditing = self;
         imagePicker.delegate = self;
         [self presentViewController:imagePicker animated:YES completion:nil];
     } DeniedBlock:^{
@@ -93,15 +114,19 @@
 - (void)showResult:(NSString *)result {
     UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"扫描结果" message:result delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [view show];
+    if ([self.delegate respondsToSelector:@selector(scanResult:scanType:)]) {
+        [self.delegate scanResult:result scanType:(self.session.captureType == AVCaptureTypeQRCode ? THScanType_QR : THScanType_Bar)];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 // 扫描效果
 - (void)scan{
-    // NSLog(@"self.scanTop.constant %f",self.scanTop.constant);
+    
     
 }
 
-- (IBAction)changeTorchState:(id)sender {
+- (void)changeTorchState:(UIButton *)sender {
     self.TorchState = !self.TorchState;
     UIImage *image = [UIImage imageNamed:self.TorchState ? @"guanbishoudiantong" : @"dakaishoudiantong"];
     [((UIButton *)sender) setImage:image forState:UIControlStateNormal];

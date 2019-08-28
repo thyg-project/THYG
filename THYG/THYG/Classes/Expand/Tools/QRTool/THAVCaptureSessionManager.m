@@ -9,7 +9,9 @@
 #import "THAVCaptureSessionManager.h"
 #import <Photos/Photos.h>
 
-@interface THAVCaptureSessionManager() <AVCaptureMetadataOutputObjectsDelegate>
+@interface THAVCaptureSessionManager() <AVCaptureMetadataOutputObjectsDelegate> {
+    AVCaptureType _avCaptureType;
+}
 
 @property(copy, nonatomic) completeBlock block;
 
@@ -19,11 +21,16 @@
 
 @implementation THAVCaptureSessionManager
 
+- (AVCaptureType)captureType {
+    return _avCaptureType;
+}
+
 - (instancetype)initWithAVCaptureQuality:(AVCaptureQuality)quality
                            AVCaptureType:(AVCaptureType)type
                                 scanRect:(CGRect)scanRect
                             successBlock:(completeBlock)success {
     if (self = [super init]) {
+        _avCaptureType = type;
         self.block = success;
         // 1.获取输入设备(摄像头)
         _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -37,7 +44,7 @@
         // 4.设置代理监听输出对象输出的数据
         [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
         if (!CGRectEqualToRect(scanRect, CGRectNull)) {
-            output.rectOfInterest = scanRect;
+            output.rectOfInterest = CGRectMake(scanRect.origin.y / kScreenHeight, scanRect.origin.x / kScreenWidth, scanRect.size.height / kScreenHeight, scanRect.size.width / kScreenWidth);
         }
         
         [self setSessionPreset:[self qualityStrWithAVCaptureQuality:quality]];
@@ -63,6 +70,7 @@
                                                 selector:@selector(start)
                                                     name:UIApplicationWillEnterForegroundNotification
                                                   object:nil];
+        
     }
     
     return self;
@@ -199,6 +207,9 @@
             result = self.soundName;
         }
         NSString *urlStr = [[NSBundle mainBundle] pathForResource:result ofType:nil];
+        if (!YGInfo.validString(urlStr)) {
+            return;
+        }
         NSURL *fileUrl = [NSURL fileURLWithPath:urlStr];
         
         SystemSoundID soundID = 0;

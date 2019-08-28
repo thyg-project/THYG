@@ -114,10 +114,10 @@
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.backgroundColor = kBackgroundColor;
         
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THLimitSpellGroupListCtl.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THLimitSpellGroupListCtl.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THMoreLimitSpellGroupCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THMoreLimitSpellGroupCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THLimitSpellGroupListCtl" bundle:nil] forCellWithReuseIdentifier:@"THLimitSpellGroupListCtl"];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THMoreLimitSpellGroupCell" bundle:nil] forCellWithReuseIdentifier:@"THMoreLimitSpellGroupCell"];
         
-        [_collectionView registerClass:[THSpellGroupSectionHead class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THSpellGroupSectionHead.class)];
+        [_collectionView registerClass:[THSpellGroupSectionHead class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THSpellGroupSectionHead"];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"foot"];
         
         

@@ -28,7 +28,7 @@
 #import "THHomePresenter.h"
 #import "THHomeProtocol.h"
 
-@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate>
+@interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate, THScanResultDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) THMenuView *menuView;
@@ -307,6 +307,10 @@
         controller = [[THMyCollectCtl alloc] init];
     }
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)scanResult:(NSString *)url scanType:(THScanType)scanType {
+    
 }
 
 

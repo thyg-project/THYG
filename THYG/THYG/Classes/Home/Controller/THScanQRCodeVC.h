@@ -8,6 +8,22 @@
 
 #import "THBaseVC.h"
 
+typedef NS_ENUM(NSInteger, THScanType) {
+    THScanType_QR               = 0,
+    THScanType_Bar
+};
+
+@protocol THScanResultDelegate;
+
+
 @interface THScanQRCodeVC : THBaseVC
+
+@property (nonatomic, weak) id <THScanResultDelegate> delegate;
+
+@end
+
+@protocol THScanResultDelegate <NSObject>
+
+- (void)scanResult:(NSString *)url scanType:(THScanType)scanType;
 
 @end

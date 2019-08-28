@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "THTabBarController.h"
 #import "THGuideViewTool.h"
 #import "THPay.h"
 #import <Bugly/Bugly.h>

@@ -10,10 +10,12 @@
 #import "THAVCaptureSessionManager.h"
 #import "THButton.h"
 
-@interface THScanQRCodeVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface THScanQRCodeVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+    NSTimer *_timer;
+    UIImagePickerController *_imagePicker;
+}
 @property (nonatomic, strong) CADisplayLink *link;
 @property (nonatomic, strong) THAVCaptureSessionManager *session;
-@property(assign, nonatomic) BOOL TorchState;
 
 @end
 
@@ -23,6 +25,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"扫一扫";
     [self setCropRect:CGRectMake((kScreenWidth - 256) / 2, (kScreenHeight - 256) / 2 - kNaviHeight, 256, 256)];
+    [self initinalizedView];
     THButton *button = [[THButton alloc] initWithButtonType:THButtonType_Text];
     [button setTitle:@"相册"];
     [button setTextColor:[UIColor whiteColor]];
@@ -42,6 +45,40 @@
                                                                }];
     self.session.isPlaySound = YES;
     [self.session showPreviewLayerInView:self.view];
+}
+
+- (void)initinalizedView {
+    UIButton *flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:flashButton];
+    [flashButton setImage:[UIImage imageNamed:@"dakaishoudiantong"] forState:UIControlStateNormal];
+    flashButton.imageView.contentMode = UIViewContentModeCenter;
+    [flashButton setImage:[UIImage imageNamed:@"guanbishoudiantong"] forState:UIControlStateSelected];
+    [flashButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(@(-50));
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.bottom.equalTo(@(-50));
+    }];
+    UIButton *swButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:swButton];
+    [swButton setImage:[UIImage imageNamed:@"tuiguangerweima"] forState:UIControlStateNormal];
+    [swButton setImage:[UIImage imageNamed:@"tuiguangerweima"] forState:UIControlStateSelected];
+    swButton.imageView.contentMode = UIViewContentModeCenter;
+    [swButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@(50));
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.bottom.equalTo(@(-50));
+    }];
+    [flashButton addTarget:self action:@selector(changeTorchState:) forControlEvents:UIControlEventTouchUpInside];
+    [swButton addTarget:self action:@selector(switchScanType:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pick_bg"]];
+    [self.view addSubview:line];
+    
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(@((kScreenHeight - 256) / 2 - kNaviHeight));
+        make.size.mas_equalTo(CGSizeMake(256, 256));
+    }];
 }
 
 - (void)setCropRect:(CGRect)cropRect{
@@ -67,6 +104,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.session start];
+    [self startTimer];
     [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
@@ -74,17 +112,21 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.session stop];
+    [self endTimer];
     [self.link removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 - (void)showPhotoLibary {
     [THAVCaptureSessionManager checkAuthorizationStatusForPhotoLibraryWithGrantBlock:^{
-        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; //（选择类型）表示仅仅从相册中选取照片
-        imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        imagePicker.allowsEditing = self;
-        imagePicker.delegate = self;
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        if (!_imagePicker) {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; //（选择类型）表示仅仅从相册中选取照片
+            imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            imagePicker.allowsEditing = YES;
+            imagePicker.delegate = self;
+            _imagePicker = imagePicker;
+        }
+        [self presentViewController:_imagePicker animated:YES completion:nil];
     } DeniedBlock:^{
         UIAlertAction *aciton = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
@@ -99,9 +141,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [self dismissViewControllerAnimated:YES completion:^{
         [self.session start];
-        [self.session scanPhotoWith:[info objectForKey:@"UIImagePickerControllerOriginalImage"] successBlock:^(NSString *reuslt) {
-            NSString *str = reuslt!= nil ? reuslt : @"没有识别到二维码";
-            [self showResult:str];
+        [self.session scanPhotoWith:[info objectForKey:@"UIImagePickerControllerOriginalImage"] successBlock:^(NSString *result) {
+            [self showResult:result];
         }];
     }];
 }
@@ -112,8 +153,11 @@
 }
 
 - (void)showResult:(NSString *)result {
-    UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"扫描结果" message:result delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [view show];
+    if (YGInfo.validString(result) == NO) {
+        UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"提示" message:@"未扫描到结果" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [view show];
+        return;
+    }
     if ([self.delegate respondsToSelector:@selector(scanResult:scanType:)]) {
         [self.delegate scanResult:result scanType:(self.session.captureType == AVCaptureTypeQRCode ? THScanType_QR : THScanType_Bar)];
     }
@@ -121,16 +165,38 @@
 }
 
 // 扫描效果
-- (void)scan{
+- (void)scan {
     
     
 }
 
 - (void)changeTorchState:(UIButton *)sender {
-    self.TorchState = !self.TorchState;
-    UIImage *image = [UIImage imageNamed:self.TorchState ? @"guanbishoudiantong" : @"dakaishoudiantong"];
-    [((UIButton *)sender) setImage:image forState:UIControlStateNormal];
-    [self.session turnTorch:self.TorchState];
+    sender.selected = !sender.selected;
+    [self.session turnTorch:sender.selected];
+}
+
+- (void)startTimer {
+    [self endTimer];
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(scanTimeout) userInfo:nil repeats:NO];
+    }
+}
+
+- (void)endTimer {
+    if (_timer && [_timer isValid]) {
+        [_timer invalidate];
+    }
+    _timer = nil;
+}
+
+- (void)scanTimeout {
+    [self endTimer];
+    UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"扫描结果" message:@"扫描超时" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [view show];
+}
+
+- (void)switchScanType:(UIButton *)sender {
+    sender.selected = !sender.selected;
 }
 
 @end

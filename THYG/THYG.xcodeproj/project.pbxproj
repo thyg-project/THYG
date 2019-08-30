@@ -356,6 +356,8 @@
 		0265CF7122F2C45E000363F0 /* THRecommendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B20732B3B00FEFE40 /* THRecommendedCell.xib */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
 		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
+		027A1C1C2318F24200E2016D /* THAddBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027A1C1B2318F24200E2016D /* THAddBankViewController.m */; };
+		027A1C1D2318F24200E2016D /* THAddBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027A1C1B2318F24200E2016D /* THAddBankViewController.m */; };
 		027B4D502314D1290015C508 /* checkbankcard.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4E2314D1290015C508 /* checkbankcard.json */; };
 		027B4D512314D1290015C508 /* checkbankcard.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4E2314D1290015C508 /* checkbankcard.json */; };
 		027B4D522314D1290015C508 /* BRCity.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4F2314D1290015C508 /* BRCity.json */; };
@@ -755,6 +757,8 @@
 		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
 		0271234722E8315F002DF961 /* THFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterView.h; sourceTree = "<group>"; };
 		0271234822E8315F002DF961 /* THFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterView.m; sourceTree = "<group>"; };
+		027A1C1A2318F24200E2016D /* THAddBankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddBankViewController.h; sourceTree = "<group>"; };
+		027A1C1B2318F24200E2016D /* THAddBankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAddBankViewController.m; sourceTree = "<group>"; };
 		027B4D4E2314D1290015C508 /* checkbankcard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkbankcard.json; sourceTree = "<group>"; };
 		027B4D4F2314D1290015C508 /* BRCity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BRCity.json; sourceTree = "<group>"; };
 		027B4D542314D1C00015C508 /* YGProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGProvince.h; sourceTree = "<group>"; };
@@ -1843,10 +1847,10 @@
 				512D78CB205909950088A4A0 /* NewFeature */,
 				512D78AE205906540088A4A0 /* Home */,
 				512D78B5205906540088A4A0 /* Classify */,
-				8FC10B6A20737F2D00ED3FB8 /* ShoppingCart */,
 				576EEA672087A0DE0088B1EB /* Special */,
 				512D78C1205906540088A4A0 /* Mine */,
 				512D78C8205906540088A4A0 /* Main */,
+				8FC10B6A20737F2D00ED3FB8 /* ShoppingCart */,
 				512D78B4205906540088A4A0 /* Expand */,
 			);
 			path = Classes;
@@ -2198,6 +2202,8 @@
 				0417B8712076F14C003566C4 /* THMineWalletVC.m */,
 				51DA2C1220DAAC58006A82B6 /* THMineBankCardVC.h */,
 				51DA2C1320DAAC58006A82B6 /* THMineBankCardVC.m */,
+				027A1C1A2318F24200E2016D /* THAddBankViewController.h */,
+				027A1C1B2318F24200E2016D /* THAddBankViewController.m */,
 			);
 			path = MyWallet;
 			sourceTree = "<group>";
@@ -3196,6 +3202,7 @@
 				0265CE7A22F2C45E000363F0 /* MLLinkLabel.m in Sources */,
 				0265CE7B22F2C45E000363F0 /* THSpellGroupCtl.m in Sources */,
 				0265CE7C22F2C45E000363F0 /* THClassifyHeaderView.m in Sources */,
+				027A1C1D2318F24200E2016D /* THAddBankViewController.m in Sources */,
 				0265CE7D22F2C45E000363F0 /* THTeMoneyHead.m in Sources */,
 				0265CE7E22F2C45E000363F0 /* THSpellGroupHead.m in Sources */,
 				0265CE7F22F2C45E000363F0 /* THMyCollectCtl.m in Sources */,
@@ -3450,6 +3457,7 @@
 				576EEAC62087A5510088B1EB /* MLLinkLabel.m in Sources */,
 				8F0DC2A920623464009AE20B /* THSpellGroupCtl.m in Sources */,
 				512D794A205E2BB20088A4A0 /* THClassifyHeaderView.m in Sources */,
+				027A1C1C2318F24200E2016D /* THAddBankViewController.m in Sources */,
 				57417E3020CB063600F5085F /* THTeMoneyHead.m in Sources */,
 				8F0DC2C620624E30009AE20B /* THSpellGroupHead.m in Sources */,
 				8F1712BC207201F200EFDFCB /* THMyCollectCtl.m in Sources */,

@@ -288,6 +288,7 @@
 
 - (void)authCameraSuccess {
     THScanQRCodeVC *scanVc = [[THScanQRCodeVC alloc] init];
+    scanVc.delegate = self;
     [self.navigationController pushViewController:scanVc animated:YES];
 }
 
@@ -313,5 +314,8 @@
     
 }
 
+- (void)share:(THScanQRCodeVC *)container {
+    [container.navigationController pushViewController:[THMineShareQRCodeVC new] animated:YES];
+}
 
 @end

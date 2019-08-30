@@ -14,7 +14,7 @@
 /** 查看全文*/
 @property (nonatomic, copy) void (^moreClickBlock)(NSIndexPath *indexpath);
 
-@property (nonatomic, strong) THTeHuiModel *teModel;
+@property (nonatomic, strong) THTeHuiModel *commonModel;
 
 
 @end

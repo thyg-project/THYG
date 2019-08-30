@@ -13,7 +13,7 @@
 #import "THModifyPwdVC.h"
 #import "THAboutTHCtl.h"
 #import "THSettingPresenter.h"
-#define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
+#import <WebKit/WebKit.h>
 
 @interface THSettingCtl () <THSettingProtocol> {
     NSArray *_classList;
@@ -45,8 +45,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    if (indexPath.row<2 && YGInfo.validString(THUserManager.sharedInstance.userInfo.district) == NO) {
+    if (indexPath.row < 2 && YGInfo.validString(THUserManager.sharedInstance.userInfo.district) == NO) {
         return 0;
     }
     return 45;
@@ -71,15 +70,10 @@
         [self.navigationController pushViewController:controller animated:YES];
     } else {
         [THHUDProgress show:@"清理缓存中..."];
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            
-            [self cleanCaches:filePath];
-            
-            // 回到主线程
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [THHUDProgress showSuccess:@"清理缓存成功"];
-            });
+        NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        [self cleanCaches:filePath];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [THHUDProgress showSuccess:@"清理缓存成功"];
         });
     }
 }
@@ -99,6 +93,16 @@
         }
     }
     
+    [[YYImageCache sharedCache].diskCache removeAllObjects];
+    
+    // 清理wk缓存
+    if (@available(iOS 9.0, *)) {
+        [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:[WKWebsiteDataStore allWebsiteDataTypes] modifiedSince:[NSDate dateWithTimeIntervalSince1970:0] completionHandler:^{
+            
+        }];
+    }
+    // 清理url cache （get/webview）
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 #pragma mark -- 退出账户
@@ -110,9 +114,11 @@
     if (!_footer) {
         _footer = [[UIView alloc] init];
         UIButton *loginOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        loginOutBtn.frame = CGRectMake(20, 20, kScreenWidth-40, 40);
+        loginOutBtn.frame = CGRectMake(20, 20, kScreenWidth - 40, 40);
         loginOutBtn.backgroundColor = RGB(213, 0, 27);
         loginOutBtn.titleLabel.font = Font(15);
+        loginOutBtn.layer.masksToBounds = YES;
+        loginOutBtn.layer.cornerRadius = 5;
         [loginOutBtn setTitle:@"退出账户" forState:UIControlStateNormal];
         [loginOutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [loginOutBtn addTarget:self action:@selector(loginOutBtn) forControlEvents:UIControlEventTouchUpInside];

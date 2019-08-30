@@ -49,9 +49,13 @@
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self.searchView.mas_bottom);
     }];
-    
     [self.presenter loadLocalizedData];
-    
+    self.collectionView.canCancelContentTouches = NO;
+    [self.collectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboardAction)]];
+}
+
+- (void)dismissKeyboardAction {
+    [self.view endEditing:YES];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

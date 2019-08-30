@@ -78,9 +78,13 @@
     return CGFLOAT_MIN;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     THTeHuiCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THTeHuiCell.class)];
-    cell.teModel = self.dataSource[indexPath.row];
+    cell.commonModel = self.dataSource[indexPath.row];
     return cell;
 }
 
@@ -118,8 +122,9 @@
 }
 
 #pragma mark --THMenuViewDelegate
-- (void)menuView:(THMenuView *)menuView didSelectedIndex:(NSInteger)index {
+- (void)menuView:(THMenuView *)menuView didSelectedItem:(NSString *)item index:(NSInteger)index {
     self.titleBtnView.selected = NO;
+    [self.titleBtnView setTitle:item forState:UIControlStateNormal];
     [menuView dismiss];
 }
 

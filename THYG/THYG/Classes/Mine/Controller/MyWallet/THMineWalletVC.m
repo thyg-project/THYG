@@ -14,6 +14,7 @@
 #import "THMineBankCardCell.h"
 #import "THWalletHeaderModel.h"
 #import "THWalletPresenter.h"
+#import "THAddBankViewController.h"
 
 @interface THMineWalletVC () <UITableViewDataSource, UITableViewDelegate, THWalletProtocol>
 @property (nonatomic, strong) UITableView *tableView;
@@ -64,12 +65,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-	
-	if (indexPath.row != 0) {
-		THMineBankCardVC *banckVc = [[THMineBankCardVC alloc] init];
-        [self.navigationController pushViewController:banckVc animated:YES];
+    UIViewController *controller = nil;
+    if (indexPath.row == 0) {
+        controller = [THAddBankViewController new];
+    } else {
+		controller = [[THMineBankCardVC alloc] init];
 	}
-	
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

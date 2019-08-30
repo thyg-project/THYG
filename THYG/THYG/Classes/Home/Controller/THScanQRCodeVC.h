@@ -26,4 +26,6 @@ typedef NS_ENUM(NSInteger, THScanType) {
 
 - (void)scanResult:(NSString *)url scanType:(THScanType)scanType;
 
+- (void)share:(THScanQRCodeVC *)container;
+
 @end

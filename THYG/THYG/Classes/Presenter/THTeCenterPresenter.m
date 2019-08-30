@@ -12,7 +12,7 @@
 
 - (void)getTeData {
     NSMutableArray *array = [NSMutableArray new];
-    for (int i = 0; i < 30; i ++) {
+    for (int i = 0; i < 10; i ++) {
         THTeHuiModel *model = [THTeHuiModel new];
         [array addObject:model];
     }

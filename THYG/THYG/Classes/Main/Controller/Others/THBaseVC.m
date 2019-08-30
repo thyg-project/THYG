@@ -36,6 +36,9 @@
 
 - (void)dealloc {
     [self cancelTask];
+    
+    NSLog(@"%@>>>>>> dealloc",NSStringFromClass(self.class));
+    
 }
 
 @end

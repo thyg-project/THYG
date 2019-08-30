@@ -197,7 +197,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == 5) {
-        return 100;
+        return 200;
     }
 	return CGFLOAT_MIN;
 }
@@ -253,7 +253,7 @@
         layout.itemSize = CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+80);
         layout.minimumInteritemSpacing = 0;
         layout.minimumLineSpacing = 0;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;

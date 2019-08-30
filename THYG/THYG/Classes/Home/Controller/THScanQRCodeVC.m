@@ -92,8 +92,6 @@
     CGPathRelease(path);
     [cropLayer setFillColor:[UIColor blackColor].CGColor];
     [cropLayer setOpacity:0.6];
-    
-    
     [cropLayer setNeedsDisplay];
     
     [self.view.layer addSublayer:cropLayer];
@@ -197,6 +195,9 @@
 
 - (void)switchScanType:(UIButton *)sender {
     sender.selected = !sender.selected;
+    if ([self.delegate respondsToSelector:@selector(share:)]) {
+        [self.delegate share:self];
+    }
 }
 
 @end

@@ -31,4 +31,8 @@
 /*****隐藏*****/
 + (void)dismiss;
 
+
+
++ (void)showMessage:(NSString *)message;
+
 @end

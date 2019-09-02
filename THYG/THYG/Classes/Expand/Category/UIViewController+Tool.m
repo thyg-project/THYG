@@ -18,6 +18,7 @@
         if ([scrollView isKindOfClass:[UITableView class]]) {
             ((UITableView *)scrollView).estimatedSectionHeaderHeight = 0;
             ((UITableView *)scrollView).estimatedSectionFooterHeight = 0;
+            ((UITableView *)scrollView).estimatedRowHeight = 0;
         }
     }
 #endif

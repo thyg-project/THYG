@@ -120,7 +120,7 @@
 }
 
 - (void)getInviteDataFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getInviteDataSuccess:(NSArray<THInviteInfoModel *> *)response {

@@ -23,6 +23,7 @@ PODS:
   - HXPhotoPicker (2.3.1)
   - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
   - MJRefresh (3.2.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - HXPhotoPicker
   - IQKeyboardManager
   - Masonry
+  - MBProgressHUD
   - MJRefresh
   - ReactiveCocoa (~> 2.5)
   - SDCycleScrollView
@@ -90,6 +92,7 @@ SPEC REPOS:
     - HXPhotoPicker
     - IQKeyboardManager
     - Masonry
+    - MBProgressHUD
     - MJRefresh
     - ReactiveCocoa
     - SDCycleScrollView
@@ -112,6 +115,7 @@ SPEC CHECKSUMS:
   HXPhotoPicker: 3845637c6a6e98ebf5bfad5ed67bcab8ce3786c2
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
@@ -125,6 +129,6 @@ SPEC CHECKSUMS:
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 9f9678d2c090535b921aaf9b61137e226bb52d12
+PODFILE CHECKSUM: 2a942fb87415a15ed8069555d01f050106180a73
 
 COCOAPODS: 1.5.3

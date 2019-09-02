@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getCouponCenterFailed:(NSDictionary *)errorInfo;
 
+- (void)filterCouponResult:(NSArray <THCouponModel *> *)result;
+
 @end
 
 NS_ASSUME_NONNULL_END

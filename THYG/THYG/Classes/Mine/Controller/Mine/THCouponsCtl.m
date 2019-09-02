@@ -13,14 +13,17 @@
 #import "THCouponPresenter.h"
 
 @interface THCouponsCtl ()<UITableViewDelegate,UITableViewDataSource, THFilterViewDelegate, THMemuViewDelegate, THCouponProtocol> {
-    THFilterView *_filterView;
-    THMenuView *_menuView;
+    THFilterView    *_filterView;
+    THMenuView      *_menuView;
+    BOOL            _updateCoupons;
+    NSInteger       _selectedIndex;
+    NSArray         *_results;
 }
-@property (nonatomic,strong) UITableView *mTable;
-@property (nonatomic,strong) NSMutableArray *canGetData;
-@property (nonatomic,strong) NSMutableArray *getedData;
-@property (nonatomic,strong) UIButton *titleBtnView;
-@property (nonatomic,assign) NSInteger type;//0.我的优惠券 1.领券中心
+@property (nonatomic, strong) UITableView *mTable;
+@property (nonatomic, strong) NSMutableArray *couponCenterDatas;
+@property (nonatomic, strong) NSMutableArray *coupons;
+@property (nonatomic, strong) UIButton *titleBtnView;
+
 @property (nonatomic, strong) THCouponPresenter *couponPresenter;
 @end
 
@@ -65,21 +68,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.type?self.canGetData.count:self.getedData.count;
+    return _results.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    THCouponsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THCouponsCell.class)];
-    [cell refreshWithModel:self.type?self.canGetData[indexPath.row]:self.getedData[indexPath.row] type:self.type];
+    THCouponsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"THCouponsCell" forIndexPath:indexPath];
+    [cell refreshWithModel:[_results objectAtIndex:indexPath.row] type:_selectedIndex];
+    kWeakSelf;
     cell.btnClickAcion = ^{
-      
+        kStrongSelf;
         //领取优惠券
-        if (self.type) {
+        if (strongSelf->_selectedIndex) {
             
-        }else{
+        } else {
             //使用优惠券
         }
-        
     };
     return cell;
 }
@@ -95,7 +98,7 @@
 }
 
 - (void)filterView:(THFilterView *)filterView disSelectedItem:(NSString *)item selectedIndex:(NSInteger)index {
-    
+    [self.couponPresenter filterWhere:index from:_selectedIndex ? self.couponCenterDatas : self.coupons];
 }
 
 - (void)menuView:(THMenuView *)menuView didSelectedItem:(NSString *)item index:(NSInteger)index {
@@ -103,13 +106,16 @@
     self.titleBtnView.selected = NO;
     
     [self.titleBtnView setTitle:item forState:UIControlStateNormal];
-    self.type = index;
-    if (index == 0) {
-        [self.couponPresenter getCouponList];
+    _selectedIndex = index;
+    if (_updateCoupons == NO) {
+        [self.mTable reloadData];
     } else {
-        [self.couponPresenter getCouponCenterData];
+        if (index == 0) {
+            [self.couponPresenter getCouponList];
+        } else {
+            [self.couponPresenter getCouponCenterData];
+        }
     }
-    [self.mTable reloadData];
 }
 
 - (void)menuViewDismiss:(THMenuView *)menuView {
@@ -124,7 +130,7 @@
         _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         _mTable.allowsSelection = NO;
-        [_mTable registerNib:[UINib nibWithNibName:NSStringFromClass(THCouponsCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCouponsCell.class)];
+        [_mTable registerNib:[UINib nibWithNibName:@"THCouponsCell" bundle:nil] forCellReuseIdentifier:@"THCouponsCell"];
     }
     return _mTable;
 }
@@ -143,19 +149,30 @@
 }
 
 - (void)getCouponListSuccess:(NSArray<THCouponModel *> *)response {
-    
+    _updateCoupons = NO;
+    self.coupons = [response mutableCopy];
+    _results = [self.coupons copy];
+    [self.mTable reloadData];
 }
 
 - (void)getCouponListFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getCouponCenterFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getCouponCenterSuccess:(NSArray<THCouponModel *> *)response {
-    
+    _updateCoupons = NO;
+    self.couponCenterDatas = [response mutableCopy];
+    _results = [self.couponCenterDatas copy];
+    [self.mTable reloadData];
+}
+
+- (void)filterCouponResult:(NSArray<THCouponModel *> *)result {
+    _results = result;
+    [self.mTable reloadData];
 }
 
 @end

@@ -37,6 +37,8 @@
 		025111882313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111862313D02F00F9BDDD /* THAdressEditPresenter.m */; };
 		025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */; };
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
+		02657876231D0CC4001236E4 /* THApplyInputPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02657875231D0CC4001236E4 /* THApplyInputPresenter.m */; };
+		02657877231D0CC4001236E4 /* THApplyInputPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02657875231D0CC4001236E4 /* THApplyInputPresenter.m */; };
 		0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */; };
 		0265CE2222F2BCEB000363F0 /* THTeCommonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2122F2BCEB000363F0 /* THTeCommonView.m */; };
 		0265CE2522F2BCFB000363F0 /* THTeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */; };
@@ -741,6 +743,9 @@
 		025F821822C9B3ED003E27DF /* UIViewController+SessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SessionTask.m"; sourceTree = "<group>"; };
 		025F835A22CA0D9A003E27DF /* UIViewController+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
 		025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tool.m"; sourceTree = "<group>"; };
+		02657874231D0CC4001236E4 /* THApplyInputPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THApplyInputPresenter.h; sourceTree = "<group>"; };
+		02657875231D0CC4001236E4 /* THApplyInputPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THApplyInputPresenter.m; sourceTree = "<group>"; };
+		02657878231D0D81001236E4 /* THApplyInputProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THApplyInputProtocol.h; sourceTree = "<group>"; };
 		0265CE1D22F2BCCB000363F0 /* THTeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeTableViewCell.h; sourceTree = "<group>"; };
 		0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeTableViewCell.m; sourceTree = "<group>"; };
 		0265CE2022F2BCEB000363F0 /* THTeCommonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCommonView.h; sourceTree = "<group>"; };
@@ -1459,6 +1464,7 @@
 				0251118A2313D05B00F9BDDD /* THAddressEditProtocol.h */,
 				027B4D642314FEA70015C508 /* THSettingProtocol.h */,
 				027B4D69231507020015C508 /* THModifyPwdProtocol.h */,
+				02657878231D0D81001236E4 /* THApplyInputProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1506,6 +1512,8 @@
 				027B4D612314FE960015C508 /* THSettingPresenter.m */,
 				027B4D65231506F10015C508 /* THModifyPwdPresenter.h */,
 				027B4D66231506F10015C508 /* THModifyPwdPresenter.m */,
+				02657874231D0CC4001236E4 /* THApplyInputPresenter.h */,
+				02657875231D0CC4001236E4 /* THApplyInputPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2964,6 +2972,7 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/HXPhotoPicker/HXPhotoPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
@@ -2984,6 +2993,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HXPhotoPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
@@ -3058,6 +3068,7 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/HXPhotoPicker/HXPhotoPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
@@ -3078,6 +3089,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HXPhotoPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
@@ -3294,6 +3306,7 @@
 				0265CECF22F2C45E000363F0 /* THFlashCell.m in Sources */,
 				0265CED022F2C45E000363F0 /* YYStarView.m in Sources */,
 				0265CED122F2C45E000363F0 /* THAlertViewModel.m in Sources */,
+				02657877231D0CC4001236E4 /* THApplyInputPresenter.m in Sources */,
 				02834B4F230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */,
 				0265CED222F2C45E000363F0 /* MLEmojiLabel.m in Sources */,
 				0265CED322F2C45E000363F0 /* THHelpCenterCtl.m in Sources */,
@@ -3549,6 +3562,7 @@
 				8F51688820747171005E956E /* THFlashCell.m in Sources */,
 				044A48A3207901A000DF1AAD /* YYStarView.m in Sources */,
 				8F31CBF1206A30D000A48F2D /* THAlertViewModel.m in Sources */,
+				02657876231D0CC4001236E4 /* THApplyInputPresenter.m in Sources */,
 				02834B4E230A9C5D00B8BFB2 /* THTaskPresenter.m in Sources */,
 				576EEAC02087A5510088B1EB /* MLEmojiLabel.m in Sources */,
 				8F4D139A207A23120024C3D4 /* THHelpCenterCtl.m in Sources */,
@@ -3651,6 +3665,7 @@
 			baseConfigurationReference = 88AA6CB5C53A489D49D03DDA /* Pods-THYG_PRO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -3668,7 +3683,7 @@
 				INFOPLIST_FILE = "THYG copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.thyg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3681,6 +3696,7 @@
 			baseConfigurationReference = 55AF22E7CB6B7EEB1DC2B6EC /* Pods-THYG_PRO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -3698,7 +3714,7 @@
 				INFOPLIST_FILE = "THYG copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.thyg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3832,7 +3848,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/THYG/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.thyg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3862,7 +3878,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/THYG/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.thyg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

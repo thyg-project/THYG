@@ -9,7 +9,13 @@
 #import "THBasePresenter.h"
 #import "THCouponProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger,CouponCondition) {
+    CouponCondition_All             = 0,
+    CouponCondition_General         = 1,
+    CouponCondition_Assign          = 2,
+    CouponCondition_Other
+};
 
 @interface THCouponPresenter : THBasePresenter
 
@@ -17,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getCouponCenterData;
 
+- (void)filterWhere:(CouponCondition)condition from:(NSArray *)fromSource;
+
 @end
 
-NS_ASSUME_NONNULL_END
+

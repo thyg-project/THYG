@@ -28,4 +28,8 @@
     [self getTask:task];
 }
 
+- (void)filterWhere:(CouponCondition)condition from:(NSArray *)fromSource {
+    [self performToSelector:@selector(filterCouponResult:) params:nil];
+}
+
 @end

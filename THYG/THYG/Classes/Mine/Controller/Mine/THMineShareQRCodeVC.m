@@ -45,7 +45,7 @@
 
 #pragma mark - share
 - (IBAction)shareClick {
-    [self.shareView showInView:self.navigationController.view];
+    [self.shareView showInView:UIApplication.sharedApplication.delegate.window];
 }
 
 

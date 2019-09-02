@@ -23,10 +23,10 @@
     if (validate && (validate = [Utils checkPassword:newPwd]) == NO) {
         message = @"新密码格式不正确";
     }
-    if (validate && (validate = YGInfo.validString(confirmPwd) == NO)) {
+    if (validate && (validate = YGInfo.validString(confirmPwd)) == NO) {
         message = @"确认密码不能为空";
     }
-    if (validate && (validate = [newPwd isEqualToString:confirmPwd] == NO)) {
+    if (validate && (validate = [newPwd isEqualToString:confirmPwd]) == NO) {
         message = @"两次密码输入不一致";
     }
     if (validate == NO) {

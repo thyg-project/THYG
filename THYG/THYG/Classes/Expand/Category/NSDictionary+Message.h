@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (Message)
 
-@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy, readonly) NSString *message;
 
 @end
 

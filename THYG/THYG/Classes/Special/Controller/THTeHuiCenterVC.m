@@ -19,14 +19,10 @@
     THFilterView *_filterView;
 }
 @property (nonatomic, strong) UIButton *titleBtnView;
-
 @property (nonatomic, strong) UITableView *tableView;
-
 @property (nonatomic, strong) NSMutableArray *dataSource;
-
 @property (nonatomic, strong) THMenuView *menuView;
 @property (nonatomic, strong) THTeCenterPresenter *presenter;
-
 
 @end
 
@@ -136,6 +132,7 @@
 - (void)filterView:(THFilterView *)filterView disSelectedItem:(NSString *)item selectedIndex:(NSInteger)index {
     
 }
+
 #pragma mark --Protocol
 - (void)loadTeSuccess:(NSArray<THTeHuiModel *> *)response {
     _dataSource = response.mutableCopy;
@@ -144,4 +141,5 @@
 - (void)loadTeFailed:(NSDictionary *)errorInfo {
     
 }
+
 @end

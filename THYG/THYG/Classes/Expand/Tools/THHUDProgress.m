@@ -8,6 +8,7 @@
 
 #import "THHUDProgress.h"
 #import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @implementation THHUDProgress
 
@@ -25,6 +26,10 @@
 //    [SVProgressHUD setInfoImage:[UIImage imageNamed:@"infoIcon"]];
 //    [SVProgressHUD setSuccessImage:[UIImage imageNamed:@"successIcon"]];
 //    [SVProgressHUD setErrorImage:[UIImage imageNamed:@"errorIcon"]];
+    
+    
+    
+    
 }
 
 + (void)showSuccess:(NSString *)msg {
@@ -57,6 +62,22 @@
 
 + (void)dismiss {
     [SVProgressHUD dismiss];
+}
+
++ (void)showMessage:(NSString *)message {
+    if (!YGInfo.validString(message)) {
+        return;
+    }
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    [MBProgressHUD hideHUDForView:window animated:NO];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    hud.label.numberOfLines = 0;
+    hud.mode                      = MBProgressHUDModeText;
+    hud.label.text                = message;
+    hud.animationType             = MBProgressHUDAnimationZoom;
+    hud.userInteractionEnabled    = NO;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hideAnimated:YES afterDelay:2];
 }
 
 

@@ -19,6 +19,7 @@ targetsArray.each do |t|
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'FDFullscreenPopGesture'
     pod 'WMPageController'
+    pod 'MBProgressHUD'
     pod 'UMCCommonLog'
     pod 'UMCCommon'
 #    pod 'UMCShare/UI'

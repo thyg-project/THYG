@@ -41,7 +41,7 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-	[self.tableView registerNib:[UINib nibWithNibName:@"THMineBankCardListCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineBankCardListCell.class)];
+	[self.tableView registerNib:[UINib nibWithNibName:@"THMineBankCardListCell" bundle:nil] forCellReuseIdentifier:@"THMineBankCardListCell"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -49,7 +49,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	THMineBankCardListCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineBankCardListCell.class)];
+	THMineBankCardListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"THMineBankCardListCell" forIndexPath:indexPath];
 	return cell;
 }
 
@@ -64,11 +64,12 @@
 }
 
 - (void)getBankListFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getBankListSuccess:(NSArray<THBankCardModel *> *)response {
     _dataSource = response.mutableCopy;
+    [self.tableView reloadData];
 }
 
 @end

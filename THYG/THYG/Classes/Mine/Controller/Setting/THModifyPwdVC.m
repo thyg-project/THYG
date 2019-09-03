@@ -31,7 +31,8 @@
 }
 
 - (void)modifyPwdSuccess:(NSDictionary *)response {
-    
+    [THHUDProgress showMessage:response.message];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)modifyPwdFailed:(NSDictionary *)response {

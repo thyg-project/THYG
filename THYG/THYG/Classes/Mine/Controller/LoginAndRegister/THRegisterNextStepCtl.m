@@ -7,7 +7,6 @@
 //
 
 #import "THRegisterNextStepCtl.h"
-#import "ReactiveCocoa.h"
 #import "THRegisterPresenter.h"
 
 
@@ -31,29 +30,23 @@
     [self setTextFieldLeftPadding:self.pswField forWidth:10];
     self.phoneNumOfRevCodeLabel.text = [NSString stringWithFormat:@"请输入%@收到的验证码",self.phoneString];
     [self getVerifyCodeAction:self.getVerifyCodeBtn];
-    [self initSignal];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:self.verifyCodeField];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:self.pswField];
+    [self.finishBtn setBackgroundImage:[UIImage imageWithColor:RGB(213, 0, 27)] forState:UIControlStateNormal];
+    [self.finishBtn setBackgroundImage:[UIImage imageWithColor:RGB(230,230,230)] forState:UIControlStateDisabled];
+    self.finishBtn.enabled = NO;
 }
 
-- (void)initSignal {
-    RACSignal *validVerifyCodeSignal = [self.verifyCodeField.rac_textSignal map:^id(NSString *text) {
-        return @(self.verifyCodeField.text.length);
-    }];
-    
-    RACSignal *validPwdSignal = [self.pswField.rac_textSignal map:^id(NSString *text) {
-        return @([Utils checkPassword:text]);
-    }];
-    
-    RACSignal *signUpActiveSignal = [RACSignal combineLatest:@[validVerifyCodeSignal, validPwdSignal] reduce:^id(NSNumber*verifyCodeValid, NSNumber *passwordValid){
-        return @([verifyCodeValid boolValue] && [passwordValid boolValue]);
-    }];
-    
-    RAC(self.finishBtn, backgroundColor) = [signUpActiveSignal map:^id(NSNumber *nextValid){
-        return [nextValid boolValue] ? RGB(213, 0, 27) : RGB(230,230,230);
-    }];
-    
-    [signUpActiveSignal subscribeNext:^(NSNumber*signupActive){
-        self.finishBtn.enabled = [signupActive boolValue];
-    }];
+- (void)textDidChanged:(NSNotification *)not {
+    UITextField *textf = not.object;
+    if (textf == self.verifyCodeField && textf.text.length > 6) {
+        self.verifyCodeField.text = [textf.text substringToIndex:6];
+    }
+    if (YGInfo.validString(self.verifyCodeField.text) && [Utils checkPassword:self.pswField.text]) {
+        self.finishBtn.enabled = YES;
+    } else {
+        self.finishBtn.enabled = NO;
+    }
 }
 
 dispatch_source_t _source_t;
@@ -118,7 +111,12 @@ dispatch_source_t _source_t;
     
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     if (_source_t) {
         dispatch_source_cancel(_source_t);
     }

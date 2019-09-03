@@ -28,7 +28,6 @@
 }
 
 - (IBAction)submitClick {
-    NSLog(@"确认提交");
     [self.presenter applyInfoWithUsername:self.nameField.text identifier:self.iDNumberField.text mobile:self.phoneField.text wechatID:self.weiChatField.text];
    
 }
@@ -38,7 +37,8 @@
 }
 
 - (void)inputApplyInfoSuccess:(NSDictionary *)response {
-    
+    [THHUDProgress showMessage:response.message];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

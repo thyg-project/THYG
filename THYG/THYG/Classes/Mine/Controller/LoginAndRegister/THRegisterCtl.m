@@ -10,7 +10,6 @@
 #import "THRegisterNextStepCtl.h"
 #import "Utils.h"
 #import "THAlertView.h"
-#import "ReactiveCocoa.h"
 #import "THRegisterPresenter.h"
 
 @interface THRegisterCtl () <THRegisterProtocol>
@@ -27,30 +26,21 @@
 	self.navigationItem.title = self.type ? @"忘记密码" : @"会员注册";
     _presenter = [[THRegisterPresenter alloc] initPresenterWithProtocol:self];
 	self.contactServicerLabel.hidden = self.type;
-    [self initSignal];
+    [self.nextStepBtn setBackgroundImage:[UIImage imageWithColor:RGB(213, 0, 27)] forState:UIControlStateNormal];
+    [self.nextStepBtn setBackgroundImage:[UIImage imageWithColor:RGB(230,230,230)] forState:UIControlStateDisabled];
+    self.nextStepBtn.enabled = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:self.phoneNumField];
 }
 
-- (void)initSignal {
-    RACSignal *validPhoneSignal = [self.phoneNumField.rac_textSignal map:^id(NSString *text) {
-        return @([Utils checkPhoneNum:text]);
-    }];
-    
-    RACSignal *signUpActiveSignal = [RACSignal combineLatest:@[validPhoneSignal] reduce:^id(NSNumber*usernameValid){
-        return @([usernameValid boolValue]);
-    }];
-    
-    RAC(self.nextStepBtn, backgroundColor) = [signUpActiveSignal map:^id(NSNumber *nextValid){
-        return [nextValid boolValue] ? RGB(213, 0, 27) : RGB(230, 230, 230);
-    }];
-    
-    [signUpActiveSignal subscribeNext:^(NSNumber*signupActive){
-        self.nextStepBtn.enabled = [signupActive boolValue];
-    }];
+- (void)textDidChanged:(NSNotification *)not {
+    UITextField *textf = not.object;
+    if (textf.text.length > 11) {
+        self.phoneNumField.text = [textf.text substringToIndex:11];
+    }
+    self.nextStepBtn.enabled = [Utils checkPhoneNum:self.phoneNumField.text];
 }
-
 
 - (IBAction)nextBtnAction:(id)sender {
-	
 	[self.view endEditing:YES];
     kWeakSelf;
 	[THAlertView alertViewWithTitle:nil content:[NSString stringWithFormat:@"我们将发送短信验证码至:\n\n%@",self.phoneNumField.text] confirmBtnTitle:@"确定" cancelBtnTitle:@"取消" confirmCallback:^{
@@ -58,7 +48,6 @@
     } cancelCallback:^{
         
     }];
-    
 }
 
 #pragma mark---
@@ -74,5 +63,12 @@
     [self.navigationController pushViewController:nextStepCtl animated:YES];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

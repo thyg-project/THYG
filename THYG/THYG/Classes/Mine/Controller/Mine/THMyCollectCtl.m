@@ -66,7 +66,7 @@
 
 #pragma mark --
 - (void)getAttentionDataFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getAttentionDataSuccess:(NSArray<THMyCollectModel *> *)response {

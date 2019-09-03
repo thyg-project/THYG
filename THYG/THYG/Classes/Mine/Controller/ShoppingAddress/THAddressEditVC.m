@@ -9,7 +9,6 @@
 #import "THAddressEditVC.h"
 #import "THAdressEditPresenter.h"
 #import "THAddAddressCell.h"
-#import "ReactiveCocoa.h"
 #import "YGAreaPickerView.h"
 
 @interface THAddressEditVC () <UITableViewDataSource, UITableViewDelegate, THAddressEditProtocol, YGAreaPickerViewDelegate> {
@@ -85,32 +84,24 @@
 #pragma mark - 获取
 - (void)checkParmaMethod {
     //收件人
-    RACSignal *nameSingnal = [[self getTextField:0].rac_textSignal map:^id(NSString *text) {
-        return @([[self getTextField:0].text length]>0);
-    }];
-    
-    //手机号码
-    RACSignal *phoneSingnal = [[self getTextField:1].rac_textSignal map:^id(NSString *text) {
-        return @(([self getTextField:1].text.length == 11) && [Utils checkPhoneNum:[self getTextField:1].text]);
-    }];
-    
-    //详细地址
-    RACSignal *addressSingal = [[self getTextField:3].rac_textSignal map:^id(NSString *text) {
-        return @([[self getTextField:3].text length]>0);
-    }];
-    
-    RACSignal *checkSingal = [RACSignal combineLatest:@[nameSingnal, phoneSingnal, addressSingal] reduce:^id(NSNumber*nameSingnal, NSNumber *phoneSingnal, NSNumber *addressSingal){
-        return @([nameSingnal boolValue] && [phoneSingnal boolValue] && [addressSingal boolValue]);
-    }];
-    
-    RAC(_saveBtn, backgroundColor) = [checkSingal map:^id(NSNumber *nextValid){
-        return [nextValid boolValue] && [[self getTextField:2].text length] ? [UIColor redColor]:[[UIColor redColor] colorWithAlphaComponent:0.5];
-    }];
-    
-    [checkSingal subscribeNext:^(NSNumber*signalActive){
-        _saveBtn.enabled = [signalActive boolValue] && [[self getTextField:2].text length];
-    }];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:[self getTextField:0]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:[self getTextField:1]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:[self getTextField:2]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:[self getTextField:3]];
+    [_saveBtn setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [_saveBtn setBackgroundImage:[UIImage imageWithColor:[[UIColor redColor] colorWithAlphaComponent:0.5]] forState:UIControlStateDisabled];
+}
+
+- (void)textDidChanged:(NSNotification *)not {
+    UITextField *textF = not.object;
+    if (textF == [self getTextField:1] && textF.text.length > 11) {
+        [self getTextField:1].text = [textF.text substringToIndex:11];
+    }
+    if (YGInfo.validString([self getTextField:0].text) && [Utils checkPhoneNum:[self getTextField:1].text] && YGInfo.validString([self getTextField:2].text) && YGInfo.validString([self getTextField:3].text)) {
+        _saveBtn.enabled = YES;
+    } else {
+        _saveBtn.enabled = NO;
+    }
 }
 
 - (NSString*)getValue:(NSInteger)row {
@@ -242,6 +233,10 @@
     THAddressPCDModel *model = self.dataSource[2];
     model.text = [NSString stringWithFormat:@"%@ %@ %@",pro.name,city.name,area.name];
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

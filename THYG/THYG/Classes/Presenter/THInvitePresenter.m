@@ -19,4 +19,8 @@
     [self getTask:task];
 }
 
+- (void)filterDataWhereState:(InviteState)inviteState fromSource:(NSArray *)source {
+    [self performToSelector:@selector(filterDataResults:) params:nil];
+}
+
 @end

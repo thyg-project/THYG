@@ -316,7 +316,7 @@
 }
 
 - (void)toUserInfo:(THMineHeaderView *)sender {
-    if (YES) {
+    if (YGInfo.validString(@"")) {
         THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
         edit.title = @"个人资料编辑";
         [self.navigationController pushViewController:edit animated:YES];

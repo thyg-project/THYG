@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)logout;
 
+- (void)clearCache;
+
 @end
 
 NS_ASSUME_NONNULL_END

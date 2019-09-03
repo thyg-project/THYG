@@ -31,7 +31,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return self.data.count;
 }
 
@@ -40,7 +39,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    THMyTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMyTaskCell.class)];
+    THMyTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:@"THMyTaskCell"];
     [cell refreshWithIndexPath:indexPath];
     return cell;
 }
@@ -53,17 +52,18 @@
         _mTable.backgroundColor = kBackgroundColor;
         _mTable.tableFooterView = [UIView new];
         _mTable.allowsSelection = NO;
-        [_mTable registerNib:[UINib nibWithNibName:NSStringFromClass(THMyTaskCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMyTaskCell.class)];
+        [_mTable registerNib:[UINib nibWithNibName:@"THMyTaskCell" bundle:nil] forCellReuseIdentifier:@"THMyTaskCell"];
     }
     return _mTable;
 }
 
 - (void)getTaskListFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getTaskListSuccess:(NSArray<THTaskModel *> *)response {
     self.data = response.mutableCopy;
+    [self.mTable reloadData];
 }
 
 @end

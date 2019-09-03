@@ -45,10 +45,6 @@
     return 2;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if (indexPath.row == 0) {
@@ -126,7 +122,7 @@
 }
 
 - (void)getWalletInfoFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 @end

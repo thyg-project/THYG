@@ -10,11 +10,10 @@
 #import "THRegisterCtl.h"
 #import "THForgetPswCtl.h"
 #import "Utils.h"
-#import "ReactiveCocoa.h"
 #import "THLoginPresenter.h"
 
 
-@interface THLoginVC () <THLoginProtocol>
+@interface THLoginVC () <THLoginProtocol, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountField;
 @property (weak, nonatomic) IBOutlet UITextField *pswField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
@@ -27,51 +26,44 @@
     [super viewDidLoad];
     self.navigationItem.title = @"会员登录";
     _presenter = [[THLoginPresenter alloc] initPresenterWithProtocol:self];
-    [self initSignal];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:self.accountField];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:self.pswField];
+    [self.loginBtn setBackgroundImage:[UIImage imageWithColor:RGB(213, 0, 27)] forState:UIControlStateNormal];
+    [self.loginBtn setBackgroundImage:[UIImage imageWithColor:RGB(230,230,230)] forState:UIControlStateDisabled];
+    self.loginBtn.enabled = NO;
 }
 
-- (void)initSignal {
-    RACSignal *validPhoneSignal = [self.accountField.rac_textSignal map:^id(NSString *text) {
-        return @([Utils checkPhoneNum:text]);
-    }];
-    
-    RACSignal *validPwdSignal = [self.pswField.rac_textSignal map:^id(NSString *text) {
-        return @([Utils checkPassword:text]);
-    }];
-    
-    RACSignal *signUpActiveSignal = [RACSignal combineLatest:@[validPhoneSignal, validPwdSignal] reduce:^id(NSNumber*usernameValid, NSNumber *passwordValid){
-        return @([usernameValid boolValue] && [passwordValid boolValue]);
-    }];
-    
-    RAC(self.loginBtn, backgroundColor) = [signUpActiveSignal map:^id(NSNumber *nextValid){
-        return [nextValid boolValue] ? RGB(213, 0, 27) : RGB(230,230,230);
-    }];
-    
-    [signUpActiveSignal subscribeNext:^(NSNumber*signupActive){
-        self.loginBtn.enabled = [signupActive boolValue];
-    }];
-    
+- (void)textDidChanged:(NSNotification *)not {
+    UITextField *textf = not.object;
+    if (textf == self.accountField && textf.text.length > 11) {
+        self.accountField.text = [textf.text substringToIndex:11];
+    }
+    if ([Utils checkPhoneNum:self.accountField.text] && [Utils checkPassword:self.pswField.text]) {
+        self.loginBtn.enabled = YES;
+    } else {
+        self.loginBtn.enabled = NO;
+    }
 }
 
-- (IBAction)loginAction:(id)sender {  
+- (IBAction)loginAction:(id)sender {
+    [self.view endEditing:YES];
     [self.presenter loginMobile:@"" pwd:@""];
+}
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 - (IBAction)registerAction:(id)sender {
-    
     THRegisterCtl *registerCtl = [[THRegisterCtl alloc] init];
-	registerCtl.type = THRegisterCtlTypeRegister;
-     [self.navigationController pushViewController:registerCtl animated:YES];
-    
+    registerCtl.type = THRegisterCtlTypeRegister;
+    [self.navigationController pushViewController:registerCtl animated:YES];
 }
 
 - (IBAction)forgetPswAction:(id)sender {
-	
-	THRegisterCtl *registerCtl = [[THRegisterCtl alloc] init];
-	registerCtl.type = THRegisterCtlTypeForgetPwd;
-	 [self.navigationController pushViewController:registerCtl animated:YES];
-	
+    THRegisterCtl *registerCtl = [[THRegisterCtl alloc] init];
+    registerCtl.type = THRegisterCtlTypeForgetPwd;
+    [self.navigationController pushViewController:registerCtl animated:YES];
 }
 
 #pragma mark -
@@ -80,7 +72,7 @@
 }
 
 - (void)loginFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getUserInfoFailed:(NSDictionary *)errorInfo {
@@ -89,6 +81,10 @@
 
 - (void)getUserInfoSuccess:(NSDictionary *)response {
     
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

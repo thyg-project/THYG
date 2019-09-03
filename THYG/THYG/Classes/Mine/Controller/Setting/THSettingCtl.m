@@ -70,39 +70,8 @@
         [self.navigationController pushViewController:controller animated:YES];
     } else {
         [THHUDProgress show:@"清理缓存中..."];
-        NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        [self cleanCaches:filePath];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [THHUDProgress showSuccess:@"清理缓存成功"];
-        });
+        [self.presenter clearCache];
     }
-}
-
-#pragma mark - 清除缓存
-- (void)cleanCaches:(NSString *)path {
-    // 利用NSFileManager实现对文件的管理
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:path]) {
-        // 获取该路径下面的文件名
-        NSArray *childrenFiles = [fileManager subpathsAtPath:path];
-        for (NSString *fileName in childrenFiles) {
-            // 拼接路径
-            NSString *absolutePath = [path stringByAppendingPathComponent:fileName];
-            // 将文件删除
-            [fileManager removeItemAtPath:absolutePath error:nil];
-        }
-    }
-    
-    [[YYImageCache sharedCache].diskCache removeAllObjects];
-    
-    // 清理wk缓存
-    if (@available(iOS 9.0, *)) {
-        [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:[WKWebsiteDataStore allWebsiteDataTypes] modifiedSince:[NSDate dateWithTimeIntervalSince1970:0] completionHandler:^{
-            
-        }];
-    }
-    // 清理url cache （get/webview）
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 #pragma mark -- 退出账户
@@ -128,7 +97,12 @@
 }
 
 - (void)logoutSuccess {
+    [THHUDProgress showMessage:@"退出成功"];
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)clearCacheSuccess {
+    [THHUDProgress showSuccess:@"清理缓存成功"];
 }
 
 @end

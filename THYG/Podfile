@@ -10,7 +10,7 @@ targetsArray.each do |t|
 	pod 'IQKeyboardManager'
 	pod 'Masonry'
 	pod 'MJRefresh'
-    pod 'ReactiveCocoa','~> 2.5’
+#    pod 'ReactiveCocoa','~> 2.5’
 	pod 'SDCycleScrollView'
 	pod 'SVProgressHUD'
     pod 'WechatOpenSDK'

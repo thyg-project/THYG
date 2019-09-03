@@ -12,7 +12,6 @@
 #import "Utils.h"
 #import "YGInfo.h"
 #import "THUserManager.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <YYKit/YYKit.h>
 #import "YGNetworkCommon.h"
 #import "UIViewController+SessionTask.h"

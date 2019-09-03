@@ -14,6 +14,7 @@
 
 @interface THInvitationManageCtl ()<UITableViewDelegate,UITableViewDataSource, THFilterViewDelegate, THInviteProtocol> {
     THFilterView *_filterView;
+    NSArray *_results;
 }
 @property (nonatomic,strong) UITableView *mTable;
 @property (nonatomic,strong) NSMutableArray *data;
@@ -41,6 +42,7 @@
         make.height.mas_equalTo(40);
     }];
     [self.view addSubview:self.mTable];
+    [self autoLayoutSizeContentView:self.mTable];
     [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(_filterView.mas_bottom).offset(1);
@@ -48,56 +50,29 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (self.curIndex) {
-        case 0:
-            return 3;
-            break;
-        case 1:
-            return 5;
-            break;
-        case 2:
-            return 1;
-            break;
-        default:
-            break;
-    }
-    return 0;
+    return _results.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (self.curIndex) {
-        case 0:
-        case 1:
-            return 110;
-            break;
-        case 2:
-            return 120;
-            break;
-        default:
-            break;
+    CGFloat height = CGFLOAT_MIN;
+    if (_curIndex == 0 || _curIndex == 1) {
+        height = 110;
+    } else {
+        height = 120;
     }
-    return 0;
+    return height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (self.curIndex) {
-        case 0:
-        case 1: {
-            THMySupplierCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMySupplierCell.class)];
-            
-            return cell;
-        }
-            break;
-        case 2: {
-            THRecommendedCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THRecommendedCell.class)];
-            
-            return cell;
-        }
-            break;
-        default:
-            break;
+    UITableViewCell *cell = nil;
+    if (self.curIndex == 0 || self.curIndex == 1) {
+        THMySupplierCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"THMySupplierCell" forIndexPath:indexPath];
+        cell = myCell;
+    } else {
+        THRecommendedCell *Recell = [tableView dequeueReusableCellWithIdentifier:@"THRecommendedCell" forIndexPath:indexPath];
+        cell = Recell;
     }
-    return nil;
+    return cell;
 }
 
 - (UITableView *)mTable {
@@ -107,8 +82,8 @@
         _mTable.delegate = self;
         _mTable.dataSource = self;
         _mTable.tableFooterView = [UIView new];
-        [_mTable registerNib:[UINib nibWithNibName:NSStringFromClass(THMySupplierCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMySupplierCell.class)];
-        [_mTable registerNib:[UINib nibWithNibName:NSStringFromClass(THRecommendedCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THRecommendedCell.class)];
+        [_mTable registerNib:[UINib nibWithNibName:@"THMySupplierCell" bundle:nil] forCellReuseIdentifier:@"THMySupplierCell"];
+        [_mTable registerNib:[UINib nibWithNibName:@"THRecommendedCell" bundle:nil] forCellReuseIdentifier:@"THRecommendedCell"];
     }
     return _mTable;
 }
@@ -116,7 +91,7 @@
 #pragma mark --
 - (void)filterView:(THFilterView *)filterView disSelectedItem:(NSString *)item selectedIndex:(NSInteger)index {
     _curIndex = index;
-    [self.mTable reloadData];
+    [self.invitePresenter filterDataWhereState:_curIndex fromSource:self.data];
 }
 
 - (void)getInviteDataFailed:(NSDictionary *)errorInfo {
@@ -124,7 +99,14 @@
 }
 
 - (void)getInviteDataSuccess:(NSArray<THInviteInfoModel *> *)response {
-    
+    _data = [response mutableCopy];
+    _results = _data;
+    [self.mTable reloadData];
+}
+
+- (void)filterDataResults:(NSArray<THInviteInfoModel *> *)results {
+    _results = results;
+    [self.mTable reloadData];
 }
 
 @end

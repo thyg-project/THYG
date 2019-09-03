@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getInviteDataFailed:(NSDictionary *)errorInfo;
 
+- (void)filterDataResults:(NSArray <THInviteInfoModel *> *)results;
+
 @end
 
 NS_ASSUME_NONNULL_END

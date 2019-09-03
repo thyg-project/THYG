@@ -179,7 +179,8 @@
     _selectedImage = info[UIImagePickerControllerEditedImage];
     kWeakSelf;
     [picker dismissViewControllerAnimated:YES completion:^{
-        [weakSelf.presenter uploadImage:_selectedImage fileName:@"aaa"];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg",@(arc4random() % 100000).stringValue];
+        [weakSelf.presenter uploadImage:_selectedImage fileName:fileName];
     }];
 }
 

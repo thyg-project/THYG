@@ -39,6 +39,8 @@
 		025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */; };
 		02657876231D0CC4001236E4 /* THApplyInputPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02657875231D0CC4001236E4 /* THApplyInputPresenter.m */; };
 		02657877231D0CC4001236E4 /* THApplyInputPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02657875231D0CC4001236E4 /* THApplyInputPresenter.m */; };
+		0265787B231E041C001236E4 /* THInputApplyInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265787A231E041C001236E4 /* THInputApplyInfoPresenter.m */; };
+		0265787C231E041C001236E4 /* THInputApplyInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265787A231E041C001236E4 /* THInputApplyInfoPresenter.m */; };
 		0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */; };
 		0265CE2222F2BCEB000363F0 /* THTeCommonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2122F2BCEB000363F0 /* THTeCommonView.m */; };
 		0265CE2522F2BCFB000363F0 /* THTeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */; };
@@ -746,6 +748,9 @@
 		02657874231D0CC4001236E4 /* THApplyInputPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THApplyInputPresenter.h; sourceTree = "<group>"; };
 		02657875231D0CC4001236E4 /* THApplyInputPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THApplyInputPresenter.m; sourceTree = "<group>"; };
 		02657878231D0D81001236E4 /* THApplyInputProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THApplyInputProtocol.h; sourceTree = "<group>"; };
+		02657879231E041C001236E4 /* THInputApplyInfoPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInputApplyInfoPresenter.h; sourceTree = "<group>"; };
+		0265787A231E041C001236E4 /* THInputApplyInfoPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THInputApplyInfoPresenter.m; sourceTree = "<group>"; };
+		0265787D231E0432001236E4 /* THInputApplyInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THInputApplyInfoProtocol.h; sourceTree = "<group>"; };
 		0265CE1D22F2BCCB000363F0 /* THTeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeTableViewCell.h; sourceTree = "<group>"; };
 		0265CE1E22F2BCCB000363F0 /* THTeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeTableViewCell.m; sourceTree = "<group>"; };
 		0265CE2022F2BCEB000363F0 /* THTeCommonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCommonView.h; sourceTree = "<group>"; };
@@ -1465,6 +1470,7 @@
 				027B4D642314FEA70015C508 /* THSettingProtocol.h */,
 				027B4D69231507020015C508 /* THModifyPwdProtocol.h */,
 				02657878231D0D81001236E4 /* THApplyInputProtocol.h */,
+				0265787D231E0432001236E4 /* THInputApplyInfoProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1514,6 +1520,8 @@
 				027B4D66231506F10015C508 /* THModifyPwdPresenter.m */,
 				02657874231D0CC4001236E4 /* THApplyInputPresenter.h */,
 				02657875231D0CC4001236E4 /* THApplyInputPresenter.m */,
+				02657879231E041C001236E4 /* THInputApplyInfoPresenter.h */,
+				0265787A231E041C001236E4 /* THInputApplyInfoPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -3140,6 +3148,7 @@
 				0265CE3522F2C45E000363F0 /* THCreateOrderSuccessCtl.m in Sources */,
 				0265CE3622F2C45E000363F0 /* THHelpCenterDetailCtl.m in Sources */,
 				0265CE3722F2C45E000363F0 /* THAlertView.m in Sources */,
+				0265787C231E041C001236E4 /* THInputApplyInfoPresenter.m in Sources */,
 				0265CE3822F2C45E000363F0 /* THRecommendedCell.m in Sources */,
 				0265CE3922F2C45E000363F0 /* NSString+MLExpression.m in Sources */,
 				0265CE3A22F2C45E000363F0 /* THCouponsCell.m in Sources */,
@@ -3396,6 +3405,7 @@
 				57D5104320C6ECC400B78087 /* THCreateOrderSuccessCtl.m in Sources */,
 				8F4D13A0207A251A0024C3D4 /* THHelpCenterDetailCtl.m in Sources */,
 				8F31CBEE206A303300A48F2D /* THAlertView.m in Sources */,
+				0265787B231E041C001236E4 /* THInputApplyInfoPresenter.m in Sources */,
 				8FDC4E5C20732B3B00FEFE40 /* THRecommendedCell.m in Sources */,
 				576EEAC92087A5510088B1EB /* NSString+MLExpression.m in Sources */,
 				8F1712CE207221A000EFDFCB /* THCouponsCell.m in Sources */,

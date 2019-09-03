@@ -68,5 +68,17 @@
 }
 
 
+//身份证号
++ (BOOL)validateIdentifierID:(NSString *)identifierID {
+    if (YGInfo.validString(identifierID) == NO) {
+        return NO;
+    }
+    NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
+    NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
+    return [identityCardPredicate evaluateWithObject:identifierID];
+}
+
+
+
 
 @end

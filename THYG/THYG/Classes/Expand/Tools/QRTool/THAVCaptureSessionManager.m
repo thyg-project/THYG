@@ -215,9 +215,10 @@
         SystemSoundID soundID = 0;
         
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
-        
-        AudioServicesAddSystemSoundCompletion(soundID, NULL, NULL, NULL, NULL);
-        
+        OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(fileUrl), &soundID);
+        if (error != kAudioServicesNoError) {
+            NSLog(@"播放声音失败");
+        }
         AudioServicesPlaySystemSound(soundID);
     }
 }

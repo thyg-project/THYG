@@ -75,6 +75,7 @@
     } else {
         [self.menuView show];
     }
+    
 }
 
 - (void)searchClick {

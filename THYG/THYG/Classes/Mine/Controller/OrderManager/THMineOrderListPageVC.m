@@ -33,9 +33,8 @@
         make.edges.equalTo(self.view);
     }];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineOrderCell.class)];
-    [self.tableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"THMineOrderCell" bundle:nil] forCellReuseIdentifier:@"THMineOrderCell"];
+    [self.tableView registerClass:[THMineOrderFooterView class] forHeaderFooterViewReuseIdentifier:@"THMineOrderFooterView"];
 }
 
 #pragma mark - 数据源代理方法
@@ -48,7 +47,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    THMineOrderCell *orderCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineOrderCell.class)];
+    THMineOrderCell *orderCell = [tableView dequeueReusableCellWithIdentifier:@"THMineOrderCell" forIndexPath:indexPath];
     THOrderListModel *model = self.dataSource[indexPath.section];
     orderCell.orderListModel = model;
     
@@ -69,7 +68,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    THMineOrderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THMineOrderFooterView.class)];
+    THMineOrderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"THMineOrderFooterView"];
     THOrderListModel *model = self.dataSource[section];
     footer.orderStatus = self.type? [model.status integerValue] : [THOrderListModel orderTypeWithCode:model.order_status_code];
     footer.isReturnOrExchange = self.type;
@@ -79,13 +78,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 44;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 175;

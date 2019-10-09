@@ -96,7 +96,7 @@
 }
 
 + (NSURLSessionTask *)getAddressListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kAddressLiatPath sessionConfig:^(AFHTTPSessionManager *manager) {
+    return [[YGNetWorkTools sharedTools] get:kAddressListPath sessionConfig:^(AFHTTPSessionManager *manager) {
         [self setRequestHeaderInfo:manager];
     } parameters:nil success:success failed:failed];
 }

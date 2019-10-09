@@ -38,7 +38,7 @@ static NSInteger const kButtonTag = 10086;
     if (!YGInfo.validArray(_normalDatas)) {
         return;
     }
-    NSMutableArray *buttons = [NSMutableArray new];
+    NSMutableArray <UIButton *>*buttons = [NSMutableArray new];
     for (NSInteger i = 0; i < _normalDatas.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = i + kButtonTag;

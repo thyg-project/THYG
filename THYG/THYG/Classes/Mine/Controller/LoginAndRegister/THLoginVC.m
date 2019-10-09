@@ -12,7 +12,6 @@
 #import "Utils.h"
 #import "THLoginPresenter.h"
 
-
 @interface THLoginVC () <THLoginProtocol, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountField;
 @property (weak, nonatomic) IBOutlet UITextField *pswField;
@@ -47,10 +46,15 @@
 
 - (IBAction)loginAction:(id)sender {
     [self.view endEditing:YES];
-    [self.presenter loginMobile:@"" pwd:@""];
+    [self.presenter loginMobile:self.accountField.text pwd:self.pswField.text];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self.view endEditing:YES];
 }
 

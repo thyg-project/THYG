@@ -22,9 +22,8 @@
 
 @interface THScreeningGoodsCtl ()<UISearchBarDelegate,UICollectionViewDelegate,UICollectionViewDataSource, THNaviagationViewDelegate, THFilterViewDelegate, THScreeningViewDelegate> {
     NSMutableDictionary *_siftDict; // 筛选字典 包含品牌和价格区间
-    UITextField *_searchTextField;
 }
-@property (nonatomic, strong) UISearchBar * searchBar;
+@property (nonatomic, strong) UITextField *searchTextField;
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) THFilterView *filterView;
 @property (nonatomic, strong) THScreeningView *screeningView;
@@ -57,11 +56,11 @@
     THNavigationView *navigationView = [THNavigationView new];
     navigationView.backgroundColor = RGB(213, 0, 27);
     [self.view addSubview:navigationView];
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 60 * 2, 30)];;
-    self.searchBar.layer.cornerRadius = 15;
-    self.searchBar.layer.masksToBounds = YES;
+    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 60 * 2, 30)];;
+    self.searchTextField.layer.cornerRadius = 15;
+    self.searchTextField.layer.masksToBounds = YES;
     navigationView.delegate = self;
-    navigationView.titleView = self.searchBar;
+    navigationView.titleView = self.searchTextField;
     navigationView.rightButtonImage = [UIImage imageNamed:@"liebiao"];
     navigationView.rightSelectedImage = [UIImage imageNamed:@"liebiaozhanshi"];
     [navigationView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,7 +72,6 @@
     //down_thrAngle
     [_filterView setImage:[UIImage imageNamed:@"shangxiajiantou"] selectedImage:[UIImage imageNamed:@"up_thrAngle"] index:2];
     [_filterView setImage:[UIImage imageNamed:@"shaixuan"] selectedImage:nil index:3];
-    _filterView.imageMargenToText = 10;
     _filterView.normalColor = RGB(80, 80, 80);
     _filterView.selectedColor = RGB(213, 0, 27);
     [self.view addSubview:self.filterView];
@@ -84,6 +82,7 @@
         make.top.equalTo(navigationView.mas_bottom);
         make.height.mas_offset(44);
     }];
+    _filterView.imageMargenToText = 10;
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self.filterView.mas_bottom);
@@ -91,25 +90,20 @@
     [self.screeningView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self.view);
         make.width.mas_equalTo(kScreenWidth);
-        make.left.equalTo(@(kScreenWidth));
+        make.left.equalTo(self.view).offset(kScreenWidth);
     }];
     self.pageIndex = 1;
-    self.searchBar.placeholder = @"搜索关键词";
-    self.searchBar.barTintColor = [UIColor whiteColor];
-    [self.searchBar setImage:[UIImage imageNamed:@"bSearch"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
-    self.searchBar.delegate = self;
-    
-    for (UIView *subView in [[self.searchBar.subviews lastObject] subviews]) {
-        if ([[subView class] isSubclassOfClass:[UITextField class]]) {
-            UITextField *textField = (UITextField *)subView;
-            textField.font = [UIFont systemFontOfSize:14];
-            textField.textColor = RGB(17,17,17);
-            textField.backgroundColor = kBackgroundColor;
-            self.searchText.length ? textField.placeholder = self.searchText : nil;
-            _searchTextField = textField;
-            break;
-        }
-    }
+    self.searchTextField.textColor = RGB(17, 17, 17);
+     self.searchTextField.placeholder = @"搜索关键词";
+//    self.searchTextField.addExtraCancelButton = YES;
+//    self.searchBar.lensImage = [UIImage imageNamed:@"bSearch"];
+//    self.searchBar.cancelButtonImage = [UIImage imageNamed:@"bSearch"];
+    self.searchTextField.backgroundColor = kBackgroundColor;
+//    self.searchBar.
+//    [self.searchBar setImage:[UIImage imageNamed:@"bSearch"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+//    self.searchBar.delegate = self;
+//    self.searchBar.text = self.searchText;
+    self.searchTextField.font = [UIFont systemFontOfSize:14];
     
     _siftDict = [NSMutableDictionary dictionaryWithCapacity:0];
     
@@ -181,7 +175,6 @@
     return CGSizeMake(itemWidth, 260);
 }
 
-
 #pragma mark - UISearchBarDelegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     return YES;
@@ -219,8 +212,8 @@
         _collectionView.backgroundColor = kBackgroundColor;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THHomeHotGoodsCell.class) bundle:nil]  forCellWithReuseIdentifier:NSStringFromClass(THHomeHotGoodsCell.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THGoodsTransLayoutCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsTransLayoutCell.class)];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THHomeHotGoodsCell" bundle:nil]  forCellWithReuseIdentifier:@"THHomeHotGoodsCell"];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsTransLayoutCell" bundle:nil] forCellWithReuseIdentifier:@"THGoodsTransLayoutCell"];
     }
     return _collectionView;
 }

@@ -47,6 +47,7 @@
         self.searchButton.textColor = [UIColor yellowColor];
         self.searchButton.title = @"搜索";
         [self.searchButton addTarget:self action:@selector(searchAction)];
+        self.textField.keyboardAppearance = UIKeyboardAppearanceLight;
         [self.searchButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.bottom.equalTo(self);
             make.top.equalTo(@(kStatesBarHeight));

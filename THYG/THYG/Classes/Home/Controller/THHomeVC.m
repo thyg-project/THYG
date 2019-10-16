@@ -26,11 +26,10 @@
 #import "THScanQRCodeVC.h"
 #import "THButton.h"
 #import "THHomePresenter.h"
-#import "THHomeProtocol.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate, THScanResultDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
-@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSMutableArray <THFavouriteGoodsModel *>*dataSource;
 @property (nonatomic, strong) THMenuView *menuView;
 @property (nonatomic, strong) THHomePresenter *presenter;
 @end
@@ -53,11 +52,15 @@
         searchButton;
     });
     [self addMuneView];
+    kWeakSelf;
     [self.collectionView addRefreshHeaderAutoRefresh:NO animation:YES refreshBlock:^{
-        
+        kStrongSelf;
+        [strongSelf.presenter resetRefreshState];
+        [strongSelf.presenter goodsFavourite];
     }];
     [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
-        
+        kStrongSelf;
+        [strongSelf.presenter goodsFavourite];
     }];
 }
 
@@ -317,6 +320,24 @@
 
 - (void)share:(THScanQRCodeVC *)container {
     [container.navigationController pushViewController:[THMineShareQRCodeVC new] animated:YES];
+}
+
+- (void)loadFavouriteGoodsFailed:(NSDictionary *)errorInfo {
+    [self.collectionView endRefresh];
+    [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)loadFavouriteGoodsSuccess:(NSArray<THFavouriteGoodsModel *> *)list {
+    [self.collectionView endRefresh];
+    [self.dataSource addObjectsFromArray:list];
+    [self.collectionView reloadData];
+}
+
+- (void)resetDataSource {
+    if (self.dataSource == nil) {
+        self.dataSource = [NSMutableArray new];
+    }
+    [_dataSource removeAllObjects];
 }
 
 @end

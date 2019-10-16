@@ -46,7 +46,8 @@
 
 - (IBAction)loginAction:(id)sender {
     [self.view endEditing:YES];
-    [self.presenter loginMobile:self.accountField.text pwd:self.pswField.text];
+    [THHUDProgress show];
+    [self.presenter loginMobile:self.accountField.text pwd:[Utils md5:[@"TPSHOP" stringByAppendingString:self.pswField.text]]];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -80,11 +81,12 @@
 }
 
 - (void)getUserInfoFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getUserInfoSuccess:(NSDictionary *)response {
-    
+    [THHUDProgress showMessage:response.message];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc {

@@ -18,12 +18,13 @@
                      failed:(FailedBlock)failed;
 
 //注册
-+ (NSURLSessionTask *)registerUser:(NSString *)mobile
++ (NSURLSessionTask *)registerUser:(NSDictionary *)parameters
                            success:(SuccessBlock)success
                             failed:(FailedBlock)failed;
 
 //验证码
 + (NSURLSessionTask *)sendVerifyCode:(NSString *)mobile
+                                type:(NSInteger)type
                              success:(SuccessBlock)success
                               failed:(FailedBlock)failed;
 
@@ -108,6 +109,86 @@
                          newPwd:(NSString *)newPwd
                         success:(SuccessBlock)success
                          failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)forgetPwd:(NSDictionary *)params
+                        success:(SuccessBlock)success
+                         failed:(FailedBlock)failed;
+
+///猜你喜欢
++ (NSURLSessionTask *)goodsFavourite:(NSInteger)pageIndex
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+
+///秒杀
++ (NSURLSessionTask *)flashGoodsIndex:(NSInteger)pageIndex
+                            beginTime:(NSTimeInterval)beginTime
+                              endTime:(NSTimeInterval)endTime
+                              success:(SuccessBlock)success
+                               failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)getShoppingCardListSuccess:(SuccessBlock)success
+                                          failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)canSelectedAll:(NSString *)cardId
+                            selected:(BOOL)selected
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)deleteCard:(NSString *)cardId
+                         success:(SuccessBlock)success
+                          failed:(FailedBlock)failed;
+
+
++ (NSURLSessionTask *)moveToCollect:(NSString *)cardId
+                             goodId:(NSString *)goodsId
+                            success:(SuccessBlock)success
+                             failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)changeCardNun:(NSString *)cardId
+                            goodNum:(NSInteger)goodsNum
+                           selected:(BOOL)selected
+                            success:(SuccessBlock)success
+                             failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)getCommentList:(NSInteger)type
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)deleteOrder:(NSString *)orderId
+                          success:(SuccessBlock)success
+                           failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)getReturnOrder:(NSString *)state
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)getCanUseOrder:(NSString *)state
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)cancelOrder:(NSString *)orderId
+                          success:(SuccessBlock)success
+                           failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)reviewOrderExpress:(NSString *)orderId
+                                 success:(SuccessBlock)success
+                                  failed:(FailedBlock)failed;
+
++ (NSURLSessionTask *)remindNoticeOrder:(NSString *)orderId
+                                success:(SuccessBlock)success
+                                 failed:(FailedBlock)failed;
+///商品规格
++ (NSURLSessionTask *)getGoodsSpecInfo:(NSString *)goodsId
+                               success:(SuccessBlock)success
+                                failed:(FailedBlock)failed;
+///商品详情
++ (NSURLSessionTask *)getGoodsDetail:(NSString *)goodsId
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+//商品评论
++ (NSURLSessionTask *)getGoodsComments:(NSString *)goodsId
+                               success:(SuccessBlock)success
+                                failed:(FailedBlock)failed;
 
 @end
 

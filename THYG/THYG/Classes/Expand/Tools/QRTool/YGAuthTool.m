@@ -30,7 +30,9 @@
 
 + (void)requestPhotoAuth:(void (^)(void))confirmHandler {
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        BLOCK(confirmHandler);
+        dispatch_async(dispatch_get_main_queue(), ^{
+             BLOCK(confirmHandler);
+        });
     }];
 }
 

@@ -10,16 +10,21 @@
 #import "THGoodsCommentModel.h"
 #import "THGoodsCommentCell.h"
 #import "THCommentHead.h"
+#import "THGoodsInfoPresenter.h"
 
-@interface THCommentVC () <UITableViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface THCommentVC () <UITableViewDelegate, UITableViewDataSource, UITableViewDelegate, THGoodsInfoProtocol>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *commentArray;
+@property (nonatomic, strong) THGoodsInfoPresenter *presenter;
 @end
 
 @implementation THCommentVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THGoodsInfoPresenter alloc] initPresenterWithProtocol:self];
+    [THHUDProgress show];
+    [self.presenter getComments:self.goods_id];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -65,6 +70,14 @@
         _tableView.estimatedSectionFooterHeight = 0;
     }
     return _tableView;
+}
+
+- (void)getGoodsCommentsSuccess:(NSArray<THGoodsCommentModel *> *)list {
+    
+}
+
+- (void)getGoodsCommentsFailed:(NSDictionary *)errorInfo {
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 

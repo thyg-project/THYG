@@ -22,6 +22,15 @@
 
 - (void)updateAvatar:(NSString *)filePath {
     NSURLSessionTask *task = [YGNetworkCommon updateUserInfo:@{} success:^(id responseObject) {
+        [self performToSelector:@selector(updateAvaSuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(updateAvaFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
+}
+
+- (void)updateUserInfo:(NSDictionary *)params {
+    NSURLSessionTask *task = [YGNetworkCommon updateUserInfo:params success:^(id responseObject) {
         [self performToSelector:@selector(updateUserInfoSuccess:) params:responseObject];
     } failed:^(NSDictionary *errorInfo) {
         [self performToSelector:@selector(updateUserInfoFailed:) params:errorInfo];

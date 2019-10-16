@@ -11,11 +11,14 @@
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "THHomeSectionHead.h"
 #import "THFavouriteGoodsModel.h"
+#import "THHomePresenter.h"
 
-@interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface THMyTeMoneyCtl ()<UICollectionViewDelegate,UICollectionViewDataSource, THHomeProtocol>
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
+
+@property (nonatomic, strong) THHomePresenter *presenter;
 
 @end
 
@@ -23,16 +26,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THHomePresenter alloc] initPresenterWithProtocol:self];
     self.navigationItem.title = @"我的特币";
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
          make.edges.equalTo(self.view);
      }];
+    kWeakSelf;
     [self.collectionView addRefreshHeaderAutoRefresh:YES animation:YES refreshBlock:^{
-        
+        kStrongSelf;
+        [strongSelf.presenter resetRefreshState];
+        [strongSelf.presenter goodsFavourite];
     }];
     [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
-        
+        kStrongSelf;
+        [strongSelf.presenter goodsFavourite];
     }];
 }
 
@@ -132,6 +140,15 @@
         [_collectionView registerClass:THHomeSectionHead.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THHomeSectionHead"];
     }
     return _collectionView;
+}
+
+#pragma mark ---
+- (void)loadFavouriteGoodsFailed:(NSDictionary *)errorInfo {
+    [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)loadFavouriteGoodsSuccess:(NSArray *)list {
+    
 }
 
 @end

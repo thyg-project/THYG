@@ -11,6 +11,10 @@
 @implementation NSDictionary (Message)
 
 - (NSString *)message {
+    NSString *text = [self objectForKey:@"msg"];
+    if (YGInfo.validString(text)) {
+        return text;
+    }
     return [self objectForKey:@"message"];
 }
 

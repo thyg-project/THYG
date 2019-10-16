@@ -8,7 +8,7 @@
 
 #import "THRegisterNextStepCtl.h"
 #import "THRegisterPresenter.h"
-
+#import "THLoginVC.h"
 
 @interface THRegisterNextStepCtl () <THRegisterProtocol>
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumOfRevCodeLabel;
@@ -24,17 +24,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"会员注册";
+    self.navigationItem.title = self.isForgetPwd ? @"找回密码" : @"会员注册";
     _presenter = [[THRegisterPresenter alloc] initPresenterWithProtocol:self];
     [self setTextFieldLeftPadding:self.verifyCodeField forWidth:10];
     [self setTextFieldLeftPadding:self.pswField forWidth:10];
     self.phoneNumOfRevCodeLabel.text = [NSString stringWithFormat:@"请输入%@收到的验证码",self.phoneString];
-    [self getVerifyCodeAction:self.getVerifyCodeBtn];
+//    [self getVerifyCodeAction:self.getVerifyCodeBtn];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:self.verifyCodeField];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:self.pswField];
     [self.finishBtn setBackgroundImage:[UIImage imageWithColor:RGB(213, 0, 27)] forState:UIControlStateNormal];
     [self.finishBtn setBackgroundImage:[UIImage imageWithColor:RGB(230,230,230)] forState:UIControlStateDisabled];
     self.finishBtn.enabled = NO;
+    [Utils scheduledCountdown:^(BOOL stop, NSTimeInterval inertval, dispatch_source_t source_t) {
+           _source_t = source_t;
+           if (stop) {
+               [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+               self.getVerifyCodeBtn.backgroundColor = RGB(213, 0, 27);
+           } else {
+               [self.getVerifyCodeBtn setTitle:@(inertval).stringValue forState:UIControlStateNormal];
+           }
+       } totalTimeInterval:60];
 }
 
 - (void)textDidChanged:(NSNotification *)not {
@@ -53,7 +62,8 @@ dispatch_source_t _source_t;
 - (IBAction)getVerifyCodeAction:(id)sender {
     self.getVerifyCodeBtn.backgroundColor = RGB(230,230,230);
     [self.getVerifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    [self.presenter sendVerifyCode:@""];
+    [THHUDProgress show];
+    [self.presenter sendVerifyCode:self.phoneString type:self.isForgetPwd ? 1 : 0];
 }
 
 - (IBAction)finishAction:(id)sender {
@@ -67,7 +77,12 @@ dispatch_source_t _source_t;
     [params setValue:self.phoneString forKey:@"mobile"];
     [params setValue:[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]] forKey:@"password"];
     [params setValue:[Utils md5:[NSString stringWithFormat:@"TPSHOP%@",self.pswField.text]] forKey:@"confirm_password"];
-    [self.presenter registerUser:@"" verifyCode:@"" pwd:@""];
+    [THHUDProgress show];
+    if (self.isForgetPwd) {
+        [self.presenter forgetPwd:params];
+    } else {
+        [self.presenter registerUser:params];
+    }
 }
 
 - (void)setTextFieldLeftPadding:(UITextField *)textField forWidth:(CGFloat)leftWidth {
@@ -84,14 +99,17 @@ dispatch_source_t _source_t;
 }
 
 - (void)registerFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress dismiss];
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)sendVerifyCodeFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress dismiss];
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)sendVerifyCodeSuccess:(NSDictionary *)response {
+    [THHUDProgress dismiss];
     [Utils scheduledCountdown:^(BOOL stop, NSTimeInterval inertval, dispatch_source_t source_t) {
         _source_t = source_t;
         if (stop) {
@@ -104,11 +122,25 @@ dispatch_source_t _source_t;
 }
 
 - (void)getUserInfoFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getUserInfoSuccess:(NSDictionary *)response {
-    
+    [THHUDProgress showMessage:response.message];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)findPwdFailed:(NSDictionary *)errorInfo {
+    [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)findPwdSuccess:(NSDictionary *)response {
+    [THHUDProgress showMessage:response.message];
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:[THLoginVC class]]) {
+            [self.navigationController popToViewController:vc animated:YES];
+        }
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

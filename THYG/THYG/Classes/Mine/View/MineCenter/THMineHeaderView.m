@@ -25,10 +25,10 @@
 }
 
 - (void)refreshUI {
-    if ([@"" length]) {
+    if (THUserManager.hasLogin) {
         self.headImgView.image = [UIImage imageNamed:@"beijing"];
-//        [self.userImgView sd_setImageWithURL:[NSURL URLWithString:UserInfo.head_pic] placeholderImage:[UIImage imageNamed:@"touxiang"]];
-//        self.userNameLabel.text = UserInfo.nickname;
+        [self.userImgView setImageWithURL:[NSURL URLWithString:THUserManager.sharedInstance.userInfo.head_pic] placeholder:[UIImage imageNamed:@"touxiang"]];
+        self.userNameLabel.text = THUserManager.sharedInstance.userInfo.nickname ? : @"未设置";
     } else {
         self.headImgView.image = [UIImage imageNamed:@"noLogin"];
         self.userImgView.image = [UIImage imageNamed:@"touxiang"];
@@ -65,6 +65,7 @@
     [_checkOnBtn setBackgroundImage:[UIImage imageWithColor:RGB(255, 216, 0)] forState:UIControlStateSelected];
     _checkOnBtn.layer.borderWidth = 1;
     _checkOnBtn.layer.cornerRadius = 12.5;
+    _checkOnBtn.layer.masksToBounds = YES;
     _checkOnBtn.layer.borderColor = RGB(255, 216, 0).CGColor;
     
     _userNameLabel = [[UILabel alloc]init];

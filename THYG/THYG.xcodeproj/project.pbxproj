@@ -30,6 +30,12 @@
 		022CD99322DC2B8B00A6518A /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98D22DC2B8B00A6518A /* SDPhotoBrowser.m */; };
 		022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98E22DC2B8B00A6518A /* SDWaitingView.m */; };
 		022CD99522DC2B8B00A6518A /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD98F22DC2B8B00A6518A /* SDBrowserImageView.m */; };
+		0234CE22234DB0BD009CF8E2 /* THFlashPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE21234DB0BD009CF8E2 /* THFlashPresenter.m */; };
+		0234CE23234DB0BD009CF8E2 /* THFlashPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE21234DB0BD009CF8E2 /* THFlashPresenter.m */; };
+		0234CE27234DB413009CF8E2 /* THCardPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE26234DB413009CF8E2 /* THCardPresenter.m */; };
+		0234CE28234DB413009CF8E2 /* THCardPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE26234DB413009CF8E2 /* THCardPresenter.m */; };
+		0234CE2C234DC1B9009CF8E2 /* THOrderPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE2B234DC1B9009CF8E2 /* THOrderPresenter.m */; };
+		0234CE2D234DC1B9009CF8E2 /* THOrderPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE2B234DC1B9009CF8E2 /* THOrderPresenter.m */; };
 		024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D14C922E8668F00D872DD /* THCardSettleView.m */; };
 		025111832313D02000F9BDDD /* THAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111822313D02000F9BDDD /* THAddressPresenter.m */; };
 		025111842313D02000F9BDDD /* THAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111822313D02000F9BDDD /* THAddressPresenter.m */; };
@@ -360,6 +366,8 @@
 		0265CF7122F2C45E000363F0 /* THRecommendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B20732B3B00FEFE40 /* THRecommendedCell.xib */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
 		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
+		0276F4B42355C8A200CF8B62 /* THGoodsInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0276F4B32355C8A200CF8B62 /* THGoodsInfoPresenter.m */; };
+		0276F4B52355C8A200CF8B62 /* THGoodsInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0276F4B32355C8A200CF8B62 /* THGoodsInfoPresenter.m */; };
 		027A1C1C2318F24200E2016D /* THAddBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027A1C1B2318F24200E2016D /* THAddBankViewController.m */; };
 		027A1C1D2318F24200E2016D /* THAddBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027A1C1B2318F24200E2016D /* THAddBankViewController.m */; };
 		027B4D502314D1290015C508 /* checkbankcard.json in Resources */ = {isa = PBXBuildFile; fileRef = 027B4D4E2314D1290015C508 /* checkbankcard.json */; };
@@ -733,6 +741,15 @@
 		022CD99022DC2B8B00A6518A /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		022CD99122DC2B8B00A6518A /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
 		022CD99222DC2B8B00A6518A /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		0234CE20234DB0BD009CF8E2 /* THFlashPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFlashPresenter.h; sourceTree = "<group>"; };
+		0234CE21234DB0BD009CF8E2 /* THFlashPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFlashPresenter.m; sourceTree = "<group>"; };
+		0234CE24234DB0DA009CF8E2 /* THFlashProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFlashProtocol.h; sourceTree = "<group>"; };
+		0234CE25234DB413009CF8E2 /* THCardPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardPresenter.h; sourceTree = "<group>"; };
+		0234CE26234DB413009CF8E2 /* THCardPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardPresenter.m; sourceTree = "<group>"; };
+		0234CE29234DB42B009CF8E2 /* THCardProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardProtocol.h; sourceTree = "<group>"; };
+		0234CE2A234DC1B9009CF8E2 /* THOrderPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THOrderPresenter.h; sourceTree = "<group>"; };
+		0234CE2B234DC1B9009CF8E2 /* THOrderPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THOrderPresenter.m; sourceTree = "<group>"; };
+		0234CE2E234DC1CE009CF8E2 /* THOrderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THOrderProtocol.h; sourceTree = "<group>"; };
 		024D14C822E8668F00D872DD /* THCardSettleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardSettleView.h; sourceTree = "<group>"; };
 		024D14C922E8668F00D872DD /* THCardSettleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardSettleView.m; sourceTree = "<group>"; };
 		025111812313D02000F9BDDD /* THAddressPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddressPresenter.h; sourceTree = "<group>"; };
@@ -767,6 +784,9 @@
 		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
 		0271234722E8315F002DF961 /* THFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterView.h; sourceTree = "<group>"; };
 		0271234822E8315F002DF961 /* THFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterView.m; sourceTree = "<group>"; };
+		0276F4B22355C8A200CF8B62 /* THGoodsInfoPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGoodsInfoPresenter.h; sourceTree = "<group>"; };
+		0276F4B32355C8A200CF8B62 /* THGoodsInfoPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THGoodsInfoPresenter.m; sourceTree = "<group>"; };
+		0276F4B62355C8B500CF8B62 /* THGoodsInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGoodsInfoProtocol.h; sourceTree = "<group>"; };
 		027A1C1A2318F24200E2016D /* THAddBankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddBankViewController.h; sourceTree = "<group>"; };
 		027A1C1B2318F24200E2016D /* THAddBankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAddBankViewController.m; sourceTree = "<group>"; };
 		027B4D4E2314D1290015C508 /* checkbankcard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkbankcard.json; sourceTree = "<group>"; };
@@ -1471,6 +1491,10 @@
 				027B4D69231507020015C508 /* THModifyPwdProtocol.h */,
 				02657878231D0D81001236E4 /* THApplyInputProtocol.h */,
 				0265787D231E0432001236E4 /* THInputApplyInfoProtocol.h */,
+				0234CE24234DB0DA009CF8E2 /* THFlashProtocol.h */,
+				0234CE29234DB42B009CF8E2 /* THCardProtocol.h */,
+				0234CE2E234DC1CE009CF8E2 /* THOrderProtocol.h */,
+				0276F4B62355C8B500CF8B62 /* THGoodsInfoProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1522,6 +1546,14 @@
 				02657875231D0CC4001236E4 /* THApplyInputPresenter.m */,
 				02657879231E041C001236E4 /* THInputApplyInfoPresenter.h */,
 				0265787A231E041C001236E4 /* THInputApplyInfoPresenter.m */,
+				0234CE20234DB0BD009CF8E2 /* THFlashPresenter.h */,
+				0234CE21234DB0BD009CF8E2 /* THFlashPresenter.m */,
+				0234CE25234DB413009CF8E2 /* THCardPresenter.h */,
+				0234CE26234DB413009CF8E2 /* THCardPresenter.m */,
+				0234CE2A234DC1B9009CF8E2 /* THOrderPresenter.h */,
+				0234CE2B234DC1B9009CF8E2 /* THOrderPresenter.m */,
+				0276F4B22355C8A200CF8B62 /* THGoodsInfoPresenter.h */,
+				0276F4B32355C8A200CF8B62 /* THGoodsInfoPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -3137,6 +3169,7 @@
 				0265CE2C22F2C45E000363F0 /* NSArray+AvoidCrash.m in Sources */,
 				0265CE2D22F2C45E000363F0 /* Utils.m in Sources */,
 				0265CE2E22F2C45E000363F0 /* THMinePresenter.m in Sources */,
+				0234CE2D234DC1B9009CF8E2 /* THOrderPresenter.m in Sources */,
 				0265CE2F22F2C45E000363F0 /* SizeAttributeModel.m in Sources */,
 				0265CE3022F2C45E000363F0 /* THMySupplierCell.m in Sources */,
 				0265CE3122F2C45E000363F0 /* THSystemMessageCtl.m in Sources */,
@@ -3208,6 +3241,7 @@
 				0265CE7022F2C45E000363F0 /* THOrderConfirmPaymentCell.m in Sources */,
 				0265CE7122F2C45E000363F0 /* THBuyGoodsCell.m in Sources */,
 				0265CE7222F2C45E000363F0 /* THShareViewCell.m in Sources */,
+				0234CE23234DB0BD009CF8E2 /* THFlashPresenter.m in Sources */,
 				0265CE7322F2C45E000363F0 /* NSNull+NullSafe.m in Sources */,
 				0265CE7422F2C45E000363F0 /* THHomeVC.m in Sources */,
 				0265CE7522F2C45E000363F0 /* THAddressModel.m in Sources */,
@@ -3231,6 +3265,7 @@
 				0265CE8522F2C45E000363F0 /* THMineSubmitApplicationVC.m in Sources */,
 				0265CE8622F2C45E000363F0 /* THMyMessageCtl.m in Sources */,
 				0265CE8722F2C45E000363F0 /* THTeHuiCell.m in Sources */,
+				0234CE28234DB413009CF8E2 /* THCardPresenter.m in Sources */,
 				0265CE8822F2C45E000363F0 /* ChoosTypeTableViewCell.m in Sources */,
 				0265CE8922F2C45E000363F0 /* THNavigationController.m in Sources */,
 				02834B69230A9D4700B8BFB2 /* THBankPresenter.m in Sources */,
@@ -3268,6 +3303,7 @@
 				0265CEA822F2C45E000363F0 /* THGoodsSpecificationsCell.m in Sources */,
 				0265CEA922F2C45E000363F0 /* THGuideViewTool.m in Sources */,
 				0265CEAA22F2C45E000363F0 /* THInvitationManageCtl.m in Sources */,
+				0276F4B52355C8A200CF8B62 /* THGoodsInfoPresenter.m in Sources */,
 				0265CEAB22F2C45E000363F0 /* THMineApplymentVC.m in Sources */,
 				0265CEAC22F2C45E000363F0 /* NSUserDefaults+AvoidCrash.m in Sources */,
 				0265CEAD22F2C45E000363F0 /* MLTextAttachment.m in Sources */,
@@ -3394,6 +3430,7 @@
 				022CD97B22DA239400A6518A /* NSArray+AvoidCrash.m in Sources */,
 				510EDC2D20629D8300F595E7 /* Utils.m in Sources */,
 				02D154B422D72B0D005D6277 /* THMinePresenter.m in Sources */,
+				0234CE2C234DC1B9009CF8E2 /* THOrderPresenter.m in Sources */,
 				57CBC3CF2088E477007D6069 /* SizeAttributeModel.m in Sources */,
 				8FDC4E5220732AF100FEFE40 /* THMySupplierCell.m in Sources */,
 				57417E4720CB779E00F5085F /* THSystemMessageCtl.m in Sources */,
@@ -3465,6 +3502,7 @@
 				042891D820CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m in Sources */,
 				57CBC3E22088EE2E007D6069 /* THBuyGoodsCell.m in Sources */,
 				0486977820C110A100C12DF7 /* THShareViewCell.m in Sources */,
+				0234CE22234DB0BD009CF8E2 /* THFlashPresenter.m in Sources */,
 				022CD98622DA239400A6518A /* NSNull+NullSafe.m in Sources */,
 				512D78EA205931D10088A4A0 /* THHomeVC.m in Sources */,
 				044AEE3E2098468700824A05 /* THAddressModel.m in Sources */,
@@ -3488,6 +3526,7 @@
 				04D0A31B2071254B003BE300 /* THMineSubmitApplicationVC.m in Sources */,
 				57417E3520CB707700F5085F /* THMyMessageCtl.m in Sources */,
 				0265CE2822F2BD61000363F0 /* THTeHuiCell.m in Sources */,
+				0234CE27234DB413009CF8E2 /* THCardPresenter.m in Sources */,
 				57CBC3CC2088E477007D6069 /* ChoosTypeTableViewCell.m in Sources */,
 				04D0A326207134AE003BE300 /* THNavigationController.m in Sources */,
 				02834B68230A9D4700B8BFB2 /* THBankPresenter.m in Sources */,
@@ -3525,6 +3564,7 @@
 				04178F1020728D4C0048875E /* THGoodsSpecificationsCell.m in Sources */,
 				512D7943205E1D1E0088A4A0 /* THGuideViewTool.m in Sources */,
 				8FDC4E4D2073200C00FEFE40 /* THInvitationManageCtl.m in Sources */,
+				0276F4B42355C8A200CF8B62 /* THGoodsInfoPresenter.m in Sources */,
 				0484F09E2089B2FB008144B2 /* THMineApplymentVC.m in Sources */,
 				022CD98122DA239400A6518A /* NSUserDefaults+AvoidCrash.m in Sources */,
 				576EEAC82087A5510088B1EB /* MLTextAttachment.m in Sources */,

@@ -38,17 +38,20 @@
 }
 
 - (void)saveUserInfo {
-    [self.cache setObject:THUserManager.sharedInstance.userInfo forKey:@"THUserInfo"];
+   NSDictionary *d = [THUserManager.sharedInstance.userInfo modelToJSONObject];
+    [self.cache setObject:d forKey:@"THUserInfo"];
+    [self.cache setObject:THUserManager.sharedInstance.token forKey:@"token"];
 }
 
 - (void)clearUserInfo {
     [self.cache removeObjectForKey:@"THUserInfo"];
+    [self.cache removeObjectForKey:@"token"];
 }
 
 - (void)loadUserInfo {
    NSDictionary *dict = (NSDictionary *)[self.cache objectForKey:@"THUserInfo"];
-//    [YGUserInfo.defaultInstance parseToken:dict];
-//    [YGUserInfo.defaultInstance parseUserInfo:dict];
+    THUserManager.sharedInstance.userInfo = [THUserInfoModel modelWithJSON:dict];
+    THUserManager.sharedInstance.token = (NSString *)[self.cache objectForKey:@"token"];
 }
 
 + (void)saveUserInfo {

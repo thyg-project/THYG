@@ -13,12 +13,15 @@
 #import "THMoreLimitSpellGroupCell.h"
 #import "THSpellGroupHead.h"
 #import "THFlashSaleModel.h"
+#import "THFlashPresenter.h"
 
-@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface THFlashCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THFlashProtocol>
 @property (nonatomic, strong) NSMutableArray *mvpArray;
 @property (nonatomic, strong) NSMutableArray *listArray;
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) THSpellGroupHead *headView;
+
+@property (nonatomic, strong) THFlashPresenter *presenter;
 @end
 
 @implementation THFlashCtl
@@ -26,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"秒杀";
+    _presenter = [[THFlashPresenter alloc] initPresenterWithProtocol:self];
     [self setNavigationBarColor:RGB(59, 59, 59)];
     [self.view addSubview:self.headView];
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -37,11 +41,15 @@
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self.headView.mas_bottom);
     }];
+    kWeakSelf;
     [self.collectionView addRefreshHeaderAutoRefresh:NO animation:YES refreshBlock:^{
-        
+        kStrongSelf;
+        [strongSelf.presenter resetRefreshState];
+        [strongSelf.presenter loadFlashDataWithStartTime:0 endTime:0];
     }];
     [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
-        
+        kStrongSelf;
+        [strongSelf.presenter loadFlashDataWithStartTime:0 endTime:0];
     }];
 }
 
@@ -157,6 +165,14 @@
         _listArray = [NSMutableArray array];
     }
     return _listArray;
+}
+
+- (void)loadFlashDataSuccess:(NSArray *)data {
+    
+}
+
+- (void)loadFlashDataFailed:(NSDictionary *)errorInfo {
+    
 }
 
 @end

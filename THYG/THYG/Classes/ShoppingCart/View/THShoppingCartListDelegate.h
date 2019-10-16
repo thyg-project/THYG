@@ -23,6 +23,8 @@
 
 @protocol THTableViewDelegate <NSObject>
 
+- (void)changedGoodsNumber:(NSString *)cardId num:(NSInteger)num selected:(BOOL)selected;
 
+- (void)singleGoodsDidSelected:(BOOL)selected;
 
 @end

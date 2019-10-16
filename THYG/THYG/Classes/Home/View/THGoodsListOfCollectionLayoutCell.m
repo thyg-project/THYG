@@ -21,7 +21,7 @@
 
 - (void)setFavModel:(THFavouriteGoodsModel *)favModel {
     _favModel = favModel;
-    [goodsImgV setImageWithURL:[NSURL URLWithString:@"_favModel.original_img"] placeholder:[UIImage imageNamed:@"bimai2"]];
+    [goodsImgV setImageWithURL:[NSURL URLWithString:favModel.original_img] placeholder:[UIImage imageNamed:@"bimai2"]];
     goodsTitleLabel.text = _favModel.goods_name;
     goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@",_favModel.shop_price];
 }

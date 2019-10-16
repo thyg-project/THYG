@@ -15,13 +15,12 @@
 //测试环境
 #ifdef CI
 
-static NSString *const kServerDomain = @"http://mp.wushibu.cn/index.php/api/v100";
-
+static NSString *const kServerDomain = @"http://th1818.d3d.cc/api/v100";
 
 #else
 //正式环境
 
-static NSString *const kServerDomain = @"http://th1818.bingogd.com/api/v100";
+static NSString *const kServerDomain = @"https://th1818.bingogd.com/api/v100";
 
 #endif
 ///登录

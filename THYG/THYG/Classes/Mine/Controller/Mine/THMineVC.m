@@ -16,7 +16,6 @@
 #import "THMyCollectCtl.h"
 #import "THMineOrderManageVC.h"
 #import "THUserInfoEditCtl.h"
-#import "THMineApplymentVC.h"
 #import "THFavouriteGoodsModel.h"
 #import "THGoodsListOfCollectionLayoutCell.h"
 #import "THMinePresenter.h"
@@ -30,7 +29,6 @@
     CGFloat _lastOffsetY;
     THNavigationView *_customNav;
     THMenuView *_munuView;
-    
     NSArray *_tableViewClass;
 }
 @property (nonatomic, strong) UITableView *tableView;
@@ -49,6 +47,11 @@
 #pragma mark - 更新用户信息
 - (void)updateUserInfo {
     [self.headView refreshUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateUserInfo];
 }
 
 - (void)viewDidLoad {
@@ -77,11 +80,12 @@
     [self autoLayoutSizeContentView:self.tableView];
 	
     [self addMenuView];
+    kWeakSelf;
     [self.collectionView addRefreshHeaderAutoRefresh:YES animation:YES refreshBlock:^{
-        
+        kStrongSelf;
     }];
     [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
-        
+        kStrongSelf;
     }];
 }
 
@@ -151,7 +155,6 @@
         };
         
 		cell = orderCell;
-        
         
 	} else if ((indexPath.section > 0 && indexPath.section < 4) || indexPath.section == 5) {
 		THMineSectionCell *sectionCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineSectionCell.class)];
@@ -246,7 +249,6 @@
 	return _headView;
 }
 
-
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -273,7 +275,11 @@
 }
 
 - (void)signFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)autoLogout {
+    [self updateUserInfo];
 }
 
 #pragma mark --Navigation
@@ -291,7 +297,6 @@
     }
 }
 
-
 #pragma mark --THMenuViewDelegate
 - (void)menuViewDismiss:(THMenuView *)menuView {
     [menuView dismiss];
@@ -299,6 +304,11 @@
 
 - (void)menuView:(THMenuView *)menuView didSelectedIndex:(NSInteger)index {
     [menuView dismiss];
+    if (THUserManager.hasLogin == NO) {
+        THLoginVC *loginVc = [[THLoginVC alloc] init];
+        [self.navigationController pushViewController:loginVc animated:YES];
+        return;
+    }
     UIViewController *controller = nil;
     if (index == 0) {//我的二维码
         controller = [[THMineShareQRCodeVC alloc] init];
@@ -312,11 +322,16 @@
 
 #pragma mark -THHeaderViewDelegate
 - (void)sign:(THMineHeaderView *)sender {
-    [self.presenter sign];
+    if (THUserManager.hasLogin) {
+        [self.presenter sign];
+    } else {
+        THLoginVC *loginVc = [[THLoginVC alloc] init];
+        [self.navigationController pushViewController:loginVc animated:YES];
+    }
 }
 
 - (void)toUserInfo:(THMineHeaderView *)sender {
-    if (YGInfo.validString(@"")) {
+    if (THUserManager.hasLogin) {
         THUserInfoEditCtl *edit = [[THUserInfoEditCtl alloc] init];
         edit.title = @"个人资料编辑";
         [self.navigationController pushViewController:edit animated:YES];

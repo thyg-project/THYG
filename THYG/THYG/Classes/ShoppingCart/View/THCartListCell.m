@@ -43,7 +43,7 @@
     
     sender.selected = !sender.selected;
     if (self.selectBtnClick) {
-        self.selectBtnClick();
+        self.selectBtnClick(sender.selected);
     }
     
     [self changeNum:self.choosedCount isSelected:sender.selected carId:_modelData.cid];
@@ -79,7 +79,6 @@
     
     [self changeNum:self.choosedCount isSelected:_modelData.selected carId:_modelData.cid];
 	
-	!self.changeGoodsNumBlock?:self.changeGoodsNumBlock();
 	
 }
 
@@ -101,7 +100,6 @@
     
     [self changeNum:self.choosedCount isSelected:_modelData.selected carId:_modelData.cid];
 	
-	!self.changeGoodsNumBlock?:self.changeGoodsNumBlock();
     
 }
 
@@ -127,7 +125,7 @@
 #pragma mark - 购物车改变数量， 单个选中 或者取消
 - (void)changeNum:(NSInteger)goodsNum isSelected:(BOOL)selected carId:(NSString *)carId {
 //    NSDictionary *dict = @{@"token":@"", @"cart_id":carId, @"goods_num": @(goodsNum), @"selected":@(selected)};
-
+    BLOCK(self.changeGoodsNumBlock,carId,goodsNum,selected);
 }
 
 @end

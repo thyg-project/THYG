@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateUserInfoFailed:(NSDictionary *)errorInfo;
 
+- (void)updateAvaSuccess:(NSDictionary *)response;
+
+- (void)updateAvaFailed:(NSDictionary *)errorInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

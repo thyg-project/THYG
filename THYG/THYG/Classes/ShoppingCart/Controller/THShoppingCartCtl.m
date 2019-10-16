@@ -13,14 +13,15 @@
 #import "THShareView.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "THCardSettleView.h"
+#import "THCardPresenter.h"
 
-@interface THShoppingCartCtl () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, THCardSettleDelegate> {
+@interface THShoppingCartCtl () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, THCardSettleDelegate, THCardProtocol,THTableViewDelegate> {
     THCardSettleView *_settleView;
 }
 @property (nonatomic, strong) UITableView *mTable;
 @property (nonatomic, strong) UIButton *navBtn; // 导航按钮
 @property (nonatomic, strong) THShoppingCartListDelegate *tableDelegate;
-
+@property (nonatomic, strong) THCardPresenter *presenter;
 @property (nonatomic, strong) THShareView *shareView;
 
 @end
@@ -30,6 +31,8 @@
 #pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THCardPresenter alloc] initPresenterWithProtocol:self];
+    [_presenter getShoppingCardList];
     [self setupUI];
 }
 
@@ -130,6 +133,7 @@
 - (THShoppingCartListDelegate *)tableDelegate {
     if (!_tableDelegate) {
         _tableDelegate = [[THShoppingCartListDelegate alloc] init];
+        _tableDelegate.delegate = self;
     }
     return _tableDelegate;
 }
@@ -143,6 +147,56 @@
         [_navBtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _navBtn;
+}
+
+#pragma mark--
+- (void)changedGoodsNumber:(NSString *)cardId num:(NSInteger)num selected:(BOOL)selected {
+    
+}
+
+- (void)singleGoodsDidSelected:(BOOL)selected {
+    
+}
+
+#pragma mark--
+- (void)moveToCollectSuccess:(NSDictionary *)info {
+    
+}
+
+- (void)moveToCollectFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)deleteGoodsSuccess:(NSDictionary *)info {
+    
+}
+
+- (void)deleteGoodsFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)selectedAllSuccess:(NSDictionary *)info {
+    
+}
+
+- (void)selectedAllFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getShoppingCardListSuccess:(NSArray *)list {
+    
+}
+
+- (void)getShoppingCardListFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)changedGoodsNumberSuccess:(NSDictionary *)response {
+    
+}
+
+- (void)changedGoodsNumberFailed:(NSDictionary *)errorInfo {
+    
 }
 
 @end

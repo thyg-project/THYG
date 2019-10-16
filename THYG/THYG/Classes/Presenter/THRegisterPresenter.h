@@ -13,11 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface THRegisterPresenter : THBasePresenter
 
-- (void)registerUser:(NSString *)mobile verifyCode:(NSString *)code pwd:(NSString *)pwd;
+- (void)registerUser:(NSDictionary *)params;
 
-- (void)sendVerifyCode:(NSString *)mobile;
+- (void)sendVerifyCode:(NSString *)mobile type:(NSInteger)type;
 
 - (void)getUserInfo;
+
+
+- (void)forgetPwd:(NSDictionary *)params;
 
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import "THBaseProtocol.h"
-
+#import "THFavouriteGoodsModel.h"
 
 @protocol THHomeProtocol <THBaseProtocol>
 
@@ -15,6 +15,12 @@
 - (void)authCameraSuccess;
 
 - (void)authCameraFailed;
+
+- (void)loadFavouriteGoodsSuccess:(NSArray <THFavouriteGoodsModel *> *)list;
+
+- (void)loadFavouriteGoodsFailed:(NSDictionary *)errorInfo;
+
+- (void)resetDataSource;
 
 @end
 

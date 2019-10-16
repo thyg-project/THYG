@@ -8,15 +8,18 @@
 
 #import "THMineOrderListPageVC.h"
 #import "THMineOrderCell.h"
-#import "THOrderModel.h"
 #import "THMineOrderFooterView.h"
 #import "THMineOrderDetailVC.h"
+#import "THOrderPresenter.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface THMineOrderListPageVC () <UITableViewDataSource, UITableViewDelegate>
+@interface THMineOrderListPageVC () <UITableViewDataSource, UITableViewDelegate, THOrderProtocol,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
+
+@property (nonatomic, strong) THOrderPresenter *presenter;
 
 @end
 
@@ -24,10 +27,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _presenter = [[THOrderPresenter alloc] initPresenterWithProtocol:self];
+    [THHUDProgress show];
+    if (self.type) {
+        [self.presenter getReturnOrder:self.status];
+    } else {
+        [self.presenter getCanUseOrder:self.status];
+    }
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self autoLayoutSizeContentView:self.tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -50,9 +62,10 @@
     THMineOrderCell *orderCell = [tableView dequeueReusableCellWithIdentifier:@"THMineOrderCell" forIndexPath:indexPath];
     THOrderListModel *model = self.dataSource[indexPath.section];
     orderCell.orderListModel = model;
-    
+    kWeakSelf;
     orderCell.deleteOrderBlock = ^{
-        
+        kStrongSelf;
+        [strongSelf.presenter deleteOrder:model.order_id];
     };
     
     return orderCell;
@@ -92,6 +105,59 @@
 #pragma mark - 空数据
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
     return [UIImage imageNamed:@"noOrder"];
+}
+
+#pragma mark --
+- (void)getCanUseOrderFailed:(NSDictionary *)errorInfo {
+    [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)getCanUseOrderSuccess:(NSArray<THOrderModel *> *)list {
+    if (_dataSource == nil) {
+        _dataSource = [NSMutableArray new];
+    }
+    [THHUDProgress dismiss];
+    [_dataSource addObjectsFromArray:list];
+}
+
+- (void)getReturnOrderFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getReturnOrderSuccess:(NSArray *)list {
+    
+}
+
+- (void)deleteOrderFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)deleteOrderSuccess:(id)response {
+    
+}
+
+- (void)cancelOrderFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)cancelOrderSuccess:(id)response {
+    
+}
+
+- (void)reviewOrderExpressFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)reviewOrderExpressSuccess:(id)response {
+    
+}
+
+- (void)remindNoticeOrderFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)remindNoticeOrderSuccess:(id)response {
+    
 }
 
 @end

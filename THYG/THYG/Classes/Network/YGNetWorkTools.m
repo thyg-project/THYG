@@ -7,7 +7,7 @@
 //
 
 #import "YGNetWorkTools.h"
-
+#import "THUserManager.h"
 
 static inline NSSet *acceptableContentTypes() {
     return [NSSet setWithObjects:@"text/html", @"text/json", @"text/plain", @"text/javascript", @"application/json", @"application/javascript", nil];
@@ -117,7 +117,7 @@ NetworkState _lastNetworkState;
 
 - (NSURLSessionTask *)upload:(NSString *)url fileName:(NSString *)fileName parameters:(NSDictionary *)parameters data:(NSData *)data success:(SuccessBlock)success failed:(FailedBlock)failed {
    return [self.manager POST:formatUrl(url) parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:data name:@"head_pic" fileName:fileName mimeType:@"image/jpeg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -210,16 +210,15 @@ NetworkState _lastNetworkState;
     if ([[oj objectForKey:@"message"] isEqual:[NSNull null]]) {
         [oj setValue:@"服务端返回错误" forKey:@"message"];
     }
-    if ([oj[@"code"] integerValue] == 401) {
-//        YGUserInfo.defaultInstance.autoLogin = YES;
-//        [YGUserInfo.defaultInstance clearData];
+    if ([oj[@"status"] integerValue] == 2001) {
+        [[THUserManager sharedInstance] destory];
         BLOCK(failed,oj);
         return;
     }
     if ([((NSDictionary *)oj).allKeys containsObject:@"token"]) {
 //        YGUserInfo.defaultInstance.token = oj[@"token"];
     }
-    if ([oj[@"code"] integerValue] != 200) {
+    if ([oj[@"status"] integerValue] != 200) {
         BLOCK(failed,oj);
         return;
     }

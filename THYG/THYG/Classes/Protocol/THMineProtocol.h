@@ -16,6 +16,9 @@
 
 - (void)signFailed:(NSDictionary *)errorInfo;
 
+
+- (void)autoLogout;
+
 @end
 
 

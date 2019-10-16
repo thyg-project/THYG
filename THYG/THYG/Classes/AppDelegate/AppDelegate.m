@@ -13,6 +13,7 @@
 #import "THShareTool.h"
 #import "IQKeyboardManager.h"
 #import "AvoidCrash.h"
+#import "YGCacheManager.h"
 
 @interface AppDelegate () <BuglyDelegate>
 
@@ -24,7 +25,7 @@ static NSString *const kApiSecret = @"3176b5f31b3e4c693b25635b8b3b69fe";
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    [[YGCacheManager sharedInstance] loadUserInfo];
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     UIViewController *rootVc = [THGuideViewTool chooseRootViewController];

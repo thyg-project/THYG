@@ -20,8 +20,8 @@
 
 - (void)registerTable:(UITableView *)table {
     _mTable = table;
-    [table registerNib:[UINib nibWithNibName:NSStringFromClass(THCartListCell.class) bundle:nil] forCellReuseIdentifier:NSStringFromClass(THCartListCell.class)];
-    [table registerClass:[THCartSectionHead class] forHeaderFooterViewReuseIdentifier:NSStringFromClass(THCartSectionHead.class)];
+    [table registerNib:[UINib nibWithNibName:@"THCartListCell" bundle:nil] forCellReuseIdentifier:@"THCartListCell"];
+    [table registerClass:[THCartSectionHead class] forHeaderFooterViewReuseIdentifier:@"THCartSectionHead"];
 }
 
 - (void)setData:(NSArray *)data {
@@ -71,14 +71,17 @@
     cell.choosedCount = model.goods_num;
     cell.maxCount = model.goods.store_count; // 库存
     cell.modelData = model;
-    cell.selectBtnClick = ^{
-        
+    cell.selectBtnClick = ^(BOOL selected){
+        if ([self.delegate respondsToSelector:@selector(singleGoodsDidSelected:)]) {
+            [self.delegate singleGoodsDidSelected:selected];
+        }
     };
 	
-	cell.changeGoodsNumBlock = ^{
-		
-	};
-	
+    [cell setChangeGoodsNumBlock:^(NSString *cardId, NSInteger goodsNum, BOOL selcted) {
+        if ([self.delegate respondsToSelector:@selector(changedGoodsNumber:num:selected:)]) {
+            [self.delegate changedGoodsNumber:cardId num:goodsNum selected:selcted];
+        }
+    }];
     return cell;
 }
 

@@ -17,8 +17,9 @@
 #import "THGoodsSpecModel.h"
 #import "THShareView.h"
 
-@interface THGoodsDetailVC () <WMMenuItemDelegate,WMMenuViewDelegate,WMMenuViewDataSource,WMPageControllerDelegate,WMPageControllerDataSource> {
-    
+@interface THGoodsDetailVC () <WMMenuItemDelegate,WMMenuViewDelegate,WMMenuViewDataSource,WMPageControllerDelegate,WMPageControllerDataSource, THGoodsDetailDelegate> {
+    NSString *_loadContent;
+    YGWebViewController *_webContainer;
 }
 @property (nonatomic, strong) THGoodsDetailBottomView *bottomView;
 @property (nonatomic, strong) NSArray <NSString *> *localizedTitles;
@@ -75,9 +76,15 @@
     UIViewController *controller = nil;
     if (index == 0) {
         controller = [THGoodsVC new];
+        [(THGoodsVC *)controller setDelegate:self];
+        [controller setValue:self.goodsId forKey:@"goods_id"];
     } else if (index == 1) {
         controller = [YGWebViewController new];
-        [controller setValue:@"https://www.baidu.com" forKey:@"loadUrl"];
+        _webContainer = (YGWebViewController *)controller;
+        if (_loadContent) {
+            _webContainer.loadContent = _loadContent;
+        }
+       
     } else {
         controller = [THCommentVC new];
         [controller setValue:self.goodsId forKey:@"goods_id"];
@@ -95,6 +102,13 @@
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
     return CGRectMake(0, 0, kScreenWidth, kScreenHeight - 50);
+}
+
+- (void)getWebContentSuccess:(NSString *)content {
+    _loadContent = content;
+    if (_webContainer) {
+        _webContainer.loadContent = content;
+    }
 }
 
 #pragma mark - LazyLoad

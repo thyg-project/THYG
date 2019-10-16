@@ -65,6 +65,7 @@
 }
 
 + (void)showMessage:(NSString *)message {
+    [self dismiss];
     if (!YGInfo.validString(message)) {
         return;
     }

@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateAvatar:(NSString *)filePath;
 
+
+
+- (void)updateUserInfo:(NSDictionary *)params;
+
 @end
 
 NS_ASSUME_NONNULL_END

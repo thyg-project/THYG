@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface THTeCenterPresenter : THBasePresenter
 
-- (void)getTeData;
+- (void)getTeData:(NSInteger)type;
 
 @end
 

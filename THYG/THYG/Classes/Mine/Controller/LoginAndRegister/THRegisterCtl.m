@@ -44,7 +44,8 @@
 	[self.view endEditing:YES];
     kWeakSelf;
 	[THAlertView alertViewWithTitle:nil content:[NSString stringWithFormat:@"我们将发送短信验证码至:\n\n%@",self.phoneNumField.text] confirmBtnTitle:@"确定" cancelBtnTitle:@"取消" confirmCallback:^{
-        [weakSelf.presenter sendVerifyCode:weakSelf.phoneNumField.text];
+        [THHUDProgress show];
+        [weakSelf.presenter sendVerifyCode:weakSelf.phoneNumField.text type:weakSelf.type];
     } cancelCallback:^{
         
     }];
@@ -52,14 +53,16 @@
 
 #pragma mark---
 - (void)sendVerifyCodeFailed:(NSDictionary *)errorInfo {
-    THRegisterNextStepCtl *nextStepCtl = [[THRegisterNextStepCtl alloc] init];
-    nextStepCtl.phoneString = self.phoneNumField.text;
-    [self.navigationController pushViewController:nextStepCtl animated:YES];
+    [THHUDProgress dismiss];
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)sendVerifyCodeSuccess:(NSDictionary *)response {
+    [THHUDProgress dismiss];
     THRegisterNextStepCtl *nextStepCtl = [[THRegisterNextStepCtl alloc] init];
     nextStepCtl.phoneString = self.phoneNumField.text;
+    nextStepCtl.uniqueId = response[@"info"][@"uniqueid"];
+    nextStepCtl.isForgetPwd = self.type != 0;
     [self.navigationController pushViewController:nextStepCtl animated:YES];
 }
 

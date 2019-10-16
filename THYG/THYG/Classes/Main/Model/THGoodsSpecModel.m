@@ -10,13 +10,18 @@
 
 @implementation THGoodsSpecModel
 
-
++ (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass {
+    return @{@"default":THSpecDefaultModel.class,
+             @"filter_spec":THFilterSpecModel.class,
+             @"spec_goods_price":THSpecDefaultModel.class
+    };
+}
 @end
 
 
 @implementation THFilterSpecModel
 
-+ (NSDictionary *)mj_objectClassInArray {
++ (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass {
     return @{@"spec":[THItemSpecModel class]};
 }
 

@@ -19,9 +19,9 @@
 //最后一次选择的数量
 @property (nonatomic,assign) NSInteger choosedCount;
 
-@property (nonatomic, copy) void(^selectBtnClick)(void);
-
+@property (nonatomic, copy) void(^selectBtnClick)(BOOL selected);
+///NSDictionary *dict = @{@"token":@"", @"cart_id":carId, @"goods_num": @(goodsNum), @"selected":@(selected)};
 // 加减数量回调
-@property (nonatomic, copy) void(^changeGoodsNumBlock)(void);
+@property (nonatomic, copy) void(^changeGoodsNumBlock)(NSString *cardId, NSInteger goodsNum, BOOL selcted);
 
 @end

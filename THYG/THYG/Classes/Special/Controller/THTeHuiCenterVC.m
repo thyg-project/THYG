@@ -20,7 +20,7 @@
 }
 @property (nonatomic, strong) UIButton *titleBtnView;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSMutableArray <THTeHuiModel *>*dataSource;
 @property (nonatomic, strong) THMenuView *menuView;
 @property (nonatomic, strong) THTeCenterPresenter *presenter;
 
@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _presenter = [[THTeCenterPresenter alloc] initPresenterWithProtocol:self];
-    [_presenter getTeData];
+    [_presenter getTeData:1];
     [self setupUI];
     [self setMunes];
 }
@@ -139,7 +139,7 @@
 }
 
 - (void)loadTeFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 @end

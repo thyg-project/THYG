@@ -7,11 +7,15 @@
 //
 
 #import "THBasePresenter.h"
-
+#import "THHomeProtocol.h"
 
 @interface THHomePresenter : THBasePresenter
 
 - (void)checkCameraState;
+
+- (void)goodsFavourite;
+
+- (void)resetRefreshState;
 
 @end
 

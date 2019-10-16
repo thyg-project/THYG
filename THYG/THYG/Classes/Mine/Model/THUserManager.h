@@ -16,7 +16,11 @@
 
 @property (nonatomic, strong) THUserInfoModel *userInfo;
 
+@property (nonatomic, assign, class, readonly) BOOL hasLogin;
 
+@property (nonatomic, copy) NSString *token;
+
+- (void)destory;
 
 @end
 

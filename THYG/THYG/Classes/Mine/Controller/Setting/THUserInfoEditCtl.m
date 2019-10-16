@@ -108,7 +108,8 @@
 
 #pragma mark - 确认修改
 - (IBAction)okClick {
-
+    [THHUDProgress show];
+    [self.presenter updateUserInfo:self.params];
 }
 
 - (void)dismiss {
@@ -179,26 +180,36 @@
     _selectedImage = info[UIImagePickerControllerEditedImage];
     kWeakSelf;
     [picker dismissViewControllerAnimated:YES completion:^{
-        NSString *fileName = [NSString stringWithFormat:@"%@.jpg",@(arc4random() % 100000).stringValue];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpeg",@(arc4random() % 100000).stringValue];
         [weakSelf.presenter uploadImage:_selectedImage fileName:fileName];
     }];
 }
 
 #pragma mark --
-- (void)updateUserInfoSuccess:(id)response {
-    self.avatarImgView.image = _selectedImage;
+- (void)updateUserInfoSuccess:(NSDictionary *)response {
+    [THHUDProgress showMessage:response.message];
 }
 
 - (void)updateUserInfoFailed:(NSDictionary *)errorInfo {
-    
+    [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)uploadImageFailed:(NSDictionary *)errorInfo {
     
 }
 
-- (void)uploadImageSuccess:(id)response {
-    [self.presenter updateAvatar:response];
+- (void)updateAvaFailed:(NSDictionary *)errorInfo {
+     [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)updateAvaSuccess:(NSDictionary *)response {
+    [THHUDProgress showMessage:response.message];
+    
+}
+
+- (void)uploadImageSuccess:(NSDictionary *)response {
+     self.avatarImgView.image = _selectedImage;
+     [THHUDProgress showMessage:response.message];
 }
 
 @end

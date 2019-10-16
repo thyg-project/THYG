@@ -17,14 +17,17 @@
 #import "SizeAttributeModel.h"
 #import "GoodsTypeModel.h"
 #import "GoodsModel.h"
+#import "THGoodsInfoPresenter.h"
 
 
-@interface THGoodsVC () <UITableViewDataSource, UITableViewDelegate> {
+@interface THGoodsVC () <UITableViewDataSource, UITableViewDelegate, THGoodsInfoProtocol> {
     NSUInteger _commentCount;  // 总评论数量
     NSUInteger _sectionCount; // 分组数量
+    THGoodsHeaderView *_bannerView;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *banners;
+@property (nonatomic, strong) THGoodsInfoPresenter *presenter;
 @end
 
 @implementation THGoodsVC{
@@ -34,9 +37,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    _presenter = [[THGoodsInfoPresenter alloc] initPresenterWithProtocol:self];
+    [THHUDProgress show];
+    [_presenter getGoodsInfo:self.goods_id];
     model = [[GoodsModel alloc] init];
 }
-
 
 - (void)setDetailModel:(THGoosDetailModel *)detailModel {
     _detailModel = detailModel;
@@ -104,17 +109,6 @@
     [self autoLayoutSizeContentView:self.tableView];
 }
 
-- (void)setBannerArr:(NSArray<THGoodsDetailBannerModel *> *)bannerArr {
-    _bannerArr = bannerArr;
-    for (THGoodsDetailBannerModel *model in _bannerArr) {
-        if (![model.image_url containsString:@"http://"]) {
-            model.image_url = [@"http://th1818.bingogd.com" stringByAppendingString:model.image_url];
-        }
-        [self.banners addObject:model.image_url];
-    }
-    [self.tableView reloadData];
-}
-
 - (void)setCommentArr:(NSMutableArray<THGoodsCommentModel *> *)commentArr {
     _commentArr = commentArr;
     _commentCount = _commentArr.count;
@@ -167,7 +161,7 @@
 }
 
 - (UITableViewCell *)goodsInfoCellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    THGoodsTopInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsTopInfoCell.class)];
+    THGoodsTopInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:@"THGoodsTopInfoCell"];
     infoCell.goodsDetailModel = self.detailModel;
     kWeakSelf;
     infoCell.focusBtnAction = ^(BOOL isSelected) {
@@ -219,7 +213,7 @@
         THGoodsHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THGoodsHeaderView.class)];
         headerView.bannerImageArray = self.banners;
         view = headerView;
-        
+        _bannerView = headerView;
     } else if (section == 2 || (!_goodsSpecModel.filter_spec.count && _commentArr.count && section == 1)) {
         THGoodsCommentHeaderView *commentHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(THGoodsCommentHeaderView.class)];
         commentHeaderView.commentCount = _commentCount;
@@ -263,18 +257,47 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
-        [_tableView registerClass:THGoodsHeaderView.class forHeaderFooterViewReuseIdentifier:NSStringFromClass(THGoodsHeaderView.class)];
-        
-        [_tableView registerClass:THGoodsCommentHeaderView.class forHeaderFooterViewReuseIdentifier:NSStringFromClass(THGoodsCommentHeaderView.class)];
+        [_tableView registerClass:THGoodsHeaderView.class forHeaderFooterViewReuseIdentifier:@"THGoodsHeaderView"];
+        [_tableView registerClass:THGoodsCommentHeaderView.class forHeaderFooterViewReuseIdentifier:@"THGoodsCommentHeaderView"];
         [_tableView registerClass:THGoodsTopInfoCell.class forCellReuseIdentifier:@"THGoodsTopInfoCell"];
-        
-        [_tableView registerNib:[UINib nibWithNibName:@"THGoodsSpecificationsCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THGoodsSpecificationsCell.class)];
-        
-        [_tableView registerClass:THGoodsCommentCell.class forCellReuseIdentifier:NSStringFromClass(THGoodsCommentCell.class)];
-        
+        [_tableView registerNib:[UINib nibWithNibName:@"THGoodsSpecificationsCell" bundle:nil] forCellReuseIdentifier:@"THGoodsSpecificationsCell"];
+        [_tableView registerClass:THGoodsCommentCell.class forCellReuseIdentifier:@"THGoodsCommentCell"];
     }
     return _tableView;
+}
+
+
+- (void)getGoodsSpecSuccess:(THGoodsSpecModel *)response {
+    self.goodsSpecModel = response;
+}
+
+- (void)getGoodsSpecFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getGoodsDetailFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)getGoodsDetailSuccess:(THGoosDetailModel *)response {
+    [THHUDProgress dismiss];
+    if ([self.delegate respondsToSelector:@selector(getWebContentSuccess:)]) {
+        [self.delegate getWebContentSuccess:response.goods_content];
+    }
+    self.detailModel = response;
+    [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+    [self.presenter getGoodsSpecInfo:self.goods_id];
+}
+
+- (void)getBannerSuccess:(NSArray<THGoodsDetailBannerModel *> *)response {
+    NSMutableArray *list = [NSMutableArray new];
+    for (THGoodsDetailBannerModel *model in response) {
+        [list addObject:model.image_url];
+    }
+    self.banners = list;
+    if (_bannerView) {
+        _bannerView.bannerImageArray = self.banners;
+    }
 }
 
 @end

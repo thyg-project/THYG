@@ -23,7 +23,6 @@
     [self setUp];
     if (!YGInfo.validString(self.loadUrl)) {
         if (YGInfo.validString(self.loadContent)) {
-            [THHUDProgress show];
             [_webView loadHTMLString:[self fixImagesInHtmlString:self.loadContent] baseURL:nil];
         } else {
             [THHUDProgress showMsg:@"加载出错"];
@@ -91,7 +90,7 @@
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    
+     [THHUDProgress dismiss];
 }
 
 - (void)dealloc {

@@ -35,8 +35,8 @@
 }
 
 - (void)dealloc {
+    [THHUDProgress dismiss];
     [self cancelTask];
-    
     NSLog(@"%@>>>>>> dealloc",NSStringFromClass(self.class));
     
 }

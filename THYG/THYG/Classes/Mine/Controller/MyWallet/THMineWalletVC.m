@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _walletPresenter = [[THWalletPresenter alloc] initPresenterWithProtocol:self];
+    [THHUDProgress show];
     [_walletPresenter getWalletInfo];
     [self setupUI];
 }
@@ -42,47 +43,32 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.cardArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-	if (indexPath.row == 0) {
-		THMineAddBankCardCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineAddBankCardCell.class)];
-		return cell;
-		
-	} else {
-		THMineBankCardCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineBankCardCell.class)];
-		return cell;
-	
-	}
-
+    THMineBankCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"THMineBankCardCell"];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    UIViewController *controller = nil;
-    if (indexPath.row == 0) {
-        controller = [THAddBankViewController new];
-    } else {
-		controller = [[THMineBankCardVC alloc] init];
-	}
-	[self.navigationController pushViewController:controller animated:YES];
+    THMineBankCardVC *controller = [[THMineBankCardVC alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return self.walletView;
+    THMineAddBankCardCell *view = [[NSBundle mainBundle] loadNibNamed:@"THMineAddBankCardCell" owner:nil options:nil].firstObject;
+    [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addBank)]];
+    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 320;
+    return 44;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.row != 0) {
-		return 180;
-	}
-    return 44;
+    return 180;
 }
 
 - (UITableView *)tableView {
@@ -91,8 +77,14 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-		[_tableView registerNib:[UINib nibWithNibName:@"THMineAddBankCardCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineAddBankCardCell.class)];
-		[_tableView registerNib:[UINib nibWithNibName:@"THMineBankCardCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineBankCardCell.class)];
+        [_tableView registerNib:[UINib nibWithNibName:@"THMineBankCardCell" bundle:nil] forCellReuseIdentifier:@"THMineBankCardCell"];
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 320)];
+        headerView.backgroundColor = UIColor.whiteColor;
+        [headerView addSubview:self.walletView];
+        [self.walletView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(headerView);
+        }];
+        _tableView.tableHeaderView = headerView;
     }
     return _tableView;
 }
@@ -100,7 +92,6 @@
 - (THMineWalletHeaderView *)walletView {
     if (!_walletView) {
         _walletView = [THMineWalletHeaderView walletView];
-        
         kWeakSelf;
         //余额充值/提现
         _walletView.withdrawBtnAction = ^(NSInteger tag, NSString *title) {
@@ -117,8 +108,14 @@
     return _walletView;
 }
 
-- (void)getWalletInfoSuccess:(id)response {
-    
+- (void)addBank {
+    THAddBankViewController *controller = [THAddBankViewController new];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)getWalletInfoSuccess:(THWalletHeaderModel *)info {
+    [THHUDProgress dismiss];
+    self.walletView.walletModel = info;
 }
 
 - (void)getWalletInfoFailed:(NSDictionary *)errorInfo {

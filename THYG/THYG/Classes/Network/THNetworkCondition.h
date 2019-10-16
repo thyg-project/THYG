@@ -131,5 +131,5 @@ static NSString *const kServerDomain = @"https://th1818.bingogd.com/api/v100";
 #define kGetGoodsDetailPath [kServerDomain stringByAppendingString:@"/Goods/getGoodsDetail"]
 ///获取商品评论
 #define kGetGoodCommentListPath [kServerDomain stringByAppendingString:@"/Goods/getCommentList"]
-
+///获取商品规格
 #define kGetGoodsSpecInfoPath [kServerDomain stringByAppendingString:@"/Cart/getCartSpec"]

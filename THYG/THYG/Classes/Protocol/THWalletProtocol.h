@@ -7,12 +7,13 @@
 //
 
 #import "THBaseProtocol.h"
+#import "THWalletHeaderModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol THWalletProtocol <THBaseProtocol>
 
-- (void)getWalletInfoSuccess:(id)response;
+- (void)getWalletInfoSuccess:(THWalletHeaderModel *)info;
 
 - (void)getWalletInfoFailed:(NSDictionary *)errorInfo;
 

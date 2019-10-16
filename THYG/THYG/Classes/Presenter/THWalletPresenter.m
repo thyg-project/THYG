@@ -12,7 +12,8 @@
 
 - (void)getWalletInfo {
     NSURLSessionTask *task = [YGNetworkCommon getWalletInfoSuccess:^(id responseObject) {
-        [self performToSelector:@selector(getWalletInfoSuccess:) params:responseObject];
+        THWalletHeaderModel *model = [THWalletHeaderModel modelWithJSON:responseObject[@"info"][@"money"]];
+        [self performToSelector:@selector(getWalletInfoSuccess:) params:model];
     } failed:^(NSDictionary *errorInfo) {
         [self performToSelector:@selector(getWalletInfoFailed:) params:errorInfo];
     }];

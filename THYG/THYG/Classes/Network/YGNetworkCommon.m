@@ -12,11 +12,6 @@
 
 @implementation YGNetworkCommon
 
-
-+ (void)setRequestHeaderInfo:(AFHTTPSessionManager *)manager {
-    [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"Authentication"];
-}
-
 + (NSURLSessionTask *)login:(NSString *)userName pwd:(NSString *)pwd success:(SuccessBlock)success failed:(FailedBlock)failed {
     return [[YGNetWorkTools sharedTools] post:kLoginPath parameters:@{@"mobile":userName,@"password":pwd} success:success failed:failed];
 }
@@ -34,27 +29,19 @@
 }
 
 + (NSURLSessionTask *)getTaskListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kTaskListPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kTaskListPath sessionConfig:nil parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)getNoboxingListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kUnboxingPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kUnboxingPath parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)inviteListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kInviteListPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kInviteListPath parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)attentionListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kAttentionListPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kAttentionListPath parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)updateUserInfo:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
@@ -68,21 +55,15 @@
 }
 
 + (NSURLSessionTask *)getCouponListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kCouponListPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kCouponListPath parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)getBankListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kBankListPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kBankListPath parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)getWalletInfoSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kWalletInfoPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kWalletInfoPath parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)signForState:(BOOL)state success:(SuccessBlock)success failed:(FailedBlock)failed {
@@ -90,45 +71,41 @@
 }
 
 + (NSURLSessionTask *)getAddressListSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] get:kAddressListPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:nil success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kAddressListPath parameters:[self tokenParam] success:success failed:failed];
 }
 
 + (NSURLSessionTask *)deleteAddress:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] post:kDeleteAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:params success:success failed:failed];
+    NSMutableDictionary *d = [self tokenParam];
+       [d addEntriesFromDictionary:params];
+    return [[YGNetWorkTools sharedTools] post:kDeleteAddressPath parameters:d success:success failed:failed];
 }
 
 + (NSURLSessionTask *)setDefaultAddress:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] post:kSetDefaultAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:params success:success failed:failed];
+    NSMutableDictionary *d = [self tokenParam];
+       [d addEntriesFromDictionary:params];
+    return [[YGNetWorkTools sharedTools] post:kSetDefaultAddressPath parameters:d success:success failed:failed];
 }
 
 + (NSURLSessionTask *)newAddressInfo:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] post:kAddAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:params success:success failed:failed];
+    NSMutableDictionary *d = [self tokenParam];
+    [d addEntriesFromDictionary:params];
+    return [[YGNetWorkTools sharedTools] post:kAddAddressPath parameters:d success:success failed:failed];
 }
 
 + (NSURLSessionTask *)editAddressInfo:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] post:kEditAddressPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:params success:success failed:failed];
+    NSMutableDictionary *d = [self tokenParam];
+       [d addEntriesFromDictionary:params];
+    return [[YGNetWorkTools sharedTools] post:kEditAddressPath parameters:d success:success failed:failed];
 }
 
 + (NSURLSessionTask *)logoutSuccess:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] post:kLogoutPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:@{} success:success failed:failed];
+    return [[YGNetWorkTools sharedTools] post:kLogoutPath parameters:@{} success:success failed:failed];
 }
 
 + (NSURLSessionTask *)modifyPwd:(NSString *)originPwd newPwd:(NSString *)newPwd success:(SuccessBlock)success failed:(FailedBlock)failed {
-    return [[YGNetWorkTools sharedTools] post:kModifyPwdPath sessionConfig:^(AFHTTPSessionManager *manager) {
-        [self setRequestHeaderInfo:manager];
-    } parameters:@{} success:success failed:failed];
+    NSMutableDictionary *d = [self tokenParam];
+    [d addEntriesFromDictionary:@{}];
+    return [[YGNetWorkTools sharedTools] post:kModifyPwdPath parameters:d success:success failed:failed];
 }
 
 + (NSURLSessionTask *)forgetPwd:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed {

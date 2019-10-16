@@ -21,11 +21,12 @@
 @implementation THMineWalletHeaderView
 
 + (instancetype)walletView {
-    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:self options:nil].lastObject;
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:self options:nil].firstObject;
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.frame = CGRectMake(0, 0, kScreenWidth, 320);
     for (UIView *view in self.subviews) {
         if ([view isKindOfClass:[UIButton class]]) {
             view.layer.borderColor = kBackgroundColor.CGColor;

@@ -14,11 +14,7 @@ static inline NSSet *acceptableContentTypes() {
 }
 
 NSString * formatUrl(NSString *sourceUrl) {
-//#ifdef DEBUG
-//    return sourceUrl;
-//#else
-    return [sourceUrl stringByReplacingOccurrencesOfString:@"http://dev.d3d.cc/mmjj/" withString:@"http://www.mmesports.online/"];
-//#endif
+    return sourceUrl;
 }
 
 @interface YGNetWorkTools()
@@ -193,7 +189,7 @@ NetworkState _lastNetworkState;
         return;
     }
         id oj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves | NSJSONReadingAllowFragments error:nil];
-    if ([oj[@"code"] integerValue] == 401) {
+    if ([oj[@"status"] integerValue] == 401) {
 //        YGUserInfo.defaultInstance.autoLogin = YES;
 //        [YGUserInfo.defaultInstance clearData];
     }

@@ -242,7 +242,6 @@
 
 - (THMineHeaderView *)headView {
 	if (_headView == nil) {
-        
 		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  100+kNaviHeight)];
         _headView.delegate = self;
 	}

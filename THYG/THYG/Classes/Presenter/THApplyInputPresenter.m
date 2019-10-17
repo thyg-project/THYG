@@ -47,13 +47,12 @@
         [self performToSelector:@selector(applyFailed:) params:@{@"message":message}];
         return;
     }
-//    NSURLSessionTask *task = [YGNetworkCommon modifyPwd:originPwd newPwd:newPwd success:^(id responseObject) {
-//        [self performToSelector:@selector(modifyPwdSuccess:) params:responseObject];
-//    } failed:^(NSDictionary *errorInfo) {
-//        [self performToSelector:@selector(modifyPwdFailed:) params:errorInfo];
-//    }];
-//    [self getTask:task];
-    
+    NSURLSessionTask *task = [YGNetworkCommon applySuppplier:@{} success:^(id responseObject) {
+        [self performToSelector:@selector(applySuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(applyFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
 }
 
 @end

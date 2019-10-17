@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "THCatogoryModel.h"
 @class THHomeHeaderItemModel;
 @interface THHomeHeaderItemCell : UICollectionViewCell
 @property (nonatomic, strong) THHomeHeaderItemModel * itemModel;
 @property (assign, nonatomic) BOOL isClassifyItem;
-@property (nonatomic, copy) NSDictionary * itemDict;
+@property (nonatomic, strong) THCatogoryModel * item;
 @end

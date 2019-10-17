@@ -189,6 +189,26 @@
 + (NSURLSessionTask *)getGoodsComments:(NSString *)goodsId
                                success:(SuccessBlock)success
                                 failed:(FailedBlock)failed;
+///申请成为供应上
++ (NSURLSessionTask *)applyPromotionSpecialist:(NSDictionary *)param
+                                       success:(SuccessBlock)success
+                                        failed:(FailedBlock)failed;
+///申请成为专员
++ (NSURLSessionTask *)applySuppplier:(NSDictionary *)param
+                             success:(SuccessBlock)success
+                              failed:(FailedBlock)failed;
+///搜索
++ (NSURLSessionTask *)searchWithKeyWord:(NSString *)keywords
+                                success:(SuccessBlock)success
+                                 failed:(FailedBlock)failed;
+///商品类别
++ (NSURLSessionTask *)goodsCategory:(SuccessBlock)success
+                             failed:(FailedBlock)failed;
+
+
++ (NSURLSessionTask *)addCard:(NSDictionary *)params
+                      success:(SuccessBlock)success
+                       failed:(FailedBlock)failed;
 
 @end
 

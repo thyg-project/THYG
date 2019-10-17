@@ -190,10 +190,12 @@
         
         _alert.selectSize = ^(SizeAttributeModel *sizeModel) {
             //sizeModel 选择的属性模型
-            
+            [THHUDProgress showSuccess:[NSString stringWithFormat:@"选择了：%@",sizeModel.value]];
             weakObject.defaultSpec = sizeModel.value;
             
-            !weakSelf.specBlock?:weakSelf.specBlock(sizeModel.sizeid, sizeModel.count);
+            if ([weakSelf.delegate respondsToSelector:@selector(goodsGuiGeComplete:count:)]) {
+                [self.delegate goodsGuiGeComplete:sizeModel.sizeid count:sizeModel.count];
+            }
             
         };
         [_alert initData:model];

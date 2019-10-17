@@ -29,7 +29,6 @@
 
 - (IBAction)submitClick {
     [self.presenter applyInfoWithUsername:self.nameField.text identifier:self.iDNumberField.text mobile:self.phoneField.text wechatID:self.weiChatField.text];
-   
 }
 
 - (void)inputApplyInfoFailed:(NSDictionary *)errorInfo {

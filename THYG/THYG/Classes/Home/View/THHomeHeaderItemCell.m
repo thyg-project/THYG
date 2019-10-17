@@ -28,14 +28,11 @@
 	self.topLayout.constant = isClassifyItem? 0.0f : 12.0f;
 }
 
-- (void)setItemDict:(NSDictionary *)itemDict {
-	_itemDict = itemDict;
-    [self.iconImgView setImageWithURL:[NSURL URLWithString:itemDict[@"image"]] placeholder:[UIImage imageNamed:itemDict[@"image"]]];
-    if ([itemDict.allKeys containsObject:@"mobile_name"]) {
-        self.nameLabel.text = itemDict[@"mobile_name"];
-    } else {
-        self.nameLabel.text = itemDict[@"title"];
-    }
+- (void)setItem:(THCatogoryModel *)item {
+    _item = item;
+    
+    [self.iconImgView setImageWithURL:[NSURL URLWithString:item.image] placeholder:[UIImage imageNamed:item.image]];
+    self.nameLabel.text = item.title;
 }
 
 

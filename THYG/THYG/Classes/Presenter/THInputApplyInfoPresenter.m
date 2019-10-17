@@ -35,6 +35,12 @@
         [self performToSelector:@selector(inputApplyInfoFailed:) params:@{@"message":message}];
         return;
     }
+    NSURLSessionTask *task = [YGNetworkCommon applyPromotionSpecialist:@{} success:^(id responseObject) {
+        [self performToSelector:@selector(inputApplyInfoSuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(inputApplyInfoFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
 }
 
 @end

@@ -18,7 +18,7 @@
 #import "THCategoryPresenter.h"
 
 @interface THClassifyVC () <UICollectionViewDelegate, UICollectionViewDataSource, THCategoryProtocol, THSearchResultDelegate> {
-	NSArray <NSArray *>*_itemsArray;
+	NSArray <NSArray <THCatogoryModel *>*>*_itemsArray;
 }
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) THSearchView *searchView;
@@ -50,8 +50,10 @@
         make.top.equalTo(self.searchView.mas_bottom);
     }];
     [self.presenter loadLocalizedData];
-    self.collectionView.canCancelContentTouches = NO;
-    [self.collectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboardAction)]];
+    [THHUDProgress show];
+    [_presenter getCategory];
+//    self.collectionView.canCancelContentTouches = NO;
+//    [self.collectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboardAction)]];
 }
 
 - (void)dismissKeyboardAction {
@@ -69,13 +71,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	UICollectionViewCell *cell = nil;
 	if (indexPath.section < 2) {
-		THHomeHeaderItemCell *headerCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THHomeHeaderItemCell.class) forIndexPath:indexPath];
+		THHomeHeaderItemCell *headerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"THHomeHeaderItemCell" forIndexPath:indexPath];
 		headerCell.isClassifyItem = YES;
-		headerCell.itemDict = _itemsArray[indexPath.section][indexPath.row];
+		headerCell.item = _itemsArray[indexPath.section][indexPath.item];
 		cell = headerCell;
 	
 	} else {
-		THClassifyItemCell *itemCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THClassifyItemCell.class) forIndexPath:indexPath];
+		THClassifyItemCell *itemCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"THClassifyItemCell" forIndexPath:indexPath];
 		cell = itemCell;
 	}
 	
@@ -100,21 +102,21 @@
                     //定量团
                 case 0: {
                     THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
-                    limitSpellGroup.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
+                    limitSpellGroup.title = _itemsArray[indexPath.section][indexPath.row].title;
                      [self.navigationController pushViewController:limitSpellGroup animated:YES];
                 }
                     break;
                     //拼团
                 case 1: {
                     THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
-                    spellGroup.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
+                    spellGroup.title = _itemsArray[indexPath.section][indexPath.row].title;
                      [self.navigationController pushViewController:spellGroup animated:YES];
                 }
                     break;
                     //秒杀
                 case 2: {
                     THFlashCtl *flash = [[THFlashCtl alloc] init];
-                    flash.title = _itemsArray[indexPath.section][indexPath.row][@"title"];
+                    flash.title = _itemsArray[indexPath.section][indexPath.row].title;
                      [self.navigationController pushViewController:flash animated:YES];
                 }
                     break;
@@ -125,7 +127,7 @@
             break;
         case 1: {
             THScreeningGoodsCtl *screening = [[THScreeningGoodsCtl alloc] init];
-            screening.cat_id = [NSString stringWithFormat:@"%@", _itemsArray[indexPath.section][indexPath.row][@"id"]];
+            screening.cat_id = [NSString stringWithFormat:@"%ld", _itemsArray[indexPath.section][indexPath.row].ca_id];
             screening.isShowSearchBar = YES;
              [self.navigationController pushViewController:screening animated:YES];
         }
@@ -158,15 +160,15 @@
 		_collectionView.dataSource = self;
 		_collectionView.showsHorizontalScrollIndicator = NO;
 		_collectionView.backgroundColor = [UIColor whiteColor];
-		[_collectionView registerNib:[UINib nibWithNibName:@"THHomeHeaderItemCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THHomeHeaderItemCell.class)];
-		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyItemCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THClassifyItemCell.class)];
-		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THClassifyHeaderView.class)];
+		[_collectionView registerNib:[UINib nibWithNibName:@"THHomeHeaderItemCell" bundle:nil] forCellWithReuseIdentifier:@"THHomeHeaderItemCell"];
+		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyItemCell" bundle:nil] forCellWithReuseIdentifier:@"THClassifyItemCell"];
+		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THClassifyHeaderView"];
 	}
 	return _collectionView;
 }
 
 #pragma mark---
-- (void)loadLocalizedSuccess:(NSArray<NSArray<NSDictionary *> *> *)data {
+- (void)loadLocalizedSuccess:(NSArray<NSArray<THCatogoryModel *> *> *)data {
     _itemsArray = data;
     [self.collectionView reloadData];
 }
@@ -177,6 +179,18 @@
 
 - (void)searchFailed:(id)errorInfo {
     
+}
+
+- (void)loadCatogoryFailed:(NSDictionary *)errorInfo {
+    [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)loadCatogorySuccess:(NSArray<THCatogoryModel *> *)response {
+    NSMutableArray *list = _itemsArray.mutableCopy;
+    [list replaceObjectAtIndex:1 withObject:response];
+    _itemsArray = list.copy;
+    [THHUDProgress dismiss];
+    [self.collectionView reloadData];
 }
 #pragma mark--Search
 - (void)beginSearch:(NSString *)content {

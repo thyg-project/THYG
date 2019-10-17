@@ -16,8 +16,9 @@
 #import "THGoodsCommentModel.h"
 #import "THGoodsSpecModel.h"
 #import "THShareView.h"
+#import "THGoodsInfoPresenter.h"
 
-@interface THGoodsDetailVC () <WMMenuItemDelegate,WMMenuViewDelegate,WMMenuViewDataSource,WMPageControllerDelegate,WMPageControllerDataSource, THGoodsDetailDelegate> {
+@interface THGoodsDetailVC () <WMMenuItemDelegate,WMMenuViewDelegate,WMMenuViewDataSource,WMPageControllerDelegate,WMPageControllerDataSource, THGoodsDetailDelegate, THGoodDetailBottomViewDelegate, THGoodsInfoProtocol> {
     NSString *_loadContent;
     YGWebViewController *_webContainer;
 }
@@ -25,6 +26,8 @@
 @property (nonatomic, strong) NSArray <NSString *> *localizedTitles;
 /** 商品详情数组*/
 @property (nonatomic, strong) THGoosDetailModel *detailModel;
+
+@property (nonatomic, strong) THGoodsInfoPresenter *presenter;
 
 // 所选规格id和商品数量
 @property (nonatomic, strong) NSString *itemId;
@@ -46,11 +49,14 @@
     self.showOnNavigationBar = YES;
     self.selectIndex = 0;
     self.titleColorSelected = [UIColor whiteColor];
+    _presenter = [[THGoodsInfoPresenter alloc] initPresenterWithProtocol:self];
     [self.view addSubview:self.bottomView];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.height.mas_equalTo(50);
     }];
+    self.itemId = @"0";
+    self.count = @"1";
 }
 
 - (void)shareAction {
@@ -111,14 +117,39 @@
     }
 }
 
+- (void)goodsGuiGeComplete:(NSString *)itemId count:(NSString *)count {
+    self.itemId = itemId;
+    self.count = count;
+}
+
 #pragma mark - LazyLoad
 - (THGoodsDetailBottomView *)bottomView {
     if (!_bottomView) {
-        _bottomView = [[THGoodsDetailBottomView alloc] initWithFrame:CGRectZero];
-        _bottomView.backgroundColor = [UIColor redColor];
+        _bottomView = [[THGoodsDetailBottomView alloc] init];
+        _bottomView.delegate = self;
     }
     return _bottomView;
 }
+///@"客服"/*,@"关注"*/,@"购物车",@"加入购物车"/*,@"立即购买"*/
+- (void)bottomViewDidSelectedIndex:(NSInteger)index {
+    if (index == 0) {
+        
+    } else if (index == 1) {
+        
+    } else if (index == 2) {
+        [self.presenter addCard:self.goodsId goodsNum:self.count itemId:self.itemId];
+    }
+}
+
+- (void)addCardFailed:(NSDictionary *)errorInfo {
+    [THHUDProgress showMessage:errorInfo.message];
+}
+
+- (void)addCardSuccess:(NSDictionary *)response {
+    [THHUDProgress dismiss];
+    [THHUDProgress showMessage:@""];
+}
+
 
 
 @end

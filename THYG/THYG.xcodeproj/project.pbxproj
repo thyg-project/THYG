@@ -404,6 +404,10 @@
 		02834B71230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */; };
 		02834B74230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
 		02834B75230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
+		02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
+		02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
+		02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */; };
+		02BFE8C5235841EA00C92987 /* UIButton+extentedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */; };
 		02C377C922C324700038AC5A /* YGNetworkCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C322C324700038AC5A /* YGNetworkCommon.m */; };
 		02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C622C324700038AC5A /* YGEncryptTool.m */; };
 		02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C377C822C324700038AC5A /* YGNetWorkTools.m */; };
@@ -828,6 +832,10 @@
 		02834B72230B897100B8BFB2 /* THUserInfoPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoPresenter.h; sourceTree = "<group>"; };
 		02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserInfoPresenter.m; sourceTree = "<group>"; };
 		02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoProtocol.h; sourceTree = "<group>"; };
+		02BFE8BE235714DA00C92987 /* THCatogoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCatogoryModel.h; sourceTree = "<group>"; };
+		02BFE8BF235714DA00C92987 /* THCatogoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCatogoryModel.m; sourceTree = "<group>"; };
+		02BFE8C2235841EA00C92987 /* UIButton+extentedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extentedButton.h"; sourceTree = "<group>"; };
+		02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+extentedButton.m"; sourceTree = "<group>"; };
 		02C377C222C324700038AC5A /* YGNetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNetWorkTools.h; sourceTree = "<group>"; };
 		02C377C322C324700038AC5A /* YGNetworkCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNetworkCommon.m; sourceTree = "<group>"; };
 		02C377C522C324700038AC5A /* YGEncryptTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEncryptTool.h; sourceTree = "<group>"; };
@@ -1640,6 +1648,8 @@
 			children = (
 				0418A64620C6F54100527C80 /* THFlashSaleModel.h */,
 				0418A64720C6F54100527C80 /* THFlashSaleModel.m */,
+				02BFE8BE235714DA00C92987 /* THCatogoryModel.h */,
+				02BFE8BF235714DA00C92987 /* THCatogoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2156,6 +2166,8 @@
 		512D78DB2059270C0088A4A0 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				02BFE8C2235841EA00C92987 /* UIButton+extentedButton.h */,
+				02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */,
 				0418A64020C5AA3B00527C80 /* Refresh */,
 				8F1712D0207227B600EFDFCB /* NSString+CHExtension.h */,
 				8F1712D1207227B600EFDFCB /* NSString+CHExtension.m */,
@@ -3021,6 +3033,7 @@
 				"${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework",
 				"${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -3041,6 +3054,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITableView_FDTemplateLayoutCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPageController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3115,6 +3129,7 @@
 				"${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework",
 				"${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -3135,6 +3150,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITableView_FDTemplateLayoutCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPageController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3237,6 +3253,7 @@
 				0265CE6D22F2C45E000363F0 /* NSObject+AvoidCrash.m in Sources */,
 				0265CE6E22F2C45E000363F0 /* THCouponsCtl.m in Sources */,
 				027B4D572314D1C00015C508 /* YGProvince.m in Sources */,
+				02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */,
 				0265CE6F22F2C45E000363F0 /* NSAttributedString+AvoidCrash.m in Sources */,
 				0265CE7022F2C45E000363F0 /* THOrderConfirmPaymentCell.m in Sources */,
 				0265CE7122F2C45E000363F0 /* THBuyGoodsCell.m in Sources */,
@@ -3379,6 +3396,7 @@
 				0265CEED22F2C45E000363F0 /* UIViewController+SessionTask.m in Sources */,
 				0265CEEE22F2C45E000363F0 /* THCardSettleView.m in Sources */,
 				0265CEEF22F2C45E000363F0 /* THAVCaptureSessionManager.m in Sources */,
+				02BFE8C5235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				0265CEF022F2C45E000363F0 /* THScreeningPriceCell.m in Sources */,
 				0265CEF122F2C45E000363F0 /* THTeTableViewCell.m in Sources */,
 				025111842313D02000F9BDDD /* THAddressPresenter.m in Sources */,
@@ -3498,6 +3516,7 @@
 				022CD98022DA239400A6518A /* NSObject+AvoidCrash.m in Sources */,
 				8F1712C620720F7A00EFDFCB /* THCouponsCtl.m in Sources */,
 				027B4D562314D1C00015C508 /* YGProvince.m in Sources */,
+				02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */,
 				022CD98422DA239400A6518A /* NSAttributedString+AvoidCrash.m in Sources */,
 				042891D820CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m in Sources */,
 				57CBC3E22088EE2E007D6069 /* THBuyGoodsCell.m in Sources */,
@@ -3640,6 +3659,7 @@
 				025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */,
 				024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */,
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
+				02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */,
 				025111832313D02000F9BDDD /* THAddressPresenter.m in Sources */,

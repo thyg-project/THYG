@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _bankPresenter = [[THBankPresenter alloc] initPresenterWithProtocol:self];
+    [THHUDProgress show];
     [_bankPresenter getBankList];
 	[self setupUI];
 }
@@ -45,7 +46,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 2;
+	return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,18 +58,13 @@
 	return 140;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-	if (section == 1) {
-	}
-	return nil;
-}
-
 - (void)getBankListFailed:(NSDictionary *)errorInfo {
     [THHUDProgress showMessage:errorInfo.message];
 }
 
 - (void)getBankListSuccess:(NSArray<THBankCardModel *> *)response {
     _dataSource = response.mutableCopy;
+    [THHUDProgress dismiss];
     [self.tableView reloadData];
 }
 

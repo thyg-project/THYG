@@ -16,6 +16,9 @@
 
 - (void)searchDataWithContent:(NSString *)content;
 
+
+- (void)getCategory;
+
 @end
 
 

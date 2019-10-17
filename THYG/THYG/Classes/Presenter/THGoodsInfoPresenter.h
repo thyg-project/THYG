@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getComments:(NSString *)goodsid;
 
+- (void)addCard:(NSString *)goodsId goodsNum:(NSString *)num itemId:(NSString *)itemId;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -46,4 +46,17 @@
     [self getTask:task];
 }
 
+- (void)addCard:(NSString *)goodsId goodsNum:(NSString *)num itemId:(NSString *)itemId {
+    if (goodsId == nil) {
+        [self performToSelector:@selector(getGoodsCommentsFailed:) params:@{@"msg":@"参数缺失"}];
+        return;
+    }
+    NSURLSessionTask *task = [YGNetworkCommon addCard:@{@"goods_id":goodsId,@"goods_num":num,@"item_id":itemId} success:^(id responseObject) {
+        [self performToSelector:@selector(addCardSuccess:) params:responseObject];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(addCardFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
+}
+
 @end

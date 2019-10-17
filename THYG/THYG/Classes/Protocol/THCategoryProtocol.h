@@ -7,16 +7,21 @@
 //
 
 #import "THBaseProtocol.h"
-
+#import "THCatogoryModel.h"
 
 @protocol THCategoryProtocol <THBaseProtocol>
 
-- (void)loadLocalizedSuccess:(NSArray <NSArray <NSDictionary *> *> *)data;
+- (void)loadLocalizedSuccess:(NSArray <NSArray <THCatogoryModel *> *> *)data;
 
 
 - (void)searchSuccess:(id)result;
 
 - (void)searchFailed:(id)errorInfo;
+
+
+- (void)loadCatogorySuccess:(NSArray <THCatogoryModel *> *)response;
+
+- (void)loadCatogoryFailed:(NSDictionary *)errorInfo;
 
 @end
 

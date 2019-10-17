@@ -182,6 +182,34 @@
     return [[YGNetWorkTools sharedTools] post:kGetGoodCommentListPath parameters:@{@"token":[THUserManager sharedInstance].token,@"goods_d":goodsId} success:success failed:failed];
 }
 
++ (NSURLSessionTask *)applyPromotionSpecialist:(NSDictionary *)param success:(SuccessBlock)success failed:(FailedBlock)failed {
+    NSMutableDictionary *d = [self tokenParam];
+    [d addEntriesFromDictionary:param];
+     return [[YGNetWorkTools sharedTools] post:kApplyPromotionSpecialistPath parameters:d success:success failed:failed];
+}
+
++ (NSURLSessionTask *)applySuppplier:(NSDictionary *)param success:(SuccessBlock)success failed:(FailedBlock)failed {
+    NSMutableDictionary *d = [self tokenParam];
+    [d addEntriesFromDictionary:param];
+    return [[YGNetWorkTools sharedTools] post:kApplySuppplierPath parameters:d success:success failed:failed];
+}
+
++ (NSURLSessionTask *)searchWithKeyWord:(NSString *)keywords success:(SuccessBlock)success failed:(FailedBlock)failed {
+    NSMutableDictionary *d = [self tokenParam];
+    [d addEntriesFromDictionary:@{}];
+    return [[YGNetWorkTools sharedTools] post:kSearchGoodListPath parameters:d success:success failed:failed];
+}
+
++ (NSURLSessionTask *)goodsCategory:(SuccessBlock)success failed:(FailedBlock)failed {
+    return [[YGNetWorkTools sharedTools] post:kGoodsCategoryPath parameters:nil success:success failed:failed];
+}
+
++ (NSURLSessionTask *)addCard:(NSDictionary *)params success:(SuccessBlock)success failed:(FailedBlock)failed{
+    NSMutableDictionary *p = [self tokenParam];
+    [p addEntriesFromDictionary:params];
+    return [[YGNetWorkTools sharedTools] post:kAddCardPath parameters:p success:success failed:failed];
+}
+
 + (NSMutableDictionary *)tokenParam {
     return @{@"token":THUserManager.sharedInstance.token}.mutableCopy;
 }

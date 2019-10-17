@@ -21,13 +21,13 @@
 @property (nonatomic, copy) NSString *commentRatio; // 好评率
 @property (nonatomic, copy) NSString *goods_id;
 @property (nonatomic, weak) id <THGoodsDetailDelegate> delegate;
-/** 回调规格*/
-@property (nonatomic, copy) void (^specBlock)(NSString *itemId, NSString *count);
 
 @end
 
 @protocol THGoodsDetailDelegate <NSObject>
 
 - (void)getWebContentSuccess:(NSString *)content;
+
+- (void)goodsGuiGeComplete:(NSString *)itemId count:(NSString *)count;
 
 @end

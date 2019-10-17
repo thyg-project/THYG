@@ -27,6 +27,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getGoodsCommentsSuccess:(NSArray <THGoodsCommentModel *> *)list;
 - (void)getGoodsCommentsFailed:(NSDictionary *)errorInfo;
 
+
+
+- (void)addCardSuccess:(NSDictionary *)response;
+- (void)addCardFailed:(NSDictionary *)errorInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -107,7 +107,7 @@
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
-    return CGRectMake(0, 0, kScreenWidth, kScreenHeight - 50);
+    return CGRectMake(0, 0, kScreenWidth, kScreenHeight - 50 - kNaviHeight);
 }
 
 - (void)getWebContentSuccess:(NSString *)content {

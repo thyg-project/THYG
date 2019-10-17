@@ -40,6 +40,7 @@
     _presenter = [[THGoodsInfoPresenter alloc] initPresenterWithProtocol:self];
     [THHUDProgress show];
     [_presenter getGoodsInfo:self.goods_id];
+    [_presenter getComments:self.goods_id];
     model = [[GoodsModel alloc] init];
 }
 
@@ -184,7 +185,7 @@
     kWeakSelf;
     kWeakObject(specCell)
     specCell.selectSpecBtnBlock = ^{
-        ChoseGoodsTypeAlert *_alert = [[ChoseGoodsTypeAlert alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) andHeight:0];
+        ChoseGoodsTypeAlert *_alert = [[ChoseGoodsTypeAlert alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) andHeight:WIDTH(450)];
         _alert.alpha = 0;
         [[UIApplication sharedApplication].delegate.window addSubview:_alert];
         
@@ -233,12 +234,12 @@
     } else if (section == 2) {
         return 44;
     }
-    return 44;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == 1) {
-        return 44;
+        return 10;
     }
     return CGFLOAT_MIN;
 }
@@ -271,6 +272,7 @@
 
 - (void)getGoodsSpecSuccess:(THGoodsSpecModel *)response {
     self.goodsSpecModel = response;
+    [self.tableView reloadData];
 }
 
 - (void)getGoodsSpecFailed:(NSDictionary *)errorInfo {
@@ -289,6 +291,14 @@
     self.detailModel = response;
     [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
     [self.presenter getGoodsSpecInfo:self.goods_id];
+}
+
+- (void)getGoodsCommentsSuccess:(NSArray<THGoodsCommentModel *> *)list {
+    
+}
+
+- (void)getGoodsCommentsFailed:(NSDictionary *)errorInfo {
+    
 }
 
 - (void)getBannerSuccess:(NSArray<THGoodsDetailBannerModel *> *)response {

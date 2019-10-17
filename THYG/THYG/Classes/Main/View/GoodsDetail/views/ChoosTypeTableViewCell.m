@@ -47,7 +47,13 @@
     float upX = 10;
     float upY = 0;
     for (int i = 0; i<_model.typeArray.count; i++) {
-        UIButton *btn= nil;
+        UIButton *btn= [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        [btn setTitle:_model.typeArray[i] forState:UIControlStateNormal];
+        [btn setTitle:_model.typeArray[i] forState:UIControlStateSelected];
+        [btn setTitleColor:UIColor.whiteColor forState:UIControlStateSelected];
+        btn.titleLabel.font = [UIFont systemFontOfSize:13];
+        btn.backgroundColor = kLineColor;
         NSDictionary *dic = [NSDictionary dictionaryWithObject:btn.titleLabel.font forKey:NSFontAttributeName];
         CGSize size = [_model.typeArray[i] sizeWithAttributes:dic];
         //NSLog(@"%f",size.height);

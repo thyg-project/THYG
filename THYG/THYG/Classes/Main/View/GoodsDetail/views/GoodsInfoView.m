@@ -79,7 +79,7 @@
 - (void)initData:(GoodsModel *)model {
     _model = model;
     [_goodsImage setImage:[UIImage imageNamed:model.imageId]];
-    [_goodsImage setImageURL:[NSURL URLWithString:[@"" stringByAppendingString:model.imageId]]];
+    [_goodsImage setImageURL:[NSURL URLWithString:[@"" stringByAppendingString:model.imageId ? : @""]]];
     _goodsTitleLabel.text = model.title;
     _goodsCountLabel.text = [NSString stringWithFormat:@"库存：%@",model.totalStock];
     _goodsPriceLabel.text = [NSString stringWithFormat:@"¥%@ ¥%@",model.price.minPrice,model.price.minOriginalPrice];

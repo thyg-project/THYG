@@ -239,7 +239,7 @@
     if (!_tableview) {
         _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
         _tableview.sectionHeaderHeight = 0;
-//        _tableview.backgroundColor = WhiteColor;
+        _tableview.backgroundColor = [UIColor whiteColor];
         _tableview.delegate = self;
         _tableview.dataSource = self;
         _dataSource = [[NSMutableArray alloc] init];

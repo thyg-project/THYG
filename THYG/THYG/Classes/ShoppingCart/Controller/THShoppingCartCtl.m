@@ -11,22 +11,28 @@
 #import "THShoppingCartModel.h"
 #import "THOrderConfirmCtl.h"
 #import "THShareView.h"
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "THCardSettleView.h"
 #import "THCardPresenter.h"
+#import "THCardHeader.h"
+#import "THCardEmptyView.h"
 
-@interface THShoppingCartCtl () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, THCardSettleDelegate, THCardProtocol,THTableViewDelegate> {
+@interface THShoppingCartCtl () <THCardSettleDelegate, THCardProtocol,THTableViewDelegate> {
     THCardSettleView *_settleView;
+    THCardHeader *_header;
 }
 @property (nonatomic, strong) UITableView *mTable;
-@property (nonatomic, strong) UIButton *navBtn; // 导航按钮
 @property (nonatomic, strong) THShoppingCartListDelegate *tableDelegate;
 @property (nonatomic, strong) THCardPresenter *presenter;
 @property (nonatomic, strong) THShareView *shareView;
+@property (nonatomic, strong) THCardEmptyView *emptyView;
 
 @end
 
 @implementation THShoppingCartCtl
+
+- (BOOL)fd_prefersNavigationBarHidden {
+    return YES;
+}
 
 #pragma mark - 生命周期
 - (void)viewDidLoad {
@@ -49,42 +55,32 @@
 
 #pragma mark - 设置视图
 - (void)setupUI {
+    _header = [THCardHeader new];
+    [self.view addSubview:_header];
+    [_header mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        
+        make.height.mas_equalTo(kStatesBarHeight + 140/*79*/);
+    }];
     _settleView = [THCardSettleView new];
     _settleView.operaType = THCardOperaType_Settle;
     _settleView.delegate = self;
+    [_settleView updateContentText:@"0"];
     [self.view addSubview:_settleView];
     [_settleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.view);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(50);
     }];
+    self.emptyView.hidden = NO;
     [self.view addSubview:self.mTable];
     [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
+        make.left.equalTo(@16);
+        make.right.equalTo(@(-16));
+        make.top.equalTo(@(79 + kStatesBarHeight));
         make.bottom.equalTo(_settleView.mas_top);
     }];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navBtn];
 }
 
-#pragma mark - 编辑操作
-- (void)editClick {
-    if (_settleView.operaType == THCardOperaType_Settle) {
-        _settleView.operaType = THCardOperaType_Editing;
-         [_navBtn setTitle:@"完成" forState:UIControlStateNormal];
-    } else {
-        _settleView.operaType = THCardOperaType_Settle;
-         [_navBtn setTitle:@"编辑" forState:UIControlStateNormal];
-    }
-}
-
-#pragma mark - 空数据
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    return [UIImage imageNamed:@"noOrder"];
-}
-
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"暂无商品，快去逛逛吧~" attributes:@{NSForegroundColorAttributeName:RGB(151, 151, 151), NSFontAttributeName:[UIFont systemFontOfSize:14]}];
-    return string;
-}
 
 #pragma mark --
 - (void)share:(THCardSettleView *)settleView {
@@ -100,11 +96,7 @@
 }
 
 - (void)selectedAll:(THCardSettleView *)settleView selected:(BOOL)selected {
-    if (selected) {
-        [_settleView updateContentText:@"合计：¥0.00"];
-    } else {
-        [_settleView updateContentText:nil];
-    }
+    [_settleView updateContentText:@"0"];
 }
 
 - (void)move:(THCardSettleView *)settleView {
@@ -118,16 +110,33 @@
 #pragma mark - 懒加载
 - (UITableView *)mTable {
     if (!_mTable) {
-        _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _mTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mTable.backgroundColor = kBackgroundColor;
-        _mTable.tableFooterView = [UIView new];
+        _mTable.layer.masksToBounds = YES;
+        _mTable.layer.cornerRadius = 8;
+        [self autoLayoutSizeContentView:_mTable];
         [self.tableDelegate registerTable:_mTable];
         _mTable.delegate = self.tableDelegate;
         _mTable.dataSource = self.tableDelegate;
-        _mTable.emptyDataSetSource = self;
-        _mTable.emptyDataSetDelegate = self;
     }
     return _mTable;
+}
+
+- (THCardEmptyView *)emptyView {
+    if (!_emptyView) {
+        _emptyView = [THCardEmptyView new];
+        [_emptyView setToOther:^{
+            
+        }];
+        [self.view addSubview:_emptyView];
+        [_emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.view);
+            make.top.equalTo(_header.mas_bottom);
+            make.bottom.equalTo(_settleView.mas_top);
+        }];
+    }
+    return _emptyView;
 }
 
 - (THShoppingCartListDelegate *)tableDelegate {
@@ -136,17 +145,6 @@
         _tableDelegate.delegate = self;
     }
     return _tableDelegate;
-}
-
-- (UIButton *)navBtn {
-    if (!_navBtn) {
-        _navBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _navBtn.frame = CGRectMake(0, 0, 30, 30);
-        [_navBtn setTitle:@"管理" forState:UIControlStateNormal];
-        _navBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-        [_navBtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _navBtn;
 }
 
 #pragma mark--

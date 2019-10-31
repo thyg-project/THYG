@@ -7,6 +7,7 @@
 //
 
 #import "THHomeSectionHead.h"
+#import "UIView+Corner.h"
 
 @interface THHomeSectionHead() {
     UILabel *_contentLabel;
@@ -18,20 +19,27 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
         _contentLabel = [UILabel new];
         _contentLabel.font = [UIFont systemFontOfSize:15];
         _contentLabel.textAlignment = NSTextAlignmentCenter;
-        _contentLabel.text = @"猜你喜欢";
+        _contentLabel.text = @"每日推荐";
+        _contentLabel.backgroundColor = UIColorHex(0xffffff);
+        _contentLabel.textColor = UIColorHex(0xD62326);
         [self addSubview:_contentLabel];
         [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
+            make.top.bottom.equalTo(self);
+            make.left.equalTo(@8);
+            make.right.equalTo(@(-8));
         }];
     }
     return self;
 }
 
-
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [_contentLabel setCornerRadius:8 inCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
+}
 
 
 

@@ -10,4 +10,9 @@
 
 @implementation THHomeHeaderItemModel
 
+- (void)setName:(NSString *)name {
+    _name = name;
+    _image = [_name stringByAppendingString:@".png"];
+}
+
 @end

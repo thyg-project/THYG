@@ -16,5 +16,7 @@
 
 - (void)sign;
 
+- (void)goodsFavourite;
+
 @end
 

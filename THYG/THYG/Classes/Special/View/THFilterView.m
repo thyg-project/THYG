@@ -21,6 +21,13 @@ static NSInteger const kButtonTag = 10086;
 
 @implementation THFilterView
 
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    for (UIView *view in self.subviews) {
+        view.backgroundColor = backgroundColor;
+    }
+}
+
 - (instancetype)initWithDatas:(NSArray <NSString *>*)datas {
     return [self initWithDatas:datas horizontalSpace:1];
 }

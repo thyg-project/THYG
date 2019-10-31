@@ -100,28 +100,12 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
-        THHomeMallActivityCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THHomeMallActivityCell.class) forIndexPath:indexPath];
+        THHomeMallActivityCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:@"THHomeMallActivityCell" forIndexPath:indexPath];
         cell.selectItemBlock = ^(NSInteger item) {
-            if (item == 0) {
-                THFlashCtl *flash = [[THFlashCtl alloc] init];
-                 [self.navigationController pushViewController:flash animated:YES];
-            } else if (item == 1) {
-                THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
-                 [self.navigationController pushViewController:spellGroup animated:YES];
-            } else {
-                THScreeningGoodsCtl *screenGoods = [[THScreeningGoodsCtl alloc] init];
-                if (item == 2) {
-                    screenGoods.title = @"每日推荐";
-                } else if (item == 3){
-                    screenGoods.title = @"必买清单";
-                }
-                 [self.navigationController pushViewController:screenGoods animated:YES];
-            }
-        
+            
         };
         
         return cell;
-        
     } else {
         THGoodsListOfCollectionLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) forIndexPath:indexPath];
         cell.favModel = self.dataSource[indexPath.item];
@@ -135,49 +119,11 @@
         if (indexPath.section==0) {
             THHomeHeaderView *headerV = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass(THHomeHeaderView.class) forIndexPath:indexPath];
             headerV.clickMenuItem = ^(NSInteger itemIndex, THHomeHeaderItemModel *item) {
-              
-                switch (itemIndex) {
-                    case 0: {
-                        THMyTeMoneyCtl *te = [[THMyTeMoneyCtl alloc] init];
-                         [self.navigationController pushViewController:te animated:YES];
-                    }
-                        break;
-                    case 1: {
-                        THGoodsDetailVC *detailVc = [[THGoodsDetailVC alloc] init];
-                       
-                        detailVc.goodsId = @"";
-                        [self.navigationController pushViewController:detailVc animated:YES];
-                        
-                    }
-                        break;
-                    case 2: {
-                        
-
-                    }
-                        break;
-                    case 3: {
-                        THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
-                        limitSpellGroup.title = item.name;
-                         [self.navigationController pushViewController:limitSpellGroup animated:YES];
-                    }
-                        break;
-                    case 4: {
-                        THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
-                        spellGroup.title = item.name;
-                         [self.navigationController pushViewController:spellGroup animated:YES];
-                    }
-                        break;
-                    case 5: {
-                        THFlashCtl *flash = [[THFlashCtl alloc] init];
-                        flash.title = item.name;
-                         [self.navigationController pushViewController:flash animated:YES];
-                    }
-                        break;
-                }
             };
             reusableview = headerV;
         } else {
-            THHomeSectionHead *sectionHead = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass(THHomeSectionHead.class) forIndexPath:indexPath];
+            THHomeSectionHead *sectionHead = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"THHomeSectionHead" forIndexPath:indexPath];
+            sectionHead.backgroundColor = [UIColor clearColor];
             reusableview = sectionHead;
         }
 		
@@ -196,14 +142,17 @@
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 0) return CGSizeMake(kScreenWidth , WIDTH(264));
-	return CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+80);
+    if (indexPath.section == 0) {
+        return CGSizeMake(kScreenWidth , WIDTH(264));
+    }
+    CGFloat width = floor((kScreenWidth-16)/2);
+	return CGSizeMake(width, width + 80);
 }
 
 #pragma mark - head宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-	if (section == 0) return CGSizeMake(kScreenWidth, WIDTH(283));
-    if (section == 1) return CGSizeMake(kScreenWidth, 45);
+	if (section == 0) return CGSizeMake(kScreenWidth, WIDTH(375));
+    if (section == 1) return CGSizeMake(kScreenWidth, 33 + 16);
     return CGSizeZero;
 }
 
@@ -213,24 +162,10 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-	if (section == 2) {
-		return UIEdgeInsetsMake(0, 10, 10, 10);
-	}
-	return UIEdgeInsetsMake(1, 1, 1, 1);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    if (section==1) {
-        return 2;
+    if (section == 1) {
+       return UIEdgeInsetsMake(0, 8, 0, 8);
     }
-    return CGFLOAT_MIN;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    if (section==1) {
-        return 1;
-    }
-    return CGFLOAT_MIN;
+	return UIEdgeInsetsZero;
 }
 
 - (UICollectionView *)collectionView {
@@ -240,12 +175,12 @@
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
 		_collectionView.showsVerticalScrollIndicator = NO;
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
 		_collectionView.backgroundColor = kBackgroundColor;
-		
-		[_collectionView registerClass:[THHomeMallActivityCell class] forCellWithReuseIdentifier:NSStringFromClass(THHomeMallActivityCell.class)];
-        [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsListOfCollectionLayoutCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
-		
-		[_collectionView registerClass:[THHomeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THHomeHeaderView.class)];
+		[_collectionView registerClass:[THHomeMallActivityCell class] forCellWithReuseIdentifier:@"THHomeMallActivityCell"];
+        [_collectionView registerNib:[UINib nibWithNibName:@"THGoodsListOfCollectionLayoutCell" bundle:nil] forCellWithReuseIdentifier:@"THGoodsListOfCollectionLayoutCell"];
+		[_collectionView registerClass:[THHomeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THHomeHeaderView"];
         [_collectionView registerClass:THHomeSectionHead.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THHomeSectionHead"];
 	}
 	return _collectionView;

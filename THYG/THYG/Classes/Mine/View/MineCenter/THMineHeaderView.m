@@ -26,11 +26,11 @@
 
 - (void)refreshUI {
     if (THUserManager.hasLogin) {
-        self.headImgView.image = [UIImage imageNamed:@"beijing"];
+        self.headImgView.image = [UIImage imageNamed:@"member-head-bg.png"];
         [self.userImgView setImageWithURL:[NSURL URLWithString:THUserManager.sharedInstance.userInfo.head_pic] placeholder:[UIImage imageNamed:@"touxiang"]];
         self.userNameLabel.text = THUserManager.sharedInstance.userInfo.nickname ? : @"未设置";
     } else {
-        self.headImgView.image = [UIImage imageNamed:@"noLogin"];
+        self.headImgView.image = [UIImage imageNamed:@"member-head-bg.png"];
         self.userImgView.image = [UIImage imageNamed:@"touxiang"];
         self.userNameLabel.text = @"登录 / 注册";
     }
@@ -54,24 +54,10 @@
 }
 
 - (void)initinalizedViews {
-    _checkOnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_checkOnBtn setTitleColor:RGB(255, 216, 0) forState:UIControlStateNormal];
-    [_checkOnBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-    _checkOnBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [_checkOnBtn setTitle:@"签到" forState:UIControlStateNormal];
-    [_checkOnBtn setTitle:@"已签到" forState:UIControlStateSelected];
-    [_checkOnBtn addTarget:self action:@selector(checkOnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [_checkOnBtn setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
-    [_checkOnBtn setBackgroundImage:[UIImage imageWithColor:RGB(255, 216, 0)] forState:UIControlStateSelected];
-    _checkOnBtn.layer.borderWidth = 1;
-    _checkOnBtn.layer.cornerRadius = 12.5;
-    _checkOnBtn.layer.masksToBounds = YES;
-    _checkOnBtn.layer.borderColor = RGB(255, 216, 0).CGColor;
-    
     _userNameLabel = [[UILabel alloc]init];
     _userNameLabel.textColor = [UIColor whiteColor];
     if (@available(iOS 8.2, *)) {
-        _userNameLabel.font = [UIFont systemFontOfSize:16 weight:2];
+        _userNameLabel.font = [UIFont systemFontOfSize:20 weight:2];
     }
     _userNameLabel.text = @"登录 / 注册";
     _userNameLabel.userInteractionEnabled = YES;
@@ -85,7 +71,7 @@
     _userImgView.userInteractionEnabled = YES;
     [_userImgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoMotifyPage)]];
     
-    _headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 100+kNaviHeight)];
+    _headImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 140 + kStatesBarHeight)];
     _headImgView.image = [UIImage imageNamed:@"noLogin"];
     
     [self addSubview:self.headImgView];
@@ -93,21 +79,14 @@
     [self addSubview:self.userNameLabel];
     [self addSubview:self.checkOnBtn];
     [self.userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.offset(25);
-        make.bottom.offset(-25);
-        make.width.height.offset(56);
+        make.left.offset(19);
+        make.top.equalTo(@(56 + kStatesBarHeight));
+        make.width.height.offset(54);
     }];
     
     [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.userImgView.mas_right).offset(10);
+        make.left.equalTo(self.userImgView.mas_right).offset(12);
         make.centerY.equalTo(self.userImgView.mas_centerY);
-    }];
-    
-    [self.checkOnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.offset(-20);
-        make.centerY.equalTo(self.userNameLabel.mas_centerY);
-        make.width.offset(60);
-        make.height.offset(25);
     }];
     
 }

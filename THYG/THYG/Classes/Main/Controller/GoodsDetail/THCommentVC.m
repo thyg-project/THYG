@@ -48,7 +48,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     THGoodsCommentCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THGoodsCommentCell.class)];
     cell.commentModel = self.commentArray[indexPath.row];
     return cell;
@@ -64,7 +63,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:THGoodsCommentCell.class forCellReuseIdentifier:NSStringFromClass(THGoodsCommentCell.class)];
+        [_tableView registerClass:THGoodsCommentCell.class forCellReuseIdentifier:@"THGoodsCommentCell"];
         
         _tableView.estimatedSectionHeaderHeight = 0;
         _tableView.estimatedSectionFooterHeight = 0;

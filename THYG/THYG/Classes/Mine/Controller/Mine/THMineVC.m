@@ -22,19 +22,25 @@
 #import "THNavigationView.h"
 #import "THMenuView.h"
 #import "THMyMessageCtl.h"
+#import "THButton.h"
+#import "THMyOrderView.h"
+#import "THMyToolsPage.h"
+#import "THEverydayGoodsView.h"
 
 
-@interface THMineVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, THMineProtocol, THNaviagationViewDelegate, THMemuViewDelegate, THMineHeaderDelegate> {
+@interface THMineVC () <UIScrollViewDelegate,THMineProtocol, THMemuViewDelegate, THMineHeaderDelegate, THMyOrderViewDelegate, THEvertGoodsDelegate, THToolsPageDelegate> {
 	NSArray *_dataArray;
     CGFloat _lastOffsetY;
     THNavigationView *_customNav;
     THMenuView *_munuView;
     NSArray *_tableViewClass;
+    THMyOrderView *_orderView;
+    THMyToolsPage *_toolsView;
+    THEverydayGoodsView *_everydayView;
+    UIView *_containerView;
 }
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) THMineHeaderView *headView;
-@property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) THMinePresenter *presenter;
 @end
 
@@ -57,35 +63,101 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _presenter = [[THMinePresenter alloc] initPresenterWithProtocol:self];
-    _tableViewClass = @[@[@""],@[@"THMineShareQRCodeVC",@"THMineSubmitApplicationVC",@"THMineApplymentVC"],@[@"THCouponsCtl",@"THMineWalletVC"],@[@"THInvitationManageCtl",@"THMyCollectCtl",@"THMyCollectCtl",@"THTeCtl",@"THMyTaskCtl"]];
+
+    _tableViewClass = @[@"",@"THMineShareQRCodeVC",@"THMineSubmitApplicationVC",@"THMineApplymentVC",@"THInvitationManageCtl",@"THMyCollectCtl",@"THTeCtl",@"THMyCollectCtl",@"THMineWalletVC",@"THSettingCtl"];
     [self.presenter getLocailData];
+    [self addNav];
+    [self addMainView];
+    [self.view bringSubviewToFront:_customNav];
+    [self addOrderView];
+    [self addToolsView];
+    [self addEverydayGoodsView];
+    [self autoLayoutSizeContentView:self.mainScrollView];
+    [self addMenuView];
+    [self.presenter goodsFavourite];
+}
+
+- (void)addToolsView {
+    _toolsView = [[THMyToolsPage alloc] init];
+    _toolsView.delegate = self;
+    [_containerView addSubview:_toolsView];
+    [_toolsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_orderView.mas_bottom).offset(16);
+        make.left.right.equalTo(_orderView);
+        make.height.mas_equalTo(212);
+    }];
+}
+
+- (void)addEverydayGoodsView {
+    _everydayView = [[THEverydayGoodsView alloc] init];
+    _everydayView.delegate = self;
+    [_containerView addSubview:_everydayView];
+    [_everydayView mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.left.right.equalTo(_orderView);
+        make.top.equalTo(_toolsView.mas_bottom).offset(16);
+        make.height.bottom.equalTo(@(-8));
+        make.height.mas_equalTo(504);
+    }];
+}
+
+- (void)addOrderView {
+    _orderView = [[THMyOrderView alloc] init];
+    _orderView.delegate = self;
+    [_containerView addSubview:_orderView];
+    [_orderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@16);
+        make.right.equalTo(@-16);
+        make.top.equalTo(@(126 + kStatesBarHeight));
+        make.height.mas_equalTo(131);
+    }];
+}
+
+- (void)addMainView {
+    _mainScrollView = [[UIScrollView alloc] init];
+    _mainScrollView.delegate = self;
+    _mainScrollView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:_mainScrollView];
+    _mainScrollView.backgroundColor = UIColorHex(0xF7F8F9);
+    [_mainScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    _containerView = [UIView new];
+    _containerView.backgroundColor = [UIColor clearColor];
+    [_mainScrollView addSubview:_containerView];
+    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_mainScrollView);
+        make.width.mas_equalTo(kScreenWidth);
+    }];
+    [_containerView addSubview:self.headView];
+}
+
+- (void)addNav {
     _customNav = [[THNavigationView alloc] init];
     _customNav.backgroundColor = RGB(213, 0, 27);
     _customNav.content = @"个人中心";
     _customNav.alpha = 0;
     _customNav.textColor = [UIColor whiteColor];
+    THButton *left = [THButton buttonWithType:THButtonType_imageTop];
+    left.title = @"扫一扫";
+    left.frame = CGRectMake(0, 0, 40, 40);
+    left.font = [UIFont systemFontOfSize:9];
+    left.textColor = [UIColor whiteColor];
+    left.image = [UIImage imageNamed:@"扫一扫.png"];
+    [left addTarget:self action:@selector(scan)];
+    _customNav.customLeftView = left;
     _customNav.leftButtonImage = nil;
-    _customNav.delegate = self;
-    _customNav.rightButtonsImages = @[[UIImage imageNamed:@"dingbugengduo"],[UIImage imageNamed:@"shezhi"]];
+    THButton *right = [THButton buttonWithType:THButtonType_imageTop];
+    right.frame = CGRectMake(0, 0, 40, 40);
+    right.title = @"更多";
+    right.textColor = [UIColor whiteColor];
+    right.font = [UIFont systemFontOfSize:9];
+    right.image = [UIImage imageNamed:@"更多.png"];
+    [right addTarget:self action:@selector(more)];
+    _customNav.customRightView = right;
     [self.view addSubview:_customNav];
     [_customNav mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
         make.height.mas_equalTo(kNaviHeight);
-    }];
-	[self.view addSubview:self.tableView];
-    [self.view bringSubviewToFront:_customNav];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    [self autoLayoutSizeContentView:self.tableView];
-	
-    [self addMenuView];
-    kWeakSelf;
-    [self.collectionView addRefreshHeaderAutoRefresh:YES animation:YES refreshBlock:^{
-        kStrongSelf;
-    }];
-    [self.collectionView addRefreshFooterAutomaticallyRefresh:NO refreshComplate:^{
-        kStrongSelf;
     }];
 }
 
@@ -98,7 +170,7 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([scrollView isKindOfClass:[UICollectionView class]]) {
+    if (scrollView != self.mainScrollView) {
         return;
     }
     CGPoint offset = scrollView.contentOffset;
@@ -118,151 +190,25 @@
      _customNav.alpha = alpha;
 }
 
-#pragma mark - UITableViewDelegate & UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 6;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 1) {
-        return 3;
-    } else if (section == 2) {
-        return 2;
-    } else if (section == 3) {
-        return 5;
-    } else {
-        return 1;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = nil;
-	
-	if (indexPath.section == 0) {
-		THMineOrderHeaderCell *orderCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineOrderHeaderCell.class)];
-        
-        orderCell.orderAction = ^(NSInteger index) {
-            THMineOrderManageVC *manageVc = [[THMineOrderManageVC alloc] init];
-            manageVc.menuViewStyle = WMMenuViewStyleLine;
-            manageVc.automaticallyCalculatesItemWidths = YES;
-            if (index != 3) {
-                manageVc.selectIndex = (index==0) ? 1 : (index == 1) ? 3 : (index == 2) ? 4 : 0;
-            } else {
-                manageVc.type = 1;
-                manageVc.selectIndex = 0;
-            }
-            [self.navigationController pushViewController:manageVc animated:YES];
-        };
-        
-		cell = orderCell;
-        
-	} else if ((indexPath.section > 0 && indexPath.section < 4) || indexPath.section == 5) {
-		THMineSectionCell *sectionCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineSectionCell.class)];
-		sectionCell.dataDict = _dataArray[indexPath.section][indexPath.row];
-		sectionCell.accessoryType = indexPath.section == 5 ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
-		cell = sectionCell;
-	} else {
-		THMineAdCell *adCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(THMineAdCell.class)];
-		cell = adCell;
-	}
-	
-	return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    [self pushWithIndexPath:indexPath];
-}
-
 - (void)pushWithIndexPath:(NSIndexPath *)indexPath {
-    Class class = NSClassFromString(_tableViewClass[indexPath.section][indexPath.row]);
+    Class class = NSClassFromString(_tableViewClass[indexPath.row]);
     if (class) {
         UIViewController *controller = [[class alloc] init];
-        if (indexPath.section == 3 && (indexPath.row == 1 || indexPath.section == 2)) {
+        if (indexPath.row == 1) {
             [controller setValue:@(indexPath.row == 2 ? MineGoodsTypeScanHistory : MineGoodsTypeMyAttention) forKey:@"type"];
         }
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 5) {
-        return self.collectionView;
-    }
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 0) return 67;
-	if (indexPath.section == 4) return 150;
-	return 44;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 5) {
-        return 200;
-    }
-	return CGFLOAT_MIN;
-}
-
-#pragma mark - collectionView 代理 & 数据源
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataSource.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    THGoodsListOfCollectionLayoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) forIndexPath:indexPath];
-    cell.favModel = self.dataSource[indexPath.item];
-    return cell;
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if (section == 2) {
-//        return UIEdgeInsetsMake(0, 10, 10, 10);
-    }
-    return UIEdgeInsetsMake(1, 1, 1, 1);
-}
-
-- (UITableView *)tableView {
-	if (!_tableView) {
-		_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-		_tableView.delegate = self;
-		_tableView.dataSource = self;
-		[_tableView registerNib:[UINib nibWithNibName:@"THMineSectionCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineSectionCell.class)];
-		[_tableView registerNib:[UINib nibWithNibName:@"THMineAdCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(THMineAdCell.class)];
-		[_tableView registerClass:[THMineOrderHeaderCell class] forCellReuseIdentifier:NSStringFromClass(THMineOrderHeaderCell.class)];
-        _tableView.tableHeaderView = self.headView;
-	}
-	return _tableView;
-}
-
 - (THMineHeaderView *)headView {
 	if (_headView == nil) {
-		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  100+kNaviHeight)];
+		_headView = [[THMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,  140 + kStatesBarHeight)];
         _headView.delegate = self;
 	}
 	return _headView;
 }
 
-- (UICollectionView *)collectionView {
-    if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+80);
-        layout.minimumInteritemSpacing = 0;
-        layout.minimumLineSpacing = 0;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = kBackgroundColor;
-        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THGoodsListOfCollectionLayoutCell.class)];
-    }
-    return _collectionView;
-}
 
 #pragma mark --THPresenterProtocol
 - (void)getLocalDataSuccess:(NSArray<NSArray<NSString *> *> *)datas {
@@ -281,18 +227,16 @@
     [self updateUserInfo];
 }
 
-#pragma mark --Navigation
-- (void)rightAction:(NSInteger)tag container:(THNavigationView * _Nullable)navigationView {
-    if (tag == 0) {
-        if (CGRectGetHeight(_munuView.visibleRect) > 0) {
-            [_munuView dismiss];
-        } else {
+- (void)scan {
+    
+}
+
+- (void)more {
+    if (CGRectGetHeight(_munuView.visibleRect) > 0) {
+        [_munuView dismiss];
+    } else {
         //菜单
-            [_munuView showRect:CGRectMake(0, kNaviHeight, kScreenWidth, kScreenHeight - kNaviHeight - kTabBarHeight)];
-        }
-    } else if (tag == 1) {
-        //设置
-        [self.navigationController pushViewController:[NSClassFromString(@"THSettingCtl") new] animated:YES];
+        [_munuView showRect:CGRectMake(0, kNaviHeight, kScreenWidth, kScreenHeight - kNaviHeight - kTabBarHeight)];
     }
 }
 
@@ -339,4 +283,39 @@
         [self.navigationController pushViewController:loginVc animated:YES];
     }
 }
+
+- (void)orderView:(THMyOrderView *)orderView didClickState:(THOrderState)state {
+    THMineOrderManageVC *manageVc = [[THMineOrderManageVC alloc] init];
+    manageVc.menuViewStyle = WMMenuViewStyleLine;
+    manageVc.automaticallyCalculatesItemWidths = YES;
+    if (state != 3) {
+        manageVc.selectIndex = (state==0) ? 1 : (state == 1) ? 3 : (state == 2) ? 4 : 0;
+    } else {
+        manageVc.type = 1;
+        manageVc.selectIndex = 0;
+    }
+    [self.navigationController pushViewController:manageVc animated:YES];
+
+}
+
+- (void)toolPage:(THMyToolsPage *)page didSelectedIndexPath:(NSIndexPath *)indexPath content:(NSString *)content {
+    [self pushWithIndexPath:indexPath];
+}
+
+- (void)moreGoods {
+    
+}
+
+- (void)goodsView:(THEverydayGoodsView *)view didSelctedItem:(THFavouriteGoodsModel *)item {
+    
+}
+
+- (void)loadFavouriteGoodsFailed:(NSDictionary *)errorInfo {
+    
+}
+
+- (void)loadFavouriteGoodsSuccess:(NSArray<THFavouriteGoodsModel *> *)list {
+    _everydayView.models = list.copy;
+}
+
 @end

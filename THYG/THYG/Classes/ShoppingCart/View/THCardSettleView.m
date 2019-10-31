@@ -79,13 +79,15 @@
     _settleButton.textColor = [UIColor whiteColor];
     _settleButton.font = [UIFont systemFontOfSize:14];
     _settleButton.title = @"结算";
+    _settleButton.layer.masksToBounds = YES;
+    _settleButton.layer.cornerRadius = 20;
     _settleButton.backgroundColor = [UIColor redColor];
     [_settleButton addTarget:self action:@selector(settleAction)];
     [self addSubview:_settleButton];
     _accountLabel = [UILabel new];
     _accountLabel.font = [UIFont systemFontOfSize:14];
     _accountLabel.textAlignment = NSTextAlignmentRight;
-    _accountLabel.textColor = [UIColor redColor];
+    _accountLabel.textColor = UIColorHex(0xD62326);
     [self addSubview:_accountLabel];
     [self layoutViews];
 }
@@ -111,8 +113,10 @@
         make.right.equalTo(self.moveButton.mas_left).offset(-10);
     }];
     [self.settleButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.bottom.equalTo(self);
-        make.width.mas_equalTo(110);
+        make.right.equalTo(@(-16));
+        make.top.equalTo(@5);
+        make.bottom.equalTo(@(-5));
+        make.width.mas_equalTo(88);
     }];
     [self.accountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
@@ -124,7 +128,6 @@
 - (void)setOperaType:(THCardOperaType)operaType {
     _operaType = operaType;
     self.settleButton.hidden = _operaType == THCardOperaType_Editing;
-    self.accountLabel.hidden = _operaType == THCardOperaType_Editing;
     self.shareButton.hidden = _operaType == THCardOperaType_Settle;
     self.deleteButton.hidden = _operaType == THCardOperaType_Settle;
     self.moveButton.hidden = _operaType == THCardOperaType_Settle;
@@ -162,7 +165,11 @@
 }
 
 - (void)updateContentText:(NSString *)text {
-    self.accountLabel.text = text;
+    NSString *string = [@"合计：¥" stringByAppendingString:text];
+    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:string];
+    [att addAttributes:@{NSForegroundColorAttributeName:UIColorHex(0xD62326)} range:[string rangeOfString:text]];
+    [att addAttributes:@{NSForegroundColorAttributeName:UIColorHex(0x121212)} range:[string rangeOfString:@"合计："]];
+    self.accountLabel.attributedText = att;
 }
 
 @end

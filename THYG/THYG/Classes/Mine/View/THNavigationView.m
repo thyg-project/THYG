@@ -300,4 +300,31 @@ static NSInteger const kRightButtonTag = 100;
     return _rightButton ? @[_rightButton] : _rightButtons;
 }
 
+- (void)setCustomLeftView:(UIView *)customLeftView {
+    _customLeftView = customLeftView;
+    if (_customLeftView == nil) {
+        return;
+    }
+    [self addSubview:_customLeftView];
+    [_customLeftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(_customLeftView.left > 0 ? : 5);
+        make.top.equalTo(@(_customLeftView.top > 0 ? : kStatesBarHeight));
+        make.size.mas_equalTo(_customLeftView.size);
+    }];
+    
+}
+
+- (void)setCustomRightView:(UIView *)customRightView {
+    _customRightView = customRightView;
+    if (_customRightView == nil) {
+        return;
+    }
+    [self addSubview:_customRightView];
+    [_customRightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-5);
+        make.top.equalTo(@(_customRightView.top > 0 ? : kStatesBarHeight));
+        make.size.mas_equalTo(_customRightView.size);
+    }];
+}
+
 @end

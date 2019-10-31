@@ -11,12 +11,11 @@
 #import "THHomeHeaderItemCell.h"
 
 @interface THHomeHeaderView () <SDCycleScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource> {
-	NSArray *_images, *_titles;
+	NSArray *_titles;
 	NSMutableArray *_itemsArray;
 }
 @property (nonatomic, strong) SDCycleScrollView * cycleScrollView;
 @property (nonatomic, strong) UICollectionView * collectionView;
-@property (nonatomic, strong) UIPageControl * pageControl;
 @end
 
 static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
@@ -28,18 +27,14 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 	if (self = [super initWithFrame:frame]) {
 		[self addSubview:self.cycleScrollView];
 		[self addSubview:self.collectionView];
-		[self addSubview:self.pageControl];
 		_cycleScrollView.imageURLStringsGroup = @[@"banner"];
-		_images = @[@"zhongbulingqutebi",@"zhongbutechanguan",@"zhongbutechanguan",@"zhongbumeirituijian",@"zhongbu-tuangou",@"zhongjianmiaosha"];
-		_titles = @[@"我的特币",@"农副批发",@"时令预售",@"每日推荐",@"团购",@"秒杀"];
-		_itemsArray = [NSMutableArray arrayWithCapacity:0];
-		for (NSInteger i = 0; i < _images.count; i++) {
+		_titles = @[@"新人专场",@"领特币",@"优惠券",@"会员注册",@"邀您品尝",@"时令预售",@"批量团购",@"地方特产"];
+		_itemsArray = [NSMutableArray arrayWithCapacity:_titles.count];
+		for (NSInteger i = 0; i < _titles.count; i++) {
 			THHomeHeaderItemModel *model = [[THHomeHeaderItemModel alloc] init];
-			model.image = _images[i];
 			model.name = _titles[i];
 			[_itemsArray addObject:model];
 		}
-		self.pageControl.numberOfPages = _images.count / 5;
 		
 	}
 	return self;
@@ -50,21 +45,14 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 	
 	[self.cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.top.left.right.offset(0);
-		make.height.offset(WIDTH(180));
+		make.height.offset(WIDTH(195));
 	}];
 	
 	[self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.right.offset(0);
 		make.top.equalTo(self.cycleScrollView.mas_bottom);
-		make.height.offset(WIDTH(76));
+        make.bottom.equalTo(self);
 	}];
-	
-	[self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(self.collectionView.mas_bottom).offset(WIDTH(10));
-		make.bottom.equalTo(self.mas_bottom);
-		make.centerX.equalTo(self.collectionView.mas_centerX);
-	}];
-	
 }
 
 - (void)setImageUrls:(NSArray *)imageUrls {
@@ -73,7 +61,7 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return _images.count;
+	return _titles.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,7 +72,7 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-	return UIEdgeInsetsMake(0, 0, 0, 0);
+	return UIEdgeInsetsMake(0, 5, 0, 5);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,33 +89,24 @@ static NSString * const THHomeHeaderItemCellId = @"THHomeHeaderItemCell";
 	return _cycleScrollView;
 }
 
-- (UIPageControl *)pageControl {
-	if (!_pageControl) {
-		_pageControl = [[UIPageControl alloc] init];
-		_pageControl.numberOfPages = 1;
-		_pageControl.tintColor = RGB(151, 151, 151);
-		_pageControl.currentPageIndicatorTintColor = RGB(51, 51, 51);
-	}
-	return _pageControl;
-}
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-	self.pageControl.currentPage = (int)(scrollView.contentOffset.x / kScreenWidth);
+	
 }
 
 - (UICollectionView *)collectionView {
 	if (!_collectionView) {
 		UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-		layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+		layout.scrollDirection = UICollectionViewScrollDirectionVertical;
 		layout.minimumLineSpacing = 0;
 		layout.minimumInteritemSpacing = 0;
-		layout.itemSize = CGSizeMake(kScreenWidth / 5, WIDTH(76));
+		layout.itemSize = CGSizeMake((kScreenWidth - 10)/ 4, WIDTH(85));
 		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
 		_collectionView.showsHorizontalScrollIndicator = NO;
 		_collectionView.backgroundColor = kBackgroundColor;
 		_collectionView.pagingEnabled = YES;
+        _collectionView.scrollEnabled = NO;
         [_collectionView registerNib:[UINib nibWithNibName:@"THHomeHeaderItemCell" bundle:nil] forCellWithReuseIdentifier:THHomeHeaderItemCellId];
 	}
 	return _collectionView;

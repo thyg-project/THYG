@@ -16,161 +16,49 @@
 #import "THFlashCtl.h"
 #import "THScreeningGoodsCtl.h"
 #import "THCategoryPresenter.h"
+#import "THCategoryLeftView.h"
+#import "THCatogoryRightView.h"
 
-@interface THClassifyVC () <UICollectionViewDelegate, UICollectionViewDataSource, THCategoryProtocol, THSearchResultDelegate> {
+@interface THClassifyVC () <THCategoryProtocol, THCategoryRightViewDelegate, THCategoryLeftViewDelegate> {
 	NSArray <NSArray <THCatogoryModel *>*>*_itemsArray;
+    THCategoryLeftView *_leftView;
+    THCatogoryRightView *_rightView;
 }
-@property (nonatomic, strong) UICollectionView * collectionView;
-@property (nonatomic, strong) THSearchView *searchView;
 
+@property (nonatomic, strong) THSearchView *searchView;
 @property (nonatomic, strong) THCategoryPresenter *presenter;
 
 @end
 
 @implementation THClassifyVC
 
-- (BOOL)fd_prefersNavigationBarHidden {
-    return YES;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"分类";
     _presenter = [[THCategoryPresenter alloc] initPresenterWithProtocol:self];
-    self.searchView = [[THSearchView alloc] init];
-    self.searchView.container = self;
-    self.searchView.delegate = self;
-    [self.view addSubview:self.searchView];
-    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(self.view);
-        make.height.mas_equalTo(kNaviHeight);
+    _leftView = [[THCategoryLeftView alloc] init];
+    _leftView.delegate = self;
+    _leftView.titles = @[@"优选水果",@"素材瓜果",@"肉类食品",@"海鲜水产",@"粮油食品",@"美食小吃",@"养生滋补",@"名酒名菜"];
+    [self.view addSubview:_leftView];
+    [_leftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.equalTo(self.view);
+        make.width.mas_equalTo(96);
     }];
-    [self.view addSubview:self.collectionView];
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.searchView.mas_bottom);
+    _rightView = [THCatogoryRightView new];
+    _rightView.delegate = self;
+    _rightView.title = _leftView.titles.firstObject;
+    [self.view addSubview:_rightView];
+    [_rightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.bottom.equalTo(self.view);
+        make.left.equalTo(_leftView.mas_right);
     }];
-    [self.presenter loadLocalizedData];
-    [THHUDProgress show];
-    [_presenter getCategory];
-//    self.collectionView.canCancelContentTouches = NO;
-//    [self.collectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboardAction)]];
-}
-
-- (void)dismissKeyboardAction {
-    [self.view endEditing:YES];
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-	return _itemsArray.count;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return _itemsArray[section].count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	UICollectionViewCell *cell = nil;
-	if (indexPath.section < 2) {
-		THHomeHeaderItemCell *headerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"THHomeHeaderItemCell" forIndexPath:indexPath];
-		headerCell.isClassifyItem = YES;
-		headerCell.item = _itemsArray[indexPath.section][indexPath.item];
-		cell = headerCell;
-	
-	} else {
-		THClassifyItemCell *itemCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"THClassifyItemCell" forIndexPath:indexPath];
-		cell = itemCell;
-	}
-	
-	return cell;
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-	UICollectionReusableView *headerView = nil;
-	
-	if (kind == UICollectionElementKindSectionHeader) {
-		THClassifyHeaderView *headerV = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(THClassifyHeaderView.class) forIndexPath:indexPath];
-		headerV.title = @[@"精彩活动", @"商品分类",@"地方馆"][indexPath.section];
-		headerView = headerV;
-	}
-	return headerView;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.section) {
-        case 0: {
-            switch (indexPath.row) {
-                    //定量团
-                case 0: {
-                    THLimitSpellGroupCtl *limitSpellGroup = [[THLimitSpellGroupCtl alloc] init];
-                    limitSpellGroup.title = _itemsArray[indexPath.section][indexPath.row].title;
-                     [self.navigationController pushViewController:limitSpellGroup animated:YES];
-                }
-                    break;
-                    //拼团
-                case 1: {
-                    THSpellGroupCtl *spellGroup = [[THSpellGroupCtl alloc] init];
-                    spellGroup.title = _itemsArray[indexPath.section][indexPath.row].title;
-                     [self.navigationController pushViewController:spellGroup animated:YES];
-                }
-                    break;
-                    //秒杀
-                case 2: {
-                    THFlashCtl *flash = [[THFlashCtl alloc] init];
-                    flash.title = _itemsArray[indexPath.section][indexPath.row].title;
-                     [self.navigationController pushViewController:flash animated:YES];
-                }
-                    break;
-                default:
-                    break;
-            }
-        }
-            break;
-        case 1: {
-            THScreeningGoodsCtl *screening = [[THScreeningGoodsCtl alloc] init];
-            screening.cat_id = [NSString stringWithFormat:@"%ld", _itemsArray[indexPath.section][indexPath.row].ca_id];
-            screening.isShowSearchBar = YES;
-             [self.navigationController pushViewController:screening animated:YES];
-        }
-            break;
-        case 2: {
-        }
-            break;
-        default:
-            break;
-    } 
-}
-
-#pragma mark - item宽高
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section < 2) {
-        return CGSizeMake(kScreenWidth / 4, WIDTH(76));
-    }
-	return CGSizeMake(kScreenWidth, WIDTH(180));
-}
-
-- (UICollectionView *)collectionView {
-	if (!_collectionView) {
-		UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-		layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-		layout.minimumLineSpacing = 0;
-		layout.minimumInteritemSpacing = 0;
-		layout.headerReferenceSize = CGSizeMake(kScreenWidth, 44);
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-		_collectionView.delegate = self;
-		_collectionView.dataSource = self;
-		_collectionView.showsHorizontalScrollIndicator = NO;
-		_collectionView.backgroundColor = [UIColor whiteColor];
-		[_collectionView registerNib:[UINib nibWithNibName:@"THHomeHeaderItemCell" bundle:nil] forCellWithReuseIdentifier:@"THHomeHeaderItemCell"];
-		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyItemCell" bundle:nil] forCellWithReuseIdentifier:@"THClassifyItemCell"];
-		[_collectionView registerNib:[UINib nibWithNibName:@"THClassifyHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THClassifyHeaderView"];
-	}
-	return _collectionView;
 }
 
 #pragma mark---
 - (void)loadLocalizedSuccess:(NSArray<NSArray<THCatogoryModel *> *> *)data {
     _itemsArray = data;
-    [self.collectionView reloadData];
+    
 }
 
 - (void)searchSuccess:(id)result {
@@ -190,15 +78,14 @@
     [list replaceObjectAtIndex:1 withObject:response];
     _itemsArray = list.copy;
     [THHUDProgress dismiss];
-    [self.collectionView reloadData];
-}
-#pragma mark--Search
-- (void)beginSearch:(NSString *)content {
-    [self.presenter searchDataWithContent:content];
-}
-
-- (void)pushNext:(id)model {
     
 }
 
+- (void)categoryLeftView:(THCategoryLeftView *)leftView didSelectedIndex:(NSIndexPath *)indexPath {
+    _rightView.title = leftView.titles[indexPath.item];
+}
+
+- (void)categoryView:(THCatogoryRightView *)categoryView itemDidSelctedIndexPath:(NSIndexPath *)indexPath {
+    
+}
 @end

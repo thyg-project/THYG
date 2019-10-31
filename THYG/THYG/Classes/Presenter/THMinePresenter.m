@@ -35,6 +35,17 @@
     [self performToSelector:@selector(autoLogout) params:nil];
 }
 
+- (void)goodsFavourite {
+    NSURLSessionTask *task = [YGNetworkCommon goodsFavourite:1 success:^(id responseObject) {
+        NSArray *list = [NSArray modelArrayWithClass:THFavouriteGoodsModel.class json:responseObject[@"info"]];
+        [self performToSelector:@selector(loadFavouriteGoodsSuccess:) params:list];
+    } failed:^(NSDictionary *errorInfo) {
+        [self performToSelector:@selector(loadFavouriteGoodsFailed:) params:errorInfo];
+    }];
+    [self getTask:task];
+}
+
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

@@ -8,66 +8,100 @@
 
 #import "THChangeCountView.h"
 
+@interface THChangeCountView()
+//加
+@property (nonatomic, strong) UIButton *addButton;
+//减
+@property (nonatomic, strong) UIButton *subButton;
+//数字按钮
+@property (nonatomic, strong) UITextField  *numberFD;
+
+
+@end
+
 @implementation THChangeCountView
 
-- (instancetype)initWithFrame:(CGRect)frame chooseCount:(NSInteger)chooseCount totalCount:(NSInteger)totalCount {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.choosedCount = chooseCount;
-        self.totalCount = totalCount;
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor yellowColor];
         [self setUpViews];
     }
     return self;
 }
 
 - (void)setUpViews {
-    _subButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_subButton setBackgroundImage:[UIImage imageNamed:@"product_detail_sub_normal"] forState:UIControlStateNormal];
-    [_subButton setBackgroundImage:[UIImage imageNamed:@"product_detail_sub_no"] forState:UIControlStateDisabled];
-    _subButton.exclusiveTouch = YES;
-    _subButton.backgroundColor = [UIColor clearColor];
-    [self addSubview:_subButton];
-    [_subButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(self);
-    }];
-    if (self.choosedCount <= 1) {
-        _subButton.enabled = NO;
-    }else{
-        _subButton.enabled = YES;
-    }
-    
     _numberFD = [[UITextField alloc]initWithFrame:CGRectZero];
     _numberFD.textAlignment=NSTextAlignmentCenter;
     _numberFD.keyboardType=UIKeyboardTypeNumberPad;
     _numberFD.clipsToBounds = YES;
-    _numberFD.layer.borderColor = [RGB(221,221,221) CGColor];
+    _numberFD.layer.borderColor = [UIColorHex(0x989898) CGColor];
     _numberFD.layer.borderWidth = 0.5;
-    _numberFD.textColor = RGB(81,81,81);
+    _numberFD.layer.cornerRadius = 3;
+    _numberFD.enabled = NO;
+    _numberFD.textColor = UIColorHex(0x121212);
     _numberFD.font = [UIFont systemFontOfSize:13];
     _numberFD.backgroundColor = [UIColor whiteColor];
-    _numberFD.text = [NSString stringWithFormat:@"%zi",self.choosedCount];
+    _numberFD.text = @"0";
+    _numberFD.rightViewMode = UITextFieldViewModeAlways;
+    _numberFD.leftViewMode = UITextFieldViewModeAlways;
     [self addSubview:_numberFD];
     [_numberFD mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.top.equalTo(_subButton);
-        make.left.equalTo(_subButton.mas_right);
-        make.width.mas_equalTo(40);
+        make.edges.equalTo(self);
     }];
+    _subButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_subButton setTitle:@"-" forState:UIControlStateNormal];
+    _subButton.exclusiveTouch = YES;
+    _subButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [_subButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_subButton setTitleColor:UIColorHex(0x989898) forState:UIControlStateNormal];
+    _subButton.backgroundColor = [UIColor clearColor];
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 22)];
+    [leftView addSubview:_subButton];
+    [_subButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(leftView);
+    }];
+    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 22)];
     _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _addButton.backgroundColor = [UIColor clearColor];
-    [_addButton setBackgroundImage:[UIImage imageNamed:@"product_detail_add_normal"] forState:UIControlStateNormal];
-    [_addButton setBackgroundImage:[UIImage imageNamed:@"product_detail_add_no"] forState:UIControlStateDisabled];
+    _addButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [_addButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_addButton setTitleColor:UIColorHex(0x989898) forState:UIControlStateNormal];
+    [_addButton setTitle:@"+" forState:UIControlStateNormal];
     _addButton.exclusiveTouch = YES;
-    [self addSubview:_addButton];
+    [rightView addSubview:_addButton];
     [_addButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self);
-        make.left.equalTo(_numberFD.mas_right);
+        make.edges.equalTo(rightView);
     }];
-    if (self.choosedCount >= self.totalCount) {
-        _addButton.enabled = NO;
-    }else{
-        _addButton.enabled = YES;
-    }
     
+    _numberFD.leftView = leftView;
+    _numberFD.rightView = rightView;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CALayer *leftLayer = [CALayer layer];
+    leftLayer.frame = CGRectMake(25, 0, 0.5, 22);
+    leftLayer.backgroundColor = UIColorHex(0x989898).CGColor;
+    [self.layer addSublayer:leftLayer];
+    CALayer *rightLayer = [CALayer layer];
+    rightLayer.frame = CGRectMake(CGRectGetWidth(_numberFD.frame) - 25, 0, 0.5, 22);
+    rightLayer.backgroundColor = UIColorHex(0x989898).CGColor;
+    [self.layer addSublayer:rightLayer];
+    
+}
+
+- (void)buttonClick:(UIButton *)sender {
+    if (sender == _subButton) {
+        BLOCK(self.ChangedBlock,YES);
+    } else {
+        BLOCK(self.ChangedBlock,NO);
+    }
+}
+
+
+- (void)setContent:(NSString *)content {
+    _numberFD.text = content;
 }
 
 @end

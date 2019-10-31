@@ -37,6 +37,16 @@
 		0234CE2C234DC1B9009CF8E2 /* THOrderPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE2B234DC1B9009CF8E2 /* THOrderPresenter.m */; };
 		0234CE2D234DC1B9009CF8E2 /* THOrderPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234CE2B234DC1B9009CF8E2 /* THOrderPresenter.m */; };
 		024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D14C922E8668F00D872DD /* THCardSettleView.m */; };
+		024F1DF42369336E004AFA38 /* THCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DF32369336E004AFA38 /* THCardTableViewCell.m */; };
+		024F1DF52369336E004AFA38 /* THCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DF32369336E004AFA38 /* THCardTableViewCell.m */; };
+		024F1DF823693457004AFA38 /* THCardSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DF723693457004AFA38 /* THCardSectionHeader.m */; };
+		024F1DF923693457004AFA38 /* THCardSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DF723693457004AFA38 /* THCardSectionHeader.m */; };
+		024F1DFC23695913004AFA38 /* UIView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DFB23695913004AFA38 /* UIView+Corner.m */; };
+		024F1DFD23695913004AFA38 /* UIView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DFB23695913004AFA38 /* UIView+Corner.m */; };
+		024F1E0023696A0D004AFA38 /* THCategoryLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DFF23696A0D004AFA38 /* THCategoryLeftView.m */; };
+		024F1E0123696A0D004AFA38 /* THCategoryLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1DFF23696A0D004AFA38 /* THCategoryLeftView.m */; };
+		024F1E04236971C7004AFA38 /* THCatogoryRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1E03236971C7004AFA38 /* THCatogoryRightView.m */; };
+		024F1E05236971C7004AFA38 /* THCatogoryRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1E03236971C7004AFA38 /* THCatogoryRightView.m */; };
 		025111832313D02000F9BDDD /* THAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111822313D02000F9BDDD /* THAddressPresenter.m */; };
 		025111842313D02000F9BDDD /* THAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111822313D02000F9BDDD /* THAddressPresenter.m */; };
 		025111872313D02F00F9BDDD /* THAdressEditPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 025111862313D02F00F9BDDD /* THAdressEditPresenter.m */; };
@@ -210,7 +220,6 @@
 		0265CECB22F2C45E000363F0 /* THShoppingCartCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B8820738D6700ED3FB8 /* THShoppingCartCtl.m */; };
 		0265CECC22F2C45E000363F0 /* THDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188A9422DEECD900258F37 /* THDatabaseManager.m */; };
 		0265CECD22F2C45E000363F0 /* THActivityRecommandCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E4220CB770300F5085F /* THActivityRecommandCtl.m */; };
-		0265CECE22F2C45E000363F0 /* THCartSectionHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B7B207382B900ED3FB8 /* THCartSectionHead.m */; };
 		0265CECF22F2C45E000363F0 /* THFlashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51688620747171005E956E /* THFlashCell.m */; };
 		0265CED022F2C45E000363F0 /* YYStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A48A1207901A000DF1AAD /* YYStarView.m */; };
 		0265CED122F2C45E000363F0 /* THAlertViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F31CBF0206A30D000A48F2D /* THAlertViewModel.m */; };
@@ -263,7 +272,6 @@
 		0265CF0122F2C45E000363F0 /* THGoodsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04178F01207276EF0048875E /* THGoodsHeaderView.m */; };
 		0265CF0222F2C45E000363F0 /* THBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154A822D5B2FE005D6277 /* THBasePresenter.m */; };
 		0265CF0322F2C45E000363F0 /* THTeCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 576EEA6C2087A0EB0088B1EB /* THTeCtl.m */; };
-		0265CF0422F2C45E000363F0 /* THCartListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B7E207383D400ED3FB8 /* THCartListCell.m */; };
 		0265CF0522F2C45E000363F0 /* THPayMethodCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F67FA220C97F21004431C2 /* THPayMethodCtl.m */; };
 		0265CF0622F2C45E000363F0 /* THUserInfoEditCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAF7B02079F5DF00E4D4A2 /* THUserInfoEditCtl.m */; };
 		0265CF0722F2C45E000363F0 /* THBankCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417B8792077214D003566C4 /* THBankCardModel.m */; };
@@ -323,7 +331,6 @@
 		0265CF4222F2C45E000363F0 /* THPaySuccessBlockPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F67FA820C9823D004431C2 /* THPaySuccessBlockPage.xib */; };
 		0265CF4322F2C45E000363F0 /* THMineAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D790C205B6A920088A4A0 /* THMineAdCell.xib */; };
 		0265CF4422F2C45E000363F0 /* THAboutTHCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57417E5A20CB88E100F5085F /* THAboutTHCtl.xib */; };
-		0265CF4522F2C45E000363F0 /* THCartSectionHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B782073810E00ED3FB8 /* THCartSectionHead.xib */; };
 		0265CF4622F2C45E000363F0 /* THGoodsSpecificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04178F0F20728D4C0048875E /* THGoodsSpecificationsCell.xib */; };
 		0265CF4722F2C45E000363F0 /* THUserInfoEditCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFAF7B12079F5DF00E4D4A2 /* THUserInfoEditCtl.xib */; };
 		0265CF4822F2C45E000363F0 /* THMineApplymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484F09D2089B2FB008144B2 /* THMineApplymentVC.xib */; };
@@ -344,7 +351,6 @@
 		0265CF5A22F2C45E000363F0 /* THPayMethodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57FAA05420C858BE00230A68 /* THPayMethodCell.xib */; };
 		0265CF5B22F2C45E000363F0 /* THHomeHeaderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512D78F32059FFC00088A4A0 /* THHomeHeaderItemCell.xib */; };
 		0265CF5C22F2C45E000363F0 /* MLEmoji_Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9B2087A5510088B1EB /* MLEmoji_Expression.bundle */; };
-		0265CF5D22F2C45E000363F0 /* THCartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B7F207383D400ED3FB8 /* THCartListCell.xib */; };
 		0265CF5E22F2C45E000363F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512D789C205903130088A4A0 /* Main.storyboard */; };
 		0265CF6022F2C45E000363F0 /* THLimitSpellGroupListCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF84FDF206503E800A78368 /* THLimitSpellGroupListCtl.xib */; };
 		0265CF6122F2C45E000363F0 /* THMineWalletHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0417B8762076F224003566C4 /* THMineWalletHeaderView.xib */; };
@@ -364,6 +370,14 @@
 		0265CF6F22F2C45E000363F0 /* THGoodsListOfCollectionLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0DC29C20622ADC009AE20B /* THGoodsListOfCollectionLayoutCell.xib */; };
 		0265CF7022F2C45E000363F0 /* MLEmoji_Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 576EEA9A2087A5510088B1EB /* MLEmoji_Expression.plist */; };
 		0265CF7122F2C45E000363F0 /* THRecommendedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B20732B3B00FEFE40 /* THRecommendedCell.xib */; };
+		02669B432362CA2000263DE1 /* THHomeActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B422362CA1F00263DE1 /* THHomeActivityModel.m */; };
+		02669B442362CA2000263DE1 /* THHomeActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B422362CA1F00263DE1 /* THHomeActivityModel.m */; };
+		02669B472362D69E00263DE1 /* THMyOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B462362D69E00263DE1 /* THMyOrderView.m */; };
+		02669B482362D69E00263DE1 /* THMyOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B462362D69E00263DE1 /* THMyOrderView.m */; };
+		02669B4B2362D6B000263DE1 /* THMyToolsPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B4A2362D6B000263DE1 /* THMyToolsPage.m */; };
+		02669B4C2362D6B000263DE1 /* THMyToolsPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B4A2362D6B000263DE1 /* THMyToolsPage.m */; };
+		02669B4F2362D6DB00263DE1 /* THEverydayGoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B4E2362D6DB00263DE1 /* THEverydayGoodsView.m */; };
+		02669B502362D6DB00263DE1 /* THEverydayGoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02669B4E2362D6DB00263DE1 /* THEverydayGoodsView.m */; };
 		0271234522E82D19002DF961 /* THTeCenterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234422E82D19002DF961 /* THTeCenterPresenter.m */; };
 		0271234922E8315F002DF961 /* THFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271234822E8315F002DF961 /* THFilterView.m */; };
 		0276F4B42355C8A200CF8B62 /* THGoodsInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0276F4B32355C8A200CF8B62 /* THGoodsInfoPresenter.m */; };
@@ -421,6 +435,10 @@
 		02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82C22EAE597002602A5 /* THMessageModel.m */; };
 		02DCC83022EAE5BC002602A5 /* THMessagePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC82F22EAE5BC002602A5 /* THMessagePresenter.m */; };
 		02DCC83422EED26E002602A5 /* YGAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC83222EED26E002602A5 /* YGAuthTool.m */; };
+		02E6A45023670BBB0037FED7 /* THCardHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A44F23670BBB0037FED7 /* THCardHeader.m */; };
+		02E6A45123670BBB0037FED7 /* THCardHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A44F23670BBB0037FED7 /* THCardHeader.m */; };
+		02E6A4542367D22D0037FED7 /* THCardEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A4532367D22D0037FED7 /* THCardEmptyView.m */; };
+		02E6A4552367D22D0037FED7 /* THCardEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A4532367D22D0037FED7 /* THCardEmptyView.m */; };
 		02EA6C3F22DC5BE100AF5112 /* THNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */; };
 		02EA6C4222DD604E00AF5112 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA6C4022DD604D00AF5112 /* YGWebViewController.m */; };
 		04054D9220A2156E009CE4F1 /* THSelectAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04054D9120A2156E009CE4F1 /* THSelectAddressView.m */; };
@@ -664,10 +682,6 @@
 		8F5168B72074A921005E956E /* THSingleLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168B52074A921005E956E /* THSingleLabelCell.m */; };
 		8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5168BA2074BC0D005E956E /* THScreeningPriceCell.m */; };
 		8F5168BD2074BC0D005E956E /* THScreeningPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5168BB2074BC0D005E956E /* THScreeningPriceCell.xib */; };
-		8FC10B792073810E00ED3FB8 /* THCartSectionHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B782073810E00ED3FB8 /* THCartSectionHead.xib */; };
-		8FC10B7C207382B900ED3FB8 /* THCartSectionHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B7B207382B900ED3FB8 /* THCartSectionHead.m */; };
-		8FC10B80207383D400ED3FB8 /* THCartListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B7E207383D400ED3FB8 /* THCartListCell.m */; };
-		8FC10B81207383D400ED3FB8 /* THCartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC10B7F207383D400ED3FB8 /* THCartListCell.xib */; };
 		8FC10B842073859300ED3FB8 /* THShoppingCartListDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B832073859300ED3FB8 /* THShoppingCartListDelegate.m */; };
 		8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC10B8820738D6700ED3FB8 /* THShoppingCartCtl.m */; };
 		8FD0DC01207C650700AD8B3D /* THShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0DC00207C650700AD8B3D /* THShoppingCartModel.m */; };
@@ -756,6 +770,16 @@
 		0234CE2E234DC1CE009CF8E2 /* THOrderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THOrderProtocol.h; sourceTree = "<group>"; };
 		024D14C822E8668F00D872DD /* THCardSettleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardSettleView.h; sourceTree = "<group>"; };
 		024D14C922E8668F00D872DD /* THCardSettleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardSettleView.m; sourceTree = "<group>"; };
+		024F1DF22369336E004AFA38 /* THCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardTableViewCell.h; sourceTree = "<group>"; };
+		024F1DF32369336E004AFA38 /* THCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardTableViewCell.m; sourceTree = "<group>"; };
+		024F1DF623693457004AFA38 /* THCardSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardSectionHeader.h; sourceTree = "<group>"; };
+		024F1DF723693457004AFA38 /* THCardSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardSectionHeader.m; sourceTree = "<group>"; };
+		024F1DFA23695913004AFA38 /* UIView+Corner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Corner.h"; sourceTree = "<group>"; };
+		024F1DFB23695913004AFA38 /* UIView+Corner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Corner.m"; sourceTree = "<group>"; };
+		024F1DFE23696A0D004AFA38 /* THCategoryLeftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCategoryLeftView.h; sourceTree = "<group>"; };
+		024F1DFF23696A0D004AFA38 /* THCategoryLeftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCategoryLeftView.m; sourceTree = "<group>"; };
+		024F1E02236971C7004AFA38 /* THCatogoryRightView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCatogoryRightView.h; sourceTree = "<group>"; };
+		024F1E03236971C7004AFA38 /* THCatogoryRightView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCatogoryRightView.m; sourceTree = "<group>"; };
 		025111812313D02000F9BDDD /* THAddressPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAddressPresenter.h; sourceTree = "<group>"; };
 		025111822313D02000F9BDDD /* THAddressPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAddressPresenter.m; sourceTree = "<group>"; };
 		025111852313D02F00F9BDDD /* THAdressEditPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAdressEditPresenter.h; sourceTree = "<group>"; };
@@ -780,9 +804,17 @@
 		0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHeaderView.m; sourceTree = "<group>"; };
 		0265CE2622F2BD61000363F0 /* THTeHuiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTeHuiCell.m; sourceTree = "<group>"; };
 		0265CE2722F2BD61000363F0 /* THTeHuiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTeHuiCell.h; sourceTree = "<group>"; };
-		0265CF7722F2C45E000363F0 /* THYG_PRO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THYG_PRO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0265CF7722F2C45E000363F0 /* 特汇易购eee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "特汇易购eee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0265CF7822F2C45F000363F0 /* THYG copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "THYG copy-Info.plist"; path = "/Users/c/Desktop/work/THYG/THYG/THYG copy-Info.plist"; sourceTree = "<absolute>"; };
 		0265CF7922F2C5DD000363F0 /* THNetworkCondition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNetworkCondition.h; sourceTree = "<group>"; };
+		02669B412362CA1F00263DE1 /* THHomeActivityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THHomeActivityModel.h; sourceTree = "<group>"; };
+		02669B422362CA1F00263DE1 /* THHomeActivityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THHomeActivityModel.m; sourceTree = "<group>"; };
+		02669B452362D69E00263DE1 /* THMyOrderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMyOrderView.h; sourceTree = "<group>"; };
+		02669B462362D69E00263DE1 /* THMyOrderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyOrderView.m; sourceTree = "<group>"; };
+		02669B492362D6B000263DE1 /* THMyToolsPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMyToolsPage.h; sourceTree = "<group>"; };
+		02669B4A2362D6B000263DE1 /* THMyToolsPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMyToolsPage.m; sourceTree = "<group>"; };
+		02669B4D2362D6DB00263DE1 /* THEverydayGoodsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THEverydayGoodsView.h; sourceTree = "<group>"; };
+		02669B4E2362D6DB00263DE1 /* THEverydayGoodsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THEverydayGoodsView.m; sourceTree = "<group>"; };
 		0271234322E82D19002DF961 /* THTeCenterPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterPresenter.h; sourceTree = "<group>"; };
 		0271234422E82D19002DF961 /* THTeCenterPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCenterPresenter.m; sourceTree = "<group>"; };
 		0271234622E82D2E002DF961 /* THTeCenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeCenterProtocol.h; sourceTree = "<group>"; };
@@ -866,6 +898,10 @@
 		02DCC83122EAE5D1002602A5 /* THMessageProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THMessageProtocol.h; sourceTree = "<group>"; };
 		02DCC83222EED26E002602A5 /* YGAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAuthTool.m; sourceTree = "<group>"; };
 		02DCC83322EED26E002602A5 /* YGAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAuthTool.h; sourceTree = "<group>"; };
+		02E6A44E23670BBB0037FED7 /* THCardHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardHeader.h; sourceTree = "<group>"; };
+		02E6A44F23670BBB0037FED7 /* THCardHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardHeader.m; sourceTree = "<group>"; };
+		02E6A4522367D22D0037FED7 /* THCardEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCardEmptyView.h; sourceTree = "<group>"; };
+		02E6A4532367D22D0037FED7 /* THCardEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCardEmptyView.m; sourceTree = "<group>"; };
 		02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNavigationView.h; sourceTree = "<group>"; };
 		02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THNavigationView.m; sourceTree = "<group>"; };
 		02EA6C4022DD604D00AF5112 /* YGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGWebViewController.m; sourceTree = "<group>"; };
@@ -999,7 +1035,7 @@
 		512A26AD20B7D36A0091B58B /* THSelectTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectTimeView.m; sourceTree = "<group>"; };
 		512A26AF20B8134B0091B58B /* THSelectedCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSelectedCategoryView.h; sourceTree = "<group>"; };
 		512A26B020B8134B0091B58B /* THSelectedCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSelectedCategoryView.m; sourceTree = "<group>"; };
-		512D7893205903130088A4A0 /* THYG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THYG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		512D7893205903130088A4A0 /* 特汇易购eeee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "特汇易购eeee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		512D789D205903130088A4A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		512D78A2205903130088A4A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		512D78A4205903130088A4A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1284,12 +1320,6 @@
 		8F5168B92074BC0D005E956E /* THScreeningPriceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THScreeningPriceCell.h; sourceTree = "<group>"; };
 		8F5168BA2074BC0D005E956E /* THScreeningPriceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THScreeningPriceCell.m; sourceTree = "<group>"; };
 		8F5168BB2074BC0D005E956E /* THScreeningPriceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THScreeningPriceCell.xib; sourceTree = "<group>"; };
-		8FC10B782073810E00ED3FB8 /* THCartSectionHead.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THCartSectionHead.xib; sourceTree = "<group>"; };
-		8FC10B7A207382B900ED3FB8 /* THCartSectionHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCartSectionHead.h; sourceTree = "<group>"; };
-		8FC10B7B207382B900ED3FB8 /* THCartSectionHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCartSectionHead.m; sourceTree = "<group>"; };
-		8FC10B7D207383D400ED3FB8 /* THCartListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCartListCell.h; sourceTree = "<group>"; };
-		8FC10B7E207383D400ED3FB8 /* THCartListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCartListCell.m; sourceTree = "<group>"; };
-		8FC10B7F207383D400ED3FB8 /* THCartListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = THCartListCell.xib; sourceTree = "<group>"; };
 		8FC10B822073859300ED3FB8 /* THShoppingCartListDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THShoppingCartListDelegate.h; sourceTree = "<group>"; };
 		8FC10B832073859300ED3FB8 /* THShoppingCartListDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THShoppingCartListDelegate.m; sourceTree = "<group>"; };
 		8FC10B8720738D6700ED3FB8 /* THShoppingCartCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THShoppingCartCtl.h; sourceTree = "<group>"; };
@@ -1864,8 +1894,8 @@
 		512D7894205903130088A4A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				512D7893205903130088A4A0 /* THYG.app */,
-				0265CF7722F2C45E000363F0 /* THYG_PRO.app */,
+				512D7893205903130088A4A0 /* 特汇易购eeee.app */,
+				0265CF7722F2C45E000363F0 /* 特汇易购eee.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1952,6 +1982,8 @@
 				0418A63E20C59A2D00527C80 /* THFavouriteGoodsModel.m */,
 				02DCC82B22EAE597002602A5 /* THMessageModel.h */,
 				02DCC82C22EAE597002602A5 /* THMessageModel.m */,
+				02669B412362CA1F00263DE1 /* THHomeActivityModel.h */,
+				02669B422362CA1F00263DE1 /* THHomeActivityModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2041,6 +2073,10 @@
 				512D794E205E2F9C0088A4A0 /* THClassifyItemCell.xib */,
 				04054D9320A9FB7C009CE4F1 /* THSearchView.h */,
 				04054D9420A9FB7C009CE4F1 /* THSearchView.m */,
+				024F1DFE23696A0D004AFA38 /* THCategoryLeftView.h */,
+				024F1DFF23696A0D004AFA38 /* THCategoryLeftView.m */,
+				024F1E02236971C7004AFA38 /* THCatogoryRightView.h */,
+				024F1E03236971C7004AFA38 /* THCatogoryRightView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2079,6 +2115,12 @@
 				042891CF20CD92CA00A6DBAB /* MineCenter */,
 				02EA6C3D22DC5BE100AF5112 /* THNavigationView.h */,
 				02EA6C3E22DC5BE100AF5112 /* THNavigationView.m */,
+				02669B452362D69E00263DE1 /* THMyOrderView.h */,
+				02669B462362D69E00263DE1 /* THMyOrderView.m */,
+				02669B492362D6B000263DE1 /* THMyToolsPage.h */,
+				02669B4A2362D6B000263DE1 /* THMyToolsPage.m */,
+				02669B4D2362D6DB00263DE1 /* THEverydayGoodsView.h */,
+				02669B4E2362D6DB00263DE1 /* THEverydayGoodsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2179,6 +2221,8 @@
 				025F835B22CA0D9A003E27DF /* UIViewController+Tool.m */,
 				027B4D6A23150C0A0015C508 /* NSDictionary+Message.h */,
 				027B4D6B23150C0A0015C508 /* NSDictionary+Message.m */,
+				024F1DFA23695913004AFA38 /* UIView+Corner.h */,
+				024F1DFB23695913004AFA38 /* UIView+Corner.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2640,12 +2684,6 @@
 		8FC10B6D20737F2D00ED3FB8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8FC10B7A207382B900ED3FB8 /* THCartSectionHead.h */,
-				8FC10B7B207382B900ED3FB8 /* THCartSectionHead.m */,
-				8FC10B782073810E00ED3FB8 /* THCartSectionHead.xib */,
-				8FC10B7D207383D400ED3FB8 /* THCartListCell.h */,
-				8FC10B7E207383D400ED3FB8 /* THCartListCell.m */,
-				8FC10B7F207383D400ED3FB8 /* THCartListCell.xib */,
 				8FC10B822073859300ED3FB8 /* THShoppingCartListDelegate.h */,
 				8FC10B832073859300ED3FB8 /* THShoppingCartListDelegate.m */,
 				8FFAF7A92079E8B100E4D4A2 /* THChangeCountView.h */,
@@ -2656,6 +2694,14 @@
 				0486977720C110A000C12DF7 /* THShareViewCell.m */,
 				024D14C822E8668F00D872DD /* THCardSettleView.h */,
 				024D14C922E8668F00D872DD /* THCardSettleView.m */,
+				02E6A44E23670BBB0037FED7 /* THCardHeader.h */,
+				02E6A44F23670BBB0037FED7 /* THCardHeader.m */,
+				02E6A4522367D22D0037FED7 /* THCardEmptyView.h */,
+				02E6A4532367D22D0037FED7 /* THCardEmptyView.m */,
+				024F1DF22369336E004AFA38 /* THCardTableViewCell.h */,
+				024F1DF32369336E004AFA38 /* THCardTableViewCell.m */,
+				024F1DF623693457004AFA38 /* THCardSectionHeader.h */,
+				024F1DF723693457004AFA38 /* THCardSectionHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2768,7 +2814,7 @@
 			);
 			name = THYG_PRO;
 			productName = THYG;
-			productReference = 0265CF7722F2C45E000363F0 /* THYG_PRO.app */;
+			productReference = 0265CF7722F2C45E000363F0 /* 特汇易购eee.app */;
 			productType = "com.apple.product-type.application";
 		};
 		512D7892205903130088A4A0 /* THYG */ = {
@@ -2788,7 +2834,7 @@
 			);
 			name = THYG;
 			productName = THYG;
-			productReference = 512D7893205903130088A4A0 /* THYG.app */;
+			productReference = 512D7893205903130088A4A0 /* 特汇易购eeee.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2864,7 +2910,6 @@
 				0265CF4222F2C45E000363F0 /* THPaySuccessBlockPage.xib in Resources */,
 				0265CF4322F2C45E000363F0 /* THMineAdCell.xib in Resources */,
 				0265CF4422F2C45E000363F0 /* THAboutTHCtl.xib in Resources */,
-				0265CF4522F2C45E000363F0 /* THCartSectionHead.xib in Resources */,
 				0265CF4622F2C45E000363F0 /* THGoodsSpecificationsCell.xib in Resources */,
 				0265CF4722F2C45E000363F0 /* THUserInfoEditCtl.xib in Resources */,
 				0265CF4822F2C45E000363F0 /* THMineApplymentVC.xib in Resources */,
@@ -2885,7 +2930,6 @@
 				0265CF5A22F2C45E000363F0 /* THPayMethodCell.xib in Resources */,
 				0265CF5B22F2C45E000363F0 /* THHomeHeaderItemCell.xib in Resources */,
 				0265CF5C22F2C45E000363F0 /* MLEmoji_Expression.bundle in Resources */,
-				0265CF5D22F2C45E000363F0 /* THCartListCell.xib in Resources */,
 				0265CF5E22F2C45E000363F0 /* Main.storyboard in Resources */,
 				0265CF6022F2C45E000363F0 /* THLimitSpellGroupListCtl.xib in Resources */,
 				0265CF6122F2C45E000363F0 /* THMineWalletHeaderView.xib in Resources */,
@@ -2943,7 +2987,6 @@
 				57F67FAA20C9823D004431C2 /* THPaySuccessBlockPage.xib in Resources */,
 				512D790E205B6A920088A4A0 /* THMineAdCell.xib in Resources */,
 				57417E5C20CB88E100F5085F /* THAboutTHCtl.xib in Resources */,
-				8FC10B792073810E00ED3FB8 /* THCartSectionHead.xib in Resources */,
 				04178F1120728D4C0048875E /* THGoodsSpecificationsCell.xib in Resources */,
 				8FFAF7B32079F5DF00E4D4A2 /* THUserInfoEditCtl.xib in Resources */,
 				0484F09F2089B2FB008144B2 /* THMineApplymentVC.xib in Resources */,
@@ -2964,7 +3007,6 @@
 				57FAA05620C858BE00230A68 /* THPayMethodCell.xib in Resources */,
 				512D78F52059FFC00088A4A0 /* THHomeHeaderItemCell.xib in Resources */,
 				576EEABE2087A5510088B1EB /* MLEmoji_Expression.bundle in Resources */,
-				8FC10B81207383D400ED3FB8 /* THCartListCell.xib in Resources */,
 				512D789E205903130088A4A0 /* Main.storyboard in Resources */,
 				8FF84FE1206503E800A78368 /* THLimitSpellGroupListCtl.xib in Resources */,
 				0417B8772076F224003566C4 /* THMineWalletHeaderView.xib in Resources */,
@@ -3198,6 +3240,7 @@
 				0265CE3922F2C45E000363F0 /* NSString+MLExpression.m in Sources */,
 				0265CE3A22F2C45E000363F0 /* THCouponsCell.m in Sources */,
 				0265CE3B22F2C45E000363F0 /* THMineShareQRCodeVC.m in Sources */,
+				024F1E05236971C7004AFA38 /* THCatogoryRightView.m in Sources */,
 				0265CE3C22F2C45E000363F0 /* THMyTeMoneyCtl.m in Sources */,
 				0265CE3D22F2C45E000363F0 /* YGEncryptTool.m in Sources */,
 				0265CE3E22F2C45E000363F0 /* THBaseCell.m in Sources */,
@@ -3230,7 +3273,9 @@
 				0265CE5822F2C45E000363F0 /* THMineVC.m in Sources */,
 				0265CE5922F2C45E000363F0 /* THMineAddBankCardCell.m in Sources */,
 				0265CE5A22F2C45E000363F0 /* THMineBankCardListCell.m in Sources */,
+				024F1DFD23695913004AFA38 /* UIView+Corner.m in Sources */,
 				0265CE5B22F2C45E000363F0 /* THAddressVC.m in Sources */,
+				02E6A45123670BBB0037FED7 /* THCardHeader.m in Sources */,
 				0265CE5C22F2C45E000363F0 /* THAlertTools.m in Sources */,
 				0265CE5D22F2C45E000363F0 /* THUserManager.m in Sources */,
 				0265CE5E22F2C45E000363F0 /* SDWaitingView.m in Sources */,
@@ -3254,6 +3299,7 @@
 				0265CE6E22F2C45E000363F0 /* THCouponsCtl.m in Sources */,
 				027B4D572314D1C00015C508 /* YGProvince.m in Sources */,
 				02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */,
+				02669B502362D6DB00263DE1 /* THEverydayGoodsView.m in Sources */,
 				0265CE6F22F2C45E000363F0 /* NSAttributedString+AvoidCrash.m in Sources */,
 				0265CE7022F2C45E000363F0 /* THOrderConfirmPaymentCell.m in Sources */,
 				0265CE7122F2C45E000363F0 /* THBuyGoodsCell.m in Sources */,
@@ -3265,6 +3311,7 @@
 				0265CE7622F2C45E000363F0 /* THGoodsDetailBottomView.m in Sources */,
 				0265CE7722F2C45E000363F0 /* YGNetWorkTools.m in Sources */,
 				02834B65230A9D3A00B8BFB2 /* THWalletPresenter.m in Sources */,
+				02669B4C2362D6B000263DE1 /* THMyToolsPage.m in Sources */,
 				0265CE7822F2C45E000363F0 /* THAddressCell.m in Sources */,
 				0265CE7922F2C45E000363F0 /* THAddressEditListCell.m in Sources */,
 				0265CE7A22F2C45E000363F0 /* MLLinkLabel.m in Sources */,
@@ -3287,6 +3334,7 @@
 				0265CE8922F2C45E000363F0 /* THNavigationController.m in Sources */,
 				02834B69230A9D4700B8BFB2 /* THBankPresenter.m in Sources */,
 				0265CE8A22F2C45E000363F0 /* THBaseVC.m in Sources */,
+				024F1DF923693457004AFA38 /* THCardSectionHeader.m in Sources */,
 				0265CE8B22F2C45E000363F0 /* THShareView.m in Sources */,
 				0265CE8C22F2C45E000363F0 /* THModifyPwdVC.m in Sources */,
 				0265CE8D22F2C45E000363F0 /* THSpellGroupSectionHead.m in Sources */,
@@ -3296,6 +3344,7 @@
 				0265CE9122F2C45E000363F0 /* THTeHeaderView.m in Sources */,
 				0265CE9222F2C45E000363F0 /* THOrderConfirmListCell.m in Sources */,
 				0265CE9322F2C45E000363F0 /* THScreeningGoodsCtl.m in Sources */,
+				02669B442362CA2000263DE1 /* THHomeActivityModel.m in Sources */,
 				0265CE9422F2C45E000363F0 /* THMineAdCell.m in Sources */,
 				0265CE9522F2C45E000363F0 /* THMyFootprintCtl.m in Sources */,
 				0265CE9622F2C45E000363F0 /* CountView.m in Sources */,
@@ -3312,6 +3361,7 @@
 				0265CEA022F2C45E000363F0 /* THHomeMallActivityCell.m in Sources */,
 				0265CEA122F2C45E000363F0 /* THHomeSectionHead.m in Sources */,
 				0265CEA222F2C45E000363F0 /* THPaySuccessBlockPage.m in Sources */,
+				02E6A4552367D22D0037FED7 /* THCardEmptyView.m in Sources */,
 				0265CEA322F2C45E000363F0 /* THGoodsListOfTableLayoutCell.m in Sources */,
 				0265CEA422F2C45E000363F0 /* THMyCollectModel.m in Sources */,
 				0265CEA522F2C45E000363F0 /* THCommentCateView.m in Sources */,
@@ -3360,7 +3410,6 @@
 				0265CECB22F2C45E000363F0 /* THShoppingCartCtl.m in Sources */,
 				0265CECC22F2C45E000363F0 /* THDatabaseManager.m in Sources */,
 				0265CECD22F2C45E000363F0 /* THActivityRecommandCtl.m in Sources */,
-				0265CECE22F2C45E000363F0 /* THCartSectionHead.m in Sources */,
 				0265CECF22F2C45E000363F0 /* THFlashCell.m in Sources */,
 				0265CED022F2C45E000363F0 /* YYStarView.m in Sources */,
 				0265CED122F2C45E000363F0 /* THAlertViewModel.m in Sources */,
@@ -3396,6 +3445,7 @@
 				0265CEED22F2C45E000363F0 /* UIViewController+SessionTask.m in Sources */,
 				0265CEEE22F2C45E000363F0 /* THCardSettleView.m in Sources */,
 				0265CEEF22F2C45E000363F0 /* THAVCaptureSessionManager.m in Sources */,
+				024F1DF52369336E004AFA38 /* THCardTableViewCell.m in Sources */,
 				02BFE8C5235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				0265CEF022F2C45E000363F0 /* THScreeningPriceCell.m in Sources */,
 				0265CEF122F2C45E000363F0 /* THTeTableViewCell.m in Sources */,
@@ -3406,10 +3456,12 @@
 				0265CEF522F2C45E000363F0 /* THTeCommonView.m in Sources */,
 				0265CEF622F2C45E000363F0 /* UIImage+CHImage.m in Sources */,
 				0265CEF722F2C45E000363F0 /* THHomeMallActivityItemCell.m in Sources */,
+				024F1E0123696A0D004AFA38 /* THCategoryLeftView.m in Sources */,
 				0265CEF822F2C45E000363F0 /* THCartDetailModel.m in Sources */,
 				0265CEF922F2C45E000363F0 /* THAddressEditVC.m in Sources */,
 				0265CEFA22F2C45E000363F0 /* NSAttributedString+MLLabel.m in Sources */,
 				0265CEFB22F2C45E000363F0 /* THAboutTHCtl.m in Sources */,
+				02669B482362D69E00263DE1 /* THMyOrderView.m in Sources */,
 				0265CEFC22F2C45E000363F0 /* THAceSpellGroupListCell.m in Sources */,
 				0265CEFD22F2C45E000363F0 /* UIViewController+Tool.m in Sources */,
 				0265CEFF22F2C45E000363F0 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
@@ -3417,7 +3469,6 @@
 				0265CF0122F2C45E000363F0 /* THGoodsHeaderView.m in Sources */,
 				0265CF0222F2C45E000363F0 /* THBasePresenter.m in Sources */,
 				0265CF0322F2C45E000363F0 /* THTeCtl.m in Sources */,
-				0265CF0422F2C45E000363F0 /* THCartListCell.m in Sources */,
 				0265CF0522F2C45E000363F0 /* THPayMethodCtl.m in Sources */,
 				0265CF0622F2C45E000363F0 /* THUserInfoEditCtl.m in Sources */,
 				0265CF0722F2C45E000363F0 /* THBankCardModel.m in Sources */,
@@ -3461,6 +3512,7 @@
 				576EEAC92087A5510088B1EB /* NSString+MLExpression.m in Sources */,
 				8F1712CE207221A000EFDFCB /* THCouponsCell.m in Sources */,
 				04D0A3162071171C003BE300 /* THMineShareQRCodeVC.m in Sources */,
+				024F1E04236971C7004AFA38 /* THCatogoryRightView.m in Sources */,
 				57417E2B20CB009800F5085F /* THMyTeMoneyCtl.m in Sources */,
 				02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */,
 				04178F0C207287E50048875E /* THBaseCell.m in Sources */,
@@ -3493,7 +3545,9 @@
 				512D7904205A78CC0088A4A0 /* THMineVC.m in Sources */,
 				51DA2C0A20DAA2B2006A82B6 /* THMineAddBankCardCell.m in Sources */,
 				51DA2C1820DABFED006A82B6 /* THMineBankCardListCell.m in Sources */,
+				024F1DFC23695913004AFA38 /* UIView+Corner.m in Sources */,
 				0448EB9520923A31006E1E17 /* THAddressVC.m in Sources */,
+				02E6A45023670BBB0037FED7 /* THCardHeader.m in Sources */,
 				02DCC82A22E97920002602A5 /* THAlertTools.m in Sources */,
 				02188A9E22DF180D00258F37 /* THUserManager.m in Sources */,
 				022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */,
@@ -3517,6 +3571,7 @@
 				8F1712C620720F7A00EFDFCB /* THCouponsCtl.m in Sources */,
 				027B4D562314D1C00015C508 /* YGProvince.m in Sources */,
 				02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */,
+				02669B4F2362D6DB00263DE1 /* THEverydayGoodsView.m in Sources */,
 				022CD98422DA239400A6518A /* NSAttributedString+AvoidCrash.m in Sources */,
 				042891D820CD9BD900A6DBAB /* THOrderConfirmPaymentCell.m in Sources */,
 				57CBC3E22088EE2E007D6069 /* THBuyGoodsCell.m in Sources */,
@@ -3528,6 +3583,7 @@
 				04178F03207276EF0048875E /* THGoodsDetailBottomView.m in Sources */,
 				02C377CB22C324700038AC5A /* YGNetWorkTools.m in Sources */,
 				02834B64230A9D3A00B8BFB2 /* THWalletPresenter.m in Sources */,
+				02669B4B2362D6B000263DE1 /* THMyToolsPage.m in Sources */,
 				57CBC3DD2088EE0C007D6069 /* THAddressCell.m in Sources */,
 				044AEE422098A60400824A05 /* THAddressEditListCell.m in Sources */,
 				576EEAC62087A5510088B1EB /* MLLinkLabel.m in Sources */,
@@ -3550,6 +3606,7 @@
 				04D0A326207134AE003BE300 /* THNavigationController.m in Sources */,
 				02834B68230A9D4700B8BFB2 /* THBankPresenter.m in Sources */,
 				04D0A327207134AE003BE300 /* THBaseVC.m in Sources */,
+				024F1DF823693457004AFA38 /* THCardSectionHeader.m in Sources */,
 				0486977520C06F1700C12DF7 /* THShareView.m in Sources */,
 				04493A7520B3257800B92A16 /* THModifyPwdVC.m in Sources */,
 				8F0DC2C220623957009AE20B /* THSpellGroupSectionHead.m in Sources */,
@@ -3559,6 +3616,7 @@
 				0265CE2522F2BCFB000363F0 /* THTeHeaderView.m in Sources */,
 				57CBC3F62088EEE1007D6069 /* THOrderConfirmListCell.m in Sources */,
 				8F51688E207477E1005E956E /* THScreeningGoodsCtl.m in Sources */,
+				02669B432362CA2000263DE1 /* THHomeActivityModel.m in Sources */,
 				512D790D205B6A920088A4A0 /* THMineAdCell.m in Sources */,
 				8F1712C220720A5500EFDFCB /* THMyFootprintCtl.m in Sources */,
 				57CBC3C92088E477007D6069 /* CountView.m in Sources */,
@@ -3575,6 +3633,7 @@
 				512D78FC205A566E0088A4A0 /* THHomeMallActivityCell.m in Sources */,
 				8F0DC2A2206230B8009AE20B /* THHomeSectionHead.m in Sources */,
 				57F67FA920C9823D004431C2 /* THPaySuccessBlockPage.m in Sources */,
+				02E6A4542367D22D0037FED7 /* THCardEmptyView.m in Sources */,
 				8F0DC29820622AC0009AE20B /* THGoodsListOfTableLayoutCell.m in Sources */,
 				8F1712BF2072076200EFDFCB /* THMyCollectModel.m in Sources */,
 				572792D620CED37700E498AD /* THCommentCateView.m in Sources */,
@@ -3623,7 +3682,6 @@
 				8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */,
 				02188A9522DEECD900258F37 /* THDatabaseManager.m in Sources */,
 				57417E4320CB770300F5085F /* THActivityRecommandCtl.m in Sources */,
-				8FC10B7C207382B900ED3FB8 /* THCartSectionHead.m in Sources */,
 				8F51688820747171005E956E /* THFlashCell.m in Sources */,
 				044A48A3207901A000DF1AAD /* YYStarView.m in Sources */,
 				8F31CBF1206A30D000A48F2D /* THAlertViewModel.m in Sources */,
@@ -3659,6 +3717,7 @@
 				025F821922C9B3ED003E27DF /* UIViewController+SessionTask.m in Sources */,
 				024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */,
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
+				024F1DF42369336E004AFA38 /* THCardTableViewCell.m in Sources */,
 				02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				0265CE1F22F2BCCB000363F0 /* THTeTableViewCell.m in Sources */,
@@ -3669,10 +3728,12 @@
 				0265CE2222F2BCEB000363F0 /* THTeCommonView.m in Sources */,
 				512D78DE205927D10088A4A0 /* UIImage+CHImage.m in Sources */,
 				512D7900205A5AEF0088A4A0 /* THHomeMallActivityItemCell.m in Sources */,
+				024F1E0023696A0D004AFA38 /* THCategoryLeftView.m in Sources */,
 				5169ED6020C673CD00EE1D9A /* THCartDetailModel.m in Sources */,
 				044AEE3B2098463B00824A05 /* THAddressEditVC.m in Sources */,
 				576EEAC52087A5510088B1EB /* NSAttributedString+MLLabel.m in Sources */,
 				57417E5B20CB88E100F5085F /* THAboutTHCtl.m in Sources */,
+				02669B472362D69E00263DE1 /* THMyOrderView.m in Sources */,
 				8F0DC2B82062360D009AE20B /* THAceSpellGroupListCell.m in Sources */,
 				025F835C22CA0D9A003E27DF /* UIViewController+Tool.m in Sources */,
 				022CD98322DA239400A6518A /* NSMutableAttributedString+AvoidCrash.m in Sources */,
@@ -3680,7 +3741,6 @@
 				04178F04207276EF0048875E /* THGoodsHeaderView.m in Sources */,
 				02D154A922D5B2FE005D6277 /* THBasePresenter.m in Sources */,
 				576EEA6D2087A0EB0088B1EB /* THTeCtl.m in Sources */,
-				8FC10B80207383D400ED3FB8 /* THCartListCell.m in Sources */,
 				57F67FA420C97F21004431C2 /* THPayMethodCtl.m in Sources */,
 				8FFAF7B22079F5DF00E4D4A2 /* THUserInfoEditCtl.m in Sources */,
 				0417B87A2077214D003566C4 /* THBankCardModel.m in Sources */,
@@ -3749,8 +3809,8 @@
 				INFOPLIST_FILE = "THYG copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg1;
+				PRODUCT_NAME = "特汇易购eee";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3780,8 +3840,8 @@
 				INFOPLIST_FILE = "THYG copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg1;
+				PRODUCT_NAME = "特汇易购eee";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3914,8 +3974,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/THYG/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg111;
+				PRODUCT_NAME = "特汇易购eeee";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3944,8 +4004,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/THYG/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thshop.thyg111;
+				PRODUCT_NAME = "特汇易购eeee";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

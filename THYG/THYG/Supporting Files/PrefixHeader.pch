@@ -24,4 +24,5 @@
 #import "THHUDProgress.h"
 #import "THUIFactory.h"
 #import "NSDictionary+Message.h"
+#import "UIView+Corner.h"
 #endif /* PrefixHeader_pch */

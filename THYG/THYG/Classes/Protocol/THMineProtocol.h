@@ -7,6 +7,7 @@
 //
 
 #import "THBaseProtocol.h"
+#import "THFavouriteGoodsModel.h"
 
 @protocol THMineProtocol <THBaseProtocol>
 
@@ -18,6 +19,11 @@
 
 
 - (void)autoLogout;
+
+
+- (void)loadFavouriteGoodsSuccess:(NSArray <THFavouriteGoodsModel *> *)list;
+
+- (void)loadFavouriteGoodsFailed:(NSDictionary *)errorInfo;
 
 @end
 

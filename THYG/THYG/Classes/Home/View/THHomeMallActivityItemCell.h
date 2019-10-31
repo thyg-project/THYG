@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "THHomeActivityModel.h"
 
 typedef NS_ENUM(NSUInteger, ActivityItemCellType) {
 	ActivityItemCellTypeSpeedKill = 0,
@@ -18,6 +19,6 @@ typedef NS_ENUM(NSUInteger, ActivityItemCellType) {
 
 @property (assign, nonatomic) ActivityItemCellType itemType;
 
-@property (nonatomic, copy) NSDictionary * itemDict;
+@property (nonatomic, strong) THHomeActivityModel *activityModel;
 
 @end

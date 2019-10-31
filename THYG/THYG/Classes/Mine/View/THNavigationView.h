@@ -105,6 +105,11 @@
  */
 @property (nonatomic, strong, nullable, readonly) NSArray <THButton *> *rightBarButtons;
 
+
+@property (nonatomic, strong, nullable) UIView *customLeftView;
+
+@property (nonatomic, strong, nullable) UIView *customRightView;
+
 /**
  自定义view
  */

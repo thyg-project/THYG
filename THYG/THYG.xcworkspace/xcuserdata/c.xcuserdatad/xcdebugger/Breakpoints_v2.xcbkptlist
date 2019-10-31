@@ -179,7 +179,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "33EF2524-99D1-4D05-8597-F7D16051C115"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "THYG/Classes/AvoidCrash/NSString+AvoidCrash.m"

@@ -9,12 +9,12 @@
 #import "THHomeMallActivityItemCell.h"
 
 @interface THHomeMallActivityItemCell ()
-@property (nonatomic, strong) UIImageView * iconImgView;
-@property (nonatomic, strong) UIImageView * goodsOneImgView;
-@property (nonatomic, strong) UIImageView * goodsTwoImgView;
-@property (nonatomic, strong) UILabel * iconLabel;
-@property (nonatomic, strong) UILabel * subLabel;
-@property (nonatomic, strong) UIView * timeView;
+
+@property (nonatomic, strong) UIImageView *leftImgView;
+@property (nonatomic, strong) UIImageView *rightImgView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *subTitleLabel;
+
 @end
 
 @implementation THHomeMallActivityItemCell
@@ -28,117 +28,80 @@
 }
 
 - (void)setupUI {
-	self.contentView.backgroundColor = [UIColor whiteColor];
-	[self.contentView addSubview:self.iconImgView];
-	[self.contentView addSubview:self.goodsOneImgView];
-	[self.contentView addSubview:self.goodsTwoImgView];
-	[self.contentView addSubview:self.iconLabel];
-	[self.contentView addSubview:self.subLabel];
-	[self.contentView addSubview:self.timeView];
+    self.contentView.backgroundColor = UIColorHex(0xffffff);
+	[self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.subTitleLabel];
+	[self.contentView addSubview:self.leftImgView];
+	[self.contentView addSubview:self.rightImgView];
 }
 
 - (void)setItemType:(ActivityItemCellType)itemType {
 	_itemType = itemType;
-	self.timeView.hidden = itemType ? YES : NO;
-	self.subLabel.hidden = !itemType ? YES : NO;
+//	self.timeView.hidden = itemType ? YES : NO;
+//	self.subLabel.hidden = !itemType ? YES : NO;
 }
 
-- (void)setItemDict:(NSDictionary *)itemDict {
-	_itemDict = itemDict;
-	self.iconImgView.image = [UIImage imageNamed:itemDict[@"icon"]];
-	self.goodsOneImgView.image = [UIImage imageNamed:itemDict[@"oneImage"]];
-	self.goodsTwoImgView.image = [UIImage imageNamed:itemDict[@"twoImage"]];
-	self.iconLabel.text = itemDict[@"iconTitle"];
-	self.subLabel.text = itemDict[@"subTitle"];
-	
-	if ([itemDict[@"iconTitle"] isEqualToString:@"团购"]) {
-		self.iconLabel.textColor = RGB(61, 175, 239);
-	}
-	
+- (void)setActivityModel:(THHomeActivityModel *)activityModel {
+    _activityModel = activityModel;
+    self.titleLabel.text = _activityModel.title;
+    self.subTitleLabel.text = _activityModel.des;
+    self.leftImgView.image = [UIImage imageNamed:_activityModel.leftImage];
+    self.rightImgView.image = [UIImage imageNamed:_activityModel.rightImage];
+    self.subTitleLabel.textColor = UIColorHex(_activityModel.desColor);
 }
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	[self.iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.left.offset(WIDTH(12));
-		make.top.offset(WIDTH(8));
-		make.width.height.offset(WIDTH(17));
+	[self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+		make.left.equalTo(@12);
+		make.top.equalTo(@8);
 	}];
 	
-	[self.iconLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(self.iconImgView.mas_top);
-		make.left.equalTo(self.iconImgView.mas_right).offset(WIDTH(5));
+	[self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+		make.top.equalTo(self.titleLabel.mas_bottom);
+		make.left.equalTo(self.titleLabel.mas_left);
 	}];
 	
-	[self.goodsTwoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(self.iconImgView.mas_top);
-		make.right.bottom.offset(-WIDTH(8));
-		make.width.offset(WIDTH(77));
-		make.height.offset(WIDTH(92));
+	[self.leftImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+		make.top.equalTo(self.subTitleLabel.mas_bottom).offset(4);
+        make.left.equalTo(self.subTitleLabel);
+        make.size.mas_equalTo(CGSizeMake(WIDTH(68), WIDTH(68)));
 	}];
 	
-	[self.goodsOneImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.bottom.equalTo(self.goodsTwoImgView.mas_bottom);
-		make.right.equalTo(self.goodsTwoImgView.mas_left).offset(-WIDTH(8));
-		make.width.offset(WIDTH(82));
-		make.height.offset(WIDTH(55));
+	[self.rightImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+		make.top.equalTo(self.leftImgView);
+		make.right.equalTo(self.mas_right).offset(-12);
+        make.size.equalTo(self.leftImgView);
 	}];
-	
-	[self.subLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.left.equalTo(self.iconImgView.mas_left);
-		make.top.equalTo(self.iconImgView.mas_bottom).offset(WIDTH(4));
-	}];
-	
-	[self.timeView mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.left.equalTo(self.iconImgView.mas_left);
-		make.top.equalTo(self.iconImgView.mas_bottom).offset(WIDTH(4));
-		make.width.offset(60);
-		make.height.offset(13);
-	}];
-	
 }
 
-- (UIImageView *)iconImgView {
-	if (!_iconImgView) {
-		_iconImgView = [[UIImageView alloc] init];
-	}
-	return _iconImgView;
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:UIColorHex(0x222222)];
+    }
+    return _titleLabel;
 }
 
-- (UIImageView *)goodsOneImgView {
-	if (!_goodsOneImgView) {
-		_goodsOneImgView = [[UIImageView alloc] init];
+- (UIImageView *)leftImgView {
+	if (!_leftImgView) {
+		_leftImgView = [[UIImageView alloc] init];
 	}
-	return _goodsOneImgView;
+	return _leftImgView;
 }
 
-- (UIImageView *)goodsTwoImgView {
-	if (!_goodsTwoImgView) {
-		_goodsTwoImgView = [[UIImageView alloc] init];
+- (UIImageView *)rightImgView {
+	if (!_rightImgView) {
+		_rightImgView = [[UIImageView alloc] init];
 	}
-	return _goodsTwoImgView;
+	return _rightImgView;
 }
 
-- (UILabel *)iconLabel {
-	if (!_iconLabel) {
-		_iconLabel = [THUIFactory labelWithText:@"" fontSize:15 tintColor:[UIColor redColor]];
+- (UILabel *)subTitleLabel {
+	if (!_subTitleLabel) {
+		_subTitleLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:RGB(151,151,151)];
 	}
-	return _iconLabel;
-}
-
-- (UILabel *)subLabel {
-	if (!_subLabel) {
-		_subLabel = [THUIFactory labelWithText:@"" fontSize:12 tintColor:RGB(151,151,151)];
-	}
-	return _subLabel;
-}
-
-- (UIView *)timeView {
-	if (!_timeView) {
-		_timeView = [[UIView alloc] init];
-	}
-	return _timeView;
+	return _subTitleLabel;
 }
 
 @end

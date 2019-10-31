@@ -1,0 +1,170 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+# post请求需要
+fastlane_require 'net/http'
+fastlane_require 'uri'
+fastlane_require 'json'
+
+platform :ios do
+  desc "Push a new release build to the App Store"
+  lane :release do
+    build_app(scheme: "YGTH")
+    upload_to_app_store
+  end
+
+lane :beta do
+  build_app(export_method: "ad-hoc")
+  pgyer(api_key: "ec70f547b6e540af0429decf3cd5c737", user_key: "98fe921e9c8ed270f52e6969bc402b95")
+end
+
+# ----------------------------------------
+# ------------ App Store Ad_Hoc ----------
+# ----------------------------------------
+
+  desc "arctive with ad_hoc and autoUplod to pgyer"
+  lane :common_ad_hoc do |options|
+
+    isrelease      = options[:release]
+    projectName    = options[:projectName]
+    scheme    = options[:scheme]
+    pgyurl    = options[:pgyurl]
+
+
+    # export_options = options[:export_options]
+
+    # 修改配置文件 - 正式环境/测试环境
+    changeConfigFile(release: isrelease)
+
+    # 打包ipa
+    ipadir  = "fastlane/adhoc_build/#{scheme}/" + Time.new.strftime('%Y-%m-%d_%H-%M')
+    ipaname = "adhocApp"
+    gym( 
+        #workspace: projectName,
+        export_options: {provisioningProfiles: {"com.xinmeng.walk" => "adhot_walkMonry_profiles"}},
+        export_method:  "ad-hoc",               # app-store, ad-hoc, enterprise, development,
+        scheme: scheme,                         # scheme Name
+        silent: true,                           # 隐藏不必要的信息 在bulding时
+        clean: true,                            # bulding前clean工程
+        output_directory: ipadir,               # 输出文件夹. Defaults to current directory.
+        output_name: ipaname,                   # ipa fileName
+        include_bitcode: false                  # close bitcode 
+      )
+
+    # 上传到蒲公英
+    password  = ""
+    updateStr = isrelease ? "fastlane：正式环境" : "fastlane：测试环境"
+    pgyer(
+          api_key: "ec70f547b6e540af0429decf3cd5c737",
+          user_key: "98fe921e9c8ed270f52e6969bc402b95",
+          update_description: updateStr,
+          password: password,
+          install_type: password.length > 0 ? "2" : "1"
+        )
+
+
+    # 通知钉钉机器人 - 项目组
+    ipapatch   = ipadir + "/#{ipaname}.ipa"
+    release_str = updateStr
+    dingdingMessage(
+                   pgyurl: pgyurl,
+                   password: password.length > 0 ? password : "无需密码",
+                   release_str: release_str,
+                   ipapatch: ipapatch
+                  )
+  end
+
+# -----------------------------------
+# ------------ 通用actions : private_lane ----------
+# -----------------------------------
+
+  desc "---- 修改Release配置文件 ----"
+  private_lane :changeConfigFile do |options|
+
+    isrelease = options[:release]
+
+    # 获取当前目录（/fastlane）的父目录 
+    patch = File.expand_path("..", File.dirname(__FILE__)).to_s
+    patch = patch + "/BDDProject/Config/Macro.h"
+
+    content = "";
+
+    File.open(patch,"r:utf-8") do |lines|  #r:utf-8表示以utf-8编码读取文件，要与当前代码文件的编码相同
+        content = lines.read
+    end
+    newLinesArr = Array.new()
+    linesArr    = content.split("\n")
+    linesArr.each { |lineStr|
+        if lineStr.include?"#define BDDDEBUG"
+          if isrelease
+              newLinesArr.push("#define BDDDEBUG 1")
+          else
+              newLinesArr.push("#define BDDDEBUG 0")
+          end
+        else
+              newLinesArr.push(lineStr)
+        end
+    }
+    content = newLinesArr.join("\n")
+   
+    File.open(patch,"w:utf-8") do |lines|  #r:utf-8表示以utf-8编码读取文件，要与当前代码文件的编码相同
+        lines.write(content) 
+    end
+  end
+ 
+  desc " --- 发送钉钉消息 --- "
+  # 必选[pgyurl/ipapatch/release_str]，可选(password/export_way)
+  private_lane :dingdingMessage do |options|
+
+    pgyurl     = options[:pgyurl]
+    password   = options[:password]
+    ipapatch   = options[:ipapatch]
+    release_str = options[:release_str]
+    export_way  = options[:export_way]
+
+    password   = (password && password.length > 0) ? password : "无需密码";
+    export_way = export_way ? "<#{export_way}>" : export_way;
+
+    appversion = get_ipa_info_plist_value(ipa: ipapatch, key: "CFBundleShortVersionString")
+    appname    = get_ipa_info_plist_value(ipa: ipapatch, key: "CFBundleDisplayName")
+    
+    url = "https://oapi.dingtalk.com/robot/send?access_token=38f2bc7f5a49de7eeb4acafe72f896a7c1bdcb3fb1f242979da46dbdda56cea5"# 步多多群机器人   
+
+    text = "### #{appname}#{appversion}#{export_way}\n" + "- #{release_str}\n" + "- password：#{password}"
+    toSend = {
+              msgtype: "actionCard",
+              actionCard: {
+                          title: "",
+                          text: text,
+                          singleTitle: "点此安装",
+                          singleURL: pgyurl
+                        }
+              }
+    uri = URI.parse(url)
+    https = Net::HTTP.new(uri.host, uri.port)
+    https.use_ssl = true
+
+    req = Net::HTTP::Post.new(uri.request_uri)
+    req.add_field('Content-Type', 'application/json')
+    req.body = toSend.to_json
+
+    res = https.request(req)
+    puts "------------------------------"
+    puts "Response #{res.code} #{res.message}: #{res.body}"
+  end
+
+end

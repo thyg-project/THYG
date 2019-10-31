@@ -10,7 +10,7 @@
 #import "THHomeMallActivityItemCell.h"
 
 @interface THHomeMallActivityCell () <UICollectionViewDelegate, UICollectionViewDataSource> {
-	NSArray *_itemArray;
+	NSArray <THHomeActivityModel *>*_itemArray;
 }
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) UILabel * titleLabel;
@@ -23,76 +23,51 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 #pragma mark - Intial
 - (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = UIColorHex(0xf7f8f9);
 		[self addSubview:self.titleLabel];
 		[self addSubview:self.collectionView];
-		_itemArray = @[
-					   @{@"icon":@"3xianshimiaosha",
-						 @"iconTitle":@"限时秒杀",
-						 @"subTitle":@"",
-						 @"oneImage":@"miaosha",
-						 @"twoImage":@"miaosha1"
-						 },
-					  
-					   @{@"icon":@"3tuangou",
-						 @"iconTitle":@"团购",
-						 @"subTitle":@"限时团购",
-						 @"oneImage":@"tuangou1",
-						 @"twoImage":@"tuangou2"
-						 },
-					   
-					   @{@"icon":@"3meirituijian",
-						 @"iconTitle":@"每日推荐",
-						 @"subTitle":@"戳此马上了解",
-						 @"oneImage":@"tuijian1",
-						 @"twoImage":@"tuijian2"
-						 },
-					   
-  						@{@"icon":@"3bimaiqingdan",
-						 @"iconTitle":@"必买清单",
-						 @"subTitle":@"整理好帮手",
-						 @"oneImage":@"bimai1",
-						 @"twoImage":@"bimai2"
-						 },
-					   ];
 	}
 	return self;
 }
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	
 	[self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.width.offset(kScreenWidth);
-		make.top.offset(0);
+		make.top.offset(8);
+        make.left.equalTo(@8);
+        make.right.equalTo(@(-8));
 		make.height.offset(WIDTH(44));
 	}];
-	
 	[self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(self.titleLabel.mas_bottom);
-		make.left.bottom.right.offset(0);
+		make.top.equalTo(self.titleLabel.mas_bottom).offset(0);
+		make.bottom.offset(0);
+        make.left.equalTo(@(8));
+        make.right.equalTo(@(-8));
 	}];
-	
+    [self.collectionView setCornerRadius:18 inCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight];
+    [self.titleLabel setCornerRadius:18 inCorners:UIRectCornerTopRight | UIRectCornerTopLeft];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { return _itemArray.count;}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _itemArray.count;
+}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	THHomeMallActivityItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:THHomeMallActivityItemCellId forIndexPath:indexPath];
-	cell.itemType = (indexPath.item == 0) ? 0 : 1;
-	cell.itemDict = _itemArray[indexPath.item];
+    cell.activityModel = _itemArray[indexPath.item];
 	return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    !self.selectItemBlock?:self.selectItemBlock(indexPath.row);
+    BLOCK(self.selectItemBlock,indexPath.item);
 }
 
 
 - (UILabel *)titleLabel {
 	if (!_titleLabel) {
-		_titleLabel = [THUIFactory labelWithText:@"商城活动" fontSize:26 tintColor:[UIColor redColor]];
+		_titleLabel = [THUIFactory labelWithText:@"商城活动" fontSize:24 tintColor:UIColorHex(0xD62326)];
 		_titleLabel.textAlignment = NSTextAlignmentCenter;
-		_titleLabel.backgroundColor = [UIColor whiteColor];
+		_titleLabel.backgroundColor = UIColorHex(0xffffff);
 	}
 	return _titleLabel;
 }
@@ -103,13 +78,17 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 		layout.scrollDirection = UICollectionViewScrollDirectionVertical;
 		layout.minimumLineSpacing = 1;
 		layout.minimumInteritemSpacing = 1;
-		layout.itemSize = CGSizeMake((kScreenWidth-2)*0.5, WIDTH(108));
+		layout.itemSize = CGSizeMake((kScreenWidth-16)*0.5, WIDTH(108));
+        layout.sectionInset = UIEdgeInsetsMake(8, 0, 0, 0);
 		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
 		_collectionView.scrollEnabled = NO;
+//        _collectionView.layer.masksToBounds = YES;
+//        _collectionView.layer.cornerRadius = 8;
 		_collectionView.showsHorizontalScrollIndicator = NO;
-		_collectionView.backgroundColor = kBackgroundColor;
+		_collectionView.backgroundColor = UIColorHex(0xffffff);
+        _collectionView.backgroundView.backgroundColor = UIColorHex(0xffffff);
 		[_collectionView registerClass:[THHomeMallActivityItemCell class] forCellWithReuseIdentifier:THHomeMallActivityItemCellId];
 	}
 	return _collectionView;

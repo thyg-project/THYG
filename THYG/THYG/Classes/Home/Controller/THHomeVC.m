@@ -26,6 +26,7 @@
 #import "THScanQRCodeVC.h"
 #import "THButton.h"
 #import "THHomePresenter.h"
+#import "THTeInfoViewController.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate, THScanResultDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -38,6 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataSource = [NSMutableArray new];
     _presenter = [[THHomePresenter alloc] initPresenterWithProtocol:self];
     [self setTools];
     [self.view addSubview:self.collectionView];
@@ -102,7 +104,9 @@
     if (indexPath.section==0) {
         THHomeMallActivityCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:@"THHomeMallActivityCell" forIndexPath:indexPath];
         cell.selectItemBlock = ^(NSInteger item) {
-            
+            if (item == 1) {
+                
+            }
         };
         
         return cell;
@@ -119,6 +123,9 @@
         if (indexPath.section==0) {
             THHomeHeaderView *headerV = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass(THHomeHeaderView.class) forIndexPath:indexPath];
             headerV.clickMenuItem = ^(NSInteger itemIndex, THHomeHeaderItemModel *item) {
+                if (itemIndex == 1) {
+                    [self.navigationController pushViewController:[THTeInfoViewController new] animated:YES];
+                }
             };
             reusableview = headerV;
         } else {
@@ -145,7 +152,7 @@
     if (indexPath.section == 0) {
         return CGSizeMake(kScreenWidth , WIDTH(264));
     }
-    CGFloat width = floor((kScreenWidth-16)/2);
+    CGFloat width = (kScreenWidth-16)/2;
 	return CGSizeMake(width, width + 80);
 }
 
@@ -188,7 +195,7 @@
 
 - (void)setTools {
     THButton *left = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
-    left.image = [UIImage imageNamed:@"dingbu-saoyisao"];
+    left.image = [UIImage imageNamed:@"扫一扫.png"];
     left.frame = CGRectMake(0, 0, 40, 44);
     left.margen = 4;
     left.title = @"扫一扫";
@@ -196,14 +203,13 @@
     left.textColor = UIColor.whiteColor;
     [left addTarget:self action:@selector(scanAction)];
     THButton *right = [[THButton alloc] initWithButtonType:THButtonType_imageTop];
-    right.image = [UIImage imageNamed:@"dingbugengduo"];
+    right.image = [UIImage imageNamed:@"更多.png"];
     right.textColor = [UIColor whiteColor];
     [right addTarget:self action:@selector(menuAction)];
     right.frame = CGRectMake(0, 0, 40, 44);
     right.margen = 4;
     right.title = @"更多";
     right.font = Font(9);
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:left];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:right];
 }
@@ -269,9 +275,6 @@
 }
 
 - (void)resetDataSource {
-    if (self.dataSource == nil) {
-        self.dataSource = [NSMutableArray new];
-    }
     [_dataSource removeAllObjects];
 }
 

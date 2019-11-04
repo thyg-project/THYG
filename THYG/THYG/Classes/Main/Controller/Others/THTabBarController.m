@@ -34,10 +34,12 @@
 #pragma mark - 设置文字属性
 - (void)setTextAttributes {
     // 设置文字正常时的属性
-    NSMutableDictionary * normalAttrs = [NSMutableDictionary dictionary];
-    normalAttrs[NSForegroundColorAttributeName] = RGB(102, 102, 102);
+    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+    normalAttrs[NSForegroundColorAttributeName] = UIColorHex(0x121212);
+    [normalAttrs setValue:[UIFont systemFontOfSize:9] forKey:NSFontAttributeName];
     NSMutableDictionary * selectedAtrrs = [NSMutableDictionary dictionary];
-    selectedAtrrs[NSForegroundColorAttributeName] = [UIColor redColor];
+    selectedAtrrs[NSForegroundColorAttributeName] = UIColorHex(0xD62326);
+    [selectedAtrrs setValue:[UIFont systemFontOfSize:9] forKey:NSFontAttributeName];
     UITabBarItem * item = [UITabBarItem appearance];
     [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAtrrs forState:UIControlStateSelected];
@@ -69,15 +71,15 @@
 #pragma mark - 设置子控制器
 - (void)addChildViewControllers {
 	
-	[self setupOneChildViewController:[[THHomeVC alloc] init] title:@"首页" image:@"dibu-shouye" selectedImage:@"dibu-shouye-xuanzhong"];
+	[self setupOneChildViewController:[[THHomeVC alloc] init] title:@"首页" image:@"首页_normal" selectedImage:@"首页_selected"];
 	
-    [self setupOneChildViewController:[[THClassifyVC alloc] init] title:@"分类" image:@"dibufenlei" selectedImage:@"dibu-fenleixuanzhong"];
+    [self setupOneChildViewController:[[THClassifyVC alloc] init] title:@"分类" image:@"分类_normal" selectedImage:@"分类_selected"];
     
     [self setupOneChildViewController:[[THTeHuiCenterVC alloc] init] title:@"" image:@"" selectedImage:@""];
     
-	[self setupOneChildViewController:[[THShoppingCartCtl alloc] init] title:@"购物车" image:@"dibugouwuche" selectedImage:@"dibu-gouwuche-xuanzhong"];
+	[self setupOneChildViewController:[[THShoppingCartCtl alloc] init] title:@"购物车" image:@"购物车_normal" selectedImage:@"购物车_selected"];
 	
-    [self setupOneChildViewController:[[THMineVC alloc] init] title:@"我的" image:@"dibu-wode" selectedImage:@"dibu-wode-xuanzhong"];
+    [self setupOneChildViewController:[[THMineVC alloc] init] title:@"我的" image:@"我的_normal" selectedImage:@"我的_selected"];
 	
 }
 
@@ -101,8 +103,8 @@
 - (UIButton *)middleButton {
     if (_middleButton == nil) {
         _middleButton = [[UIButton alloc] init];
-        [_middleButton setImage:[UIImage imageNamed:@"dibu-te"] forState:UIControlStateNormal];
-        [_middleButton setImage:[UIImage imageNamed:@"dibu-te-xuanzhong"] forState:UIControlStateSelected];
+        [_middleButton setImage:[UIImage imageNamed:@"特_normal"] forState:UIControlStateNormal];
+        [_middleButton setImage:[UIImage imageNamed:@"特_selected"] forState:UIControlStateSelected];
         [_middleButton addTarget:self action:@selector(clickMiddleButton) forControlEvents:UIControlEventTouchUpInside];
         [self.tabBar addSubview:_middleButton];
     }

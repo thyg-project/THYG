@@ -182,4 +182,69 @@
     return [self placeholderImageWithSize:size image:[UIImage imageNamed:@"ad_normal"] backgroundColor:kBackgroundColor];
 }
 
++ (UIImage *)drawImageWithStartColor:(UIColor *)startColor
+                            endColor:(UIColor *)endColor
+                              bounds:(CGRect)bounds
+                          startPoint:(CGPoint)startPoint
+                            endPoint:(CGPoint)endPoint {
+    //创建CGContextRef
+    UIGraphicsBeginImageContext(bounds.size);
+    CGContextRef gc = UIGraphicsGetCurrentContext();
+    
+    //创建CGMutablePathRef
+    CGMutablePathRef path = CGPathCreateMutable();
+    
+    //绘制Path
+    CGRect rect = bounds;
+    CGPathMoveToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect));
+    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect), CGRectGetMinY(rect));
+    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+    CGPathAddLineToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMaxY(rect));
+    CGPathCloseSubpath(path);
+    
+    //绘制渐变
+    [self drawLinearGradient:gc path:path  startColor:startColor.CGColor endColor:endColor.CGColor startPoint:startPoint endPoint:endPoint];
+    
+    //注意释放CGMutablePathRef
+    CGPathRelease(path);
+    
+    //从Context中获取图像，并显示在界面上
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
+
+
++ (void)drawLinearGradient:(CGContextRef)context
+                      path:(CGPathRef)path
+                startColor:(CGColorRef)startColor
+                  endColor:(CGColorRef)endColor
+                startPoint:(CGPoint)startPoint
+                  endPoint:(CGPoint)endPoint
+{
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGFloat locations[] = { 0.5, 1.0 };
+    
+    NSArray *colors = @[(__bridge id) startColor, (__bridge id) endColor];
+    
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
+    
+    
+    CGRect pathRect = CGPathGetBoundingBox(path);
+    
+    //具体方向可根据需求修改
+    startPoint = CGPointMake(CGRectGetMaxX(pathRect)*startPoint.x, CGRectGetMaxY(pathRect)*startPoint.y);
+    endPoint = CGPointMake(CGRectGetMaxX(pathRect)*endPoint.x, CGRectGetMaxY(pathRect)*endPoint.y);
+    
+    CGContextSaveGState(context);
+    CGContextAddPath(context, path);
+    CGContextClip(context);
+    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
+    CGContextRestoreGState(context);
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+}
+
 @end

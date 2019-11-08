@@ -7,6 +7,7 @@
 //
 
 #import "THSpellGroupHeadCell.h"
+#import "MLLabel.h"
 
 
 @implementation THSpellModel
@@ -26,7 +27,7 @@
 
 @interface THSpellGroupHeadCell() {
     __weak IBOutlet UILabel *timeLabel;
-    __weak IBOutlet UILabel *statusLabel;
+    __weak IBOutlet MLLabel *statusLabel;
     
 }
 
@@ -37,26 +38,26 @@
 - (void)refreshWithModel:(THSpellModel *)model {
     timeLabel.text = model.time;
     statusLabel.text = model.status;
-    
     if (!model.validate) {
-        self.backgroundColor = RGB(200, 200, 200);
-        timeLabel.textColor = RGB(81, 81, 81);
-        statusLabel.textColor = RGB(81, 81, 81);
-        timeLabel.font = Font(14);
-        statusLabel.font = Font(13);
-    } else { 
-        self.backgroundColor = RGB(213, 0, 27);
-        timeLabel.textColor = RGB(255, 255, 255);
-        statusLabel.textColor = RGB(255, 255, 255);
-        timeLabel.font = Font(16);
-        statusLabel.font = Font(15);
-        
+        timeLabel.textColor = UIColorHex(0x717171);
+        statusLabel.textColor = UIColorHex(0x717171);
+        statusLabel.backgroundColor = [UIColor clearColor];
+    } else {
+        timeLabel.textColor = UIColorHex(0xEA2018);
+        statusLabel.textColor = UIColorHex(0xffffff);
+        statusLabel.backgroundColor = UIColorHex(0xFF3C00);
     }
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    timeLabel.font = [UIFont boldSystemFontOfSize:20];
+    statusLabel.font = Font(12);
+    self.backgroundColor = UIColorHex(0xffffff);
+    statusLabel.layer.masksToBounds = YES;
+    statusLabel.layer.cornerRadius = 10.5;
+    statusLabel.textAlignment = NSTextAlignmentCenter;
+    statusLabel.textInsets = UIEdgeInsetsMake(0, 8, 0, 8);
 }
 
 @end

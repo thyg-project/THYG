@@ -27,6 +27,7 @@
 #import "THButton.h"
 #import "THHomePresenter.h"
 #import "THTeInfoViewController.h"
+#import "THCouponCenterViewController.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate, THScanResultDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -125,6 +126,9 @@
             headerV.clickMenuItem = ^(NSInteger itemIndex, THHomeHeaderItemModel *item) {
                 if (itemIndex == 1) {
                     [self.navigationController pushViewController:[THTeInfoViewController new] animated:YES];
+                } else if (itemIndex == 2) {
+//                    [self.navigationController pushViewController:THCouponCenterViewController.new animated:YES];
+                    [self.navigationController pushViewController:THFlashCtl.new animated:YES];
                 }
             };
             reusableview = headerV;

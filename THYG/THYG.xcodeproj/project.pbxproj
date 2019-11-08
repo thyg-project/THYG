@@ -422,6 +422,8 @@
 		02834B71230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */; };
 		02834B74230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
 		02834B75230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
+		02BB5097237507290058DC60 /* THSHMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB5096237507290058DC60 /* THSHMSTableViewCell.m */; };
+		02BB5098237507290058DC60 /* THSHMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB5096237507290058DC60 /* THSHMSTableViewCell.m */; };
 		02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */; };
@@ -876,6 +878,8 @@
 		02834B72230B897100B8BFB2 /* THUserInfoPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoPresenter.h; sourceTree = "<group>"; };
 		02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserInfoPresenter.m; sourceTree = "<group>"; };
 		02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoProtocol.h; sourceTree = "<group>"; };
+		02BB5095237507290058DC60 /* THSHMSTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSHMSTableViewCell.h; sourceTree = "<group>"; };
+		02BB5096237507290058DC60 /* THSHMSTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSHMSTableViewCell.m; sourceTree = "<group>"; };
 		02BFE8BE235714DA00C92987 /* THCatogoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCatogoryModel.h; sourceTree = "<group>"; };
 		02BFE8BF235714DA00C92987 /* THCatogoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCatogoryModel.m; sourceTree = "<group>"; };
 		02BFE8C2235841EA00C92987 /* UIButton+extentedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extentedButton.h"; sourceTree = "<group>"; };
@@ -2103,6 +2107,8 @@
 				024F1DFF23696A0D004AFA38 /* THCategoryLeftView.m */,
 				024F1E02236971C7004AFA38 /* THCatogoryRightView.h */,
 				024F1E03236971C7004AFA38 /* THCatogoryRightView.m */,
+				02BB5095237507290058DC60 /* THSHMSTableViewCell.h */,
+				02BB5096237507290058DC60 /* THSHMSTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3378,6 +3384,7 @@
 				0265CE9622F2C45E000363F0 /* CountView.m in Sources */,
 				0265CE9722F2C45E000363F0 /* THMineOrderDetailToolView.m in Sources */,
 				0265CE9822F2C45E000363F0 /* THOrderCouponModel.m in Sources */,
+				02BB5098237507290058DC60 /* THSHMSTableViewCell.m in Sources */,
 				02834B75230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */,
 				0265CE9922F2C45E000363F0 /* THMineHeaderView.m in Sources */,
 				0265CE9A22F2C45E000363F0 /* THMineOrderFooterView.m in Sources */,
@@ -3654,6 +3661,7 @@
 				57CBC3C92088E477007D6069 /* CountView.m in Sources */,
 				042BB82B20CAF4E500E8FB93 /* THMineOrderDetailToolView.m in Sources */,
 				57D5103C20C6E01D00B78087 /* THOrderCouponModel.m in Sources */,
+				02BB5097237507290058DC60 /* THSHMSTableViewCell.m in Sources */,
 				02834B74230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */,
 				512D797B205E671E0088A4A0 /* THMineHeaderView.m in Sources */,
 				515EB86920C966B600890072 /* THMineOrderFooterView.m in Sources */,

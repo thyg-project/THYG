@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "THCouponModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface THCouponCenterTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) THCouponModel *couponModel;
 
 @end
 

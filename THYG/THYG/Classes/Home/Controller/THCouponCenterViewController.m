@@ -7,10 +7,13 @@
 //
 
 #import "THCouponCenterViewController.h"
+#import "THCouponCenterTableViewCell.h"
 
 @interface THCouponCenterViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
 }
+
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -21,8 +24,6 @@
     self.navigationItem.title = @"领券中心";
     [self setup];
 }
-
-
 
 - (void)setup {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 17)];
@@ -39,13 +40,16 @@
     [self autoLayoutSizeContentView:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.equalTo(@8);
+        make.right.equalTo(@(-8));
+        make.top.bottom.equalTo(self.view);
     }];
+    [_tableView registerClass:[THCouponCenterTableViewCell class] forCellReuseIdentifier:@"cell"];
     
 }
-
 
 - (void)mineCoupon {
     
@@ -68,19 +72,25 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 10;
+    return 112;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    THCouponCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.couponModel = nil;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

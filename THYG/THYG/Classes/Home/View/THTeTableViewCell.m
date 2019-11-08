@@ -8,21 +8,6 @@
 
 #import "THTeTableViewCell.h"
 
-@interface THTeTableViewCell() {
-    
-  @public
-    UIImageView *_leftImageView;
-    
-    UILabel *_titleLabel;
-    
-    UILabel *_desLabel;
-    
-    UIView *_containerView;
-    
-}
-- (void)setup;
-
-@end
 
 
 
@@ -79,8 +64,7 @@
 
 
 @interface THTeDBTableViewCell() {
-    UIProgressView *_progressView;
-    UIButton *_buyButton;
+   
 }
 
 @end

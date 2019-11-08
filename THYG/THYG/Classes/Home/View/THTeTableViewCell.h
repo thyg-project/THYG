@@ -10,12 +10,27 @@
 
 
 
-@interface THTeTableViewCell : UITableViewCell
+@interface THTeTableViewCell : UITableViewCell  {
+@public
+    UIImageView *_leftImageView;
+    
+    UILabel *_titleLabel;
+    
+    UILabel *_desLabel;
+    
+    UIView *_containerView;
+}
+
+- (void)setup;
 
 @end
 
 
-@interface THTeDBTableViewCell : THTeTableViewCell
+@interface THTeDBTableViewCell : THTeTableViewCell {
+@public
+    UIProgressView *_progressView;
+    UIButton *_buyButton;
+}
 
 @end
 

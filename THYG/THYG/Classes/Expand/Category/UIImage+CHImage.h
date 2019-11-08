@@ -51,4 +51,10 @@
  */
 + (UIImage *)createPlaceholderImageWithSize:(CGSize)size;
 
++ (UIImage *)drawImageWithStartColor:(UIColor *)startColor
+                            endColor:(UIColor *)endColor
+                              bounds:(CGRect)bounds
+                          startPoint:(CGPoint)startPoint
+                            endPoint:(CGPoint)endPoint;
+
 @end

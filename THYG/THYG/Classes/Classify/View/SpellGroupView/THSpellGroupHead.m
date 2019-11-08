@@ -49,7 +49,7 @@
 - (NSArray *)data {
     if (!_data) {
         NSMutableArray *tep = [NSMutableArray new];
-        [tep addObject:[[THSpellModel alloc] initWithTime:@"18:00" state:@"团购中" validate:YES]];
+        [tep addObject:[[THSpellModel alloc] initWithTime:@"18:00" state:@"抢购中" validate:YES]];
         [tep addObject:[[THSpellModel alloc] initWithTime:@"19:00" state:@"即将开始" validate:NO]];
         [tep addObject:[[THSpellModel alloc] initWithTime:@"20:00" state:@"即将开始" validate:NO]];
         [tep addObject:[[THSpellModel alloc] initWithTime:@"21:00" state:@"即将开始" validate:NO]];
@@ -62,16 +62,16 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake((kScreenWidth-self.data.count-1)/5, 50);
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 1, 1);
-        layout.minimumLineSpacing = 1;
-        layout.minimumInteritemSpacing = 1;
+        layout.itemSize = CGSizeMake(85, 63);
+//        layout.sectionInset = UIEdgeInsetsMake(0, 0, 1, 1);
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = kBackgroundColor;
+        _collectionView.backgroundColor = UIColorHex(0xffffff);
         
         [_collectionView registerNib:[UINib nibWithNibName:@"THSpellGroupHeadCell" bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(THSpellGroupHeadCell.class)];
     }

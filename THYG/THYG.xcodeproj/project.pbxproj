@@ -440,6 +440,10 @@
 		02BB50B4237908F80058DC60 /* THZTPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50B2237908F80058DC60 /* THZTPTViewController.m */; };
 		02BB50B7237909990058DC60 /* THTBDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50B6237909990058DC60 /* THTBDBViewController.m */; };
 		02BB50B8237909990058DC60 /* THTBDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50B6237909990058DC60 /* THTBDBViewController.m */; };
+		02BB50BB237913990058DC60 /* THTBDBSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50BA237913990058DC60 /* THTBDBSectionHeader.m */; };
+		02BB50BC237913990058DC60 /* THTBDBSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50BA237913990058DC60 /* THTBDBSectionHeader.m */; };
+		02BB50BF237931450058DC60 /* THZXDBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */; };
+		02BB50C0237931450058DC60 /* THZXDBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */; };
 		02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */; };
@@ -912,6 +916,10 @@
 		02BB50B2237908F80058DC60 /* THZTPTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THZTPTViewController.m; sourceTree = "<group>"; };
 		02BB50B5237909990058DC60 /* THTBDBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTBDBViewController.h; sourceTree = "<group>"; };
 		02BB50B6237909990058DC60 /* THTBDBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTBDBViewController.m; sourceTree = "<group>"; };
+		02BB50B9237913990058DC60 /* THTBDBSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTBDBSectionHeader.h; sourceTree = "<group>"; };
+		02BB50BA237913990058DC60 /* THTBDBSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTBDBSectionHeader.m; sourceTree = "<group>"; };
+		02BB50BD237931450058DC60 /* THZXDBTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THZXDBTableViewCell.h; sourceTree = "<group>"; };
+		02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THZXDBTableViewCell.m; sourceTree = "<group>"; };
 		02BFE8BE235714DA00C92987 /* THCatogoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCatogoryModel.h; sourceTree = "<group>"; };
 		02BFE8BF235714DA00C92987 /* THCatogoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCatogoryModel.m; sourceTree = "<group>"; };
 		02BFE8C2235841EA00C92987 /* UIButton+extentedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extentedButton.h"; sourceTree = "<group>"; };
@@ -2096,6 +2104,10 @@
 				02BB50A223756DDE0058DC60 /* THYNPCSectionView.m */,
 				02BB50A5237572E60058DC60 /* THYNPCTableViewCell.h */,
 				02BB50A6237572E60058DC60 /* THYNPCTableViewCell.m */,
+				02BB50B9237913990058DC60 /* THTBDBSectionHeader.h */,
+				02BB50BA237913990058DC60 /* THTBDBSectionHeader.m */,
+				02BB50BD237931450058DC60 /* THZXDBTableViewCell.h */,
+				02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3357,6 +3369,7 @@
 				0265CE5822F2C45E000363F0 /* THMineVC.m in Sources */,
 				0265CE5922F2C45E000363F0 /* THMineAddBankCardCell.m in Sources */,
 				0265CE5A22F2C45E000363F0 /* THMineBankCardListCell.m in Sources */,
+				02BB50C0237931450058DC60 /* THZXDBTableViewCell.m in Sources */,
 				024F1DFD23695913004AFA38 /* UIView+Corner.m in Sources */,
 				0265CE5B22F2C45E000363F0 /* THAddressVC.m in Sources */,
 				02E6A45123670BBB0037FED7 /* THCardHeader.m in Sources */,
@@ -3496,6 +3509,7 @@
 				0265CECA22F2C45E000363F0 /* THMyTaskCtl.m in Sources */,
 				0265CECB22F2C45E000363F0 /* THShoppingCartCtl.m in Sources */,
 				0265CECC22F2C45E000363F0 /* THDatabaseManager.m in Sources */,
+				02BB50BC237913990058DC60 /* THTBDBSectionHeader.m in Sources */,
 				0265CECD22F2C45E000363F0 /* THActivityRecommandCtl.m in Sources */,
 				0265CECF22F2C45E000363F0 /* THFlashCell.m in Sources */,
 				0265CED022F2C45E000363F0 /* YYStarView.m in Sources */,
@@ -3642,6 +3656,7 @@
 				512D7904205A78CC0088A4A0 /* THMineVC.m in Sources */,
 				51DA2C0A20DAA2B2006A82B6 /* THMineAddBankCardCell.m in Sources */,
 				51DA2C1820DABFED006A82B6 /* THMineBankCardListCell.m in Sources */,
+				02BB50BF237931450058DC60 /* THZXDBTableViewCell.m in Sources */,
 				024F1DFC23695913004AFA38 /* UIView+Corner.m in Sources */,
 				0448EB9520923A31006E1E17 /* THAddressVC.m in Sources */,
 				02E6A45023670BBB0037FED7 /* THCardHeader.m in Sources */,
@@ -3781,6 +3796,7 @@
 				8FDC4E6320736C6B00FEFE40 /* THMyTaskCtl.m in Sources */,
 				8FC10B8A20738D6700ED3FB8 /* THShoppingCartCtl.m in Sources */,
 				02188A9522DEECD900258F37 /* THDatabaseManager.m in Sources */,
+				02BB50BB237913990058DC60 /* THTBDBSectionHeader.m in Sources */,
 				57417E4320CB770300F5085F /* THActivityRecommandCtl.m in Sources */,
 				8F51688820747171005E956E /* THFlashCell.m in Sources */,
 				044A48A3207901A000DF1AAD /* YYStarView.m in Sources */,

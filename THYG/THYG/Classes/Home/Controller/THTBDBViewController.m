@@ -7,6 +7,9 @@
 //
 
 #import "THTBDBViewController.h"
+#import "THTBDBSectionHeader.h"
+#import "THZXDBTableViewCell.h"
+#import "THSectionView.h"
 
 @interface THTBDBViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
@@ -26,52 +29,73 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableHeaderView = [self headerView];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-//    [_tableView registerClass:[THPTZTTableViewCell class] forCellReuseIdentifier:@"cell"];
+    [_tableView registerClass:[THQBDBTableViewCell class] forCellReuseIdentifier:@"cell"];
+    [_tableView registerClass:[THZXDBTableViewCell class] forCellReuseIdentifier:@"zxCell"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;//_datas.count;
+    return 2;//_datas.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 112;
+    return 128;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 8;
+    return 50;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return CGFLOAT_MIN;
+    return 32;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return nil;
+    THSectionFooter *footer = [[THSectionFooter alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 32)];
+    return footer;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 8)];
-    view.backgroundColor = UIColor.clearColor;
-    return view;
+    THTBDBSectionHeader *header = [[THTBDBSectionHeader alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+    header.title = [@[@"最新揭晓",@"全部夺宝"] objectAtIndex:section];
+    return header;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    THPTZTTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    return nil;
+    if (indexPath.section == 0) {
+        THZXDBTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"zxCell" forIndexPath:indexPath];
+        return cell;
+    } else {
+        THQBDBTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+- (UIView *)headerView {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 180)];
+    UIImageView *imageView = [UIImageView new];
+    [headerView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(headerView);
+    }];
+    return headerView;
+}
+
+
+
 
 
 @end

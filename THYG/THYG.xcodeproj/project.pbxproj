@@ -444,6 +444,10 @@
 		02BB50BC237913990058DC60 /* THTBDBSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50BA237913990058DC60 /* THTBDBSectionHeader.m */; };
 		02BB50BF237931450058DC60 /* THZXDBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */; };
 		02BB50C0237931450058DC60 /* THZXDBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */; };
+		02BB50C323793CF50058DC60 /* THWDDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50C223793CF50058DC60 /* THWDDBViewController.m */; };
+		02BB50C423793CF50058DC60 /* THWDDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50C223793CF50058DC60 /* THWDDBViewController.m */; };
+		02BB50C723793F510058DC60 /* THWDDBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50C623793F510058DC60 /* THWDDBTableViewCell.m */; };
+		02BB50C823793F510058DC60 /* THWDDBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50C623793F510058DC60 /* THWDDBTableViewCell.m */; };
 		02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */; };
@@ -920,6 +924,10 @@
 		02BB50BA237913990058DC60 /* THTBDBSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTBDBSectionHeader.m; sourceTree = "<group>"; };
 		02BB50BD237931450058DC60 /* THZXDBTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THZXDBTableViewCell.h; sourceTree = "<group>"; };
 		02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THZXDBTableViewCell.m; sourceTree = "<group>"; };
+		02BB50C123793CF50058DC60 /* THWDDBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THWDDBViewController.h; sourceTree = "<group>"; };
+		02BB50C223793CF50058DC60 /* THWDDBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THWDDBViewController.m; sourceTree = "<group>"; };
+		02BB50C523793F510058DC60 /* THWDDBTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THWDDBTableViewCell.h; sourceTree = "<group>"; };
+		02BB50C623793F510058DC60 /* THWDDBTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THWDDBTableViewCell.m; sourceTree = "<group>"; };
 		02BFE8BE235714DA00C92987 /* THCatogoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCatogoryModel.h; sourceTree = "<group>"; };
 		02BFE8BF235714DA00C92987 /* THCatogoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCatogoryModel.m; sourceTree = "<group>"; };
 		02BFE8C2235841EA00C92987 /* UIButton+extentedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extentedButton.h"; sourceTree = "<group>"; };
@@ -2041,6 +2049,8 @@
 				02BB50B2237908F80058DC60 /* THZTPTViewController.m */,
 				02BB50B5237909990058DC60 /* THTBDBViewController.h */,
 				02BB50B6237909990058DC60 /* THTBDBViewController.m */,
+				02BB50C123793CF50058DC60 /* THWDDBViewController.h */,
+				02BB50C223793CF50058DC60 /* THWDDBViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2108,6 +2118,8 @@
 				02BB50BA237913990058DC60 /* THTBDBSectionHeader.m */,
 				02BB50BD237931450058DC60 /* THZXDBTableViewCell.h */,
 				02BB50BE237931450058DC60 /* THZXDBTableViewCell.m */,
+				02BB50C523793F510058DC60 /* THWDDBTableViewCell.h */,
+				02BB50C623793F510058DC60 /* THWDDBTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3377,6 +3389,7 @@
 				0265CE5D22F2C45E000363F0 /* THUserManager.m in Sources */,
 				0265CE5E22F2C45E000363F0 /* SDWaitingView.m in Sources */,
 				0265CE5F22F2C45E000363F0 /* ChoseGoodsTypeAlert.m in Sources */,
+				02BB50C423793CF50058DC60 /* THWDDBViewController.m in Sources */,
 				02834B57230A9C9000B8BFB2 /* THCouponPresenter.m in Sources */,
 				0265CE6022F2C45E000363F0 /* THRegisterPresenter.m in Sources */,
 				0265CE6122F2C45E000363F0 /* THRegisterCtl.m in Sources */,
@@ -3485,6 +3498,7 @@
 				0265CEB522F2C45E000363F0 /* THPay.m in Sources */,
 				0265CEB622F2C45E000363F0 /* THSelectTimeView.m in Sources */,
 				0265CEB722F2C45E000363F0 /* THSelectedCategoryView.m in Sources */,
+				02BB50C823793F510058DC60 /* THWDDBTableViewCell.m in Sources */,
 				0265CEB822F2C45E000363F0 /* THMineApplymentInputVC.m in Sources */,
 				0265CEB922F2C45E000363F0 /* THMyMessageListCell.m in Sources */,
 				0265CEBA22F2C45E000363F0 /* MLLabelLayoutManager.m in Sources */,
@@ -3664,6 +3678,7 @@
 				02188A9E22DF180D00258F37 /* THUserManager.m in Sources */,
 				022CD99422DC2B8B00A6518A /* SDWaitingView.m in Sources */,
 				57CBC3CB2088E477007D6069 /* ChoseGoodsTypeAlert.m in Sources */,
+				02BB50C323793CF50058DC60 /* THWDDBViewController.m in Sources */,
 				02834B56230A9C9000B8BFB2 /* THCouponPresenter.m in Sources */,
 				02188AA922E16AA100258F37 /* THRegisterPresenter.m in Sources */,
 				04D0A310207116F7003BE300 /* THRegisterCtl.m in Sources */,
@@ -3772,6 +3787,7 @@
 				57D5104A20C6F31E00B78087 /* THPay.m in Sources */,
 				512A26AE20B7D36A0091B58B /* THSelectTimeView.m in Sources */,
 				512A26B120B8134B0091B58B /* THSelectedCategoryView.m in Sources */,
+				02BB50C723793F510058DC60 /* THWDDBTableViewCell.m in Sources */,
 				0484F0A32089B555008144B2 /* THMineApplymentInputVC.m in Sources */,
 				57417E3A20CB747300F5085F /* THMyMessageListCell.m in Sources */,
 				576EEACC2087A5510088B1EB /* MLLabelLayoutManager.m in Sources */,

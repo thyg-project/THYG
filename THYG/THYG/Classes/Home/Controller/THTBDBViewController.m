@@ -10,6 +10,7 @@
 #import "THTBDBSectionHeader.h"
 #import "THZXDBTableViewCell.h"
 #import "THSectionView.h"
+#import "THWDDBViewController.h"
 
 @interface THTBDBViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"特币夺宝";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"我的夺宝" style:UIBarButtonItemStylePlain target:self action:@selector(myDuobao)];
     [self setup];
 }
 
@@ -94,8 +96,9 @@
     return headerView;
 }
 
-
-
+- (void)myDuobao {
+    [self.navigationController pushViewController:THWDDBViewController.new animated:YES];
+}
 
 
 @end

@@ -28,6 +28,8 @@
 #import "THHomePresenter.h"
 #import "THTeInfoViewController.h"
 #import "THCouponCenterViewController.h"
+#import "THYNPCViewController.h"
+#import "THClassifyVC.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate, THScanResultDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -127,8 +129,19 @@
                 if (itemIndex == 1) {
                     [self.navigationController pushViewController:[THTeInfoViewController new] animated:YES];
                 } else if (itemIndex == 2) {
-//                    [self.navigationController pushViewController:THCouponCenterViewController.new animated:YES];
-                    [self.navigationController pushViewController:THFlashCtl.new animated:YES];
+                    [self.navigationController pushViewController:THCouponCenterViewController.new animated:YES];
+                } else if (itemIndex == 4) {
+                    [self.navigationController pushViewController:[THYNPCViewController new] animated:YES];
+                } else if (itemIndex == 5) {
+                    THYNPCViewController *vc = [THYNPCViewController new];
+                    vc.controllerType = ViewControllerType_SLYS;
+                    [self.navigationController pushViewController:vc animated:YES];
+                } else if (itemIndex == 7) {
+                    THClassifyVC *vc = [THClassifyVC new];
+                    [self.navigationController pushViewController:vc animated:YES];
+                } else if (itemIndex == 6) {
+                    //批量团购
+                    [self.navigationController pushViewController:THSpellGroupCtl.new animated:YES];
                 }
             };
             reusableview = headerV;

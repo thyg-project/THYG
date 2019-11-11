@@ -35,6 +35,9 @@
 @end
 
 
-@interface THTePTableViewCell : THTeTableViewCell
+@interface THTePTableViewCell : THTeTableViewCell {
+    @public
+    UILabel *_pLabel;
+}
 
 @end

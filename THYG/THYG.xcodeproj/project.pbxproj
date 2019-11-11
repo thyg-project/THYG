@@ -424,6 +424,16 @@
 		02834B75230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
 		02BB5097237507290058DC60 /* THSHMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB5096237507290058DC60 /* THSHMSTableViewCell.m */; };
 		02BB5098237507290058DC60 /* THSHMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB5096237507290058DC60 /* THSHMSTableViewCell.m */; };
+		02BB509B23751C260058DC60 /* THPTZTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB509A23751C260058DC60 /* THPTZTTableViewCell.m */; };
+		02BB509C23751C260058DC60 /* THPTZTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB509A23751C260058DC60 /* THPTZTTableViewCell.m */; };
+		02BB509F23756AC80058DC60 /* THYNPCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB509E23756AC80058DC60 /* THYNPCViewController.m */; };
+		02BB50A023756AC80058DC60 /* THYNPCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB509E23756AC80058DC60 /* THYNPCViewController.m */; };
+		02BB50A323756DDE0058DC60 /* THYNPCSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50A223756DDE0058DC60 /* THYNPCSectionView.m */; };
+		02BB50A423756DDE0058DC60 /* THYNPCSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50A223756DDE0058DC60 /* THYNPCSectionView.m */; };
+		02BB50A7237572E60058DC60 /* THYNPCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50A6237572E60058DC60 /* THYNPCTableViewCell.m */; };
+		02BB50A8237572E60058DC60 /* THYNPCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50A6237572E60058DC60 /* THYNPCTableViewCell.m */; };
+		02BB50AB2376E7A20058DC60 /* THPLTGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50AA2376E7A20058DC60 /* THPLTGCollectionViewCell.m */; };
+		02BB50AC2376E7A20058DC60 /* THPLTGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50AA2376E7A20058DC60 /* THPLTGCollectionViewCell.m */; };
 		02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */; };
@@ -880,6 +890,16 @@
 		02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoProtocol.h; sourceTree = "<group>"; };
 		02BB5095237507290058DC60 /* THSHMSTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSHMSTableViewCell.h; sourceTree = "<group>"; };
 		02BB5096237507290058DC60 /* THSHMSTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSHMSTableViewCell.m; sourceTree = "<group>"; };
+		02BB509923751C260058DC60 /* THPTZTTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THPTZTTableViewCell.h; sourceTree = "<group>"; };
+		02BB509A23751C260058DC60 /* THPTZTTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THPTZTTableViewCell.m; sourceTree = "<group>"; };
+		02BB509D23756AC80058DC60 /* THYNPCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THYNPCViewController.h; sourceTree = "<group>"; };
+		02BB509E23756AC80058DC60 /* THYNPCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THYNPCViewController.m; sourceTree = "<group>"; };
+		02BB50A123756DDE0058DC60 /* THYNPCSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THYNPCSectionView.h; sourceTree = "<group>"; };
+		02BB50A223756DDE0058DC60 /* THYNPCSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THYNPCSectionView.m; sourceTree = "<group>"; };
+		02BB50A5237572E60058DC60 /* THYNPCTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THYNPCTableViewCell.h; sourceTree = "<group>"; };
+		02BB50A6237572E60058DC60 /* THYNPCTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THYNPCTableViewCell.m; sourceTree = "<group>"; };
+		02BB50A92376E7A20058DC60 /* THPLTGCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THPLTGCollectionViewCell.h; sourceTree = "<group>"; };
+		02BB50AA2376E7A20058DC60 /* THPLTGCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THPLTGCollectionViewCell.m; sourceTree = "<group>"; };
 		02BFE8BE235714DA00C92987 /* THCatogoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCatogoryModel.h; sourceTree = "<group>"; };
 		02BFE8BF235714DA00C92987 /* THCatogoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCatogoryModel.m; sourceTree = "<group>"; };
 		02BFE8C2235841EA00C92987 /* UIButton+extentedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extentedButton.h"; sourceTree = "<group>"; };
@@ -1993,6 +2013,8 @@
 				024F1E07236BDC81004AFA38 /* THTeInfoViewController.m */,
 				02DB1427236C27CC003F0FFA /* THCouponCenterViewController.h */,
 				02DB1428236C27CC003F0FFA /* THCouponCenterViewController.m */,
+				02BB509D23756AC80058DC60 /* THYNPCViewController.h */,
+				02BB509E23756AC80058DC60 /* THYNPCViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2052,6 +2074,10 @@
 				024F1E0F236C1050004AFA38 /* THSectionView.m */,
 				02DB142B236C2B1E003F0FFA /* THCouponCenterTableViewCell.h */,
 				02DB142C236C2B1E003F0FFA /* THCouponCenterTableViewCell.m */,
+				02BB50A123756DDE0058DC60 /* THYNPCSectionView.h */,
+				02BB50A223756DDE0058DC60 /* THYNPCSectionView.m */,
+				02BB50A5237572E60058DC60 /* THYNPCTableViewCell.h */,
+				02BB50A6237572E60058DC60 /* THYNPCTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2109,6 +2135,8 @@
 				024F1E03236971C7004AFA38 /* THCatogoryRightView.m */,
 				02BB5095237507290058DC60 /* THSHMSTableViewCell.h */,
 				02BB5096237507290058DC60 /* THSHMSTableViewCell.m */,
+				02BB509923751C260058DC60 /* THPTZTTableViewCell.h */,
+				02BB509A23751C260058DC60 /* THPTZTTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2614,6 +2642,8 @@
 				8F0DC2B2206235F8009AE20B /* THMoreSpellGroupListCell.xib */,
 				8F0DC2BF20623957009AE20B /* THSpellGroupSectionHead.h */,
 				8F0DC2C020623957009AE20B /* THSpellGroupSectionHead.m */,
+				02BB50A92376E7A20058DC60 /* THPLTGCollectionViewCell.h */,
+				02BB50AA2376E7A20058DC60 /* THPLTGCollectionViewCell.m */,
 			);
 			path = SpellGroupView;
 			sourceTree = "<group>";
@@ -3271,11 +3301,13 @@
 				0265CE3922F2C45E000363F0 /* NSString+MLExpression.m in Sources */,
 				0265CE3A22F2C45E000363F0 /* THCouponsCell.m in Sources */,
 				0265CE3B22F2C45E000363F0 /* THMineShareQRCodeVC.m in Sources */,
+				02BB50A8237572E60058DC60 /* THYNPCTableViewCell.m in Sources */,
 				024F1E05236971C7004AFA38 /* THCatogoryRightView.m in Sources */,
 				0265CE3C22F2C45E000363F0 /* THMyTeMoneyCtl.m in Sources */,
 				0265CE3D22F2C45E000363F0 /* YGEncryptTool.m in Sources */,
 				024F1E09236BDC81004AFA38 /* THTeInfoViewController.m in Sources */,
 				0265CE3E22F2C45E000363F0 /* THBaseCell.m in Sources */,
+				02BB50A023756AC80058DC60 /* THYNPCViewController.m in Sources */,
 				0265CE3F22F2C45E000363F0 /* YGCacheManager.m in Sources */,
 				0265CE4022F2C45E000363F0 /* THTeHuiCenterVC.m in Sources */,
 				0265CE4122F2C45E000363F0 /* THNewFeatureCell.m in Sources */,
@@ -3381,6 +3413,7 @@
 				02669B442362CA2000263DE1 /* THHomeActivityModel.m in Sources */,
 				0265CE9422F2C45E000363F0 /* THMineAdCell.m in Sources */,
 				0265CE9522F2C45E000363F0 /* THMyFootprintCtl.m in Sources */,
+				02BB50A423756DDE0058DC60 /* THYNPCSectionView.m in Sources */,
 				0265CE9622F2C45E000363F0 /* CountView.m in Sources */,
 				0265CE9722F2C45E000363F0 /* THMineOrderDetailToolView.m in Sources */,
 				0265CE9822F2C45E000363F0 /* THOrderCouponModel.m in Sources */,
@@ -3481,6 +3514,7 @@
 				0265CEEE22F2C45E000363F0 /* THCardSettleView.m in Sources */,
 				0265CEEF22F2C45E000363F0 /* THAVCaptureSessionManager.m in Sources */,
 				024F1DF52369336E004AFA38 /* THCardTableViewCell.m in Sources */,
+				02BB509C23751C260058DC60 /* THPTZTTableViewCell.m in Sources */,
 				02BFE8C5235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				0265CEF022F2C45E000363F0 /* THScreeningPriceCell.m in Sources */,
 				025111842313D02000F9BDDD /* THAddressPresenter.m in Sources */,
@@ -3516,6 +3550,7 @@
 				0265CF0F22F2C45E000363F0 /* THGoodsSpecModel.m in Sources */,
 				02DB142E236C2B1E003F0FFA /* THCouponCenterTableViewCell.m in Sources */,
 				0265CF1022F2C45E000363F0 /* THCommentVC.m in Sources */,
+				02BB50AC2376E7A20058DC60 /* THPLTGCollectionViewCell.m in Sources */,
 				02834B6D230AA06200B8BFB2 /* THTaskModel.m in Sources */,
 				0265CF1122F2C45E000363F0 /* THTeHuiModel.m in Sources */,
 				0265CF1222F2C45E000363F0 /* THGoodsCommentHeaderView.m in Sources */,
@@ -3548,11 +3583,13 @@
 				576EEAC92087A5510088B1EB /* NSString+MLExpression.m in Sources */,
 				8F1712CE207221A000EFDFCB /* THCouponsCell.m in Sources */,
 				04D0A3162071171C003BE300 /* THMineShareQRCodeVC.m in Sources */,
+				02BB50A7237572E60058DC60 /* THYNPCTableViewCell.m in Sources */,
 				024F1E04236971C7004AFA38 /* THCatogoryRightView.m in Sources */,
 				57417E2B20CB009800F5085F /* THMyTeMoneyCtl.m in Sources */,
 				02C377CA22C324700038AC5A /* YGEncryptTool.m in Sources */,
 				024F1E08236BDC81004AFA38 /* THTeInfoViewController.m in Sources */,
 				04178F0C207287E50048875E /* THBaseCell.m in Sources */,
+				02BB509F23756AC80058DC60 /* THYNPCViewController.m in Sources */,
 				02188AA122DF195F00258F37 /* YGCacheManager.m in Sources */,
 				04054DAE20ADECB5009CE4F1 /* THTeHuiCenterVC.m in Sources */,
 				512D793E205E10E40088A4A0 /* THNewFeatureCell.m in Sources */,
@@ -3658,6 +3695,7 @@
 				02669B432362CA2000263DE1 /* THHomeActivityModel.m in Sources */,
 				512D790D205B6A920088A4A0 /* THMineAdCell.m in Sources */,
 				8F1712C220720A5500EFDFCB /* THMyFootprintCtl.m in Sources */,
+				02BB50A323756DDE0058DC60 /* THYNPCSectionView.m in Sources */,
 				57CBC3C92088E477007D6069 /* CountView.m in Sources */,
 				042BB82B20CAF4E500E8FB93 /* THMineOrderDetailToolView.m in Sources */,
 				57D5103C20C6E01D00B78087 /* THOrderCouponModel.m in Sources */,
@@ -3758,6 +3796,7 @@
 				024D14CA22E8668F00D872DD /* THCardSettleView.m in Sources */,
 				04548D7B2070AE71002F73C6 /* THAVCaptureSessionManager.m in Sources */,
 				024F1DF42369336E004AFA38 /* THCardTableViewCell.m in Sources */,
+				02BB509B23751C260058DC60 /* THPTZTTableViewCell.m in Sources */,
 				02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
 				025111832313D02000F9BDDD /* THAddressPresenter.m in Sources */,
@@ -3793,6 +3832,7 @@
 				0448EB6B208E3022006E1E17 /* THGoodsSpecModel.m in Sources */,
 				02DB142D236C2B1E003F0FFA /* THCouponCenterTableViewCell.m in Sources */,
 				044A48A920791F0700DF1AAD /* THCommentVC.m in Sources */,
+				02BB50AB2376E7A20058DC60 /* THPLTGCollectionViewCell.m in Sources */,
 				02834B6C230AA06200B8BFB2 /* THTaskModel.m in Sources */,
 				04054DB420AEF7FC009CE4F1 /* THTeHuiModel.m in Sources */,
 				04178F14207297B60048875E /* THGoodsCommentHeaderView.m in Sources */,

@@ -7,18 +7,15 @@
 //
 
 #import "THLimitSpellGroupCtl.h"
-#import "THSpellGroupSectionHead.h"
-#import "THLimitSpellGroupListCtl.h"
-#import "THMoreLimitSpellGroupCell.h"
-#import "THSpellGroupHead.h"
+#import "THPTZTTableViewCell.h"
 
 @interface THLimitSpellGroupCtl ()
 
 @end
 
-@interface THLimitSpellGroupCtl () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-@property (nonatomic, strong) UICollectionView * collectionView;
-@property (nonatomic, strong) THSpellGroupHead *headView;
+@interface THLimitSpellGroupCtl () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation THLimitSpellGroupCtl
@@ -26,110 +23,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationBarColor:RGB(59, 59, 59)];
-    [self.view addSubview:self.headView];
-    [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(self.view);
-        make.height.mas_equalTo(50);
-    }];
-    [self.view addSubview:self.collectionView];
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.headView.mas_bottom);
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.bottom.equalTo(self.view);
     }];
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section==0) {
-        return 4;
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self autoLayoutSizeContentView:_tableView];
+        _tableView.showsVerticalScrollIndicator = NO;
+        [_tableView registerClass:[THPTZTTableViewCell class] forCellReuseIdentifier:@"cell"];
     }
+    return _tableView;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
     return 10;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==0) {
-        THLimitSpellGroupListCtl *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THLimitSpellGroupListCtl.class) forIndexPath:indexPath];
-        return cell;
-    }
-    THMoreLimitSpellGroupCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(THMoreLimitSpellGroupCell.class) forIndexPath:indexPath];
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 16;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 112;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    THPTZTTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     return cell;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *reusableview = nil;
-    if (kind == UICollectionElementKindSectionHeader) {
-        THSpellGroupSectionHead *headerV = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass(THSpellGroupSectionHead.class) forIndexPath:indexPath];
-        headerV.sectionTitle = @[@"尊享定量团",@"更多定量团"][indexPath.section];
-        reusableview = headerV;
-        
-    }else{
-        reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"foot" forIndexPath:indexPath];
-    }
-    return reusableview;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
-
-#pragma mark - item宽高
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) return CGSizeMake((kScreenWidth-4)/2, (kScreenWidth-4)/2+160);
-    return CGSizeMake(kScreenWidth, 130);
-}
-
-#pragma mark - head宽高
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(kScreenWidth, 45);
-}
-
-#pragma mark - foot宽高
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(kScreenWidth, 10);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(1, 1, 1, 1);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 2;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 2;
-}
-
-- (UICollectionView *)collectionView {
-    if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = kBackgroundColor;
-        
-        [_collectionView registerNib:[UINib nibWithNibName:@"THLimitSpellGroupListCtl" bundle:nil] forCellWithReuseIdentifier:@"THLimitSpellGroupListCtl"];
-        [_collectionView registerNib:[UINib nibWithNibName:@"THMoreLimitSpellGroupCell" bundle:nil] forCellWithReuseIdentifier:@"THMoreLimitSpellGroupCell"];
-        
-        [_collectionView registerClass:[THSpellGroupSectionHead class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"THSpellGroupSectionHead"];
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"foot"];
-        
-        
-    }
-    return _collectionView;
-}
-
-- (THSpellGroupHead *)headView {
-    if (!_headView) {
-        _headView = [[THSpellGroupHead alloc] initWithFrame:CGRectZero];
-    }
-    return _headView;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

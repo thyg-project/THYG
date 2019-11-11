@@ -116,7 +116,7 @@
 @end
 
 @interface THTePTableViewCell() {
-    UILabel *_pLabel;
+    
 }
 
 @end

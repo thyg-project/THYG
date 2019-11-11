@@ -11,6 +11,7 @@
 @interface THCardSectionHeader() {
     UIButton *_selectedButton;
     UILabel *_titleLabel;
+    UIView *_containerView;
 }
 
 @end
@@ -19,7 +20,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
+        
         [self setup];
     }
     return self;
@@ -33,17 +35,26 @@
 }
 
 - (void)setup {
+    _containerView = [UIView new];
+    _containerView.backgroundColor = UIColorHex(0xffffff);
+    [self addSubview:_containerView];
+    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self);
+        make.left.equalTo(@(16));
+        make.right.equalTo(@(-16));
+    }];
+    
     _selectedButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _selectedButton.adjustsImageWhenHighlighted = YES;
     [_selectedButton setImage:[UIImage imageNamed:@"未选中.png"] forState:UIControlStateNormal];
     [_selectedButton setImage:[UIImage imageNamed:@"选中.png"] forState:UIControlStateSelected];
     [_selectedButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_selectedButton];
+    [_containerView addSubview:_selectedButton];
     _titleLabel = [UILabel new];
     _titleLabel.text = @"发货人发货人";
     _titleLabel.textColor = UIColorHex(0x121212);
     _titleLabel.font = [UIFont systemFontOfSize:16];
-    [self addSubview:_titleLabel];
+    [_containerView addSubview:_titleLabel];
     [_selectedButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(@12);
@@ -60,6 +71,11 @@
 - (void)buttonClick {
     _selectedButton.selected = !_selectedButton.selected;
     BLOCK(self.SelectedBlock,_selectedButton.selected);
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [_containerView setCornerRadius:8 inCorners:UIRectCornerTopLeft|UIRectCornerTopRight];
 }
 
 @end

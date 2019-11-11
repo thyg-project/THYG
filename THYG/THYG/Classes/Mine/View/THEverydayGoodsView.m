@@ -124,6 +124,7 @@
     _collectionView.delegate = self;
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.dataSource = self;
+    _collectionView.showsVerticalScrollIndicator = NO;
     [self addSubview:_collectionView];
     layout.itemSize = CGSizeMake(floor((kScreenWidth - 32 - 4) / 2.0), 203);
     layout.headerReferenceSize = CGSizeZero;

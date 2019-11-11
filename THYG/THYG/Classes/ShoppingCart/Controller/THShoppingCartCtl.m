@@ -19,6 +19,7 @@
 @interface THShoppingCartCtl () <THCardSettleDelegate, THCardProtocol,THTableViewDelegate> {
     THCardSettleView *_settleView;
     THCardHeader *_header;
+    UIScrollView *_containerView;
 }
 @property (nonatomic, strong) UITableView *mTable;
 @property (nonatomic, strong) THShoppingCartListDelegate *tableDelegate;
@@ -55,13 +56,9 @@
 
 #pragma mark - 设置视图
 - (void)setupUI {
-    _header = [THCardHeader new];
-    [self.view addSubview:_header];
-    [_header mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
-        
-        make.height.mas_equalTo(kStatesBarHeight + 140/*79*/);
-    }];
+    _containerView = [UIScrollView new];
+    _containerView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_containerView];
     _settleView = [THCardSettleView new];
     _settleView.operaType = THCardOperaType_Settle;
     _settleView.delegate = self;
@@ -71,14 +68,26 @@
         make.left.bottom.right.equalTo(self.view);
         make.height.mas_equalTo(50);
     }];
-    self.emptyView.hidden = NO;
-    [self.view addSubview:self.mTable];
-    [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@16);
-        make.right.equalTo(@(-16));
-        make.top.equalTo(@(79 + kStatesBarHeight));
+    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
         make.bottom.equalTo(_settleView.mas_top);
+        make.width.mas_equalTo(kScreenWidth);
+        make.height.mas_equalTo(kScreenHeight - 50 - kTabBarHeight);
     }];
+    _header = [THCardHeader new];
+    [_containerView addSubview:_header];
+    [_header mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(_containerView);
+        make.height.mas_equalTo(kStatesBarHeight + 140/*79*/);
+    }];
+    self.emptyView.hidden = YES;
+    [_containerView addSubview:self.mTable];
+    [self.mTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(_containerView);
+        make.bottom.equalTo(_settleView.mas_top);
+        make.top.equalTo(@(79 + kStatesBarHeight));
+    }];
+    
 }
 
 
@@ -112,9 +121,7 @@
     if (!_mTable) {
         _mTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _mTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _mTable.backgroundColor = kBackgroundColor;
-        _mTable.layer.masksToBounds = YES;
-        _mTable.layer.cornerRadius = 8;
+        _mTable.backgroundColor = [UIColor clearColor];
         [self autoLayoutSizeContentView:_mTable];
         [self.tableDelegate registerTable:_mTable];
         _mTable.delegate = self.tableDelegate;
@@ -129,10 +136,9 @@
         [_emptyView setToOther:^{
             
         }];
-        [self.view addSubview:_emptyView];
+        [_containerView addSubview:_emptyView];
         [_emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(self.view);
-            make.top.equalTo(_header.mas_bottom);
+            make.left.top.right.equalTo(self.view);
             make.bottom.equalTo(_settleView.mas_top);
         }];
     }

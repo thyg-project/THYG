@@ -60,6 +60,7 @@
 @end
 
 @interface THCardTableViewCell() {
+    UIView *_containerView;
     UIButton *_selectedButton;
     UIImageView *_contentImageView;
     UILabel *_titleLabel;
@@ -75,38 +76,49 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.backgroundColor = kBackgroundColor;
         [self setup];
     }
     return self;
 }
 
 - (void)setup {
+    _containerView = [UIView new];
+    _containerView.backgroundColor = UIColorHex(0xffffff);
+    [self addSubview:_containerView];
+    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self);
+        make.left.equalTo(@16);
+        make.right.equalTo(@(-16));
+    }];
+    
+    
     _contentImageView = [[UIImageView alloc] init];
     _contentImageView.layer.masksToBounds = YES;
     _contentImageView.layer.cornerRadius = 2;
     _contentImageView.backgroundColor = UIColor.redColor;
-    [self addSubview:_contentImageView];
+    [_containerView addSubview:_contentImageView];
     _selectedButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_selectedButton setImage:[UIImage imageNamed:@"未选中.png"] forState:UIControlStateNormal];
     [_selectedButton setImage:[UIImage imageNamed:@"选中.png"] forState:UIControlStateSelected];
     [_selectedButton addTarget:self action:@selector(selectedButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_selectedButton];
+    [_containerView addSubview:_selectedButton];
     _titleLabel = [UILabel new];
     _titleLabel.numberOfLines = 2;
     _titleLabel.text = @"产品名产品名产品名产品名产品名产品产品名产品名产品名产品名";
     _titleLabel.font = [UIFont systemFontOfSize:12];
     _titleLabel.textColor = UIColorHex(0x121212);
-    [self addSubview:_titleLabel];
+    [_containerView addSubview:_titleLabel];
     _contentLabel = [THCardContentLabel new];
-    [self addSubview:_contentLabel];
+    [_containerView addSubview:_contentLabel];
     _priceLabel = [UILabel new];
     _priceLabel.text = @"¥560";
     _priceLabel.font = [UIFont systemFontOfSize:12];
     _priceLabel.textColor = UIColorHex(0xD62326);
-    [self addSubview:_priceLabel];
+    [_containerView addSubview:_priceLabel];
     _countView = [THChangeCountView new];
     _countView.ChangedBlock = self.changedBlock;
-    [self addSubview:_countView];
+    [_containerView addSubview:_countView];
     [_contentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@8);
         make.left.equalTo(@44);
@@ -158,7 +170,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self setCornerRadius:8 inCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight];
+    [_containerView setCornerRadius:8 inCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight];
 }
 
 

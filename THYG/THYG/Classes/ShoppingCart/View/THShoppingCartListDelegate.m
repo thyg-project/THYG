@@ -37,17 +37,17 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    THCardSectionHeader *head = [[THCardSectionHeader alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 32, 38)];
+    THCardSectionHeader *head = [[THCardSectionHeader alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 38)];
     [head setSelectedBlock:^(BOOL selected){
         
     }];
-    [head setCornerRadius:8 inCorners:UIRectCornerTopLeft|UIRectCornerTopRight];
+    
     return head;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 32, 16)];
-    footerView.backgroundColor = [UIColor clearColor];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 16)];
+    footerView.backgroundColor = kBackgroundColor;
     return footerView;
 }
 

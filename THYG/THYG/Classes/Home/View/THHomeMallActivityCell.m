@@ -24,10 +24,25 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 - (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
         self.backgroundColor = UIColorHex(0xf7f8f9);
+        [self test];
 		[self addSubview:self.titleLabel];
 		[self addSubview:self.collectionView];
 	}
 	return self;
+}
+
+- (void)test {
+    NSArray *array = @[@"限时秒杀",@"购物全返",@"组团拼团",@"特比夺宝"];
+    NSMutableArray *des = [NSMutableArray new];
+    for (int i = 0; i < array.count; i ++) {
+        THHomeActivityModel *model = [THHomeActivityModel new];
+        model.title = array[i];
+        model.des = array[i];
+        model.desColor = @"0xF0AB33";
+        [des addObject:model];
+        
+    }
+    _itemArray = des.copy;
 }
 
 - (void)layoutSubviews {
@@ -40,7 +55,7 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 	}];
 	[self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.top.equalTo(self.titleLabel.mas_bottom).offset(0);
-		make.bottom.offset(0);
+		make.bottom.equalTo(@(-8));
         make.left.equalTo(@(8));
         make.right.equalTo(@(-8));
 	}];
@@ -76,10 +91,10 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 	if (!_collectionView) {
 		UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
 		layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-		layout.minimumLineSpacing = 1;
+		layout.minimumLineSpacing = 8;
 		layout.minimumInteritemSpacing = 1;
-		layout.itemSize = CGSizeMake((kScreenWidth-16)*0.5, WIDTH(108));
-        layout.sectionInset = UIEdgeInsetsMake(8, 0, 0, 0);
+		layout.itemSize = CGSizeMake((kScreenWidth-16 - 1)*0.5, WIDTH(108));
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 8, 0);
 		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 		_collectionView.delegate = self;
 		_collectionView.dataSource = self;
@@ -93,5 +108,7 @@ static NSString * const THHomeMallActivityItemCellId = @"THHomeMallActivityItemC
 	}
 	return _collectionView;
 }
+
+
 
 @end

@@ -86,6 +86,7 @@
 - (UIImageView *)leftImgView {
 	if (!_leftImgView) {
 		_leftImgView = [[UIImageView alloc] init];
+        _leftImgView.backgroundColor = [UIColor yellowColor];
 	}
 	return _leftImgView;
 }
@@ -93,6 +94,7 @@
 - (UIImageView *)rightImgView {
 	if (!_rightImgView) {
 		_rightImgView = [[UIImageView alloc] init];
+        _rightImgView.backgroundColor = UIColor.redColor;
 	}
 	return _rightImgView;
 }

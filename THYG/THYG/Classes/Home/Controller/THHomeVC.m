@@ -30,6 +30,9 @@
 #import "THCouponCenterViewController.h"
 #import "THYNPCViewController.h"
 #import "THClassifyVC.h"
+#import "THGWQFViewController.h"
+#import "THZTPTViewController.h"
+#import "THTBDBViewController.h"
 
 @interface THHomeVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, THHomeProtocol, THMemuViewDelegate, THScanResultDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -107,8 +110,20 @@
     if (indexPath.section==0) {
         THHomeMallActivityCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:@"THHomeMallActivityCell" forIndexPath:indexPath];
         cell.selectItemBlock = ^(NSInteger item) {
-            if (item == 1) {
-                
+            if (item == 0) {
+                //限时秒杀
+                [self.navigationController pushViewController:THFlashCtl.new animated:YES];
+            } else if (item == 1) {
+                //购物全返
+                [self.navigationController pushViewController:THGWQFViewController.new animated:YES];
+            } else if (item == 2) {
+                //组团拼团
+                [self.navigationController pushViewController:THZTPTViewController.new
+                                                     animated:YES];
+            } else if (item == 3) {
+                //特币夺宝
+                [self.navigationController pushViewController:THTBDBViewController.new
+                                                     animated:YES];
             }
         };
         
@@ -167,7 +182,7 @@
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return CGSizeMake(kScreenWidth , WIDTH(264));
+        return CGSizeMake(kScreenWidth , WIDTH(311));
     }
     CGFloat width = (kScreenWidth-16)/2;
 	return CGSizeMake(width, width + 80);

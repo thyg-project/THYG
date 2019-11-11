@@ -434,6 +434,12 @@
 		02BB50A8237572E60058DC60 /* THYNPCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50A6237572E60058DC60 /* THYNPCTableViewCell.m */; };
 		02BB50AB2376E7A20058DC60 /* THPLTGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50AA2376E7A20058DC60 /* THPLTGCollectionViewCell.m */; };
 		02BB50AC2376E7A20058DC60 /* THPLTGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50AA2376E7A20058DC60 /* THPLTGCollectionViewCell.m */; };
+		02BB50AF237905C70058DC60 /* THGWQFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50AE237905C70058DC60 /* THGWQFViewController.m */; };
+		02BB50B0237905C70058DC60 /* THGWQFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50AE237905C70058DC60 /* THGWQFViewController.m */; };
+		02BB50B3237908F80058DC60 /* THZTPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50B2237908F80058DC60 /* THZTPTViewController.m */; };
+		02BB50B4237908F80058DC60 /* THZTPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50B2237908F80058DC60 /* THZTPTViewController.m */; };
+		02BB50B7237909990058DC60 /* THTBDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50B6237909990058DC60 /* THTBDBViewController.m */; };
+		02BB50B8237909990058DC60 /* THTBDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB50B6237909990058DC60 /* THTBDBViewController.m */; };
 		02BFE8C0235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C1235714DA00C92987 /* THCatogoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8BF235714DA00C92987 /* THCatogoryModel.m */; };
 		02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFE8C3235841EA00C92987 /* UIButton+extentedButton.m */; };
@@ -900,6 +906,12 @@
 		02BB50A6237572E60058DC60 /* THYNPCTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THYNPCTableViewCell.m; sourceTree = "<group>"; };
 		02BB50A92376E7A20058DC60 /* THPLTGCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THPLTGCollectionViewCell.h; sourceTree = "<group>"; };
 		02BB50AA2376E7A20058DC60 /* THPLTGCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THPLTGCollectionViewCell.m; sourceTree = "<group>"; };
+		02BB50AD237905C70058DC60 /* THGWQFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGWQFViewController.h; sourceTree = "<group>"; };
+		02BB50AE237905C70058DC60 /* THGWQFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THGWQFViewController.m; sourceTree = "<group>"; };
+		02BB50B1237908F80058DC60 /* THZTPTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THZTPTViewController.h; sourceTree = "<group>"; };
+		02BB50B2237908F80058DC60 /* THZTPTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THZTPTViewController.m; sourceTree = "<group>"; };
+		02BB50B5237909990058DC60 /* THTBDBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTBDBViewController.h; sourceTree = "<group>"; };
+		02BB50B6237909990058DC60 /* THTBDBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTBDBViewController.m; sourceTree = "<group>"; };
 		02BFE8BE235714DA00C92987 /* THCatogoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCatogoryModel.h; sourceTree = "<group>"; };
 		02BFE8BF235714DA00C92987 /* THCatogoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCatogoryModel.m; sourceTree = "<group>"; };
 		02BFE8C2235841EA00C92987 /* UIButton+extentedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extentedButton.h"; sourceTree = "<group>"; };
@@ -2015,6 +2027,12 @@
 				02DB1428236C27CC003F0FFA /* THCouponCenterViewController.m */,
 				02BB509D23756AC80058DC60 /* THYNPCViewController.h */,
 				02BB509E23756AC80058DC60 /* THYNPCViewController.m */,
+				02BB50AD237905C70058DC60 /* THGWQFViewController.h */,
+				02BB50AE237905C70058DC60 /* THGWQFViewController.m */,
+				02BB50B1237908F80058DC60 /* THZTPTViewController.h */,
+				02BB50B2237908F80058DC60 /* THZTPTViewController.m */,
+				02BB50B5237909990058DC60 /* THTBDBViewController.h */,
+				02BB50B6237909990058DC60 /* THTBDBViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3466,6 +3484,7 @@
 				0265CEC122F2C45E000363F0 /* THMyCollectCell.m in Sources */,
 				0265CEC222F2C45E000363F0 /* THLoginVC.m in Sources */,
 				0265CEC322F2C45E000363F0 /* THLimitSpellGroupCtl.m in Sources */,
+				02BB50B8237909990058DC60 /* THTBDBViewController.m in Sources */,
 				0265CEC422F2C45E000363F0 /* THChangeCountView.m in Sources */,
 				0265CEC522F2C45E000363F0 /* main.m in Sources */,
 				0265CEC622F2C45E000363F0 /* THSearchView.m in Sources */,
@@ -3487,6 +3506,7 @@
 				0265CED322F2C45E000363F0 /* THHelpCenterCtl.m in Sources */,
 				0265CED422F2C45E000363F0 /* THShoppingCartListDelegate.m in Sources */,
 				0265CED522F2C45E000363F0 /* NSMutableArray+AvoidCrash.m in Sources */,
+				02BB50B4237908F80058DC60 /* THZTPTViewController.m in Sources */,
 				0265CED622F2C45E000363F0 /* THAcountDetailCtl.m in Sources */,
 				0265CED722F2C45E000363F0 /* THFlashSaleModel.m in Sources */,
 				0265CED822F2C45E000363F0 /* THHomeHotGoodsCell.m in Sources */,
@@ -3517,6 +3537,7 @@
 				02BB509C23751C260058DC60 /* THPTZTTableViewCell.m in Sources */,
 				02BFE8C5235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				0265CEF022F2C45E000363F0 /* THScreeningPriceCell.m in Sources */,
+				02BB50B0237905C70058DC60 /* THGWQFViewController.m in Sources */,
 				025111842313D02000F9BDDD /* THAddressPresenter.m in Sources */,
 				0265CEF222F2C45E000363F0 /* NSDictionary+AvoidCrash.m in Sources */,
 				0265CEF322F2C45E000363F0 /* THMessageModel.m in Sources */,
@@ -3748,6 +3769,7 @@
 				8F1712B8207201DD00EFDFCB /* THMyCollectCell.m in Sources */,
 				04D0A312207116F7003BE300 /* THLoginVC.m in Sources */,
 				8FF84FDB206502B200A78368 /* THLimitSpellGroupCtl.m in Sources */,
+				02BB50B7237909990058DC60 /* THTBDBViewController.m in Sources */,
 				8FFAF7AB2079E8B100E4D4A2 /* THChangeCountView.m in Sources */,
 				512D78A6205903130088A4A0 /* main.m in Sources */,
 				04054D9520A9FB7C009CE4F1 /* THSearchView.m in Sources */,
@@ -3769,6 +3791,7 @@
 				8F4D139A207A23120024C3D4 /* THHelpCenterCtl.m in Sources */,
 				8FC10B842073859300ED3FB8 /* THShoppingCartListDelegate.m in Sources */,
 				022CD98222DA239400A6518A /* NSMutableArray+AvoidCrash.m in Sources */,
+				02BB50B3237908F80058DC60 /* THZTPTViewController.m in Sources */,
 				57417E5120CB7F7900F5085F /* THAcountDetailCtl.m in Sources */,
 				0418A64820C6F54100527C80 /* THFlashSaleModel.m in Sources */,
 				8F51689E20747B1A005E956E /* THHomeHotGoodsCell.m in Sources */,
@@ -3799,6 +3822,7 @@
 				02BB509B23751C260058DC60 /* THPTZTTableViewCell.m in Sources */,
 				02BFE8C4235841EA00C92987 /* UIButton+extentedButton.m in Sources */,
 				8F5168BC2074BC0D005E956E /* THScreeningPriceCell.m in Sources */,
+				02BB50AF237905C70058DC60 /* THGWQFViewController.m in Sources */,
 				025111832313D02000F9BDDD /* THAddressPresenter.m in Sources */,
 				022CD97D22DA239400A6518A /* NSDictionary+AvoidCrash.m in Sources */,
 				02DCC82D22EAE597002602A5 /* THMessageModel.m in Sources */,

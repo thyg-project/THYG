@@ -20,8 +20,8 @@
     [self modelEncodeWithCoder:aCoder];
 }
 
-- (NSString *)district {
-    return @"aaaa";
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper {
+    return @{@"gender":@"sex"};
 }
 
 @end

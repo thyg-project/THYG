@@ -78,6 +78,7 @@
     [_containerView addSubview:_header];
     [_header mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(_containerView);
+        make.width.mas_equalTo(kScreenWidth);
         make.height.mas_equalTo(kStatesBarHeight + 140/*79*/);
     }];
     self.emptyView.hidden = YES;

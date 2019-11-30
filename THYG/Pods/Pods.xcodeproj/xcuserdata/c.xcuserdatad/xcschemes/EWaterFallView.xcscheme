@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B928059751DFECA9DB0526A4CBDD6A37"
-               BuildableName = "DZNEmptyDataSet.framework"
-               BlueprintName = "DZNEmptyDataSet"
+               BlueprintIdentifier = "84B619307256AA07E17465B8867FD2B9"
+               BuildableName = "EWaterFallView.framework"
+               BlueprintName = "EWaterFallView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

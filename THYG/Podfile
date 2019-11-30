@@ -28,6 +28,7 @@ targetsArray.each do |t|
     pod 'UMCShare/Social/ReducedSina'
     pod 'HXPhotoPicker'
     pod 'pop'
+    pod 'EWaterFallView'
     
 	end
 end

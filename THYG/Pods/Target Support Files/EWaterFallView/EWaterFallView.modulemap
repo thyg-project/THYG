@@ -1,0 +1,6 @@
+framework module EWaterFallView {
+  umbrella header "EWaterFallView-umbrella.h"
+
+  export *
+  module * { export * }
+}

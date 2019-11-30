@@ -65,7 +65,6 @@
 		0265787C231E041C001236E4 /* THInputApplyInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265787A231E041C001236E4 /* THInputApplyInfoPresenter.m */; };
 		0265CE2222F2BCEB000363F0 /* THTeCommonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2122F2BCEB000363F0 /* THTeCommonView.m */; };
 		0265CE2522F2BCFB000363F0 /* THTeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */; };
-		0265CE2822F2BD61000363F0 /* THTeHuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2622F2BD61000363F0 /* THTeHuiCell.m */; };
 		0265CE2C22F2C45E000363F0 /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD96322DA239300A6518A /* NSArray+AvoidCrash.m */; };
 		0265CE2D22F2C45E000363F0 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 510EDC2C20629D8300F595E7 /* Utils.m */; };
 		0265CE2E22F2C45E000363F0 /* THMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D154B322D72B0D005D6277 /* THMinePresenter.m */; };
@@ -154,7 +153,6 @@
 		0265CE8422F2C45E000363F0 /* AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 022CD97222DA239400A6518A /* AvoidCrash.m */; };
 		0265CE8522F2C45E000363F0 /* THMineSubmitApplicationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A3192071254B003BE300 /* THMineSubmitApplicationVC.m */; };
 		0265CE8622F2C45E000363F0 /* THMyMessageCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57417E3320CB707700F5085F /* THMyMessageCtl.m */; };
-		0265CE8722F2C45E000363F0 /* THTeHuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0265CE2622F2BD61000363F0 /* THTeHuiCell.m */; };
 		0265CE8822F2C45E000363F0 /* ChoosTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CBC3BE2088E477007D6069 /* ChoosTypeTableViewCell.m */; };
 		0265CE8922F2C45E000363F0 /* THNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A323207134AE003BE300 /* THNavigationController.m */; };
 		0265CE8A22F2C45E000363F0 /* THBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A324207134AE003BE300 /* THBaseVC.m */; };
@@ -422,6 +420,8 @@
 		02834B71230AA13100B8BFB2 /* THInviteInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B6F230AA13100B8BFB2 /* THInviteInfoModel.m */; };
 		02834B74230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
 		02834B75230B897100B8BFB2 /* THUserInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */; };
+		0285AFDA23925BA600BE17DE /* THTeListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0285AFD923925BA600BE17DE /* THTeListCollectionViewCell.m */; };
+		0285AFDB23925BA600BE17DE /* THTeListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0285AFD923925BA600BE17DE /* THTeListCollectionViewCell.m */; };
 		02BB5097237507290058DC60 /* THSHMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB5096237507290058DC60 /* THSHMSTableViewCell.m */; };
 		02BB5098237507290058DC60 /* THSHMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB5096237507290058DC60 /* THSHMSTableViewCell.m */; };
 		02BB509B23751C260058DC60 /* THPTZTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB509A23751C260058DC60 /* THPTZTTableViewCell.m */; };
@@ -840,8 +840,6 @@
 		0265CE2122F2BCEB000363F0 /* THTeCommonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeCommonView.m; sourceTree = "<group>"; };
 		0265CE2322F2BCFB000363F0 /* THTeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeHeaderView.h; sourceTree = "<group>"; };
 		0265CE2422F2BCFB000363F0 /* THTeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeHeaderView.m; sourceTree = "<group>"; };
-		0265CE2622F2BD61000363F0 /* THTeHuiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTeHuiCell.m; sourceTree = "<group>"; };
-		0265CE2722F2BD61000363F0 /* THTeHuiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTeHuiCell.h; sourceTree = "<group>"; };
 		0265CF7722F2C45E000363F0 /* 特汇易购eee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "特汇易购eee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0265CF7822F2C45F000363F0 /* THYG copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "THYG copy-Info.plist"; path = "/Users/c/Desktop/work/THYG/THYG/THYG copy-Info.plist"; sourceTree = "<absolute>"; };
 		0265CF7922F2C5DD000363F0 /* THNetworkCondition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THNetworkCondition.h; sourceTree = "<group>"; };
@@ -902,6 +900,8 @@
 		02834B72230B897100B8BFB2 /* THUserInfoPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoPresenter.h; sourceTree = "<group>"; };
 		02834B73230B897100B8BFB2 /* THUserInfoPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THUserInfoPresenter.m; sourceTree = "<group>"; };
 		02834B76230B898300B8BFB2 /* THUserInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THUserInfoProtocol.h; sourceTree = "<group>"; };
+		0285AFD823925BA500BE17DE /* THTeListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THTeListCollectionViewCell.h; sourceTree = "<group>"; };
+		0285AFD923925BA600BE17DE /* THTeListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THTeListCollectionViewCell.m; sourceTree = "<group>"; };
 		02BB5095237507290058DC60 /* THSHMSTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THSHMSTableViewCell.h; sourceTree = "<group>"; };
 		02BB5096237507290058DC60 /* THSHMSTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSHMSTableViewCell.m; sourceTree = "<group>"; };
 		02BB509923751C260058DC60 /* THPTZTTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THPTZTTableViewCell.h; sourceTree = "<group>"; };
@@ -2462,8 +2462,6 @@
 				576EEA802087A2F40088B1EB /* OperationMenu */,
 				576EEA712087A2F40088B1EB /* PhotoContainer */,
 				0271234722E8315F002DF961 /* THFilterView.h */,
-				0265CE2722F2BD61000363F0 /* THTeHuiCell.h */,
-				0265CE2622F2BD61000363F0 /* THTeHuiCell.m */,
 				0271234822E8315F002DF961 /* THFilterView.m */,
 			);
 			path = View;
@@ -2497,6 +2495,8 @@
 		576EEA7D2087A2F40088B1EB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				0285AFD823925BA500BE17DE /* THTeListCollectionViewCell.h */,
+				0285AFD923925BA600BE17DE /* THTeListCollectionViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -3164,6 +3164,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-THYG_PRO/Pods-THYG_PRO-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/EWaterFallView/EWaterFallView.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/HXPhotoPicker/HXPhotoPicker.framework",
@@ -3185,6 +3186,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EWaterFallView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HXPhotoPicker.framework",
@@ -3260,6 +3262,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-THYG/Pods-THYG-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/EWaterFallView/EWaterFallView.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/HXPhotoPicker/HXPhotoPicker.framework",
@@ -3281,6 +3284,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EWaterFallView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HXPhotoPicker.framework",
@@ -3438,7 +3442,6 @@
 				0265CE8422F2C45E000363F0 /* AvoidCrash.m in Sources */,
 				0265CE8522F2C45E000363F0 /* THMineSubmitApplicationVC.m in Sources */,
 				0265CE8622F2C45E000363F0 /* THMyMessageCtl.m in Sources */,
-				0265CE8722F2C45E000363F0 /* THTeHuiCell.m in Sources */,
 				0234CE28234DB413009CF8E2 /* THCardPresenter.m in Sources */,
 				0265CE8822F2C45E000363F0 /* ChoosTypeTableViewCell.m in Sources */,
 				0265CE8922F2C45E000363F0 /* THNavigationController.m in Sources */,
@@ -3590,6 +3593,7 @@
 				0265CF0622F2C45E000363F0 /* THUserInfoEditCtl.m in Sources */,
 				0265CF0722F2C45E000363F0 /* THBankCardModel.m in Sources */,
 				0265CF0822F2C45E000363F0 /* THGoodsDetailVC.m in Sources */,
+				0285AFDB23925BA600BE17DE /* THTeListCollectionViewCell.m in Sources */,
 				0265CF0922F2C45E000363F0 /* NSString+CHExtension.m in Sources */,
 				0265CF0A22F2C45E000363F0 /* THMineBankCardCell.m in Sources */,
 				0265CF0B22F2C45E000363F0 /* THSingImgCell.m in Sources */,
@@ -3727,7 +3731,6 @@
 				022CD98522DA239400A6518A /* AvoidCrash.m in Sources */,
 				04D0A31B2071254B003BE300 /* THMineSubmitApplicationVC.m in Sources */,
 				57417E3520CB707700F5085F /* THMyMessageCtl.m in Sources */,
-				0265CE2822F2BD61000363F0 /* THTeHuiCell.m in Sources */,
 				0234CE27234DB413009CF8E2 /* THCardPresenter.m in Sources */,
 				57CBC3CC2088E477007D6069 /* ChoosTypeTableViewCell.m in Sources */,
 				04D0A326207134AE003BE300 /* THNavigationController.m in Sources */,
@@ -3879,6 +3882,7 @@
 				8FFAF7B22079F5DF00E4D4A2 /* THUserInfoEditCtl.m in Sources */,
 				0417B87A2077214D003566C4 /* THBankCardModel.m in Sources */,
 				04D0A33020713D34003BE300 /* THGoodsDetailVC.m in Sources */,
+				0285AFDA23925BA600BE17DE /* THTeListCollectionViewCell.m in Sources */,
 				8F1712D2207227B600EFDFCB /* NSString+CHExtension.m in Sources */,
 				51DA2C0F20DAA81E006A82B6 /* THMineBankCardCell.m in Sources */,
 				57417E3F20CB764400F5085F /* THSingImgCell.m in Sources */,

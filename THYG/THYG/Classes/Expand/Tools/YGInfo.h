@@ -57,6 +57,8 @@ typedef struct _YGInfo_t {
      */
     CGFloat (*statesBarHeight)(void);
     
+    NSString * (*preferredLanguage)(void);
+    
 } YGInfo_t;
 OBJC_EXTERN YGInfo_t YGInfo;
 

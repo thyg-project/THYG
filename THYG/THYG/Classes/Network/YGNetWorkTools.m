@@ -65,7 +65,9 @@ NetworkState _lastNetworkState;
 }
 
 - (NSURLSessionTask *)post:(NSString *)url parameters:(NSDictionary *)parameters success:(SuccessBlock)success failed:(FailedBlock)failed {
-   NSURLSessionDataTask *task = [self.manager POST:formatUrl(url) parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSMutableDictionary *pa = [YGNetWorkTools publicParams];
+    [pa addEntriesFromDictionary:parameters];
+    NSURLSessionDataTask *task = [self.manager POST:formatUrl(url) parameters:pa progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self parseResponse:responseObject success:success failed:failed];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self parseError:error failed:failed];
@@ -237,6 +239,17 @@ NetworkState _lastNetworkState;
     [tasks enumerateObjectsUsingBlock:^(NSURLSessionTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self cancelTask:obj];
     }];
+}
+
++ (NSMutableDictionary *)publicParams {
+    return @{@"appVersion":YGInfo.appVersion(),
+             @"deviceid":YGInfo.IDFV(),
+             @"deviceModel":YGInfo.deviceModel(),
+             @"deviceSession":@"",
+             @"deviceType":@"iOS",
+             @"deviceVersion":YGInfo.deviceVersion(),
+             @"language":YGInfo.preferredLanguage()
+    }.mutableCopy;
 }
 
 @end
